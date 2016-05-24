@@ -88,7 +88,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
         @Override
         protected String getFirstRuleName() {
-        	return "GameDef";
+        	return "Game";
        	}
 
        	@Override
@@ -99,25 +99,25 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
 
-    // $ANTLR start "entryRuleGameDef"
-    // InternalKlangParser.g:58:1: entryRuleGameDef returns [EObject current=null] : iv_ruleGameDef= ruleGameDef EOF ;
-    public final EObject entryRuleGameDef() throws RecognitionException {
+    // $ANTLR start "entryRuleGame"
+    // InternalKlangParser.g:58:1: entryRuleGame returns [EObject current=null] : iv_ruleGame= ruleGame EOF ;
+    public final EObject entryRuleGame() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleGameDef = null;
+        EObject iv_ruleGame = null;
 
 
         try {
-            // InternalKlangParser.g:58:48: (iv_ruleGameDef= ruleGameDef EOF )
-            // InternalKlangParser.g:59:2: iv_ruleGameDef= ruleGameDef EOF
+            // InternalKlangParser.g:58:45: (iv_ruleGame= ruleGame EOF )
+            // InternalKlangParser.g:59:2: iv_ruleGame= ruleGame EOF
             {
-             newCompositeNode(grammarAccess.getGameDefRule()); 
+             newCompositeNode(grammarAccess.getGameRule()); 
             pushFollow(FOLLOW_1);
-            iv_ruleGameDef=ruleGameDef();
+            iv_ruleGame=ruleGame();
 
             state._fsp--;
 
-             current =iv_ruleGameDef; 
+             current =iv_ruleGame; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -132,12 +132,12 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleGameDef"
+    // $ANTLR end "entryRuleGame"
 
 
-    // $ANTLR start "ruleGameDef"
-    // InternalKlangParser.g:65:1: ruleGameDef returns [EObject current=null] : ( () ( (lv_variables_1_0= ruleVariable ) )* ( (lv_actorDefs_2_0= ruleSpriteDef ) )* ) ;
-    public final EObject ruleGameDef() throws RecognitionException {
+    // $ANTLR start "ruleGame"
+    // InternalKlangParser.g:65:1: ruleGame returns [EObject current=null] : ( () ( (lv_variables_1_0= ruleVariable ) )* ( (lv_actorDefs_2_0= ruleSprite ) )* ) ;
+    public final EObject ruleGame() throws RecognitionException {
         EObject current = null;
 
         EObject lv_variables_1_0 = null;
@@ -149,18 +149,18 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKlangParser.g:71:2: ( ( () ( (lv_variables_1_0= ruleVariable ) )* ( (lv_actorDefs_2_0= ruleSpriteDef ) )* ) )
-            // InternalKlangParser.g:72:2: ( () ( (lv_variables_1_0= ruleVariable ) )* ( (lv_actorDefs_2_0= ruleSpriteDef ) )* )
+            // InternalKlangParser.g:71:2: ( ( () ( (lv_variables_1_0= ruleVariable ) )* ( (lv_actorDefs_2_0= ruleSprite ) )* ) )
+            // InternalKlangParser.g:72:2: ( () ( (lv_variables_1_0= ruleVariable ) )* ( (lv_actorDefs_2_0= ruleSprite ) )* )
             {
-            // InternalKlangParser.g:72:2: ( () ( (lv_variables_1_0= ruleVariable ) )* ( (lv_actorDefs_2_0= ruleSpriteDef ) )* )
-            // InternalKlangParser.g:73:3: () ( (lv_variables_1_0= ruleVariable ) )* ( (lv_actorDefs_2_0= ruleSpriteDef ) )*
+            // InternalKlangParser.g:72:2: ( () ( (lv_variables_1_0= ruleVariable ) )* ( (lv_actorDefs_2_0= ruleSprite ) )* )
+            // InternalKlangParser.g:73:3: () ( (lv_variables_1_0= ruleVariable ) )* ( (lv_actorDefs_2_0= ruleSprite ) )*
             {
             // InternalKlangParser.g:73:3: ()
             // InternalKlangParser.g:74:4: 
             {
 
             				current = forceCreateModelElement(
-            					grammarAccess.getGameDefAccess().getGameDefAction_0(),
+            					grammarAccess.getGameAccess().getGameAction_0(),
             					current);
             			
 
@@ -185,7 +185,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
             	    // InternalKlangParser.g:82:5: lv_variables_1_0= ruleVariable
             	    {
 
-            	    					newCompositeNode(grammarAccess.getGameDefAccess().getVariablesVariableParserRuleCall_1_0());
+            	    					newCompositeNode(grammarAccess.getGameAccess().getVariablesVariableParserRuleCall_1_0());
             	    				
             	    pushFollow(FOLLOW_3);
             	    lv_variables_1_0=ruleVariable();
@@ -194,7 +194,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
             	    					if (current==null) {
-            	    						current = createModelElementForParent(grammarAccess.getGameDefRule());
+            	    						current = createModelElementForParent(grammarAccess.getGameRule());
             	    					}
             	    					add(
             	    						current,
@@ -215,7 +215,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // InternalKlangParser.g:99:3: ( (lv_actorDefs_2_0= ruleSpriteDef ) )*
+            // InternalKlangParser.g:99:3: ( (lv_actorDefs_2_0= ruleSprite ) )*
             loop2:
             do {
                 int alt2=2;
@@ -228,28 +228,28 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
                 switch (alt2) {
             	case 1 :
-            	    // InternalKlangParser.g:100:4: (lv_actorDefs_2_0= ruleSpriteDef )
+            	    // InternalKlangParser.g:100:4: (lv_actorDefs_2_0= ruleSprite )
             	    {
-            	    // InternalKlangParser.g:100:4: (lv_actorDefs_2_0= ruleSpriteDef )
-            	    // InternalKlangParser.g:101:5: lv_actorDefs_2_0= ruleSpriteDef
+            	    // InternalKlangParser.g:100:4: (lv_actorDefs_2_0= ruleSprite )
+            	    // InternalKlangParser.g:101:5: lv_actorDefs_2_0= ruleSprite
             	    {
 
-            	    					newCompositeNode(grammarAccess.getGameDefAccess().getActorDefsSpriteDefParserRuleCall_2_0());
+            	    					newCompositeNode(grammarAccess.getGameAccess().getActorDefsSpriteParserRuleCall_2_0());
             	    				
             	    pushFollow(FOLLOW_4);
-            	    lv_actorDefs_2_0=ruleSpriteDef();
+            	    lv_actorDefs_2_0=ruleSprite();
 
             	    state._fsp--;
 
 
             	    					if (current==null) {
-            	    						current = createModelElementForParent(grammarAccess.getGameDefRule());
+            	    						current = createModelElementForParent(grammarAccess.getGameRule());
             	    					}
             	    					add(
             	    						current,
             	    						"actorDefs",
             	    						lv_actorDefs_2_0,
-            	    						"com.kaurel.klang.xtext.Klang.SpriteDef");
+            	    						"com.kaurel.klang.xtext.Klang.Sprite");
             	    					afterParserOrEnumRuleCall();
             	    				
 
@@ -283,28 +283,28 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleGameDef"
+    // $ANTLR end "ruleGame"
 
 
-    // $ANTLR start "entryRuleSpriteDef"
-    // InternalKlangParser.g:122:1: entryRuleSpriteDef returns [EObject current=null] : iv_ruleSpriteDef= ruleSpriteDef EOF ;
-    public final EObject entryRuleSpriteDef() throws RecognitionException {
+    // $ANTLR start "entryRuleSprite"
+    // InternalKlangParser.g:122:1: entryRuleSprite returns [EObject current=null] : iv_ruleSprite= ruleSprite EOF ;
+    public final EObject entryRuleSprite() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSpriteDef = null;
+        EObject iv_ruleSprite = null;
 
 
         try {
-            // InternalKlangParser.g:122:50: (iv_ruleSpriteDef= ruleSpriteDef EOF )
-            // InternalKlangParser.g:123:2: iv_ruleSpriteDef= ruleSpriteDef EOF
+            // InternalKlangParser.g:122:47: (iv_ruleSprite= ruleSprite EOF )
+            // InternalKlangParser.g:123:2: iv_ruleSprite= ruleSprite EOF
             {
-             newCompositeNode(grammarAccess.getSpriteDefRule()); 
+             newCompositeNode(grammarAccess.getSpriteRule()); 
             pushFollow(FOLLOW_1);
-            iv_ruleSpriteDef=ruleSpriteDef();
+            iv_ruleSprite=ruleSprite();
 
             state._fsp--;
 
-             current =iv_ruleSpriteDef; 
+             current =iv_ruleSprite; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -319,12 +319,12 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSpriteDef"
+    // $ANTLR end "entryRuleSprite"
 
 
-    // $ANTLR start "ruleSpriteDef"
-    // InternalKlangParser.g:129:1: ruleSpriteDef returns [EObject current=null] : ( () otherlv_1= Sprite ( (lv_name_2_0= RULE_ID ) ) this_BEGIN_3= RULE_BEGIN ( (lv_variables_4_0= ruleVariable ) )* ( (lv_eventHandlers_5_0= ruleEventHandler ) )* this_END_6= RULE_END ) ;
-    public final EObject ruleSpriteDef() throws RecognitionException {
+    // $ANTLR start "ruleSprite"
+    // InternalKlangParser.g:129:1: ruleSprite returns [EObject current=null] : ( () otherlv_1= Sprite ( (lv_name_2_0= RULE_ID ) ) this_BEGIN_3= RULE_BEGIN ( (lv_variables_4_0= ruleVariable ) )* ( (lv_eventHandlers_5_0= ruleEventHandler ) )* this_END_6= RULE_END ) ;
+    public final EObject ruleSprite() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
@@ -351,7 +351,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
             {
 
             				current = forceCreateModelElement(
-            					grammarAccess.getSpriteDefAccess().getSpriteDefAction_0(),
+            					grammarAccess.getSpriteAccess().getSpriteAction_0(),
             					current);
             			
 
@@ -359,7 +359,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
             otherlv_1=(Token)match(input,Sprite,FOLLOW_5); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getSpriteDefAccess().getSpriteKeyword_1());
+            			newLeafNode(otherlv_1, grammarAccess.getSpriteAccess().getSpriteKeyword_1());
             		
             // InternalKlangParser.g:148:3: ( (lv_name_2_0= RULE_ID ) )
             // InternalKlangParser.g:149:4: (lv_name_2_0= RULE_ID )
@@ -369,11 +369,11 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
             {
             lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_6); 
 
-            					newLeafNode(lv_name_2_0, grammarAccess.getSpriteDefAccess().getNameIDTerminalRuleCall_2_0());
+            					newLeafNode(lv_name_2_0, grammarAccess.getSpriteAccess().getNameIDTerminalRuleCall_2_0());
             				
 
             					if (current==null) {
-            						current = createModelElement(grammarAccess.getSpriteDefRule());
+            						current = createModelElement(grammarAccess.getSpriteRule());
             					}
             					setWithLastConsumed(
             						current,
@@ -389,7 +389,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
             this_BEGIN_3=(Token)match(input,RULE_BEGIN,FOLLOW_7); 
 
-            			newLeafNode(this_BEGIN_3, grammarAccess.getSpriteDefAccess().getBEGINTerminalRuleCall_3());
+            			newLeafNode(this_BEGIN_3, grammarAccess.getSpriteAccess().getBEGINTerminalRuleCall_3());
             		
             // InternalKlangParser.g:170:3: ( (lv_variables_4_0= ruleVariable ) )*
             loop3:
@@ -410,7 +410,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
             	    // InternalKlangParser.g:172:5: lv_variables_4_0= ruleVariable
             	    {
 
-            	    					newCompositeNode(grammarAccess.getSpriteDefAccess().getVariablesVariableParserRuleCall_4_0());
+            	    					newCompositeNode(grammarAccess.getSpriteAccess().getVariablesVariableParserRuleCall_4_0());
             	    				
             	    pushFollow(FOLLOW_7);
             	    lv_variables_4_0=ruleVariable();
@@ -419,7 +419,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
             	    					if (current==null) {
-            	    						current = createModelElementForParent(grammarAccess.getSpriteDefRule());
+            	    						current = createModelElementForParent(grammarAccess.getSpriteRule());
             	    					}
             	    					add(
             	    						current,
@@ -459,7 +459,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
             	    // InternalKlangParser.g:191:5: lv_eventHandlers_5_0= ruleEventHandler
             	    {
 
-            	    					newCompositeNode(grammarAccess.getSpriteDefAccess().getEventHandlersEventHandlerParserRuleCall_5_0());
+            	    					newCompositeNode(grammarAccess.getSpriteAccess().getEventHandlersEventHandlerParserRuleCall_5_0());
             	    				
             	    pushFollow(FOLLOW_8);
             	    lv_eventHandlers_5_0=ruleEventHandler();
@@ -468,7 +468,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
             	    					if (current==null) {
-            	    						current = createModelElementForParent(grammarAccess.getSpriteDefRule());
+            	    						current = createModelElementForParent(grammarAccess.getSpriteRule());
             	    					}
             	    					add(
             	    						current,
@@ -491,7 +491,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
             this_END_6=(Token)match(input,RULE_END,FOLLOW_2); 
 
-            			newLeafNode(this_END_6, grammarAccess.getSpriteDefAccess().getENDTerminalRuleCall_6());
+            			newLeafNode(this_END_6, grammarAccess.getSpriteAccess().getENDTerminalRuleCall_6());
             		
 
             }
@@ -512,7 +512,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSpriteDef"
+    // $ANTLR end "ruleSprite"
 
 
     // $ANTLR start "entryRuleEventHandler"

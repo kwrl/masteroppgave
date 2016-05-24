@@ -13,7 +13,7 @@ import klang.LessThan;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LessThanTest extends ExpressionTest {
+public class LessThanTest extends BinaryOperatorTest {
 
 	/**
 	 * <!-- begin-user-doc -->

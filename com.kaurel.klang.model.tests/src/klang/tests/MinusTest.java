@@ -13,7 +13,7 @@ import klang.Minus;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MinusTest extends ExpressionTest {
+public class MinusTest extends BinaryOperatorTest {
 
 	/**
 	 * <!-- begin-user-doc -->

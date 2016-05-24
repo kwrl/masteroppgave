@@ -143,6 +143,11 @@ public class GreaterThanItemProvider extends ExpressionItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.GREATER_THAN__LEFT,
+				 KlangFactory.eINSTANCE.createBinaryOperator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.GREATER_THAN__LEFT,
 				 KlangFactory.eINSTANCE.createOr()));
 
 		newChildDescriptors.add
@@ -184,6 +189,11 @@ public class GreaterThanItemProvider extends ExpressionItemProvider {
 			(createChildParameter
 				(KlangPackage.Literals.GREATER_THAN__LEFT,
 				 KlangFactory.eINSTANCE.createGreaterThan()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.GREATER_THAN__LEFT,
+				 KlangFactory.eINSTANCE.createUnaryOperator()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -218,6 +228,11 @@ public class GreaterThanItemProvider extends ExpressionItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.GREATER_THAN__RIGHT,
+				 KlangFactory.eINSTANCE.createBinaryOperator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.GREATER_THAN__RIGHT,
 				 KlangFactory.eINSTANCE.createOr()));
 
 		newChildDescriptors.add
@@ -259,6 +274,11 @@ public class GreaterThanItemProvider extends ExpressionItemProvider {
 			(createChildParameter
 				(KlangPackage.Literals.GREATER_THAN__RIGHT,
 				 KlangFactory.eINSTANCE.createGreaterThan()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.GREATER_THAN__RIGHT,
+				 KlangFactory.eINSTANCE.createUnaryOperator()));
 
 		newChildDescriptors.add
 			(createChildParameter

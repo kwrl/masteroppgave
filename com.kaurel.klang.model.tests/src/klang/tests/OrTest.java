@@ -13,7 +13,7 @@ import klang.Or;
  * <!-- end-user-doc -->
  * @generated
  */
-public class OrTest extends ExpressionTest {
+public class OrTest extends BinaryOperatorTest {
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -75,50 +75,50 @@ import com.kaurel.klang.xtext.services.KlangGrammarAccess;
 	}
 }
 
-// Entry rule entryRuleGameDef
-entryRuleGameDef
+// Entry rule entryRuleGame
+entryRuleGame
 :
-{ before(grammarAccess.getGameDefRule()); }
-	 ruleGameDef
-{ after(grammarAccess.getGameDefRule()); } 
+{ before(grammarAccess.getGameRule()); }
+	 ruleGame
+{ after(grammarAccess.getGameRule()); } 
 	 EOF 
 ;
 
-// Rule GameDef
-ruleGameDef 
+// Rule Game
+ruleGame 
 	@init {
 		int stackSize = keepStackSize();
 	}
 	:
 	(
-		{ before(grammarAccess.getGameDefAccess().getGroup()); }
-		(rule__GameDef__Group__0)
-		{ after(grammarAccess.getGameDefAccess().getGroup()); }
+		{ before(grammarAccess.getGameAccess().getGroup()); }
+		(rule__Game__Group__0)
+		{ after(grammarAccess.getGameAccess().getGroup()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleSpriteDef
-entryRuleSpriteDef
+// Entry rule entryRuleSprite
+entryRuleSprite
 :
-{ before(grammarAccess.getSpriteDefRule()); }
-	 ruleSpriteDef
-{ after(grammarAccess.getSpriteDefRule()); } 
+{ before(grammarAccess.getSpriteRule()); }
+	 ruleSprite
+{ after(grammarAccess.getSpriteRule()); } 
 	 EOF 
 ;
 
-// Rule SpriteDef
-ruleSpriteDef 
+// Rule Sprite
+ruleSprite 
 	@init {
 		int stackSize = keepStackSize();
 	}
 	:
 	(
-		{ before(grammarAccess.getSpriteDefAccess().getGroup()); }
-		(rule__SpriteDef__Group__0)
-		{ after(grammarAccess.getSpriteDefAccess().getGroup()); }
+		{ before(grammarAccess.getSpriteAccess().getGroup()); }
+		(rule__Sprite__Group__0)
+		{ after(grammarAccess.getSpriteAccess().getGroup()); }
 	)
 ;
 finally {
@@ -861,80 +861,80 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__GameDef__Group__0
+rule__Game__Group__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__GameDef__Group__0__Impl
-	rule__GameDef__Group__1
+	rule__Game__Group__0__Impl
+	rule__Game__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__GameDef__Group__0__Impl
+rule__Game__Group__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getGameDefAccess().getGameDefAction_0()); }
+	{ before(grammarAccess.getGameAccess().getGameAction_0()); }
 	()
-	{ after(grammarAccess.getGameDefAccess().getGameDefAction_0()); }
+	{ after(grammarAccess.getGameAccess().getGameAction_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__GameDef__Group__1
+rule__Game__Group__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__GameDef__Group__1__Impl
-	rule__GameDef__Group__2
+	rule__Game__Group__1__Impl
+	rule__Game__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__GameDef__Group__1__Impl
+rule__Game__Group__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getGameDefAccess().getVariablesAssignment_1()); }
-	(rule__GameDef__VariablesAssignment_1)*
-	{ after(grammarAccess.getGameDefAccess().getVariablesAssignment_1()); }
+	{ before(grammarAccess.getGameAccess().getVariablesAssignment_1()); }
+	(rule__Game__VariablesAssignment_1)*
+	{ after(grammarAccess.getGameAccess().getVariablesAssignment_1()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__GameDef__Group__2
+rule__Game__Group__2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__GameDef__Group__2__Impl
+	rule__Game__Group__2__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__GameDef__Group__2__Impl
+rule__Game__Group__2__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getGameDefAccess().getActorDefsAssignment_2()); }
-	(rule__GameDef__ActorDefsAssignment_2)*
-	{ after(grammarAccess.getGameDefAccess().getActorDefsAssignment_2()); }
+	{ before(grammarAccess.getGameAccess().getActorDefsAssignment_2()); }
+	(rule__Game__ActorDefsAssignment_2)*
+	{ after(grammarAccess.getGameAccess().getActorDefsAssignment_2()); }
 )
 ;
 finally {
@@ -942,188 +942,188 @@ finally {
 }
 
 
-rule__SpriteDef__Group__0
+rule__Sprite__Group__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SpriteDef__Group__0__Impl
-	rule__SpriteDef__Group__1
+	rule__Sprite__Group__0__Impl
+	rule__Sprite__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SpriteDef__Group__0__Impl
+rule__Sprite__Group__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSpriteDefAccess().getSpriteDefAction_0()); }
+	{ before(grammarAccess.getSpriteAccess().getSpriteAction_0()); }
 	()
-	{ after(grammarAccess.getSpriteDefAccess().getSpriteDefAction_0()); }
+	{ after(grammarAccess.getSpriteAccess().getSpriteAction_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SpriteDef__Group__1
+rule__Sprite__Group__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SpriteDef__Group__1__Impl
-	rule__SpriteDef__Group__2
+	rule__Sprite__Group__1__Impl
+	rule__Sprite__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SpriteDef__Group__1__Impl
+rule__Sprite__Group__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSpriteDefAccess().getSpriteKeyword_1()); }
+	{ before(grammarAccess.getSpriteAccess().getSpriteKeyword_1()); }
 	Sprite
-	{ after(grammarAccess.getSpriteDefAccess().getSpriteKeyword_1()); }
+	{ after(grammarAccess.getSpriteAccess().getSpriteKeyword_1()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SpriteDef__Group__2
+rule__Sprite__Group__2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SpriteDef__Group__2__Impl
-	rule__SpriteDef__Group__3
+	rule__Sprite__Group__2__Impl
+	rule__Sprite__Group__3
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SpriteDef__Group__2__Impl
+rule__Sprite__Group__2__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSpriteDefAccess().getNameAssignment_2()); }
-	(rule__SpriteDef__NameAssignment_2)
-	{ after(grammarAccess.getSpriteDefAccess().getNameAssignment_2()); }
+	{ before(grammarAccess.getSpriteAccess().getNameAssignment_2()); }
+	(rule__Sprite__NameAssignment_2)
+	{ after(grammarAccess.getSpriteAccess().getNameAssignment_2()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SpriteDef__Group__3
+rule__Sprite__Group__3
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SpriteDef__Group__3__Impl
-	rule__SpriteDef__Group__4
+	rule__Sprite__Group__3__Impl
+	rule__Sprite__Group__4
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SpriteDef__Group__3__Impl
+rule__Sprite__Group__3__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSpriteDefAccess().getBEGINTerminalRuleCall_3()); }
+	{ before(grammarAccess.getSpriteAccess().getBEGINTerminalRuleCall_3()); }
 	RULE_BEGIN
-	{ after(grammarAccess.getSpriteDefAccess().getBEGINTerminalRuleCall_3()); }
+	{ after(grammarAccess.getSpriteAccess().getBEGINTerminalRuleCall_3()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SpriteDef__Group__4
+rule__Sprite__Group__4
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SpriteDef__Group__4__Impl
-	rule__SpriteDef__Group__5
+	rule__Sprite__Group__4__Impl
+	rule__Sprite__Group__5
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SpriteDef__Group__4__Impl
+rule__Sprite__Group__4__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSpriteDefAccess().getVariablesAssignment_4()); }
-	(rule__SpriteDef__VariablesAssignment_4)*
-	{ after(grammarAccess.getSpriteDefAccess().getVariablesAssignment_4()); }
+	{ before(grammarAccess.getSpriteAccess().getVariablesAssignment_4()); }
+	(rule__Sprite__VariablesAssignment_4)*
+	{ after(grammarAccess.getSpriteAccess().getVariablesAssignment_4()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SpriteDef__Group__5
+rule__Sprite__Group__5
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SpriteDef__Group__5__Impl
-	rule__SpriteDef__Group__6
+	rule__Sprite__Group__5__Impl
+	rule__Sprite__Group__6
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SpriteDef__Group__5__Impl
+rule__Sprite__Group__5__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSpriteDefAccess().getEventHandlersAssignment_5()); }
-	(rule__SpriteDef__EventHandlersAssignment_5)*
-	{ after(grammarAccess.getSpriteDefAccess().getEventHandlersAssignment_5()); }
+	{ before(grammarAccess.getSpriteAccess().getEventHandlersAssignment_5()); }
+	(rule__Sprite__EventHandlersAssignment_5)*
+	{ after(grammarAccess.getSpriteAccess().getEventHandlersAssignment_5()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SpriteDef__Group__6
+rule__Sprite__Group__6
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SpriteDef__Group__6__Impl
+	rule__Sprite__Group__6__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SpriteDef__Group__6__Impl
+rule__Sprite__Group__6__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSpriteDefAccess().getENDTerminalRuleCall_6()); }
+	{ before(grammarAccess.getSpriteAccess().getENDTerminalRuleCall_6()); }
 	RULE_END
-	{ after(grammarAccess.getSpriteDefAccess().getENDTerminalRuleCall_6()); }
+	{ after(grammarAccess.getSpriteAccess().getENDTerminalRuleCall_6()); }
 )
 ;
 finally {
@@ -3615,75 +3615,75 @@ finally {
 }
 
 
-rule__GameDef__VariablesAssignment_1
+rule__Game__VariablesAssignment_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getGameDefAccess().getVariablesVariableParserRuleCall_1_0()); }
+		{ before(grammarAccess.getGameAccess().getVariablesVariableParserRuleCall_1_0()); }
 		ruleVariable
-		{ after(grammarAccess.getGameDefAccess().getVariablesVariableParserRuleCall_1_0()); }
+		{ after(grammarAccess.getGameAccess().getVariablesVariableParserRuleCall_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__GameDef__ActorDefsAssignment_2
+rule__Game__ActorDefsAssignment_2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getGameDefAccess().getActorDefsSpriteDefParserRuleCall_2_0()); }
-		ruleSpriteDef
-		{ after(grammarAccess.getGameDefAccess().getActorDefsSpriteDefParserRuleCall_2_0()); }
+		{ before(grammarAccess.getGameAccess().getActorDefsSpriteParserRuleCall_2_0()); }
+		ruleSprite
+		{ after(grammarAccess.getGameAccess().getActorDefsSpriteParserRuleCall_2_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SpriteDef__NameAssignment_2
+rule__Sprite__NameAssignment_2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSpriteDefAccess().getNameIDTerminalRuleCall_2_0()); }
+		{ before(grammarAccess.getSpriteAccess().getNameIDTerminalRuleCall_2_0()); }
 		RULE_ID
-		{ after(grammarAccess.getSpriteDefAccess().getNameIDTerminalRuleCall_2_0()); }
+		{ after(grammarAccess.getSpriteAccess().getNameIDTerminalRuleCall_2_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SpriteDef__VariablesAssignment_4
+rule__Sprite__VariablesAssignment_4
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSpriteDefAccess().getVariablesVariableParserRuleCall_4_0()); }
+		{ before(grammarAccess.getSpriteAccess().getVariablesVariableParserRuleCall_4_0()); }
 		ruleVariable
-		{ after(grammarAccess.getSpriteDefAccess().getVariablesVariableParserRuleCall_4_0()); }
+		{ after(grammarAccess.getSpriteAccess().getVariablesVariableParserRuleCall_4_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SpriteDef__EventHandlersAssignment_5
+rule__Sprite__EventHandlersAssignment_5
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSpriteDefAccess().getEventHandlersEventHandlerParserRuleCall_5_0()); }
+		{ before(grammarAccess.getSpriteAccess().getEventHandlersEventHandlerParserRuleCall_5_0()); }
 		ruleEventHandler
-		{ after(grammarAccess.getSpriteDefAccess().getEventHandlersEventHandlerParserRuleCall_5_0()); }
+		{ after(grammarAccess.getSpriteAccess().getEventHandlersEventHandlerParserRuleCall_5_0()); }
 	)
 ;
 finally {

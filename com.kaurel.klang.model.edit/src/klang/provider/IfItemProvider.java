@@ -143,6 +143,11 @@ public class IfItemProvider extends ControlStatementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.IF__PREDICATE,
+				 KlangFactory.eINSTANCE.createBinaryOperator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.IF__PREDICATE,
 				 KlangFactory.eINSTANCE.createOr()));
 
 		newChildDescriptors.add
@@ -184,6 +189,11 @@ public class IfItemProvider extends ControlStatementItemProvider {
 			(createChildParameter
 				(KlangPackage.Literals.IF__PREDICATE,
 				 KlangFactory.eINSTANCE.createGreaterThan()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.IF__PREDICATE,
+				 KlangFactory.eINSTANCE.createUnaryOperator()));
 
 		newChildDescriptors.add
 			(createChildParameter

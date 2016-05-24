@@ -13,7 +13,7 @@ import klang.Multiply;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MultiplyTest extends ExpressionTest {
+public class MultiplyTest extends BinaryOperatorTest {
 
 	/**
 	 * <!-- begin-user-doc -->

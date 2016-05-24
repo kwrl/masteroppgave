@@ -5,18 +5,10 @@ package klang.provider;
 
 import java.util.Collection;
 import java.util.List;
-
-import klang.KlangFactory;
 import klang.KlangPackage;
-import klang.Plus;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link klang.Plus} object.
@@ -24,7 +16,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PlusItemProvider extends ExpressionItemProvider {
+public class PlusItemProvider extends BinaryOperatorItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -48,37 +40,6 @@ public class PlusItemProvider extends ExpressionItemProvider {
 
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(KlangPackage.Literals.PLUS__LEFT);
-			childrenFeatures.add(KlangPackage.Literals.PLUS__RIGHT);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -114,13 +75,6 @@ public class PlusItemProvider extends ExpressionItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Plus.class)) {
-			case KlangPackage.PLUS__LEFT:
-			case KlangPackage.PLUS__RIGHT:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 
@@ -134,156 +88,6 @@ public class PlusItemProvider extends ExpressionItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__LEFT,
-				 KlangFactory.eINSTANCE.createExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__LEFT,
-				 KlangFactory.eINSTANCE.createOr()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__LEFT,
-				 KlangFactory.eINSTANCE.createAnd()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__LEFT,
-				 KlangFactory.eINSTANCE.createPlus()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__LEFT,
-				 KlangFactory.eINSTANCE.createMinus()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__LEFT,
-				 KlangFactory.eINSTANCE.createMultiply()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__LEFT,
-				 KlangFactory.eINSTANCE.createDivide()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__LEFT,
-				 KlangFactory.eINSTANCE.createLessThan()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__LEFT,
-				 KlangFactory.eINSTANCE.createEqual()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__LEFT,
-				 KlangFactory.eINSTANCE.createGreaterThan()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__LEFT,
-				 KlangFactory.eINSTANCE.createNot()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__LEFT,
-				 KlangFactory.eINSTANCE.createBooleanLiteral()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__LEFT,
-				 KlangFactory.eINSTANCE.createNumericLiteral()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__LEFT,
-				 KlangFactory.eINSTANCE.createStringLiteral()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__LEFT,
-				 KlangFactory.eINSTANCE.createVariableRef()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__RIGHT,
-				 KlangFactory.eINSTANCE.createExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__RIGHT,
-				 KlangFactory.eINSTANCE.createOr()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__RIGHT,
-				 KlangFactory.eINSTANCE.createAnd()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__RIGHT,
-				 KlangFactory.eINSTANCE.createPlus()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__RIGHT,
-				 KlangFactory.eINSTANCE.createMinus()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__RIGHT,
-				 KlangFactory.eINSTANCE.createMultiply()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__RIGHT,
-				 KlangFactory.eINSTANCE.createDivide()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__RIGHT,
-				 KlangFactory.eINSTANCE.createLessThan()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__RIGHT,
-				 KlangFactory.eINSTANCE.createEqual()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__RIGHT,
-				 KlangFactory.eINSTANCE.createGreaterThan()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__RIGHT,
-				 KlangFactory.eINSTANCE.createNot()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__RIGHT,
-				 KlangFactory.eINSTANCE.createBooleanLiteral()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__RIGHT,
-				 KlangFactory.eINSTANCE.createNumericLiteral()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__RIGHT,
-				 KlangFactory.eINSTANCE.createStringLiteral()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.PLUS__RIGHT,
-				 KlangFactory.eINSTANCE.createVariableRef()));
 	}
 
 	/**
@@ -298,8 +102,8 @@ public class PlusItemProvider extends ExpressionItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == KlangPackage.Literals.PLUS__LEFT ||
-			childFeature == KlangPackage.Literals.PLUS__RIGHT;
+			childFeature == KlangPackage.Literals.BINARY_OPERATOR__LEFT ||
+			childFeature == KlangPackage.Literals.BINARY_OPERATOR__RIGHT;
 
 		if (qualify) {
 			return getString

@@ -2,8 +2,10 @@
  */
 package klang.impl;
 
+import klang.Actor;
 import klang.And;
 import klang.Assignment;
+import klang.BinaryOperator;
 import klang.BooleanLiteral;
 import klang.ControlStatement;
 import klang.Divide;
@@ -12,7 +14,7 @@ import klang.EventHandler;
 import klang.EventType;
 import klang.Expression;
 import klang.ForeverLoop;
-import klang.GameDef;
+import klang.Game;
 import klang.GreaterThan;
 import klang.If;
 import klang.KlangFactory;
@@ -24,21 +26,27 @@ import klang.Not;
 import klang.NumericLiteral;
 import klang.Or;
 import klang.Plus;
-import klang.SpriteDef;
+import klang.Scene;
+import klang.Sprite;
 import klang.Statement;
 import klang.StringLiteral;
 import klang.SubroutineCall;
+import klang.UnaryOperator;
 import klang.Variable;
 import klang.VariableRef;
 import klang.WhileLoop;
 import klang.Yield;
 
+import klang.framework.FrameworkPackage;
+import klang.framework.impl.FrameworkPackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -53,14 +61,14 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass gameDefEClass = null;
+	private EClass gameEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass spriteDefEClass = null;
+	private EClass actorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -242,6 +250,34 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass spriteEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sceneEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass unaryOperatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass binaryOperatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum eventTypeEEnum = null;
 
 	/**
@@ -290,11 +326,16 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 
 		isInited = true;
 
+		// Obtain or create and register interdependencies
+		FrameworkPackageImpl theFrameworkPackage = (FrameworkPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(FrameworkPackage.eNS_URI) instanceof FrameworkPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(FrameworkPackage.eNS_URI) : FrameworkPackage.eINSTANCE);
+
 		// Create package meta-data objects
 		theKlangPackage.createPackageContents();
+		theFrameworkPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theKlangPackage.initializePackageContents();
+		theFrameworkPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theKlangPackage.freeze();
@@ -310,8 +351,8 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getGameDef() {
-		return gameDefEClass;
+	public EClass getGame() {
+		return gameEClass;
 	}
 
 	/**
@@ -319,8 +360,8 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGameDef_Variables() {
-		return (EReference)gameDefEClass.getEStructuralFeatures().get(0);
+	public EReference getGame_Variables() {
+		return (EReference)gameEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -328,8 +369,8 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGameDef_ActorDefs() {
-		return (EReference)gameDefEClass.getEStructuralFeatures().get(1);
+	public EReference getGame_ActorDefs() {
+		return (EReference)gameEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -337,8 +378,8 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSpriteDef() {
-		return spriteDefEClass;
+	public EClass getActor() {
+		return actorEClass;
 	}
 
 	/**
@@ -346,8 +387,8 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSpriteDef_Name() {
-		return (EAttribute)spriteDefEClass.getEStructuralFeatures().get(0);
+	public EAttribute getActor_Name() {
+		return (EAttribute)actorEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -355,8 +396,8 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSpriteDef_Variables() {
-		return (EReference)spriteDefEClass.getEStructuralFeatures().get(1);
+	public EReference getActor_Variables() {
+		return (EReference)actorEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -364,8 +405,17 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSpriteDef_EventHandlers() {
-		return (EReference)spriteDefEClass.getEStructuralFeatures().get(2);
+	public EReference getActor_EventHandlers() {
+		return (EReference)actorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getActor_Entity() {
+		return (EReference)actorEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -598,44 +648,8 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOr_Left() {
-		return (EReference)orEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getOr_Right() {
-		return (EReference)orEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getAnd() {
 		return andEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAnd_Left() {
-		return (EReference)andEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAnd_Right() {
-		return (EReference)andEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -652,44 +666,8 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPlus_Left() {
-		return (EReference)plusEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPlus_Right() {
-		return (EReference)plusEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getMinus() {
 		return minusEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMinus_Left() {
-		return (EReference)minusEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMinus_Right() {
-		return (EReference)minusEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -706,44 +684,8 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMultiply_Left() {
-		return (EReference)multiplyEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMultiply_Right() {
-		return (EReference)multiplyEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getDivide() {
 		return divideEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDivide_Left() {
-		return (EReference)divideEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDivide_Right() {
-		return (EReference)divideEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -760,44 +702,8 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLessThan_Left() {
-		return (EReference)lessThanEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getLessThan_Right() {
-		return (EReference)lessThanEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getEqual() {
 		return equalEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEqual_Left() {
-		return (EReference)equalEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEqual_Right() {
-		return (EReference)equalEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -834,15 +740,6 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 */
 	public EClass getNot() {
 		return notEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getNot_Expression() {
-		return (EReference)notEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -922,6 +819,69 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSprite() {
+		return spriteEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getScene() {
+		return sceneEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUnaryOperator() {
+		return unaryOperatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUnaryOperator_Expression() {
+		return (EReference)unaryOperatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBinaryOperator() {
+		return binaryOperatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBinaryOperator_Left() {
+		return (EReference)binaryOperatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBinaryOperator_Right() {
+		return (EReference)binaryOperatorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getEventType() {
 		return eventTypeEEnum;
 	}
@@ -954,14 +914,15 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		isCreated = true;
 
 		// Create classes and their features
-		gameDefEClass = createEClass(GAME_DEF);
-		createEReference(gameDefEClass, GAME_DEF__VARIABLES);
-		createEReference(gameDefEClass, GAME_DEF__ACTOR_DEFS);
+		gameEClass = createEClass(GAME);
+		createEReference(gameEClass, GAME__VARIABLES);
+		createEReference(gameEClass, GAME__ACTOR_DEFS);
 
-		spriteDefEClass = createEClass(SPRITE_DEF);
-		createEAttribute(spriteDefEClass, SPRITE_DEF__NAME);
-		createEReference(spriteDefEClass, SPRITE_DEF__VARIABLES);
-		createEReference(spriteDefEClass, SPRITE_DEF__EVENT_HANDLERS);
+		actorEClass = createEClass(ACTOR);
+		createEAttribute(actorEClass, ACTOR__NAME);
+		createEReference(actorEClass, ACTOR__VARIABLES);
+		createEReference(actorEClass, ACTOR__EVENT_HANDLERS);
+		createEReference(actorEClass, ACTOR__ENTITY);
 
 		eventHandlerEClass = createEClass(EVENT_HANDLER);
 		createEAttribute(eventHandlerEClass, EVENT_HANDLER__EVENT_TYPE);
@@ -999,43 +960,26 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		expressionEClass = createEClass(EXPRESSION);
 
 		orEClass = createEClass(OR);
-		createEReference(orEClass, OR__LEFT);
-		createEReference(orEClass, OR__RIGHT);
 
 		andEClass = createEClass(AND);
-		createEReference(andEClass, AND__LEFT);
-		createEReference(andEClass, AND__RIGHT);
 
 		plusEClass = createEClass(PLUS);
-		createEReference(plusEClass, PLUS__LEFT);
-		createEReference(plusEClass, PLUS__RIGHT);
 
 		minusEClass = createEClass(MINUS);
-		createEReference(minusEClass, MINUS__LEFT);
-		createEReference(minusEClass, MINUS__RIGHT);
 
 		multiplyEClass = createEClass(MULTIPLY);
-		createEReference(multiplyEClass, MULTIPLY__LEFT);
-		createEReference(multiplyEClass, MULTIPLY__RIGHT);
 
 		divideEClass = createEClass(DIVIDE);
-		createEReference(divideEClass, DIVIDE__LEFT);
-		createEReference(divideEClass, DIVIDE__RIGHT);
 
 		lessThanEClass = createEClass(LESS_THAN);
-		createEReference(lessThanEClass, LESS_THAN__LEFT);
-		createEReference(lessThanEClass, LESS_THAN__RIGHT);
 
 		equalEClass = createEClass(EQUAL);
-		createEReference(equalEClass, EQUAL__LEFT);
-		createEReference(equalEClass, EQUAL__RIGHT);
 
 		greaterThanEClass = createEClass(GREATER_THAN);
 		createEReference(greaterThanEClass, GREATER_THAN__LEFT);
 		createEReference(greaterThanEClass, GREATER_THAN__RIGHT);
 
 		notEClass = createEClass(NOT);
-		createEReference(notEClass, NOT__EXPRESSION);
 
 		booleanLiteralEClass = createEClass(BOOLEAN_LITERAL);
 		createEAttribute(booleanLiteralEClass, BOOLEAN_LITERAL__VALUE);
@@ -1048,6 +992,17 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 
 		variableRefEClass = createEClass(VARIABLE_REF);
 		createEAttribute(variableRefEClass, VARIABLE_REF__VARIABLE_NAME);
+
+		spriteEClass = createEClass(SPRITE);
+
+		sceneEClass = createEClass(SCENE);
+
+		unaryOperatorEClass = createEClass(UNARY_OPERATOR);
+		createEReference(unaryOperatorEClass, UNARY_OPERATOR__EXPRESSION);
+
+		binaryOperatorEClass = createEClass(BINARY_OPERATOR);
+		createEReference(binaryOperatorEClass, BINARY_OPERATOR__LEFT);
+		createEReference(binaryOperatorEClass, BINARY_OPERATOR__RIGHT);
 
 		// Create enums
 		eventTypeEEnum = createEEnum(EVENT_TYPE);
@@ -1076,9 +1031,18 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		FrameworkPackage theFrameworkPackage = (FrameworkPackage)EPackage.Registry.INSTANCE.getEPackage(FrameworkPackage.eNS_URI);
+
+		// Add subpackages
+		getESubpackages().add(theFrameworkPackage);
+
 		// Create type parameters
+		ETypeParameter actorEClass_E = addETypeParameter(actorEClass, "E");
 
 		// Set bounds for type parameters
+		EGenericType g1 = createEGenericType(theFrameworkPackage.getEntity());
+		actorEClass_E.getEBounds().add(g1);
 
 		// Add supertypes to classes
 		whileLoopEClass.getESuperTypes().add(this.getControlStatement());
@@ -1089,30 +1053,42 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		yieldEClass.getESuperTypes().add(this.getControlStatement());
 		variableEClass.getESuperTypes().add(this.getStatement());
 		assignmentEClass.getESuperTypes().add(this.getStatement());
-		orEClass.getESuperTypes().add(this.getExpression());
-		andEClass.getESuperTypes().add(this.getExpression());
-		plusEClass.getESuperTypes().add(this.getExpression());
-		minusEClass.getESuperTypes().add(this.getExpression());
-		multiplyEClass.getESuperTypes().add(this.getExpression());
-		divideEClass.getESuperTypes().add(this.getExpression());
-		lessThanEClass.getESuperTypes().add(this.getExpression());
-		equalEClass.getESuperTypes().add(this.getExpression());
+		orEClass.getESuperTypes().add(this.getBinaryOperator());
+		andEClass.getESuperTypes().add(this.getBinaryOperator());
+		plusEClass.getESuperTypes().add(this.getBinaryOperator());
+		minusEClass.getESuperTypes().add(this.getBinaryOperator());
+		multiplyEClass.getESuperTypes().add(this.getBinaryOperator());
+		divideEClass.getESuperTypes().add(this.getBinaryOperator());
+		lessThanEClass.getESuperTypes().add(this.getBinaryOperator());
+		equalEClass.getESuperTypes().add(this.getBinaryOperator());
 		greaterThanEClass.getESuperTypes().add(this.getExpression());
-		notEClass.getESuperTypes().add(this.getExpression());
+		notEClass.getESuperTypes().add(this.getUnaryOperator());
 		booleanLiteralEClass.getESuperTypes().add(this.getExpression());
 		numericLiteralEClass.getESuperTypes().add(this.getExpression());
 		stringLiteralEClass.getESuperTypes().add(this.getExpression());
 		variableRefEClass.getESuperTypes().add(this.getExpression());
+		g1 = createEGenericType(this.getActor());
+		EGenericType g2 = createEGenericType(theFrameworkPackage.getSpriteEntity());
+		g1.getETypeArguments().add(g2);
+		spriteEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getActor());
+		g2 = createEGenericType(theFrameworkPackage.getSceneEntity());
+		g1.getETypeArguments().add(g2);
+		sceneEClass.getEGenericSuperTypes().add(g1);
+		unaryOperatorEClass.getESuperTypes().add(this.getExpression());
+		binaryOperatorEClass.getESuperTypes().add(this.getExpression());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(gameDefEClass, GameDef.class, "GameDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGameDef_Variables(), this.getVariable(), null, "variables", null, 0, -1, GameDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGameDef_ActorDefs(), this.getSpriteDef(), null, "actorDefs", null, 0, -1, GameDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(gameEClass, Game.class, "Game", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getGame_Variables(), this.getVariable(), null, "variables", null, 0, -1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGame_ActorDefs(), this.getActor(), null, "actorDefs", null, 0, -1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(spriteDefEClass, SpriteDef.class, "SpriteDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSpriteDef_Name(), ecorePackage.getEString(), "name", null, 0, 1, SpriteDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSpriteDef_Variables(), this.getVariable(), null, "variables", null, 0, -1, SpriteDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSpriteDef_EventHandlers(), this.getEventHandler(), null, "eventHandlers", null, 0, -1, SpriteDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(actorEClass, Actor.class, "Actor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getActor_Name(), ecorePackage.getEString(), "name", null, 0, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getActor_Variables(), this.getVariable(), null, "variables", null, 0, -1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getActor_EventHandlers(), this.getEventHandler(), null, "eventHandlers", null, 0, -1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(actorEClass_E);
+		initEReference(getActor_Entity(), g1, null, "entity", null, 0, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eventHandlerEClass, EventHandler.class, "EventHandler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEventHandler_EventType(), this.getEventType(), "eventType", null, 0, 1, EventHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1150,43 +1126,26 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(orEClass, Or.class, "Or", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOr_Left(), this.getExpression(), null, "left", null, 0, 1, Or.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOr_Right(), this.getExpression(), null, "right", null, 0, 1, Or.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(andEClass, And.class, "And", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAnd_Left(), this.getExpression(), null, "left", null, 0, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAnd_Right(), this.getExpression(), null, "right", null, 0, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(plusEClass, Plus.class, "Plus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPlus_Left(), this.getExpression(), null, "left", null, 0, 1, Plus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPlus_Right(), this.getExpression(), null, "right", null, 0, 1, Plus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(minusEClass, Minus.class, "Minus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMinus_Left(), this.getExpression(), null, "left", null, 0, 1, Minus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMinus_Right(), this.getExpression(), null, "right", null, 0, 1, Minus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(multiplyEClass, Multiply.class, "Multiply", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMultiply_Left(), this.getExpression(), null, "left", null, 0, 1, Multiply.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMultiply_Right(), this.getExpression(), null, "right", null, 0, 1, Multiply.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(divideEClass, Divide.class, "Divide", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDivide_Left(), this.getExpression(), null, "left", null, 0, 1, Divide.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDivide_Right(), this.getExpression(), null, "right", null, 0, 1, Divide.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(lessThanEClass, LessThan.class, "LessThan", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLessThan_Left(), this.getExpression(), null, "left", null, 0, 1, LessThan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getLessThan_Right(), this.getExpression(), null, "right", null, 0, 1, LessThan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(equalEClass, Equal.class, "Equal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEqual_Left(), this.getExpression(), null, "left", null, 0, 1, Equal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEqual_Right(), this.getExpression(), null, "right", null, 0, 1, Equal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(greaterThanEClass, GreaterThan.class, "GreaterThan", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGreaterThan_Left(), this.getExpression(), null, "left", null, 0, 1, GreaterThan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGreaterThan_Right(), this.getExpression(), null, "right", null, 0, 1, GreaterThan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(notEClass, Not.class, "Not", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNot_Expression(), this.getExpression(), null, "expression", null, 0, 1, Not.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(booleanLiteralEClass, BooleanLiteral.class, "BooleanLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBooleanLiteral_Value(), ecorePackage.getEBoolean(), "value", null, 0, 1, BooleanLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1199,6 +1158,17 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 
 		initEClass(variableRefEClass, VariableRef.class, "VariableRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVariableRef_VariableName(), ecorePackage.getEString(), "variableName", null, 0, 1, VariableRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(spriteEClass, Sprite.class, "Sprite", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(sceneEClass, Scene.class, "Scene", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(unaryOperatorEClass, UnaryOperator.class, "UnaryOperator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUnaryOperator_Expression(), this.getExpression(), null, "expression", null, 0, 1, UnaryOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(binaryOperatorEClass, BinaryOperator.class, "BinaryOperator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBinaryOperator_Left(), this.getExpression(), null, "left", null, 0, 1, BinaryOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBinaryOperator_Right(), this.getExpression(), null, "right", null, 0, 1, BinaryOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(eventTypeEEnum, EventType.class, "EventType");

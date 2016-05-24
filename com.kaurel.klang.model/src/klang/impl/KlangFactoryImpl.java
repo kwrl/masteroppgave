@@ -4,6 +4,7 @@ package klang.impl;
 
 import klang.*;
 
+import klang.framework.Entity;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -57,8 +58,8 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case KlangPackage.GAME_DEF: return createGameDef();
-			case KlangPackage.SPRITE_DEF: return createSpriteDef();
+			case KlangPackage.GAME: return createGame();
+			case KlangPackage.ACTOR: return createActor();
 			case KlangPackage.EVENT_HANDLER: return createEventHandler();
 			case KlangPackage.WHILE_LOOP: return createWhileLoop();
 			case KlangPackage.IF: return createIf();
@@ -84,6 +85,10 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 			case KlangPackage.NUMERIC_LITERAL: return createNumericLiteral();
 			case KlangPackage.STRING_LITERAL: return createStringLiteral();
 			case KlangPackage.VARIABLE_REF: return createVariableRef();
+			case KlangPackage.SPRITE: return createSprite();
+			case KlangPackage.SCENE: return createScene();
+			case KlangPackage.UNARY_OPERATOR: return createUnaryOperator();
+			case KlangPackage.BINARY_OPERATOR: return createBinaryOperator();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -124,9 +129,9 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GameDef createGameDef() {
-		GameDefImpl gameDef = new GameDefImpl();
-		return gameDef;
+	public Game createGame() {
+		GameImpl game = new GameImpl();
+		return game;
 	}
 
 	/**
@@ -134,9 +139,9 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SpriteDef createSpriteDef() {
-		SpriteDefImpl spriteDef = new SpriteDefImpl();
-		return spriteDef;
+	public <E extends Entity> Actor<E> createActor() {
+		ActorImpl<E> actor = new ActorImpl<E>();
+		return actor;
 	}
 
 	/**
@@ -387,6 +392,46 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	public VariableRef createVariableRef() {
 		VariableRefImpl variableRef = new VariableRefImpl();
 		return variableRef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Sprite createSprite() {
+		SpriteImpl sprite = new SpriteImpl();
+		return sprite;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Scene createScene() {
+		SceneImpl scene = new SceneImpl();
+		return scene;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UnaryOperator createUnaryOperator() {
+		UnaryOperatorImpl unaryOperator = new UnaryOperatorImpl();
+		return unaryOperator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BinaryOperator createBinaryOperator() {
+		BinaryOperatorImpl binaryOperator = new BinaryOperatorImpl();
+		return binaryOperator;
 	}
 
 	/**

@@ -27,25 +27,25 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 	
-	public class GameDefElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.GameDef");
+	public class GameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.Game");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cGameDefAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cGameAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cVariablesAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cVariablesVariableParserRuleCall_1_0 = (RuleCall)cVariablesAssignment_1.eContents().get(0);
 		private final Assignment cActorDefsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cActorDefsSpriteDefParserRuleCall_2_0 = (RuleCall)cActorDefsAssignment_2.eContents().get(0);
+		private final RuleCall cActorDefsSpriteParserRuleCall_2_0 = (RuleCall)cActorDefsAssignment_2.eContents().get(0);
 		
-		//GameDef:
-		//	{GameDef} variables+=Variable*
-		//	actorDefs+=SpriteDef*;
+		//Game:
+		//	{Game} variables+=Variable*
+		//	actorDefs+=Sprite*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{GameDef} variables+=Variable* actorDefs+=SpriteDef*
+		//{Game} variables+=Variable* actorDefs+=Sprite*
 		public Group getGroup() { return cGroup; }
 		
-		//{GameDef}
-		public Action getGameDefAction_0() { return cGameDefAction_0; }
+		//{Game}
+		public Action getGameAction_0() { return cGameAction_0; }
 		
 		//variables+=Variable*
 		public Assignment getVariablesAssignment_1() { return cVariablesAssignment_1; }
@@ -53,16 +53,16 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		//Variable
 		public RuleCall getVariablesVariableParserRuleCall_1_0() { return cVariablesVariableParserRuleCall_1_0; }
 		
-		//actorDefs+=SpriteDef*
+		//actorDefs+=Sprite*
 		public Assignment getActorDefsAssignment_2() { return cActorDefsAssignment_2; }
 		
-		//SpriteDef
-		public RuleCall getActorDefsSpriteDefParserRuleCall_2_0() { return cActorDefsSpriteDefParserRuleCall_2_0; }
+		//Sprite
+		public RuleCall getActorDefsSpriteParserRuleCall_2_0() { return cActorDefsSpriteParserRuleCall_2_0; }
 	}
-	public class SpriteDefElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.SpriteDef");
+	public class SpriteElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.Sprite");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cSpriteDefAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cSpriteAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cSpriteKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
@@ -73,8 +73,8 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cEventHandlersEventHandlerParserRuleCall_5_0 = (RuleCall)cEventHandlersAssignment_5.eContents().get(0);
 		private final RuleCall cENDTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
 		
-		//SpriteDef:
-		//	{SpriteDef}
+		//Sprite:
+		//	{Sprite}
 		//	'sprite'
 		//	name=ID
 		//	BEGIN
@@ -83,11 +83,11 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		//	END;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{SpriteDef} 'sprite' name=ID BEGIN variables+=Variable* eventHandlers+=EventHandler* END
+		//{Sprite} 'sprite' name=ID BEGIN variables+=Variable* eventHandlers+=EventHandler* END
 		public Group getGroup() { return cGroup; }
 		
-		//{SpriteDef}
-		public Action getSpriteDefAction_0() { return cSpriteDefAction_0; }
+		//{Sprite}
+		public Action getSpriteAction_0() { return cSpriteAction_0; }
 		
 		//'sprite'
 		public Keyword getSpriteKeyword_1() { return cSpriteKeyword_1; }
@@ -947,8 +947,8 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getGAME_STARTEDGAME_STARTEDKeyword_0() { return cGAME_STARTEDGAME_STARTEDKeyword_0; }
 	}
 	
-	private final GameDefElements pGameDef;
-	private final SpriteDefElements pSpriteDef;
+	private final GameElements pGame;
+	private final SpriteElements pSprite;
 	private final EventHandlerElements pEventHandler;
 	private final EventTypeElements eEventType;
 	private final WhileLoopElements pWhileLoop;
@@ -984,8 +984,8 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 			TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
-		this.pGameDef = new GameDefElements();
-		this.pSpriteDef = new SpriteDefElements();
+		this.pGame = new GameElements();
+		this.pSprite = new SpriteElements();
 		this.pEventHandler = new EventHandlerElements();
 		this.eEventType = new EventTypeElements();
 		this.pWhileLoop = new WhileLoopElements();
@@ -1040,31 +1040,31 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//GameDef:
-	//	{GameDef} variables+=Variable*
-	//	actorDefs+=SpriteDef*;
-	public GameDefElements getGameDefAccess() {
-		return pGameDef;
+	//Game:
+	//	{Game} variables+=Variable*
+	//	actorDefs+=Sprite*;
+	public GameElements getGameAccess() {
+		return pGame;
 	}
 	
-	public ParserRule getGameDefRule() {
-		return getGameDefAccess().getRule();
+	public ParserRule getGameRule() {
+		return getGameAccess().getRule();
 	}
 	
-	//SpriteDef:
-	//	{SpriteDef}
+	//Sprite:
+	//	{Sprite}
 	//	'sprite'
 	//	name=ID
 	//	BEGIN
 	//	variables+=Variable*
 	//	eventHandlers+=EventHandler*
 	//	END;
-	public SpriteDefElements getSpriteDefAccess() {
-		return pSpriteDef;
+	public SpriteElements getSpriteAccess() {
+		return pSprite;
 	}
 	
-	public ParserRule getSpriteDefRule() {
-		return getSpriteDefAccess().getRule();
+	public ParserRule getSpriteRule() {
+		return getSpriteAccess().getRule();
 	}
 	
 	//EventHandler:

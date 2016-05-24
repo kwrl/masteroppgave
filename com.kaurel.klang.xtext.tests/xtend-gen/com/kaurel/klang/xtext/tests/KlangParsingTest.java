@@ -5,7 +5,7 @@ package com.kaurel.klang.xtext.tests;
 
 import com.google.inject.Inject;
 import com.kaurel.klang.xtext.tests.KlangInjectorProvider;
-import klang.GameDef;
+import klang.Game;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.XtextRunner;
@@ -20,7 +20,7 @@ import org.junit.runner.RunWith;
 @SuppressWarnings("all")
 public class KlangParsingTest {
   @Inject
-  private ParseHelper<GameDef> parseHelper;
+  private ParseHelper<Game> parseHelper;
   
   @Test
   public void loadModel() {
@@ -28,7 +28,7 @@ public class KlangParsingTest {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("Hello Xtext!");
       _builder.newLine();
-      final GameDef result = this.parseHelper.parse(_builder);
+      final Game result = this.parseHelper.parse(_builder);
       Assert.assertNotNull(result);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);

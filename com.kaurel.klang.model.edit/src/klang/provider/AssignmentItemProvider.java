@@ -165,6 +165,11 @@ public class AssignmentItemProvider extends StatementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.ASSIGNMENT__EXPRESSION,
+				 KlangFactory.eINSTANCE.createBinaryOperator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.ASSIGNMENT__EXPRESSION,
 				 KlangFactory.eINSTANCE.createOr()));
 
 		newChildDescriptors.add
@@ -206,6 +211,11 @@ public class AssignmentItemProvider extends StatementItemProvider {
 			(createChildParameter
 				(KlangPackage.Literals.ASSIGNMENT__EXPRESSION,
 				 KlangFactory.eINSTANCE.createGreaterThan()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.ASSIGNMENT__EXPRESSION,
+				 KlangFactory.eINSTANCE.createUnaryOperator()));
 
 		newChildDescriptors.add
 			(createChildParameter

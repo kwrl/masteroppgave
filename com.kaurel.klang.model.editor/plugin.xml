@@ -34,4 +34,32 @@
       </editor>
    </extension>
 
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated klang -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="klang.framework.presentation.FrameworkModelWizardID"
+            name="%_UI_FrameworkModelWizard_label"
+            class="klang.framework.presentation.FrameworkModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/FrameworkModelFile.gif">
+         <description>%_UI_FrameworkModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated klang -->
+      <editor
+            id="klang.framework.presentation.FrameworkEditorID"
+            name="%_UI_FrameworkEditor_label"
+            icon="icons/full/obj16/FrameworkModelFile.gif"
+            extensions="framework"
+            class="klang.framework.presentation.FrameworkEditor"
+            contributorClass="klang.framework.presentation.FrameworkActionBarContributor">
+      </editor>
+   </extension>
+
 </plugin>

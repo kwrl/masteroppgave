@@ -13,7 +13,7 @@ import klang.Plus;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PlusTest extends ExpressionTest {
+public class PlusTest extends BinaryOperatorTest {
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -172,6 +172,11 @@ public class VariableItemProvider extends StatementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE__EXPRESSION,
+				 KlangFactory.eINSTANCE.createBinaryOperator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.VARIABLE__EXPRESSION,
 				 KlangFactory.eINSTANCE.createOr()));
 
 		newChildDescriptors.add
@@ -213,6 +218,11 @@ public class VariableItemProvider extends StatementItemProvider {
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE__EXPRESSION,
 				 KlangFactory.eINSTANCE.createGreaterThan()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.VARIABLE__EXPRESSION,
+				 KlangFactory.eINSTANCE.createUnaryOperator()));
 
 		newChildDescriptors.add
 			(createChildParameter

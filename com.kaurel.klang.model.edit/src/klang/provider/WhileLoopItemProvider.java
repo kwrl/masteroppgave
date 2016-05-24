@@ -143,6 +143,11 @@ public class WhileLoopItemProvider extends ControlStatementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.WHILE_LOOP__PREDICATE,
+				 KlangFactory.eINSTANCE.createBinaryOperator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.WHILE_LOOP__PREDICATE,
 				 KlangFactory.eINSTANCE.createOr()));
 
 		newChildDescriptors.add
@@ -184,6 +189,11 @@ public class WhileLoopItemProvider extends ControlStatementItemProvider {
 			(createChildParameter
 				(KlangPackage.Literals.WHILE_LOOP__PREDICATE,
 				 KlangFactory.eINSTANCE.createGreaterThan()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.WHILE_LOOP__PREDICATE,
+				 KlangFactory.eINSTANCE.createUnaryOperator()));
 
 		newChildDescriptors.add
 			(createChildParameter

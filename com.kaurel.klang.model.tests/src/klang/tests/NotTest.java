@@ -13,7 +13,7 @@ import klang.Not;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NotTest extends ExpressionTest {
+public class NotTest extends UnaryOperatorTest {
 
 	/**
 	 * <!-- begin-user-doc -->

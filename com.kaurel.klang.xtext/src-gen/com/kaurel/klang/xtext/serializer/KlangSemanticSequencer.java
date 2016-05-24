@@ -13,7 +13,7 @@ import klang.Divide;
 import klang.Equal;
 import klang.EventHandler;
 import klang.ForeverLoop;
-import klang.GameDef;
+import klang.Game;
 import klang.GreaterThan;
 import klang.If;
 import klang.KlangPackage;
@@ -24,7 +24,7 @@ import klang.Not;
 import klang.NumericLiteral;
 import klang.Or;
 import klang.Plus;
-import klang.SpriteDef;
+import klang.Sprite;
 import klang.StringLiteral;
 import klang.SubroutineCall;
 import klang.Variable;
@@ -76,8 +76,8 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case KlangPackage.FOREVER_LOOP:
 				sequence_ForeverLoop(context, (ForeverLoop) semanticObject); 
 				return; 
-			case KlangPackage.GAME_DEF:
-				sequence_GameDef(context, (GameDef) semanticObject); 
+			case KlangPackage.GAME:
+				sequence_Game(context, (Game) semanticObject); 
 				return; 
 			case KlangPackage.GREATER_THAN:
 				sequence_Comparison(context, (GreaterThan) semanticObject); 
@@ -106,8 +106,8 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case KlangPackage.PLUS:
 				sequence_Plus(context, (Plus) semanticObject); 
 				return; 
-			case KlangPackage.SPRITE_DEF:
-				sequence_SpriteDef(context, (SpriteDef) semanticObject); 
+			case KlangPackage.SPRITE:
+				sequence_Sprite(context, (Sprite) semanticObject); 
 				return; 
 			case KlangPackage.STRING_LITERAL:
 				sequence_AtomicExpression(context, (StringLiteral) semanticObject); 
@@ -158,10 +158,10 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 */
 	protected void sequence_And(ISerializationContext context, And semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.AND__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.AND__LEFT));
-			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.AND__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.AND__RIGHT));
+			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getAndAccess().getAndLeftAction_1_0(), semanticObject.getLeft());
@@ -356,10 +356,10 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 */
 	protected void sequence_Comparison(ISerializationContext context, Equal semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.EQUAL__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.EQUAL__LEFT));
-			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.EQUAL__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.EQUAL__RIGHT));
+			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getComparisonAccess().getEqualLeftAction_1_0_1_1(), semanticObject.getLeft());
@@ -432,10 +432,10 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 */
 	protected void sequence_Comparison(ISerializationContext context, LessThan semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.LESS_THAN__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.LESS_THAN__LEFT));
-			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.LESS_THAN__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.LESS_THAN__RIGHT));
+			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getComparisonAccess().getLessThanLeftAction_1_0_0_1(), semanticObject.getLeft());
@@ -470,10 +470,10 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 */
 	protected void sequence_Divide(ISerializationContext context, Divide semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.DIVIDE__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.DIVIDE__LEFT));
-			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.DIVIDE__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.DIVIDE__RIGHT));
+			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getDivideAccess().getDivideLeftAction_1_0(), semanticObject.getLeft());
@@ -510,12 +510,12 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     GameDef returns GameDef
+	 *     Game returns Game
 	 *
 	 * Constraint:
-	 *     (variables+=Variable* actorDefs+=SpriteDef*)
+	 *     (variables+=Variable* actorDefs+=Sprite*)
 	 */
-	protected void sequence_GameDef(ISerializationContext context, GameDef semanticObject) {
+	protected void sequence_Game(ISerializationContext context, Game semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -560,10 +560,10 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 */
 	protected void sequence_Minus(ISerializationContext context, Minus semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.MINUS__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.MINUS__LEFT));
-			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.MINUS__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.MINUS__RIGHT));
+			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getMinusAccess().getMinusLeftAction_1_0(), semanticObject.getLeft());
@@ -598,10 +598,10 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 */
 	protected void sequence_Multiply(ISerializationContext context, Multiply semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.MULTIPLY__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.MULTIPLY__LEFT));
-			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.MULTIPLY__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.MULTIPLY__RIGHT));
+			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getMultiplyAccess().getMultiplyLeftAction_1_0(), semanticObject.getLeft());
@@ -636,10 +636,10 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 */
 	protected void sequence_Or(ISerializationContext context, Or semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.OR__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.OR__LEFT));
-			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.OR__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.OR__RIGHT));
+			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getOrAccess().getOrLeftAction_1_0(), semanticObject.getLeft());
@@ -674,10 +674,10 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 */
 	protected void sequence_Plus(ISerializationContext context, Plus semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.PLUS__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.PLUS__LEFT));
-			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.PLUS__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.PLUS__RIGHT));
+			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.BINARY_OPERATOR__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getPlusAccess().getPlusLeftAction_1_0(), semanticObject.getLeft());
@@ -712,8 +712,8 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 */
 	protected void sequence_PrimaryExpression(ISerializationContext context, Not semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.NOT__EXPRESSION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.NOT__EXPRESSION));
+			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.UNARY_OPERATOR__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.UNARY_OPERATOR__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getPrimaryExpressionAccess().getExpressionPrimaryExpressionParserRuleCall_1_2_0(), semanticObject.getExpression());
@@ -723,12 +723,12 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     SpriteDef returns SpriteDef
+	 *     Sprite returns Sprite
 	 *
 	 * Constraint:
 	 *     (name=ID variables+=Variable* eventHandlers+=EventHandler*)
 	 */
-	protected void sequence_SpriteDef(ISerializationContext context, SpriteDef semanticObject) {
+	protected void sequence_Sprite(ISerializationContext context, Sprite semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

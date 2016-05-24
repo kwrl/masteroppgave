@@ -13,7 +13,7 @@ import klang.KlangFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AndTest extends ExpressionTest {
+public class AndTest extends BinaryOperatorTest {
 
 	/**
 	 * <!-- begin-user-doc -->

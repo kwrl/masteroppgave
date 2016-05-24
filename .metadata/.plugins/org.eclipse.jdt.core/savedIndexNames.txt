@@ -22,7 +22,6 @@ INDEX VERSION 1.129+/Users/kwrl/Documents/masteroppgave/.metadata/.plugins/org.e
 3001470809.index
 700788836.index
 3327296119.index
-3738253290.index
 791064817.index
 2319816246.index
 3907562314.index

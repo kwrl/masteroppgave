@@ -4,6 +4,7 @@ package klang.util;
 
 import klang.*;
 
+import klang.framework.Entity;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -68,12 +69,12 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 	protected KlangSwitch<Adapter> modelSwitch =
 		new KlangSwitch<Adapter>() {
 			@Override
-			public Adapter caseGameDef(GameDef object) {
-				return createGameDefAdapter();
+			public Adapter caseGame(Game object) {
+				return createGameAdapter();
 			}
 			@Override
-			public Adapter caseSpriteDef(SpriteDef object) {
-				return createSpriteDefAdapter();
+			public <E extends Entity> Adapter caseActor(Actor<E> object) {
+				return createActorAdapter();
 			}
 			@Override
 			public Adapter caseEventHandler(EventHandler object) {
@@ -176,6 +177,22 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 				return createVariableRefAdapter();
 			}
 			@Override
+			public Adapter caseSprite(Sprite object) {
+				return createSpriteAdapter();
+			}
+			@Override
+			public Adapter caseScene(Scene object) {
+				return createSceneAdapter();
+			}
+			@Override
+			public Adapter caseUnaryOperator(UnaryOperator object) {
+				return createUnaryOperatorAdapter();
+			}
+			@Override
+			public Adapter caseBinaryOperator(BinaryOperator object) {
+				return createBinaryOperatorAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -196,30 +213,30 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link klang.GameDef <em>Game Def</em>}'.
+	 * Creates a new adapter for an object of class '{@link klang.Game <em>Game</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see klang.GameDef
+	 * @see klang.Game
 	 * @generated
 	 */
-	public Adapter createGameDefAdapter() {
+	public Adapter createGameAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link klang.SpriteDef <em>Sprite Def</em>}'.
+	 * Creates a new adapter for an object of class '{@link klang.Actor <em>Actor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see klang.SpriteDef
+	 * @see klang.Actor
 	 * @generated
 	 */
-	public Adapter createSpriteDefAdapter() {
+	public Adapter createActorAdapter() {
 		return null;
 	}
 
@@ -570,6 +587,62 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createVariableRefAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link klang.Sprite <em>Sprite</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klang.Sprite
+	 * @generated
+	 */
+	public Adapter createSpriteAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link klang.Scene <em>Scene</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klang.Scene
+	 * @generated
+	 */
+	public Adapter createSceneAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link klang.UnaryOperator <em>Unary Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klang.UnaryOperator
+	 * @generated
+	 */
+	public Adapter createUnaryOperatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link klang.BinaryOperator <em>Binary Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klang.BinaryOperator
+	 * @generated
+	 */
+	public Adapter createBinaryOperatorAdapter() {
 		return null;
 	}
 

@@ -2,6 +2,7 @@
  */
 package klang;
 
+import klang.framework.Entity;
 import org.eclipse.emf.ecore.EFactory;
 
 /**
@@ -22,22 +23,22 @@ public interface KlangFactory extends EFactory {
 	KlangFactory eINSTANCE = klang.impl.KlangFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Game Def</em>'.
+	 * Returns a new object of class '<em>Game</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Game Def</em>'.
+	 * @return a new object of class '<em>Game</em>'.
 	 * @generated
 	 */
-	GameDef createGameDef();
+	Game createGame();
 
 	/**
-	 * Returns a new object of class '<em>Sprite Def</em>'.
+	 * Returns a new object of class '<em>Actor</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Sprite Def</em>'.
+	 * @return a new object of class '<em>Actor</em>'.
 	 * @generated
 	 */
-	SpriteDef createSpriteDef();
+	<E extends Entity> Actor<E> createActor();
 
 	/**
 	 * Returns a new object of class '<em>Event Handler</em>'.
@@ -263,6 +264,42 @@ public interface KlangFactory extends EFactory {
 	 * @generated
 	 */
 	VariableRef createVariableRef();
+
+	/**
+	 * Returns a new object of class '<em>Sprite</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sprite</em>'.
+	 * @generated
+	 */
+	Sprite createSprite();
+
+	/**
+	 * Returns a new object of class '<em>Scene</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Scene</em>'.
+	 * @generated
+	 */
+	Scene createScene();
+
+	/**
+	 * Returns a new object of class '<em>Unary Operator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Unary Operator</em>'.
+	 * @generated
+	 */
+	UnaryOperator createUnaryOperator();
+
+	/**
+	 * Returns a new object of class '<em>Binary Operator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Binary Operator</em>'.
+	 * @generated
+	 */
+	BinaryOperator createBinaryOperator();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -49,8 +49,8 @@ public class KlangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNotOpAccess().getAlternatives(), "rule__NotOp__Alternatives");
 					put(grammarAccess.getAtomicExpressionAccess().getAlternatives(), "rule__AtomicExpression__Alternatives");
 					put(grammarAccess.getAtomicExpressionAccess().getAlternatives_0_1(), "rule__AtomicExpression__Alternatives_0_1");
-					put(grammarAccess.getGameDefAccess().getGroup(), "rule__GameDef__Group__0");
-					put(grammarAccess.getSpriteDefAccess().getGroup(), "rule__SpriteDef__Group__0");
+					put(grammarAccess.getGameAccess().getGroup(), "rule__Game__Group__0");
+					put(grammarAccess.getSpriteAccess().getGroup(), "rule__Sprite__Group__0");
 					put(grammarAccess.getEventHandlerAccess().getGroup(), "rule__EventHandler__Group__0");
 					put(grammarAccess.getWhileLoopAccess().getGroup(), "rule__WhileLoop__Group__0");
 					put(grammarAccess.getIfAccess().getGroup(), "rule__If__Group__0");
@@ -83,11 +83,11 @@ public class KlangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAtomicExpressionAccess().getGroup_1(), "rule__AtomicExpression__Group_1__0");
 					put(grammarAccess.getAtomicExpressionAccess().getGroup_2(), "rule__AtomicExpression__Group_2__0");
 					put(grammarAccess.getAtomicExpressionAccess().getGroup_3(), "rule__AtomicExpression__Group_3__0");
-					put(grammarAccess.getGameDefAccess().getVariablesAssignment_1(), "rule__GameDef__VariablesAssignment_1");
-					put(grammarAccess.getGameDefAccess().getActorDefsAssignment_2(), "rule__GameDef__ActorDefsAssignment_2");
-					put(grammarAccess.getSpriteDefAccess().getNameAssignment_2(), "rule__SpriteDef__NameAssignment_2");
-					put(grammarAccess.getSpriteDefAccess().getVariablesAssignment_4(), "rule__SpriteDef__VariablesAssignment_4");
-					put(grammarAccess.getSpriteDefAccess().getEventHandlersAssignment_5(), "rule__SpriteDef__EventHandlersAssignment_5");
+					put(grammarAccess.getGameAccess().getVariablesAssignment_1(), "rule__Game__VariablesAssignment_1");
+					put(grammarAccess.getGameAccess().getActorDefsAssignment_2(), "rule__Game__ActorDefsAssignment_2");
+					put(grammarAccess.getSpriteAccess().getNameAssignment_2(), "rule__Sprite__NameAssignment_2");
+					put(grammarAccess.getSpriteAccess().getVariablesAssignment_4(), "rule__Sprite__VariablesAssignment_4");
+					put(grammarAccess.getSpriteAccess().getEventHandlersAssignment_5(), "rule__Sprite__EventHandlersAssignment_5");
 					put(grammarAccess.getEventHandlerAccess().getEventTypeAssignment_1(), "rule__EventHandler__EventTypeAssignment_1");
 					put(grammarAccess.getEventHandlerAccess().getStatementsAssignment_3(), "rule__EventHandler__StatementsAssignment_3");
 					put(grammarAccess.getWhileLoopAccess().getPredicateAssignment_2(), "rule__WhileLoop__PredicateAssignment_2");
@@ -124,7 +124,7 @@ public class KlangParser extends AbstractContentAssistParser {
 	protected Collection<FollowElement> getFollowElements(AbstractInternalContentAssistParser parser) {
 		try {
 			InternalKlangParser typedParser = (InternalKlangParser) parser;
-			typedParser.entryRuleGameDef();
+			typedParser.entryRuleGame();
 			return typedParser.getFollowElements();
 		} catch(RecognitionException ex) {
 			throw new RuntimeException(ex);

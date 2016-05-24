@@ -1,0 +1,11 @@
+package klang.util;
+
+import klang.BooleanLiteral;
+
+@SuppressWarnings("rawtypes")
+public class TypeComputer extends KlangSwitch<Class>{
+	@Override
+	public Class caseBooleanLiteral(BooleanLiteral object) {
+		return super.caseBooleanLiteral(object);
+	}
+}

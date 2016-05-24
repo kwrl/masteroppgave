@@ -37,7 +37,7 @@ import com.kaurel.klang.xtext.services.KlangGrammarAccess;
 
     @Override
     protected String getFirstRuleName() {
-    	return "GameDef";
+    	return "Game";
    	}
 
    	@Override
@@ -54,15 +54,15 @@ import com.kaurel.klang.xtext.services.KlangGrammarAccess;
     }
 }
 
-// Entry rule entryRuleGameDef
-entryRuleGameDef returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getGameDefRule()); }
-	iv_ruleGameDef=ruleGameDef
-	{ $current=$iv_ruleGameDef.current; }
+// Entry rule entryRuleGame
+entryRuleGame returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getGameRule()); }
+	iv_ruleGame=ruleGame
+	{ $current=$iv_ruleGame.current; }
 	EOF;
 
-// Rule GameDef
-ruleGameDef returns [EObject current=null]
+// Rule Game
+ruleGame returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -73,19 +73,19 @@ ruleGameDef returns [EObject current=null]
 		(
 			{
 				$current = forceCreateModelElement(
-					grammarAccess.getGameDefAccess().getGameDefAction_0(),
+					grammarAccess.getGameAccess().getGameAction_0(),
 					$current);
 			}
 		)
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGameDefAccess().getVariablesVariableParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getGameAccess().getVariablesVariableParserRuleCall_1_0());
 				}
 				lv_variables_1_0=ruleVariable
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getGameDefRule());
+						$current = createModelElementForParent(grammarAccess.getGameRule());
 					}
 					add(
 						$current,
@@ -99,18 +99,18 @@ ruleGameDef returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGameDefAccess().getActorDefsSpriteDefParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getGameAccess().getActorDefsSpriteParserRuleCall_2_0());
 				}
-				lv_actorDefs_2_0=ruleSpriteDef
+				lv_actorDefs_2_0=ruleSprite
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getGameDefRule());
+						$current = createModelElementForParent(grammarAccess.getGameRule());
 					}
 					add(
 						$current,
 						"actorDefs",
 						lv_actorDefs_2_0,
-						"com.kaurel.klang.xtext.Klang.SpriteDef");
+						"com.kaurel.klang.xtext.Klang.Sprite");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -118,15 +118,15 @@ ruleGameDef returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleSpriteDef
-entryRuleSpriteDef returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getSpriteDefRule()); }
-	iv_ruleSpriteDef=ruleSpriteDef
-	{ $current=$iv_ruleSpriteDef.current; }
+// Entry rule entryRuleSprite
+entryRuleSprite returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSpriteRule()); }
+	iv_ruleSprite=ruleSprite
+	{ $current=$iv_ruleSprite.current; }
 	EOF;
 
-// Rule SpriteDef
-ruleSpriteDef returns [EObject current=null]
+// Rule Sprite
+ruleSprite returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -137,23 +137,23 @@ ruleSpriteDef returns [EObject current=null]
 		(
 			{
 				$current = forceCreateModelElement(
-					grammarAccess.getSpriteDefAccess().getSpriteDefAction_0(),
+					grammarAccess.getSpriteAccess().getSpriteAction_0(),
 					$current);
 			}
 		)
 		otherlv_1=Sprite
 		{
-			newLeafNode(otherlv_1, grammarAccess.getSpriteDefAccess().getSpriteKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getSpriteAccess().getSpriteKeyword_1());
 		}
 		(
 			(
 				lv_name_2_0=RULE_ID
 				{
-					newLeafNode(lv_name_2_0, grammarAccess.getSpriteDefAccess().getNameIDTerminalRuleCall_2_0());
+					newLeafNode(lv_name_2_0, grammarAccess.getSpriteAccess().getNameIDTerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getSpriteDefRule());
+						$current = createModelElement(grammarAccess.getSpriteRule());
 					}
 					setWithLastConsumed(
 						$current,
@@ -165,17 +165,17 @@ ruleSpriteDef returns [EObject current=null]
 		)
 		this_BEGIN_3=RULE_BEGIN
 		{
-			newLeafNode(this_BEGIN_3, grammarAccess.getSpriteDefAccess().getBEGINTerminalRuleCall_3());
+			newLeafNode(this_BEGIN_3, grammarAccess.getSpriteAccess().getBEGINTerminalRuleCall_3());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSpriteDefAccess().getVariablesVariableParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getSpriteAccess().getVariablesVariableParserRuleCall_4_0());
 				}
 				lv_variables_4_0=ruleVariable
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSpriteDefRule());
+						$current = createModelElementForParent(grammarAccess.getSpriteRule());
 					}
 					add(
 						$current,
@@ -189,12 +189,12 @@ ruleSpriteDef returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSpriteDefAccess().getEventHandlersEventHandlerParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getSpriteAccess().getEventHandlersEventHandlerParserRuleCall_5_0());
 				}
 				lv_eventHandlers_5_0=ruleEventHandler
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSpriteDefRule());
+						$current = createModelElementForParent(grammarAccess.getSpriteRule());
 					}
 					add(
 						$current,
@@ -207,7 +207,7 @@ ruleSpriteDef returns [EObject current=null]
 		)*
 		this_END_6=RULE_END
 		{
-			newLeafNode(this_END_6, grammarAccess.getSpriteDefAccess().getENDTerminalRuleCall_6());
+			newLeafNode(this_END_6, grammarAccess.getSpriteAccess().getENDTerminalRuleCall_6());
 		}
 	)
 ;
