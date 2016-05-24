@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete 5 resources" deleteContents="true" description="Delete 5 resources" element1="/com.kaurel.klang.xtext" element2="/com.kaurel.klang.xtext.ide" element3="/com.kaurel.klang.xtext.tests" element4="/com.kaurel.klang.xtext.ui" element5="/com.kaurel.klang.xtext.ui.tests" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="5" stamp="1464129640711"/>
+</session>

@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: com.kaurel.klang.xtext.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: com.kaurel.klang.xtext.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: com.kaurel.klang.xtext,
+ com.kaurel.klang.model,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.kaurel.klang.xtext.ide.contentassist.antlr,
+ com.kaurel.klang.xtext.ide.contentassist.antlr.internal,
+ com.kaurel.klang.xtext.ide.contentassist.antlr.lexer
+

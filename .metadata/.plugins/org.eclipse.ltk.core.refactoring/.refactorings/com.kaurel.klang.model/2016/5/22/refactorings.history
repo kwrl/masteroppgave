@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;klang.ecore&apos; to &apos;model&apos;" description="Move &apos;klang.ecore&apos; to &apos;model&apos;" destination="model" element1="/com.kaurel.klang.xtext/model/generated/klang.ecore" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1464129518640" updateReferences="true"/>
+</session>

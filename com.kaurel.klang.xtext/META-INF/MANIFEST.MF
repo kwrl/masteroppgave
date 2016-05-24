@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: com.kaurel.klang.xtext
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: com.kaurel.klang.xtext; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: com.kaurel.klang.model,
+ org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.util,
+ org.eclipse.xtend.lib
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.kaurel.klang.xtext.validation,
+ com.kaurel.klang.xtext.parser.antlr,
+ com.kaurel.klang.xtext.scoping,
+ com.kaurel.klang.xtext.parser.antlr.lexer,
+ com.kaurel.klang.xtext,
+ com.kaurel.klang.xtext.serializer,
+ com.kaurel.klang.xtext.parser.antlr.internal,
+ com.kaurel.klang.xtext.formatting,
+ com.kaurel.klang.xtext.services,
+ com.kaurel.klang.xtext.generator
+Import-Package: org.apache.log4j
