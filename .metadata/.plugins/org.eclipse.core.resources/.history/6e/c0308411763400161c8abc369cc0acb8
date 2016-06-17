@@ -1,0 +1,5 @@
+package klang.util;
+
+public class MemoizingTypeComputer {
+
+}

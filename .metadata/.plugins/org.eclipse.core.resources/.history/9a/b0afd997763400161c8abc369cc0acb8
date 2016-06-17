@@ -146,7 +146,7 @@ public class VariableAssignmentImpl extends StatementImpl implements VariableAss
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	public void setVariableName(String newVariableName) {
 		String oldVariableName = variableName;
@@ -162,9 +162,6 @@ public class VariableAssignmentImpl extends StatementImpl implements VariableAss
 	 * @generated NOT
 	 */
 	public Variable getVariable() {
-		if(variable==null) {
-			variable = KlangUtil.getVariable(this, variableName);
-		}
 		return variable;
 	}
 

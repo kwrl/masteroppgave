@@ -94,7 +94,7 @@ public class KlangValidator extends EObjectValidator {
 		super();
 	}
 
-	private TypeComputer typeComputer = new MemoizingTypeComputer();
+	private TypeComputer typeComputer = new TypeComputer();
 
 	/**
 	 * Returns the package of this validator switch.

@@ -1,0 +1,15 @@
+package klang.util;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.eclipse.emf.ecore.EObject;
+
+public class MemoizingTypeComputer extends TypeComputer {
+	private Map<EObject, Class> cache = new HashMap<>();
+	
+	@Override
+	public Class doSwitch(EObject eObject) {
+		return super.doSwitch(eObject);
+	}
+}

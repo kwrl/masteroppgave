@@ -146,14 +146,13 @@ public class VariableAssignmentImpl extends StatementImpl implements VariableAss
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	public void setVariableName(String newVariableName) {
 		String oldVariableName = variableName;
 		variableName = newVariableName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, KlangPackage.VARIABLE_ASSIGNMENT__VARIABLE_NAME, oldVariableName, variableName));
-		variable = KlangUtil.getVariable(this, newVariableName);
 	}
 
 	/**
@@ -162,10 +161,7 @@ public class VariableAssignmentImpl extends StatementImpl implements VariableAss
 	 * @generated NOT
 	 */
 	public Variable getVariable() {
-		if(variable==null) {
-			variable = KlangUtil.getVariable(this, variableName);
-		}
-		return variable;
+		return KlangUtil.getVariable(this, variableName);
 	}
 
 	/**
