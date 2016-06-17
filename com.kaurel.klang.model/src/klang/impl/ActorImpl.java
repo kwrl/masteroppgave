@@ -5,12 +5,10 @@ package klang.impl;
 import java.util.Collection;
 
 import klang.Actor;
+import klang.Entity;
 import klang.EventHandler;
 import klang.KlangPackage;
 import klang.Variable;
-
-import klang.framework.Entity;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -33,44 +31,23 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link klang.impl.ActorImpl#getName <em>Name</em>}</li>
- *   <li>{@link klang.impl.ActorImpl#getVariables <em>Variables</em>}</li>
+ *   <li>{@link klang.impl.ActorImpl#getVariableDeclarations <em>Variable Declarations</em>}</li>
  *   <li>{@link klang.impl.ActorImpl#getEventHandlers <em>Event Handlers</em>}</li>
  *   <li>{@link klang.impl.ActorImpl#getEntity <em>Entity</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ActorImpl<E extends Entity> extends MinimalEObjectImpl.Container implements Actor<E> {
+public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached value of the '{@link #getVariableDeclarations() <em>Variable Declarations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getVariableDeclarations()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVariables()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Variable> variables;
+	protected EList<Variable> variableDeclarations;
 
 	/**
 	 * The cached value of the '{@link #getEventHandlers() <em>Event Handlers</em>}' containment reference list.
@@ -83,14 +60,14 @@ public class ActorImpl<E extends Entity> extends MinimalEObjectImpl.Container im
 	protected EList<EventHandler> eventHandlers;
 
 	/**
-	 * The cached value of the '{@link #getEntity() <em>Entity</em>}' reference.
+	 * The cached value of the '{@link #getEntity() <em>Entity</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getEntity()
 	 * @generated
 	 * @ordered
 	 */
-	protected E entity;
+	protected Entity entity;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -116,32 +93,11 @@ public class ActorImpl<E extends Entity> extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, KlangPackage.ACTOR__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Variable> getVariables() {
-		if (variables == null) {
-			variables = new EObjectContainmentEList<Variable>(Variable.class, this, KlangPackage.ACTOR__VARIABLES);
+	public EList<Variable> getVariableDeclarations() {
+		if (variableDeclarations == null) {
+			variableDeclarations = new EObjectContainmentEList<Variable>(Variable.class, this, KlangPackage.ACTOR__VARIABLE_DECLARATIONS);
 		}
-		return variables;
+		return variableDeclarations;
 	}
 
 	/**
@@ -161,16 +117,7 @@ public class ActorImpl<E extends Entity> extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	public E getEntity() {
-		if (entity != null && entity.eIsProxy()) {
-			InternalEObject oldEntity = (InternalEObject)entity;
-			entity = (E)eResolveProxy(oldEntity);
-			if (entity != oldEntity) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, KlangPackage.ACTOR__ENTITY, oldEntity, entity));
-			}
-		}
+	public Entity getEntity() {
 		return entity;
 	}
 
@@ -179,20 +126,33 @@ public class ActorImpl<E extends Entity> extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public E basicGetEntity() {
-		return entity;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEntity(E newEntity) {
-		E oldEntity = entity;
+	public NotificationChain basicSetEntity(Entity newEntity, NotificationChain msgs) {
+		Entity oldEntity = entity;
 		entity = newEntity;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, KlangPackage.ACTOR__ENTITY, oldEntity, entity));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KlangPackage.ACTOR__ENTITY, oldEntity, newEntity);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEntity(Entity newEntity) {
+		if (newEntity != entity) {
+			NotificationChain msgs = null;
+			if (entity != null)
+				msgs = ((InternalEObject)entity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KlangPackage.ACTOR__ENTITY, null, msgs);
+			if (newEntity != null)
+				msgs = ((InternalEObject)newEntity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KlangPackage.ACTOR__ENTITY, null, msgs);
+			msgs = basicSetEntity(newEntity, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, KlangPackage.ACTOR__ENTITY, newEntity, newEntity));
 	}
 
 	/**
@@ -203,10 +163,12 @@ public class ActorImpl<E extends Entity> extends MinimalEObjectImpl.Container im
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case KlangPackage.ACTOR__VARIABLES:
-				return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
+			case KlangPackage.ACTOR__VARIABLE_DECLARATIONS:
+				return ((InternalEList<?>)getVariableDeclarations()).basicRemove(otherEnd, msgs);
 			case KlangPackage.ACTOR__EVENT_HANDLERS:
 				return ((InternalEList<?>)getEventHandlers()).basicRemove(otherEnd, msgs);
+			case KlangPackage.ACTOR__ENTITY:
+				return basicSetEntity(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -219,15 +181,12 @@ public class ActorImpl<E extends Entity> extends MinimalEObjectImpl.Container im
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case KlangPackage.ACTOR__NAME:
-				return getName();
-			case KlangPackage.ACTOR__VARIABLES:
-				return getVariables();
+			case KlangPackage.ACTOR__VARIABLE_DECLARATIONS:
+				return getVariableDeclarations();
 			case KlangPackage.ACTOR__EVENT_HANDLERS:
 				return getEventHandlers();
 			case KlangPackage.ACTOR__ENTITY:
-				if (resolve) return getEntity();
-				return basicGetEntity();
+				return getEntity();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -241,19 +200,16 @@ public class ActorImpl<E extends Entity> extends MinimalEObjectImpl.Container im
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case KlangPackage.ACTOR__NAME:
-				setName((String)newValue);
-				return;
-			case KlangPackage.ACTOR__VARIABLES:
-				getVariables().clear();
-				getVariables().addAll((Collection<? extends Variable>)newValue);
+			case KlangPackage.ACTOR__VARIABLE_DECLARATIONS:
+				getVariableDeclarations().clear();
+				getVariableDeclarations().addAll((Collection<? extends Variable>)newValue);
 				return;
 			case KlangPackage.ACTOR__EVENT_HANDLERS:
 				getEventHandlers().clear();
 				getEventHandlers().addAll((Collection<? extends EventHandler>)newValue);
 				return;
 			case KlangPackage.ACTOR__ENTITY:
-				setEntity((E)newValue);
+				setEntity((Entity)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -267,17 +223,14 @@ public class ActorImpl<E extends Entity> extends MinimalEObjectImpl.Container im
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case KlangPackage.ACTOR__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case KlangPackage.ACTOR__VARIABLES:
-				getVariables().clear();
+			case KlangPackage.ACTOR__VARIABLE_DECLARATIONS:
+				getVariableDeclarations().clear();
 				return;
 			case KlangPackage.ACTOR__EVENT_HANDLERS:
 				getEventHandlers().clear();
 				return;
 			case KlangPackage.ACTOR__ENTITY:
-				setEntity((E)null);
+				setEntity((Entity)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -291,32 +244,14 @@ public class ActorImpl<E extends Entity> extends MinimalEObjectImpl.Container im
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case KlangPackage.ACTOR__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case KlangPackage.ACTOR__VARIABLES:
-				return variables != null && !variables.isEmpty();
+			case KlangPackage.ACTOR__VARIABLE_DECLARATIONS:
+				return variableDeclarations != null && !variableDeclarations.isEmpty();
 			case KlangPackage.ACTOR__EVENT_HANDLERS:
 				return eventHandlers != null && !eventHandlers.isEmpty();
 			case KlangPackage.ACTOR__ENTITY:
 				return entity != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ActorImpl

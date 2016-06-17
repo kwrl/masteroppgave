@@ -3,7 +3,6 @@
 package klang.tests;
 
 import junit.textui.TestRunner;
-
 import klang.KlangFactory;
 import klang.Variable;
 
@@ -44,6 +43,13 @@ public class VariableTest extends StatementTest {
 	protected Variable getFixture() {
 		return (Variable)fixture;
 	}
+
+	/**
+	 * Returns the fixture for this Variable test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 
 	/**
 	 * <!-- begin-user-doc -->

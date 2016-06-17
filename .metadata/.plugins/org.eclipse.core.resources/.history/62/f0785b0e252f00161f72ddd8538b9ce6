@@ -1,0 +1,26 @@
+package com.kaurel.kengine.lib;
+
+import org.jbox2d.dynamics.BodyDef;
+
+import com.kaurel.kengine.lib.entities.Sprite;
+
+import javafx.application.Application;
+import javafx.stage.Stage;
+
+public class KengineApplication extends Application {
+	private KengineWorld world = new KengineWorld();
+	
+	public Sprite createBall() {
+		BodyDef bodyDef = new BodyDef();
+		return null;
+	}
+
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		primaryStage.setScene(world.getScene());
+	
+		
+		primaryStage.show();
+	}
+
+}

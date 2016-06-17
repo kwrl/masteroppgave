@@ -23,7 +23,7 @@ public class ActorTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Actor<?> fixture = null;
+	protected Actor fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -50,7 +50,7 @@ public class ActorTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(Actor<?> fixture) {
+	protected void setFixture(Actor fixture) {
 		this.fixture = fixture;
 	}
 
@@ -60,7 +60,7 @@ public class ActorTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Actor<?> getFixture() {
+	protected Actor getFixture() {
 		return fixture;
 	}
 

@@ -2,8 +2,6 @@
  */
 package klang;
 
-import klang.framework.Entity;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -17,8 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link klang.Actor#getName <em>Name</em>}</li>
- *   <li>{@link klang.Actor#getVariables <em>Variables</em>}</li>
+ *   <li>{@link klang.Actor#getVariableDeclarations <em>Variable Declarations</em>}</li>
  *   <li>{@link klang.Actor#getEventHandlers <em>Event Handlers</em>}</li>
  *   <li>{@link klang.Actor#getEntity <em>Entity</em>}</li>
  * </ul>
@@ -27,48 +24,22 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Actor<E extends Entity> extends EObject {
+public interface Actor extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see klang.KlangPackage#getActor_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link klang.Actor#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Variables</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Variable Declarations</b></em>' containment reference list.
 	 * The list contents are of type {@link klang.Variable}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Variables</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Variable Declarations</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Variables</em>' containment reference list.
-	 * @see klang.KlangPackage#getActor_Variables()
+	 * @return the value of the '<em>Variable Declarations</em>' containment reference list.
+	 * @see klang.KlangPackage#getActor_VariableDeclarations()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Variable> getVariables();
+	EList<Variable> getVariableDeclarations();
 
 	/**
 	 * Returns the value of the '<em><b>Event Handlers</b></em>' containment reference list.
@@ -87,29 +58,29 @@ public interface Actor<E extends Entity> extends EObject {
 	EList<EventHandler> getEventHandlers();
 
 	/**
-	 * Returns the value of the '<em><b>Entity</b></em>' reference.
+	 * Returns the value of the '<em><b>Entity</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Entity</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Entity</em>' reference.
+	 * @return the value of the '<em>Entity</em>' containment reference.
 	 * @see #setEntity(Entity)
 	 * @see klang.KlangPackage#getActor_Entity()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
-	E getEntity();
+	Entity getEntity();
 
 	/**
-	 * Sets the value of the '{@link klang.Actor#getEntity <em>Entity</em>}' reference.
+	 * Sets the value of the '{@link klang.Actor#getEntity <em>Entity</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Entity</em>' reference.
+	 * @param value the new value of the '<em>Entity</em>' containment reference.
 	 * @see #getEntity()
 	 * @generated
 	 */
-	void setEntity(E value);
+	void setEntity(Entity value);
 
 } // Actor

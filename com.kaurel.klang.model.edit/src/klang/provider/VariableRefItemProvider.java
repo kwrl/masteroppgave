@@ -46,6 +46,7 @@ public class VariableRefItemProvider extends ExpressionItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addVariableNamePropertyDescriptor(object);
+			addVariablePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -68,6 +69,28 @@ public class VariableRefItemProvider extends ExpressionItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Variable feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVariablePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_VariableRef_variable_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_VariableRef_variable_feature", "_UI_VariableRef_type"),
+				 KlangPackage.Literals.VARIABLE_REF__VARIABLE,
+				 false,
+				 false,
+				 false,
+				 null,
 				 null,
 				 null));
 	}

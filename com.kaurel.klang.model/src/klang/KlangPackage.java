@@ -5,6 +5,7 @@ package klang;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -68,13 +69,13 @@ public interface KlangPackage extends EPackage {
 	int GAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Variable Declarations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GAME__VARIABLES = 0;
+	int GAME__VARIABLE_DECLARATIONS = 0;
 
 	/**
 	 * The feature id for the '<em><b>Actor Defs</b></em>' containment reference list.
@@ -114,22 +115,13 @@ public interface KlangPackage extends EPackage {
 	int ACTOR = 1;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Variable Declarations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR__VARIABLES = 1;
+	int ACTOR__VARIABLE_DECLARATIONS = 0;
 
 	/**
 	 * The feature id for the '<em><b>Event Handlers</b></em>' containment reference list.
@@ -138,16 +130,16 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR__EVENT_HANDLERS = 2;
+	int ACTOR__EVENT_HANDLERS = 1;
 
 	/**
-	 * The feature id for the '<em><b>Entity</b></em>' reference.
+	 * The feature id for the '<em><b>Entity</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR__ENTITY = 3;
+	int ACTOR__ENTITY = 2;
 
 	/**
 	 * The number of structural features of the '<em>Actor</em>' class.
@@ -156,7 +148,7 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR_FEATURE_COUNT = 4;
+	int ACTOR_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Actor</em>' class.
@@ -249,7 +241,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getControlStatement()
 	 * @generated
 	 */
-	int CONTROL_STATEMENT = 8;
+	int CONTROL_STATEMENT = 7;
 
 	/**
 	 * The number of structural features of the '<em>Control Statement</em>' class.
@@ -399,52 +391,6 @@ public interface KlangPackage extends EPackage {
 	int FOREVER_LOOP_OPERATION_COUNT = CONTROL_STATEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link klang.impl.SubroutineCallImpl <em>Subroutine Call</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.SubroutineCallImpl
-	 * @see klang.impl.KlangPackageImpl#getSubroutineCall()
-	 * @generated
-	 */
-	int SUBROUTINE_CALL = 7;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUBROUTINE_CALL__NAME = STATEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUBROUTINE_CALL__PARAMETERS = STATEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Subroutine Call</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUBROUTINE_CALL_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Subroutine Call</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUBROUTINE_CALL_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link klang.impl.YieldImpl <em>Yield</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -452,7 +398,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getYield()
 	 * @generated
 	 */
-	int YIELD = 9;
+	int YIELD = 8;
 
 	/**
 	 * The number of structural features of the '<em>Yield</em>' class.
@@ -473,6 +419,16 @@ public interface KlangPackage extends EPackage {
 	int YIELD_OPERATION_COUNT = CONTROL_STATEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link klang.impl.VariableAssignmentImpl <em>Variable Assignment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.VariableAssignmentImpl
+	 * @see klang.impl.KlangPackageImpl#getVariableAssignment()
+	 * @generated
+	 */
+	int VARIABLE_ASSIGNMENT = 10;
+
+	/**
 	 * The meta object id for the '{@link klang.impl.VariableImpl <em>Variable</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -480,16 +436,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getVariable()
 	 * @generated
 	 */
-	int VARIABLE = 10;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE__NAME = STATEMENT_FEATURE_COUNT + 0;
+	int VARIABLE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -498,7 +445,205 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE__EXPRESSION = STATEMENT_FEATURE_COUNT + 1;
+	int VARIABLE__EXPRESSION = STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.ExpressionImpl <em>Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.ExpressionImpl
+	 * @see klang.impl.KlangPackageImpl#getExpression()
+	 * @generated
+	 */
+	int EXPRESSION = 11;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.BinaryOperatorImpl <em>Binary Operator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.BinaryOperatorImpl
+	 * @see klang.impl.KlangPackageImpl#getBinaryOperator()
+	 * @generated
+	 */
+	int BINARY_OPERATOR = 27;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.OrImpl <em>Or</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.OrImpl
+	 * @see klang.impl.KlangPackageImpl#getOr()
+	 * @generated
+	 */
+	int OR = 12;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.AndImpl <em>And</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.AndImpl
+	 * @see klang.impl.KlangPackageImpl#getAnd()
+	 * @generated
+	 */
+	int AND = 13;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.PlusImpl <em>Plus</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.PlusImpl
+	 * @see klang.impl.KlangPackageImpl#getPlus()
+	 * @generated
+	 */
+	int PLUS = 14;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.MinusImpl <em>Minus</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.MinusImpl
+	 * @see klang.impl.KlangPackageImpl#getMinus()
+	 * @generated
+	 */
+	int MINUS = 15;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.MultiplyImpl <em>Multiply</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.MultiplyImpl
+	 * @see klang.impl.KlangPackageImpl#getMultiply()
+	 * @generated
+	 */
+	int MULTIPLY = 16;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.DivideImpl <em>Divide</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.DivideImpl
+	 * @see klang.impl.KlangPackageImpl#getDivide()
+	 * @generated
+	 */
+	int DIVIDE = 17;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.LessThanImpl <em>Less Than</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.LessThanImpl
+	 * @see klang.impl.KlangPackageImpl#getLessThan()
+	 * @generated
+	 */
+	int LESS_THAN = 18;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.EqualImpl <em>Equal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.EqualImpl
+	 * @see klang.impl.KlangPackageImpl#getEqual()
+	 * @generated
+	 */
+	int EQUAL = 19;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.GreaterThanImpl <em>Greater Than</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.GreaterThanImpl
+	 * @see klang.impl.KlangPackageImpl#getGreaterThan()
+	 * @generated
+	 */
+	int GREATER_THAN = 20;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.UnaryOperatorImpl <em>Unary Operator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.UnaryOperatorImpl
+	 * @see klang.impl.KlangPackageImpl#getUnaryOperator()
+	 * @generated
+	 */
+	int UNARY_OPERATOR = 26;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.NotImpl <em>Not</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.NotImpl
+	 * @see klang.impl.KlangPackageImpl#getNot()
+	 * @generated
+	 */
+	int NOT = 21;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.BooleanLiteralImpl <em>Boolean Literal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.BooleanLiteralImpl
+	 * @see klang.impl.KlangPackageImpl#getBooleanLiteral()
+	 * @generated
+	 */
+	int BOOLEAN_LITERAL = 22;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.NumericLiteralImpl <em>Numeric Literal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.NumericLiteralImpl
+	 * @see klang.impl.KlangPackageImpl#getNumericLiteral()
+	 * @generated
+	 */
+	int NUMERIC_LITERAL = 23;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.StringLiteralImpl <em>String Literal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.StringLiteralImpl
+	 * @see klang.impl.KlangPackageImpl#getStringLiteral()
+	 * @generated
+	 */
+	int STRING_LITERAL = 24;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.VariableRefImpl <em>Variable Ref</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.VariableRefImpl
+	 * @see klang.impl.KlangPackageImpl#getVariableRef()
+	 * @generated
+	 */
+	int VARIABLE_REF = 25;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.FunctionCallImpl <em>Function Call</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.FunctionCallImpl
+	 * @see klang.impl.KlangPackageImpl#getFunctionCall()
+	 * @generated
+	 */
+	int FUNCTION_CALL = 28;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE__NAME = STATEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE__VALUE = STATEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Variable</em>' class.
@@ -507,7 +652,7 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+	int VARIABLE_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Variable</em>' class.
@@ -519,14 +664,22 @@ public interface KlangPackage extends EPackage {
 	int VARIABLE_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link klang.impl.AssignmentImpl <em>Assignment</em>}' class.
+	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see klang.impl.AssignmentImpl
-	 * @see klang.impl.KlangPackageImpl#getAssignment()
 	 * @generated
+	 * @ordered
 	 */
-	int ASSIGNMENT = 11;
+	int VARIABLE_ASSIGNMENT__EXPRESSION = STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Variable Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_ASSIGNMENT__VARIABLE_NAME = STATEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Variable</b></em>' reference.
@@ -535,44 +688,25 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIGNMENT__VARIABLE = STATEMENT_FEATURE_COUNT + 0;
+	int VARIABLE_ASSIGNMENT__VARIABLE = STATEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
+	 * The number of structural features of the '<em>Variable Assignment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIGNMENT__EXPRESSION = STATEMENT_FEATURE_COUNT + 1;
+	int VARIABLE_ASSIGNMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of structural features of the '<em>Assignment</em>' class.
+	 * The number of operations of the '<em>Variable Assignment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIGNMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Assignment</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIGNMENT_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link klang.impl.ExpressionImpl <em>Expression</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.ExpressionImpl
-	 * @see klang.impl.KlangPackageImpl#getExpression()
-	 * @generated
-	 */
-	int EXPRESSION = 12;
+	int VARIABLE_ASSIGNMENT_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Expression</em>' class.
@@ -591,16 +725,6 @@ public interface KlangPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXPRESSION_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link klang.impl.BinaryOperatorImpl <em>Binary Operator</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.BinaryOperatorImpl
-	 * @see klang.impl.KlangPackageImpl#getBinaryOperator()
-	 * @generated
-	 */
-	int BINARY_OPERATOR = 30;
 
 	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -639,16 +763,6 @@ public interface KlangPackage extends EPackage {
 	int BINARY_OPERATOR_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link klang.impl.OrImpl <em>Or</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.OrImpl
-	 * @see klang.impl.KlangPackageImpl#getOr()
-	 * @generated
-	 */
-	int OR = 13;
-
-	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -683,16 +797,6 @@ public interface KlangPackage extends EPackage {
 	 * @ordered
 	 */
 	int OR_OPERATION_COUNT = BINARY_OPERATOR_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link klang.impl.AndImpl <em>And</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.AndImpl
-	 * @see klang.impl.KlangPackageImpl#getAnd()
-	 * @generated
-	 */
-	int AND = 14;
 
 	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -731,16 +835,6 @@ public interface KlangPackage extends EPackage {
 	int AND_OPERATION_COUNT = BINARY_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link klang.impl.PlusImpl <em>Plus</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.PlusImpl
-	 * @see klang.impl.KlangPackageImpl#getPlus()
-	 * @generated
-	 */
-	int PLUS = 15;
-
-	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -775,16 +869,6 @@ public interface KlangPackage extends EPackage {
 	 * @ordered
 	 */
 	int PLUS_OPERATION_COUNT = BINARY_OPERATOR_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link klang.impl.MinusImpl <em>Minus</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.MinusImpl
-	 * @see klang.impl.KlangPackageImpl#getMinus()
-	 * @generated
-	 */
-	int MINUS = 16;
 
 	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -823,16 +907,6 @@ public interface KlangPackage extends EPackage {
 	int MINUS_OPERATION_COUNT = BINARY_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link klang.impl.MultiplyImpl <em>Multiply</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.MultiplyImpl
-	 * @see klang.impl.KlangPackageImpl#getMultiply()
-	 * @generated
-	 */
-	int MULTIPLY = 17;
-
-	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -867,16 +941,6 @@ public interface KlangPackage extends EPackage {
 	 * @ordered
 	 */
 	int MULTIPLY_OPERATION_COUNT = BINARY_OPERATOR_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link klang.impl.DivideImpl <em>Divide</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.DivideImpl
-	 * @see klang.impl.KlangPackageImpl#getDivide()
-	 * @generated
-	 */
-	int DIVIDE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -915,16 +979,6 @@ public interface KlangPackage extends EPackage {
 	int DIVIDE_OPERATION_COUNT = BINARY_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link klang.impl.LessThanImpl <em>Less Than</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.LessThanImpl
-	 * @see klang.impl.KlangPackageImpl#getLessThan()
-	 * @generated
-	 */
-	int LESS_THAN = 19;
-
-	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -959,16 +1013,6 @@ public interface KlangPackage extends EPackage {
 	 * @ordered
 	 */
 	int LESS_THAN_OPERATION_COUNT = BINARY_OPERATOR_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link klang.impl.EqualImpl <em>Equal</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.EqualImpl
-	 * @see klang.impl.KlangPackageImpl#getEqual()
-	 * @generated
-	 */
-	int EQUAL = 20;
 
 	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1007,16 +1051,6 @@ public interface KlangPackage extends EPackage {
 	int EQUAL_OPERATION_COUNT = BINARY_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link klang.impl.GreaterThanImpl <em>Greater Than</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.GreaterThanImpl
-	 * @see klang.impl.KlangPackageImpl#getGreaterThan()
-	 * @generated
-	 */
-	int GREATER_THAN = 21;
-
-	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1053,16 +1087,6 @@ public interface KlangPackage extends EPackage {
 	int GREATER_THAN_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link klang.impl.UnaryOperatorImpl <em>Unary Operator</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.UnaryOperatorImpl
-	 * @see klang.impl.KlangPackageImpl#getUnaryOperator()
-	 * @generated
-	 */
-	int UNARY_OPERATOR = 29;
-
-	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1088,16 +1112,6 @@ public interface KlangPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNARY_OPERATOR_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link klang.impl.NotImpl <em>Not</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.NotImpl
-	 * @see klang.impl.KlangPackageImpl#getNot()
-	 * @generated
-	 */
-	int NOT = 22;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1127,16 +1141,6 @@ public interface KlangPackage extends EPackage {
 	int NOT_OPERATION_COUNT = UNARY_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link klang.impl.BooleanLiteralImpl <em>Boolean Literal</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.BooleanLiteralImpl
-	 * @see klang.impl.KlangPackageImpl#getBooleanLiteral()
-	 * @generated
-	 */
-	int BOOLEAN_LITERAL = 23;
-
-	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1162,16 +1166,6 @@ public interface KlangPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_LITERAL_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link klang.impl.NumericLiteralImpl <em>Numeric Literal</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.NumericLiteralImpl
-	 * @see klang.impl.KlangPackageImpl#getNumericLiteral()
-	 * @generated
-	 */
-	int NUMERIC_LITERAL = 24;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1201,16 +1195,6 @@ public interface KlangPackage extends EPackage {
 	int NUMERIC_LITERAL_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link klang.impl.StringLiteralImpl <em>String Literal</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.StringLiteralImpl
-	 * @see klang.impl.KlangPackageImpl#getStringLiteral()
-	 * @generated
-	 */
-	int STRING_LITERAL = 25;
-
-	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1238,16 +1222,6 @@ public interface KlangPackage extends EPackage {
 	int STRING_LITERAL_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link klang.impl.VariableRefImpl <em>Variable Ref</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.VariableRefImpl
-	 * @see klang.impl.KlangPackageImpl#getVariableRef()
-	 * @generated
-	 */
-	int VARIABLE_REF = 26;
-
-	/**
 	 * The feature id for the '<em><b>Variable Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1257,13 +1231,22 @@ public interface KlangPackage extends EPackage {
 	int VARIABLE_REF__VARIABLE_NAME = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Variable</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_REF__VARIABLE = EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Variable Ref</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_REF_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+	int VARIABLE_REF_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Variable Ref</em>' class.
@@ -1275,14 +1258,96 @@ public interface KlangPackage extends EPackage {
 	int VARIABLE_REF_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link klang.impl.SpriteImpl <em>Sprite</em>}' class.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see klang.impl.SpriteImpl
-	 * @see klang.impl.KlangPackageImpl#getSprite()
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_CALL__NAME = EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_CALL__PARAMETERS = EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Function Call</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_CALL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Function Call</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_CALL_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.EntityImpl <em>Entity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.EntityImpl
+	 * @see klang.impl.KlangPackageImpl#getEntity()
 	 * @generated
 	 */
-	int SPRITE = 27;
+	int ENTITY = 29;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY__TARGET = 0;
+
+	/**
+	 * The number of structural features of the '<em>Entity</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Entity</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.SpriteEntityImpl <em>Sprite Entity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.SpriteEntityImpl
+	 * @see klang.impl.KlangPackageImpl#getSpriteEntity()
+	 * @generated
+	 */
+	int SPRITE_ENTITY = 30;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRITE_ENTITY__TARGET = ENTITY__TARGET;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1291,116 +1356,71 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPRITE__NAME = ACTOR__NAME;
+	int SPRITE_ENTITY__NAME = ENTITY_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
+	 * The number of structural features of the '<em>Sprite Entity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPRITE__VARIABLES = ACTOR__VARIABLES;
+	int SPRITE_ENTITY_FEATURE_COUNT = ENTITY_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Event Handlers</b></em>' containment reference list.
+	 * The operation id for the '<em>Hello</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPRITE__EVENT_HANDLERS = ACTOR__EVENT_HANDLERS;
+	int SPRITE_ENTITY___HELLO = ENTITY_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Entity</b></em>' reference.
+	 * The number of operations of the '<em>Sprite Entity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPRITE__ENTITY = ACTOR__ENTITY;
+	int SPRITE_ENTITY_OPERATION_COUNT = ENTITY_OPERATION_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Sprite</em>' class.
+	 * The meta object id for the '{@link klang.impl.SceneEntityImpl <em>Scene Entity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.SceneEntityImpl
+	 * @see klang.impl.KlangPackageImpl#getSceneEntity()
+	 * @generated
+	 */
+	int SCENE_ENTITY = 31;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPRITE_FEATURE_COUNT = ACTOR_FEATURE_COUNT + 0;
+	int SCENE_ENTITY__TARGET = ENTITY__TARGET;
 
 	/**
-	 * The number of operations of the '<em>Sprite</em>' class.
+	 * The number of structural features of the '<em>Scene Entity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPRITE_OPERATION_COUNT = ACTOR_OPERATION_COUNT + 0;
+	int SCENE_ENTITY_FEATURE_COUNT = ENTITY_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link klang.impl.SceneImpl <em>Scene</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.SceneImpl
-	 * @see klang.impl.KlangPackageImpl#getScene()
-	 * @generated
-	 */
-	int SCENE = 28;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The number of operations of the '<em>Scene Entity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCENE__NAME = ACTOR__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENE__VARIABLES = ACTOR__VARIABLES;
-
-	/**
-	 * The feature id for the '<em><b>Event Handlers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENE__EVENT_HANDLERS = ACTOR__EVENT_HANDLERS;
-
-	/**
-	 * The feature id for the '<em><b>Entity</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENE__ENTITY = ACTOR__ENTITY;
-
-	/**
-	 * The number of structural features of the '<em>Scene</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENE_FEATURE_COUNT = ACTOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Scene</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENE_OPERATION_COUNT = ACTOR_OPERATION_COUNT + 0;
+	int SCENE_ENTITY_OPERATION_COUNT = ENTITY_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link klang.EventType <em>Event Type</em>}' enum.
@@ -1410,7 +1430,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getEventType()
 	 * @generated
 	 */
-	int EVENT_TYPE = 31;
+	int EVENT_TYPE = 32;
 
 
 	/**
@@ -1424,15 +1444,15 @@ public interface KlangPackage extends EPackage {
 	EClass getGame();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link klang.Game#getVariables <em>Variables</em>}'.
+	 * Returns the meta object for the containment reference list '{@link klang.Game#getVariableDeclarations <em>Variable Declarations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Variables</em>'.
-	 * @see klang.Game#getVariables()
+	 * @return the meta object for the containment reference list '<em>Variable Declarations</em>'.
+	 * @see klang.Game#getVariableDeclarations()
 	 * @see #getGame()
 	 * @generated
 	 */
-	EReference getGame_Variables();
+	EReference getGame_VariableDeclarations();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link klang.Game#getActorDefs <em>Actor Defs</em>}'.
@@ -1456,26 +1476,15 @@ public interface KlangPackage extends EPackage {
 	EClass getActor();
 
 	/**
-	 * Returns the meta object for the attribute '{@link klang.Actor#getName <em>Name</em>}'.
+	 * Returns the meta object for the containment reference list '{@link klang.Actor#getVariableDeclarations <em>Variable Declarations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see klang.Actor#getName()
+	 * @return the meta object for the containment reference list '<em>Variable Declarations</em>'.
+	 * @see klang.Actor#getVariableDeclarations()
 	 * @see #getActor()
 	 * @generated
 	 */
-	EAttribute getActor_Name();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link klang.Actor#getVariables <em>Variables</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Variables</em>'.
-	 * @see klang.Actor#getVariables()
-	 * @see #getActor()
-	 * @generated
-	 */
-	EReference getActor_Variables();
+	EReference getActor_VariableDeclarations();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link klang.Actor#getEventHandlers <em>Event Handlers</em>}'.
@@ -1489,10 +1498,10 @@ public interface KlangPackage extends EPackage {
 	EReference getActor_EventHandlers();
 
 	/**
-	 * Returns the meta object for the reference '{@link klang.Actor#getEntity <em>Entity</em>}'.
+	 * Returns the meta object for the containment reference '{@link klang.Actor#getEntity <em>Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Entity</em>'.
+	 * @return the meta object for the containment reference '<em>Entity</em>'.
 	 * @see klang.Actor#getEntity()
 	 * @see #getActor()
 	 * @generated
@@ -1627,38 +1636,6 @@ public interface KlangPackage extends EPackage {
 	EClass getStatement();
 
 	/**
-	 * Returns the meta object for class '{@link klang.SubroutineCall <em>Subroutine Call</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Subroutine Call</em>'.
-	 * @see klang.SubroutineCall
-	 * @generated
-	 */
-	EClass getSubroutineCall();
-
-	/**
-	 * Returns the meta object for the attribute '{@link klang.SubroutineCall#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see klang.SubroutineCall#getName()
-	 * @see #getSubroutineCall()
-	 * @generated
-	 */
-	EAttribute getSubroutineCall_Name();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link klang.SubroutineCall#getParameters <em>Parameters</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
-	 * @see klang.SubroutineCall#getParameters()
-	 * @see #getSubroutineCall()
-	 * @generated
-	 */
-	EReference getSubroutineCall_Parameters();
-
-	/**
 	 * Returns the meta object for class '{@link klang.ControlStatement <em>Control Statement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1679,6 +1656,49 @@ public interface KlangPackage extends EPackage {
 	EClass getYield();
 
 	/**
+	 * Returns the meta object for class '{@link klang.VariableAssignment <em>Variable Assignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Variable Assignment</em>'.
+	 * @see klang.VariableAssignment
+	 * @generated
+	 */
+	EClass getVariableAssignment();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link klang.VariableAssignment#getExpression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Expression</em>'.
+	 * @see klang.VariableAssignment#getExpression()
+	 * @see #getVariableAssignment()
+	 * @generated
+	 */
+	EReference getVariableAssignment_Expression();
+
+	/**
+	 * Returns the meta object for the attribute '{@link klang.VariableAssignment#getVariableName <em>Variable Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Variable Name</em>'.
+	 * @see klang.VariableAssignment#getVariableName()
+	 * @see #getVariableAssignment()
+	 * @generated
+	 */
+	EAttribute getVariableAssignment_VariableName();
+
+	/**
+	 * Returns the meta object for the reference '{@link klang.VariableAssignment#getVariable <em>Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Variable</em>'.
+	 * @see klang.VariableAssignment#getVariable()
+	 * @see #getVariableAssignment()
+	 * @generated
+	 */
+	EReference getVariableAssignment_Variable();
+
+	/**
 	 * Returns the meta object for class '{@link klang.Variable <em>Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1687,17 +1707,6 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getVariable();
-
-	/**
-	 * Returns the meta object for the attribute '{@link klang.Variable#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see klang.Variable#getName()
-	 * @see #getVariable()
-	 * @generated
-	 */
-	EAttribute getVariable_Name();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link klang.Variable#getExpression <em>Expression</em>}'.
@@ -1711,36 +1720,88 @@ public interface KlangPackage extends EPackage {
 	EReference getVariable_Expression();
 
 	/**
-	 * Returns the meta object for class '{@link klang.Assignment <em>Assignment</em>}'.
+	 * Returns the meta object for the attribute '{@link klang.Variable#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Assignment</em>'.
-	 * @see klang.Assignment
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see klang.Variable#getName()
+	 * @see #getVariable()
 	 * @generated
 	 */
-	EClass getAssignment();
+	EAttribute getVariable_Name();
 
 	/**
-	 * Returns the meta object for the reference '{@link klang.Assignment#getVariable <em>Variable</em>}'.
+	 * Returns the meta object for the attribute '{@link klang.Variable#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Variable</em>'.
-	 * @see klang.Assignment#getVariable()
-	 * @see #getAssignment()
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see klang.Variable#getValue()
+	 * @see #getVariable()
 	 * @generated
 	 */
-	EReference getAssignment_Variable();
+	EAttribute getVariable_Value();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link klang.Assignment#getExpression <em>Expression</em>}'.
+	 * Returns the meta object for class '{@link klang.Entity <em>Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Expression</em>'.
-	 * @see klang.Assignment#getExpression()
-	 * @see #getAssignment()
+	 * @return the meta object for class '<em>Entity</em>'.
+	 * @see klang.Entity
 	 * @generated
 	 */
-	EReference getAssignment_Expression();
+	EClass getEntity();
+
+	/**
+	 * Returns the meta object for the attribute '{@link klang.Entity#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Target</em>'.
+	 * @see klang.Entity#getTarget()
+	 * @see #getEntity()
+	 * @generated
+	 */
+	EAttribute getEntity_Target();
+
+	/**
+	 * Returns the meta object for class '{@link klang.SpriteEntity <em>Sprite Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Sprite Entity</em>'.
+	 * @see klang.SpriteEntity
+	 * @generated
+	 */
+	EClass getSpriteEntity();
+
+	/**
+	 * Returns the meta object for the attribute '{@link klang.SpriteEntity#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see klang.SpriteEntity#getName()
+	 * @see #getSpriteEntity()
+	 * @generated
+	 */
+	EAttribute getSpriteEntity_Name();
+
+	/**
+	 * Returns the meta object for the '{@link klang.SpriteEntity#hello() <em>Hello</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Hello</em>' operation.
+	 * @see klang.SpriteEntity#hello()
+	 * @generated
+	 */
+	EOperation getSpriteEntity__Hello();
+
+	/**
+	 * Returns the meta object for class '{@link klang.SceneEntity <em>Scene Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Scene Entity</em>'.
+	 * @see klang.SceneEntity
+	 * @generated
+	 */
+	EClass getSceneEntity();
 
 	/**
 	 * Returns the meta object for class '{@link klang.Expression <em>Expression</em>}'.
@@ -1959,24 +2020,15 @@ public interface KlangPackage extends EPackage {
 	EAttribute getVariableRef_VariableName();
 
 	/**
-	 * Returns the meta object for class '{@link klang.Sprite <em>Sprite</em>}'.
+	 * Returns the meta object for the reference '{@link klang.VariableRef#getVariable <em>Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Sprite</em>'.
-	 * @see klang.Sprite
+	 * @return the meta object for the reference '<em>Variable</em>'.
+	 * @see klang.VariableRef#getVariable()
+	 * @see #getVariableRef()
 	 * @generated
 	 */
-	EClass getSprite();
-
-	/**
-	 * Returns the meta object for class '{@link klang.Scene <em>Scene</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Scene</em>'.
-	 * @see klang.Scene
-	 * @generated
-	 */
-	EClass getScene();
+	EReference getVariableRef_Variable();
 
 	/**
 	 * Returns the meta object for class '{@link klang.UnaryOperator <em>Unary Operator</em>}'.
@@ -2032,6 +2084,38 @@ public interface KlangPackage extends EPackage {
 	EReference getBinaryOperator_Right();
 
 	/**
+	 * Returns the meta object for class '{@link klang.FunctionCall <em>Function Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Function Call</em>'.
+	 * @see klang.FunctionCall
+	 * @generated
+	 */
+	EClass getFunctionCall();
+
+	/**
+	 * Returns the meta object for the attribute '{@link klang.FunctionCall#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see klang.FunctionCall#getName()
+	 * @see #getFunctionCall()
+	 * @generated
+	 */
+	EAttribute getFunctionCall_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link klang.FunctionCall#getParameters <em>Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
+	 * @see klang.FunctionCall#getParameters()
+	 * @see #getFunctionCall()
+	 * @generated
+	 */
+	EReference getFunctionCall_Parameters();
+
+	/**
 	 * Returns the meta object for enum '{@link klang.EventType <em>Event Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2075,12 +2159,12 @@ public interface KlangPackage extends EPackage {
 		EClass GAME = eINSTANCE.getGame();
 
 		/**
-		 * The meta object literal for the '<em><b>Variables</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Variable Declarations</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GAME__VARIABLES = eINSTANCE.getGame_Variables();
+		EReference GAME__VARIABLE_DECLARATIONS = eINSTANCE.getGame_VariableDeclarations();
 
 		/**
 		 * The meta object literal for the '<em><b>Actor Defs</b></em>' containment reference list feature.
@@ -2101,20 +2185,12 @@ public interface KlangPackage extends EPackage {
 		EClass ACTOR = eINSTANCE.getActor();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Variable Declarations</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ACTOR__NAME = eINSTANCE.getActor_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Variables</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ACTOR__VARIABLES = eINSTANCE.getActor_Variables();
+		EReference ACTOR__VARIABLE_DECLARATIONS = eINSTANCE.getActor_VariableDeclarations();
 
 		/**
 		 * The meta object literal for the '<em><b>Event Handlers</b></em>' containment reference list feature.
@@ -2125,7 +2201,7 @@ public interface KlangPackage extends EPackage {
 		EReference ACTOR__EVENT_HANDLERS = eINSTANCE.getActor_EventHandlers();
 
 		/**
-		 * The meta object literal for the '<em><b>Entity</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Entity</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2239,32 +2315,6 @@ public interface KlangPackage extends EPackage {
 		EClass STATEMENT = eINSTANCE.getStatement();
 
 		/**
-		 * The meta object literal for the '{@link klang.impl.SubroutineCallImpl <em>Subroutine Call</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see klang.impl.SubroutineCallImpl
-		 * @see klang.impl.KlangPackageImpl#getSubroutineCall()
-		 * @generated
-		 */
-		EClass SUBROUTINE_CALL = eINSTANCE.getSubroutineCall();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SUBROUTINE_CALL__NAME = eINSTANCE.getSubroutineCall_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SUBROUTINE_CALL__PARAMETERS = eINSTANCE.getSubroutineCall_Parameters();
-
-		/**
 		 * The meta object literal for the '{@link klang.impl.ControlStatementImpl <em>Control Statement</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2285,6 +2335,40 @@ public interface KlangPackage extends EPackage {
 		EClass YIELD = eINSTANCE.getYield();
 
 		/**
+		 * The meta object literal for the '{@link klang.impl.VariableAssignmentImpl <em>Variable Assignment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klang.impl.VariableAssignmentImpl
+		 * @see klang.impl.KlangPackageImpl#getVariableAssignment()
+		 * @generated
+		 */
+		EClass VARIABLE_ASSIGNMENT = eINSTANCE.getVariableAssignment();
+
+		/**
+		 * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE_ASSIGNMENT__EXPRESSION = eINSTANCE.getVariableAssignment_Expression();
+
+		/**
+		 * The meta object literal for the '<em><b>Variable Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VARIABLE_ASSIGNMENT__VARIABLE_NAME = eINSTANCE.getVariableAssignment_VariableName();
+
+		/**
+		 * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE_ASSIGNMENT__VARIABLE = eINSTANCE.getVariableAssignment_Variable();
+
+		/**
 		 * The meta object literal for the '{@link klang.impl.VariableImpl <em>Variable</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2295,14 +2379,6 @@ public interface KlangPackage extends EPackage {
 		EClass VARIABLE = eINSTANCE.getVariable();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VARIABLE__NAME = eINSTANCE.getVariable_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2311,30 +2387,74 @@ public interface KlangPackage extends EPackage {
 		EReference VARIABLE__EXPRESSION = eINSTANCE.getVariable_Expression();
 
 		/**
-		 * The meta object literal for the '{@link klang.impl.AssignmentImpl <em>Assignment</em>}' class.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see klang.impl.AssignmentImpl
-		 * @see klang.impl.KlangPackageImpl#getAssignment()
 		 * @generated
 		 */
-		EClass ASSIGNMENT = eINSTANCE.getAssignment();
+		EAttribute VARIABLE__NAME = eINSTANCE.getVariable_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ASSIGNMENT__VARIABLE = eINSTANCE.getAssignment_Variable();
+		EAttribute VARIABLE__VALUE = eINSTANCE.getVariable_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+		 * The meta object literal for the '{@link klang.impl.EntityImpl <em>Entity</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klang.impl.EntityImpl
+		 * @see klang.impl.KlangPackageImpl#getEntity()
+		 * @generated
+		 */
+		EClass ENTITY = eINSTANCE.getEntity();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ASSIGNMENT__EXPRESSION = eINSTANCE.getAssignment_Expression();
+		EAttribute ENTITY__TARGET = eINSTANCE.getEntity_Target();
+
+		/**
+		 * The meta object literal for the '{@link klang.impl.SpriteEntityImpl <em>Sprite Entity</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klang.impl.SpriteEntityImpl
+		 * @see klang.impl.KlangPackageImpl#getSpriteEntity()
+		 * @generated
+		 */
+		EClass SPRITE_ENTITY = eINSTANCE.getSpriteEntity();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPRITE_ENTITY__NAME = eINSTANCE.getSpriteEntity_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Hello</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SPRITE_ENTITY___HELLO = eINSTANCE.getSpriteEntity__Hello();
+
+		/**
+		 * The meta object literal for the '{@link klang.impl.SceneEntityImpl <em>Scene Entity</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klang.impl.SceneEntityImpl
+		 * @see klang.impl.KlangPackageImpl#getSceneEntity()
+		 * @generated
+		 */
+		EClass SCENE_ENTITY = eINSTANCE.getSceneEntity();
 
 		/**
 		 * The meta object literal for the '{@link klang.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -2535,24 +2655,12 @@ public interface KlangPackage extends EPackage {
 		EAttribute VARIABLE_REF__VARIABLE_NAME = eINSTANCE.getVariableRef_VariableName();
 
 		/**
-		 * The meta object literal for the '{@link klang.impl.SpriteImpl <em>Sprite</em>}' class.
+		 * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see klang.impl.SpriteImpl
-		 * @see klang.impl.KlangPackageImpl#getSprite()
 		 * @generated
 		 */
-		EClass SPRITE = eINSTANCE.getSprite();
-
-		/**
-		 * The meta object literal for the '{@link klang.impl.SceneImpl <em>Scene</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see klang.impl.SceneImpl
-		 * @see klang.impl.KlangPackageImpl#getScene()
-		 * @generated
-		 */
-		EClass SCENE = eINSTANCE.getScene();
+		EReference VARIABLE_REF__VARIABLE = eINSTANCE.getVariableRef_Variable();
 
 		/**
 		 * The meta object literal for the '{@link klang.impl.UnaryOperatorImpl <em>Unary Operator</em>}' class.
@@ -2597,6 +2705,32 @@ public interface KlangPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BINARY_OPERATOR__RIGHT = eINSTANCE.getBinaryOperator_Right();
+
+		/**
+		 * The meta object literal for the '{@link klang.impl.FunctionCallImpl <em>Function Call</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klang.impl.FunctionCallImpl
+		 * @see klang.impl.KlangPackageImpl#getFunctionCall()
+		 * @generated
+		 */
+		EClass FUNCTION_CALL = eINSTANCE.getFunctionCall();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FUNCTION_CALL__NAME = eINSTANCE.getFunctionCall_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FUNCTION_CALL__PARAMETERS = eINSTANCE.getFunctionCall_Parameters();
 
 		/**
 		 * The meta object literal for the '{@link klang.EventType <em>Event Type</em>}' enum.

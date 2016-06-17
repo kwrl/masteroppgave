@@ -1,0 +1,682 @@
+/**
+ */
+package klang.util;
+
+import java.util.Map;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.util.EObjectValidator;
+
+import klang.Actor;
+import klang.And;
+import klang.BinaryOperator;
+import klang.BooleanLiteral;
+import klang.ControlStatement;
+import klang.Divide;
+import klang.Entity;
+import klang.Equal;
+import klang.EventHandler;
+import klang.EventType;
+import klang.Expression;
+import klang.ForeverLoop;
+import klang.FunctionCall;
+import klang.Game;
+import klang.GreaterThan;
+import klang.If;
+import klang.KlangPackage;
+import klang.LessThan;
+import klang.Minus;
+import klang.Multiply;
+import klang.Not;
+import klang.NumericLiteral;
+import klang.Or;
+import klang.Plus;
+import klang.SceneEntity;
+import klang.SpriteEntity;
+import klang.Statement;
+import klang.StringLiteral;
+import klang.UnaryOperator;
+import klang.Variable;
+import klang.VariableAssignment;
+import klang.VariableDeclaration;
+import klang.VariableRef;
+import klang.WhileLoop;
+import klang.Yield;
+
+/**
+ * <!-- begin-user-doc --> The <b>Validator</b> for the model. <!-- end-user-doc
+ * -->
+ * 
+ * @see klang.KlangPackage
+ * @generated
+ */
+public class KlangValidator extends EObjectValidator {
+	/**
+	 * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public static final KlangValidator INSTANCE = new KlangValidator();
+
+	/**
+	 * A constant for the
+	 * {@link org.eclipse.emf.common.util.Diagnostic#getSource() source} of
+	 * diagnostic {@link org.eclipse.emf.common.util.Diagnostic#getCode() codes}
+	 * from this package. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.emf.common.util.Diagnostic#getSource()
+	 * @see org.eclipse.emf.common.util.Diagnostic#getCode()
+	 * @generated
+	 */
+	public static final String DIAGNOSTIC_SOURCE = "klang";
+
+	/**
+	 * A constant with a fixed name that can be used as the base value for
+	 * additional hand written constants. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 0;
+
+	/**
+	 * A constant with a fixed name that can be used as the base value for
+	 * additional hand written constants in a derived class. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected static final int DIAGNOSTIC_CODE_COUNT = GENERATED_DIAGNOSTIC_CODE_COUNT;
+
+	/**
+	 * Creates an instance of the switch. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public KlangValidator() {
+		super();
+	}
+
+	/**
+	 * Returns the package of this validator switch. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EPackage getEPackage() {
+		return KlangPackage.eINSTANCE;
+	}
+
+	/**
+	 * Calls <code>validateXXX</code> for the corresponding classifier of the
+	 * model. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		switch (classifierID) {
+		case KlangPackage.GAME:
+			return validateGame((Game) value, diagnostics, context);
+		case KlangPackage.ACTOR:
+			return validateActor((Actor) value, diagnostics, context);
+		case KlangPackage.EVENT_HANDLER:
+			return validateEventHandler((EventHandler) value, diagnostics, context);
+		case KlangPackage.WHILE_LOOP:
+			return validateWhileLoop((WhileLoop) value, diagnostics, context);
+		case KlangPackage.IF:
+			return validateIf((If) value, diagnostics, context);
+		case KlangPackage.FOREVER_LOOP:
+			return validateForeverLoop((ForeverLoop) value, diagnostics, context);
+		case KlangPackage.STATEMENT:
+			return validateStatement((Statement) value, diagnostics, context);
+		case KlangPackage.CONTROL_STATEMENT:
+			return validateControlStatement((ControlStatement) value, diagnostics, context);
+		case KlangPackage.YIELD:
+			return validateYield((Yield) value, diagnostics, context);
+		case KlangPackage.VARIABLE_DECLARATION:
+			return validateVariableDeclaration((VariableDeclaration) value, diagnostics, context);
+		case KlangPackage.VARIABLE_ASSIGNMENT:
+			return validateVariableAssignment((VariableAssignment) value, diagnostics, context);
+		case KlangPackage.EXPRESSION:
+			return validateExpression((Expression) value, diagnostics, context);
+		case KlangPackage.OR:
+			return validateOr((Or) value, diagnostics, context);
+		case KlangPackage.AND:
+			return validateAnd((And) value, diagnostics, context);
+		case KlangPackage.PLUS:
+			return validatePlus((Plus) value, diagnostics, context);
+		case KlangPackage.MINUS:
+			return validateMinus((Minus) value, diagnostics, context);
+		case KlangPackage.MULTIPLY:
+			return validateMultiply((Multiply) value, diagnostics, context);
+		case KlangPackage.DIVIDE:
+			return validateDivide((Divide) value, diagnostics, context);
+		case KlangPackage.LESS_THAN:
+			return validateLessThan((LessThan) value, diagnostics, context);
+		case KlangPackage.EQUAL:
+			return validateEqual((Equal) value, diagnostics, context);
+		case KlangPackage.GREATER_THAN:
+			return validateGreaterThan((GreaterThan) value, diagnostics, context);
+		case KlangPackage.NOT:
+			return validateNot((Not) value, diagnostics, context);
+		case KlangPackage.BOOLEAN_LITERAL:
+			return validateBooleanLiteral((BooleanLiteral) value, diagnostics, context);
+		case KlangPackage.NUMERIC_LITERAL:
+			return validateNumericLiteral((NumericLiteral) value, diagnostics, context);
+		case KlangPackage.STRING_LITERAL:
+			return validateStringLiteral((StringLiteral) value, diagnostics, context);
+		case KlangPackage.VARIABLE_REF:
+			return validateVariableRef((VariableRef) value, diagnostics, context);
+		case KlangPackage.UNARY_OPERATOR:
+			return validateUnaryOperator((UnaryOperator) value, diagnostics, context);
+		case KlangPackage.BINARY_OPERATOR:
+			return validateBinaryOperator((BinaryOperator) value, diagnostics, context);
+		case KlangPackage.FUNCTION_CALL:
+			return validateFunctionCall((FunctionCall) value, diagnostics, context);
+		case KlangPackage.VARIABLE:
+			return validateVariable((Variable) value, diagnostics, context);
+		case KlangPackage.ENTITY:
+			return validateEntity((Entity) value, diagnostics, context);
+		case KlangPackage.SPRITE_ENTITY:
+			return validateSpriteEntity((SpriteEntity) value, diagnostics, context);
+		case KlangPackage.SCENE_ENTITY:
+			return validateSceneEntity((SceneEntity) value, diagnostics, context);
+		case KlangPackage.EVENT_TYPE:
+			return validateEventType((EventType) value, diagnostics, context);
+		default:
+			return true;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateGame(Game game, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(game, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateActor(Actor actor, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(actor, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateEventHandler(EventHandler eventHandler, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(eventHandler, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateWhileLoop(WhileLoop whileLoop, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(whileLoop, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateIf(If if_, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(if_, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateForeverLoop(ForeverLoop foreverLoop, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(foreverLoop, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateStatement(Statement statement, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(statement, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateControlStatement(ControlStatement controlStatement, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(controlStatement, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateYield(Yield yield, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(yield, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateVariableDeclaration(VariableDeclaration variableDeclaration, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(variableDeclaration, diagnostics, context))
+			return false;
+		boolean result = validate_EveryMultiplicityConforms(variableDeclaration, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(variableDeclaration, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(variableDeclaration, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(variableDeclaration, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(variableDeclaration, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(variableDeclaration, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(variableDeclaration, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(variableDeclaration, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateVariableDeclaration_scope(variableDeclaration, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the scope constraint of '<em>Variable Declaration</em>'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateVariableDeclaration_scope(VariableDeclaration variableDeclaration,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateVariableAssignment(VariableAssignment variableAssignment, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(variableAssignment, diagnostics, context))
+			return false;
+		boolean result = validate_EveryMultiplicityConforms(variableAssignment, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(variableAssignment, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(variableAssignment, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(variableAssignment, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(variableAssignment, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(variableAssignment, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(variableAssignment, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(variableAssignment, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateVariableAssignment_scope(variableAssignment, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the scope constraint of '<em>Variable Assignment</em>'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean validateVariableAssignment_scope(VariableAssignment variableAssignment, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		Actor actor = KlangUtil.getActor(variableAssignment);
+		if (KlangUtil.actorHasVariableDeclaration(actor, variableAssignment.getVariableName())) {
+			return true;
+		}
+
+		Game game = KlangUtil.getGame(variableAssignment);
+		if (KlangUtil.gameHasVariableDeclaration(game, variableAssignment.getVariableName())) {
+			return true;
+		}
+
+		diagnostics.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+				new Object[] { "scope", getObjectLabel(variableAssignment, context) },
+				new Object[] { variableAssignment }, context));
+
+		return false;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateExpression(Expression expression, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(expression, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateOr(Or or, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(or, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateAnd(And and, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(and, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validatePlus(Plus plus, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(plus, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateMinus(Minus minus, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(minus, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateMultiply(Multiply multiply, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(multiply, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateDivide(Divide divide, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(divide, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateLessThan(LessThan lessThan, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(lessThan, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateEqual(Equal equal, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(equal, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateGreaterThan(GreaterThan greaterThan, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(greaterThan, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateNot(Not not, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(not, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateBooleanLiteral(BooleanLiteral booleanLiteral, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(booleanLiteral, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateNumericLiteral(NumericLiteral numericLiteral, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(numericLiteral, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateStringLiteral(StringLiteral stringLiteral, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(stringLiteral, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateVariableRef(VariableRef variableRef, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(variableRef, diagnostics, context))
+			return false;
+		boolean result = validate_EveryMultiplicityConforms(variableRef, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(variableRef, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(variableRef, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(variableRef, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(variableRef, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(variableRef, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(variableRef, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(variableRef, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateVariableRef_scope(variableRef, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the scope constraint of '<em>Variable Ref</em>'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean validateVariableRef_scope(VariableRef variableRef, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+
+		Actor actor = KlangUtil.getActor(variableRef);
+		if (KlangUtil.actorHasVariableDeclaration(actor, variableRef.getVariableName())) {
+			return true;
+		}
+
+		Game game = KlangUtil.getGame(variableRef);
+		if (KlangUtil.gameHasVariableDeclaration(game, variableRef.getVariableName())) {
+			return true;
+		}
+
+		diagnostics.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+				new Object[] { "scope", getObjectLabel(variableRef, context) }, new Object[] { variableRef }, context));
+
+		return false;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateUnaryOperator(UnaryOperator unaryOperator, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(unaryOperator, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateBinaryOperator(BinaryOperator binaryOperator, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(binaryOperator, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateFunctionCall(FunctionCall functionCall, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(functionCall, diagnostics, context))
+			return false;
+		boolean result = validate_EveryMultiplicityConforms(functionCall, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(functionCall, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(functionCall, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(functionCall, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(functionCall, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(functionCall, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(functionCall, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(functionCall, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateFunctionCall_methodDeclaration(functionCall, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the methodDeclaration constraint of '<em>Function Call</em>'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean validateFunctionCall_methodDeclaration(FunctionCall functionCall, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return false;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateVariable(Variable variable, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(variable, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateEntity(Entity entity, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(entity, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateSpriteEntity(SpriteEntity spriteEntity, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(spriteEntity, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateSceneEntity(SceneEntity sceneEntity, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(sceneEntity, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateEventType(EventType eventType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * Returns the resource locator that will be used to fetch messages for this
+	 * validator's diagnostics. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		// TODO
+		// Specialize this to return a resource locator for messages specific to
+		// this validator.
+		// Ensure that you remove @generated or mark it @generated NOT
+		return super.getResourceLocator();
+	}
+
+} // KlangValidator

@@ -209,11 +209,6 @@ public class EventHandlerItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.EVENT_HANDLER__STATEMENTS,
-				 KlangFactory.eINSTANCE.createSubroutineCall()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.EVENT_HANDLER__STATEMENTS,
 				 KlangFactory.eINSTANCE.createYield()));
 
 		newChildDescriptors.add
@@ -224,7 +219,7 @@ public class EventHandlerItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.EVENT_HANDLER__STATEMENTS,
-				 KlangFactory.eINSTANCE.createAssignment()));
+				 KlangFactory.eINSTANCE.createVariableAssignment()));
 	}
 
 	/**

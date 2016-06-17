@@ -5,13 +5,10 @@ package klang.impl;
 import klang.Expression;
 import klang.KlangPackage;
 import klang.Variable;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -22,13 +19,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link klang.impl.VariableImpl#getName <em>Name</em>}</li>
  *   <li>{@link klang.impl.VariableImpl#getExpression <em>Expression</em>}</li>
+ *   <li>{@link klang.impl.VariableImpl#getName <em>Name</em>}</li>
+ *   <li>{@link klang.impl.VariableImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class VariableImpl extends StatementImpl implements Variable {
+	/**
+	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected Expression expression;
+
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -50,14 +58,24 @@ public class VariableImpl extends StatementImpl implements Variable {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getExpression()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected Expression expression;
+	protected static final Object VALUE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected Object value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -76,27 +94,6 @@ public class VariableImpl extends StatementImpl implements Variable {
 	@Override
 	protected EClass eStaticClass() {
 		return KlangPackage.Literals.VARIABLE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, KlangPackage.VARIABLE__NAME, oldName, name));
 	}
 
 	/**
@@ -147,6 +144,48 @@ public class VariableImpl extends StatementImpl implements Variable {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, KlangPackage.VARIABLE__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Object getValue() {
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValue(Object newValue) {
+		Object oldValue = value;
+		value = newValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, KlangPackage.VARIABLE__VALUE, oldValue, value));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -164,10 +203,12 @@ public class VariableImpl extends StatementImpl implements Variable {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case KlangPackage.VARIABLE__NAME:
-				return getName();
 			case KlangPackage.VARIABLE__EXPRESSION:
 				return getExpression();
+			case KlangPackage.VARIABLE__NAME:
+				return getName();
+			case KlangPackage.VARIABLE__VALUE:
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -180,11 +221,14 @@ public class VariableImpl extends StatementImpl implements Variable {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case KlangPackage.VARIABLE__EXPRESSION:
+				setExpression((Expression)newValue);
+				return;
 			case KlangPackage.VARIABLE__NAME:
 				setName((String)newValue);
 				return;
-			case KlangPackage.VARIABLE__EXPRESSION:
-				setExpression((Expression)newValue);
+			case KlangPackage.VARIABLE__VALUE:
+				setValue(newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -198,11 +242,14 @@ public class VariableImpl extends StatementImpl implements Variable {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case KlangPackage.VARIABLE__EXPRESSION:
+				setExpression((Expression)null);
+				return;
 			case KlangPackage.VARIABLE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case KlangPackage.VARIABLE__EXPRESSION:
-				setExpression((Expression)null);
+			case KlangPackage.VARIABLE__VALUE:
+				setValue(VALUE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -216,10 +263,12 @@ public class VariableImpl extends StatementImpl implements Variable {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case KlangPackage.VARIABLE__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case KlangPackage.VARIABLE__EXPRESSION:
 				return expression != null;
+			case KlangPackage.VARIABLE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case KlangPackage.VARIABLE__VALUE:
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -236,6 +285,8 @@ public class VariableImpl extends StatementImpl implements Variable {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", value: ");
+		result.append(value);
 		result.append(')');
 		return result.toString();
 	}

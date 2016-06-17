@@ -2,8 +2,6 @@
  */
 package klang;
 
-import klang.framework.SpriteEntity;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Sprite</b></em>'.
@@ -14,5 +12,5 @@ import klang.framework.SpriteEntity;
  * @model
  * @generated
  */
-public interface Sprite extends Actor<SpriteEntity> {
+public interface Sprite extends Actor {
 } // Sprite

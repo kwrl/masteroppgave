@@ -1,0 +1,14 @@
+package com.kaurel.kengine.lib;
+
+import javafx.application.Application;
+import javafx.stage.Stage;
+
+public class KengineApplication extends Application {
+
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		
+	}
+	
+
+}

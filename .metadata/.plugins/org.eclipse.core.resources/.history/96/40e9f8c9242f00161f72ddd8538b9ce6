@@ -1,0 +1,16 @@
+package com.kaurel.kengine.lib;
+
+import javafx.application.Application;
+import javafx.stage.Stage;
+
+public class KengineApplication extends Application {
+	private KengineWorld world = new KengineWorld();
+
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		primaryStage.setScene(world.getScene());
+		primaryStage.show();
+	}
+	
+
+}

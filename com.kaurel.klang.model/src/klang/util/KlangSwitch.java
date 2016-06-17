@@ -3,8 +3,6 @@
 package klang.util;
 
 import klang.*;
-
-import klang.framework.Entity;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -74,7 +72,7 @@ public class KlangSwitch<T> extends Switch<T> {
 				return result;
 			}
 			case KlangPackage.ACTOR: {
-				Actor<?> actor = (Actor<?>)theEObject;
+				Actor actor = (Actor)theEObject;
 				T result = caseActor(actor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -115,13 +113,6 @@ public class KlangSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case KlangPackage.SUBROUTINE_CALL: {
-				SubroutineCall subroutineCall = (SubroutineCall)theEObject;
-				T result = caseSubroutineCall(subroutineCall);
-				if (result == null) result = caseStatement(subroutineCall);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case KlangPackage.CONTROL_STATEMENT: {
 				ControlStatement controlStatement = (ControlStatement)theEObject;
 				T result = caseControlStatement(controlStatement);
@@ -144,10 +135,10 @@ public class KlangSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case KlangPackage.ASSIGNMENT: {
-				Assignment assignment = (Assignment)theEObject;
-				T result = caseAssignment(assignment);
-				if (result == null) result = caseStatement(assignment);
+			case KlangPackage.VARIABLE_ASSIGNMENT: {
+				VariableAssignment variableAssignment = (VariableAssignment)theEObject;
+				T result = caseVariableAssignment(variableAssignment);
+				if (result == null) result = caseStatement(variableAssignment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -264,20 +255,6 @@ public class KlangSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case KlangPackage.SPRITE: {
-				Sprite sprite = (Sprite)theEObject;
-				T result = caseSprite(sprite);
-				if (result == null) result = caseActor(sprite);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case KlangPackage.SCENE: {
-				Scene scene = (Scene)theEObject;
-				T result = caseScene(scene);
-				if (result == null) result = caseActor(scene);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case KlangPackage.UNARY_OPERATOR: {
 				UnaryOperator unaryOperator = (UnaryOperator)theEObject;
 				T result = caseUnaryOperator(unaryOperator);
@@ -289,6 +266,33 @@ public class KlangSwitch<T> extends Switch<T> {
 				BinaryOperator binaryOperator = (BinaryOperator)theEObject;
 				T result = caseBinaryOperator(binaryOperator);
 				if (result == null) result = caseExpression(binaryOperator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case KlangPackage.FUNCTION_CALL: {
+				FunctionCall functionCall = (FunctionCall)theEObject;
+				T result = caseFunctionCall(functionCall);
+				if (result == null) result = caseExpression(functionCall);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case KlangPackage.ENTITY: {
+				Entity entity = (Entity)theEObject;
+				T result = caseEntity(entity);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case KlangPackage.SPRITE_ENTITY: {
+				SpriteEntity spriteEntity = (SpriteEntity)theEObject;
+				T result = caseSpriteEntity(spriteEntity);
+				if (result == null) result = caseEntity(spriteEntity);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case KlangPackage.SCENE_ENTITY: {
+				SceneEntity sceneEntity = (SceneEntity)theEObject;
+				T result = caseSceneEntity(sceneEntity);
+				if (result == null) result = caseEntity(sceneEntity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -322,7 +326,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <E extends Entity> T caseActor(Actor<E> object) {
+	public T caseActor(Actor object) {
 		return null;
 	}
 
@@ -402,21 +406,6 @@ public class KlangSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Subroutine Call</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Subroutine Call</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSubroutineCall(SubroutineCall object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Control Statement</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -447,6 +436,21 @@ public class KlangSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Variable Assignment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Variable Assignment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVariableAssignment(VariableAssignment object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Variable</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -462,17 +466,47 @@ public class KlangSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Assignment</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Entity</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Assignment</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Entity</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAssignment(Assignment object) {
+	public T caseEntity(Entity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sprite Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sprite Entity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSpriteEntity(SpriteEntity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Scene Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Scene Entity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSceneEntity(SceneEntity object) {
 		return null;
 	}
 
@@ -702,36 +736,6 @@ public class KlangSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Sprite</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Sprite</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSprite(Sprite object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Scene</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Scene</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseScene(Scene object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Unary Operator</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -758,6 +762,21 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBinaryOperator(BinaryOperator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Function Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Function Call</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFunctionCall(FunctionCall object) {
 		return null;
 	}
 

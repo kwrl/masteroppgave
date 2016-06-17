@@ -1,0 +1,18 @@
+package com.kaurel.kengine.lib;
+
+import javafx.scene.Group;
+
+public class KengineWorld implements GameEventListener {
+	
+	private Group group;
+
+	@Override
+	public void onGameEvent(GameEvent event) {
+		
+	}
+	
+	public void addEntity(Entity entity) {
+		
+	}
+
+}

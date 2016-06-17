@@ -1,0 +1,78 @@
+/**
+ */
+package klang;
+
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Variable Declaration</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link klang.VariableDeclaration#getExpression <em>Expression</em>}</li>
+ *   <li>{@link klang.VariableDeclaration#getVariable <em>Variable</em>}</li>
+ * </ul>
+ *
+ * @see klang.KlangPackage#getVariableDeclaration()
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='scope\n'"
+ * @generated
+ */
+public interface VariableDeclaration extends Statement {
+	/**
+	 * Returns the value of the '<em><b>Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Expression</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Expression</em>' containment reference.
+	 * @see #setExpression(Expression)
+	 * @see klang.KlangPackage#getVariableDeclaration_Expression()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Expression getExpression();
+
+	/**
+	 * Sets the value of the '{@link klang.VariableDeclaration#getExpression <em>Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Expression</em>' containment reference.
+	 * @see #getExpression()
+	 * @generated
+	 */
+	void setExpression(Expression value);
+
+	/**
+	 * Returns the value of the '<em><b>Variable</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link klang.Variable#getVariableDeclaration <em>Variable Declaration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Variable</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Variable</em>' containment reference.
+	 * @see #setVariable(Variable)
+	 * @see klang.KlangPackage#getVariableDeclaration_Variable()
+	 * @see klang.Variable#getVariableDeclaration
+	 * @model opposite="variableDeclaration" containment="true"
+	 * @generated
+	 */
+	Variable getVariable();
+
+	/**
+	 * Sets the value of the '{@link klang.VariableDeclaration#getVariable <em>Variable</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Variable</em>' containment reference.
+	 * @see #getVariable()
+	 * @generated
+	 */
+	void setVariable(Variable value);
+
+} // VariableDeclaration

@@ -1,9 +1,0 @@
-grammar com.kaurel.klang.xtext.Klang with org.eclipse.xtext.common.Terminals
-
-generate klang "http://www.kaurel.com/klang/xtext/Klang"
-
-Model:
-	greetings+=Greeting*;
-	
-Greeting:
-	'Hello' name=ID '!';

@@ -161,11 +161,6 @@ public class ForeverLoopItemProvider extends ControlStatementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.FOREVER_LOOP__LOOP_STATEMENTS,
-				 KlangFactory.eINSTANCE.createSubroutineCall()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.FOREVER_LOOP__LOOP_STATEMENTS,
 				 KlangFactory.eINSTANCE.createYield()));
 
 		newChildDescriptors.add
@@ -176,7 +171,7 @@ public class ForeverLoopItemProvider extends ControlStatementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.FOREVER_LOOP__LOOP_STATEMENTS,
-				 KlangFactory.eINSTANCE.createAssignment()));
+				 KlangFactory.eINSTANCE.createVariableAssignment()));
 	}
 
 }

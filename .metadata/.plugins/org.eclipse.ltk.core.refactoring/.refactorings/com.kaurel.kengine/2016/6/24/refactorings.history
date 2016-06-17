@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.kaurel.kengine.world.EntityScene&apos; to &apos;EntityGroup&apos;&#x0A;- Original project: &apos;com.kaurel.kengine&apos;&#x0A;- Original element: &apos;com.kaurel.kengine.world.EntityScene&apos;&#x0A;- Renamed element: &apos;com.kaurel.kengine.world.EntityGroup&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;EntityScene&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.kaurel.kengine.world{EntityScene.java[EntityScene" matchStrategy="1" name="EntityGroup" qualified="false" references="true" similarDeclarations="false" stamp="1465410626622" textual="false" version="1.0"/>
+</session>

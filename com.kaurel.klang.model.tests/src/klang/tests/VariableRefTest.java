@@ -11,6 +11,12 @@ import klang.VariableRef;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Variable Ref</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are tested:
+ * <ul>
+ *   <li>{@link klang.VariableRef#getVariable() <em>Variable</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class VariableRefTest extends ExpressionTest {
@@ -65,6 +71,19 @@ public class VariableRefTest extends ExpressionTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link klang.VariableRef#getVariable() <em>Variable</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.VariableRef#getVariable()
+	 * @generated
+	 */
+	public void testGetVariable() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //VariableRefTest

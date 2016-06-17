@@ -3,8 +3,6 @@
 package klang.util;
 
 import klang.*;
-
-import klang.framework.Entity;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -73,7 +71,7 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 				return createGameAdapter();
 			}
 			@Override
-			public <E extends Entity> Adapter caseActor(Actor<E> object) {
+			public Adapter caseActor(Actor object) {
 				return createActorAdapter();
 			}
 			@Override
@@ -97,10 +95,6 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 				return createStatementAdapter();
 			}
 			@Override
-			public Adapter caseSubroutineCall(SubroutineCall object) {
-				return createSubroutineCallAdapter();
-			}
-			@Override
 			public Adapter caseControlStatement(ControlStatement object) {
 				return createControlStatementAdapter();
 			}
@@ -113,8 +107,8 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 				return createVariableAdapter();
 			}
 			@Override
-			public Adapter caseAssignment(Assignment object) {
-				return createAssignmentAdapter();
+			public Adapter caseVariableAssignment(VariableAssignment object) {
+				return createVariableAssignmentAdapter();
 			}
 			@Override
 			public Adapter caseExpression(Expression object) {
@@ -177,20 +171,28 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 				return createVariableRefAdapter();
 			}
 			@Override
-			public Adapter caseSprite(Sprite object) {
-				return createSpriteAdapter();
-			}
-			@Override
-			public Adapter caseScene(Scene object) {
-				return createSceneAdapter();
-			}
-			@Override
 			public Adapter caseUnaryOperator(UnaryOperator object) {
 				return createUnaryOperatorAdapter();
 			}
 			@Override
 			public Adapter caseBinaryOperator(BinaryOperator object) {
 				return createBinaryOperatorAdapter();
+			}
+			@Override
+			public Adapter caseFunctionCall(FunctionCall object) {
+				return createFunctionCallAdapter();
+			}
+			@Override
+			public Adapter caseEntity(Entity object) {
+				return createEntityAdapter();
+			}
+			@Override
+			public Adapter caseSpriteEntity(SpriteEntity object) {
+				return createSpriteEntityAdapter();
+			}
+			@Override
+			public Adapter caseSceneEntity(SceneEntity object) {
+				return createSceneEntityAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -311,20 +313,6 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link klang.SubroutineCall <em>Subroutine Call</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see klang.SubroutineCall
-	 * @generated
-	 */
-	public Adapter createSubroutineCallAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link klang.ControlStatement <em>Control Statement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -353,6 +341,20 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link klang.VariableAssignment <em>Variable Assignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klang.VariableAssignment
+	 * @generated
+	 */
+	public Adapter createVariableAssignmentAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link klang.Variable <em>Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -367,16 +369,44 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link klang.Assignment <em>Assignment</em>}'.
+	 * Creates a new adapter for an object of class '{@link klang.Entity <em>Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see klang.Assignment
+	 * @see klang.Entity
 	 * @generated
 	 */
-	public Adapter createAssignmentAdapter() {
+	public Adapter createEntityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link klang.SpriteEntity <em>Sprite Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klang.SpriteEntity
+	 * @generated
+	 */
+	public Adapter createSpriteEntityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link klang.SceneEntity <em>Scene Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klang.SceneEntity
+	 * @generated
+	 */
+	public Adapter createSceneEntityAdapter() {
 		return null;
 	}
 
@@ -591,34 +621,6 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link klang.Sprite <em>Sprite</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see klang.Sprite
-	 * @generated
-	 */
-	public Adapter createSpriteAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link klang.Scene <em>Scene</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see klang.Scene
-	 * @generated
-	 */
-	public Adapter createSceneAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link klang.UnaryOperator <em>Unary Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -643,6 +645,20 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBinaryOperatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link klang.FunctionCall <em>Function Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klang.FunctionCall
+	 * @generated
+	 */
+	public Adapter createFunctionCallAdapter() {
 		return null;
 	}
 

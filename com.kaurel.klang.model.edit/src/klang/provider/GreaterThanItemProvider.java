@@ -222,6 +222,11 @@ public class GreaterThanItemProvider extends ExpressionItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(KlangPackage.Literals.GREATER_THAN__LEFT,
+				 KlangFactory.eINSTANCE.createFunctionCall()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(KlangPackage.Literals.GREATER_THAN__RIGHT,
 				 KlangFactory.eINSTANCE.createExpression()));
 
@@ -304,6 +309,11 @@ public class GreaterThanItemProvider extends ExpressionItemProvider {
 			(createChildParameter
 				(KlangPackage.Literals.GREATER_THAN__RIGHT,
 				 KlangFactory.eINSTANCE.createVariableRef()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.GREATER_THAN__RIGHT,
+				 KlangFactory.eINSTANCE.createFunctionCall()));
 	}
 
 	/**

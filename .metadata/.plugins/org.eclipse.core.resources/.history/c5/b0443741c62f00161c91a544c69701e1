@@ -1,0 +1,39 @@
+package klang.util;
+
+import org.eclipse.emf.ecore.EObject;
+
+import klang.Actor;
+import klang.Game;
+
+public class KlangUtil {
+	public static Game getGame(EObject object) {
+		EObject current = object;
+		while (current != null) {
+			current = current.eContainer();
+			if (current instanceof Game) {
+				return (Game) current;
+			}
+		}
+		return null;
+	}
+
+	public static Actor getActor(EObject object) {
+		EObject current = object;
+		while (current != null) {
+			current = current.eContainer();
+			if (current instanceof Actor) {
+				return (Actor) current;
+			}
+		}
+		return null;
+	}
+
+	public static boolean gameHasVariableDeclaration(Game game, String variableName) {
+		return false;
+	}
+
+	public static boolean actorHasVariableDeclaration(Actor actor, String variableName) {
+		return actor.getVariableDeclarations().stream()
+				.filter(decl -> decl.getVariable().getName().equals(variableName)).count() > 0;
+	}
+}

@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link klang.Game#getVariables <em>Variables</em>}</li>
+ *   <li>{@link klang.Game#getVariableDeclarations <em>Variable Declarations</em>}</li>
  *   <li>{@link klang.Game#getActorDefs <em>Actor Defs</em>}</li>
  * </ul>
  *
@@ -25,20 +25,20 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Game extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Variables</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Variable Declarations</b></em>' containment reference list.
 	 * The list contents are of type {@link klang.Variable}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Variables</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Variable Declarations</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Variables</em>' containment reference list.
-	 * @see klang.KlangPackage#getGame_Variables()
+	 * @return the value of the '<em>Variable Declarations</em>' containment reference list.
+	 * @see klang.KlangPackage#getGame_VariableDeclarations()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Variable> getVariables();
+	EList<Variable> getVariableDeclarations();
 
 	/**
 	 * Returns the value of the '<em><b>Actor Defs</b></em>' containment reference list.

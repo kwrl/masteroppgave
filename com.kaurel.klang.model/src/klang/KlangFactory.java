@@ -2,7 +2,6 @@
  */
 package klang;
 
-import klang.framework.Entity;
 import org.eclipse.emf.ecore.EFactory;
 
 /**
@@ -38,7 +37,7 @@ public interface KlangFactory extends EFactory {
 	 * @return a new object of class '<em>Actor</em>'.
 	 * @generated
 	 */
-	<E extends Entity> Actor<E> createActor();
+	Actor createActor();
 
 	/**
 	 * Returns a new object of class '<em>Event Handler</em>'.
@@ -86,15 +85,6 @@ public interface KlangFactory extends EFactory {
 	Statement createStatement();
 
 	/**
-	 * Returns a new object of class '<em>Subroutine Call</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Subroutine Call</em>'.
-	 * @generated
-	 */
-	SubroutineCall createSubroutineCall();
-
-	/**
 	 * Returns a new object of class '<em>Control Statement</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -113,6 +103,15 @@ public interface KlangFactory extends EFactory {
 	Yield createYield();
 
 	/**
+	 * Returns a new object of class '<em>Variable Assignment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Variable Assignment</em>'.
+	 * @generated
+	 */
+	VariableAssignment createVariableAssignment();
+
+	/**
 	 * Returns a new object of class '<em>Variable</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -122,13 +121,31 @@ public interface KlangFactory extends EFactory {
 	Variable createVariable();
 
 	/**
-	 * Returns a new object of class '<em>Assignment</em>'.
+	 * Returns a new object of class '<em>Entity</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Assignment</em>'.
+	 * @return a new object of class '<em>Entity</em>'.
 	 * @generated
 	 */
-	Assignment createAssignment();
+	Entity createEntity();
+
+	/**
+	 * Returns a new object of class '<em>Sprite Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sprite Entity</em>'.
+	 * @generated
+	 */
+	SpriteEntity createSpriteEntity();
+
+	/**
+	 * Returns a new object of class '<em>Scene Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Scene Entity</em>'.
+	 * @generated
+	 */
+	SceneEntity createSceneEntity();
 
 	/**
 	 * Returns a new object of class '<em>Expression</em>'.
@@ -266,24 +283,6 @@ public interface KlangFactory extends EFactory {
 	VariableRef createVariableRef();
 
 	/**
-	 * Returns a new object of class '<em>Sprite</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Sprite</em>'.
-	 * @generated
-	 */
-	Sprite createSprite();
-
-	/**
-	 * Returns a new object of class '<em>Scene</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Scene</em>'.
-	 * @generated
-	 */
-	Scene createScene();
-
-	/**
 	 * Returns a new object of class '<em>Unary Operator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -300,6 +299,15 @@ public interface KlangFactory extends EFactory {
 	 * @generated
 	 */
 	BinaryOperator createBinaryOperator();
+
+	/**
+	 * Returns a new object of class '<em>Function Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Function Call</em>'.
+	 * @generated
+	 */
+	FunctionCall createFunctionCall();
 
 	/**
 	 * Returns the package supported by this factory.

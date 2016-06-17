@@ -77,7 +77,7 @@ public class GameItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(KlangPackage.Literals.GAME__VARIABLES);
+			childrenFeatures.add(KlangPackage.Literals.GAME__VARIABLE_DECLARATIONS);
 			childrenFeatures.add(KlangPackage.Literals.GAME__ACTOR_DEFS);
 		}
 		return childrenFeatures;
@@ -131,7 +131,7 @@ public class GameItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Game.class)) {
-			case KlangPackage.GAME__VARIABLES:
+			case KlangPackage.GAME__VARIABLE_DECLARATIONS:
 			case KlangPackage.GAME__ACTOR_DEFS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -152,23 +152,13 @@ public class GameItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(KlangPackage.Literals.GAME__VARIABLES,
+				(KlangPackage.Literals.GAME__VARIABLE_DECLARATIONS,
 				 KlangFactory.eINSTANCE.createVariable()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.GAME__ACTOR_DEFS,
 				 KlangFactory.eINSTANCE.createActor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.GAME__ACTOR_DEFS,
-				 KlangFactory.eINSTANCE.createSprite()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.GAME__ACTOR_DEFS,
-				 KlangFactory.eINSTANCE.createScene()));
 	}
 
 	/**

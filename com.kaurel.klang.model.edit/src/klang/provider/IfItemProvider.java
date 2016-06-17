@@ -222,6 +222,11 @@ public class IfItemProvider extends ControlStatementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(KlangPackage.Literals.IF__PREDICATE,
+				 KlangFactory.eINSTANCE.createFunctionCall()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(KlangPackage.Literals.IF__IF_BLOCK,
 				 KlangFactory.eINSTANCE.createStatement()));
 
@@ -248,11 +253,6 @@ public class IfItemProvider extends ControlStatementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.IF__IF_BLOCK,
-				 KlangFactory.eINSTANCE.createSubroutineCall()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.IF__IF_BLOCK,
 				 KlangFactory.eINSTANCE.createYield()));
 
 		newChildDescriptors.add
@@ -263,7 +263,7 @@ public class IfItemProvider extends ControlStatementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.IF__IF_BLOCK,
-				 KlangFactory.eINSTANCE.createAssignment()));
+				 KlangFactory.eINSTANCE.createVariableAssignment()));
 	}
 
 }

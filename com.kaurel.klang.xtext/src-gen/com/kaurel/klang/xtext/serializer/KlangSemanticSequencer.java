@@ -6,8 +6,8 @@ package com.kaurel.klang.xtext.serializer;
 import com.google.inject.Inject;
 import com.kaurel.klang.xtext.services.KlangGrammarAccess;
 import java.util.Set;
+import klang.Actor;
 import klang.And;
-import klang.Assignment;
 import klang.BooleanLiteral;
 import klang.Divide;
 import klang.Equal;
@@ -24,10 +24,11 @@ import klang.Not;
 import klang.NumericLiteral;
 import klang.Or;
 import klang.Plus;
-import klang.Sprite;
+import klang.SceneEntity;
+import klang.SpriteEntity;
 import klang.StringLiteral;
-import klang.SubroutineCall;
 import klang.Variable;
+import klang.VariableAssignment;
 import klang.VariableRef;
 import klang.WhileLoop;
 import klang.Yield;
@@ -55,11 +56,11 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == KlangPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case KlangPackage.ACTOR:
+				sequence_Actor(context, (Actor) semanticObject); 
+				return; 
 			case KlangPackage.AND:
 				sequence_And(context, (And) semanticObject); 
-				return; 
-			case KlangPackage.ASSIGNMENT:
-				sequence_Assignment(context, (Assignment) semanticObject); 
 				return; 
 			case KlangPackage.BOOLEAN_LITERAL:
 				sequence_AtomicExpression(context, (BooleanLiteral) semanticObject); 
@@ -106,17 +107,20 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case KlangPackage.PLUS:
 				sequence_Plus(context, (Plus) semanticObject); 
 				return; 
-			case KlangPackage.SPRITE:
-				sequence_Sprite(context, (Sprite) semanticObject); 
+			case KlangPackage.SCENE_ENTITY:
+				sequence_Entity(context, (SceneEntity) semanticObject); 
+				return; 
+			case KlangPackage.SPRITE_ENTITY:
+				sequence_Entity(context, (SpriteEntity) semanticObject); 
 				return; 
 			case KlangPackage.STRING_LITERAL:
 				sequence_AtomicExpression(context, (StringLiteral) semanticObject); 
 				return; 
-			case KlangPackage.SUBROUTINE_CALL:
-				sequence_SubroutineCall(context, (SubroutineCall) semanticObject); 
-				return; 
 			case KlangPackage.VARIABLE:
 				sequence_Variable(context, (Variable) semanticObject); 
+				return; 
+			case KlangPackage.VARIABLE_ASSIGNMENT:
+				sequence_VariableAssignment(context, (VariableAssignment) semanticObject); 
 				return; 
 			case KlangPackage.VARIABLE_REF:
 				sequence_AtomicExpression(context, (VariableRef) semanticObject); 
@@ -131,6 +135,18 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Contexts:
+	 *     Actor returns Actor
+	 *
+	 * Constraint:
+	 *     (entity=Entity variableDeclarations+=Variable* eventHandlers+=EventHandler*)
+	 */
+	protected void sequence_Actor(ISerializationContext context, Actor semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Contexts:
@@ -166,28 +182,6 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getAndAccess().getAndLeftAction_1_0(), semanticObject.getLeft());
 		feeder.accept(grammarAccess.getAndAccess().getRightComparisonParserRuleCall_1_2_0(), semanticObject.getRight());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Statement returns Assignment
-	 *     Assignment returns Assignment
-	 *
-	 * Constraint:
-	 *     (variable=[Variable|ID] expression=Expression)
-	 */
-	protected void sequence_Assignment(ISerializationContext context, Assignment semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.ASSIGNMENT__VARIABLE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.ASSIGNMENT__VARIABLE));
-			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.ASSIGNMENT__EXPRESSION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.ASSIGNMENT__EXPRESSION));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAssignmentAccess().getVariableVariableIDTerminalRuleCall_0_0_1(), semanticObject.getVariable());
-		feeder.accept(grammarAccess.getAssignmentAccess().getExpressionExpressionParserRuleCall_2_0(), semanticObject.getExpression());
 		feeder.finish();
 	}
 	
@@ -245,7 +239,7 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     AtomicExpression returns NumericLiteral
 	 *
 	 * Constraint:
-	 *     value=NUMERIC
+	 *     value=DECIMAL
 	 */
 	protected void sequence_AtomicExpression(ISerializationContext context, NumericLiteral semanticObject) {
 		if (errorAcceptor != null) {
@@ -253,7 +247,7 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.NUMERIC_LITERAL__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAtomicExpressionAccess().getValueNUMERICTerminalRuleCall_1_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getAtomicExpressionAccess().getValueDECIMALTerminalRuleCall_1_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -484,6 +478,36 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     Entity returns SceneEntity
+	 *
+	 * Constraint:
+	 *     {SceneEntity}
+	 */
+	protected void sequence_Entity(ISerializationContext context, SceneEntity semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Entity returns SpriteEntity
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_Entity(ISerializationContext context, SpriteEntity semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.SPRITE_ENTITY__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.SPRITE_ENTITY__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEntityAccess().getNameIDTerminalRuleCall_0_2_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     EventHandler returns EventHandler
 	 *
 	 * Constraint:
@@ -513,7 +537,7 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Game returns Game
 	 *
 	 * Constraint:
-	 *     (variables+=Variable* actorDefs+=Sprite*)
+	 *     (variableDeclarations+=Variable* actorDefs+=Actor*)
 	 */
 	protected void sequence_Game(ISerializationContext context, Game semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -723,26 +747,23 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Sprite returns Sprite
+	 *     Statement returns VariableAssignment
+	 *     VariableAssignment returns VariableAssignment
 	 *
 	 * Constraint:
-	 *     (name=ID variables+=Variable* eventHandlers+=EventHandler*)
+	 *     (variableName=ID expression=Expression)
 	 */
-	protected void sequence_Sprite(ISerializationContext context, Sprite semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Statement returns SubroutineCall
-	 *     SubroutineCall returns SubroutineCall
-	 *
-	 * Constraint:
-	 *     (name=ID parameters+=Expression? parameters+=Expression*)
-	 */
-	protected void sequence_SubroutineCall(ISerializationContext context, SubroutineCall semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_VariableAssignment(ISerializationContext context, VariableAssignment semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.VARIABLE_ASSIGNMENT__VARIABLE_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.VARIABLE_ASSIGNMENT__VARIABLE_NAME));
+			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.VARIABLE_ASSIGNMENT__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.VARIABLE_ASSIGNMENT__EXPRESSION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getVariableAssignmentAccess().getVariableNameIDTerminalRuleCall_0_0(), semanticObject.getVariableName());
+		feeder.accept(grammarAccess.getVariableAssignmentAccess().getExpressionExpressionParserRuleCall_2_0(), semanticObject.getExpression());
+		feeder.finish();
 	}
 	
 	

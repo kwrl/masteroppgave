@@ -16,7 +16,7 @@ package klang;
  * </ul>
  *
  * @see klang.KlangPackage#getUnaryOperator()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='type\n'"
  * @generated
  */
 public interface UnaryOperator extends Expression {

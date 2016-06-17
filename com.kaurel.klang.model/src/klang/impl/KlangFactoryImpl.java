@@ -3,8 +3,6 @@
 package klang.impl;
 
 import klang.*;
-
-import klang.framework.Entity;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -65,11 +63,10 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 			case KlangPackage.IF: return createIf();
 			case KlangPackage.FOREVER_LOOP: return createForeverLoop();
 			case KlangPackage.STATEMENT: return createStatement();
-			case KlangPackage.SUBROUTINE_CALL: return createSubroutineCall();
 			case KlangPackage.CONTROL_STATEMENT: return createControlStatement();
 			case KlangPackage.YIELD: return createYield();
 			case KlangPackage.VARIABLE: return createVariable();
-			case KlangPackage.ASSIGNMENT: return createAssignment();
+			case KlangPackage.VARIABLE_ASSIGNMENT: return createVariableAssignment();
 			case KlangPackage.EXPRESSION: return createExpression();
 			case KlangPackage.OR: return createOr();
 			case KlangPackage.AND: return createAnd();
@@ -85,10 +82,12 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 			case KlangPackage.NUMERIC_LITERAL: return createNumericLiteral();
 			case KlangPackage.STRING_LITERAL: return createStringLiteral();
 			case KlangPackage.VARIABLE_REF: return createVariableRef();
-			case KlangPackage.SPRITE: return createSprite();
-			case KlangPackage.SCENE: return createScene();
 			case KlangPackage.UNARY_OPERATOR: return createUnaryOperator();
 			case KlangPackage.BINARY_OPERATOR: return createBinaryOperator();
+			case KlangPackage.FUNCTION_CALL: return createFunctionCall();
+			case KlangPackage.ENTITY: return createEntity();
+			case KlangPackage.SPRITE_ENTITY: return createSpriteEntity();
+			case KlangPackage.SCENE_ENTITY: return createSceneEntity();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -139,8 +138,8 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public <E extends Entity> Actor<E> createActor() {
-		ActorImpl<E> actor = new ActorImpl<E>();
+	public Actor createActor() {
+		ActorImpl actor = new ActorImpl();
 		return actor;
 	}
 
@@ -199,16 +198,6 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SubroutineCall createSubroutineCall() {
-		SubroutineCallImpl subroutineCall = new SubroutineCallImpl();
-		return subroutineCall;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ControlStatement createControlStatement() {
 		ControlStatementImpl controlStatement = new ControlStatementImpl();
 		return controlStatement;
@@ -229,6 +218,16 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public VariableAssignment createVariableAssignment() {
+		VariableAssignmentImpl variableAssignment = new VariableAssignmentImpl();
+		return variableAssignment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Variable createVariable() {
 		VariableImpl variable = new VariableImpl();
 		return variable;
@@ -239,9 +238,29 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Assignment createAssignment() {
-		AssignmentImpl assignment = new AssignmentImpl();
-		return assignment;
+	public Entity createEntity() {
+		EntityImpl entity = new EntityImpl();
+		return entity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SpriteEntity createSpriteEntity() {
+		SpriteEntityImpl spriteEntity = new SpriteEntityImpl();
+		return spriteEntity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SceneEntity createSceneEntity() {
+		SceneEntityImpl sceneEntity = new SceneEntityImpl();
+		return sceneEntity;
 	}
 
 	/**
@@ -399,26 +418,6 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Sprite createSprite() {
-		SpriteImpl sprite = new SpriteImpl();
-		return sprite;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Scene createScene() {
-		SceneImpl scene = new SceneImpl();
-		return scene;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public UnaryOperator createUnaryOperator() {
 		UnaryOperatorImpl unaryOperator = new UnaryOperatorImpl();
 		return unaryOperator;
@@ -432,6 +431,16 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	public BinaryOperator createBinaryOperator() {
 		BinaryOperatorImpl binaryOperator = new BinaryOperatorImpl();
 		return binaryOperator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FunctionCall createFunctionCall() {
+		FunctionCallImpl functionCall = new FunctionCallImpl();
+		return functionCall;
 	}
 
 	/**

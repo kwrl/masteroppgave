@@ -16,15 +16,12 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -63,54 +60,8 @@ public class ActorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
-			addEntityPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Actor_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Actor_name_feature", "_UI_Actor_type"),
-				 KlangPackage.Literals.ACTOR__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Entity feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addEntityPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Actor_entity_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Actor_entity_feature", "_UI_Actor_type"),
-				 KlangPackage.Literals.ACTOR__ENTITY,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -125,8 +76,9 @@ public class ActorItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(KlangPackage.Literals.ACTOR__VARIABLES);
+			childrenFeatures.add(KlangPackage.Literals.ACTOR__VARIABLE_DECLARATIONS);
 			childrenFeatures.add(KlangPackage.Literals.ACTOR__EVENT_HANDLERS);
+			childrenFeatures.add(KlangPackage.Literals.ACTOR__ENTITY);
 		}
 		return childrenFeatures;
 	}
@@ -163,10 +115,7 @@ public class ActorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Actor<?>)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Actor_type") :
-			getString("_UI_Actor_type") + " " + label;
+		return getString("_UI_Actor_type");
 	}
 	
 
@@ -182,11 +131,9 @@ public class ActorItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Actor.class)) {
-			case KlangPackage.ACTOR__NAME:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case KlangPackage.ACTOR__VARIABLES:
+			case KlangPackage.ACTOR__VARIABLE_DECLARATIONS:
 			case KlangPackage.ACTOR__EVENT_HANDLERS:
+			case KlangPackage.ACTOR__ENTITY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -206,13 +153,28 @@ public class ActorItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(KlangPackage.Literals.ACTOR__VARIABLES,
+				(KlangPackage.Literals.ACTOR__VARIABLE_DECLARATIONS,
 				 KlangFactory.eINSTANCE.createVariable()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.ACTOR__EVENT_HANDLERS,
 				 KlangFactory.eINSTANCE.createEventHandler()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.ACTOR__ENTITY,
+				 KlangFactory.eINSTANCE.createEntity()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.ACTOR__ENTITY,
+				 KlangFactory.eINSTANCE.createSpriteEntity()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.ACTOR__ENTITY,
+				 KlangFactory.eINSTANCE.createSceneEntity()));
 	}
 
 	/**

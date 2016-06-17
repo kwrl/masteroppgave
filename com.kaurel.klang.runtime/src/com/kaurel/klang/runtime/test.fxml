@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <center>
+      <Pane prefHeight="2724.0" prefWidth="2554.0" BorderPane.alignment="CENTER">
+         <children>
+            <Circle id="ball" fill="DODGERBLUE" layoutX="732.0" layoutY="396.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

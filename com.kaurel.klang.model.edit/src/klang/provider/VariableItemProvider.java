@@ -5,16 +5,13 @@ package klang.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import klang.KlangFactory;
 import klang.KlangPackage;
 import klang.Variable;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -49,6 +46,7 @@ public class VariableItemProvider extends StatementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -67,6 +65,28 @@ public class VariableItemProvider extends StatementItemProvider {
 				 getString("_UI_Variable_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Variable_name_feature", "_UI_Variable_type"),
 				 KlangPackage.Literals.VARIABLE__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Variable_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Variable_value_feature", "_UI_Variable_type"),
+				 KlangPackage.Literals.VARIABLE__VALUE,
 				 true,
 				 false,
 				 false,
@@ -144,6 +164,7 @@ public class VariableItemProvider extends StatementItemProvider {
 
 		switch (notification.getFeatureID(Variable.class)) {
 			case KlangPackage.VARIABLE__NAME:
+			case KlangPackage.VARIABLE__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case KlangPackage.VARIABLE__EXPRESSION:
@@ -248,6 +269,11 @@ public class VariableItemProvider extends StatementItemProvider {
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE__EXPRESSION,
 				 KlangFactory.eINSTANCE.createVariableRef()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.VARIABLE__EXPRESSION,
+				 KlangFactory.eINSTANCE.createFunctionCall()));
 	}
 
 }

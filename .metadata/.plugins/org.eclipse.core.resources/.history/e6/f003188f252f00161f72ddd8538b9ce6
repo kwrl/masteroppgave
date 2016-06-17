@@ -1,0 +1,20 @@
+package com.kaurel.kengine.lib.entities;
+
+import org.jbox2d.dynamics.Body;
+
+import com.kaurel.kengine.lib.GameEvent;
+
+import javafx.scene.Node;
+
+public class Sprite extends Entity {
+
+	public Sprite(Body body, Node graphics) {
+		super(body, graphics);
+	}
+
+	@Override
+	public void onGameEvent(GameEvent event) {
+		
+	}
+
+}

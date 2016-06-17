@@ -3,12 +3,16 @@
 com.google.gson,2.2.4.v201311231704,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/com.google.gson_2.2.4.v201311231704.jar,4,false
 com.google.guava,15.0.0.v201403281430,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/com.google.guava_15.0.0.v201403281430.jar,4,false
 com.google.inject,3.0.0.v201312141243,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/com.google.inject_3.0.0.v201312141243.jar,4,false
+com.gradleware.tooling.client,0.12.0.v20160425083245,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/com.gradleware.tooling.client_0.12.0.v20160425083245.jar,4,false
+com.gradleware.tooling.model,0.12.0.v20160425083245,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/com.gradleware.tooling.model_0.12.0.v20160425083245.jar,4,false
+com.gradleware.tooling.utils,0.12.0.v20160425083245,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/com.gradleware.tooling.utils_0.12.0.v20160425083245.jar,4,false
 com.ibm.icu,56.1.0.v201601250100,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/com.ibm.icu_56.1.0.v201601250100.jar,4,false
 com.jcraft.jsch,0.1.53.v201508180515,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/com.jcraft.jsch_0.1.53.v201508180515.jar,4,false
 com.kaurel.klang.model,0.1.0.qualifier,file:/Users/kwrl/Documents/masteroppgave/com.kaurel.klang.model/,4,false
 com.kaurel.klang.model.edit,1.0.0.qualifier,file:/Users/kwrl/Documents/masteroppgave/com.kaurel.klang.model.edit/,4,false
 com.kaurel.klang.model.editor,1.0.0.qualifier,file:/Users/kwrl/Documents/masteroppgave/com.kaurel.klang.model.editor/,4,false
 com.kaurel.klang.model.tests,1.0.0.qualifier,file:/Users/kwrl/Documents/masteroppgave/com.kaurel.klang.model.tests/,4,false
+com.kaurel.klang.runtime,1.0.0.qualifier,file:/Users/kwrl/Documents/masteroppgave/com.kaurel.klang.runtime/,4,false
 com.kaurel.klang.xtext,1.0.0.qualifier,file:/Users/kwrl/Documents/masteroppgave/com.kaurel.klang.xtext/,4,false
 com.kaurel.klang.xtext.ide,1.0.0.qualifier,file:/Users/kwrl/Documents/masteroppgave/com.kaurel.klang.xtext.ide/,4,false
 com.kaurel.klang.xtext.tests,1.0.0.qualifier,file:/Users/kwrl/Documents/masteroppgave/com.kaurel.klang.xtext.tests/,4,false
@@ -26,6 +30,9 @@ lpg.runtime.java,2.0.17.v201004271640,file:/Users/kwrl/Applications/Eclipse.app/
 net.sourceforge.vrapper.core,0.66.0,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/net.sourceforge.vrapper.core_0.66.0.jar,4,false
 net.sourceforge.vrapper.eclipse,0.66.0,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/net.sourceforge.vrapper.eclipse_0.66.0.jar,4,false
 net.sourceforge.vrapper.plugin.splitEditor.eclipse,0.66.0,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/net.sourceforge.vrapper.plugin.splitEditor.eclipse_0.66.0.jar,4,false
+no.hal.emfblocks.core,0.9.0.qualifier,file:/Users/kwrl/git/emfblocks/no.hal.emfblocks.core/,4,false
+no.hal.emfblocks.editor,0.9.0.qualifier,file:/Users/kwrl/git/emfblocks/no.hal.emfblocks.editor/,4,false
+no.hal.emfblocks.examples,0.9.0.qualifier,file:/Users/kwrl/git/emfblocks/no.hal.emfblocks.examples/,4,false
 org.antlr.runtime,4.3.0.v201502022030,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/org.antlr.runtime_4.3.0.v201502022030.jar,4,false
 org.antlr.runtime,3.2.0.v201101311130,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/org.antlr.runtime_3.2.0.v201101311130.jar,4,false
 org.apache.ant,1.9.6.v201510161327,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/org.apache.ant_1.9.6.v201510161327/,4,false
@@ -85,6 +92,10 @@ org.eclipse.amalgam.explorer.contextual.ui,1.7.0.201605021311,file:/Users/kwrl/A
 org.eclipse.ant.core,3.4.0.v20160418-1631,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.ant.core_3.4.0.v20160418-1631.jar,4,false
 org.eclipse.ant.launching,1.1.200.v20160418-1631,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.ant.launching_1.1.200.v20160418-1631.jar,4,false
 org.eclipse.ant.ui,3.6.200.v20160418-1631,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.ant.ui_3.6.200.v20160418-1631.jar,4,false
+org.eclipse.buildship.branding,1.0.15.v20160425-1638,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.buildship.branding_1.0.15.v20160425-1638.jar,4,false
+org.eclipse.buildship.core,1.0.15.v20160425-1638,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.buildship.core_1.0.15.v20160425-1638.jar,4,false
+org.eclipse.buildship.stsmigration,1.0.15.v20160425-1638,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.buildship.stsmigration_1.0.15.v20160425-1638.jar,4,false
+org.eclipse.buildship.ui,1.0.15.v20160425-1638,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.buildship.ui_1.0.15.v20160425-1638.jar,4,false
 org.eclipse.compare,3.6.0.v20160418-1534,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.compare_3.6.0.v20160418-1534.jar,4,false
 org.eclipse.compare.core,3.6.0.v20160418-1534,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.compare.core_3.6.0.v20160418-1534.jar,4,false
 org.eclipse.core.commands,3.8.0.v20160316-1921,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.core.commands_3.8.0.v20160316-1921.jar,4,false
@@ -989,6 +1000,7 @@ org.eclipse.xtext.xtext.ui,2.10.0.v201604290858,file:/Users/kwrl/Applications/Ec
 org.eclipse.xtext.xtext.ui.examples,2.10.0.v201604290858,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.xtext.xtext.ui.examples_2.10.0.v201604290858/,4,false
 org.eclipse.xtext.xtext.ui.graph,2.10.0.v201604290858,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.xtext.xtext.ui.graph_2.10.0.v201604290858.jar,4,false
 org.eclipse.xtext.xtext.wizard,2.10.0.v201604290858,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.xtext.xtext.wizard_2.10.0.v201604290858.jar,4,false
+org.gradle.toolingapi,2.13.0.v20160425083245,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/org.gradle.toolingapi_2.13.0.v20160425083245.jar,4,false
 org.h2,1.3.168.v201212121212,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/org.h2_1.3.168.v201212121212.jar,4,false
 org.hamcrest.core,1.3.0.v201303031735,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/org.hamcrest.core_1.3.0.v201303031735.jar,4,false
 org.jsoup,1.7.2.v201411291515,file:/Users/kwrl/Applications/Eclipse.app/Contents/Eclipse/plugins/org.jsoup_1.7.2.v201411291515.jar,4,false

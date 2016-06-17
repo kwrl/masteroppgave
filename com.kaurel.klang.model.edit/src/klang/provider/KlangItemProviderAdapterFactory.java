@@ -233,29 +233,6 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link klang.SubroutineCall} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SubroutineCallItemProvider subroutineCallItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link klang.SubroutineCall}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSubroutineCallAdapter() {
-		if (subroutineCallItemProvider == null) {
-			subroutineCallItemProvider = new SubroutineCallItemProvider(this);
-		}
-
-		return subroutineCallItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link klang.ControlStatement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -302,6 +279,29 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link klang.VariableAssignment} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VariableAssignmentItemProvider variableAssignmentItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link klang.VariableAssignment}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVariableAssignmentAdapter() {
+		if (variableAssignmentItemProvider == null) {
+			variableAssignmentItemProvider = new VariableAssignmentItemProvider(this);
+		}
+
+		return variableAssignmentItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link klang.Variable} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -325,26 +325,72 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link klang.Assignment} instances.
+	 * This keeps track of the one adapter used for all {@link klang.Entity} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AssignmentItemProvider assignmentItemProvider;
+	protected EntityItemProvider entityItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link klang.Assignment}.
+	 * This creates an adapter for a {@link klang.Entity}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAssignmentAdapter() {
-		if (assignmentItemProvider == null) {
-			assignmentItemProvider = new AssignmentItemProvider(this);
+	public Adapter createEntityAdapter() {
+		if (entityItemProvider == null) {
+			entityItemProvider = new EntityItemProvider(this);
 		}
 
-		return assignmentItemProvider;
+		return entityItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link klang.SpriteEntity} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SpriteEntityItemProvider spriteEntityItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link klang.SpriteEntity}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSpriteEntityAdapter() {
+		if (spriteEntityItemProvider == null) {
+			spriteEntityItemProvider = new SpriteEntityItemProvider(this);
+		}
+
+		return spriteEntityItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link klang.SceneEntity} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SceneEntityItemProvider sceneEntityItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link klang.SceneEntity}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSceneEntityAdapter() {
+		if (sceneEntityItemProvider == null) {
+			sceneEntityItemProvider = new SceneEntityItemProvider(this);
+		}
+
+		return sceneEntityItemProvider;
 	}
 
 	/**
@@ -693,52 +739,6 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link klang.Sprite} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SpriteItemProvider spriteItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link klang.Sprite}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSpriteAdapter() {
-		if (spriteItemProvider == null) {
-			spriteItemProvider = new SpriteItemProvider(this);
-		}
-
-		return spriteItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link klang.Scene} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SceneItemProvider sceneItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link klang.Scene}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSceneAdapter() {
-		if (sceneItemProvider == null) {
-			sceneItemProvider = new SceneItemProvider(this);
-		}
-
-		return sceneItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link klang.UnaryOperator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -782,6 +782,29 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 		}
 
 		return binaryOperatorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link klang.FunctionCall} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FunctionCallItemProvider functionCallItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link klang.FunctionCall}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFunctionCallAdapter() {
+		if (functionCallItemProvider == null) {
+			functionCallItemProvider = new FunctionCallItemProvider(this);
+		}
+
+		return functionCallItemProvider;
 	}
 
 	/**
@@ -890,11 +913,10 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 		if (ifItemProvider != null) ifItemProvider.dispose();
 		if (foreverLoopItemProvider != null) foreverLoopItemProvider.dispose();
 		if (statementItemProvider != null) statementItemProvider.dispose();
-		if (subroutineCallItemProvider != null) subroutineCallItemProvider.dispose();
 		if (controlStatementItemProvider != null) controlStatementItemProvider.dispose();
 		if (yieldItemProvider != null) yieldItemProvider.dispose();
 		if (variableItemProvider != null) variableItemProvider.dispose();
-		if (assignmentItemProvider != null) assignmentItemProvider.dispose();
+		if (variableAssignmentItemProvider != null) variableAssignmentItemProvider.dispose();
 		if (expressionItemProvider != null) expressionItemProvider.dispose();
 		if (orItemProvider != null) orItemProvider.dispose();
 		if (andItemProvider != null) andItemProvider.dispose();
@@ -910,10 +932,12 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 		if (numericLiteralItemProvider != null) numericLiteralItemProvider.dispose();
 		if (stringLiteralItemProvider != null) stringLiteralItemProvider.dispose();
 		if (variableRefItemProvider != null) variableRefItemProvider.dispose();
-		if (spriteItemProvider != null) spriteItemProvider.dispose();
-		if (sceneItemProvider != null) sceneItemProvider.dispose();
 		if (unaryOperatorItemProvider != null) unaryOperatorItemProvider.dispose();
 		if (binaryOperatorItemProvider != null) binaryOperatorItemProvider.dispose();
+		if (functionCallItemProvider != null) functionCallItemProvider.dispose();
+		if (entityItemProvider != null) entityItemProvider.dispose();
+		if (spriteEntityItemProvider != null) spriteEntityItemProvider.dispose();
+		if (sceneEntityItemProvider != null) sceneEntityItemProvider.dispose();
 	}
 
 }

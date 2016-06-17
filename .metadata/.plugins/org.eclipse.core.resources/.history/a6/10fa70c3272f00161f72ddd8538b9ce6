@@ -1,0 +1,12 @@
+package com.kaurel.kengine.lib.entities;
+
+import com.kaurel.kengine.lib.GameEvent;
+
+public class Scene extends Entity {
+
+	@Override
+	public void onGameEvent(GameEvent event) {
+		
+	}
+
+}

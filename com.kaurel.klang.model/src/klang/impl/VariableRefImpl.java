@@ -3,12 +3,12 @@
 package klang.impl;
 
 import klang.KlangPackage;
+import klang.Variable;
 import klang.VariableRef;
+import klang.util.KlangUtil;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link klang.impl.VariableRefImpl#getVariableName <em>Variable Name</em>}</li>
+ *   <li>{@link klang.impl.VariableRefImpl#getVariable <em>Variable</em>}</li>
  * </ul>
  *
  * @generated
@@ -33,7 +34,7 @@ public class VariableRefImpl extends ExpressionImpl implements VariableRef {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String VARIABLE_NAME_EDEFAULT = null;
+	protected static final String VARIABLE_NAME_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getVariableName() <em>Variable Name</em>}' attribute.
@@ -44,6 +45,16 @@ public class VariableRefImpl extends ExpressionImpl implements VariableRef {
 	 * @ordered
 	 */
 	protected String variableName = VARIABLE_NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getVariable() <em>Variable</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVariable()
+	 * @generated
+	 * @ordered
+	 */
+	protected Variable variable;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -88,6 +99,15 @@ public class VariableRefImpl extends ExpressionImpl implements VariableRef {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Variable getVariable() {
+		return KlangUtil.getVariable(this, variableName);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -95,6 +115,8 @@ public class VariableRefImpl extends ExpressionImpl implements VariableRef {
 		switch (featureID) {
 			case KlangPackage.VARIABLE_REF__VARIABLE_NAME:
 				return getVariableName();
+			case KlangPackage.VARIABLE_REF__VARIABLE:
+				return getVariable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -139,6 +161,8 @@ public class VariableRefImpl extends ExpressionImpl implements VariableRef {
 		switch (featureID) {
 			case KlangPackage.VARIABLE_REF__VARIABLE_NAME:
 				return VARIABLE_NAME_EDEFAULT == null ? variableName != null : !VARIABLE_NAME_EDEFAULT.equals(variableName);
+			case KlangPackage.VARIABLE_REF__VARIABLE:
+				return variable != null;
 		}
 		return super.eIsSet(featureID);
 	}

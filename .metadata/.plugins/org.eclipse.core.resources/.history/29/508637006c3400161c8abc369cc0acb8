@@ -1,0 +1,115 @@
+grammar com.kaurel.klang.xtext.Klang with org.eclipse.xtext.common.Terminals
+
+import "http://www.example.org/klang"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+Game:
+	{Game}
+	(variableDeclarations+=VariableDeclaration)*
+	(actorDefs+=Actor)*;
+
+Actor returns Actor:
+	{Actor}
+	entity=Entity
+	BEGIN
+	(variableDeclarations+=VariableDeclaration)*
+	(eventHandlers+=EventHandler)*
+	END;
+	
+Entity:
+	'sprite' {SpriteEntity} name=ID  | 'scene' {SceneEntity}
+;
+
+EventHandler:
+	'when'
+	eventType=EventType
+	BEGIN
+	(statements+=Statement)*
+	END;
+
+enum EventType:
+	GAME_STARTED;
+
+WhileLoop:
+	{WhileLoop}
+	'while' predicate=Expression
+	BEGIN
+	(loopBlock+=Statement)*
+	END;
+
+If:
+	{If}
+	'if' predicate=Expression
+	BEGIN
+	(ifBlock+=Statement)*
+	END;
+
+ForeverLoop:
+	{ForeverLoop}
+	'forever'
+	BEGIN
+	(loopStatements+=Statement)*
+	END;
+
+Statement:
+	ControlStatement | VariableDeclaration | VariableAssignment;
+
+ControlStatement:
+	ForeverLoop | WhileLoop | Yield | If;
+
+Yield:
+	{Yield}
+	'yield';
+
+Variable:
+	'var' variable=Variable '=' expression=Expression;
+	
+VariableAssignment:
+	variableName=ID '=' expression=Expression;
+
+Variable:
+	name=ID;
+
+Expression:
+	Or;
+
+Or returns Expression:
+	And ({Or.left=current} 'or' right=And)*;
+
+And returns Expression:
+	Comparison ({And.left=current} 'and' right=Comparison)*;
+
+Plus returns Expression:
+	Minus ({Plus.left=current} '+' right=Minus)*;
+
+Minus returns Expression:
+	Multiply ({Minus.left=current} '-' right=Multiply)*;
+
+Multiply returns Expression:
+	Divide ({Multiply.left=current} '*' right=Divide)*;
+
+Divide returns Expression:
+	PrimaryExpression ({Divide.left=current} '/' right=PrimaryExpression)*;
+
+Comparison returns Expression:
+	Plus (('<' {LessThan.left=current} | '=' {Equal.left=current} | '>' {GreaterThan.left=current}) right=Plus)*;
+
+PrimaryExpression returns Expression:
+	'(' Expression ')' |
+	{Not} 'not' expression=PrimaryExpression |
+	AtomicExpression;
+
+AtomicExpression returns Expression:
+	{BooleanLiteral} (value?='true' | 'false') |
+	{NumericLiteral} value=DECIMAL |
+	{StringLiteral} value=STRING |
+	{VariableRef} variableName=ID;
+
+terminal BEGIN:
+	'synthetic:BEGIN';
+
+terminal END:
+	'synthetic:END';
+
+terminal DECIMAL returns ecore::EDouble:
+	INT ('.' INT)?;

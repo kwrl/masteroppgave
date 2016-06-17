@@ -9,7 +9,6 @@ import java.util.List;
 import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
-import org.eclipse.xtext.CrossReference;
 import org.eclipse.xtext.EnumLiteralDeclaration;
 import org.eclipse.xtext.EnumRule;
 import org.eclipse.xtext.Grammar;
@@ -31,90 +30,127 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.Game");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cGameAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cVariablesAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cVariablesVariableParserRuleCall_1_0 = (RuleCall)cVariablesAssignment_1.eContents().get(0);
+		private final Assignment cVariableDeclarationsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cVariableDeclarationsVariableParserRuleCall_1_0 = (RuleCall)cVariableDeclarationsAssignment_1.eContents().get(0);
 		private final Assignment cActorDefsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cActorDefsSpriteParserRuleCall_2_0 = (RuleCall)cActorDefsAssignment_2.eContents().get(0);
+		private final RuleCall cActorDefsActorParserRuleCall_2_0 = (RuleCall)cActorDefsAssignment_2.eContents().get(0);
 		
 		//Game:
-		//	{Game} variables+=Variable*
-		//	actorDefs+=Sprite*;
+		//	{Game} variableDeclarations+=Variable*
+		//	actorDefs+=Actor*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Game} variables+=Variable* actorDefs+=Sprite*
+		//{Game} variableDeclarations+=Variable* actorDefs+=Actor*
 		public Group getGroup() { return cGroup; }
 		
 		//{Game}
 		public Action getGameAction_0() { return cGameAction_0; }
 		
-		//variables+=Variable*
-		public Assignment getVariablesAssignment_1() { return cVariablesAssignment_1; }
+		//variableDeclarations+=Variable*
+		public Assignment getVariableDeclarationsAssignment_1() { return cVariableDeclarationsAssignment_1; }
 		
 		//Variable
-		public RuleCall getVariablesVariableParserRuleCall_1_0() { return cVariablesVariableParserRuleCall_1_0; }
+		public RuleCall getVariableDeclarationsVariableParserRuleCall_1_0() { return cVariableDeclarationsVariableParserRuleCall_1_0; }
 		
-		//actorDefs+=Sprite*
+		//actorDefs+=Actor*
 		public Assignment getActorDefsAssignment_2() { return cActorDefsAssignment_2; }
 		
-		//Sprite
-		public RuleCall getActorDefsSpriteParserRuleCall_2_0() { return cActorDefsSpriteParserRuleCall_2_0; }
+		//Actor
+		public RuleCall getActorDefsActorParserRuleCall_2_0() { return cActorDefsActorParserRuleCall_2_0; }
 	}
-	public class SpriteElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.Sprite");
+	public class ActorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.Actor");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cSpriteAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cSpriteKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final RuleCall cBEGINTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
-		private final Assignment cVariablesAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cVariablesVariableParserRuleCall_4_0 = (RuleCall)cVariablesAssignment_4.eContents().get(0);
-		private final Assignment cEventHandlersAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cEventHandlersEventHandlerParserRuleCall_5_0 = (RuleCall)cEventHandlersAssignment_5.eContents().get(0);
-		private final RuleCall cENDTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		private final Action cActorAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cEntityAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cEntityEntityParserRuleCall_1_0 = (RuleCall)cEntityAssignment_1.eContents().get(0);
+		private final RuleCall cBEGINTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cVariableDeclarationsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cVariableDeclarationsVariableParserRuleCall_3_0 = (RuleCall)cVariableDeclarationsAssignment_3.eContents().get(0);
+		private final Assignment cEventHandlersAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cEventHandlersEventHandlerParserRuleCall_4_0 = (RuleCall)cEventHandlersAssignment_4.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		
-		//Sprite:
-		//	{Sprite}
-		//	'sprite'
-		//	name=ID
+		//Actor:
+		//	{Actor} entity=Entity
 		//	BEGIN
-		//	variables+=Variable*
+		//	variableDeclarations+=Variable*
 		//	eventHandlers+=EventHandler*
 		//	END;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Sprite} 'sprite' name=ID BEGIN variables+=Variable* eventHandlers+=EventHandler* END
+		//{Actor} entity=Entity BEGIN variableDeclarations+=Variable* eventHandlers+=EventHandler* END
 		public Group getGroup() { return cGroup; }
 		
-		//{Sprite}
-		public Action getSpriteAction_0() { return cSpriteAction_0; }
+		//{Actor}
+		public Action getActorAction_0() { return cActorAction_0; }
 		
-		//'sprite'
-		public Keyword getSpriteKeyword_1() { return cSpriteKeyword_1; }
+		//entity=Entity
+		public Assignment getEntityAssignment_1() { return cEntityAssignment_1; }
 		
-		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		//Entity
+		public RuleCall getEntityEntityParserRuleCall_1_0() { return cEntityEntityParserRuleCall_1_0; }
 		
 		//BEGIN
-		public RuleCall getBEGINTerminalRuleCall_3() { return cBEGINTerminalRuleCall_3; }
+		public RuleCall getBEGINTerminalRuleCall_2() { return cBEGINTerminalRuleCall_2; }
 		
-		//variables+=Variable*
-		public Assignment getVariablesAssignment_4() { return cVariablesAssignment_4; }
+		//variableDeclarations+=Variable*
+		public Assignment getVariableDeclarationsAssignment_3() { return cVariableDeclarationsAssignment_3; }
 		
 		//Variable
-		public RuleCall getVariablesVariableParserRuleCall_4_0() { return cVariablesVariableParserRuleCall_4_0; }
+		public RuleCall getVariableDeclarationsVariableParserRuleCall_3_0() { return cVariableDeclarationsVariableParserRuleCall_3_0; }
 		
 		//eventHandlers+=EventHandler*
-		public Assignment getEventHandlersAssignment_5() { return cEventHandlersAssignment_5; }
+		public Assignment getEventHandlersAssignment_4() { return cEventHandlersAssignment_4; }
 		
 		//EventHandler
-		public RuleCall getEventHandlersEventHandlerParserRuleCall_5_0() { return cEventHandlersEventHandlerParserRuleCall_5_0; }
+		public RuleCall getEventHandlersEventHandlerParserRuleCall_4_0() { return cEventHandlersEventHandlerParserRuleCall_4_0; }
 		
 		//END
-		public RuleCall getENDTerminalRuleCall_6() { return cENDTerminalRuleCall_6; }
+		public RuleCall getENDTerminalRuleCall_5() { return cENDTerminalRuleCall_5; }
+	}
+	public class EntityElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.Entity");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Keyword cSpriteKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Action cSpriteEntityAction_0_1 = (Action)cGroup_0.eContents().get(1);
+		private final Assignment cNameAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_0_2_0 = (RuleCall)cNameAssignment_0_2.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cSceneKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Action cSceneEntityAction_1_1 = (Action)cGroup_1.eContents().get(1);
+		
+		//Entity:
+		//	'sprite' {SpriteEntity} name=ID | 'scene' {SceneEntity};
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'sprite' {SpriteEntity} name=ID | 'scene' {SceneEntity}
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'sprite' {SpriteEntity} name=ID
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//'sprite'
+		public Keyword getSpriteKeyword_0_0() { return cSpriteKeyword_0_0; }
+		
+		//{SpriteEntity}
+		public Action getSpriteEntityAction_0_1() { return cSpriteEntityAction_0_1; }
+		
+		//name=ID
+		public Assignment getNameAssignment_0_2() { return cNameAssignment_0_2; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_2_0() { return cNameIDTerminalRuleCall_0_2_0; }
+		
+		//'scene' {SceneEntity}
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'scene'
+		public Keyword getSceneKeyword_1_0() { return cSceneKeyword_1_0; }
+		
+		//{SceneEntity}
+		public Action getSceneEntityAction_1_1() { return cSceneEntityAction_1_1; }
 	}
 	public class EventHandlerElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.EventHandler");
@@ -297,14 +333,13 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cControlStatementParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cVariableParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cAssignmentParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cSubroutineCallParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cVariableAssignmentParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//Statement:
-		//	ControlStatement | Variable | Assignment | SubroutineCall;
+		//	ControlStatement | Variable | VariableAssignment;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ControlStatement | Variable | Assignment | SubroutineCall
+		//ControlStatement | Variable | VariableAssignment
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//ControlStatement
@@ -313,62 +348,8 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		//Variable
 		public RuleCall getVariableParserRuleCall_1() { return cVariableParserRuleCall_1; }
 		
-		//Assignment
-		public RuleCall getAssignmentParserRuleCall_2() { return cAssignmentParserRuleCall_2; }
-		
-		//SubroutineCall
-		public RuleCall getSubroutineCallParserRuleCall_3() { return cSubroutineCallParserRuleCall_3; }
-	}
-	public class SubroutineCallElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.SubroutineCall");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cParametersAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cParametersExpressionParserRuleCall_2_0 = (RuleCall)cParametersAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cCommaKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cParametersAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cParametersExpressionParserRuleCall_3_1_0 = (RuleCall)cParametersAssignment_3_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		
-		//SubroutineCall:
-		//	name=ID '(' parameters+=Expression? (',' parameters+=Expression)* ')';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//name=ID '(' parameters+=Expression? (',' parameters+=Expression)* ')'
-		public Group getGroup() { return cGroup; }
-		
-		//name=ID
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
-		
-		//parameters+=Expression?
-		public Assignment getParametersAssignment_2() { return cParametersAssignment_2; }
-		
-		//Expression
-		public RuleCall getParametersExpressionParserRuleCall_2_0() { return cParametersExpressionParserRuleCall_2_0; }
-		
-		//(',' parameters+=Expression)*
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//','
-		public Keyword getCommaKeyword_3_0() { return cCommaKeyword_3_0; }
-		
-		//parameters+=Expression
-		public Assignment getParametersAssignment_3_1() { return cParametersAssignment_3_1; }
-		
-		//Expression
-		public RuleCall getParametersExpressionParserRuleCall_3_1_0() { return cParametersExpressionParserRuleCall_3_1_0; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+		//VariableAssignment
+		public RuleCall getVariableAssignmentParserRuleCall_2() { return cVariableAssignmentParserRuleCall_2; }
 	}
 	public class ControlStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.ControlStatement");
@@ -452,31 +433,27 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		//Expression
 		public RuleCall getExpressionExpressionParserRuleCall_3_0() { return cExpressionExpressionParserRuleCall_3_0; }
 	}
-	public class AssignmentElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.Assignment");
+	public class VariableAssignmentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.VariableAssignment");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cVariableAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final CrossReference cVariableVariableCrossReference_0_0 = (CrossReference)cVariableAssignment_0.eContents().get(0);
-		private final RuleCall cVariableVariableIDTerminalRuleCall_0_0_1 = (RuleCall)cVariableVariableCrossReference_0_0.eContents().get(1);
+		private final Assignment cVariableNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cVariableNameIDTerminalRuleCall_0_0 = (RuleCall)cVariableNameAssignment_0.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cExpressionAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cExpressionExpressionParserRuleCall_2_0 = (RuleCall)cExpressionAssignment_2.eContents().get(0);
 		
-		//Assignment:
-		//	variable=[Variable] '=' expression=Expression;
+		//VariableAssignment:
+		//	variableName=ID '=' expression=Expression;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//variable=[Variable] '=' expression=Expression
+		//variableName=ID '=' expression=Expression
 		public Group getGroup() { return cGroup; }
 		
-		//variable=[Variable]
-		public Assignment getVariableAssignment_0() { return cVariableAssignment_0; }
-		
-		//[Variable]
-		public CrossReference getVariableVariableCrossReference_0_0() { return cVariableVariableCrossReference_0_0; }
+		//variableName=ID
+		public Assignment getVariableNameAssignment_0() { return cVariableNameAssignment_0; }
 		
 		//ID
-		public RuleCall getVariableVariableIDTerminalRuleCall_0_0_1() { return cVariableVariableIDTerminalRuleCall_0_0_1; }
+		public RuleCall getVariableNameIDTerminalRuleCall_0_0() { return cVariableNameIDTerminalRuleCall_0_0; }
 		
 		//'='
 		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
@@ -784,16 +761,16 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Action cNotAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final RuleCall cNotOpParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final Keyword cNotKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
 		private final Assignment cExpressionAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cExpressionPrimaryExpressionParserRuleCall_1_2_0 = (RuleCall)cExpressionAssignment_1_2.eContents().get(0);
 		private final RuleCall cAtomicExpressionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//PrimaryExpression Expression:
-		//	'(' Expression ')' | {Not} NotOp expression=PrimaryExpression | AtomicExpression
+		//	'(' Expression ')' | {Not} 'not' expression=PrimaryExpression | AtomicExpression
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'(' Expression ')' | {Not} NotOp expression=PrimaryExpression | AtomicExpression
+		//'(' Expression ')' | {Not} 'not' expression=PrimaryExpression | AtomicExpression
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//'(' Expression ')'
@@ -808,14 +785,14 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		//')'
 		public Keyword getRightParenthesisKeyword_0_2() { return cRightParenthesisKeyword_0_2; }
 		
-		//{Not} NotOp expression=PrimaryExpression
+		//{Not} 'not' expression=PrimaryExpression
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//{Not}
 		public Action getNotAction_1_0() { return cNotAction_1_0; }
 		
-		//NotOp
-		public RuleCall getNotOpParserRuleCall_1_1() { return cNotOpParserRuleCall_1_1; }
+		//'not'
+		public Keyword getNotKeyword_1_1() { return cNotKeyword_1_1; }
 		
 		//expression=PrimaryExpression
 		public Assignment getExpressionAssignment_1_2() { return cExpressionAssignment_1_2; }
@@ -825,25 +802,6 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//AtomicExpression
 		public RuleCall getAtomicExpressionParserRuleCall_2() { return cAtomicExpressionParserRuleCall_2; }
-	}
-	public class NotOpElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.NotOp");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cExclamationMarkKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cNotKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		
-		//NotOp:
-		//	'!' | 'not';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'!' | 'not'
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//'!'
-		public Keyword getExclamationMarkKeyword_0() { return cExclamationMarkKeyword_0; }
-		
-		//'not'
-		public Keyword getNotKeyword_1() { return cNotKeyword_1; }
 	}
 	public class AtomicExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.AtomicExpression");
@@ -857,7 +815,7 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Action cNumericLiteralAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Assignment cValueAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cValueNUMERICTerminalRuleCall_1_1_0 = (RuleCall)cValueAssignment_1_1.eContents().get(0);
+		private final RuleCall cValueDECIMALTerminalRuleCall_1_1_0 = (RuleCall)cValueAssignment_1_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
 		private final Action cStringLiteralAction_2_0 = (Action)cGroup_2.eContents().get(0);
 		private final Assignment cValueAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
@@ -868,11 +826,11 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cVariableNameIDTerminalRuleCall_3_1_0 = (RuleCall)cVariableNameAssignment_3_1.eContents().get(0);
 		
 		//AtomicExpression Expression:
-		//	{BooleanLiteral} (value?='true' | 'false') | {NumericLiteral} value=NUMERIC | {StringLiteral} value=STRING |
+		//	{BooleanLiteral} (value?='true' | 'false') | {NumericLiteral} value=DECIMAL | {StringLiteral} value=STRING |
 		//	{VariableRef} variableName=ID
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{BooleanLiteral} (value?='true' | 'false') | {NumericLiteral} value=NUMERIC | {StringLiteral} value=STRING |
+		//{BooleanLiteral} (value?='true' | 'false') | {NumericLiteral} value=DECIMAL | {StringLiteral} value=STRING |
 		//{VariableRef} variableName=ID
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
@@ -894,17 +852,17 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		//'false'
 		public Keyword getFalseKeyword_0_1_1() { return cFalseKeyword_0_1_1; }
 		
-		//{NumericLiteral} value=NUMERIC
+		//{NumericLiteral} value=DECIMAL
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//{NumericLiteral}
 		public Action getNumericLiteralAction_1_0() { return cNumericLiteralAction_1_0; }
 		
-		//value=NUMERIC
+		//value=DECIMAL
 		public Assignment getValueAssignment_1_1() { return cValueAssignment_1_1; }
 		
-		//NUMERIC
-		public RuleCall getValueNUMERICTerminalRuleCall_1_1_0() { return cValueNUMERICTerminalRuleCall_1_1_0; }
+		//DECIMAL
+		public RuleCall getValueDECIMALTerminalRuleCall_1_1_0() { return cValueDECIMALTerminalRuleCall_1_1_0; }
 		
 		//{StringLiteral} value=STRING
 		public Group getGroup_2() { return cGroup_2; }
@@ -948,18 +906,18 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	private final GameElements pGame;
-	private final SpriteElements pSprite;
+	private final ActorElements pActor;
+	private final EntityElements pEntity;
 	private final EventHandlerElements pEventHandler;
 	private final EventTypeElements eEventType;
 	private final WhileLoopElements pWhileLoop;
 	private final IfElements pIf;
 	private final ForeverLoopElements pForeverLoop;
 	private final StatementElements pStatement;
-	private final SubroutineCallElements pSubroutineCall;
 	private final ControlStatementElements pControlStatement;
 	private final YieldElements pYield;
 	private final VariableElements pVariable;
-	private final AssignmentElements pAssignment;
+	private final VariableAssignmentElements pVariableAssignment;
 	private final ExpressionElements pExpression;
 	private final OrElements pOr;
 	private final AndElements pAnd;
@@ -969,11 +927,10 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 	private final DivideElements pDivide;
 	private final ComparisonElements pComparison;
 	private final PrimaryExpressionElements pPrimaryExpression;
-	private final NotOpElements pNotOp;
 	private final AtomicExpressionElements pAtomicExpression;
 	private final TerminalRule tBEGIN;
 	private final TerminalRule tEND;
-	private final TerminalRule tNUMERIC;
+	private final TerminalRule tDECIMAL;
 	
 	private final Grammar grammar;
 	
@@ -985,18 +942,18 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pGame = new GameElements();
-		this.pSprite = new SpriteElements();
+		this.pActor = new ActorElements();
+		this.pEntity = new EntityElements();
 		this.pEventHandler = new EventHandlerElements();
 		this.eEventType = new EventTypeElements();
 		this.pWhileLoop = new WhileLoopElements();
 		this.pIf = new IfElements();
 		this.pForeverLoop = new ForeverLoopElements();
 		this.pStatement = new StatementElements();
-		this.pSubroutineCall = new SubroutineCallElements();
 		this.pControlStatement = new ControlStatementElements();
 		this.pYield = new YieldElements();
 		this.pVariable = new VariableElements();
-		this.pAssignment = new AssignmentElements();
+		this.pVariableAssignment = new VariableAssignmentElements();
 		this.pExpression = new ExpressionElements();
 		this.pOr = new OrElements();
 		this.pAnd = new AndElements();
@@ -1006,11 +963,10 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDivide = new DivideElements();
 		this.pComparison = new ComparisonElements();
 		this.pPrimaryExpression = new PrimaryExpressionElements();
-		this.pNotOp = new NotOpElements();
 		this.pAtomicExpression = new AtomicExpressionElements();
 		this.tBEGIN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.BEGIN");
 		this.tEND = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.END");
-		this.tNUMERIC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.NUMERIC");
+		this.tDECIMAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.DECIMAL");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -1041,8 +997,8 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Game:
-	//	{Game} variables+=Variable*
-	//	actorDefs+=Sprite*;
+	//	{Game} variableDeclarations+=Variable*
+	//	actorDefs+=Actor*;
 	public GameElements getGameAccess() {
 		return pGame;
 	}
@@ -1051,20 +1007,28 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		return getGameAccess().getRule();
 	}
 	
-	//Sprite:
-	//	{Sprite}
-	//	'sprite'
-	//	name=ID
+	//Actor:
+	//	{Actor} entity=Entity
 	//	BEGIN
-	//	variables+=Variable*
+	//	variableDeclarations+=Variable*
 	//	eventHandlers+=EventHandler*
 	//	END;
-	public SpriteElements getSpriteAccess() {
-		return pSprite;
+	public ActorElements getActorAccess() {
+		return pActor;
 	}
 	
-	public ParserRule getSpriteRule() {
-		return getSpriteAccess().getRule();
+	public ParserRule getActorRule() {
+		return getActorAccess().getRule();
+	}
+	
+	//Entity:
+	//	'sprite' {SpriteEntity} name=ID | 'scene' {SceneEntity};
+	public EntityElements getEntityAccess() {
+		return pEntity;
+	}
+	
+	public ParserRule getEntityRule() {
+		return getEntityAccess().getRule();
 	}
 	
 	//EventHandler:
@@ -1134,23 +1098,13 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Statement:
-	//	ControlStatement | Variable | Assignment | SubroutineCall;
+	//	ControlStatement | Variable | VariableAssignment;
 	public StatementElements getStatementAccess() {
 		return pStatement;
 	}
 	
 	public ParserRule getStatementRule() {
 		return getStatementAccess().getRule();
-	}
-	
-	//SubroutineCall:
-	//	name=ID '(' parameters+=Expression? (',' parameters+=Expression)* ')';
-	public SubroutineCallElements getSubroutineCallAccess() {
-		return pSubroutineCall;
-	}
-	
-	public ParserRule getSubroutineCallRule() {
-		return getSubroutineCallAccess().getRule();
 	}
 	
 	//ControlStatement:
@@ -1184,14 +1138,14 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		return getVariableAccess().getRule();
 	}
 	
-	//Assignment:
-	//	variable=[Variable] '=' expression=Expression;
-	public AssignmentElements getAssignmentAccess() {
-		return pAssignment;
+	//VariableAssignment:
+	//	variableName=ID '=' expression=Expression;
+	public VariableAssignmentElements getVariableAssignmentAccess() {
+		return pVariableAssignment;
 	}
 	
-	public ParserRule getAssignmentRule() {
-		return getAssignmentAccess().getRule();
+	public ParserRule getVariableAssignmentRule() {
+		return getVariableAssignmentAccess().getRule();
 	}
 	
 	//Expression:
@@ -1275,7 +1229,7 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//PrimaryExpression Expression:
-	//	'(' Expression ')' | {Not} NotOp expression=PrimaryExpression | AtomicExpression
+	//	'(' Expression ')' | {Not} 'not' expression=PrimaryExpression | AtomicExpression
 	public PrimaryExpressionElements getPrimaryExpressionAccess() {
 		return pPrimaryExpression;
 	}
@@ -1284,18 +1238,8 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		return getPrimaryExpressionAccess().getRule();
 	}
 	
-	//NotOp:
-	//	'!' | 'not';
-	public NotOpElements getNotOpAccess() {
-		return pNotOp;
-	}
-	
-	public ParserRule getNotOpRule() {
-		return getNotOpAccess().getRule();
-	}
-	
 	//AtomicExpression Expression:
-	//	{BooleanLiteral} (value?='true' | 'false') | {NumericLiteral} value=NUMERIC | {StringLiteral} value=STRING |
+	//	{BooleanLiteral} (value?='true' | 'false') | {NumericLiteral} value=DECIMAL | {StringLiteral} value=STRING |
 	//	{VariableRef} variableName=ID
 	public AtomicExpressionElements getAtomicExpressionAccess() {
 		return pAtomicExpression;
@@ -1317,10 +1261,10 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		return tEND;
 	}
 	
-	//terminal NUMERIC returns ecore::EDouble:
-	//	'0'..'9'+;
-	public TerminalRule getNUMERICRule() {
-		return tNUMERIC;
+	//terminal DECIMAL returns ecore::EDouble:
+	//	INT ('.' INT)?;
+	public TerminalRule getDECIMALRule() {
+		return tDECIMAL;
 	}
 	
 	//terminal ID:

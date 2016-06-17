@@ -1,0 +1,12 @@
+package com.kaurel.kengine.lib.entities;
+
+import org.jbox2d.dynamics.Body;
+
+import javafx.scene.Node;
+
+public class Entity {
+	protected Body body;
+	protected Node graphics;
+	
+	
+}

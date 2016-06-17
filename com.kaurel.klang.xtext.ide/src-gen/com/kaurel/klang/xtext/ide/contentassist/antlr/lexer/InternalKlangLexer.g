@@ -19,6 +19,8 @@ Sprite : 'sprite';
 
 False : 'false';
 
+Scene : 'scene';
+
 While : 'while';
 
 Yield : 'yield';
@@ -37,8 +39,6 @@ If : 'if';
 
 Or : 'or';
 
-ExclamationMark : '!';
-
 LeftParenthesis : '(';
 
 RightParenthesis : ')';
@@ -46,8 +46,6 @@ RightParenthesis : ')';
 Asterisk : '*';
 
 PlusSign : '+';
-
-Comma : ',';
 
 HyphenMinus : '-';
 
@@ -65,11 +63,11 @@ fragment RULE_BEGIN : ;
 
 fragment RULE_END : ;
 
-RULE_NUMERIC : ('0'..'9')+;
+RULE_DECIMAL : RULE_INT ('.' RULE_INT)?;
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
-RULE_INT : ('0'..'9')+;
+fragment RULE_INT : ('0'..'9')+;
 
 RULE_STRING : ('"' ('\\' .|~(('\\'|'"')))* '"'|'\'' ('\\' .|~(('\\'|'\'')))* '\'');
 

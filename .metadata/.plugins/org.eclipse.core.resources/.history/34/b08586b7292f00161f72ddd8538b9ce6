@@ -1,0 +1,42 @@
+package com.kaurel.klang.runtime;
+
+import java.io.FileReader;
+import java.io.Reader;
+
+import javafx.application.Application;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import klang.Game;
+import klang.SpriteEntity;
+
+public class KlangApplication extends Application {
+	private Group root = new Group();
+	private Scene scene = new Scene(root, 800, 600);
+
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		primaryStage.setScene(scene);
+		primaryStage.show();
+		Reader reader = new FileReader("klangfiles/test.klang");
+		Game game = KlangParser.INSTANCE.parseGame(reader);
+		
+	}
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
+	
+	class Hello {
+		public void hello() {
+			System.out.println("Helloooooo");
+		}
+	}
+	
+	class Goodbye {
+		public void hello() {
+			System.out.println("Good bye");
+		}
+	}
+	
+}

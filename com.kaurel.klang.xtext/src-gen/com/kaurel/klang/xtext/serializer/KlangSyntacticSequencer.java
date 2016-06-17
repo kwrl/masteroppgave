@@ -36,8 +36,6 @@ public class KlangSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getBEGINToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getENDRule())
 			return getENDToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getNotOpRule())
-			return getNotOpToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
@@ -52,17 +50,6 @@ public class KlangSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * Defaults to the empty string.
 	 */
 	protected String getENDToken(EObject semanticObject, RuleCall ruleCall, INode node) { return ""; }
-	
-	/**
-	 * NotOp:
-	 * 	'!'|'not'
-	 * ;
-	 */
-	protected String getNotOpToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "!";
-	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
@@ -87,8 +74,8 @@ public class KlangSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) 'false' '=' (rule start)
 	 *     (rule start) (ambiguity) 'false' '>' (rule start)
 	 *     (rule start) (ambiguity) 'false' (rule start)
-	 *     (rule start) (ambiguity) NotOp expression=PrimaryExpression
-	 *     (rule start) (ambiguity) value=NUMERIC
+	 *     (rule start) (ambiguity) 'not' expression=PrimaryExpression
+	 *     (rule start) (ambiguity) value=DECIMAL
 	 *     (rule start) (ambiguity) value=STRING
 	 *     (rule start) (ambiguity) value?='true'
 	 *     (rule start) (ambiguity) variableName=ID
