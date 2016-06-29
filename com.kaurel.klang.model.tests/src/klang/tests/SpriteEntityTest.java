@@ -14,7 +14,12 @@ import klang.SpriteEntity;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link klang.SpriteEntity#hello() <em>Hello</em>}</li>
+ *   <li>{@link klang.SpriteEntity#print(java.lang.String) <em>Print</em>}</li>
+ *   <li>{@link klang.SpriteEntity#getX() <em>Get X</em>}</li>
+ *   <li>{@link klang.SpriteEntity#getY() <em>Get Y</em>}</li>
+ *   <li>{@link klang.SpriteEntity#setY(java.lang.Double) <em>Set Y</em>}</li>
+ *   <li>{@link klang.SpriteEntity#setX(java.lang.Double) <em>Set X</em>}</li>
+ *   <li>{@link klang.SpriteEntity#print(java.lang.Double) <em>Print</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -74,13 +79,78 @@ public class SpriteEntityTest extends EntityTest {
 	}
 
 	/**
-	 * Tests the '{@link klang.SpriteEntity#hello() <em>Hello</em>}' operation.
+	 * Tests the '{@link klang.SpriteEntity#print(java.lang.String) <em>Print</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see klang.SpriteEntity#hello()
+	 * @see klang.SpriteEntity#print(java.lang.String)
 	 * @generated
 	 */
-	public void testHello() {
+	public void testPrint__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link klang.SpriteEntity#getX() <em>Get X</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.SpriteEntity#getX()
+	 * @generated
+	 */
+	public void testGetX() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link klang.SpriteEntity#getY() <em>Get Y</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.SpriteEntity#getY()
+	 * @generated
+	 */
+	public void testGetY() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link klang.SpriteEntity#setY(java.lang.Double) <em>Set Y</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.SpriteEntity#setY(java.lang.Double)
+	 * @generated
+	 */
+	public void testSetY__Double() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link klang.SpriteEntity#setX(java.lang.Double) <em>Set X</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.SpriteEntity#setX(java.lang.Double)
+	 * @generated
+	 */
+	public void testSetX__Double() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link klang.SpriteEntity#print(java.lang.Double) <em>Print</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.SpriteEntity#print(java.lang.Double)
+	 * @generated
+	 */
+	public void testPrint__Double() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

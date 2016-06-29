@@ -24,7 +24,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ForeverLoopItemProvider extends ControlStatementItemProvider {
+public class ForeverLoopItemProvider extends AbstractElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -136,16 +136,6 @@ public class ForeverLoopItemProvider extends ControlStatementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.FOREVER_LOOP__LOOP_STATEMENTS,
-				 KlangFactory.eINSTANCE.createStatement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.FOREVER_LOOP__LOOP_STATEMENTS,
-				 KlangFactory.eINSTANCE.createControlStatement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.FOREVER_LOOP__LOOP_STATEMENTS,
 				 KlangFactory.eINSTANCE.createWhileLoop()));
 
 		newChildDescriptors.add
@@ -166,12 +156,12 @@ public class ForeverLoopItemProvider extends ControlStatementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.FOREVER_LOOP__LOOP_STATEMENTS,
-				 KlangFactory.eINSTANCE.createVariable()));
+				 KlangFactory.eINSTANCE.createVariableAssignment()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.FOREVER_LOOP__LOOP_STATEMENTS,
-				 KlangFactory.eINSTANCE.createVariableAssignment()));
+				 KlangFactory.eINSTANCE.createFunctionCall()));
 	}
 
 }

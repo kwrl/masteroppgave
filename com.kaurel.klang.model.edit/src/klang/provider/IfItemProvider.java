@@ -24,7 +24,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class IfItemProvider extends ControlStatementItemProvider {
+public class IfItemProvider extends AbstractElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -228,16 +228,6 @@ public class IfItemProvider extends ControlStatementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.IF__IF_BLOCK,
-				 KlangFactory.eINSTANCE.createStatement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.IF__IF_BLOCK,
-				 KlangFactory.eINSTANCE.createControlStatement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.IF__IF_BLOCK,
 				 KlangFactory.eINSTANCE.createWhileLoop()));
 
 		newChildDescriptors.add
@@ -258,12 +248,35 @@ public class IfItemProvider extends ControlStatementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.IF__IF_BLOCK,
-				 KlangFactory.eINSTANCE.createVariable()));
+				 KlangFactory.eINSTANCE.createVariableAssignment()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.IF__IF_BLOCK,
-				 KlangFactory.eINSTANCE.createVariableAssignment()));
+				 KlangFactory.eINSTANCE.createFunctionCall()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == KlangPackage.Literals.IF__PREDICATE ||
+			childFeature == KlangPackage.Literals.IF__IF_BLOCK;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

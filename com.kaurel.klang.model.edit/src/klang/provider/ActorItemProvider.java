@@ -163,6 +163,26 @@ public class ActorItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(KlangPackage.Literals.ACTOR__EVENT_HANDLERS,
+				 KlangFactory.eINSTANCE.createGameStart()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.ACTOR__EVENT_HANDLERS,
+				 KlangFactory.eINSTANCE.createSpriteClicked()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.ACTOR__EVENT_HANDLERS,
+				 KlangFactory.eINSTANCE.createKeyPressed()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.ACTOR__EVENT_HANDLERS,
+				 KlangFactory.eINSTANCE.createCollidesWith()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(KlangPackage.Literals.ACTOR__ENTITY,
 				 KlangFactory.eINSTANCE.createEntity()));
 

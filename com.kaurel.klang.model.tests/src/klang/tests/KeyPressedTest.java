@@ -4,16 +4,16 @@ package klang.tests;
 
 import junit.textui.TestRunner;
 
-import klang.ControlStatement;
+import klang.KeyPressed;
 import klang.KlangFactory;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Control Statement</b></em>'.
+ * A test case for the model object '<em><b>Key Pressed</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class ControlStatementTest extends StatementTest {
+public class KeyPressedTest extends EventHandlerTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +21,28 @@ public class ControlStatementTest extends StatementTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(ControlStatementTest.class);
+		TestRunner.run(KeyPressedTest.class);
 	}
 
 	/**
-	 * Constructs a new Control Statement test case with the given name.
+	 * Constructs a new Key Pressed test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ControlStatementTest(String name) {
+	public KeyPressedTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Control Statement test case.
+	 * Returns the fixture for this Key Pressed test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected ControlStatement getFixture() {
-		return (ControlStatement)fixture;
+	protected KeyPressed getFixture() {
+		return (KeyPressed)fixture;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class ControlStatementTest extends StatementTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(KlangFactory.eINSTANCE.createControlStatement());
+		setFixture(KlangFactory.eINSTANCE.createKeyPressed());
 	}
 
 	/**
@@ -67,4 +67,4 @@ public class ControlStatementTest extends StatementTest {
 		setFixture(null);
 	}
 
-} //ControlStatementTest
+} //KeyPressedTest

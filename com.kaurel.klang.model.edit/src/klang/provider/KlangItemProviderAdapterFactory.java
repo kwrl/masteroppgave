@@ -210,52 +210,6 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link klang.Statement} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected StatementItemProvider statementItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link klang.Statement}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createStatementAdapter() {
-		if (statementItemProvider == null) {
-			statementItemProvider = new StatementItemProvider(this);
-		}
-
-		return statementItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link klang.ControlStatement} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ControlStatementItemProvider controlStatementItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link klang.ControlStatement}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createControlStatementAdapter() {
-		if (controlStatementItemProvider == null) {
-			controlStatementItemProvider = new ControlStatementItemProvider(this);
-		}
-
-		return controlStatementItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link klang.Yield} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -391,6 +345,98 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 		}
 
 		return sceneEntityItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link klang.GameStart} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GameStartItemProvider gameStartItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link klang.GameStart}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGameStartAdapter() {
+		if (gameStartItemProvider == null) {
+			gameStartItemProvider = new GameStartItemProvider(this);
+		}
+
+		return gameStartItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link klang.SpriteClicked} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SpriteClickedItemProvider spriteClickedItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link klang.SpriteClicked}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSpriteClickedAdapter() {
+		if (spriteClickedItemProvider == null) {
+			spriteClickedItemProvider = new SpriteClickedItemProvider(this);
+		}
+
+		return spriteClickedItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link klang.KeyPressed} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected KeyPressedItemProvider keyPressedItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link klang.KeyPressed}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createKeyPressedAdapter() {
+		if (keyPressedItemProvider == null) {
+			keyPressedItemProvider = new KeyPressedItemProvider(this);
+		}
+
+		return keyPressedItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link klang.CollidesWith} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CollidesWithItemProvider collidesWithItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link klang.CollidesWith}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCollidesWithAdapter() {
+		if (collidesWithItemProvider == null) {
+			collidesWithItemProvider = new CollidesWithItemProvider(this);
+		}
+
+		return collidesWithItemProvider;
 	}
 
 	/**
@@ -912,8 +958,6 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 		if (whileLoopItemProvider != null) whileLoopItemProvider.dispose();
 		if (ifItemProvider != null) ifItemProvider.dispose();
 		if (foreverLoopItemProvider != null) foreverLoopItemProvider.dispose();
-		if (statementItemProvider != null) statementItemProvider.dispose();
-		if (controlStatementItemProvider != null) controlStatementItemProvider.dispose();
 		if (yieldItemProvider != null) yieldItemProvider.dispose();
 		if (variableItemProvider != null) variableItemProvider.dispose();
 		if (variableAssignmentItemProvider != null) variableAssignmentItemProvider.dispose();
@@ -925,6 +969,7 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 		if (multiplyItemProvider != null) multiplyItemProvider.dispose();
 		if (divideItemProvider != null) divideItemProvider.dispose();
 		if (lessThanItemProvider != null) lessThanItemProvider.dispose();
+		if (entityItemProvider != null) entityItemProvider.dispose();
 		if (equalItemProvider != null) equalItemProvider.dispose();
 		if (greaterThanItemProvider != null) greaterThanItemProvider.dispose();
 		if (notItemProvider != null) notItemProvider.dispose();
@@ -935,9 +980,12 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 		if (unaryOperatorItemProvider != null) unaryOperatorItemProvider.dispose();
 		if (binaryOperatorItemProvider != null) binaryOperatorItemProvider.dispose();
 		if (functionCallItemProvider != null) functionCallItemProvider.dispose();
-		if (entityItemProvider != null) entityItemProvider.dispose();
 		if (spriteEntityItemProvider != null) spriteEntityItemProvider.dispose();
 		if (sceneEntityItemProvider != null) sceneEntityItemProvider.dispose();
+		if (gameStartItemProvider != null) gameStartItemProvider.dispose();
+		if (spriteClickedItemProvider != null) spriteClickedItemProvider.dispose();
+		if (keyPressedItemProvider != null) keyPressedItemProvider.dispose();
+		if (collidesWithItemProvider != null) collidesWithItemProvider.dispose();
 	}
 
 }

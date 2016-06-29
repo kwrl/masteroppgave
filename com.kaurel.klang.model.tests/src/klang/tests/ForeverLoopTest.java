@@ -13,7 +13,7 @@ import klang.KlangFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ForeverLoopTest extends ControlStatementTest {
+public class ForeverLoopTest extends AbstractElementTest {
 
 	/**
 	 * <!-- begin-user-doc -->

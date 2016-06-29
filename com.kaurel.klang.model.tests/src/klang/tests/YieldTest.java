@@ -13,7 +13,7 @@ import klang.Yield;
  * <!-- end-user-doc -->
  * @generated
  */
-public class YieldTest extends ControlStatementTest {
+public class YieldTest extends AbstractElementTest {
 
 	/**
 	 * <!-- begin-user-doc -->

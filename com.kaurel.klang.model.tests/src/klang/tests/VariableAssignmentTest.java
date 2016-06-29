@@ -19,7 +19,7 @@ import klang.VariableAssignment;
  * </p>
  * @generated
  */
-public class VariableAssignmentTest extends StatementTest {
+public class VariableAssignmentTest extends AbstractElementTest {
 
 	/**
 	 * <!-- begin-user-doc -->

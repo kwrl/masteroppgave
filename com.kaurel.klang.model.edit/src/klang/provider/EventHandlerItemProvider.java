@@ -7,7 +7,6 @@ import java.util.Collection;
 import java.util.List;
 
 import klang.EventHandler;
-import klang.EventType;
 import klang.KlangFactory;
 import klang.KlangPackage;
 
@@ -17,15 +16,12 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -64,31 +60,8 @@ public class EventHandlerItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addEventTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Event Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addEventTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EventHandler_eventType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EventHandler_eventType_feature", "_UI_EventHandler_type"),
-				 KlangPackage.Literals.EVENT_HANDLER__EVENT_TYPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -140,11 +113,7 @@ public class EventHandlerItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		EventType labelValue = ((EventHandler)object).getEventType();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_EventHandler_type") :
-			getString("_UI_EventHandler_type") + " " + label;
+		return getString("_UI_EventHandler_type");
 	}
 	
 
@@ -160,9 +129,6 @@ public class EventHandlerItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(EventHandler.class)) {
-			case KlangPackage.EVENT_HANDLER__EVENT_TYPE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case KlangPackage.EVENT_HANDLER__STATEMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -180,16 +146,6 @@ public class EventHandlerItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.EVENT_HANDLER__STATEMENTS,
-				 KlangFactory.eINSTANCE.createStatement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.EVENT_HANDLER__STATEMENTS,
-				 KlangFactory.eINSTANCE.createControlStatement()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -214,12 +170,12 @@ public class EventHandlerItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.EVENT_HANDLER__STATEMENTS,
-				 KlangFactory.eINSTANCE.createVariable()));
+				 KlangFactory.eINSTANCE.createVariableAssignment()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.EVENT_HANDLER__STATEMENTS,
-				 KlangFactory.eINSTANCE.createVariableAssignment()));
+				 KlangFactory.eINSTANCE.createFunctionCall()));
 	}
 
 	/**

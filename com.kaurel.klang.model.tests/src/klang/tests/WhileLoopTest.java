@@ -13,7 +13,7 @@ import klang.WhileLoop;
  * <!-- end-user-doc -->
  * @generated
  */
-public class WhileLoopTest extends ControlStatementTest {
+public class WhileLoopTest extends AbstractElementTest {
 
 	/**
 	 * <!-- begin-user-doc -->

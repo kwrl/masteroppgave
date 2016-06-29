@@ -13,7 +13,7 @@ import klang.KlangFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class IfTest extends ControlStatementTest {
+public class IfTest extends AbstractElementTest {
 
 	/**
 	 * <!-- begin-user-doc -->

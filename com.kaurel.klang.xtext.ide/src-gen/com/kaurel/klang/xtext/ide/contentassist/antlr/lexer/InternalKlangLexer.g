@@ -11,11 +11,17 @@ package com.kaurel.klang.xtext.ide.contentassist.antlr.lexer;
 import org.eclipse.xtext.ide.editor.contentassist.antlr.internal.Lexer;
 }
 
-GAME_STARTED : 'GAME_STARTED';
+Collides : 'collides';
+
+Clicked : 'clicked';
 
 Forever : 'forever';
 
+Pressed : 'pressed';
+
 Sprite : 'sprite';
+
+Starts : 'starts';
 
 False : 'false';
 
@@ -25,15 +31,25 @@ While : 'while';
 
 Yield : 'yield';
 
+Game : 'game';
+
+This : 'this';
+
 True : 'true';
 
 When : 'when';
 
+With : 'with';
+
 And : 'and';
+
+Key : 'key';
 
 Not : 'not';
 
 Var : 'var';
+
+EqualsSignEqualsSign : '==';
 
 If : 'if';
 
@@ -47,7 +63,11 @@ Asterisk : '*';
 
 PlusSign : '+';
 
+Comma : ',';
+
 HyphenMinus : '-';
+
+FullStop : '.';
 
 Solidus : '/';
 
