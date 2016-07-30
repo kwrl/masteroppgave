@@ -1,22 +1,23 @@
 package com.kaurel.klang.runtime;
 
+import org.jbox2d.common.Vec2;
+import org.jbox2d.dynamics.Body;
+
 import javafx.scene.Node;
+import klang.Entity;
 import klang.SpriteEntity;
 
 public class Sprite {
-	private Node graphics;
-	private Double x, y;
+	private Body body;
 	private SpriteEntity entity;
-
-	public Sprite(SpriteEntity entity, Node graphics) {
-		this.entity = entity;
-		this.graphics = graphics;
-		x = 0.0;
-		y = 0.0;
-	}
+	private Node node;
 	
-	public Node getGraphics() {
-		return graphics;
+	public Sprite(Node node, Body body, SpriteEntity entity) {
+		this.node = node;
+		this.body = body;
+		this.entity = entity;
+		
+		entity.setTarget(this);
 	}
 
 	public void print(String msg) {
@@ -26,24 +27,32 @@ public class Sprite {
 	public void print(Double msg) {
 		System.out.println(msg);
 	}
+	
+	public Integer toInt(Double val) {
+		return (Integer) val.intValue();
+	}
+	
+	public Double toDouble(Integer val) {
+		return (Double) val.doubleValue();
+	}
 
 	public void setX(Double x) {
-		this.x = x;
+		body.setTransform(new Vec2(x.floatValue(), body.getPosition().y), body.getAngle());
 	}
 
 	public void setY(Double y) {
-		this.y = y;
+		body.setTransform(new Vec2(body.getPosition().x, y.floatValue()), body.getAngle());
 	}
 
 	public Double getX() {
-		return x;
+		return (double) body.getPosition().x;
 	}
 
 	public Double getY() {
-		return y;
+		return (double) body.getPosition().y;
 	}
-
-	public void syncUI() {
-		graphics.relocate(x, y);
+	
+	public Entity getEntity() {
+		return entity;
 	}
 }

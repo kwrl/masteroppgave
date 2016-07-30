@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface WhileLoop extends ControlStatement {
+public interface WhileLoop extends Statement {
 	/**
 	 * Returns the value of the '<em><b>Predicate</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

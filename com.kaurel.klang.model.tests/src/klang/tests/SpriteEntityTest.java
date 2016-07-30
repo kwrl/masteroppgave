@@ -20,6 +20,7 @@ import klang.SpriteEntity;
  *   <li>{@link klang.SpriteEntity#setY(java.lang.Double) <em>Set Y</em>}</li>
  *   <li>{@link klang.SpriteEntity#setX(java.lang.Double) <em>Set X</em>}</li>
  *   <li>{@link klang.SpriteEntity#print(java.lang.Double) <em>Print</em>}</li>
+ *   <li>{@link klang.SpriteEntity#sleep(java.lang.Double) <em>Sleep</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -151,6 +152,19 @@ public class SpriteEntityTest extends EntityTest {
 	 * @generated
 	 */
 	public void testPrint__Double() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link klang.SpriteEntity#sleep(java.lang.Double) <em>Sleep</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.SpriteEntity#sleep(java.lang.Double)
+	 * @generated
+	 */
+	public void testSleep__Double() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

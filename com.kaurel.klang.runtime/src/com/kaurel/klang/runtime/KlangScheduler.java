@@ -1,74 +1,58 @@
 package com.kaurel.klang.runtime;
 
-import java.util.ArrayList;
 import java.util.Deque;
-import java.util.List;
+import java.util.LinkedList;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.ConcurrentLinkedDeque;
 
-import klang.util.KlangThread;
-import klang.util.ThreadStatus;
+import klang.util.threading.KlangThread;
+import klang.util.threading.SleepStatus;
+import klang.util.threading.TerminateStatus;
+import klang.util.threading.ThreadStatus;
+import klang.util.threading.YieldStatus;
 
-public class KlangScheduler implements Runnable {
-	private List<Runnable> tickTasks = new ArrayList<>();
+public class KlangScheduler {
 	private ConcurrentLinkedDeque<KlangThread> threads = new ConcurrentLinkedDeque<>();
-	private int tickRate = 120;
 
-	@Override
-	public void run() {
-		while (true) {
-			long start = System.currentTimeMillis();
-			for (Runnable task : tickTasks) {
-				task.run();
-			}
-			tick();
-			long stop = System.currentTimeMillis();
-			try {
-				Thread.sleep((1000 / tickRate) - (stop - start));
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-
-	private synchronized void tick() {
+	private Timer sleepTimer = new Timer(true);
+	
+	public void tick() {
 		if (threads.isEmpty()) {
-			try {
-				wait();
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			return;
 		}
-		Deque<KlangThread> currentThreads = threads;
-		threads = new ConcurrentLinkedDeque<KlangThread>();
+
+		Deque<KlangThread> currentThreads = new LinkedList<>(threads);
+		threads.clear();
 
 		for (KlangThread thread : currentThreads) {
-			while (true) {
-				ThreadStatus ts = thread.step();
-				if (ts == ThreadStatus.YIELDING) {
-					threads.addLast(thread);
-					break;
-				}
-				if (ts == ThreadStatus.TERMINATED) {
-					break;
-				}
+			ThreadStatus ts;
+			ts = thread.run();
 
-				if (ts == ThreadStatus.SLEEPING) {
-					break;
-				}
+			if (ts instanceof YieldStatus) {
+				threads.addLast(thread);
+				continue;
+			} else if (ts instanceof TerminateStatus) {
+				continue;
+			} else if (ts instanceof SleepStatus) {
+				SleepStatus sleep = (SleepStatus) ts;
+				threads.remove(thread);
+				sleepTimer.schedule(new TimerTask() {
+					@Override
+					public void run() {
+						threads.add(thread);
+					}
+				}, sleep.getSleepDuration());
+				continue;
 			}
 		}
 	}
 
 	public synchronized void addThread(KlangThread thread) {
-		threads.add(thread);
-		notify();
+		threads.addFirst(thread);
 	}
 
-	public synchronized void addTickTask(Runnable task) {
-		this.tickTasks.add(task);
-	}
-
-	public synchronized void flush() {
+	public void flush() {
 		threads.clear();
 	}
 }

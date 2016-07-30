@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.shape.*?>
 <?import java.lang.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import java.net.URL?>
+<?scenebuilder-stylesheet test.css?>
+<?import fxmlbox2d.css.*?>
+<?import javafx.scene.control.Button?>
+<?import fxmlbox2d.css.Body?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import fxmlbox2d.css.Brick?>
 
-
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
-   <center>
-      <Pane prefHeight="2724.0" prefWidth="2554.0" BorderPane.alignment="CENTER">
-         <children>
-            <Circle id="ball" fill="DODGERBLUE" layoutX="732.0" layoutY="396.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
-         </children>
-      </Pane>
-   </center>
-</BorderPane>
+<Pane fx:id="worldParent" prefHeight="300" prefWidth="350"
+	xmlns:fx="http://javafx.com/fxml">
+	<stylesheets>
+		<URL value="@test.css"></URL>
+	</stylesheets>
+	<Body fx:id="ball" layoutX="0" layoutY="0" bodyType="DYNAMIC">
+		<Ball radius="30"></Ball>
+	</Body>
+	<Body fx:id="ground" layoutX="0" layoutY="290" bodyType="STATIC">
+		<Brick height="10" width="350"></Brick>
+	</Body>
+</Pane>

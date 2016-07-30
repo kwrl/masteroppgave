@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='methodDeclaration\n'"
  * @generated
  */
-public interface FunctionCall extends Expression {
+public interface FunctionCall extends Expression, Statement {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

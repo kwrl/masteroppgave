@@ -208,7 +208,7 @@ public class BinaryOperatorItemProvider extends ExpressionItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.BINARY_OPERATOR__LEFT,
-				 KlangFactory.eINSTANCE.createNumericLiteral()));
+				 KlangFactory.eINSTANCE.createDoubleLiteral()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -224,6 +224,11 @@ public class BinaryOperatorItemProvider extends ExpressionItemProvider {
 			(createChildParameter
 				(KlangPackage.Literals.BINARY_OPERATOR__LEFT,
 				 KlangFactory.eINSTANCE.createFunctionCall()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.BINARY_OPERATOR__LEFT,
+				 KlangFactory.eINSTANCE.createIntegerLiteral()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -298,7 +303,7 @@ public class BinaryOperatorItemProvider extends ExpressionItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.BINARY_OPERATOR__RIGHT,
-				 KlangFactory.eINSTANCE.createNumericLiteral()));
+				 KlangFactory.eINSTANCE.createDoubleLiteral()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -314,6 +319,11 @@ public class BinaryOperatorItemProvider extends ExpressionItemProvider {
 			(createChildParameter
 				(KlangPackage.Literals.BINARY_OPERATOR__RIGHT,
 				 KlangFactory.eINSTANCE.createFunctionCall()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.BINARY_OPERATOR__RIGHT,
+				 KlangFactory.eINSTANCE.createIntegerLiteral()));
 	}
 
 	/**

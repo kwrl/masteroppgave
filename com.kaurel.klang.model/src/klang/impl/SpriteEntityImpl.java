@@ -90,7 +90,73 @@ public class SpriteEntityImpl extends EntityImpl implements SpriteEntity {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void hello() {
+	public void print(String message) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Double getX() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Double getY() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setY(Double y) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setX(Double x) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void print(Double message) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void sleep(Double sleepDuration) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -162,8 +228,24 @@ public class SpriteEntityImpl extends EntityImpl implements SpriteEntity {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case KlangPackage.SPRITE_ENTITY___HELLO:
-				hello();
+			case KlangPackage.SPRITE_ENTITY___PRINT__STRING:
+				print((String)arguments.get(0));
+				return null;
+			case KlangPackage.SPRITE_ENTITY___GET_X:
+				return getX();
+			case KlangPackage.SPRITE_ENTITY___GET_Y:
+				return getY();
+			case KlangPackage.SPRITE_ENTITY___SET_Y__DOUBLE:
+				setY((Double)arguments.get(0));
+				return null;
+			case KlangPackage.SPRITE_ENTITY___SET_X__DOUBLE:
+				setX((Double)arguments.get(0));
+				return null;
+			case KlangPackage.SPRITE_ENTITY___PRINT__DOUBLE:
+				print((Double)arguments.get(0));
+				return null;
+			case KlangPackage.SPRITE_ENTITY___SLEEP__DOUBLE:
+				sleep((Double)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

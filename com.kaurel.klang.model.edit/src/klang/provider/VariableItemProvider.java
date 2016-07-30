@@ -258,7 +258,7 @@ public class VariableItemProvider extends AbstractElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE__EXPRESSION,
-				 KlangFactory.eINSTANCE.createNumericLiteral()));
+				 KlangFactory.eINSTANCE.createDoubleLiteral()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -274,6 +274,11 @@ public class VariableItemProvider extends AbstractElementItemProvider {
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE__EXPRESSION,
 				 KlangFactory.eINSTANCE.createFunctionCall()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.VARIABLE__EXPRESSION,
+				 KlangFactory.eINSTANCE.createIntegerLiteral()));
 	}
 
 }

@@ -3,7 +3,6 @@
 package klang.impl;
 
 import java.util.Collection;
-
 import klang.Expression;
 import klang.KlangPackage;
 import klang.Statement;
@@ -36,7 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class WhileLoopImpl extends ControlStatementImpl implements WhileLoop {
+public class WhileLoopImpl extends AbstractElementImpl implements WhileLoop {
 	/**
 	 * The cached value of the '{@link #getPredicate() <em>Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->

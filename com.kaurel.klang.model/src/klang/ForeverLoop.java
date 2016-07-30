@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface ForeverLoop extends ControlStatement {
+public interface ForeverLoop extends Statement {
 	/**
 	 * Returns the value of the '<em><b>Loop Statements</b></em>' containment reference list.
 	 * The list contents are of type {@link klang.Statement}.

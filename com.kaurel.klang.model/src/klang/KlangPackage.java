@@ -4,7 +4,6 @@ package klang;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -170,22 +169,13 @@ public interface KlangPackage extends EPackage {
 	int EVENT_HANDLER = 2;
 
 	/**
-	 * The feature id for the '<em><b>Event Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_HANDLER__EVENT_TYPE = 0;
-
-	/**
 	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_HANDLER__STATEMENTS = 1;
+	int EVENT_HANDLER__STATEMENTS = 0;
 
 	/**
 	 * The number of structural features of the '<em>Event Handler</em>' class.
@@ -194,7 +184,7 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_HANDLER_FEATURE_COUNT = 2;
+	int EVENT_HANDLER_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Event Handler</em>' class.
@@ -206,14 +196,42 @@ public interface KlangPackage extends EPackage {
 	int EVENT_HANDLER_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link klang.impl.StatementImpl <em>Statement</em>}' class.
+	 * The meta object id for the '{@link klang.impl.AbstractElementImpl <em>Abstract Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see klang.impl.StatementImpl
+	 * @see klang.impl.AbstractElementImpl
+	 * @see klang.impl.KlangPackageImpl#getAbstractElement()
+	 * @generated
+	 */
+	int ABSTRACT_ELEMENT = 31;
+
+	/**
+	 * The number of structural features of the '<em>Abstract Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ELEMENT_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Abstract Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link klang.Statement <em>Statement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.Statement
 	 * @see klang.impl.KlangPackageImpl#getStatement()
 	 * @generated
 	 */
-	int STATEMENT = 6;
+	int STATEMENT = 30;
 
 	/**
 	 * The number of structural features of the '<em>Statement</em>' class.
@@ -222,7 +240,7 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATEMENT_FEATURE_COUNT = 0;
+	int STATEMENT_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Statement</em>' class.
@@ -231,35 +249,7 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATEMENT_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link klang.impl.ControlStatementImpl <em>Control Statement</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.ControlStatementImpl
-	 * @see klang.impl.KlangPackageImpl#getControlStatement()
-	 * @generated
-	 */
-	int CONTROL_STATEMENT = 7;
-
-	/**
-	 * The number of structural features of the '<em>Control Statement</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTROL_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Control Statement</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTROL_STATEMENT_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
+	int STATEMENT_OPERATION_COUNT = ABSTRACT_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.WhileLoopImpl <em>While Loop</em>}' class.
@@ -272,42 +262,6 @@ public interface KlangPackage extends EPackage {
 	int WHILE_LOOP = 3;
 
 	/**
-	 * The feature id for the '<em><b>Predicate</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WHILE_LOOP__PREDICATE = CONTROL_STATEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Loop Block</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WHILE_LOOP__LOOP_BLOCK = CONTROL_STATEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>While Loop</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WHILE_LOOP_FEATURE_COUNT = CONTROL_STATEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>While Loop</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WHILE_LOOP_OPERATION_COUNT = CONTROL_STATEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link klang.impl.IfImpl <em>If</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -316,42 +270,6 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 */
 	int IF = 4;
-
-	/**
-	 * The feature id for the '<em><b>Predicate</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IF__PREDICATE = CONTROL_STATEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>If Block</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IF__IF_BLOCK = CONTROL_STATEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>If</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IF_FEATURE_COUNT = CONTROL_STATEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>If</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IF_OPERATION_COUNT = CONTROL_STATEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.ForeverLoopImpl <em>Forever Loop</em>}' class.
@@ -364,33 +282,6 @@ public interface KlangPackage extends EPackage {
 	int FOREVER_LOOP = 5;
 
 	/**
-	 * The feature id for the '<em><b>Loop Statements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FOREVER_LOOP__LOOP_STATEMENTS = CONTROL_STATEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Forever Loop</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FOREVER_LOOP_FEATURE_COUNT = CONTROL_STATEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Forever Loop</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FOREVER_LOOP_OPERATION_COUNT = CONTROL_STATEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link klang.impl.YieldImpl <em>Yield</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -398,25 +289,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getYield()
 	 * @generated
 	 */
-	int YIELD = 8;
-
-	/**
-	 * The number of structural features of the '<em>Yield</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YIELD_FEATURE_COUNT = CONTROL_STATEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Yield</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YIELD_OPERATION_COUNT = CONTROL_STATEMENT_OPERATION_COUNT + 0;
+	int YIELD = 6;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.VariableAssignmentImpl <em>Variable Assignment</em>}' class.
@@ -426,7 +299,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getVariableAssignment()
 	 * @generated
 	 */
-	int VARIABLE_ASSIGNMENT = 10;
+	int VARIABLE_ASSIGNMENT = 8;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.VariableImpl <em>Variable</em>}' class.
@@ -436,16 +309,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getVariable()
 	 * @generated
 	 */
-	int VARIABLE = 9;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE__EXPRESSION = STATEMENT_FEATURE_COUNT + 0;
+	int VARIABLE = 7;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -455,7 +319,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getExpression()
 	 * @generated
 	 */
-	int EXPRESSION = 11;
+	int EXPRESSION = 9;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.BinaryOperatorImpl <em>Binary Operator</em>}' class.
@@ -465,7 +329,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getBinaryOperator()
 	 * @generated
 	 */
-	int BINARY_OPERATOR = 27;
+	int BINARY_OPERATOR = 26;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.OrImpl <em>Or</em>}' class.
@@ -475,7 +339,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getOr()
 	 * @generated
 	 */
-	int OR = 12;
+	int OR = 10;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.AndImpl <em>And</em>}' class.
@@ -485,7 +349,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getAnd()
 	 * @generated
 	 */
-	int AND = 13;
+	int AND = 11;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.PlusImpl <em>Plus</em>}' class.
@@ -495,7 +359,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getPlus()
 	 * @generated
 	 */
-	int PLUS = 14;
+	int PLUS = 12;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.MinusImpl <em>Minus</em>}' class.
@@ -505,7 +369,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getMinus()
 	 * @generated
 	 */
-	int MINUS = 15;
+	int MINUS = 13;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.MultiplyImpl <em>Multiply</em>}' class.
@@ -515,7 +379,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getMultiply()
 	 * @generated
 	 */
-	int MULTIPLY = 16;
+	int MULTIPLY = 14;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.DivideImpl <em>Divide</em>}' class.
@@ -525,7 +389,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getDivide()
 	 * @generated
 	 */
-	int DIVIDE = 17;
+	int DIVIDE = 15;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.LessThanImpl <em>Less Than</em>}' class.
@@ -535,7 +399,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getLessThan()
 	 * @generated
 	 */
-	int LESS_THAN = 18;
+	int LESS_THAN = 16;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.EqualImpl <em>Equal</em>}' class.
@@ -545,7 +409,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getEqual()
 	 * @generated
 	 */
-	int EQUAL = 19;
+	int EQUAL = 18;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.GreaterThanImpl <em>Greater Than</em>}' class.
@@ -555,7 +419,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getGreaterThan()
 	 * @generated
 	 */
-	int GREATER_THAN = 20;
+	int GREATER_THAN = 19;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.UnaryOperatorImpl <em>Unary Operator</em>}' class.
@@ -565,7 +429,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getUnaryOperator()
 	 * @generated
 	 */
-	int UNARY_OPERATOR = 26;
+	int UNARY_OPERATOR = 25;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.NotImpl <em>Not</em>}' class.
@@ -575,7 +439,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getNot()
 	 * @generated
 	 */
-	int NOT = 21;
+	int NOT = 20;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.BooleanLiteralImpl <em>Boolean Literal</em>}' class.
@@ -585,17 +449,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getBooleanLiteral()
 	 * @generated
 	 */
-	int BOOLEAN_LITERAL = 22;
-
-	/**
-	 * The meta object id for the '{@link klang.impl.NumericLiteralImpl <em>Numeric Literal</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.NumericLiteralImpl
-	 * @see klang.impl.KlangPackageImpl#getNumericLiteral()
-	 * @generated
-	 */
-	int NUMERIC_LITERAL = 23;
+	int BOOLEAN_LITERAL = 21;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.StringLiteralImpl <em>String Literal</em>}' class.
@@ -605,7 +459,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getStringLiteral()
 	 * @generated
 	 */
-	int STRING_LITERAL = 24;
+	int STRING_LITERAL = 23;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.VariableRefImpl <em>Variable Ref</em>}' class.
@@ -615,7 +469,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getVariableRef()
 	 * @generated
 	 */
-	int VARIABLE_REF = 25;
+	int VARIABLE_REF = 24;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.FunctionCallImpl <em>Function Call</em>}' class.
@@ -625,7 +479,133 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getFunctionCall()
 	 * @generated
 	 */
-	int FUNCTION_CALL = 28;
+	int FUNCTION_CALL = 27;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WHILE_LOOP__PREDICATE = STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Loop Block</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WHILE_LOOP__LOOP_BLOCK = STATEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>While Loop</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WHILE_LOOP_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>While Loop</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WHILE_LOOP_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF__PREDICATE = STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>If Block</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF__IF_BLOCK = STATEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>If</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>If</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Loop Statements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOREVER_LOOP__LOOP_STATEMENTS = STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Forever Loop</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOREVER_LOOP_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Forever Loop</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOREVER_LOOP_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Yield</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YIELD_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Yield</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YIELD_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE__EXPRESSION = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -634,7 +614,7 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE__NAME = STATEMENT_FEATURE_COUNT + 1;
+	int VARIABLE__NAME = ABSTRACT_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -643,7 +623,7 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE__VALUE = STATEMENT_FEATURE_COUNT + 2;
+	int VARIABLE__VALUE = ABSTRACT_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Variable</em>' class.
@@ -652,7 +632,7 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
+	int VARIABLE_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Variable</em>' class.
@@ -661,7 +641,7 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
+	int VARIABLE_OPERATION_COUNT = ABSTRACT_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -715,7 +695,7 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION_FEATURE_COUNT = 0;
+	int EXPRESSION_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Expression</em>' class.
@@ -724,7 +704,7 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION_OPERATION_COUNT = 0;
+	int EXPRESSION_OPERATION_COUNT = ABSTRACT_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1015,6 +995,43 @@ public interface KlangPackage extends EPackage {
 	int LESS_THAN_OPERATION_COUNT = BINARY_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link klang.impl.EntityImpl <em>Entity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.EntityImpl
+	 * @see klang.impl.KlangPackageImpl#getEntity()
+	 * @generated
+	 */
+	int ENTITY = 17;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY__TARGET = 0;
+
+	/**
+	 * The number of structural features of the '<em>Entity</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Entity</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY_OPERATION_COUNT = 0;
+
+	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1168,31 +1185,41 @@ public interface KlangPackage extends EPackage {
 	int BOOLEAN_LITERAL_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link klang.impl.DoubleLiteralImpl <em>Double Literal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.DoubleLiteralImpl
+	 * @see klang.impl.KlangPackageImpl#getDoubleLiteral()
+	 * @generated
+	 */
+	int DOUBLE_LITERAL = 22;
+
+	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMERIC_LITERAL__VALUE = EXPRESSION_FEATURE_COUNT + 0;
+	int DOUBLE_LITERAL__VALUE = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Numeric Literal</em>' class.
+	 * The number of structural features of the '<em>Double Literal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMERIC_LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+	int DOUBLE_LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Numeric Literal</em>' class.
+	 * The number of operations of the '<em>Double Literal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMERIC_LITERAL_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
+	int DOUBLE_LITERAL_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1294,43 +1321,6 @@ public interface KlangPackage extends EPackage {
 	int FUNCTION_CALL_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link klang.impl.EntityImpl <em>Entity</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.EntityImpl
-	 * @see klang.impl.KlangPackageImpl#getEntity()
-	 * @generated
-	 */
-	int ENTITY = 29;
-
-	/**
-	 * The feature id for the '<em><b>Target</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTITY__TARGET = 0;
-
-	/**
-	 * The number of structural features of the '<em>Entity</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTITY_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Entity</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTITY_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link klang.impl.SpriteEntityImpl <em>Sprite Entity</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1338,7 +1328,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getSpriteEntity()
 	 * @generated
 	 */
-	int SPRITE_ENTITY = 30;
+	int SPRITE_ENTITY = 28;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' attribute.
@@ -1368,13 +1358,67 @@ public interface KlangPackage extends EPackage {
 	int SPRITE_ENTITY_FEATURE_COUNT = ENTITY_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Hello</em>' operation.
+	 * The operation id for the '<em>Print</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPRITE_ENTITY___HELLO = ENTITY_OPERATION_COUNT + 0;
+	int SPRITE_ENTITY___PRINT__STRING = ENTITY_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get X</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRITE_ENTITY___GET_X = ENTITY_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Y</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRITE_ENTITY___GET_Y = ENTITY_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Set Y</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRITE_ENTITY___SET_Y__DOUBLE = ENTITY_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Set X</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRITE_ENTITY___SET_X__DOUBLE = ENTITY_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Print</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRITE_ENTITY___PRINT__DOUBLE = ENTITY_OPERATION_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Sleep</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRITE_ENTITY___SLEEP__DOUBLE = ENTITY_OPERATION_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Sprite Entity</em>' class.
@@ -1383,7 +1427,7 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPRITE_ENTITY_OPERATION_COUNT = ENTITY_OPERATION_COUNT + 1;
+	int SPRITE_ENTITY_OPERATION_COUNT = ENTITY_OPERATION_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.SceneEntityImpl <em>Scene Entity</em>}' class.
@@ -1393,7 +1437,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getSceneEntity()
 	 * @generated
 	 */
-	int SCENE_ENTITY = 31;
+	int SCENE_ENTITY = 29;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' attribute.
@@ -1423,14 +1467,247 @@ public interface KlangPackage extends EPackage {
 	int SCENE_ENTITY_OPERATION_COUNT = ENTITY_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link klang.EventType <em>Event Type</em>}' enum.
+	 * The meta object id for the '{@link klang.impl.GameStartImpl <em>Game Start</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see klang.EventType
-	 * @see klang.impl.KlangPackageImpl#getEventType()
+	 * @see klang.impl.GameStartImpl
+	 * @see klang.impl.KlangPackageImpl#getGameStart()
 	 * @generated
 	 */
-	int EVENT_TYPE = 32;
+	int GAME_START = 32;
+
+	/**
+	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME_START__STATEMENTS = EVENT_HANDLER__STATEMENTS;
+
+	/**
+	 * The number of structural features of the '<em>Game Start</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME_START_FEATURE_COUNT = EVENT_HANDLER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Game Start</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME_START_OPERATION_COUNT = EVENT_HANDLER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.SpriteClickedImpl <em>Sprite Clicked</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.SpriteClickedImpl
+	 * @see klang.impl.KlangPackageImpl#getSpriteClicked()
+	 * @generated
+	 */
+	int SPRITE_CLICKED = 33;
+
+	/**
+	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRITE_CLICKED__STATEMENTS = EVENT_HANDLER__STATEMENTS;
+
+	/**
+	 * The number of structural features of the '<em>Sprite Clicked</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRITE_CLICKED_FEATURE_COUNT = EVENT_HANDLER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Sprite Clicked</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRITE_CLICKED_OPERATION_COUNT = EVENT_HANDLER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.KeyPressedImpl <em>Key Pressed</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.KeyPressedImpl
+	 * @see klang.impl.KlangPackageImpl#getKeyPressed()
+	 * @generated
+	 */
+	int KEY_PRESSED = 34;
+
+	/**
+	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_PRESSED__STATEMENTS = EVENT_HANDLER__STATEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_PRESSED__KEY = EVENT_HANDLER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Key Pressed</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_PRESSED_FEATURE_COUNT = EVENT_HANDLER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Key Pressed</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_PRESSED_OPERATION_COUNT = EVENT_HANDLER_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link klang.impl.CollidesWithImpl <em>Collides With</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.CollidesWithImpl
+	 * @see klang.impl.KlangPackageImpl#getCollidesWith()
+	 * @generated
+	 */
+	int COLLIDES_WITH = 35;
+
+	/**
+	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLLIDES_WITH__STATEMENTS = EVENT_HANDLER__STATEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLLIDES_WITH__TARGET = EVENT_HANDLER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Collides With</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLLIDES_WITH_FEATURE_COUNT = EVENT_HANDLER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Collides With</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLLIDES_WITH_OPERATION_COUNT = EVENT_HANDLER_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link klang.impl.IntegerLiteralImpl <em>Integer Literal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.IntegerLiteralImpl
+	 * @see klang.impl.KlangPackageImpl#getIntegerLiteral()
+	 * @generated
+	 */
+	int INTEGER_LITERAL = 36;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_LITERAL__VALUE = EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Integer Literal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Integer Literal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_LITERAL_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link klang.impl.SleepImpl <em>Sleep</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.SleepImpl
+	 * @see klang.impl.KlangPackageImpl#getSleep()
+	 * @generated
+	 */
+	int SLEEP = 37;
+
+	/**
+	 * The feature id for the '<em><b>Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLEEP__DURATION = STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Sleep</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLEEP_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Sleep</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLEEP_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
 
 
 	/**
@@ -1517,17 +1794,6 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getEventHandler();
-
-	/**
-	 * Returns the meta object for the attribute '{@link klang.EventHandler#getEventType <em>Event Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Event Type</em>'.
-	 * @see klang.EventHandler#getEventType()
-	 * @see #getEventHandler()
-	 * @generated
-	 */
-	EAttribute getEventHandler_EventType();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link klang.EventHandler#getStatements <em>Statements</em>}'.
@@ -1624,26 +1890,6 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getForeverLoop_LoopStatements();
-
-	/**
-	 * Returns the meta object for class '{@link klang.Statement <em>Statement</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Statement</em>'.
-	 * @see klang.Statement
-	 * @generated
-	 */
-	EClass getStatement();
-
-	/**
-	 * Returns the meta object for class '{@link klang.ControlStatement <em>Control Statement</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Control Statement</em>'.
-	 * @see klang.ControlStatement
-	 * @generated
-	 */
-	EClass getControlStatement();
 
 	/**
 	 * Returns the meta object for class '{@link klang.Yield <em>Yield</em>}'.
@@ -1784,14 +2030,74 @@ public interface KlangPackage extends EPackage {
 	EAttribute getSpriteEntity_Name();
 
 	/**
-	 * Returns the meta object for the '{@link klang.SpriteEntity#hello() <em>Hello</em>}' operation.
+	 * Returns the meta object for the '{@link klang.SpriteEntity#print(java.lang.String) <em>Print</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Hello</em>' operation.
-	 * @see klang.SpriteEntity#hello()
+	 * @return the meta object for the '<em>Print</em>' operation.
+	 * @see klang.SpriteEntity#print(java.lang.String)
 	 * @generated
 	 */
-	EOperation getSpriteEntity__Hello();
+	EOperation getSpriteEntity__Print__String();
+
+	/**
+	 * Returns the meta object for the '{@link klang.SpriteEntity#getX() <em>Get X</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get X</em>' operation.
+	 * @see klang.SpriteEntity#getX()
+	 * @generated
+	 */
+	EOperation getSpriteEntity__GetX();
+
+	/**
+	 * Returns the meta object for the '{@link klang.SpriteEntity#getY() <em>Get Y</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Y</em>' operation.
+	 * @see klang.SpriteEntity#getY()
+	 * @generated
+	 */
+	EOperation getSpriteEntity__GetY();
+
+	/**
+	 * Returns the meta object for the '{@link klang.SpriteEntity#setY(java.lang.Double) <em>Set Y</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Y</em>' operation.
+	 * @see klang.SpriteEntity#setY(java.lang.Double)
+	 * @generated
+	 */
+	EOperation getSpriteEntity__SetY__Double();
+
+	/**
+	 * Returns the meta object for the '{@link klang.SpriteEntity#setX(java.lang.Double) <em>Set X</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set X</em>' operation.
+	 * @see klang.SpriteEntity#setX(java.lang.Double)
+	 * @generated
+	 */
+	EOperation getSpriteEntity__SetX__Double();
+
+	/**
+	 * Returns the meta object for the '{@link klang.SpriteEntity#print(java.lang.Double) <em>Print</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Print</em>' operation.
+	 * @see klang.SpriteEntity#print(java.lang.Double)
+	 * @generated
+	 */
+	EOperation getSpriteEntity__Print__Double();
+
+	/**
+	 * Returns the meta object for the '{@link klang.SpriteEntity#sleep(java.lang.Double) <em>Sleep</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Sleep</em>' operation.
+	 * @see klang.SpriteEntity#sleep(java.lang.Double)
+	 * @generated
+	 */
+	EOperation getSpriteEntity__Sleep__Double();
 
 	/**
 	 * Returns the meta object for class '{@link klang.SceneEntity <em>Scene Entity</em>}'.
@@ -1802,6 +2108,26 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSceneEntity();
+
+	/**
+	 * Returns the meta object for class '{@link klang.Statement <em>Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Statement</em>'.
+	 * @see klang.Statement
+	 * @generated
+	 */
+	EClass getStatement();
+
+	/**
+	 * Returns the meta object for class '{@link klang.AbstractElement <em>Abstract Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Abstract Element</em>'.
+	 * @see klang.AbstractElement
+	 * @generated
+	 */
+	EClass getAbstractElement();
 
 	/**
 	 * Returns the meta object for class '{@link klang.Expression <em>Expression</em>}'.
@@ -1957,25 +2283,25 @@ public interface KlangPackage extends EPackage {
 	EAttribute getBooleanLiteral_Value();
 
 	/**
-	 * Returns the meta object for class '{@link klang.NumericLiteral <em>Numeric Literal</em>}'.
+	 * Returns the meta object for class '{@link klang.DoubleLiteral <em>Double Literal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Numeric Literal</em>'.
-	 * @see klang.NumericLiteral
+	 * @return the meta object for class '<em>Double Literal</em>'.
+	 * @see klang.DoubleLiteral
 	 * @generated
 	 */
-	EClass getNumericLiteral();
+	EClass getDoubleLiteral();
 
 	/**
-	 * Returns the meta object for the attribute '{@link klang.NumericLiteral#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link klang.DoubleLiteral#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see klang.NumericLiteral#getValue()
-	 * @see #getNumericLiteral()
+	 * @see klang.DoubleLiteral#getValue()
+	 * @see #getDoubleLiteral()
 	 * @generated
 	 */
-	EAttribute getNumericLiteral_Value();
+	EAttribute getDoubleLiteral_Value();
 
 	/**
 	 * Returns the meta object for class '{@link klang.StringLiteral <em>String Literal</em>}'.
@@ -2116,14 +2442,108 @@ public interface KlangPackage extends EPackage {
 	EReference getFunctionCall_Parameters();
 
 	/**
-	 * Returns the meta object for enum '{@link klang.EventType <em>Event Type</em>}'.
+	 * Returns the meta object for class '{@link klang.GameStart <em>Game Start</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Event Type</em>'.
-	 * @see klang.EventType
+	 * @return the meta object for class '<em>Game Start</em>'.
+	 * @see klang.GameStart
 	 * @generated
 	 */
-	EEnum getEventType();
+	EClass getGameStart();
+
+	/**
+	 * Returns the meta object for class '{@link klang.SpriteClicked <em>Sprite Clicked</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Sprite Clicked</em>'.
+	 * @see klang.SpriteClicked
+	 * @generated
+	 */
+	EClass getSpriteClicked();
+
+	/**
+	 * Returns the meta object for class '{@link klang.KeyPressed <em>Key Pressed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Key Pressed</em>'.
+	 * @see klang.KeyPressed
+	 * @generated
+	 */
+	EClass getKeyPressed();
+
+	/**
+	 * Returns the meta object for the attribute '{@link klang.KeyPressed#getKey <em>Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key</em>'.
+	 * @see klang.KeyPressed#getKey()
+	 * @see #getKeyPressed()
+	 * @generated
+	 */
+	EAttribute getKeyPressed_Key();
+
+	/**
+	 * Returns the meta object for class '{@link klang.CollidesWith <em>Collides With</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Collides With</em>'.
+	 * @see klang.CollidesWith
+	 * @generated
+	 */
+	EClass getCollidesWith();
+
+	/**
+	 * Returns the meta object for the reference '{@link klang.CollidesWith#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see klang.CollidesWith#getTarget()
+	 * @see #getCollidesWith()
+	 * @generated
+	 */
+	EReference getCollidesWith_Target();
+
+	/**
+	 * Returns the meta object for class '{@link klang.IntegerLiteral <em>Integer Literal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Integer Literal</em>'.
+	 * @see klang.IntegerLiteral
+	 * @generated
+	 */
+	EClass getIntegerLiteral();
+
+	/**
+	 * Returns the meta object for the attribute '{@link klang.IntegerLiteral#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see klang.IntegerLiteral#getValue()
+	 * @see #getIntegerLiteral()
+	 * @generated
+	 */
+	EAttribute getIntegerLiteral_Value();
+
+	/**
+	 * Returns the meta object for class '{@link klang.Sleep <em>Sleep</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Sleep</em>'.
+	 * @see klang.Sleep
+	 * @generated
+	 */
+	EClass getSleep();
+
+	/**
+	 * Returns the meta object for the attribute '{@link klang.Sleep#getDuration <em>Duration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Duration</em>'.
+	 * @see klang.Sleep#getDuration()
+	 * @see #getSleep()
+	 * @generated
+	 */
+	EAttribute getSleep_Duration();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2219,14 +2639,6 @@ public interface KlangPackage extends EPackage {
 		EClass EVENT_HANDLER = eINSTANCE.getEventHandler();
 
 		/**
-		 * The meta object literal for the '<em><b>Event Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EVENT_HANDLER__EVENT_TYPE = eINSTANCE.getEventHandler_EventType();
-
-		/**
 		 * The meta object literal for the '<em><b>Statements</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2303,26 +2715,6 @@ public interface KlangPackage extends EPackage {
 		 * @generated
 		 */
 		EReference FOREVER_LOOP__LOOP_STATEMENTS = eINSTANCE.getForeverLoop_LoopStatements();
-
-		/**
-		 * The meta object literal for the '{@link klang.impl.StatementImpl <em>Statement</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see klang.impl.StatementImpl
-		 * @see klang.impl.KlangPackageImpl#getStatement()
-		 * @generated
-		 */
-		EClass STATEMENT = eINSTANCE.getStatement();
-
-		/**
-		 * The meta object literal for the '{@link klang.impl.ControlStatementImpl <em>Control Statement</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see klang.impl.ControlStatementImpl
-		 * @see klang.impl.KlangPackageImpl#getControlStatement()
-		 * @generated
-		 */
-		EClass CONTROL_STATEMENT = eINSTANCE.getControlStatement();
 
 		/**
 		 * The meta object literal for the '{@link klang.impl.YieldImpl <em>Yield</em>}' class.
@@ -2439,12 +2831,60 @@ public interface KlangPackage extends EPackage {
 		EAttribute SPRITE_ENTITY__NAME = eINSTANCE.getSpriteEntity_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Hello</b></em>' operation.
+		 * The meta object literal for the '<em><b>Print</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SPRITE_ENTITY___HELLO = eINSTANCE.getSpriteEntity__Hello();
+		EOperation SPRITE_ENTITY___PRINT__STRING = eINSTANCE.getSpriteEntity__Print__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get X</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SPRITE_ENTITY___GET_X = eINSTANCE.getSpriteEntity__GetX();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Y</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SPRITE_ENTITY___GET_Y = eINSTANCE.getSpriteEntity__GetY();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Y</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SPRITE_ENTITY___SET_Y__DOUBLE = eINSTANCE.getSpriteEntity__SetY__Double();
+
+		/**
+		 * The meta object literal for the '<em><b>Set X</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SPRITE_ENTITY___SET_X__DOUBLE = eINSTANCE.getSpriteEntity__SetX__Double();
+
+		/**
+		 * The meta object literal for the '<em><b>Print</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SPRITE_ENTITY___PRINT__DOUBLE = eINSTANCE.getSpriteEntity__Print__Double();
+
+		/**
+		 * The meta object literal for the '<em><b>Sleep</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SPRITE_ENTITY___SLEEP__DOUBLE = eINSTANCE.getSpriteEntity__Sleep__Double();
 
 		/**
 		 * The meta object literal for the '{@link klang.impl.SceneEntityImpl <em>Scene Entity</em>}' class.
@@ -2455,6 +2895,26 @@ public interface KlangPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SCENE_ENTITY = eINSTANCE.getSceneEntity();
+
+		/**
+		 * The meta object literal for the '{@link klang.Statement <em>Statement</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klang.Statement
+		 * @see klang.impl.KlangPackageImpl#getStatement()
+		 * @generated
+		 */
+		EClass STATEMENT = eINSTANCE.getStatement();
+
+		/**
+		 * The meta object literal for the '{@link klang.impl.AbstractElementImpl <em>Abstract Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klang.impl.AbstractElementImpl
+		 * @see klang.impl.KlangPackageImpl#getAbstractElement()
+		 * @generated
+		 */
+		EClass ABSTRACT_ELEMENT = eINSTANCE.getAbstractElement();
 
 		/**
 		 * The meta object literal for the '{@link klang.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -2601,14 +3061,14 @@ public interface KlangPackage extends EPackage {
 		EAttribute BOOLEAN_LITERAL__VALUE = eINSTANCE.getBooleanLiteral_Value();
 
 		/**
-		 * The meta object literal for the '{@link klang.impl.NumericLiteralImpl <em>Numeric Literal</em>}' class.
+		 * The meta object literal for the '{@link klang.impl.DoubleLiteralImpl <em>Double Literal</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see klang.impl.NumericLiteralImpl
-		 * @see klang.impl.KlangPackageImpl#getNumericLiteral()
+		 * @see klang.impl.DoubleLiteralImpl
+		 * @see klang.impl.KlangPackageImpl#getDoubleLiteral()
 		 * @generated
 		 */
-		EClass NUMERIC_LITERAL = eINSTANCE.getNumericLiteral();
+		EClass DOUBLE_LITERAL = eINSTANCE.getDoubleLiteral();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -2616,7 +3076,7 @@ public interface KlangPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NUMERIC_LITERAL__VALUE = eINSTANCE.getNumericLiteral_Value();
+		EAttribute DOUBLE_LITERAL__VALUE = eINSTANCE.getDoubleLiteral_Value();
 
 		/**
 		 * The meta object literal for the '{@link klang.impl.StringLiteralImpl <em>String Literal</em>}' class.
@@ -2733,14 +3193,96 @@ public interface KlangPackage extends EPackage {
 		EReference FUNCTION_CALL__PARAMETERS = eINSTANCE.getFunctionCall_Parameters();
 
 		/**
-		 * The meta object literal for the '{@link klang.EventType <em>Event Type</em>}' enum.
+		 * The meta object literal for the '{@link klang.impl.GameStartImpl <em>Game Start</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see klang.EventType
-		 * @see klang.impl.KlangPackageImpl#getEventType()
+		 * @see klang.impl.GameStartImpl
+		 * @see klang.impl.KlangPackageImpl#getGameStart()
 		 * @generated
 		 */
-		EEnum EVENT_TYPE = eINSTANCE.getEventType();
+		EClass GAME_START = eINSTANCE.getGameStart();
+
+		/**
+		 * The meta object literal for the '{@link klang.impl.SpriteClickedImpl <em>Sprite Clicked</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klang.impl.SpriteClickedImpl
+		 * @see klang.impl.KlangPackageImpl#getSpriteClicked()
+		 * @generated
+		 */
+		EClass SPRITE_CLICKED = eINSTANCE.getSpriteClicked();
+
+		/**
+		 * The meta object literal for the '{@link klang.impl.KeyPressedImpl <em>Key Pressed</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klang.impl.KeyPressedImpl
+		 * @see klang.impl.KlangPackageImpl#getKeyPressed()
+		 * @generated
+		 */
+		EClass KEY_PRESSED = eINSTANCE.getKeyPressed();
+
+		/**
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute KEY_PRESSED__KEY = eINSTANCE.getKeyPressed_Key();
+
+		/**
+		 * The meta object literal for the '{@link klang.impl.CollidesWithImpl <em>Collides With</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klang.impl.CollidesWithImpl
+		 * @see klang.impl.KlangPackageImpl#getCollidesWith()
+		 * @generated
+		 */
+		EClass COLLIDES_WITH = eINSTANCE.getCollidesWith();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COLLIDES_WITH__TARGET = eINSTANCE.getCollidesWith_Target();
+
+		/**
+		 * The meta object literal for the '{@link klang.impl.IntegerLiteralImpl <em>Integer Literal</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klang.impl.IntegerLiteralImpl
+		 * @see klang.impl.KlangPackageImpl#getIntegerLiteral()
+		 * @generated
+		 */
+		EClass INTEGER_LITERAL = eINSTANCE.getIntegerLiteral();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INTEGER_LITERAL__VALUE = eINSTANCE.getIntegerLiteral_Value();
+
+		/**
+		 * The meta object literal for the '{@link klang.impl.SleepImpl <em>Sleep</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klang.impl.SleepImpl
+		 * @see klang.impl.KlangPackageImpl#getSleep()
+		 * @generated
+		 */
+		EClass SLEEP = eINSTANCE.getSleep();
+
+		/**
+		 * The meta object literal for the '<em><b>Duration</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SLEEP__DURATION = eINSTANCE.getSleep_Duration();
 
 	}
 

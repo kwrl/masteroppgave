@@ -17,10 +17,10 @@ package klang;
  * </ul>
  *
  * @see klang.KlangPackage#getVariable()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='scope\n'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='scope type\n'"
  * @generated
  */
-public interface Variable extends Statement {
+public interface Variable extends AbstractElement {
 	/**
 	 * Returns the value of the '<em><b>Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

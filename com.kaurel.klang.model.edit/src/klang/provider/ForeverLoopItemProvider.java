@@ -162,6 +162,11 @@ public class ForeverLoopItemProvider extends AbstractElementItemProvider {
 			(createChildParameter
 				(KlangPackage.Literals.FOREVER_LOOP__LOOP_STATEMENTS,
 				 KlangFactory.eINSTANCE.createFunctionCall()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.FOREVER_LOOP__LOOP_STATEMENTS,
+				 KlangFactory.eINSTANCE.createSleep()));
 	}
 
 }

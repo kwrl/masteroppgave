@@ -176,6 +176,11 @@ public class EventHandlerItemProvider
 			(createChildParameter
 				(KlangPackage.Literals.EVENT_HANDLER__STATEMENTS,
 				 KlangFactory.eINSTANCE.createFunctionCall()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.EVENT_HANDLER__STATEMENTS,
+				 KlangFactory.eINSTANCE.createSleep()));
 	}
 
 	/**

@@ -76,24 +76,6 @@ public interface KlangFactory extends EFactory {
 	ForeverLoop createForeverLoop();
 
 	/**
-	 * Returns a new object of class '<em>Statement</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Statement</em>'.
-	 * @generated
-	 */
-	Statement createStatement();
-
-	/**
-	 * Returns a new object of class '<em>Control Statement</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Control Statement</em>'.
-	 * @generated
-	 */
-	ControlStatement createControlStatement();
-
-	/**
 	 * Returns a new object of class '<em>Yield</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -146,6 +128,60 @@ public interface KlangFactory extends EFactory {
 	 * @generated
 	 */
 	SceneEntity createSceneEntity();
+
+	/**
+	 * Returns a new object of class '<em>Game Start</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Game Start</em>'.
+	 * @generated
+	 */
+	GameStart createGameStart();
+
+	/**
+	 * Returns a new object of class '<em>Sprite Clicked</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sprite Clicked</em>'.
+	 * @generated
+	 */
+	SpriteClicked createSpriteClicked();
+
+	/**
+	 * Returns a new object of class '<em>Key Pressed</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Key Pressed</em>'.
+	 * @generated
+	 */
+	KeyPressed createKeyPressed();
+
+	/**
+	 * Returns a new object of class '<em>Collides With</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Collides With</em>'.
+	 * @generated
+	 */
+	CollidesWith createCollidesWith();
+
+	/**
+	 * Returns a new object of class '<em>Integer Literal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Integer Literal</em>'.
+	 * @generated
+	 */
+	IntegerLiteral createIntegerLiteral();
+
+	/**
+	 * Returns a new object of class '<em>Sleep</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sleep</em>'.
+	 * @generated
+	 */
+	Sleep createSleep();
 
 	/**
 	 * Returns a new object of class '<em>Expression</em>'.
@@ -256,13 +292,13 @@ public interface KlangFactory extends EFactory {
 	BooleanLiteral createBooleanLiteral();
 
 	/**
-	 * Returns a new object of class '<em>Numeric Literal</em>'.
+	 * Returns a new object of class '<em>Double Literal</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Numeric Literal</em>'.
+	 * @return a new object of class '<em>Double Literal</em>'.
 	 * @generated
 	 */
-	NumericLiteral createNumericLiteral();
+	DoubleLiteral createDoubleLiteral();
 
 	/**
 	 * Returns a new object of class '<em>String Literal</em>'.

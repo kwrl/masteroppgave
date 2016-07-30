@@ -15,57 +15,91 @@ Actor returns Actor:
 	(variableDeclarations+=Variable)*
 	(eventHandlers+=EventHandler)*
 	END;
-	
+
 Entity:
-	'sprite' {SpriteEntity} name=ID  | 'scene' {SceneEntity}
-;
+	'sprite' {SpriteEntity} name=ID | 'scene' {SceneEntity};
 
 EventHandler:
-	'when'
-	eventType=EventType
+	GameStart | SpriteClicked | KeyPressed | CollidesWith
+;	
+	
+Statement returns Statement:
+	WhileLoop | If | VariableAssignment	| ForeverLoop | FunctionCall | Sleep
+;
+
+
+GameStart returns EventHandler:
+	{GameStart}
+	'when' 'game' 'starts'
 	BEGIN
 	(statements+=Statement)*
-	END;
+	END
+;
 
-enum EventType:
-	GAME_STARTED;
+SpriteClicked returns EventHandler:
+	{SpriteClicked}
+	'when' 'clicked'
+	BEGIN
+	(statements+=Statement)*
+	END
+;
 
-WhileLoop:
+KeyPressed returns EventHandler:
+	{KeyPressed}	
+	'when' key=UPPERCASE 'key' 'pressed'
+	BEGIN
+	(statements+=Statement)*
+	END
+
+;
+
+CollidesWith returns EventHandler: 
+	{CollidesWith}
+	'when' 'collides' 'with' target=[SpriteEntity]
+	BEGIN
+	(statements+=Statement)*
+	END
+
+;
+
+
+WhileLoop returns Statement:
 	{WhileLoop}
 	'while' predicate=Expression
 	BEGIN
 	(loopBlock+=Statement)*
 	END;
 
-If:
+If returns Statement:
 	{If}
 	'if' predicate=Expression
 	BEGIN
 	(ifBlock+=Statement)*
 	END;
 
-ForeverLoop:
+ForeverLoop returns Statement:
 	{ForeverLoop}
 	'forever'
 	BEGIN
 	(loopStatements+=Statement)*
 	END;
 
-Statement:
-	ControlStatement | Variable | VariableAssignment;
-
-ControlStatement:
-	ForeverLoop | WhileLoop | Yield | If;
-
-Yield:
-	{Yield}
-	'yield';
-
 Variable:
 	'var' name=ID '=' expression=Expression;
 	
+AbstractElement:
+	VariableAssignment | Expression 
+;
+
 VariableAssignment:
-	variableName=ID '=' expression=Expression;
+	variableName=ID '='	expression=Expression
+;
+
+Sleep returns Statement:
+	{Sleep}
+	'sleep' '(' duration=DECIMAL ')'
+;
+
 
 Expression:
 	Or;
@@ -89,16 +123,20 @@ Divide returns Expression:
 	PrimaryExpression ({Divide.left=current} '/' right=PrimaryExpression)*;
 
 Comparison returns Expression:
-	Plus (('<' {LessThan.left=current} | '=' {Equal.left=current} | '>' {GreaterThan.left=current}) right=Plus)*;
+	Plus (('<' {LessThan.left=current} | '==' {Equal.left=current} | '>' {GreaterThan.left=current}) right=Plus)*;
+
+FunctionCall returns FunctionCall:
+	name=ID '(' (parameters+=Expression(',' parameters+=Expression)*)? ')';
 
 PrimaryExpression returns Expression:
 	'(' Expression ')' |
 	{Not} 'not' expression=PrimaryExpression |
+	FunctionCall |
 	AtomicExpression;
 
 AtomicExpression returns Expression:
 	{BooleanLiteral} (value?='true' | 'false') |
-	{NumericLiteral} value=DECIMAL |
+	{DoubleLiteral} value=DECIMAL |
 	{StringLiteral} value=STRING |
 	{VariableRef} variableName=ID;
 
@@ -107,6 +145,10 @@ terminal BEGIN:
 
 terminal END:
 	'synthetic:END';
+
+terminal UPPERCASE:
+	('A'..'Z' | '0'..'9')*
+;	
 
 terminal DECIMAL returns ecore::EDouble:
 	INT ('.' INT)?;

@@ -2,47 +2,19 @@
  */
 package klang.util;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+
+import klang.*;
+import klang.util.expressions.MemoizingTypeComputer;
+import klang.util.expressions.TypeComputer;
+
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
-
-import klang.Actor;
-import klang.And;
-import klang.BinaryOperator;
-import klang.BooleanLiteral;
-import klang.ControlStatement;
-import klang.Divide;
-import klang.Entity;
-import klang.Equal;
-import klang.EventHandler;
-import klang.EventType;
-import klang.Expression;
-import klang.ForeverLoop;
-import klang.FunctionCall;
-import klang.Game;
-import klang.GreaterThan;
-import klang.If;
-import klang.KlangPackage;
-import klang.LessThan;
-import klang.Minus;
-import klang.Multiply;
-import klang.Not;
-import klang.NumericLiteral;
-import klang.Or;
-import klang.Plus;
-import klang.SceneEntity;
-import klang.SpriteEntity;
-import klang.Statement;
-import klang.StringLiteral;
-import klang.UnaryOperator;
-import klang.Variable;
-import klang.VariableAssignment;
-import klang.VariableRef;
-import klang.WhileLoop;
-import klang.Yield;
 
 /**
  * <!-- begin-user-doc --> The <b>Validator</b> for the model. <!-- end-user-doc
@@ -128,10 +100,6 @@ public class KlangValidator extends EObjectValidator {
 				return validateIf((If)value, diagnostics, context);
 			case KlangPackage.FOREVER_LOOP:
 				return validateForeverLoop((ForeverLoop)value, diagnostics, context);
-			case KlangPackage.STATEMENT:
-				return validateStatement((Statement)value, diagnostics, context);
-			case KlangPackage.CONTROL_STATEMENT:
-				return validateControlStatement((ControlStatement)value, diagnostics, context);
 			case KlangPackage.YIELD:
 				return validateYield((Yield)value, diagnostics, context);
 			case KlangPackage.VARIABLE:
@@ -154,6 +122,8 @@ public class KlangValidator extends EObjectValidator {
 				return validateDivide((Divide)value, diagnostics, context);
 			case KlangPackage.LESS_THAN:
 				return validateLessThan((LessThan)value, diagnostics, context);
+			case KlangPackage.ENTITY:
+				return validateEntity((Entity)value, diagnostics, context);
 			case KlangPackage.EQUAL:
 				return validateEqual((Equal)value, diagnostics, context);
 			case KlangPackage.GREATER_THAN:
@@ -162,8 +132,8 @@ public class KlangValidator extends EObjectValidator {
 				return validateNot((Not)value, diagnostics, context);
 			case KlangPackage.BOOLEAN_LITERAL:
 				return validateBooleanLiteral((BooleanLiteral)value, diagnostics, context);
-			case KlangPackage.NUMERIC_LITERAL:
-				return validateNumericLiteral((NumericLiteral)value, diagnostics, context);
+			case KlangPackage.DOUBLE_LITERAL:
+				return validateDoubleLiteral((DoubleLiteral)value, diagnostics, context);
 			case KlangPackage.STRING_LITERAL:
 				return validateStringLiteral((StringLiteral)value, diagnostics, context);
 			case KlangPackage.VARIABLE_REF:
@@ -174,14 +144,26 @@ public class KlangValidator extends EObjectValidator {
 				return validateBinaryOperator((BinaryOperator)value, diagnostics, context);
 			case KlangPackage.FUNCTION_CALL:
 				return validateFunctionCall((FunctionCall)value, diagnostics, context);
-			case KlangPackage.ENTITY:
-				return validateEntity((Entity)value, diagnostics, context);
 			case KlangPackage.SPRITE_ENTITY:
 				return validateSpriteEntity((SpriteEntity)value, diagnostics, context);
 			case KlangPackage.SCENE_ENTITY:
 				return validateSceneEntity((SceneEntity)value, diagnostics, context);
-			case KlangPackage.EVENT_TYPE:
-				return validateEventType((EventType)value, diagnostics, context);
+			case KlangPackage.STATEMENT:
+				return validateStatement((Statement)value, diagnostics, context);
+			case KlangPackage.ABSTRACT_ELEMENT:
+				return validateAbstractElement((AbstractElement)value, diagnostics, context);
+			case KlangPackage.GAME_START:
+				return validateGameStart((GameStart)value, diagnostics, context);
+			case KlangPackage.SPRITE_CLICKED:
+				return validateSpriteClicked((SpriteClicked)value, diagnostics, context);
+			case KlangPackage.KEY_PRESSED:
+				return validateKeyPressed((KeyPressed)value, diagnostics, context);
+			case KlangPackage.COLLIDES_WITH:
+				return validateCollidesWith((CollidesWith)value, diagnostics, context);
+			case KlangPackage.INTEGER_LITERAL:
+				return validateIntegerLiteral((IntegerLiteral)value, diagnostics, context);
+			case KlangPackage.SLEEP:
+				return validateSleep((Sleep)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -235,23 +217,6 @@ public class KlangValidator extends EObjectValidator {
 	public boolean validateForeverLoop(ForeverLoop foreverLoop, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(foreverLoop, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateStatement(Statement statement, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(statement, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateControlStatement(ControlStatement controlStatement, DiagnosticChain diagnostics,
-			Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(controlStatement, diagnostics, context);
 	}
 
 	/**
@@ -318,11 +283,19 @@ public class KlangValidator extends EObjectValidator {
 	 */
 	public boolean validateVariableAssignment_type(VariableAssignment variableAssignment, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		Class declarationType = typeComputer.doSwitch(variableAssignment.getVariable().getExpression());
-		Class assignmentType = typeComputer.doSwitch(variableAssignment.getExpression());
+		Class declarationType = typeComputer.computeType(variableAssignment.getVariable().getExpression());
+		Class assignmentType = typeComputer.computeType(variableAssignment.getExpression());
 
-		// Expression of undefined type, handled in expression constraints.
 		if (declarationType == null || assignmentType == null) {
+			if (diagnostics != null) {
+				diagnostics.add(
+						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+								new Object[] {
+										"cannot assign value of type " + assignmentType + " to variable "
+												+ variableAssignment.getVariableName() + " of type " + declarationType,
+										getObjectLabel(variableAssignment, context) },
+								new Object[] { variableAssignment }, context));
+			}
 			return false;
 		}
 		if (declarationType != assignmentType) {
@@ -529,12 +502,12 @@ public class KlangValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateNumericLiteral(NumericLiteral numericLiteral, DiagnosticChain diagnostics,
-			Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(numericLiteral, diagnostics, context);
+	public boolean validateDoubleLiteral(DoubleLiteral doubleLiteral, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(doubleLiteral, diagnostics, context);
 	}
 
 	/**
@@ -700,7 +673,18 @@ public class KlangValidator extends EObjectValidator {
 	 */
 	public boolean validateFunctionCall_methodDeclaration(FunctionCall functionCall, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		return false;
+		Actor actor = KlangUtil.getActor(functionCall);
+		try {
+			actor.getEntity().getClass().getMethod(functionCall.getName(), typeComputer.computeTypes(functionCall.getParameters()));
+		} catch (NoSuchMethodException | SecurityException e) {
+			e.printStackTrace();
+			diagnostics.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+					new Object[] { "No function " +functionCall.getName() + " available",
+							getObjectLabel(functionCall, context) },
+					new Object[] { functionCall}, context));
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -718,6 +702,7 @@ public class KlangValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(variable, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(variable, diagnostics, context);
 		if (result || diagnostics != null) result &= validateVariable_scope(variable, diagnostics, context);
+		if (result || diagnostics != null) result &= validateVariable_type(variable, diagnostics, context);
 		return result;
 	}
 
@@ -730,14 +715,43 @@ public class KlangValidator extends EObjectValidator {
 	public boolean validateVariable_scope(Variable variable, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		Actor actor = KlangUtil.getActor(variable);
 		Game game = KlangUtil.getGame(variable);
-
-		if (game.getVariableDeclarations().contains(variable) && actor.getVariableDeclarations().contains(variable)) {
-
+		
+		List<Variable> variableDeclarations = new ArrayList<>(game.getVariableDeclarations());
+		
+		if(actor != null) {
+			variableDeclarations.addAll(actor.getVariableDeclarations());
+		}
+	
+		if(variableDeclarations.stream().filter(var -> var.getName().equals(variable.getName())).count() > 1) {
 			diagnostics.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
 					new Object[] { "multiple declarations of variable: " + variable.getName(),
 							getObjectLabel(variable, context) },
 					new Object[] { variable }, context));
 
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Validates the type constraint of '<em>Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateVariable_type(Variable variable, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (typeComputer.computeType(variable.getExpression())==null) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "cannot assign a null value to a variable", getObjectLabel(variable, context) },
+						 new Object[] { variable },
+						 context));
+			}
 			return false;
 		}
 		return true;
@@ -770,11 +784,75 @@ public class KlangValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateEventType(EventType eventType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
+	public boolean validateStatement(Statement statement, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(statement, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAbstractElement(AbstractElement abstractElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(abstractElement, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateGameStart(GameStart gameStart, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(gameStart, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSpriteClicked(SpriteClicked spriteClicked, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(spriteClicked, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateKeyPressed(KeyPressed keyPressed, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(keyPressed, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCollidesWith(CollidesWith collidesWith, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(collidesWith, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateIntegerLiteral(IntegerLiteral integerLiteral, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(integerLiteral, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSleep(Sleep sleep, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(sleep, diagnostics, context);
 	}
 
 	/**

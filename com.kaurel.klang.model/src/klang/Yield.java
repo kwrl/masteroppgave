@@ -2,7 +2,6 @@
  */
 package klang;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Yield</b></em>'.
@@ -13,5 +12,5 @@ package klang;
  * @model
  * @generated
  */
-public interface Yield extends ControlStatement {
+public interface Yield extends Statement {
 } // Yield

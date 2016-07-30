@@ -237,7 +237,7 @@ public class FunctionCallItemProvider extends ExpressionItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.FUNCTION_CALL__PARAMETERS,
-				 KlangFactory.eINSTANCE.createNumericLiteral()));
+				 KlangFactory.eINSTANCE.createDoubleLiteral()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -253,6 +253,11 @@ public class FunctionCallItemProvider extends ExpressionItemProvider {
 			(createChildParameter
 				(KlangPackage.Literals.FUNCTION_CALL__PARAMETERS,
 				 KlangFactory.eINSTANCE.createFunctionCall()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.FUNCTION_CALL__PARAMETERS,
+				 KlangFactory.eINSTANCE.createIntegerLiteral()));
 	}
 
 }

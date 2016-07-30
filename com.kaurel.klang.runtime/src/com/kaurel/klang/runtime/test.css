@@ -1,0 +1,8 @@
+.brick {
+	-fx-stroke: black;
+	-fx-stroke-width: 1;
+	-fx-fill: white;
+	-bx-density: 2.0;
+	-bx-restitution: 0.2;
+	-bx-friction: 1.0;
+}

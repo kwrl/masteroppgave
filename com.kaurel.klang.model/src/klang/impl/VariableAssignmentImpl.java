@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class VariableAssignmentImpl extends StatementImpl implements VariableAssignment {
+public class VariableAssignmentImpl extends AbstractElementImpl implements VariableAssignment {
 	/**
 	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
 	 * <!-- begin-user-doc -->

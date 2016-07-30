@@ -1,41 +1,11 @@
 sprite ball
-	var xvel = 5
-	var yvel = 5
-	var damp = 0.8
-	
-	when game starts 
-		while true
-			.setX(.getX()+xvel)
-			.setY(.getY()+yvel)
-			
-			if .getX() < 0.0
-				xvel = (0 - xvel)*damp
-				.setX(.getX()+xvel)
-				.setY(.getY()+yvel)
-				
-			if .getY() < 0.0
-				yvel = (0 - yvel)*damp
-				.setX(.getX()+xvel)
-				.setY(.getY()+yvel)
-				
-			if 800.0 < .getX()
-				xvel = (0 - xvel)*damp
-				.setX(.getX()+xvel)
-				.setY(.getY()+yvel)
-				
-			if 600.0 < .getY()
-				yvel = (0 - yvel)*damp
-				.setX(.getX()+xvel)
-				.setY(.getY()+yvel)
+	var test = 0.0*10.0
+
+	when game starts	
+		forever
+			sleep(2.0)	
+			print("HEIIII")
 		
-	when "UP" key pressed 
-		yvel = yvel -1
-		
-	when "DOWN" key pressed
-		yvel = yvel +1
-		
-	when "LEFT" key pressed
-		xvel = xvel -1
-		
-	when "RIGHT" key pressed
-		xvel = xvel +1
+sprite ground
+	when collides with ball
+		print("PANG!")

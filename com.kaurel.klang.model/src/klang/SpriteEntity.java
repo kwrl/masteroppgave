@@ -50,8 +50,56 @@ public interface SpriteEntity extends Entity {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model messageRequired="true"
+	 * @generated
+	 */
+	void print(String message);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	Double getX();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	Double getY();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model yRequired="true"
+	 * @generated
+	 */
+	void setY(Double y);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model xRequired="true"
+	 * @generated
+	 */
+	void setX(Double x);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model messageRequired="true"
+	 * @generated
+	 */
+	void print(Double message);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
-	void hello();
+	void sleep(Double sleepDuration);
 } // SpriteEntity

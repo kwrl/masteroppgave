@@ -440,6 +440,52 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link klang.IntegerLiteral} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IntegerLiteralItemProvider integerLiteralItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link klang.IntegerLiteral}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIntegerLiteralAdapter() {
+		if (integerLiteralItemProvider == null) {
+			integerLiteralItemProvider = new IntegerLiteralItemProvider(this);
+		}
+
+		return integerLiteralItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link klang.Sleep} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SleepItemProvider sleepItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link klang.Sleep}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSleepAdapter() {
+		if (sleepItemProvider == null) {
+			sleepItemProvider = new SleepItemProvider(this);
+		}
+
+		return sleepItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link klang.Expression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -716,26 +762,26 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link klang.NumericLiteral} instances.
+	 * This keeps track of the one adapter used for all {@link klang.DoubleLiteral} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NumericLiteralItemProvider numericLiteralItemProvider;
+	protected DoubleLiteralItemProvider doubleLiteralItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link klang.NumericLiteral}.
+	 * This creates an adapter for a {@link klang.DoubleLiteral}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createNumericLiteralAdapter() {
-		if (numericLiteralItemProvider == null) {
-			numericLiteralItemProvider = new NumericLiteralItemProvider(this);
+	public Adapter createDoubleLiteralAdapter() {
+		if (doubleLiteralItemProvider == null) {
+			doubleLiteralItemProvider = new DoubleLiteralItemProvider(this);
 		}
 
-		return numericLiteralItemProvider;
+		return doubleLiteralItemProvider;
 	}
 
 	/**
@@ -974,7 +1020,7 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 		if (greaterThanItemProvider != null) greaterThanItemProvider.dispose();
 		if (notItemProvider != null) notItemProvider.dispose();
 		if (booleanLiteralItemProvider != null) booleanLiteralItemProvider.dispose();
-		if (numericLiteralItemProvider != null) numericLiteralItemProvider.dispose();
+		if (doubleLiteralItemProvider != null) doubleLiteralItemProvider.dispose();
 		if (stringLiteralItemProvider != null) stringLiteralItemProvider.dispose();
 		if (variableRefItemProvider != null) variableRefItemProvider.dispose();
 		if (unaryOperatorItemProvider != null) unaryOperatorItemProvider.dispose();
@@ -986,6 +1032,8 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 		if (spriteClickedItemProvider != null) spriteClickedItemProvider.dispose();
 		if (keyPressedItemProvider != null) keyPressedItemProvider.dispose();
 		if (collidesWithItemProvider != null) collidesWithItemProvider.dispose();
+		if (integerLiteralItemProvider != null) integerLiteralItemProvider.dispose();
+		if (sleepItemProvider != null) sleepItemProvider.dispose();
 	}
 
 }

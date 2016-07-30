@@ -9,29 +9,33 @@ import java.util.Set;
 import klang.Actor;
 import klang.And;
 import klang.BooleanLiteral;
+import klang.CollidesWith;
 import klang.Divide;
+import klang.DoubleLiteral;
 import klang.Equal;
-import klang.EventHandler;
 import klang.ForeverLoop;
+import klang.FunctionCall;
 import klang.Game;
+import klang.GameStart;
 import klang.GreaterThan;
 import klang.If;
+import klang.KeyPressed;
 import klang.KlangPackage;
 import klang.LessThan;
 import klang.Minus;
 import klang.Multiply;
 import klang.Not;
-import klang.NumericLiteral;
 import klang.Or;
 import klang.Plus;
 import klang.SceneEntity;
+import klang.Sleep;
+import klang.SpriteClicked;
 import klang.SpriteEntity;
 import klang.StringLiteral;
 import klang.Variable;
 import klang.VariableAssignment;
 import klang.VariableRef;
 import klang.WhileLoop;
-import klang.Yield;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.xtext.Action;
@@ -65,26 +69,38 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case KlangPackage.BOOLEAN_LITERAL:
 				sequence_AtomicExpression(context, (BooleanLiteral) semanticObject); 
 				return; 
+			case KlangPackage.COLLIDES_WITH:
+				sequence_CollidesWith(context, (CollidesWith) semanticObject); 
+				return; 
 			case KlangPackage.DIVIDE:
 				sequence_Divide(context, (Divide) semanticObject); 
+				return; 
+			case KlangPackage.DOUBLE_LITERAL:
+				sequence_AtomicExpression(context, (DoubleLiteral) semanticObject); 
 				return; 
 			case KlangPackage.EQUAL:
 				sequence_Comparison(context, (Equal) semanticObject); 
 				return; 
-			case KlangPackage.EVENT_HANDLER:
-				sequence_EventHandler(context, (EventHandler) semanticObject); 
-				return; 
 			case KlangPackage.FOREVER_LOOP:
 				sequence_ForeverLoop(context, (ForeverLoop) semanticObject); 
 				return; 
+			case KlangPackage.FUNCTION_CALL:
+				sequence_FunctionCall(context, (FunctionCall) semanticObject); 
+				return; 
 			case KlangPackage.GAME:
 				sequence_Game(context, (Game) semanticObject); 
+				return; 
+			case KlangPackage.GAME_START:
+				sequence_GameStart(context, (GameStart) semanticObject); 
 				return; 
 			case KlangPackage.GREATER_THAN:
 				sequence_Comparison(context, (GreaterThan) semanticObject); 
 				return; 
 			case KlangPackage.IF:
 				sequence_If(context, (If) semanticObject); 
+				return; 
+			case KlangPackage.KEY_PRESSED:
+				sequence_KeyPressed(context, (KeyPressed) semanticObject); 
 				return; 
 			case KlangPackage.LESS_THAN:
 				sequence_Comparison(context, (LessThan) semanticObject); 
@@ -98,9 +114,6 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case KlangPackage.NOT:
 				sequence_PrimaryExpression(context, (Not) semanticObject); 
 				return; 
-			case KlangPackage.NUMERIC_LITERAL:
-				sequence_AtomicExpression(context, (NumericLiteral) semanticObject); 
-				return; 
 			case KlangPackage.OR:
 				sequence_Or(context, (Or) semanticObject); 
 				return; 
@@ -109,6 +122,12 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case KlangPackage.SCENE_ENTITY:
 				sequence_Entity(context, (SceneEntity) semanticObject); 
+				return; 
+			case KlangPackage.SLEEP:
+				sequence_Sleep(context, (Sleep) semanticObject); 
+				return; 
+			case KlangPackage.SPRITE_CLICKED:
+				sequence_SpriteClicked(context, (SpriteClicked) semanticObject); 
 				return; 
 			case KlangPackage.SPRITE_ENTITY:
 				sequence_Entity(context, (SpriteEntity) semanticObject); 
@@ -127,9 +146,6 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case KlangPackage.WHILE_LOOP:
 				sequence_WhileLoop(context, (WhileLoop) semanticObject); 
-				return; 
-			case KlangPackage.YIELD:
-				sequence_Yield(context, (Yield) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -150,6 +166,7 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     AbstractElement returns And
 	 *     Expression returns And
 	 *     Or returns And
 	 *     Or.Or_1_0 returns And
@@ -188,6 +205,7 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     AbstractElement returns BooleanLiteral
 	 *     Expression returns BooleanLiteral
 	 *     Or returns BooleanLiteral
 	 *     Or.Or_1_0 returns BooleanLiteral
@@ -218,33 +236,34 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Expression returns NumericLiteral
-	 *     Or returns NumericLiteral
-	 *     Or.Or_1_0 returns NumericLiteral
-	 *     And returns NumericLiteral
-	 *     And.And_1_0 returns NumericLiteral
-	 *     Plus returns NumericLiteral
-	 *     Plus.Plus_1_0 returns NumericLiteral
-	 *     Minus returns NumericLiteral
-	 *     Minus.Minus_1_0 returns NumericLiteral
-	 *     Multiply returns NumericLiteral
-	 *     Multiply.Multiply_1_0 returns NumericLiteral
-	 *     Divide returns NumericLiteral
-	 *     Divide.Divide_1_0 returns NumericLiteral
-	 *     Comparison returns NumericLiteral
-	 *     Comparison.LessThan_1_0_0_1 returns NumericLiteral
-	 *     Comparison.Equal_1_0_1_1 returns NumericLiteral
-	 *     Comparison.GreaterThan_1_0_2_1 returns NumericLiteral
-	 *     PrimaryExpression returns NumericLiteral
-	 *     AtomicExpression returns NumericLiteral
+	 *     AbstractElement returns DoubleLiteral
+	 *     Expression returns DoubleLiteral
+	 *     Or returns DoubleLiteral
+	 *     Or.Or_1_0 returns DoubleLiteral
+	 *     And returns DoubleLiteral
+	 *     And.And_1_0 returns DoubleLiteral
+	 *     Plus returns DoubleLiteral
+	 *     Plus.Plus_1_0 returns DoubleLiteral
+	 *     Minus returns DoubleLiteral
+	 *     Minus.Minus_1_0 returns DoubleLiteral
+	 *     Multiply returns DoubleLiteral
+	 *     Multiply.Multiply_1_0 returns DoubleLiteral
+	 *     Divide returns DoubleLiteral
+	 *     Divide.Divide_1_0 returns DoubleLiteral
+	 *     Comparison returns DoubleLiteral
+	 *     Comparison.LessThan_1_0_0_1 returns DoubleLiteral
+	 *     Comparison.Equal_1_0_1_1 returns DoubleLiteral
+	 *     Comparison.GreaterThan_1_0_2_1 returns DoubleLiteral
+	 *     PrimaryExpression returns DoubleLiteral
+	 *     AtomicExpression returns DoubleLiteral
 	 *
 	 * Constraint:
 	 *     value=DECIMAL
 	 */
-	protected void sequence_AtomicExpression(ISerializationContext context, NumericLiteral semanticObject) {
+	protected void sequence_AtomicExpression(ISerializationContext context, DoubleLiteral semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.NUMERIC_LITERAL__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.NUMERIC_LITERAL__VALUE));
+			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.DOUBLE_LITERAL__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.DOUBLE_LITERAL__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getAtomicExpressionAccess().getValueDECIMALTerminalRuleCall_1_1_0(), semanticObject.getValue());
@@ -254,6 +273,7 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     AbstractElement returns StringLiteral
 	 *     Expression returns StringLiteral
 	 *     Or returns StringLiteral
 	 *     Or.Or_1_0 returns StringLiteral
@@ -290,6 +310,7 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     AbstractElement returns VariableRef
 	 *     Expression returns VariableRef
 	 *     Or returns VariableRef
 	 *     Or.Or_1_0 returns VariableRef
@@ -326,6 +347,20 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     EventHandler returns CollidesWith
+	 *     CollidesWith returns CollidesWith
+	 *
+	 * Constraint:
+	 *     (target=[SpriteEntity|ID] statements+=Statement*)
+	 */
+	protected void sequence_CollidesWith(ISerializationContext context, CollidesWith semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractElement returns Equal
 	 *     Expression returns Equal
 	 *     Or returns Equal
 	 *     Or.Or_1_0 returns Equal
@@ -364,6 +399,7 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     AbstractElement returns GreaterThan
 	 *     Expression returns GreaterThan
 	 *     Or returns GreaterThan
 	 *     Or.Or_1_0 returns GreaterThan
@@ -402,6 +438,7 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     AbstractElement returns LessThan
 	 *     Expression returns LessThan
 	 *     Or returns LessThan
 	 *     Or.Or_1_0 returns LessThan
@@ -440,6 +477,7 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     AbstractElement returns Divide
 	 *     Expression returns Divide
 	 *     Or returns Divide
 	 *     Or.Or_1_0 returns Divide
@@ -508,26 +546,58 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     EventHandler returns EventHandler
+	 *     Statement returns ForeverLoop
+	 *     ForeverLoop returns ForeverLoop
 	 *
 	 * Constraint:
-	 *     (eventType=EventType statements+=Statement*)
+	 *     loopStatements+=Statement*
 	 */
-	protected void sequence_EventHandler(ISerializationContext context, EventHandler semanticObject) {
+	protected void sequence_ForeverLoop(ISerializationContext context, ForeverLoop semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     ForeverLoop returns ForeverLoop
-	 *     Statement returns ForeverLoop
-	 *     ControlStatement returns ForeverLoop
+	 *     Statement returns FunctionCall
+	 *     AbstractElement returns FunctionCall
+	 *     Expression returns FunctionCall
+	 *     Or returns FunctionCall
+	 *     Or.Or_1_0 returns FunctionCall
+	 *     And returns FunctionCall
+	 *     And.And_1_0 returns FunctionCall
+	 *     Plus returns FunctionCall
+	 *     Plus.Plus_1_0 returns FunctionCall
+	 *     Minus returns FunctionCall
+	 *     Minus.Minus_1_0 returns FunctionCall
+	 *     Multiply returns FunctionCall
+	 *     Multiply.Multiply_1_0 returns FunctionCall
+	 *     Divide returns FunctionCall
+	 *     Divide.Divide_1_0 returns FunctionCall
+	 *     Comparison returns FunctionCall
+	 *     Comparison.LessThan_1_0_0_1 returns FunctionCall
+	 *     Comparison.Equal_1_0_1_1 returns FunctionCall
+	 *     Comparison.GreaterThan_1_0_2_1 returns FunctionCall
+	 *     FunctionCall returns FunctionCall
+	 *     PrimaryExpression returns FunctionCall
 	 *
 	 * Constraint:
-	 *     loopStatements+=Statement*
+	 *     (name=ID (parameters+=Expression parameters+=Expression*)?)
 	 */
-	protected void sequence_ForeverLoop(ISerializationContext context, ForeverLoop semanticObject) {
+	protected void sequence_FunctionCall(ISerializationContext context, FunctionCall semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     EventHandler returns GameStart
+	 *     GameStart returns GameStart
+	 *
+	 * Constraint:
+	 *     statements+=Statement*
+	 */
+	protected void sequence_GameStart(ISerializationContext context, GameStart semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -546,9 +616,8 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     If returns If
 	 *     Statement returns If
-	 *     ControlStatement returns If
+	 *     If returns If
 	 *
 	 * Constraint:
 	 *     (predicate=Expression ifBlock+=Statement*)
@@ -560,6 +629,20 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     EventHandler returns KeyPressed
+	 *     KeyPressed returns KeyPressed
+	 *
+	 * Constraint:
+	 *     (key=UPPERCASE statements+=Statement*)
+	 */
+	protected void sequence_KeyPressed(ISerializationContext context, KeyPressed semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractElement returns Minus
 	 *     Expression returns Minus
 	 *     Or returns Minus
 	 *     Or.Or_1_0 returns Minus
@@ -598,6 +681,7 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     AbstractElement returns Multiply
 	 *     Expression returns Multiply
 	 *     Or returns Multiply
 	 *     Or.Or_1_0 returns Multiply
@@ -636,6 +720,7 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     AbstractElement returns Or
 	 *     Expression returns Or
 	 *     Or returns Or
 	 *     Or.Or_1_0 returns Or
@@ -674,6 +759,7 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     AbstractElement returns Plus
 	 *     Expression returns Plus
 	 *     Or returns Plus
 	 *     Or.Or_1_0 returns Plus
@@ -712,6 +798,7 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     AbstractElement returns Not
 	 *     Expression returns Not
 	 *     Or returns Not
 	 *     Or.Or_1_0 returns Not
@@ -747,7 +834,40 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     Statement returns Sleep
+	 *     Sleep returns Sleep
+	 *
+	 * Constraint:
+	 *     duration=DECIMAL
+	 */
+	protected void sequence_Sleep(ISerializationContext context, Sleep semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.SLEEP__DURATION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.SLEEP__DURATION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSleepAccess().getDurationDECIMALTerminalRuleCall_3_0(), semanticObject.getDuration());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     EventHandler returns SpriteClicked
+	 *     SpriteClicked returns SpriteClicked
+	 *
+	 * Constraint:
+	 *     statements+=Statement*
+	 */
+	protected void sequence_SpriteClicked(ISerializationContext context, SpriteClicked semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Statement returns VariableAssignment
+	 *     AbstractElement returns VariableAssignment
 	 *     VariableAssignment returns VariableAssignment
 	 *
 	 * Constraint:
@@ -769,7 +889,6 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Statement returns Variable
 	 *     Variable returns Variable
 	 *
 	 * Constraint:
@@ -791,28 +910,13 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     WhileLoop returns WhileLoop
 	 *     Statement returns WhileLoop
-	 *     ControlStatement returns WhileLoop
+	 *     WhileLoop returns WhileLoop
 	 *
 	 * Constraint:
 	 *     (predicate=Expression loopBlock+=Statement*)
 	 */
 	protected void sequence_WhileLoop(ISerializationContext context, WhileLoop semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Statement returns Yield
-	 *     ControlStatement returns Yield
-	 *     Yield returns Yield
-	 *
-	 * Constraint:
-	 *     {Yield}
-	 */
-	protected void sequence_Yield(ISerializationContext context, Yield semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

@@ -11,29 +11,43 @@ package com.kaurel.klang.xtext.parser.antlr.lexer;
 import org.eclipse.xtext.parser.antlr.Lexer;
 }
 
-GAME_STARTED : 'GAME_STARTED';
+Collides : 'collides';
+
+Clicked : 'clicked';
 
 Forever : 'forever';
 
+Pressed : 'pressed';
+
 Sprite : 'sprite';
+
+Starts : 'starts';
 
 False : 'false';
 
 Scene : 'scene';
 
+Sleep : 'sleep';
+
 While : 'while';
 
-Yield : 'yield';
+Game : 'game';
 
 True : 'true';
 
 When : 'when';
 
+With : 'with';
+
 And : 'and';
+
+Key : 'key';
 
 Not : 'not';
 
 Var : 'var';
+
+EqualsSignEqualsSign : '==';
 
 If : 'if';
 
@@ -46,6 +60,8 @@ RightParenthesis : ')';
 Asterisk : '*';
 
 PlusSign : '+';
+
+Comma : ',';
 
 HyphenMinus : '-';
 
@@ -62,6 +78,8 @@ GreaterThanSign : '>';
 fragment RULE_BEGIN : ;
 
 fragment RULE_END : ;
+
+RULE_UPPERCASE : ('A'..'Z'|'0'..'9')*;
 
 RULE_DECIMAL : RULE_INT ('.' RULE_INT)?;
 

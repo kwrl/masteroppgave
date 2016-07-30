@@ -4,7 +4,6 @@ package klang.impl;
 
 import klang.*;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -62,8 +61,6 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 			case KlangPackage.WHILE_LOOP: return createWhileLoop();
 			case KlangPackage.IF: return createIf();
 			case KlangPackage.FOREVER_LOOP: return createForeverLoop();
-			case KlangPackage.STATEMENT: return createStatement();
-			case KlangPackage.CONTROL_STATEMENT: return createControlStatement();
 			case KlangPackage.YIELD: return createYield();
 			case KlangPackage.VARIABLE: return createVariable();
 			case KlangPackage.VARIABLE_ASSIGNMENT: return createVariableAssignment();
@@ -75,51 +72,27 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 			case KlangPackage.MULTIPLY: return createMultiply();
 			case KlangPackage.DIVIDE: return createDivide();
 			case KlangPackage.LESS_THAN: return createLessThan();
+			case KlangPackage.ENTITY: return createEntity();
 			case KlangPackage.EQUAL: return createEqual();
 			case KlangPackage.GREATER_THAN: return createGreaterThan();
 			case KlangPackage.NOT: return createNot();
 			case KlangPackage.BOOLEAN_LITERAL: return createBooleanLiteral();
-			case KlangPackage.NUMERIC_LITERAL: return createNumericLiteral();
+			case KlangPackage.DOUBLE_LITERAL: return createDoubleLiteral();
 			case KlangPackage.STRING_LITERAL: return createStringLiteral();
 			case KlangPackage.VARIABLE_REF: return createVariableRef();
 			case KlangPackage.UNARY_OPERATOR: return createUnaryOperator();
 			case KlangPackage.BINARY_OPERATOR: return createBinaryOperator();
 			case KlangPackage.FUNCTION_CALL: return createFunctionCall();
-			case KlangPackage.ENTITY: return createEntity();
 			case KlangPackage.SPRITE_ENTITY: return createSpriteEntity();
 			case KlangPackage.SCENE_ENTITY: return createSceneEntity();
+			case KlangPackage.GAME_START: return createGameStart();
+			case KlangPackage.SPRITE_CLICKED: return createSpriteClicked();
+			case KlangPackage.KEY_PRESSED: return createKeyPressed();
+			case KlangPackage.COLLIDES_WITH: return createCollidesWith();
+			case KlangPackage.INTEGER_LITERAL: return createIntegerLiteral();
+			case KlangPackage.SLEEP: return createSleep();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object createFromString(EDataType eDataType, String initialValue) {
-		switch (eDataType.getClassifierID()) {
-			case KlangPackage.EVENT_TYPE:
-				return createEventTypeFromString(eDataType, initialValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String convertToString(EDataType eDataType, Object instanceValue) {
-		switch (eDataType.getClassifierID()) {
-			case KlangPackage.EVENT_TYPE:
-				return convertEventTypeToString(eDataType, instanceValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -188,26 +161,6 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Statement createStatement() {
-		StatementImpl statement = new StatementImpl();
-		return statement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ControlStatement createControlStatement() {
-		ControlStatementImpl controlStatement = new ControlStatementImpl();
-		return controlStatement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Yield createYield() {
 		YieldImpl yield = new YieldImpl();
 		return yield;
@@ -261,6 +214,66 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	public SceneEntity createSceneEntity() {
 		SceneEntityImpl sceneEntity = new SceneEntityImpl();
 		return sceneEntity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GameStart createGameStart() {
+		GameStartImpl gameStart = new GameStartImpl();
+		return gameStart;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SpriteClicked createSpriteClicked() {
+		SpriteClickedImpl spriteClicked = new SpriteClickedImpl();
+		return spriteClicked;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public KeyPressed createKeyPressed() {
+		KeyPressedImpl keyPressed = new KeyPressedImpl();
+		return keyPressed;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CollidesWith createCollidesWith() {
+		CollidesWithImpl collidesWith = new CollidesWithImpl();
+		return collidesWith;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IntegerLiteral createIntegerLiteral() {
+		IntegerLiteralImpl integerLiteral = new IntegerLiteralImpl();
+		return integerLiteral;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Sleep createSleep() {
+		SleepImpl sleep = new SleepImpl();
+		return sleep;
 	}
 
 	/**
@@ -388,9 +401,9 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NumericLiteral createNumericLiteral() {
-		NumericLiteralImpl numericLiteral = new NumericLiteralImpl();
-		return numericLiteral;
+	public DoubleLiteral createDoubleLiteral() {
+		DoubleLiteralImpl doubleLiteral = new DoubleLiteralImpl();
+		return doubleLiteral;
 	}
 
 	/**
@@ -441,26 +454,6 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	public FunctionCall createFunctionCall() {
 		FunctionCallImpl functionCall = new FunctionCallImpl();
 		return functionCall;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EventType createEventTypeFromString(EDataType eDataType, String initialValue) {
-		EventType result = EventType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertEventTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

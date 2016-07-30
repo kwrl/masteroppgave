@@ -3,12 +3,10 @@
 package klang.impl;
 
 import java.util.Collection;
-
 import klang.Expression;
 import klang.If;
 import klang.KlangPackage;
 import klang.Statement;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -36,7 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class IfImpl extends ControlStatementImpl implements If {
+public class IfImpl extends AbstractElementImpl implements If {
 	/**
 	 * The cached value of the '{@link #getPredicate() <em>Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->

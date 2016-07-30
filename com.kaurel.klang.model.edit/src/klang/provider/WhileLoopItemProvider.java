@@ -208,7 +208,7 @@ public class WhileLoopItemProvider extends AbstractElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.WHILE_LOOP__PREDICATE,
-				 KlangFactory.eINSTANCE.createNumericLiteral()));
+				 KlangFactory.eINSTANCE.createDoubleLiteral()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -224,6 +224,11 @@ public class WhileLoopItemProvider extends AbstractElementItemProvider {
 			(createChildParameter
 				(KlangPackage.Literals.WHILE_LOOP__PREDICATE,
 				 KlangFactory.eINSTANCE.createFunctionCall()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.WHILE_LOOP__PREDICATE,
+				 KlangFactory.eINSTANCE.createIntegerLiteral()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -254,6 +259,11 @@ public class WhileLoopItemProvider extends AbstractElementItemProvider {
 			(createChildParameter
 				(KlangPackage.Literals.WHILE_LOOP__LOOP_BLOCK,
 				 KlangFactory.eINSTANCE.createFunctionCall()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.WHILE_LOOP__LOOP_BLOCK,
+				 KlangFactory.eINSTANCE.createSleep()));
 	}
 
 	/**

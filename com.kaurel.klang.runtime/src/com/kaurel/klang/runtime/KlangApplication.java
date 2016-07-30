@@ -1,112 +1,143 @@
 package com.kaurel.klang.runtime;
 
+import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.Reader;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
 import java.util.stream.Stream;
 
-import javafx.animation.AnimationTimer;
+import org.jbox2d.dynamics.Body;
+
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;
-import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import klang.AbstractElement;
+import klang.Actor;
+import klang.CollidesWith;
+import klang.Entity;
 import klang.EventHandler;
+import klang.Game;
 import klang.GameStart;
 import klang.KeyPressed;
-import klang.util.KlangThreadImpl;
+import klang.SpriteClicked;
+import klang.SpriteEntity;
+import klang.util.threading.KlangThread;
 
-public class KlangApplication extends BaseApplication {
-	private World world;
-	private final KlangScheduler scheduler = new KlangScheduler();
-	private Thread schedulerThread;
-	private CollisionChecker collisionChecker = new CollisionChecker();
+public class KlangApplication extends Box2dApplication {
+	private KlangScheduler scheduler = new KlangScheduler();
 
-	private Boolean tick = false;
-
-	private AnimationTimer timer = new AnimationTimer() {
-		@Override
-		public void handle(long now) {
-			collisionChecker.run();
-			world.getSprites().stream().forEach(s -> s.syncUI());
-		}
-	};
-
-	public static void main(String[] args) throws FileNotFoundException {
-		launch(args);
-	}
+	private Map<Entity, List<EventHandler>> entityEventhandlerMapping = new HashMap<>();
+	private Map<Body, Sprite> bodySpriteMapping = new HashMap<>();
 
 	Stream<EventHandler> getEventHandlers(Class<? extends EventHandler> cls) {
-		return world.getEventHandlers().stream().filter(e -> cls.isInstance(e));
+		return entityEventhandlerMapping.values().stream().flatMap(List::stream).filter(e -> cls.isInstance(e));
 	}
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		super.start(primaryStage);
-		Reader reader = new FileReader("klangfiles/test.klang");
-		WorldFactory builder = new WorldFactory(new JavaFXSpriteFactory(getClass().getResource("test.fxml")));
-		world = builder.createWorld(reader);
+		addGameEventListener(new GameEventHandler());
 
-		for (Sprite sprite : world.getSprites()) {
-			root.getChildren().add(sprite.getGraphics());
-		}
-		
-		timer.start();
-	}
+		byte[] bytes = Files.readAllBytes(Paths.get("klangfiles/test.klang"));
+		InputStream in = new ByteArrayInputStream(bytes);
+		Game game = GameParser.INSTANCE.parseGame(in);
 
-	@Override
-	protected void onKeyDown(KeyCode code) {
-		getEventHandlers(KeyPressed.class).filter(e -> ((KeyPressed) e).getKey().equals(code.toString())).forEach(
-				e -> scheduler.addThread(new KlangThreadImpl(new ArrayList<AbstractElement>(e.getStatements()))));
-	}
+		//Initialize global variables
+		KlangThread init = new KlangThread(new ArrayList<AbstractElement>(game.getVariableDeclarations()));
+		init.run();
 
-	@Override
-	protected void onGameStart() {
-		getEventHandlers(GameStart.class).forEach(
-				e -> scheduler.addThread(new KlangThreadImpl(new ArrayList<AbstractElement>(e.getStatements()))));
-		schedulerThread = new Thread(scheduler);
-		schedulerThread.setDaemon(true);
-		schedulerThread.start();
-	}
-
-	@Override
-	protected void onGameStop() {
-		if (schedulerThread != null) {
-			schedulerThread.stop();
-			scheduler.flush();
-		}
-	}
-
-	class CollisionChecker implements Runnable {
-		private Set<Set<Sprite>> collisions = new HashSet<>();
-
-		@Override
-		public void run() {
-			List<Sprite> sprites = world.getSprites();
-			for (int i = 0; i < sprites.size(); i++) {
-				Node n1 = sprites.get(i).getGraphics();
-				for (int j = i + 1; j < sprites.size(); j++) {
-					Set<Sprite> collision = new HashSet<>();
-					collision.add(sprites.get(i));
-					collision.add(sprites.get(j));
-
-					Node n2 = sprites.get(j).getGraphics();
-
-					if (n1.getBoundsInParent().intersects(n2.getBoundsInParent())) {
-						if (!collisions.contains(collision)) {
-							collisions.add(collision);
-						}
-					} else {
-						if (collisions.contains(collision)) {
-							collisions.remove(collision);
-						}
-					}
+		for (Actor actor : game.getActorDefs()) {
+			if (!(actor.getEntity() instanceof SpriteEntity))
+				continue;
+			SpriteEntity entity = (SpriteEntity) actor.getEntity();
+			entityEventhandlerMapping.put(entity, new ArrayList<>(actor.getEventHandlers()));
+			for (Body body : bodyNodeMapping.keySet()) {
+				Node node = bodyNodeMapping.get(body);
+				if (node.getId() == null)
+					continue;
+				if (node.getId().equals(entity.getName())) {
+					bodySpriteMapping.put(body, new Sprite(node, body, entity));
 				}
 			}
+			
+			//Initialize actor's member variables
+			init = new KlangThread(new ArrayList<AbstractElement>(actor.getVariableDeclarations()));
+			init.run();
 		}
+
+		tickTasks.addLast(new Runnable() {
+			@Override
+			public void run() {
+				scheduler.tick();
+			}
+		});
+
+		running.set(true);
 	}
 
+	public static void main(String[] args) throws FileNotFoundException {
+		launch(args);
+	}
+
+	class GameEventHandler extends GameState implements GameEventListener {
+
+		@Override
+		public void onGameStart() {
+			getEventHandlers(GameStart.class)
+					.forEach(e -> scheduler.addThread(new KlangThread(new ArrayList<>(e.getStatements()))));
+		}
+
+		@Override
+		public void onGamePaused() {
+		}
+
+		@Override
+		public void onGameStopped() {
+			scheduler.flush();
+		}
+
+		@Override
+		public void onBodyClicked(Body body) {
+			Entity entity = bodySpriteMapping.get(body).getEntity();
+			List<EventHandler> eventHandlers = new ArrayList<>(entityEventhandlerMapping.get(entity));
+			eventHandlers.stream().filter(e -> e instanceof SpriteClicked)
+					.forEach(e -> scheduler.addThread(new KlangThread(new ArrayList<>(e.getStatements()))));
+		}
+
+		@Override
+		public void onCollision(Body bodyA, Body bodyB) {
+			Sprite spriteA = bodySpriteMapping.get(bodyA);
+			Sprite spriteB = bodySpriteMapping.get(bodyB);
+
+			if (spriteA == null || spriteB == null) {
+				return;
+			}
+
+			List<EventHandler> handlersA = new ArrayList<>(entityEventhandlerMapping.get(spriteA.getEntity()));
+			List<EventHandler> handlersB = new ArrayList<>(entityEventhandlerMapping.get(spriteB.getEntity()));
+
+			handlersA.stream().filter(e -> e instanceof CollidesWith).map(e -> (CollidesWith) e)
+					.filter(e -> e.getTarget().equals(spriteB.getEntity()))
+					.forEach(e -> scheduler.addThread(new KlangThread(new ArrayList<>(e.getStatements()))));
+
+			handlersB.stream().filter(e -> e instanceof CollidesWith).map(e -> (CollidesWith) e)
+					.filter(e -> e.getTarget().equals(spriteA.getEntity()))
+					.forEach(e -> scheduler.addThread(new KlangThread(new ArrayList<>(e.getStatements()))));
+
+		}
+
+		@Override
+		public void onKeyPressed(String key) {
+			getEventHandlers(KeyPressed.class).filter(e -> ((KeyPressed) e).getKey().equals(key))
+					.forEach(e -> scheduler.addThread(new KlangThread(new ArrayList<>(e.getStatements()))));
+
+		}
+
+	}
 }

@@ -91,14 +91,6 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 				return createForeverLoopAdapter();
 			}
 			@Override
-			public Adapter caseStatement(Statement object) {
-				return createStatementAdapter();
-			}
-			@Override
-			public Adapter caseControlStatement(ControlStatement object) {
-				return createControlStatementAdapter();
-			}
-			@Override
 			public Adapter caseYield(Yield object) {
 				return createYieldAdapter();
 			}
@@ -143,6 +135,10 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 				return createLessThanAdapter();
 			}
 			@Override
+			public Adapter caseEntity(Entity object) {
+				return createEntityAdapter();
+			}
+			@Override
 			public Adapter caseEqual(Equal object) {
 				return createEqualAdapter();
 			}
@@ -159,8 +155,8 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 				return createBooleanLiteralAdapter();
 			}
 			@Override
-			public Adapter caseNumericLiteral(NumericLiteral object) {
-				return createNumericLiteralAdapter();
+			public Adapter caseDoubleLiteral(DoubleLiteral object) {
+				return createDoubleLiteralAdapter();
 			}
 			@Override
 			public Adapter caseStringLiteral(StringLiteral object) {
@@ -183,16 +179,44 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 				return createFunctionCallAdapter();
 			}
 			@Override
-			public Adapter caseEntity(Entity object) {
-				return createEntityAdapter();
-			}
-			@Override
 			public Adapter caseSpriteEntity(SpriteEntity object) {
 				return createSpriteEntityAdapter();
 			}
 			@Override
 			public Adapter caseSceneEntity(SceneEntity object) {
 				return createSceneEntityAdapter();
+			}
+			@Override
+			public Adapter caseStatement(Statement object) {
+				return createStatementAdapter();
+			}
+			@Override
+			public Adapter caseAbstractElement(AbstractElement object) {
+				return createAbstractElementAdapter();
+			}
+			@Override
+			public Adapter caseGameStart(GameStart object) {
+				return createGameStartAdapter();
+			}
+			@Override
+			public Adapter caseSpriteClicked(SpriteClicked object) {
+				return createSpriteClickedAdapter();
+			}
+			@Override
+			public Adapter caseKeyPressed(KeyPressed object) {
+				return createKeyPressedAdapter();
+			}
+			@Override
+			public Adapter caseCollidesWith(CollidesWith object) {
+				return createCollidesWithAdapter();
+			}
+			@Override
+			public Adapter caseIntegerLiteral(IntegerLiteral object) {
+				return createIntegerLiteralAdapter();
+			}
+			@Override
+			public Adapter caseSleep(Sleep object) {
+				return createSleepAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -299,34 +323,6 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link klang.Statement <em>Statement</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see klang.Statement
-	 * @generated
-	 */
-	public Adapter createStatementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link klang.ControlStatement <em>Control Statement</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see klang.ControlStatement
-	 * @generated
-	 */
-	public Adapter createControlStatementAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link klang.Yield <em>Yield</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -407,6 +403,118 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSceneEntityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link klang.Statement <em>Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klang.Statement
+	 * @generated
+	 */
+	public Adapter createStatementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link klang.AbstractElement <em>Abstract Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klang.AbstractElement
+	 * @generated
+	 */
+	public Adapter createAbstractElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link klang.GameStart <em>Game Start</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klang.GameStart
+	 * @generated
+	 */
+	public Adapter createGameStartAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link klang.SpriteClicked <em>Sprite Clicked</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klang.SpriteClicked
+	 * @generated
+	 */
+	public Adapter createSpriteClickedAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link klang.KeyPressed <em>Key Pressed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klang.KeyPressed
+	 * @generated
+	 */
+	public Adapter createKeyPressedAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link klang.CollidesWith <em>Collides With</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klang.CollidesWith
+	 * @generated
+	 */
+	public Adapter createCollidesWithAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link klang.IntegerLiteral <em>Integer Literal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klang.IntegerLiteral
+	 * @generated
+	 */
+	public Adapter createIntegerLiteralAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link klang.Sleep <em>Sleep</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klang.Sleep
+	 * @generated
+	 */
+	public Adapter createSleepAdapter() {
 		return null;
 	}
 
@@ -579,16 +687,16 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link klang.NumericLiteral <em>Numeric Literal</em>}'.
+	 * Creates a new adapter for an object of class '{@link klang.DoubleLiteral <em>Double Literal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see klang.NumericLiteral
+	 * @see klang.DoubleLiteral
 	 * @generated
 	 */
-	public Adapter createNumericLiteralAdapter() {
+	public Adapter createDoubleLiteralAdapter() {
 		return null;
 	}
 
