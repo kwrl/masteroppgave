@@ -7,8 +7,6 @@ import java.util.List;
 import java.util.Map;
 
 import klang.*;
-import klang.util.expressions.MemoizingTypeComputer;
-import klang.util.expressions.TypeComputer;
 
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -266,11 +264,18 @@ public class KlangValidator extends EObjectValidator {
 			return true;
 		}
 
+		/*
 		diagnostics
 				.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
-						new Object[] { "no variable named " + variableAssignment.getVariableName() + " in scope",
+						new Object[] { "There is no variable named " + variableAssignment.getVariableName() + " in scope",
 								getObjectLabel(variableAssignment, context) },
 						new Object[] { variableAssignment }, context));
+		*/
+		diagnostics
+				.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+						new Object[] { "There is no variable named " + variableAssignment.getVariableName() + " in scope"},
+						new Object[] { variableAssignment }, context));
+
 
 		return false;
 	}
@@ -716,7 +721,7 @@ public class KlangValidator extends EObjectValidator {
 		Actor actor = KlangUtil.getActor(variable);
 		Game game = KlangUtil.getGame(variable);
 		
-		List<Variable> variableDeclarations = new ArrayList<>(game.getVariableDeclarations());
+		List<Variable> variableDeclarations = new ArrayList<>(game.getGlobalVariables());
 		
 		if(actor != null) {
 			variableDeclarations.addAll(actor.getVariableDeclarations());

@@ -13,16 +13,15 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalKlangLexer extends Lexer {
     public static final int Or=25;
-    public static final int RULE_BEGIN=37;
+    public static final int RULE_BEGIN=36;
     public static final int Clicked=5;
     public static final int Var=22;
     public static final int True=16;
     public static final int False=10;
-    public static final int LessThanSign=34;
+    public static final int LessThanSign=33;
     public static final int Forever=6;
     public static final int LeftParenthesis=26;
-    public static final int This=15;
-    public static final int GreaterThanSign=36;
+    public static final int GreaterThanSign=35;
     public static final int RULE_ID=41;
     public static final int Collides=4;
     public static final int RightParenthesis=27;
@@ -30,32 +29,33 @@ public class InternalKlangLexer extends Lexer {
     public static final int RULE_DECIMAL=40;
     public static final int EqualsSignEqualsSign=23;
     public static final int Not=21;
-    public static final int Game=14;
+    public static final int Game=15;
     public static final int And=19;
     public static final int PlusSign=29;
     public static final int RULE_INT=39;
+    public static final int RULE_UPPERCASE=38;
     public static final int RULE_ML_COMMENT=43;
     public static final int If=24;
     public static final int Key=20;
     public static final int Pressed=7;
-    public static final int RULE_END=38;
+    public static final int RULE_END=37;
     public static final int Starts=9;
     public static final int RULE_STRING=42;
     public static final int With=18;
     public static final int RULE_SL_COMMENT=44;
     public static final int Comma=30;
-    public static final int EqualsSign=35;
+    public static final int EqualsSign=34;
     public static final int HyphenMinus=31;
-    public static final int Solidus=33;
+    public static final int Solidus=32;
     public static final int EOF=-1;
     public static final int Asterisk=28;
-    public static final int FullStop=32;
     public static final int Sprite=8;
     public static final int RULE_WS=45;
-    public static final int While=12;
+    public static final int While=13;
     public static final int RULE_ANY_OTHER=46;
+    public static final int Sleep=12;
     public static final int When=17;
-    public static final int Yield=13;
+    public static final int Else=14;
 
     // delegates
     // delegators
@@ -238,13 +238,34 @@ public class InternalKlangLexer extends Lexer {
     }
     // $ANTLR end "Scene"
 
+    // $ANTLR start "Sleep"
+    public final void mSleep() throws RecognitionException {
+        try {
+            int _type = Sleep;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalKlangLexer.g:30:7: ( 'sleep' )
+            // InternalKlangLexer.g:30:9: 'sleep'
+            {
+            match("sleep"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "Sleep"
+
     // $ANTLR start "While"
     public final void mWhile() throws RecognitionException {
         try {
             int _type = While;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:30:7: ( 'while' )
-            // InternalKlangLexer.g:30:9: 'while'
+            // InternalKlangLexer.g:32:7: ( 'while' )
+            // InternalKlangLexer.g:32:9: 'while'
             {
             match("while"); 
 
@@ -259,15 +280,15 @@ public class InternalKlangLexer extends Lexer {
     }
     // $ANTLR end "While"
 
-    // $ANTLR start "Yield"
-    public final void mYield() throws RecognitionException {
+    // $ANTLR start "Else"
+    public final void mElse() throws RecognitionException {
         try {
-            int _type = Yield;
+            int _type = Else;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:32:7: ( 'yield' )
-            // InternalKlangLexer.g:32:9: 'yield'
+            // InternalKlangLexer.g:34:6: ( 'else' )
+            // InternalKlangLexer.g:34:8: 'else'
             {
-            match("yield"); 
+            match("else"); 
 
 
             }
@@ -278,15 +299,15 @@ public class InternalKlangLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "Yield"
+    // $ANTLR end "Else"
 
     // $ANTLR start "Game"
     public final void mGame() throws RecognitionException {
         try {
             int _type = Game;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:34:6: ( 'game' )
-            // InternalKlangLexer.g:34:8: 'game'
+            // InternalKlangLexer.g:36:6: ( 'game' )
+            // InternalKlangLexer.g:36:8: 'game'
             {
             match("game"); 
 
@@ -300,27 +321,6 @@ public class InternalKlangLexer extends Lexer {
         }
     }
     // $ANTLR end "Game"
-
-    // $ANTLR start "This"
-    public final void mThis() throws RecognitionException {
-        try {
-            int _type = This;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:36:6: ( 'this' )
-            // InternalKlangLexer.g:36:8: 'this'
-            {
-            match("this"); 
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "This"
 
     // $ANTLR start "True"
     public final void mTrue() throws RecognitionException {
@@ -652,33 +652,13 @@ public class InternalKlangLexer extends Lexer {
     }
     // $ANTLR end "HyphenMinus"
 
-    // $ANTLR start "FullStop"
-    public final void mFullStop() throws RecognitionException {
-        try {
-            int _type = FullStop;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:70:10: ( '.' )
-            // InternalKlangLexer.g:70:12: '.'
-            {
-            match('.'); 
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "FullStop"
-
     // $ANTLR start "Solidus"
     public final void mSolidus() throws RecognitionException {
         try {
             int _type = Solidus;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:72:9: ( '/' )
-            // InternalKlangLexer.g:72:11: '/'
+            // InternalKlangLexer.g:70:9: ( '/' )
+            // InternalKlangLexer.g:70:11: '/'
             {
             match('/'); 
 
@@ -697,8 +677,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = LessThanSign;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:74:14: ( '<' )
-            // InternalKlangLexer.g:74:16: '<'
+            // InternalKlangLexer.g:72:14: ( '<' )
+            // InternalKlangLexer.g:72:16: '<'
             {
             match('<'); 
 
@@ -717,8 +697,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = EqualsSign;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:76:12: ( '=' )
-            // InternalKlangLexer.g:76:14: '='
+            // InternalKlangLexer.g:74:12: ( '=' )
+            // InternalKlangLexer.g:74:14: '='
             {
             match('='); 
 
@@ -737,8 +717,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = GreaterThanSign;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:78:17: ( '>' )
-            // InternalKlangLexer.g:78:19: '>'
+            // InternalKlangLexer.g:76:17: ( '>' )
+            // InternalKlangLexer.g:76:19: '>'
             {
             match('>'); 
 
@@ -755,8 +735,8 @@ public class InternalKlangLexer extends Lexer {
     // $ANTLR start "RULE_BEGIN"
     public final void mRULE_BEGIN() throws RecognitionException {
         try {
-            // InternalKlangLexer.g:82:21: ()
-            // InternalKlangLexer.g:82:23: 
+            // InternalKlangLexer.g:80:21: ()
+            // InternalKlangLexer.g:80:23: 
             {
             }
 
@@ -769,8 +749,8 @@ public class InternalKlangLexer extends Lexer {
     // $ANTLR start "RULE_END"
     public final void mRULE_END() throws RecognitionException {
         try {
-            // InternalKlangLexer.g:84:19: ()
-            // InternalKlangLexer.g:84:21: 
+            // InternalKlangLexer.g:82:19: ()
+            // InternalKlangLexer.g:82:21: 
             {
             }
 
@@ -779,6 +759,58 @@ public class InternalKlangLexer extends Lexer {
         }
     }
     // $ANTLR end "RULE_END"
+
+    // $ANTLR start "RULE_UPPERCASE"
+    public final void mRULE_UPPERCASE() throws RecognitionException {
+        try {
+            int _type = RULE_UPPERCASE;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalKlangLexer.g:84:16: ( ( 'A' .. 'Z' | '0' .. '9' )* )
+            // InternalKlangLexer.g:84:18: ( 'A' .. 'Z' | '0' .. '9' )*
+            {
+            // InternalKlangLexer.g:84:18: ( 'A' .. 'Z' | '0' .. '9' )*
+            loop1:
+            do {
+                int alt1=2;
+                int LA1_0 = input.LA(1);
+
+                if ( ((LA1_0>='0' && LA1_0<='9')||(LA1_0>='A' && LA1_0<='Z')) ) {
+                    alt1=1;
+                }
+
+
+                switch (alt1) {
+            	case 1 :
+            	    // InternalKlangLexer.g:
+            	    {
+            	    if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z') ) {
+            	        input.consume();
+
+            	    }
+            	    else {
+            	        MismatchedSetException mse = new MismatchedSetException(null,input);
+            	        recover(mse);
+            	        throw mse;}
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop1;
+                }
+            } while (true);
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "RULE_UPPERCASE"
 
     // $ANTLR start "RULE_DECIMAL"
     public final void mRULE_DECIMAL() throws RecognitionException {
@@ -790,13 +822,13 @@ public class InternalKlangLexer extends Lexer {
             {
             mRULE_INT(); 
             // InternalKlangLexer.g:86:25: ( '.' RULE_INT )?
-            int alt1=2;
-            int LA1_0 = input.LA(1);
+            int alt2=2;
+            int LA2_0 = input.LA(1);
 
-            if ( (LA1_0=='.') ) {
-                alt1=1;
+            if ( (LA2_0=='.') ) {
+                alt2=1;
             }
-            switch (alt1) {
+            switch (alt2) {
                 case 1 :
                     // InternalKlangLexer.g:86:26: '.' RULE_INT
                     {
@@ -828,13 +860,13 @@ public class InternalKlangLexer extends Lexer {
             // InternalKlangLexer.g:88:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
             // InternalKlangLexer.g:88:11: ( '^' )?
-            int alt2=2;
-            int LA2_0 = input.LA(1);
+            int alt3=2;
+            int LA3_0 = input.LA(1);
 
-            if ( (LA2_0=='^') ) {
-                alt2=1;
+            if ( (LA3_0=='^') ) {
+                alt3=1;
             }
-            switch (alt2) {
+            switch (alt3) {
                 case 1 :
                     // InternalKlangLexer.g:88:11: '^'
                     {
@@ -855,17 +887,17 @@ public class InternalKlangLexer extends Lexer {
                 throw mse;}
 
             // InternalKlangLexer.g:88:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
-            loop3:
+            loop4:
             do {
-                int alt3=2;
-                int LA3_0 = input.LA(1);
+                int alt4=2;
+                int LA4_0 = input.LA(1);
 
-                if ( ((LA3_0>='0' && LA3_0<='9')||(LA3_0>='A' && LA3_0<='Z')||LA3_0=='_'||(LA3_0>='a' && LA3_0<='z')) ) {
-                    alt3=1;
+                if ( ((LA4_0>='0' && LA4_0<='9')||(LA4_0>='A' && LA4_0<='Z')||LA4_0=='_'||(LA4_0>='a' && LA4_0<='z')) ) {
+                    alt4=1;
                 }
 
 
-                switch (alt3) {
+                switch (alt4) {
             	case 1 :
             	    // InternalKlangLexer.g:
             	    {
@@ -883,7 +915,7 @@ public class InternalKlangLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop3;
+            	    break loop4;
                 }
             } while (true);
 
@@ -905,18 +937,18 @@ public class InternalKlangLexer extends Lexer {
             // InternalKlangLexer.g:90:21: ( '0' .. '9' )+
             {
             // InternalKlangLexer.g:90:21: ( '0' .. '9' )+
-            int cnt4=0;
-            loop4:
+            int cnt5=0;
+            loop5:
             do {
-                int alt4=2;
-                int LA4_0 = input.LA(1);
+                int alt5=2;
+                int LA5_0 = input.LA(1);
 
-                if ( ((LA4_0>='0' && LA4_0<='9')) ) {
-                    alt4=1;
+                if ( ((LA5_0>='0' && LA5_0<='9')) ) {
+                    alt5=1;
                 }
 
 
-                switch (alt4) {
+                switch (alt5) {
             	case 1 :
             	    // InternalKlangLexer.g:90:22: '0' .. '9'
             	    {
@@ -926,12 +958,12 @@ public class InternalKlangLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt4 >= 1 ) break loop4;
+            	    if ( cnt5 >= 1 ) break loop5;
                         EarlyExitException eee =
-                            new EarlyExitException(4, input);
+                            new EarlyExitException(5, input);
                         throw eee;
                 }
-                cnt4++;
+                cnt5++;
             } while (true);
 
 
@@ -952,41 +984,41 @@ public class InternalKlangLexer extends Lexer {
             // InternalKlangLexer.g:92:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
             // InternalKlangLexer.g:92:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
-            int alt7=2;
-            int LA7_0 = input.LA(1);
+            int alt8=2;
+            int LA8_0 = input.LA(1);
 
-            if ( (LA7_0=='\"') ) {
-                alt7=1;
+            if ( (LA8_0=='\"') ) {
+                alt8=1;
             }
-            else if ( (LA7_0=='\'') ) {
-                alt7=2;
+            else if ( (LA8_0=='\'') ) {
+                alt8=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 7, 0, input);
+                    new NoViableAltException("", 8, 0, input);
 
                 throw nvae;
             }
-            switch (alt7) {
+            switch (alt8) {
                 case 1 :
                     // InternalKlangLexer.g:92:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
                     // InternalKlangLexer.g:92:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
-                    loop5:
+                    loop6:
                     do {
-                        int alt5=3;
-                        int LA5_0 = input.LA(1);
+                        int alt6=3;
+                        int LA6_0 = input.LA(1);
 
-                        if ( (LA5_0=='\\') ) {
-                            alt5=1;
+                        if ( (LA6_0=='\\') ) {
+                            alt6=1;
                         }
-                        else if ( ((LA5_0>='\u0000' && LA5_0<='!')||(LA5_0>='#' && LA5_0<='[')||(LA5_0>=']' && LA5_0<='\uFFFF')) ) {
-                            alt5=2;
+                        else if ( ((LA6_0>='\u0000' && LA6_0<='!')||(LA6_0>='#' && LA6_0<='[')||(LA6_0>=']' && LA6_0<='\uFFFF')) ) {
+                            alt6=2;
                         }
 
 
-                        switch (alt5) {
+                        switch (alt6) {
                     	case 1 :
                     	    // InternalKlangLexer.g:92:21: '\\\\' .
                     	    {
@@ -1012,7 +1044,7 @@ public class InternalKlangLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop5;
+                    	    break loop6;
                         }
                     } while (true);
 
@@ -1025,20 +1057,20 @@ public class InternalKlangLexer extends Lexer {
                     {
                     match('\''); 
                     // InternalKlangLexer.g:92:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
-                    loop6:
+                    loop7:
                     do {
-                        int alt6=3;
-                        int LA6_0 = input.LA(1);
+                        int alt7=3;
+                        int LA7_0 = input.LA(1);
 
-                        if ( (LA6_0=='\\') ) {
-                            alt6=1;
+                        if ( (LA7_0=='\\') ) {
+                            alt7=1;
                         }
-                        else if ( ((LA6_0>='\u0000' && LA6_0<='&')||(LA6_0>='(' && LA6_0<='[')||(LA6_0>=']' && LA6_0<='\uFFFF')) ) {
-                            alt6=2;
+                        else if ( ((LA7_0>='\u0000' && LA7_0<='&')||(LA7_0>='(' && LA7_0<='[')||(LA7_0>=']' && LA7_0<='\uFFFF')) ) {
+                            alt7=2;
                         }
 
 
-                        switch (alt6) {
+                        switch (alt7) {
                     	case 1 :
                     	    // InternalKlangLexer.g:92:54: '\\\\' .
                     	    {
@@ -1064,7 +1096,7 @@ public class InternalKlangLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop6;
+                    	    break loop7;
                         }
                     } while (true);
 
@@ -1097,29 +1129,29 @@ public class InternalKlangLexer extends Lexer {
             match("/*"); 
 
             // InternalKlangLexer.g:94:24: ( options {greedy=false; } : . )*
-            loop8:
+            loop9:
             do {
-                int alt8=2;
-                int LA8_0 = input.LA(1);
+                int alt9=2;
+                int LA9_0 = input.LA(1);
 
-                if ( (LA8_0=='*') ) {
-                    int LA8_1 = input.LA(2);
+                if ( (LA9_0=='*') ) {
+                    int LA9_1 = input.LA(2);
 
-                    if ( (LA8_1=='/') ) {
-                        alt8=2;
+                    if ( (LA9_1=='/') ) {
+                        alt9=2;
                     }
-                    else if ( ((LA8_1>='\u0000' && LA8_1<='.')||(LA8_1>='0' && LA8_1<='\uFFFF')) ) {
-                        alt8=1;
+                    else if ( ((LA9_1>='\u0000' && LA9_1<='.')||(LA9_1>='0' && LA9_1<='\uFFFF')) ) {
+                        alt9=1;
                     }
 
 
                 }
-                else if ( ((LA8_0>='\u0000' && LA8_0<=')')||(LA8_0>='+' && LA8_0<='\uFFFF')) ) {
-                    alt8=1;
+                else if ( ((LA9_0>='\u0000' && LA9_0<=')')||(LA9_0>='+' && LA9_0<='\uFFFF')) ) {
+                    alt9=1;
                 }
 
 
-                switch (alt8) {
+                switch (alt9) {
             	case 1 :
             	    // InternalKlangLexer.g:94:52: .
             	    {
@@ -1129,7 +1161,7 @@ public class InternalKlangLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop8;
+            	    break loop9;
                 }
             } while (true);
 
@@ -1157,17 +1189,17 @@ public class InternalKlangLexer extends Lexer {
             match("//"); 
 
             // InternalKlangLexer.g:96:24: (~ ( ( '\\n' | '\\r' ) ) )*
-            loop9:
+            loop10:
             do {
-                int alt9=2;
-                int LA9_0 = input.LA(1);
+                int alt10=2;
+                int LA10_0 = input.LA(1);
 
-                if ( ((LA9_0>='\u0000' && LA9_0<='\t')||(LA9_0>='\u000B' && LA9_0<='\f')||(LA9_0>='\u000E' && LA9_0<='\uFFFF')) ) {
-                    alt9=1;
+                if ( ((LA10_0>='\u0000' && LA10_0<='\t')||(LA10_0>='\u000B' && LA10_0<='\f')||(LA10_0>='\u000E' && LA10_0<='\uFFFF')) ) {
+                    alt10=1;
                 }
 
 
-                switch (alt9) {
+                switch (alt10) {
             	case 1 :
             	    // InternalKlangLexer.g:96:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
@@ -1185,29 +1217,29 @@ public class InternalKlangLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop9;
+            	    break loop10;
                 }
             } while (true);
 
             // InternalKlangLexer.g:96:40: ( ( '\\r' )? '\\n' )?
-            int alt11=2;
-            int LA11_0 = input.LA(1);
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA11_0=='\n'||LA11_0=='\r') ) {
-                alt11=1;
+            if ( (LA12_0=='\n'||LA12_0=='\r') ) {
+                alt12=1;
             }
-            switch (alt11) {
+            switch (alt12) {
                 case 1 :
                     // InternalKlangLexer.g:96:41: ( '\\r' )? '\\n'
                     {
                     // InternalKlangLexer.g:96:41: ( '\\r' )?
-                    int alt10=2;
-                    int LA10_0 = input.LA(1);
+                    int alt11=2;
+                    int LA11_0 = input.LA(1);
 
-                    if ( (LA10_0=='\r') ) {
-                        alt10=1;
+                    if ( (LA11_0=='\r') ) {
+                        alt11=1;
                     }
-                    switch (alt10) {
+                    switch (alt11) {
                         case 1 :
                             // InternalKlangLexer.g:96:41: '\\r'
                             {
@@ -1245,18 +1277,18 @@ public class InternalKlangLexer extends Lexer {
             // InternalKlangLexer.g:98:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
             // InternalKlangLexer.g:98:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
-            int cnt12=0;
-            loop12:
+            int cnt13=0;
+            loop13:
             do {
-                int alt12=2;
-                int LA12_0 = input.LA(1);
+                int alt13=2;
+                int LA13_0 = input.LA(1);
 
-                if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {
-                    alt12=1;
+                if ( ((LA13_0>='\t' && LA13_0<='\n')||LA13_0=='\r'||LA13_0==' ') ) {
+                    alt13=1;
                 }
 
 
-                switch (alt12) {
+                switch (alt13) {
             	case 1 :
             	    // InternalKlangLexer.g:
             	    {
@@ -1274,12 +1306,12 @@ public class InternalKlangLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt12 >= 1 ) break loop12;
+            	    if ( cnt13 >= 1 ) break loop13;
                         EarlyExitException eee =
-                            new EarlyExitException(12, input);
+                            new EarlyExitException(13, input);
                         throw eee;
                 }
-                cnt12++;
+                cnt13++;
             } while (true);
 
 
@@ -1314,10 +1346,10 @@ public class InternalKlangLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // InternalKlangLexer.g:1:8: ( Collides | Clicked | Forever | Pressed | Sprite | Starts | False | Scene | While | Yield | Game | This | True | When | With | And | Key | Not | Var | EqualsSignEqualsSign | If | Or | LeftParenthesis | RightParenthesis | Asterisk | PlusSign | Comma | HyphenMinus | FullStop | Solidus | LessThanSign | EqualsSign | GreaterThanSign | RULE_DECIMAL | RULE_ID | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt13=40;
-        alt13 = dfa13.predict(input);
-        switch (alt13) {
+        // InternalKlangLexer.g:1:8: ( Collides | Clicked | Forever | Pressed | Sprite | Starts | False | Scene | Sleep | While | Else | Game | True | When | With | And | Key | Not | Var | EqualsSignEqualsSign | If | Or | LeftParenthesis | RightParenthesis | Asterisk | PlusSign | Comma | HyphenMinus | Solidus | LessThanSign | EqualsSign | GreaterThanSign | RULE_UPPERCASE | RULE_DECIMAL | RULE_ID | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt14=40;
+        alt14 = dfa14.predict(input);
+        switch (alt14) {
             case 1 :
                 // InternalKlangLexer.g:1:10: Collides
                 {
@@ -1375,30 +1407,30 @@ public class InternalKlangLexer extends Lexer {
                 }
                 break;
             case 9 :
-                // InternalKlangLexer.g:1:69: While
+                // InternalKlangLexer.g:1:69: Sleep
+                {
+                mSleep(); 
+
+                }
+                break;
+            case 10 :
+                // InternalKlangLexer.g:1:75: While
                 {
                 mWhile(); 
 
                 }
                 break;
-            case 10 :
-                // InternalKlangLexer.g:1:75: Yield
-                {
-                mYield(); 
-
-                }
-                break;
             case 11 :
-                // InternalKlangLexer.g:1:81: Game
+                // InternalKlangLexer.g:1:81: Else
                 {
-                mGame(); 
+                mElse(); 
 
                 }
                 break;
             case 12 :
-                // InternalKlangLexer.g:1:86: This
+                // InternalKlangLexer.g:1:86: Game
                 {
-                mThis(); 
+                mGame(); 
 
                 }
                 break;
@@ -1515,84 +1547,84 @@ public class InternalKlangLexer extends Lexer {
                 }
                 break;
             case 29 :
-                // InternalKlangLexer.g:1:218: FullStop
-                {
-                mFullStop(); 
-
-                }
-                break;
-            case 30 :
-                // InternalKlangLexer.g:1:227: Solidus
+                // InternalKlangLexer.g:1:218: Solidus
                 {
                 mSolidus(); 
 
                 }
                 break;
-            case 31 :
-                // InternalKlangLexer.g:1:235: LessThanSign
+            case 30 :
+                // InternalKlangLexer.g:1:226: LessThanSign
                 {
                 mLessThanSign(); 
 
                 }
                 break;
-            case 32 :
-                // InternalKlangLexer.g:1:248: EqualsSign
+            case 31 :
+                // InternalKlangLexer.g:1:239: EqualsSign
                 {
                 mEqualsSign(); 
 
                 }
                 break;
-            case 33 :
-                // InternalKlangLexer.g:1:259: GreaterThanSign
+            case 32 :
+                // InternalKlangLexer.g:1:250: GreaterThanSign
                 {
                 mGreaterThanSign(); 
 
                 }
                 break;
+            case 33 :
+                // InternalKlangLexer.g:1:266: RULE_UPPERCASE
+                {
+                mRULE_UPPERCASE(); 
+
+                }
+                break;
             case 34 :
-                // InternalKlangLexer.g:1:275: RULE_DECIMAL
+                // InternalKlangLexer.g:1:281: RULE_DECIMAL
                 {
                 mRULE_DECIMAL(); 
 
                 }
                 break;
             case 35 :
-                // InternalKlangLexer.g:1:288: RULE_ID
+                // InternalKlangLexer.g:1:294: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
             case 36 :
-                // InternalKlangLexer.g:1:296: RULE_STRING
+                // InternalKlangLexer.g:1:302: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
             case 37 :
-                // InternalKlangLexer.g:1:308: RULE_ML_COMMENT
+                // InternalKlangLexer.g:1:314: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
             case 38 :
-                // InternalKlangLexer.g:1:324: RULE_SL_COMMENT
+                // InternalKlangLexer.g:1:330: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
             case 39 :
-                // InternalKlangLexer.g:1:340: RULE_WS
+                // InternalKlangLexer.g:1:346: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
             case 40 :
-                // InternalKlangLexer.g:1:348: RULE_ANY_OTHER
+                // InternalKlangLexer.g:1:354: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -1604,37 +1636,36 @@ public class InternalKlangLexer extends Lexer {
     }
 
 
-    protected DFA13 dfa13 = new DFA13(this);
-    static final String DFA13_eotS =
-        "\1\uffff\14\43\1\65\2\43\7\uffff\1\101\3\uffff\1\40\1\uffff\2\40\2\uffff\2\43\1\uffff\20\43\2\uffff\1\132\1\133\17\uffff\17\43\1\153\1\154\1\155\1\156\2\uffff\11\43\1\170\1\171\1\43\1\173\1\174\1\175\4\uffff\3\43\1\u0081\3\43\1\u0085\1\u0086\2\uffff\1\u0087\3\uffff\3\43\1\uffff\1\43\1\u008c\1\u008d\3\uffff\1\43\1\u008f\1\u0090\1\u0091\2\uffff\1\u0092\4\uffff";
-    static final String DFA13_eofS =
-        "\u0093\uffff";
-    static final String DFA13_minS =
-        "\1\0\1\154\1\141\1\162\1\143\1\150\1\151\1\141\1\150\1\156\1\145\1\157\1\141\1\75\1\146\1\162\7\uffff\1\52\3\uffff\1\101\1\uffff\2\0\2\uffff\1\154\1\151\1\uffff\1\162\1\154\1\145\1\162\1\141\2\145\1\164\1\145\1\155\1\151\1\165\1\144\1\171\1\164\1\162\2\uffff\2\60\17\uffff\1\154\1\143\1\145\2\163\1\151\1\162\1\156\1\154\1\156\1\150\1\154\1\145\1\163\1\145\4\60\2\uffff\1\151\1\153\1\166\1\145\1\163\2\164\2\145\2\60\1\144\3\60\4\uffff\1\144\2\145\1\60\2\145\1\163\2\60\2\uffff\1\60\3\uffff\1\145\1\144\1\162\1\uffff\1\144\2\60\3\uffff\1\163\3\60\2\uffff\1\60\4\uffff";
-    static final String DFA13_maxS =
-        "\1\uffff\2\157\1\162\1\164\2\151\1\141\1\162\1\156\1\145\1\157\1\141\1\75\1\146\1\162\7\uffff\1\57\3\uffff\1\172\1\uffff\2\uffff\2\uffff\1\154\1\151\1\uffff\1\162\1\154\1\145\1\162\1\141\1\145\1\151\1\164\1\145\1\155\1\151\1\165\1\144\1\171\1\164\1\162\2\uffff\2\172\17\uffff\1\154\1\143\1\145\2\163\1\151\1\162\1\156\1\154\1\156\1\150\1\154\1\145\1\163\1\145\4\172\2\uffff\1\151\1\153\1\166\1\145\1\163\2\164\2\145\2\172\1\144\3\172\4\uffff\1\144\2\145\1\172\2\145\1\163\2\172\2\uffff\1\172\3\uffff\1\145\1\144\1\162\1\uffff\1\144\2\172\3\uffff\1\163\3\172\2\uffff\1\172\4\uffff";
-    static final String DFA13_acceptS =
-        "\20\uffff\1\27\1\30\1\31\1\32\1\33\1\34\1\35\1\uffff\1\37\1\41\1\42\1\uffff\1\43\2\uffff\1\47\1\50\2\uffff\1\43\20\uffff\1\24\1\40\2\uffff\1\27\1\30\1\31\1\32\1\33\1\34\1\35\1\45\1\46\1\36\1\37\1\41\1\42\1\44\1\47\23\uffff\1\25\1\26\17\uffff\1\20\1\21\1\22\1\23\11\uffff\1\16\1\17\1\uffff\1\13\1\14\1\15\3\uffff\1\7\3\uffff\1\10\1\11\1\12\4\uffff\1\5\1\6\1\uffff\1\2\1\3\1\4\1\1";
-    static final String DFA13_specialS =
-        "\1\2\34\uffff\1\1\1\0\164\uffff}>";
-    static final String[] DFA13_transitionS = {
-            "\11\40\2\37\2\40\1\37\22\40\1\37\1\40\1\35\4\40\1\36\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27\12\32\2\40\1\30\1\15\1\31\2\40\32\34\3\40\1\33\1\34\1\40\1\11\1\34\1\1\2\34\1\2\1\7\1\34\1\16\1\34\1\12\2\34\1\13\1\17\1\3\2\34\1\4\1\10\1\34\1\14\1\5\1\34\1\6\1\34\uff85\40",
-            "\1\42\2\uffff\1\41",
-            "\1\45\15\uffff\1\44",
-            "\1\46",
-            "\1\51\14\uffff\1\47\3\uffff\1\50",
-            "\1\52\1\53",
-            "\1\54",
-            "\1\55",
-            "\1\56\11\uffff\1\57",
+    protected DFA14 dfa14 = new DFA14(this);
+    static final String DFA14_eotS =
+        "\1\32\14\44\1\66\2\44\6\uffff\1\101\2\uffff\1\32\1\uffff\1\32\1\41\1\uffff\2\41\2\uffff\2\44\1\uffff\20\44\2\uffff\1\134\1\135\13\uffff\1\32\1\uffff\1\32\2\uffff\17\44\1\155\1\156\1\157\1\160\2\uffff\12\44\1\173\1\174\1\175\1\176\1\177\4\uffff\3\44\1\u0083\3\44\1\u0087\1\u0088\1\u0089\5\uffff\3\44\1\uffff\1\44\1\u008e\1\u008f\3\uffff\1\44\1\u0091\1\u0092\1\u0093\2\uffff\1\u0094\4\uffff";
+    static final String DFA14_eofS =
+        "\u0095\uffff";
+    static final String DFA14_minS =
+        "\1\0\1\154\1\141\1\162\1\143\1\150\1\154\1\141\1\162\1\156\1\145\1\157\1\141\1\75\1\146\1\162\6\uffff\1\52\2\uffff\1\56\1\uffff\1\60\1\101\1\uffff\2\0\2\uffff\1\154\1\151\1\uffff\1\162\1\154\1\145\1\162\1\141\3\145\1\164\1\163\1\155\1\165\1\144\1\171\1\164\1\162\2\uffff\2\60\13\uffff\1\56\1\uffff\1\60\2\uffff\1\154\1\143\1\145\2\163\1\151\1\162\1\156\1\145\1\154\1\156\1\150\3\145\4\60\2\uffff\1\151\1\153\1\166\1\145\1\163\2\164\1\145\1\160\1\145\5\60\4\uffff\1\144\2\145\1\60\2\145\1\163\3\60\5\uffff\1\145\1\144\1\162\1\uffff\1\144\2\60\3\uffff\1\163\3\60\2\uffff\1\60\4\uffff";
+    static final String DFA14_maxS =
+        "\1\uffff\2\157\1\162\1\164\1\151\1\154\1\141\1\162\1\156\1\145\1\157\1\141\1\75\1\146\1\162\6\uffff\1\57\2\uffff\1\71\1\uffff\2\172\1\uffff\2\uffff\2\uffff\1\154\1\151\1\uffff\1\162\1\154\1\145\1\162\1\141\2\145\1\151\1\164\1\163\1\155\1\165\1\144\1\171\1\164\1\162\2\uffff\2\172\13\uffff\1\71\1\uffff\1\172\2\uffff\1\154\1\143\1\145\2\163\1\151\1\162\1\156\1\145\1\154\1\156\1\150\3\145\4\172\2\uffff\1\151\1\153\1\166\1\145\1\163\2\164\1\145\1\160\1\145\5\172\4\uffff\1\144\2\145\1\172\2\145\1\163\3\172\5\uffff\1\145\1\144\1\162\1\uffff\1\144\2\172\3\uffff\1\163\3\172\2\uffff\1\172\4\uffff";
+    static final String DFA14_acceptS =
+        "\20\uffff\1\27\1\30\1\31\1\32\1\33\1\34\1\uffff\1\36\1\40\1\uffff\1\41\2\uffff\1\43\2\uffff\1\47\1\50\2\uffff\1\43\20\uffff\1\24\1\37\2\uffff\1\27\1\30\1\31\1\32\1\33\1\34\1\45\1\46\1\35\1\36\1\40\1\uffff\1\42\1\uffff\1\44\1\47\23\uffff\1\25\1\26\17\uffff\1\20\1\21\1\22\1\23\12\uffff\1\16\1\17\1\13\1\14\1\15\3\uffff\1\7\3\uffff\1\10\1\11\1\12\4\uffff\1\5\1\6\1\uffff\1\2\1\3\1\4\1\1";
+    static final String DFA14_specialS =
+        "\1\1\35\uffff\1\2\1\0\165\uffff}>";
+    static final String[] DFA14_transitionS = {
+            "\11\41\2\40\2\41\1\40\22\41\1\40\1\41\1\36\4\41\1\37\1\20\1\21\1\22\1\23\1\24\1\25\1\41\1\26\12\31\2\41\1\27\1\15\1\30\2\41\32\33\3\41\1\34\1\35\1\41\1\11\1\35\1\1\1\35\1\6\1\2\1\7\1\35\1\16\1\35\1\12\2\35\1\13\1\17\1\3\2\35\1\4\1\10\1\35\1\14\1\5\3\35\uff85\41",
+            "\1\43\2\uffff\1\42",
+            "\1\46\15\uffff\1\45",
+            "\1\47",
+            "\1\52\10\uffff\1\53\3\uffff\1\50\3\uffff\1\51",
+            "\1\54\1\55",
+            "\1\56",
+            "\1\57",
             "\1\60",
             "\1\61",
             "\1\62",
             "\1\63",
             "\1\64",
-            "\1\66",
+            "\1\65",
             "\1\67",
-            "",
+            "\1\70",
             "",
             "",
             "",
@@ -1644,40 +1675,38 @@ public class InternalKlangLexer extends Lexer {
             "\1\77\4\uffff\1\100",
             "",
             "",
+            "\1\105\1\uffff\12\104",
             "",
-            "\32\43\4\uffff\1\43\1\uffff\32\43",
+            "\12\106\7\uffff\32\106\4\uffff\1\44\1\uffff\32\44",
+            "\32\44\4\uffff\1\44\1\uffff\32\44",
             "",
-            "\0\105",
-            "\0\105",
+            "\0\107",
+            "\0\107",
             "",
-            "",
-            "\1\107",
-            "\1\110",
             "",
             "\1\111",
             "\1\112",
+            "",
             "\1\113",
             "\1\114",
             "\1\115",
             "\1\116",
-            "\1\120\3\uffff\1\117",
+            "\1\117",
+            "\1\120",
             "\1\121",
-            "\1\122",
-            "\1\123",
+            "\1\123\3\uffff\1\122",
             "\1\124",
             "\1\125",
             "\1\126",
             "\1\127",
             "\1\130",
             "\1\131",
+            "\1\132",
+            "\1\133",
             "",
             "",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "",
-            "",
-            "",
-            "",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "",
             "",
             "",
@@ -1689,8 +1718,11 @@ public class InternalKlangLexer extends Lexer {
             "",
             "",
             "",
-            "\1\134",
-            "\1\135",
+            "\1\105\1\uffff\12\104",
+            "",
+            "\12\106\7\uffff\32\106\4\uffff\1\44\1\uffff\32\44",
+            "",
+            "",
             "\1\136",
             "\1\137",
             "\1\140",
@@ -1704,14 +1736,14 @@ public class InternalKlangLexer extends Lexer {
             "\1\150",
             "\1\151",
             "\1\152",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "\1\153",
+            "\1\154",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "",
             "",
-            "\1\157",
-            "\1\160",
             "\1\161",
             "\1\162",
             "\1\163",
@@ -1719,183 +1751,187 @@ public class InternalKlangLexer extends Lexer {
             "\1\165",
             "\1\166",
             "\1\167",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "\1\170",
+            "\1\171",
             "\1\172",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "",
             "",
             "",
             "",
-            "\1\176",
-            "\1\177",
             "\1\u0080",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "\1\u0081",
             "\1\u0082",
-            "\1\u0083",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\u0084",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "\1\u0085",
+            "\1\u0086",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "",
             "",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
             "",
             "",
             "",
-            "\1\u0088",
-            "\1\u0089",
             "\1\u008a",
-            "",
             "\1\u008b",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "\1\u008c",
+            "",
+            "\1\u008d",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "",
             "",
             "",
-            "\1\u008e",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "\1\u0090",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "",
             "",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "",
             "",
             "",
             ""
     };
 
-    static final short[] DFA13_eot = DFA.unpackEncodedString(DFA13_eotS);
-    static final short[] DFA13_eof = DFA.unpackEncodedString(DFA13_eofS);
-    static final char[] DFA13_min = DFA.unpackEncodedStringToUnsignedChars(DFA13_minS);
-    static final char[] DFA13_max = DFA.unpackEncodedStringToUnsignedChars(DFA13_maxS);
-    static final short[] DFA13_accept = DFA.unpackEncodedString(DFA13_acceptS);
-    static final short[] DFA13_special = DFA.unpackEncodedString(DFA13_specialS);
-    static final short[][] DFA13_transition;
+    static final short[] DFA14_eot = DFA.unpackEncodedString(DFA14_eotS);
+    static final short[] DFA14_eof = DFA.unpackEncodedString(DFA14_eofS);
+    static final char[] DFA14_min = DFA.unpackEncodedStringToUnsignedChars(DFA14_minS);
+    static final char[] DFA14_max = DFA.unpackEncodedStringToUnsignedChars(DFA14_maxS);
+    static final short[] DFA14_accept = DFA.unpackEncodedString(DFA14_acceptS);
+    static final short[] DFA14_special = DFA.unpackEncodedString(DFA14_specialS);
+    static final short[][] DFA14_transition;
 
     static {
-        int numStates = DFA13_transitionS.length;
-        DFA13_transition = new short[numStates][];
+        int numStates = DFA14_transitionS.length;
+        DFA14_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA13_transition[i] = DFA.unpackEncodedString(DFA13_transitionS[i]);
+            DFA14_transition[i] = DFA.unpackEncodedString(DFA14_transitionS[i]);
         }
     }
 
-    class DFA13 extends DFA {
+    class DFA14 extends DFA {
 
-        public DFA13(BaseRecognizer recognizer) {
+        public DFA14(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 13;
-            this.eot = DFA13_eot;
-            this.eof = DFA13_eof;
-            this.min = DFA13_min;
-            this.max = DFA13_max;
-            this.accept = DFA13_accept;
-            this.special = DFA13_special;
-            this.transition = DFA13_transition;
+            this.decisionNumber = 14;
+            this.eot = DFA14_eot;
+            this.eof = DFA14_eof;
+            this.min = DFA14_min;
+            this.max = DFA14_max;
+            this.accept = DFA14_accept;
+            this.special = DFA14_special;
+            this.transition = DFA14_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( Collides | Clicked | Forever | Pressed | Sprite | Starts | False | Scene | While | Yield | Game | This | True | When | With | And | Key | Not | Var | EqualsSignEqualsSign | If | Or | LeftParenthesis | RightParenthesis | Asterisk | PlusSign | Comma | HyphenMinus | FullStop | Solidus | LessThanSign | EqualsSign | GreaterThanSign | RULE_DECIMAL | RULE_ID | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( Collides | Clicked | Forever | Pressed | Sprite | Starts | False | Scene | Sleep | While | Else | Game | True | When | With | And | Key | Not | Var | EqualsSignEqualsSign | If | Or | LeftParenthesis | RightParenthesis | Asterisk | PlusSign | Comma | HyphenMinus | Solidus | LessThanSign | EqualsSign | GreaterThanSign | RULE_UPPERCASE | RULE_DECIMAL | RULE_ID | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA13_30 = input.LA(1);
+                        int LA14_31 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA13_30>='\u0000' && LA13_30<='\uFFFF')) ) {s = 69;}
+                        if ( ((LA14_31>='\u0000' && LA14_31<='\uFFFF')) ) {s = 71;}
 
-                        else s = 32;
+                        else s = 33;
 
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA13_29 = input.LA(1);
+                        int LA14_0 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA13_29>='\u0000' && LA13_29<='\uFFFF')) ) {s = 69;}
+                        if ( (LA14_0=='c') ) {s = 1;}
 
-                        else s = 32;
+                        else if ( (LA14_0=='f') ) {s = 2;}
+
+                        else if ( (LA14_0=='p') ) {s = 3;}
+
+                        else if ( (LA14_0=='s') ) {s = 4;}
+
+                        else if ( (LA14_0=='w') ) {s = 5;}
+
+                        else if ( (LA14_0=='e') ) {s = 6;}
+
+                        else if ( (LA14_0=='g') ) {s = 7;}
+
+                        else if ( (LA14_0=='t') ) {s = 8;}
+
+                        else if ( (LA14_0=='a') ) {s = 9;}
+
+                        else if ( (LA14_0=='k') ) {s = 10;}
+
+                        else if ( (LA14_0=='n') ) {s = 11;}
+
+                        else if ( (LA14_0=='v') ) {s = 12;}
+
+                        else if ( (LA14_0=='=') ) {s = 13;}
+
+                        else if ( (LA14_0=='i') ) {s = 14;}
+
+                        else if ( (LA14_0=='o') ) {s = 15;}
+
+                        else if ( (LA14_0=='(') ) {s = 16;}
+
+                        else if ( (LA14_0==')') ) {s = 17;}
+
+                        else if ( (LA14_0=='*') ) {s = 18;}
+
+                        else if ( (LA14_0=='+') ) {s = 19;}
+
+                        else if ( (LA14_0==',') ) {s = 20;}
+
+                        else if ( (LA14_0=='-') ) {s = 21;}
+
+                        else if ( (LA14_0=='/') ) {s = 22;}
+
+                        else if ( (LA14_0=='<') ) {s = 23;}
+
+                        else if ( (LA14_0=='>') ) {s = 24;}
+
+                        else if ( ((LA14_0>='0' && LA14_0<='9')) ) {s = 25;}
+
+                        else if ( ((LA14_0>='A' && LA14_0<='Z')) ) {s = 27;}
+
+                        else if ( (LA14_0=='^') ) {s = 28;}
+
+                        else if ( (LA14_0=='_'||LA14_0=='b'||LA14_0=='d'||LA14_0=='h'||LA14_0=='j'||(LA14_0>='l' && LA14_0<='m')||(LA14_0>='q' && LA14_0<='r')||LA14_0=='u'||(LA14_0>='x' && LA14_0<='z')) ) {s = 29;}
+
+                        else if ( (LA14_0=='\"') ) {s = 30;}
+
+                        else if ( (LA14_0=='\'') ) {s = 31;}
+
+                        else if ( ((LA14_0>='\t' && LA14_0<='\n')||LA14_0=='\r'||LA14_0==' ') ) {s = 32;}
+
+                        else if ( ((LA14_0>='\u0000' && LA14_0<='\b')||(LA14_0>='\u000B' && LA14_0<='\f')||(LA14_0>='\u000E' && LA14_0<='\u001F')||LA14_0=='!'||(LA14_0>='#' && LA14_0<='&')||LA14_0=='.'||(LA14_0>=':' && LA14_0<=';')||(LA14_0>='?' && LA14_0<='@')||(LA14_0>='[' && LA14_0<=']')||LA14_0=='`'||(LA14_0>='{' && LA14_0<='\uFFFF')) ) {s = 33;}
+
+                        else s = 26;
 
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA13_0 = input.LA(1);
+                        int LA14_30 = input.LA(1);
 
                         s = -1;
-                        if ( (LA13_0=='c') ) {s = 1;}
+                        if ( ((LA14_30>='\u0000' && LA14_30<='\uFFFF')) ) {s = 71;}
 
-                        else if ( (LA13_0=='f') ) {s = 2;}
-
-                        else if ( (LA13_0=='p') ) {s = 3;}
-
-                        else if ( (LA13_0=='s') ) {s = 4;}
-
-                        else if ( (LA13_0=='w') ) {s = 5;}
-
-                        else if ( (LA13_0=='y') ) {s = 6;}
-
-                        else if ( (LA13_0=='g') ) {s = 7;}
-
-                        else if ( (LA13_0=='t') ) {s = 8;}
-
-                        else if ( (LA13_0=='a') ) {s = 9;}
-
-                        else if ( (LA13_0=='k') ) {s = 10;}
-
-                        else if ( (LA13_0=='n') ) {s = 11;}
-
-                        else if ( (LA13_0=='v') ) {s = 12;}
-
-                        else if ( (LA13_0=='=') ) {s = 13;}
-
-                        else if ( (LA13_0=='i') ) {s = 14;}
-
-                        else if ( (LA13_0=='o') ) {s = 15;}
-
-                        else if ( (LA13_0=='(') ) {s = 16;}
-
-                        else if ( (LA13_0==')') ) {s = 17;}
-
-                        else if ( (LA13_0=='*') ) {s = 18;}
-
-                        else if ( (LA13_0=='+') ) {s = 19;}
-
-                        else if ( (LA13_0==',') ) {s = 20;}
-
-                        else if ( (LA13_0=='-') ) {s = 21;}
-
-                        else if ( (LA13_0=='.') ) {s = 22;}
-
-                        else if ( (LA13_0=='/') ) {s = 23;}
-
-                        else if ( (LA13_0=='<') ) {s = 24;}
-
-                        else if ( (LA13_0=='>') ) {s = 25;}
-
-                        else if ( ((LA13_0>='0' && LA13_0<='9')) ) {s = 26;}
-
-                        else if ( (LA13_0=='^') ) {s = 27;}
-
-                        else if ( ((LA13_0>='A' && LA13_0<='Z')||LA13_0=='_'||LA13_0=='b'||(LA13_0>='d' && LA13_0<='e')||LA13_0=='h'||LA13_0=='j'||(LA13_0>='l' && LA13_0<='m')||(LA13_0>='q' && LA13_0<='r')||LA13_0=='u'||LA13_0=='x'||LA13_0=='z') ) {s = 28;}
-
-                        else if ( (LA13_0=='\"') ) {s = 29;}
-
-                        else if ( (LA13_0=='\'') ) {s = 30;}
-
-                        else if ( ((LA13_0>='\t' && LA13_0<='\n')||LA13_0=='\r'||LA13_0==' ') ) {s = 31;}
-
-                        else if ( ((LA13_0>='\u0000' && LA13_0<='\b')||(LA13_0>='\u000B' && LA13_0<='\f')||(LA13_0>='\u000E' && LA13_0<='\u001F')||LA13_0=='!'||(LA13_0>='#' && LA13_0<='&')||(LA13_0>=':' && LA13_0<=';')||(LA13_0>='?' && LA13_0<='@')||(LA13_0>='[' && LA13_0<=']')||LA13_0=='`'||(LA13_0>='{' && LA13_0<='\uFFFF')) ) {s = 32;}
+                        else s = 33;
 
                         if ( s>=0 ) return s;
                         break;
             }
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 13, _s, input);
+                new NoViableAltException(getDescription(), 14, _s, input);
             error(nvae);
             throw nvae;
         }

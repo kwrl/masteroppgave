@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link klang.impl.IfImpl#getPredicate <em>Predicate</em>}</li>
  *   <li>{@link klang.impl.IfImpl#getIfBlock <em>If Block</em>}</li>
+ *   <li>{@link klang.impl.IfImpl#getElseBlock <em>Else Block</em>}</li>
  * </ul>
  *
  * @generated
@@ -54,6 +55,16 @@ public class IfImpl extends AbstractElementImpl implements If {
 	 * @ordered
 	 */
 	protected EList<Statement> ifBlock;
+
+	/**
+	 * The cached value of the '{@link #getElseBlock() <em>Else Block</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getElseBlock()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Statement> elseBlock;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -134,6 +145,18 @@ public class IfImpl extends AbstractElementImpl implements If {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Statement> getElseBlock() {
+		if (elseBlock == null) {
+			elseBlock = new EObjectContainmentEList<Statement>(Statement.class, this, KlangPackage.IF__ELSE_BLOCK);
+		}
+		return elseBlock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -141,6 +164,8 @@ public class IfImpl extends AbstractElementImpl implements If {
 				return basicSetPredicate(null, msgs);
 			case KlangPackage.IF__IF_BLOCK:
 				return ((InternalEList<?>)getIfBlock()).basicRemove(otherEnd, msgs);
+			case KlangPackage.IF__ELSE_BLOCK:
+				return ((InternalEList<?>)getElseBlock()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -157,6 +182,8 @@ public class IfImpl extends AbstractElementImpl implements If {
 				return getPredicate();
 			case KlangPackage.IF__IF_BLOCK:
 				return getIfBlock();
+			case KlangPackage.IF__ELSE_BLOCK:
+				return getElseBlock();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -177,6 +204,10 @@ public class IfImpl extends AbstractElementImpl implements If {
 				getIfBlock().clear();
 				getIfBlock().addAll((Collection<? extends Statement>)newValue);
 				return;
+			case KlangPackage.IF__ELSE_BLOCK:
+				getElseBlock().clear();
+				getElseBlock().addAll((Collection<? extends Statement>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -195,6 +226,9 @@ public class IfImpl extends AbstractElementImpl implements If {
 			case KlangPackage.IF__IF_BLOCK:
 				getIfBlock().clear();
 				return;
+			case KlangPackage.IF__ELSE_BLOCK:
+				getElseBlock().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -211,6 +245,8 @@ public class IfImpl extends AbstractElementImpl implements If {
 				return predicate != null;
 			case KlangPackage.IF__IF_BLOCK:
 				return ifBlock != null && !ifBlock.isEmpty();
+			case KlangPackage.IF__ELSE_BLOCK:
+				return elseBlock != null && !elseBlock.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -31,6 +31,8 @@ Sleep : 'sleep';
 
 While : 'while';
 
+Else : 'else';
+
 Game : 'game';
 
 True : 'true';

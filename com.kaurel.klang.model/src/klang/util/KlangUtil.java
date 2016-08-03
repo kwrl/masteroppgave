@@ -30,7 +30,7 @@ public class KlangUtil {
 	}
 
 	public static long variableDeclarationCount(Game game, String variableName) {
-		return game.getVariableDeclarations().stream().filter(decl -> decl.getName().equals(variableName)).count();
+		return game.getGlobalVariables().stream().filter(decl -> decl.getName().equals(variableName)).count();
 	}
 
 	public static boolean hasVariableDeclaration(Game game, String variableName) {
@@ -54,7 +54,7 @@ public class KlangUtil {
 
 		Game game = getGame(object);
 		if (game != null) {
-			for (Variable var : game.getVariableDeclarations()) {
+			for (Variable var : game.getGlobalVariables()) {
 				if (var.getName().equals(variableName)) {
 					return var;
 				}

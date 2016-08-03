@@ -1,7 +1,0 @@
-package com.kaurel.kengine.lib;
-
-import javafx.scene.Group;
-
-public class KengineWorld extends Group {
-
-}

@@ -1,9 +1,0 @@
-package com.kaurel.kengine.lib;
-
-import java.util.EventListener;
-
-import javafx.scene.Group;
-
-public class KengineWorld extends Group implements EventListener {
-
-}

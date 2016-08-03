@@ -408,7 +408,7 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGame_VariableDeclarations() {
+	public EReference getGame_Actors() {
 		return (EReference)gameEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -417,8 +417,26 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGame_ActorDefs() {
+	public EReference getGame_GlobalVariables() {
 		return (EReference)gameEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGame__GetAllEntities() {
+		return gameEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGame__GetAllVariables() {
+		return gameEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -480,6 +498,15 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getEventHandler_Actor() {
+		return (EReference)eventHandlerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getWhileLoop() {
 		return whileLoopEClass;
 	}
@@ -527,6 +554,15 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 */
 	public EReference getIf_IfBlock() {
 		return (EReference)ifEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIf_ElseBlock() {
+		return (EReference)ifEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -644,6 +680,15 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 */
 	public EAttribute getEntity_Target() {
 		return (EAttribute)entityEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntity_Actor() {
+		return (EReference)entityEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1143,8 +1188,10 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 
 		// Create classes and their features
 		gameEClass = createEClass(GAME);
-		createEReference(gameEClass, GAME__VARIABLE_DECLARATIONS);
-		createEReference(gameEClass, GAME__ACTOR_DEFS);
+		createEReference(gameEClass, GAME__ACTORS);
+		createEReference(gameEClass, GAME__GLOBAL_VARIABLES);
+		createEOperation(gameEClass, GAME___GET_ALL_ENTITIES);
+		createEOperation(gameEClass, GAME___GET_ALL_VARIABLES);
 
 		actorEClass = createEClass(ACTOR);
 		createEReference(actorEClass, ACTOR__VARIABLE_DECLARATIONS);
@@ -1153,6 +1200,7 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 
 		eventHandlerEClass = createEClass(EVENT_HANDLER);
 		createEReference(eventHandlerEClass, EVENT_HANDLER__STATEMENTS);
+		createEReference(eventHandlerEClass, EVENT_HANDLER__ACTOR);
 
 		whileLoopEClass = createEClass(WHILE_LOOP);
 		createEReference(whileLoopEClass, WHILE_LOOP__PREDICATE);
@@ -1161,6 +1209,7 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		ifEClass = createEClass(IF);
 		createEReference(ifEClass, IF__PREDICATE);
 		createEReference(ifEClass, IF__IF_BLOCK);
+		createEReference(ifEClass, IF__ELSE_BLOCK);
 
 		foreverLoopEClass = createEClass(FOREVER_LOOP);
 		createEReference(foreverLoopEClass, FOREVER_LOOP__LOOP_STATEMENTS);
@@ -1195,6 +1244,7 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 
 		entityEClass = createEClass(ENTITY);
 		createEAttribute(entityEClass, ENTITY__TARGET);
+		createEReference(entityEClass, ENTITY__ACTOR);
 
 		equalEClass = createEClass(EQUAL);
 
@@ -1326,16 +1376,21 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(gameEClass, Game.class, "Game", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGame_VariableDeclarations(), this.getVariable(), null, "variableDeclarations", null, 0, -1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGame_ActorDefs(), this.getActor(), null, "actorDefs", null, 0, -1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGame_Actors(), this.getActor(), null, "actors", null, 0, -1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGame_GlobalVariables(), this.getVariable(), null, "globalVariables", null, 0, -1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getGame__GetAllEntities(), this.getEntity(), "getAllEntities", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getGame__GetAllVariables(), this.getVariable(), "getAllVariables", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(actorEClass, Actor.class, "Actor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getActor_VariableDeclarations(), this.getVariable(), null, "variableDeclarations", null, 0, -1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getActor_EventHandlers(), this.getEventHandler(), null, "eventHandlers", null, 0, -1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getActor_Entity(), this.getEntity(), null, "entity", null, 0, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getActor_EventHandlers(), this.getEventHandler(), this.getEventHandler_Actor(), "eventHandlers", null, 0, -1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getActor_Entity(), this.getEntity(), this.getEntity_Actor(), "entity", null, 0, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eventHandlerEClass, EventHandler.class, "EventHandler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEventHandler_Statements(), this.getStatement(), null, "statements", null, 0, -1, EventHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEventHandler_Actor(), this.getActor(), this.getActor_EventHandlers(), "actor", null, 1, 1, EventHandler.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(whileLoopEClass, WhileLoop.class, "WhileLoop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getWhileLoop_Predicate(), this.getExpression(), null, "predicate", null, 0, 1, WhileLoop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1344,6 +1399,7 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		initEClass(ifEClass, If.class, "If", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIf_Predicate(), this.getExpression(), null, "predicate", null, 0, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIf_IfBlock(), this.getStatement(), null, "ifBlock", null, 0, -1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIf_ElseBlock(), this.getStatement(), null, "elseBlock", null, 0, -1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(foreverLoopEClass, ForeverLoop.class, "ForeverLoop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getForeverLoop_LoopStatements(), this.getStatement(), null, "loopStatements", null, 0, -1, ForeverLoop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1378,6 +1434,7 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 
 		initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEntity_Target(), ecorePackage.getEJavaObject(), "target", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntity_Actor(), this.getActor(), this.getActor_Entity(), "actor", null, 1, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(equalEClass, Equal.class, "Equal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

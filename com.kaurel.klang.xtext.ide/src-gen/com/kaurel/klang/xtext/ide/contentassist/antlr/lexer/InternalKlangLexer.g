@@ -27,13 +27,13 @@ False : 'false';
 
 Scene : 'scene';
 
+Sleep : 'sleep';
+
 While : 'while';
 
-Yield : 'yield';
+Else : 'else';
 
 Game : 'game';
-
-This : 'this';
 
 True : 'true';
 
@@ -67,8 +67,6 @@ Comma : ',';
 
 HyphenMinus : '-';
 
-FullStop : '.';
-
 Solidus : '/';
 
 LessThanSign : '<';
@@ -82,6 +80,8 @@ GreaterThanSign : '>';
 fragment RULE_BEGIN : ;
 
 fragment RULE_END : ;
+
+RULE_UPPERCASE : ('A'..'Z'|'0'..'9')*;
 
 RULE_DECIMAL : RULE_INT ('.' RULE_INT)?;
 

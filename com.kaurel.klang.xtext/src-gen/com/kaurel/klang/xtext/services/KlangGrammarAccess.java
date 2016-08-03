@@ -28,33 +28,33 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.Game");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cGameAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cVariableDeclarationsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cVariableDeclarationsVariableParserRuleCall_1_0 = (RuleCall)cVariableDeclarationsAssignment_1.eContents().get(0);
-		private final Assignment cActorDefsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cActorDefsActorParserRuleCall_2_0 = (RuleCall)cActorDefsAssignment_2.eContents().get(0);
+		private final Assignment cGlobalVariablesAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cGlobalVariablesVariableParserRuleCall_1_0 = (RuleCall)cGlobalVariablesAssignment_1.eContents().get(0);
+		private final Assignment cActorsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cActorsActorParserRuleCall_2_0 = (RuleCall)cActorsAssignment_2.eContents().get(0);
 		
 		//Game:
-		//	{Game} variableDeclarations+=Variable*
-		//	actorDefs+=Actor*;
+		//	{Game} globalVariables+=Variable*
+		//	actors+=Actor*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Game} variableDeclarations+=Variable* actorDefs+=Actor*
+		//{Game} globalVariables+=Variable* actors+=Actor*
 		public Group getGroup() { return cGroup; }
 		
 		//{Game}
 		public Action getGameAction_0() { return cGameAction_0; }
 		
-		//variableDeclarations+=Variable*
-		public Assignment getVariableDeclarationsAssignment_1() { return cVariableDeclarationsAssignment_1; }
+		//globalVariables+=Variable*
+		public Assignment getGlobalVariablesAssignment_1() { return cGlobalVariablesAssignment_1; }
 		
 		//Variable
-		public RuleCall getVariableDeclarationsVariableParserRuleCall_1_0() { return cVariableDeclarationsVariableParserRuleCall_1_0; }
+		public RuleCall getGlobalVariablesVariableParserRuleCall_1_0() { return cGlobalVariablesVariableParserRuleCall_1_0; }
 		
-		//actorDefs+=Actor*
-		public Assignment getActorDefsAssignment_2() { return cActorDefsAssignment_2; }
+		//actors+=Actor*
+		public Assignment getActorsAssignment_2() { return cActorsAssignment_2; }
 		
 		//Actor
-		public RuleCall getActorDefsActorParserRuleCall_2_0() { return cActorDefsActorParserRuleCall_2_0; }
+		public RuleCall getActorsActorParserRuleCall_2_0() { return cActorsActorParserRuleCall_2_0; }
 	}
 	public class ActorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.Actor");
@@ -473,16 +473,25 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cIfBlockAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cIfBlockStatementParserRuleCall_4_0 = (RuleCall)cIfBlockAssignment_4.eContents().get(0);
 		private final RuleCall cENDTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cElseKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final RuleCall cBEGINTerminalRuleCall_6_1 = (RuleCall)cGroup_6.eContents().get(1);
+		private final Assignment cElseBlockAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
+		private final RuleCall cElseBlockStatementParserRuleCall_6_2_0 = (RuleCall)cElseBlockAssignment_6_2.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_6_3 = (RuleCall)cGroup_6.eContents().get(3);
 		
 		//If Statement:
 		//	{If}
 		//	'if' predicate=Expression
 		//	BEGIN
 		//	ifBlock+=Statement*
-		//	END
+		//	END ('else'
+		//	BEGIN
+		//	elseBlock+=Statement*
+		//	END)?
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{If} 'if' predicate=Expression BEGIN ifBlock+=Statement* END
+		//{If} 'if' predicate=Expression BEGIN ifBlock+=Statement* END ('else' BEGIN elseBlock+=Statement* END)?
 		public Group getGroup() { return cGroup; }
 		
 		//{If}
@@ -508,6 +517,24 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//END
 		public RuleCall getENDTerminalRuleCall_5() { return cENDTerminalRuleCall_5; }
+		
+		//('else' BEGIN elseBlock+=Statement* END)?
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//'else'
+		public Keyword getElseKeyword_6_0() { return cElseKeyword_6_0; }
+		
+		//BEGIN
+		public RuleCall getBEGINTerminalRuleCall_6_1() { return cBEGINTerminalRuleCall_6_1; }
+		
+		//elseBlock+=Statement*
+		public Assignment getElseBlockAssignment_6_2() { return cElseBlockAssignment_6_2; }
+		
+		//Statement
+		public RuleCall getElseBlockStatementParserRuleCall_6_2_0() { return cElseBlockStatementParserRuleCall_6_2_0; }
+		
+		//END
+		public RuleCall getENDTerminalRuleCall_6_3() { return cENDTerminalRuleCall_6_3; }
 	}
 	public class ForeverLoopElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.ForeverLoop");
@@ -1256,8 +1283,8 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Game:
-	//	{Game} variableDeclarations+=Variable*
-	//	actorDefs+=Actor*;
+	//	{Game} globalVariables+=Variable*
+	//	actors+=Actor*;
 	public GameElements getGameAccess() {
 		return pGame;
 	}
@@ -1384,7 +1411,10 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 	//	'if' predicate=Expression
 	//	BEGIN
 	//	ifBlock+=Statement*
-	//	END
+	//	END ('else'
+	//	BEGIN
+	//	elseBlock+=Statement*
+	//	END)?
 	public IfElements getIfAccess() {
 		return pIf;
 	}

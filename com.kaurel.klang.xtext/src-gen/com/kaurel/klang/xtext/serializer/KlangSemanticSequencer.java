@@ -607,7 +607,7 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Game returns Game
 	 *
 	 * Constraint:
-	 *     (variableDeclarations+=Variable* actorDefs+=Actor*)
+	 *     (globalVariables+=Variable* actors+=Actor*)
 	 */
 	protected void sequence_Game(ISerializationContext context, Game semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -620,7 +620,7 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     If returns If
 	 *
 	 * Constraint:
-	 *     (predicate=Expression ifBlock+=Statement*)
+	 *     (predicate=Expression ifBlock+=Statement* elseBlock+=Statement*)
 	 */
 	protected void sequence_If(ISerializationContext context, If semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

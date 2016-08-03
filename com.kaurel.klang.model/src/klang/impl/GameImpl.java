@@ -2,10 +2,15 @@
  */
 package klang.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -14,6 +19,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import klang.Actor;
+import klang.Entity;
 import klang.Game;
 import klang.KlangPackage;
 import klang.UnaryOperator;
@@ -27,32 +33,32 @@ import klang.Variable;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link klang.impl.GameImpl#getVariableDeclarations <em>Variable Declarations</em>}</li>
- *   <li>{@link klang.impl.GameImpl#getActorDefs <em>Actor Defs</em>}</li>
+ *   <li>{@link klang.impl.GameImpl#getActors <em>Actors</em>}</li>
+ *   <li>{@link klang.impl.GameImpl#getGlobalVariables <em>Global Variables</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	/**
-	 * The cached value of the '{@link #getVariableDeclarations() <em>Variable Declarations</em>}' containment reference list.
+	 * The cached value of the '{@link #getActors() <em>Actors</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getVariableDeclarations()
+	 * @see #getActors()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Variable> variableDeclarations;
+	protected EList<Actor> actors;
 
 	/**
-	 * The cached value of the '{@link #getActorDefs() <em>Actor Defs</em>}' containment reference list.
+	 * The cached value of the '{@link #getGlobalVariables() <em>Global Variables</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getActorDefs()
+	 * @see #getGlobalVariables()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Actor> actorDefs;
+	protected EList<Variable> globalVariables;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -76,13 +82,14 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public EList<Variable> getVariableDeclarations() {
-		if (variableDeclarations == null) {
-			variableDeclarations = new EObjectContainmentEList<Variable>(Variable.class, this, KlangPackage.GAME__VARIABLE_DECLARATIONS);
-		}
-		return variableDeclarations;
+	public EList<Variable> getAllVariables() {
+		List<Variable> variables = new ArrayList<>(getGlobalVariables());
+		variables.addAll(getActors().stream()
+				.flatMap(a -> a.getVariableDeclarations().stream())
+				.collect(Collectors.toList()));
+		return new BasicEList<>(variables);
 	}
 
 	/**
@@ -90,11 +97,35 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Actor> getActorDefs() {
-		if (actorDefs == null) {
-			actorDefs = new EObjectContainmentEList<Actor>(Actor.class, this, KlangPackage.GAME__ACTOR_DEFS);
+	public EList<Actor> getActors() {
+		if (actors == null) {
+			actors = new EObjectContainmentEList<Actor>(Actor.class, this, KlangPackage.GAME__ACTORS);
 		}
-		return actorDefs;
+		return actors;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<Variable> getGlobalVariables() {
+		if (globalVariables == null) {
+			globalVariables = new EObjectContainmentEList<Variable>(Variable.class, this, KlangPackage.GAME__GLOBAL_VARIABLES);
+		}
+		return globalVariables;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<Entity> getAllEntities() {
+		List<Entity> entities = getActors().stream()
+					.map(a -> a.getEntity())
+					.collect(Collectors.toList());
+		return new BasicEList<Entity>(entities);
 	}
 
 	/**
@@ -105,10 +136,10 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case KlangPackage.GAME__VARIABLE_DECLARATIONS:
-				return ((InternalEList<?>)getVariableDeclarations()).basicRemove(otherEnd, msgs);
-			case KlangPackage.GAME__ACTOR_DEFS:
-				return ((InternalEList<?>)getActorDefs()).basicRemove(otherEnd, msgs);
+			case KlangPackage.GAME__ACTORS:
+				return ((InternalEList<?>)getActors()).basicRemove(otherEnd, msgs);
+			case KlangPackage.GAME__GLOBAL_VARIABLES:
+				return ((InternalEList<?>)getGlobalVariables()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -121,10 +152,10 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case KlangPackage.GAME__VARIABLE_DECLARATIONS:
-				return getVariableDeclarations();
-			case KlangPackage.GAME__ACTOR_DEFS:
-				return getActorDefs();
+			case KlangPackage.GAME__ACTORS:
+				return getActors();
+			case KlangPackage.GAME__GLOBAL_VARIABLES:
+				return getGlobalVariables();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -138,13 +169,13 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case KlangPackage.GAME__VARIABLE_DECLARATIONS:
-				getVariableDeclarations().clear();
-				getVariableDeclarations().addAll((Collection<? extends Variable>)newValue);
+			case KlangPackage.GAME__ACTORS:
+				getActors().clear();
+				getActors().addAll((Collection<? extends Actor>)newValue);
 				return;
-			case KlangPackage.GAME__ACTOR_DEFS:
-				getActorDefs().clear();
-				getActorDefs().addAll((Collection<? extends Actor>)newValue);
+			case KlangPackage.GAME__GLOBAL_VARIABLES:
+				getGlobalVariables().clear();
+				getGlobalVariables().addAll((Collection<? extends Variable>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -158,11 +189,11 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case KlangPackage.GAME__VARIABLE_DECLARATIONS:
-				getVariableDeclarations().clear();
+			case KlangPackage.GAME__ACTORS:
+				getActors().clear();
 				return;
-			case KlangPackage.GAME__ACTOR_DEFS:
-				getActorDefs().clear();
+			case KlangPackage.GAME__GLOBAL_VARIABLES:
+				getGlobalVariables().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -176,14 +207,30 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case KlangPackage.GAME__VARIABLE_DECLARATIONS:
-				return variableDeclarations != null && !variableDeclarations.isEmpty();
-			case KlangPackage.GAME__ACTOR_DEFS:
-				return actorDefs != null && !actorDefs.isEmpty();
+			case KlangPackage.GAME__ACTORS:
+				return actors != null && !actors.isEmpty();
+			case KlangPackage.GAME__GLOBAL_VARIABLES:
+				return globalVariables != null && !globalVariables.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case KlangPackage.GAME___GET_ALL_ENTITIES:
+				return getAllEntities();
+			case KlangPackage.GAME___GET_ALL_VARIABLES:
+				return getAllVariables();
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
 	public Method getOperator(UnaryOperator operator) {
 		return null;
 	}

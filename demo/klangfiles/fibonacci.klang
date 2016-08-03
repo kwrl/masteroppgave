@@ -1,0 +1,17 @@
+var n0 = 0.0
+var n1 = 1.0
+var t = 0.0
+
+sprite somesprite 
+	var omg = ""
+	when game starts
+		while n0 < 100.0
+			print("Fib:\t"+n0)
+			t = n1
+			n1 = n1 + n0
+			n0 = t
+			
+sprite someothersprite
+	when game starts
+		while n0 < 100.0
+			print("Some other thread")

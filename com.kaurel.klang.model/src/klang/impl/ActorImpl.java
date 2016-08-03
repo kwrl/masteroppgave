@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -107,7 +108,7 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 	 */
 	public EList<EventHandler> getEventHandlers() {
 		if (eventHandlers == null) {
-			eventHandlers = new EObjectContainmentEList<EventHandler>(EventHandler.class, this, KlangPackage.ACTOR__EVENT_HANDLERS);
+			eventHandlers = new EObjectContainmentWithInverseEList<EventHandler>(EventHandler.class, this, KlangPackage.ACTOR__EVENT_HANDLERS, KlangPackage.EVENT_HANDLER__ACTOR);
 		}
 		return eventHandlers;
 	}
@@ -145,14 +146,33 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor {
 		if (newEntity != entity) {
 			NotificationChain msgs = null;
 			if (entity != null)
-				msgs = ((InternalEObject)entity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KlangPackage.ACTOR__ENTITY, null, msgs);
+				msgs = ((InternalEObject)entity).eInverseRemove(this, KlangPackage.ENTITY__ACTOR, Entity.class, msgs);
 			if (newEntity != null)
-				msgs = ((InternalEObject)newEntity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KlangPackage.ACTOR__ENTITY, null, msgs);
+				msgs = ((InternalEObject)newEntity).eInverseAdd(this, KlangPackage.ENTITY__ACTOR, Entity.class, msgs);
 			msgs = basicSetEntity(newEntity, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, KlangPackage.ACTOR__ENTITY, newEntity, newEntity));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case KlangPackage.ACTOR__EVENT_HANDLERS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getEventHandlers()).basicAdd(otherEnd, msgs);
+			case KlangPackage.ACTOR__ENTITY:
+				if (entity != null)
+					msgs = ((InternalEObject)entity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KlangPackage.ACTOR__ENTITY, null, msgs);
+				return basicSetEntity((Entity)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

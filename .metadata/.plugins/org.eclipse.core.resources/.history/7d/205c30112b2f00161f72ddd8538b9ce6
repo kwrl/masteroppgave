@@ -1,9 +1,0 @@
-var n1 = 10
-
-sprite ball1
-	when GAME_STARTED
-		n1 = 20
-		
-scene background
-	when GAME_STARTED:
-		n1 = 100

@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link klang.Game#getVariableDeclarations <em>Variable Declarations</em>}</li>
- *   <li>{@link klang.Game#getActorDefs <em>Actor Defs</em>}</li>
+ *   <li>{@link klang.Game#getActors <em>Actors</em>}</li>
+ *   <li>{@link klang.Game#getGlobalVariables <em>Global Variables</em>}</li>
  * </ul>
  *
  * @see klang.KlangPackage#getGame()
@@ -25,35 +25,55 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Game extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Variable Declarations</b></em>' containment reference list.
-	 * The list contents are of type {@link klang.Variable}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Variable Declarations</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>All Variables</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Variable Declarations</em>' containment reference list.
-	 * @see klang.KlangPackage#getGame_VariableDeclarations()
-	 * @model containment="true"
+	 * @model kind="operation"
 	 * @generated
 	 */
-	EList<Variable> getVariableDeclarations();
+	EList<Variable> getAllVariables();
 
 	/**
-	 * Returns the value of the '<em><b>Actor Defs</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Actors</b></em>' containment reference list.
 	 * The list contents are of type {@link klang.Actor}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Actor Defs</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Actors</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Actor Defs</em>' containment reference list.
-	 * @see klang.KlangPackage#getGame_ActorDefs()
+	 * @return the value of the '<em>Actors</em>' containment reference list.
+	 * @see klang.KlangPackage#getGame_Actors()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Actor> getActorDefs();
+	EList<Actor> getActors();
+
+	/**
+	 * Returns the value of the '<em><b>Global Variables</b></em>' containment reference list.
+	 * The list contents are of type {@link klang.Variable}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Global Variables</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Global Variables</em>' containment reference list.
+	 * @see klang.KlangPackage#getGame_GlobalVariables()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Variable> getGlobalVariables();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<Entity> getAllEntities();
 
 } // Game

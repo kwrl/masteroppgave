@@ -16,7 +16,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -77,8 +76,8 @@ public class GameItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(KlangPackage.Literals.GAME__VARIABLE_DECLARATIONS);
-			childrenFeatures.add(KlangPackage.Literals.GAME__ACTOR_DEFS);
+			childrenFeatures.add(KlangPackage.Literals.GAME__ACTORS);
+			childrenFeatures.add(KlangPackage.Literals.GAME__GLOBAL_VARIABLES);
 		}
 		return childrenFeatures;
 	}
@@ -131,8 +130,8 @@ public class GameItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Game.class)) {
-			case KlangPackage.GAME__VARIABLE_DECLARATIONS:
-			case KlangPackage.GAME__ACTOR_DEFS:
+			case KlangPackage.GAME__ACTORS:
+			case KlangPackage.GAME__GLOBAL_VARIABLES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -152,13 +151,13 @@ public class GameItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(KlangPackage.Literals.GAME__VARIABLE_DECLARATIONS,
-				 KlangFactory.eINSTANCE.createVariable()));
+				(KlangPackage.Literals.GAME__ACTORS,
+				 KlangFactory.eINSTANCE.createActor()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(KlangPackage.Literals.GAME__ACTOR_DEFS,
-				 KlangFactory.eINSTANCE.createActor()));
+				(KlangPackage.Literals.GAME__GLOBAL_VARIABLES,
+				 KlangFactory.eINSTANCE.createVariable()));
 	}
 
 	/**

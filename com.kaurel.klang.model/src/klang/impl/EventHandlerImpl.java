@@ -3,6 +3,7 @@
 package klang.impl;
 
 import java.util.Collection;
+import klang.Actor;
 import klang.EventHandler;
 import klang.KlangPackage;
 import klang.Statement;
@@ -26,6 +27,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link klang.impl.EventHandlerImpl#getStatements <em>Statements</em>}</li>
+ *   <li>{@link klang.impl.EventHandlerImpl#getActor <em>Actor</em>}</li>
  * </ul>
  *
  * @generated
@@ -77,13 +79,55 @@ public class EventHandlerImpl extends MinimalEObjectImpl.Container implements Ev
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Actor getActor() {
+		if (eContainerFeatureID() != KlangPackage.EVENT_HANDLER__ACTOR) return null;
+		return (Actor)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case KlangPackage.EVENT_HANDLER__ACTOR:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return eBasicSetContainer(otherEnd, KlangPackage.EVENT_HANDLER__ACTOR, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case KlangPackage.EVENT_HANDLER__STATEMENTS:
 				return ((InternalEList<?>)getStatements()).basicRemove(otherEnd, msgs);
+			case KlangPackage.EVENT_HANDLER__ACTOR:
+				return eBasicSetContainer(null, KlangPackage.EVENT_HANDLER__ACTOR, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case KlangPackage.EVENT_HANDLER__ACTOR:
+				return eInternalContainer().eInverseRemove(this, KlangPackage.ACTOR__EVENT_HANDLERS, Actor.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -96,6 +140,8 @@ public class EventHandlerImpl extends MinimalEObjectImpl.Container implements Ev
 		switch (featureID) {
 			case KlangPackage.EVENT_HANDLER__STATEMENTS:
 				return getStatements();
+			case KlangPackage.EVENT_HANDLER__ACTOR:
+				return getActor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -142,6 +188,8 @@ public class EventHandlerImpl extends MinimalEObjectImpl.Container implements Ev
 		switch (featureID) {
 			case KlangPackage.EVENT_HANDLER__STATEMENTS:
 				return statements != null && !statements.isEmpty();
+			case KlangPackage.EVENT_HANDLER__ACTOR:
+				return getActor() != null;
 		}
 		return super.eIsSet(featureID);
 	}

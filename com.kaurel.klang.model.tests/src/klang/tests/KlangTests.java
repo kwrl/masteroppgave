@@ -31,6 +31,7 @@ public class KlangTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new KlangTests("klang Tests");
+		suite.addTestSuite(GameTest.class);
 		suite.addTestSuite(VariableAssignmentTest.class);
 		suite.addTestSuite(VariableRefTest.class);
 		suite.addTestSuite(SpriteEntityTest.class);

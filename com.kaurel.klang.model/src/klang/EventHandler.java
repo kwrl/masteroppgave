@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link klang.EventHandler#getStatements <em>Statements</em>}</li>
+ *   <li>{@link klang.EventHandler#getActor <em>Actor</em>}</li>
  * </ul>
  *
  * @see klang.KlangPackage#getEventHandler()
@@ -38,5 +39,22 @@ public interface EventHandler extends EObject {
 	 * @generated
 	 */
 	EList<Statement> getStatements();
+
+	/**
+	 * Returns the value of the '<em><b>Actor</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link klang.Actor#getEventHandlers <em>Event Handlers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Actor</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Actor</em>' container reference.
+	 * @see klang.KlangPackage#getEventHandler_Actor()
+	 * @see klang.Actor#getEventHandlers
+	 * @model opposite="eventHandlers" required="true" transient="false" changeable="false"
+	 * @generated
+	 */
+	Actor getActor();
 
 } // EventHandler

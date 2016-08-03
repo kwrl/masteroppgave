@@ -79,17 +79,17 @@ ruleGame returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGameAccess().getVariableDeclarationsVariableParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getGameAccess().getGlobalVariablesVariableParserRuleCall_1_0());
 				}
-				lv_variableDeclarations_1_0=ruleVariable
+				lv_globalVariables_1_0=ruleVariable
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGameRule());
 					}
 					add(
 						$current,
-						"variableDeclarations",
-						lv_variableDeclarations_1_0,
+						"globalVariables",
+						lv_globalVariables_1_0,
 						"com.kaurel.klang.xtext.Klang.Variable");
 					afterParserOrEnumRuleCall();
 				}
@@ -98,17 +98,17 @@ ruleGame returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGameAccess().getActorDefsActorParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getGameAccess().getActorsActorParserRuleCall_2_0());
 				}
-				lv_actorDefs_2_0=ruleActor
+				lv_actors_2_0=ruleActor
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGameRule());
 					}
 					add(
 						$current,
-						"actorDefs",
-						lv_actorDefs_2_0,
+						"actors",
+						lv_actors_2_0,
 						"com.kaurel.klang.xtext.Klang.Actor");
 					afterParserOrEnumRuleCall();
 				}
@@ -834,6 +834,39 @@ ruleIf returns [EObject current=null]
 		{
 			newLeafNode(this_END_5, grammarAccess.getIfAccess().getENDTerminalRuleCall_5());
 		}
+		(
+			otherlv_6=Else
+			{
+				newLeafNode(otherlv_6, grammarAccess.getIfAccess().getElseKeyword_6_0());
+			}
+			this_BEGIN_7=RULE_BEGIN
+			{
+				newLeafNode(this_BEGIN_7, grammarAccess.getIfAccess().getBEGINTerminalRuleCall_6_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getIfAccess().getElseBlockStatementParserRuleCall_6_2_0());
+					}
+					lv_elseBlock_8_0=ruleStatement
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getIfRule());
+						}
+						add(
+							$current,
+							"elseBlock",
+							lv_elseBlock_8_0,
+							"com.kaurel.klang.xtext.Klang.Statement");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)*
+			this_END_9=RULE_END
+			{
+				newLeafNode(this_END_9, grammarAccess.getIfAccess().getENDTerminalRuleCall_6_3());
+			}
+		)?
 	)
 ;
 

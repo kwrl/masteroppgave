@@ -64,6 +64,7 @@ public class IfItemProvider extends AbstractElementItemProvider {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(KlangPackage.Literals.IF__PREDICATE);
 			childrenFeatures.add(KlangPackage.Literals.IF__IF_BLOCK);
+			childrenFeatures.add(KlangPackage.Literals.IF__ELSE_BLOCK);
 		}
 		return childrenFeatures;
 	}
@@ -118,6 +119,7 @@ public class IfItemProvider extends AbstractElementItemProvider {
 		switch (notification.getFeatureID(If.class)) {
 			case KlangPackage.IF__PREDICATE:
 			case KlangPackage.IF__IF_BLOCK:
+			case KlangPackage.IF__ELSE_BLOCK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -264,6 +266,41 @@ public class IfItemProvider extends AbstractElementItemProvider {
 			(createChildParameter
 				(KlangPackage.Literals.IF__IF_BLOCK,
 				 KlangFactory.eINSTANCE.createSleep()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.IF__ELSE_BLOCK,
+				 KlangFactory.eINSTANCE.createWhileLoop()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.IF__ELSE_BLOCK,
+				 KlangFactory.eINSTANCE.createIf()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.IF__ELSE_BLOCK,
+				 KlangFactory.eINSTANCE.createForeverLoop()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.IF__ELSE_BLOCK,
+				 KlangFactory.eINSTANCE.createYield()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.IF__ELSE_BLOCK,
+				 KlangFactory.eINSTANCE.createVariableAssignment()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.IF__ELSE_BLOCK,
+				 KlangFactory.eINSTANCE.createFunctionCall()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.IF__ELSE_BLOCK,
+				 KlangFactory.eINSTANCE.createSleep()));
 	}
 
 	/**
@@ -279,7 +316,8 @@ public class IfItemProvider extends AbstractElementItemProvider {
 
 		boolean qualify =
 			childFeature == KlangPackage.Literals.IF__PREDICATE ||
-			childFeature == KlangPackage.Literals.IF__IF_BLOCK;
+			childFeature == KlangPackage.Literals.IF__IF_BLOCK ||
+			childFeature == KlangPackage.Literals.IF__ELSE_BLOCK;
 
 		if (qualify) {
 			return getString

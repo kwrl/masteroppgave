@@ -68,22 +68,22 @@ public interface KlangPackage extends EPackage {
 	int GAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Variable Declarations</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Actors</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GAME__VARIABLE_DECLARATIONS = 0;
+	int GAME__ACTORS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Actor Defs</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Global Variables</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GAME__ACTOR_DEFS = 1;
+	int GAME__GLOBAL_VARIABLES = 1;
 
 	/**
 	 * The number of structural features of the '<em>Game</em>' class.
@@ -95,13 +95,31 @@ public interface KlangPackage extends EPackage {
 	int GAME_FEATURE_COUNT = 2;
 
 	/**
+	 * The operation id for the '<em>Get All Entities</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME___GET_ALL_ENTITIES = 0;
+
+	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME___GET_ALL_VARIABLES = 1;
+
+	/**
 	 * The number of operations of the '<em>Game</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GAME_OPERATION_COUNT = 0;
+	int GAME_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.ActorImpl <em>Actor</em>}' class.
@@ -178,13 +196,22 @@ public interface KlangPackage extends EPackage {
 	int EVENT_HANDLER__STATEMENTS = 0;
 
 	/**
+	 * The feature id for the '<em><b>Actor</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_HANDLER__ACTOR = 1;
+
+	/**
 	 * The number of structural features of the '<em>Event Handler</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_HANDLER_FEATURE_COUNT = 1;
+	int EVENT_HANDLER_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Event Handler</em>' class.
@@ -536,13 +563,22 @@ public interface KlangPackage extends EPackage {
 	int IF__IF_BLOCK = STATEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Else Block</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF__ELSE_BLOCK = STATEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>If</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IF_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+	int IF_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>If</em>' class.
@@ -1014,13 +1050,22 @@ public interface KlangPackage extends EPackage {
 	int ENTITY__TARGET = 0;
 
 	/**
+	 * The feature id for the '<em><b>Actor</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY__ACTOR = 1;
+
+	/**
 	 * The number of structural features of the '<em>Entity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY_FEATURE_COUNT = 1;
+	int ENTITY_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Entity</em>' class.
@@ -1340,6 +1385,15 @@ public interface KlangPackage extends EPackage {
 	int SPRITE_ENTITY__TARGET = ENTITY__TARGET;
 
 	/**
+	 * The feature id for the '<em><b>Actor</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRITE_ENTITY__ACTOR = ENTITY__ACTOR;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1449,6 +1503,15 @@ public interface KlangPackage extends EPackage {
 	int SCENE_ENTITY__TARGET = ENTITY__TARGET;
 
 	/**
+	 * The feature id for the '<em><b>Actor</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCENE_ENTITY__ACTOR = ENTITY__ACTOR;
+
+	/**
 	 * The number of structural features of the '<em>Scene Entity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1484,6 +1547,15 @@ public interface KlangPackage extends EPackage {
 	 * @ordered
 	 */
 	int GAME_START__STATEMENTS = EVENT_HANDLER__STATEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Actor</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME_START__ACTOR = EVENT_HANDLER__ACTOR;
 
 	/**
 	 * The number of structural features of the '<em>Game Start</em>' class.
@@ -1523,6 +1595,15 @@ public interface KlangPackage extends EPackage {
 	int SPRITE_CLICKED__STATEMENTS = EVENT_HANDLER__STATEMENTS;
 
 	/**
+	 * The feature id for the '<em><b>Actor</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRITE_CLICKED__ACTOR = EVENT_HANDLER__ACTOR;
+
+	/**
 	 * The number of structural features of the '<em>Sprite Clicked</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1558,6 +1639,15 @@ public interface KlangPackage extends EPackage {
 	 * @ordered
 	 */
 	int KEY_PRESSED__STATEMENTS = EVENT_HANDLER__STATEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Actor</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_PRESSED__ACTOR = EVENT_HANDLER__ACTOR;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -1605,6 +1695,15 @@ public interface KlangPackage extends EPackage {
 	 * @ordered
 	 */
 	int COLLIDES_WITH__STATEMENTS = EVENT_HANDLER__STATEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Actor</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLLIDES_WITH__ACTOR = EVENT_HANDLER__ACTOR;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -1721,26 +1820,46 @@ public interface KlangPackage extends EPackage {
 	EClass getGame();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link klang.Game#getVariableDeclarations <em>Variable Declarations</em>}'.
+	 * Returns the meta object for the containment reference list '{@link klang.Game#getActors <em>Actors</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Variable Declarations</em>'.
-	 * @see klang.Game#getVariableDeclarations()
+	 * @return the meta object for the containment reference list '<em>Actors</em>'.
+	 * @see klang.Game#getActors()
 	 * @see #getGame()
 	 * @generated
 	 */
-	EReference getGame_VariableDeclarations();
+	EReference getGame_Actors();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link klang.Game#getActorDefs <em>Actor Defs</em>}'.
+	 * Returns the meta object for the containment reference list '{@link klang.Game#getGlobalVariables <em>Global Variables</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Actor Defs</em>'.
-	 * @see klang.Game#getActorDefs()
+	 * @return the meta object for the containment reference list '<em>Global Variables</em>'.
+	 * @see klang.Game#getGlobalVariables()
 	 * @see #getGame()
 	 * @generated
 	 */
-	EReference getGame_ActorDefs();
+	EReference getGame_GlobalVariables();
+
+	/**
+	 * Returns the meta object for the '{@link klang.Game#getAllEntities() <em>Get All Entities</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Entities</em>' operation.
+	 * @see klang.Game#getAllEntities()
+	 * @generated
+	 */
+	EOperation getGame__GetAllEntities();
+
+	/**
+	 * Returns the meta object for the '{@link klang.Game#getAllVariables() <em>Get All Variables</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Variables</em>' operation.
+	 * @see klang.Game#getAllVariables()
+	 * @generated
+	 */
+	EOperation getGame__GetAllVariables();
 
 	/**
 	 * Returns the meta object for class '{@link klang.Actor <em>Actor</em>}'.
@@ -1807,6 +1926,17 @@ public interface KlangPackage extends EPackage {
 	EReference getEventHandler_Statements();
 
 	/**
+	 * Returns the meta object for the container reference '{@link klang.EventHandler#getActor <em>Actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Actor</em>'.
+	 * @see klang.EventHandler#getActor()
+	 * @see #getEventHandler()
+	 * @generated
+	 */
+	EReference getEventHandler_Actor();
+
+	/**
 	 * Returns the meta object for class '{@link klang.WhileLoop <em>While Loop</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1869,6 +1999,17 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getIf_IfBlock();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link klang.If#getElseBlock <em>Else Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Else Block</em>'.
+	 * @see klang.If#getElseBlock()
+	 * @see #getIf()
+	 * @generated
+	 */
+	EReference getIf_ElseBlock();
 
 	/**
 	 * Returns the meta object for class '{@link klang.ForeverLoop <em>Forever Loop</em>}'.
@@ -2007,6 +2148,17 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getEntity_Target();
+
+	/**
+	 * Returns the meta object for the container reference '{@link klang.Entity#getActor <em>Actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Actor</em>'.
+	 * @see klang.Entity#getActor()
+	 * @see #getEntity()
+	 * @generated
+	 */
+	EReference getEntity_Actor();
 
 	/**
 	 * Returns the meta object for class '{@link klang.SpriteEntity <em>Sprite Entity</em>}'.
@@ -2579,20 +2731,36 @@ public interface KlangPackage extends EPackage {
 		EClass GAME = eINSTANCE.getGame();
 
 		/**
-		 * The meta object literal for the '<em><b>Variable Declarations</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Actors</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GAME__VARIABLE_DECLARATIONS = eINSTANCE.getGame_VariableDeclarations();
+		EReference GAME__ACTORS = eINSTANCE.getGame_Actors();
 
 		/**
-		 * The meta object literal for the '<em><b>Actor Defs</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Global Variables</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GAME__ACTOR_DEFS = eINSTANCE.getGame_ActorDefs();
+		EReference GAME__GLOBAL_VARIABLES = eINSTANCE.getGame_GlobalVariables();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Entities</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GAME___GET_ALL_ENTITIES = eINSTANCE.getGame__GetAllEntities();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Variables</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GAME___GET_ALL_VARIABLES = eINSTANCE.getGame__GetAllVariables();
 
 		/**
 		 * The meta object literal for the '{@link klang.impl.ActorImpl <em>Actor</em>}' class.
@@ -2647,6 +2815,14 @@ public interface KlangPackage extends EPackage {
 		EReference EVENT_HANDLER__STATEMENTS = eINSTANCE.getEventHandler_Statements();
 
 		/**
+		 * The meta object literal for the '<em><b>Actor</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EVENT_HANDLER__ACTOR = eINSTANCE.getEventHandler_Actor();
+
+		/**
 		 * The meta object literal for the '{@link klang.impl.WhileLoopImpl <em>While Loop</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2697,6 +2873,14 @@ public interface KlangPackage extends EPackage {
 		 * @generated
 		 */
 		EReference IF__IF_BLOCK = eINSTANCE.getIf_IfBlock();
+
+		/**
+		 * The meta object literal for the '<em><b>Else Block</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IF__ELSE_BLOCK = eINSTANCE.getIf_ElseBlock();
 
 		/**
 		 * The meta object literal for the '{@link klang.impl.ForeverLoopImpl <em>Forever Loop</em>}' class.
@@ -2811,6 +2995,14 @@ public interface KlangPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ENTITY__TARGET = eINSTANCE.getEntity_Target();
+
+		/**
+		 * The meta object literal for the '<em><b>Actor</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ENTITY__ACTOR = eINSTANCE.getEntity_Actor();
 
 		/**
 		 * The meta object literal for the '{@link klang.impl.SpriteEntityImpl <em>Sprite Entity</em>}' class.

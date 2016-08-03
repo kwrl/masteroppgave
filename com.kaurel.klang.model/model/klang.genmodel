@@ -6,21 +6,18 @@
     operationReflection="true" importOrganizing="true">
   <foreignModel>klang.ecore</foreignModel>
   <genPackages prefix="Klang" disposableProviderFactory="true" ecorePackage="klang.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="klang.ecore#//EventType">
-      <genEnumLiterals ecoreEnumLiteral="klang.ecore#//EventType/GAME_STARTED"/>
-    </genEnums>
-    <genClasses ecoreClass="klang.ecore#//GameDef">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//GameDef/variables"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//GameDef/actorDefs"/>
+    <genClasses ecoreClass="klang.ecore#//Game">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//Game/variableDeclarations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//Game/actorDefs"/>
     </genClasses>
-    <genClasses ecoreClass="klang.ecore#//SpriteDef">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//SpriteDef/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//SpriteDef/variables"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//SpriteDef/eventHandlers"/>
+    <genClasses ecoreClass="klang.ecore#//Actor">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//Actor/variableDeclarations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//Actor/eventHandlers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//Actor/entity"/>
     </genClasses>
     <genClasses ecoreClass="klang.ecore#//EventHandler">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//EventHandler/eventType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//EventHandler/statements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference klang.ecore#//EventHandler/eventType"/>
     </genClasses>
     <genClasses ecoreClass="klang.ecore#//WhileLoop">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//WhileLoop/predicate"/>
@@ -33,61 +30,34 @@
     <genClasses ecoreClass="klang.ecore#//ForeverLoop">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//ForeverLoop/loopStatements"/>
     </genClasses>
-    <genClasses ecoreClass="klang.ecore#//Statement"/>
-    <genClasses ecoreClass="klang.ecore#//SubroutineCall">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//SubroutineCall/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//SubroutineCall/parameters"/>
-    </genClasses>
-    <genClasses ecoreClass="klang.ecore#//ControlStatement"/>
     <genClasses ecoreClass="klang.ecore#//Yield"/>
     <genClasses ecoreClass="klang.ecore#//Variable">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//Variable/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//Variable/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//Variable/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//Variable/value"/>
     </genClasses>
-    <genClasses ecoreClass="klang.ecore#//Assignment">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference klang.ecore#//Assignment/variable"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//Assignment/expression"/>
+    <genClasses ecoreClass="klang.ecore#//VariableAssignment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//VariableAssignment/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//VariableAssignment/variableName"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference klang.ecore#//VariableAssignment/variable"/>
     </genClasses>
     <genClasses ecoreClass="klang.ecore#//Expression"/>
-    <genClasses ecoreClass="klang.ecore#//Or">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//Or/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//Or/right"/>
+    <genClasses ecoreClass="klang.ecore#//Or"/>
+    <genClasses ecoreClass="klang.ecore#//And"/>
+    <genClasses ecoreClass="klang.ecore#//Plus"/>
+    <genClasses ecoreClass="klang.ecore#//Minus"/>
+    <genClasses ecoreClass="klang.ecore#//Multiply"/>
+    <genClasses ecoreClass="klang.ecore#//Divide"/>
+    <genClasses ecoreClass="klang.ecore#//LessThan"/>
+    <genClasses ecoreClass="klang.ecore#//Entity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//Entity/target"/>
     </genClasses>
-    <genClasses ecoreClass="klang.ecore#//And">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//And/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//And/right"/>
-    </genClasses>
-    <genClasses ecoreClass="klang.ecore#//Plus">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//Plus/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//Plus/right"/>
-    </genClasses>
-    <genClasses ecoreClass="klang.ecore#//Minus">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//Minus/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//Minus/right"/>
-    </genClasses>
-    <genClasses ecoreClass="klang.ecore#//Multiply">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//Multiply/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//Multiply/right"/>
-    </genClasses>
-    <genClasses ecoreClass="klang.ecore#//Divide">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//Divide/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//Divide/right"/>
-    </genClasses>
-    <genClasses ecoreClass="klang.ecore#//LessThan">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//LessThan/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//LessThan/right"/>
-    </genClasses>
-    <genClasses ecoreClass="klang.ecore#//Equal">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//Equal/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//Equal/right"/>
-    </genClasses>
+    <genClasses ecoreClass="klang.ecore#//Equal"/>
     <genClasses ecoreClass="klang.ecore#//GreaterThan">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//GreaterThan/left"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//GreaterThan/right"/>
     </genClasses>
-    <genClasses ecoreClass="klang.ecore#//Not">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//Not/expression"/>
-    </genClasses>
+    <genClasses ecoreClass="klang.ecore#//Not"/>
     <genClasses ecoreClass="klang.ecore#//BooleanLiteral">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//BooleanLiteral/value"/>
     </genClasses>
@@ -99,6 +69,41 @@
     </genClasses>
     <genClasses ecoreClass="klang.ecore#//VariableRef">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//VariableRef/variableName"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference klang.ecore#//VariableRef/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="klang.ecore#//UnaryOperator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//UnaryOperator/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="klang.ecore#//BinaryOperator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//BinaryOperator/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//BinaryOperator/right"/>
+    </genClasses>
+    <genClasses ecoreClass="klang.ecore#//FunctionCall">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//FunctionCall/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//FunctionCall/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="klang.ecore#//SpriteEntity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//SpriteEntity/name"/>
+      <genOperations ecoreOperation="klang.ecore#//SpriteEntity/print">
+        <genParameters ecoreParameter="klang.ecore#//SpriteEntity/print/message"/>
+      </genOperations>
+      <genOperations ecoreOperation="klang.ecore#//SpriteEntity/getX"/>
+      <genOperations ecoreOperation="klang.ecore#//SpriteEntity/getY"/>
+      <genOperations ecoreOperation="klang.ecore#//SpriteEntity/setY">
+        <genParameters ecoreParameter="klang.ecore#//SpriteEntity/setY/y"/>
+      </genOperations>
+      <genOperations ecoreOperation="klang.ecore#//SpriteEntity/setX">
+        <genParameters ecoreParameter="klang.ecore#//SpriteEntity/setX/x"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="klang.ecore#//SceneEntity"/>
+    <genClasses image="false" ecoreClass="klang.ecore#//Statement"/>
+    <genClasses image="false" ecoreClass="klang.ecore#//AbstractElement"/>
+    <genClasses image="false" ecoreClass="klang.ecore#//EventType"/>
+    <genClasses ecoreClass="klang.ecore#//GameStart"/>
+    <genClasses ecoreClass="klang.ecore#//SpriteClicked"/>
+    <genClasses ecoreClass="klang.ecore#//KeyPressed">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//KeyPressed/key"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

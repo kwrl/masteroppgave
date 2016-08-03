@@ -44,6 +44,7 @@ public interface Actor extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Event Handlers</b></em>' containment reference list.
 	 * The list contents are of type {@link klang.EventHandler}.
+	 * It is bidirectional and its opposite is '{@link klang.EventHandler#getActor <em>Actor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Event Handlers</em>' containment reference list isn't clear,
@@ -52,13 +53,15 @@ public interface Actor extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Event Handlers</em>' containment reference list.
 	 * @see klang.KlangPackage#getActor_EventHandlers()
-	 * @model containment="true"
+	 * @see klang.EventHandler#getActor
+	 * @model opposite="actor" containment="true"
 	 * @generated
 	 */
 	EList<EventHandler> getEventHandlers();
 
 	/**
 	 * Returns the value of the '<em><b>Entity</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link klang.Entity#getActor <em>Actor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Entity</em>' reference isn't clear,
@@ -68,7 +71,8 @@ public interface Actor extends EObject {
 	 * @return the value of the '<em>Entity</em>' containment reference.
 	 * @see #setEntity(Entity)
 	 * @see klang.KlangPackage#getActor_Entity()
-	 * @model containment="true"
+	 * @see klang.Entity#getActor
+	 * @model opposite="actor" containment="true"
 	 * @generated
 	 */
 	Entity getEntity();

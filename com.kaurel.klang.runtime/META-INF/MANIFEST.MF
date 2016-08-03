@@ -5,8 +5,7 @@ Bundle-SymbolicName: com.kaurel.klang.runtime
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: KAUREL
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Require-Bundle: com.kaurel.klang.model;bundle-version="0.1.0",
- com.kaurel.klang.xtext;bundle-version="1.0.0"
-Import-Package: com.google.inject,
- org.eclipse.xtext.parser,
- org.eclipse.xtext.resource
+Require-Bundle: com.kaurel.klang.xtext;bundle-version="1.0.0",
+ org.eclipse.xtext,
+ com.kaurel.klang.model;bundle-version="0.1.0"
+Export-Package: com.kaurel.klang.runtime
