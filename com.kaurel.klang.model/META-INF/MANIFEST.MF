@@ -4,6 +4,7 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: com.kaurel.klang.model;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
+Bundle-Activator: com.kaurel.klang.model.KlangPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

@@ -1,6 +1,23 @@
 package klang.util;
 
 public class Operators {
+
+	//Convert
+	public static Double ToDoubleImpl(Integer value) {
+		return value.doubleValue();
+	}
+	
+	public static Double ToDoubleImpl(Double value) {
+		return value;
+	}
+	
+	public static Integer ToIntImpl(Double value) {
+		return value.intValue();
+	}
+	
+	public static Integer ToIntImpl(Integer value) {
+		return value;
+	}
 	
 	// Plus
 	public static Double PlusImpl(Double left, Double right) {
@@ -39,13 +56,22 @@ public class Operators {
 		return left + right;
 	}
 
-	//Minus
+	//Binary Minus
 	public static Double MinusImpl(Double left, Double right) {
 		return left - right;
 	}
 	
 	public static Integer MinusImpl(Integer left, Integer right) {
 		return left - right;
+	}
+	
+	//Unary Minus
+	public static Double UnaryMinusImpl(Double value) {
+		return - value;
+	}
+	
+	public static Integer UnaryMinusImpl(Integer value) {
+		return - value;
 	}
 
 	//Multiply

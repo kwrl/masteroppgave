@@ -9,50 +9,69 @@
     nsPrefix="klang">
   <eClassifiers
       xsi:type="ecore:EClass"
-      name="Game">
+      name="SceneActor">
     <eOperations
-        name="getAllEntities"
-        upperBound="-1"
-        eType="#//Entity"/>
-    <eOperations
-        name="getAllVariables"
-        upperBound="-1"
-        eType="#//Variable"/>
-    <eStructuralFeatures
-        xsi:type="ecore:EReference"
-        name="actors"
-        upperBound="-1"
-        eType="#//Actor"
-        containment="true"/>
-    <eStructuralFeatures
-        xsi:type="ecore:EReference"
-        name="globalVariables"
-        upperBound="-1"
-        eType="#//Variable"
-        containment="true"/>
+        name="print">
+      <eParameters
+          name="message"
+          lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eGenericSuperTypes
+        eClassifier="#//AbstractActor">
+      <eTypeArguments
+          eClassifier="#//SpriteActor"/>
+    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"
-      name="Actor">
-    <eStructuralFeatures
-        xsi:type="ecore:EReference"
-        name="variableDeclarations"
-        upperBound="-1"
-        eType="#//Variable"
-        containment="true"/>
-    <eStructuralFeatures
-        xsi:type="ecore:EReference"
-        name="eventHandlers"
-        upperBound="-1"
-        eType="#//EventHandler"
-        containment="true"
-        eOpposite="#//EventHandler/actor"/>
-    <eStructuralFeatures
-        xsi:type="ecore:EReference"
-        name="entity"
-        eType="#//Entity"
-        containment="true"
-        eOpposite="#//Entity/actor"/>
+      name="SpriteActor">
+    <eOperations
+        name="print">
+      <eParameters
+          name="message"
+          lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations
+        name="getX"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+    <eOperations
+        name="getY"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+    <eOperations
+        name="setY">
+      <eParameters
+          name="y"
+          lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+    </eOperations>
+    <eOperations
+        name="setX">
+      <eParameters
+          name="x"
+          lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+    </eOperations>
+    <eOperations
+        name="print"
+        lowerBound="1">
+      <eParameters
+          name="message"
+          lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+    </eOperations>
+    <eOperations
+        name="sleep">
+      <eParameters
+          name="sleepDuration"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+    </eOperations>
+    <eGenericSuperTypes
+        eClassifier="#//AbstractActor">
+      <eTypeArguments
+          eClassifier="#//SpriteActor"/>
+    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"
@@ -67,9 +86,13 @@
         xsi:type="ecore:EReference"
         name="actor"
         lowerBound="1"
-        eType="#//Actor"
         changeable="false"
-        eOpposite="#//Actor/eventHandlers"/>
+        eOpposite="#//AbstractActor/eventHandlers">
+      <eGenericType
+          eClassifier="#//AbstractActor">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"
@@ -126,13 +149,13 @@
       eSuperTypes="#//Statement"/>
   <eClassifiers
       xsi:type="ecore:EClass"
-      name="Variable"
+      name="VariableDeclaration"
       eSuperTypes="#//AbstractElement">
     <eAnnotations
         source="http://www.eclipse.org/emf/2002/Ecore">
       <details
           key="constraints"
-          value="scope type&#xA;"/>
+          value="scope&#xA;"/>
     </eAnnotations>
     <eStructuralFeatures
         xsi:type="ecore:EReference"
@@ -146,7 +169,8 @@
     <eStructuralFeatures
         xsi:type="ecore:EAttribute"
         name="value"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
+        transient="true"/>
   </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"
@@ -168,13 +192,6 @@
         name="variableName"
         lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures
-        xsi:type="ecore:EReference"
-        name="variable"
-        eType="#//Variable"
-        changeable="false"
-        derived="true"
-        resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"
@@ -208,21 +225,6 @@
       xsi:type="ecore:EClass"
       name="LessThan"
       eSuperTypes="#//BinaryOperator"/>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="Entity">
-    <eStructuralFeatures
-        xsi:type="ecore:EAttribute"
-        name="target"
-        unique="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-    <eStructuralFeatures
-        xsi:type="ecore:EReference"
-        name="actor"
-        lowerBound="1"
-        eType="#//Actor"
-        eOpposite="#//Actor/entity"/>
-  </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"
       name="Equal"
@@ -275,7 +277,7 @@
   </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"
-      name="VariableRef"
+      name="VariableReference"
       eSuperTypes="#//Expression">
     <eAnnotations
         source="http://www.eclipse.org/emf/2002/Ecore">
@@ -289,13 +291,6 @@
         lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral=""/>
-    <eStructuralFeatures
-        xsi:type="ecore:EReference"
-        name="variable"
-        eType="#//Variable"
-        changeable="false"
-        derived="true"
-        resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"
@@ -357,60 +352,6 @@
   </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"
-      name="SpriteEntity"
-      eSuperTypes="#//Entity">
-    <eOperations
-        name="print">
-      <eParameters
-          name="message"
-          lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eOperations>
-    <eOperations
-        name="getX"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
-    <eOperations
-        name="getY"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
-    <eOperations
-        name="setY">
-      <eParameters
-          name="y"
-          lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
-    </eOperations>
-    <eOperations
-        name="setX">
-      <eParameters
-          name="x"
-          lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
-    </eOperations>
-    <eOperations
-        name="print"
-        lowerBound="1">
-      <eParameters
-          name="message"
-          lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
-    </eOperations>
-    <eOperations
-        name="sleep">
-      <eParameters
-          name="sleepDuration"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
-    </eOperations>
-    <eStructuralFeatures
-        xsi:type="ecore:EAttribute"
-        name="name"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="SceneEntity"
-      eSuperTypes="#//Entity"/>
-  <eClassifiers
-      xsi:type="ecore:EClass"
       name="Statement"
       abstract="true"
       interface="true"
@@ -418,7 +359,15 @@
   <eClassifiers
       xsi:type="ecore:EClass"
       name="AbstractElement"
-      abstract="true"/>
+      abstract="true">
+    <eOperations
+        name="getActor">
+      <eGenericType
+          eClassifier="#//AbstractActor">
+        <eTypeArguments/>
+      </eGenericType>
+    </eOperations>
+  </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"
       name="GameStart"
@@ -443,7 +392,7 @@
     <eStructuralFeatures
         xsi:type="ecore:EReference"
         name="target"
-        eType="#//SpriteEntity"/>
+        eType="#//SpriteActor"/>
   </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"
@@ -462,5 +411,126 @@
         xsi:type="ecore:EAttribute"
         name="duration"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers
+      xsi:type="ecore:EClass"
+      name="UnaryMinus"
+      eSuperTypes="#//UnaryOperator"/>
+  <eClassifiers
+      xsi:type="ecore:EClass"
+      name="ToDouble"
+      eSuperTypes="#//UnaryOperator"/>
+  <eClassifiers
+      xsi:type="ecore:EClass"
+      name="ToInt"
+      eSuperTypes="#//UnaryOperator"/>
+  <eClassifiers
+      xsi:type="ecore:EClass"
+      name="AbstractActor"
+      abstract="true">
+    <eTypeParameters
+        name="A">
+      <eBounds
+          eClassifier="#//AbstractActor">
+        <eTypeArguments/>
+      </eBounds>
+    </eTypeParameters>
+    <eOperations
+        name="getSubtree"
+        upperBound="-1">
+      <eGenericType
+          eClassifier="#//AbstractActor">
+        <eTypeArguments/>
+      </eGenericType>
+    </eOperations>
+    <eStructuralFeatures
+        xsi:type="ecore:EReference"
+        name="eventHandlers"
+        upperBound="-1"
+        eType="#//EventHandler"
+        containment="true"
+        eOpposite="#//EventHandler/actor"/>
+    <eStructuralFeatures
+        xsi:type="ecore:EAttribute"
+        name="name"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures
+        xsi:type="ecore:EAttribute"
+        name="subject"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
+        transient="true"/>
+    <eGenericSuperTypes
+        eClassifier="#//Scope">
+      <eTypeArguments
+          eTypeParameter="#//AbstractActor/A"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers
+      xsi:type="ecore:EClass"
+      name="Scope">
+    <eTypeParameters
+        name="S">
+      <eBounds
+          eClassifier="#//Scope">
+        <eTypeArguments/>
+      </eBounds>
+    </eTypeParameters>
+    <eOperations
+        name="isInScope"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters
+          name="variableName"
+          lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations
+        name="getVariableDeclaration"
+        eType="#//VariableDeclaration">
+      <eParameters
+          name="variableName"
+          lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations
+        name="isInLocalScope"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters
+          name="variableName"
+          lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations
+        name="isInParentScope"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters
+          name="variableName"
+          lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures
+        xsi:type="ecore:EReference"
+        name="localVariables"
+        upperBound="-1"
+        eType="#//VariableDeclaration"
+        containment="true"/>
+    <eStructuralFeatures
+        xsi:type="ecore:EReference"
+        name="children"
+        upperBound="-1"
+        containment="true"
+        eOpposite="#//Scope/parent">
+      <eGenericType
+          eTypeParameter="#//Scope/S"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures
+        xsi:type="ecore:EReference"
+        name="parent"
+        changeable="false"
+        eOpposite="#//Scope/children">
+      <eGenericType
+          eClassifier="#//Scope">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
   </eClassifiers>
 </ecore:EPackage>

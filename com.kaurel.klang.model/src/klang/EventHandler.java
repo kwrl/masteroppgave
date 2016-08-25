@@ -42,7 +42,7 @@ public interface EventHandler extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Actor</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link klang.Actor#getEventHandlers <em>Event Handlers</em>}'.
+	 * It is bidirectional and its opposite is '{@link klang.AbstractActor#getEventHandlers <em>Event Handlers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Actor</em>' container reference isn't clear,
@@ -51,10 +51,10 @@ public interface EventHandler extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Actor</em>' container reference.
 	 * @see klang.KlangPackage#getEventHandler_Actor()
-	 * @see klang.Actor#getEventHandlers
+	 * @see klang.AbstractActor#getEventHandlers
 	 * @model opposite="eventHandlers" required="true" transient="false" changeable="false"
 	 * @generated
 	 */
-	Actor getActor();
+	AbstractActor<?> getActor();
 
 } // EventHandler

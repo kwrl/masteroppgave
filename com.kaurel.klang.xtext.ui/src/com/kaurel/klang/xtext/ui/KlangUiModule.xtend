@@ -3,11 +3,23 @@
  */
 package com.kaurel.klang.xtext.ui
 
+import com.google.inject.Binder
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
+import org.eclipse.xtext.ide.editor.syntaxcoloring.DefaultSemanticHighlightingCalculator
+import com.kaurel.klang.xtext.ui.highlighting.KlangSemanticHighlightingCalculator
+import org.eclipse.xtext.ui.editor.syntaxcoloring.DefaultHighlightingConfiguration
+import com.kaurel.klang.xtext.ui.highlighting.KlangHighlightingConfiguration
 
 /**
  * Use this class to register components to be used within the Eclipse IDE.
  */
 @FinalFieldsConstructor
 class KlangUiModule extends AbstractKlangUiModule {
+	
+	override configure(Binder binder) {
+		super.configure(binder)
+		//binder.bind(DefaultSemanticHighlightingCalculator).to(KlangSemanticHighlightingCalculator);
+		//binder.bind(DefaultHighlightingConfiguration).to(KlangHighlightingConfiguration);
+	}
+	
 }

@@ -51,7 +51,7 @@ public interface Entity extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Actor</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link klang.Actor#getEntity <em>Entity</em>}'.
+	 * It is bidirectional and its opposite is '{@link klang.AbstractActor#getEntity <em>Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Actor</em>' container reference isn't clear,
@@ -59,13 +59,13 @@ public interface Entity extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Actor</em>' container reference.
-	 * @see #setActor(Actor)
+	 * @see #setActor(AbstractActor)
 	 * @see klang.KlangPackage#getEntity_Actor()
-	 * @see klang.Actor#getEntity
+	 * @see klang.AbstractActor#getEntity
 	 * @model opposite="entity" required="true" transient="false"
 	 * @generated
 	 */
-	Actor getActor();
+	AbstractActor<?> getActor();
 
 	/**
 	 * Sets the value of the '{@link klang.Entity#getActor <em>Actor</em>}' container reference.
@@ -75,5 +75,5 @@ public interface Entity extends EObject {
 	 * @see #getActor()
 	 * @generated
 	 */
-	void setActor(Actor value);
+	void setActor(AbstractActor<?> value);
 } // Entity

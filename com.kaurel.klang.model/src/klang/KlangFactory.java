@@ -22,22 +22,22 @@ public interface KlangFactory extends EFactory {
 	KlangFactory eINSTANCE = klang.impl.KlangFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Game</em>'.
+	 * Returns a new object of class '<em>Scene Actor</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Game</em>'.
+	 * @return a new object of class '<em>Scene Actor</em>'.
 	 * @generated
 	 */
-	Game createGame();
+	SceneActor createSceneActor();
 
 	/**
-	 * Returns a new object of class '<em>Actor</em>'.
+	 * Returns a new object of class '<em>Sprite Actor</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Actor</em>'.
+	 * @return a new object of class '<em>Sprite Actor</em>'.
 	 * @generated
 	 */
-	Actor createActor();
+	SpriteActor createSpriteActor();
 
 	/**
 	 * Returns a new object of class '<em>Event Handler</em>'.
@@ -85,6 +85,15 @@ public interface KlangFactory extends EFactory {
 	Yield createYield();
 
 	/**
+	 * Returns a new object of class '<em>Variable Declaration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Variable Declaration</em>'.
+	 * @generated
+	 */
+	VariableDeclaration createVariableDeclaration();
+
+	/**
 	 * Returns a new object of class '<em>Variable Assignment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,42 +101,6 @@ public interface KlangFactory extends EFactory {
 	 * @generated
 	 */
 	VariableAssignment createVariableAssignment();
-
-	/**
-	 * Returns a new object of class '<em>Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Variable</em>'.
-	 * @generated
-	 */
-	Variable createVariable();
-
-	/**
-	 * Returns a new object of class '<em>Entity</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Entity</em>'.
-	 * @generated
-	 */
-	Entity createEntity();
-
-	/**
-	 * Returns a new object of class '<em>Sprite Entity</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Sprite Entity</em>'.
-	 * @generated
-	 */
-	SpriteEntity createSpriteEntity();
-
-	/**
-	 * Returns a new object of class '<em>Scene Entity</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Scene Entity</em>'.
-	 * @generated
-	 */
-	SceneEntity createSceneEntity();
 
 	/**
 	 * Returns a new object of class '<em>Game Start</em>'.
@@ -182,6 +155,42 @@ public interface KlangFactory extends EFactory {
 	 * @generated
 	 */
 	Sleep createSleep();
+
+	/**
+	 * Returns a new object of class '<em>Unary Minus</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Unary Minus</em>'.
+	 * @generated
+	 */
+	UnaryMinus createUnaryMinus();
+
+	/**
+	 * Returns a new object of class '<em>To Double</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>To Double</em>'.
+	 * @generated
+	 */
+	ToDouble createToDouble();
+
+	/**
+	 * Returns a new object of class '<em>To Int</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>To Int</em>'.
+	 * @generated
+	 */
+	ToInt createToInt();
+
+	/**
+	 * Returns a new object of class '<em>Scope</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Scope</em>'.
+	 * @generated
+	 */
+	<S extends Scope<?>> Scope<S> createScope();
 
 	/**
 	 * Returns a new object of class '<em>Expression</em>'.
@@ -310,13 +319,13 @@ public interface KlangFactory extends EFactory {
 	StringLiteral createStringLiteral();
 
 	/**
-	 * Returns a new object of class '<em>Variable Ref</em>'.
+	 * Returns a new object of class '<em>Variable Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Variable Ref</em>'.
+	 * @return a new object of class '<em>Variable Reference</em>'.
 	 * @generated
 	 */
-	VariableRef createVariableRef();
+	VariableReference createVariableReference();
 
 	/**
 	 * Returns a new object of class '<em>Unary Operator</em>'.

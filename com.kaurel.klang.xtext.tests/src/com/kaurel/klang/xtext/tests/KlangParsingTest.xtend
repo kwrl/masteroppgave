@@ -4,7 +4,7 @@
 package com.kaurel.klang.xtext.tests
 
 import com.google.inject.Inject
-import klang.Game
+import klang.SceneActor
 import org.eclipse.xtext.junit4.InjectWith
 import org.eclipse.xtext.junit4.XtextRunner
 import org.eclipse.xtext.junit4.util.ParseHelper
@@ -17,7 +17,7 @@ import org.junit.runner.RunWith
 class KlangParsingTest{
 
 	@Inject
-	ParseHelper<Game> parseHelper
+	ParseHelper<SceneActor> parseHelper
 
 	@Test 
 	def void loadModel() {

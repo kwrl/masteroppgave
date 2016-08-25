@@ -4,10 +4,7 @@ package klang.impl;
 
 import klang.Expression;
 import klang.KlangPackage;
-import klang.Variable;
 import klang.VariableAssignment;
-import klang.util.KlangUtil;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -26,7 +23,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link klang.impl.VariableAssignmentImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link klang.impl.VariableAssignmentImpl#getVariableName <em>Variable Name</em>}</li>
- *   <li>{@link klang.impl.VariableAssignmentImpl#getVariable <em>Variable</em>}</li>
  * </ul>
  *
  * @generated
@@ -61,16 +57,6 @@ public class VariableAssignmentImpl extends AbstractElementImpl implements Varia
 	 * @ordered
 	 */
 	protected String variableName = VARIABLE_NAME_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getVariable() <em>Variable</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVariable()
-	 * @generated
-	 * @ordered
-	 */
-	protected Variable variable;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -146,26 +132,13 @@ public class VariableAssignmentImpl extends AbstractElementImpl implements Varia
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	public void setVariableName(String newVariableName) {
 		String oldVariableName = variableName;
 		variableName = newVariableName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, KlangPackage.VARIABLE_ASSIGNMENT__VARIABLE_NAME, oldVariableName, variableName));
-		variable = KlangUtil.getVariable(this, newVariableName);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public Variable getVariable() {
-		if(variable==null) {
-			variable = KlangUtil.getVariable(this, variableName);
-		}
-		return variable;
 	}
 
 	/**
@@ -194,8 +167,6 @@ public class VariableAssignmentImpl extends AbstractElementImpl implements Varia
 				return getExpression();
 			case KlangPackage.VARIABLE_ASSIGNMENT__VARIABLE_NAME:
 				return getVariableName();
-			case KlangPackage.VARIABLE_ASSIGNMENT__VARIABLE:
-				return getVariable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -248,8 +219,6 @@ public class VariableAssignmentImpl extends AbstractElementImpl implements Varia
 				return expression != null;
 			case KlangPackage.VARIABLE_ASSIGNMENT__VARIABLE_NAME:
 				return VARIABLE_NAME_EDEFAULT == null ? variableName != null : !VARIABLE_NAME_EDEFAULT.equals(variableName);
-			case KlangPackage.VARIABLE_ASSIGNMENT__VARIABLE:
-				return variable != null;
 		}
 		return super.eIsSet(featureID);
 	}

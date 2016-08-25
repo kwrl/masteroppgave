@@ -218,7 +218,7 @@ public class BinaryOperatorItemProvider extends ExpressionItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.BINARY_OPERATOR__LEFT,
-				 KlangFactory.eINSTANCE.createVariableRef()));
+				 KlangFactory.eINSTANCE.createVariableReference()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -229,6 +229,21 @@ public class BinaryOperatorItemProvider extends ExpressionItemProvider {
 			(createChildParameter
 				(KlangPackage.Literals.BINARY_OPERATOR__LEFT,
 				 KlangFactory.eINSTANCE.createIntegerLiteral()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.BINARY_OPERATOR__LEFT,
+				 KlangFactory.eINSTANCE.createUnaryMinus()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.BINARY_OPERATOR__LEFT,
+				 KlangFactory.eINSTANCE.createToDouble()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.BINARY_OPERATOR__LEFT,
+				 KlangFactory.eINSTANCE.createToInt()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -313,7 +328,7 @@ public class BinaryOperatorItemProvider extends ExpressionItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.BINARY_OPERATOR__RIGHT,
-				 KlangFactory.eINSTANCE.createVariableRef()));
+				 KlangFactory.eINSTANCE.createVariableReference()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -324,6 +339,21 @@ public class BinaryOperatorItemProvider extends ExpressionItemProvider {
 			(createChildParameter
 				(KlangPackage.Literals.BINARY_OPERATOR__RIGHT,
 				 KlangFactory.eINSTANCE.createIntegerLiteral()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.BINARY_OPERATOR__RIGHT,
+				 KlangFactory.eINSTANCE.createUnaryMinus()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.BINARY_OPERATOR__RIGHT,
+				 KlangFactory.eINSTANCE.createToDouble()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.BINARY_OPERATOR__RIGHT,
+				 KlangFactory.eINSTANCE.createToInt()));
 	}
 
 	/**

@@ -14,4 +14,12 @@ package klang;
  * @generated
  */
 public interface SceneEntity extends Entity {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model messageRequired="true"
+	 * @generated
+	 */
+	void print(String message);
 } // SceneEntity

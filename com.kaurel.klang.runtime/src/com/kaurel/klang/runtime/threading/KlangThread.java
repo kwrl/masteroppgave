@@ -1,44 +1,50 @@
 package com.kaurel.klang.runtime.threading;
 
 import java.util.LinkedList;
-import java.util.List;
 
-import com.kaurel.klang.runtime.KlangExpressionEvaluator;
-import com.kaurel.klang.runtime.KlangExpressionEvaluatorImpl;
+import org.eclipse.emf.common.util.EList;
 
-import klang.AbstractElement;
+import com.kaurel.klang.runtime.ExpressionEvaluator;
+import com.kaurel.klang.runtime.ExpressionEvaluatorImpl;
+
+import klang.AbstractActor;
 import klang.Expression;
 import klang.ForeverLoop;
 import klang.If;
 import klang.KlangFactory;
 import klang.Sleep;
-import klang.Variable;
+import klang.Statement;
 import klang.VariableAssignment;
+import klang.VariableDeclaration;
 import klang.WhileLoop;
 import klang.Yield;
 import klang.util.KlangSwitch;
 
 public class KlangThread extends KlangSwitch<Object> {
-	private KlangExpressionEvaluator expressionEvaluator = new KlangExpressionEvaluatorImpl();
-	private LinkedList<AbstractElement> queue;
+	private final ExpressionEvaluator expressionEvaluator;
+	private final AbstractActor<?> actor;
 
-	public KlangThread(List<AbstractElement> statements) {
+	private LinkedList<Statement> queue;
+
+	public KlangThread(EList<Statement> statements, AbstractActor<?> actor) {
+		this.actor = actor;
+		this.expressionEvaluator = new ExpressionEvaluatorImpl(actor);
 		this.queue = new LinkedList<>(statements);
 	}
 
 	public ThreadStatus step() {
-		AbstractElement current = queue.poll();
+		Statement current = queue.poll();
 
 		if (current == null) {
 			return new TerminateStatus(this);
 		}
-
+		
 		if (current instanceof Yield) {
 			return new YieldStatus(this);
 		}
 
 		if (current instanceof Sleep) {
-			return new SleepStatus(this, (int)((Sleep) current).getDuration()*1000);
+			return new SleepStatus(this, (int) ((Sleep) current).getDuration() * 1000);
 		}
 
 		doSwitch(current);
@@ -49,7 +55,7 @@ public class KlangThread extends KlangSwitch<Object> {
 	// Step until thread requests otherwise(sleep/yield/terminate)
 	public ThreadStatus run() {
 		ThreadStatus status = step();
-		
+
 		while (status instanceof RunningStatus) {
 			status = step();
 		}
@@ -58,7 +64,7 @@ public class KlangThread extends KlangSwitch<Object> {
 	}
 
 	@Override
-	public Void caseVariable(Variable object) {
+	public Void caseVariableDeclaration(VariableDeclaration object) {
 		object.setValue(expressionEvaluator.evaluate(object.getExpression()));
 		return null;
 	}
@@ -66,18 +72,18 @@ public class KlangThread extends KlangSwitch<Object> {
 	@Override
 	public Void caseWhileLoop(WhileLoop object) {
 		if (expressionEvaluator.evaluateBoolean(object.getPredicate())) {
+			queue.addFirst(object);
 			queue.addFirst(KlangFactory.eINSTANCE.createYield());
 			queue.addAll(0, object.getLoopBlock());
-			queue.addLast(object);
 		}
 		return null;
 	}
 
 	@Override
 	public Void caseForeverLoop(ForeverLoop object) {
+		queue.addFirst(object);
 		queue.addFirst(KlangFactory.eINSTANCE.createYield());
 		queue.addAll(0, object.getLoopStatements());
-		queue.addLast(object);
 		return null;
 	}
 
@@ -93,15 +99,16 @@ public class KlangThread extends KlangSwitch<Object> {
 
 	@Override
 	public Void caseVariableAssignment(VariableAssignment object) {
-		object.getVariable().setValue(expressionEvaluator.evaluate(object.getExpression()));
+		if (actor.isInScope(object.getVariableName())) {
+			actor.getVariableDeclaration(object.getVariableName())
+					.setValue(expressionEvaluator.evaluate(object.getExpression()));
+		}
 		return null;
 	}
-
-	// Pass all expressions on to evaluator
+	
 	@Override
 	public Object caseExpression(Expression object) {
-		expressionEvaluator.evaluate(object);
-		return super.caseExpression(object);
+		return expressionEvaluator.evaluate(object);
 	}
 
 	public boolean isDone() {

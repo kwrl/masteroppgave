@@ -1,28 +1,35 @@
 package com.kaurel.klang.runtime;
 
-import java.util.stream.Stream;
-
 import com.kaurel.klang.runtime.threading.KlangScheduler;
 
 import klang.Entity;
 import klang.EventHandler;
-import klang.Game;
+import klang.SceneActor;
+import klang.VariableDeclaration;
 
 public class KlangInterpreter {
 	private KlangScheduler scheduler = new KlangScheduler();
-	private Game game;
+	private SceneActor sceneActor;
 
-	public KlangInterpreter(Game game) {
-		this.game = game;
-
+	public KlangInterpreter(SceneActor sceneActor) {
+		this.sceneActor = sceneActor;
+		
 		// Initialize variables
-		KlangExpressionEvaluator evaluator = new KlangExpressionEvaluatorImpl();
-		game.getGlobalVariables().stream()
+		ExpressionEvaluator evaluator = new ExpressionEvaluatorImpl(sceneActor);
+		sceneActor.getLocalVariables().stream()
 				.forEach(v -> v.setValue(evaluator.evaluate(v.getExpression())));
 
-		game.getActors().stream()
-				.flatMap(a -> a.getVariableDeclarations().stream())
+		sceneActor.getChildren().stream()
+				.flatMap(a -> a.getLocalVariables().stream())
 				.forEach(v -> v.setValue(evaluator.evaluate(v.getExpression())));
+		
+		sceneActor.getChildren().stream()
+			.forEach(a -> {
+				ExpressionEvaluator eval = new ExpressionEvaluatorImpl(a);
+				for(VariableDeclaration var : a.getLocalVariables()) {
+					var.setValue(eval.evaluate(var.getExpression()));
+				}
+			});
 	}
 
 	public void triggerEvent(Entity entity, Class<? extends EventHandler> type) {
@@ -34,16 +41,12 @@ public class KlangInterpreter {
 	}
 
 	public void triggerEvent(Class<? extends EventHandler> type) {
-		game.getActors().stream()
+		sceneActor.getSubtree().stream()
 				.flatMap(a -> a.getEventHandlers().stream())
 				.filter(e -> type.isInstance(e))
 				.forEach(e -> scheduler.processEventHandler(e));
 	}
 
-	public Stream<Entity> getEntities() {
-		return game.getAllEntities().stream();
-	}
-	
 	public boolean isIdle() {
 		return scheduler.isIdle();
 	}

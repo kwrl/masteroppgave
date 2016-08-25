@@ -55,14 +55,14 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case KlangPackage.GAME: return createGame();
-			case KlangPackage.ACTOR: return createActor();
+			case KlangPackage.SCENE_ACTOR: return createSceneActor();
+			case KlangPackage.SPRITE_ACTOR: return createSpriteActor();
 			case KlangPackage.EVENT_HANDLER: return createEventHandler();
 			case KlangPackage.WHILE_LOOP: return createWhileLoop();
 			case KlangPackage.IF: return createIf();
 			case KlangPackage.FOREVER_LOOP: return createForeverLoop();
 			case KlangPackage.YIELD: return createYield();
-			case KlangPackage.VARIABLE: return createVariable();
+			case KlangPackage.VARIABLE_DECLARATION: return createVariableDeclaration();
 			case KlangPackage.VARIABLE_ASSIGNMENT: return createVariableAssignment();
 			case KlangPackage.EXPRESSION: return createExpression();
 			case KlangPackage.OR: return createOr();
@@ -72,25 +72,26 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 			case KlangPackage.MULTIPLY: return createMultiply();
 			case KlangPackage.DIVIDE: return createDivide();
 			case KlangPackage.LESS_THAN: return createLessThan();
-			case KlangPackage.ENTITY: return createEntity();
 			case KlangPackage.EQUAL: return createEqual();
 			case KlangPackage.GREATER_THAN: return createGreaterThan();
 			case KlangPackage.NOT: return createNot();
 			case KlangPackage.BOOLEAN_LITERAL: return createBooleanLiteral();
 			case KlangPackage.DOUBLE_LITERAL: return createDoubleLiteral();
 			case KlangPackage.STRING_LITERAL: return createStringLiteral();
-			case KlangPackage.VARIABLE_REF: return createVariableRef();
+			case KlangPackage.VARIABLE_REFERENCE: return createVariableReference();
 			case KlangPackage.UNARY_OPERATOR: return createUnaryOperator();
 			case KlangPackage.BINARY_OPERATOR: return createBinaryOperator();
 			case KlangPackage.FUNCTION_CALL: return createFunctionCall();
-			case KlangPackage.SPRITE_ENTITY: return createSpriteEntity();
-			case KlangPackage.SCENE_ENTITY: return createSceneEntity();
 			case KlangPackage.GAME_START: return createGameStart();
 			case KlangPackage.SPRITE_CLICKED: return createSpriteClicked();
 			case KlangPackage.KEY_PRESSED: return createKeyPressed();
 			case KlangPackage.COLLIDES_WITH: return createCollidesWith();
 			case KlangPackage.INTEGER_LITERAL: return createIntegerLiteral();
 			case KlangPackage.SLEEP: return createSleep();
+			case KlangPackage.UNARY_MINUS: return createUnaryMinus();
+			case KlangPackage.TO_DOUBLE: return createToDouble();
+			case KlangPackage.TO_INT: return createToInt();
+			case KlangPackage.SCOPE: return createScope();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -101,9 +102,9 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Game createGame() {
-		GameImpl game = new GameImpl();
-		return game;
+	public SceneActor createSceneActor() {
+		SceneActorImpl sceneActor = new SceneActorImpl();
+		return sceneActor;
 	}
 
 	/**
@@ -111,9 +112,9 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Actor createActor() {
-		ActorImpl actor = new ActorImpl();
-		return actor;
+	public SpriteActor createSpriteActor() {
+		SpriteActorImpl spriteActor = new SpriteActorImpl();
+		return spriteActor;
 	}
 
 	/**
@@ -171,49 +172,19 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public VariableDeclaration createVariableDeclaration() {
+		VariableDeclarationImpl variableDeclaration = new VariableDeclarationImpl();
+		return variableDeclaration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public VariableAssignment createVariableAssignment() {
 		VariableAssignmentImpl variableAssignment = new VariableAssignmentImpl();
 		return variableAssignment;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Variable createVariable() {
-		VariableImpl variable = new VariableImpl();
-		return variable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Entity createEntity() {
-		EntityImpl entity = new EntityImpl();
-		return entity;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SpriteEntity createSpriteEntity() {
-		SpriteEntityImpl spriteEntity = new SpriteEntityImpl();
-		return spriteEntity;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SceneEntity createSceneEntity() {
-		SceneEntityImpl sceneEntity = new SceneEntityImpl();
-		return sceneEntity;
 	}
 
 	/**
@@ -274,6 +245,46 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	public Sleep createSleep() {
 		SleepImpl sleep = new SleepImpl();
 		return sleep;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UnaryMinus createUnaryMinus() {
+		UnaryMinusImpl unaryMinus = new UnaryMinusImpl();
+		return unaryMinus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ToDouble createToDouble() {
+		ToDoubleImpl toDouble = new ToDoubleImpl();
+		return toDouble;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ToInt createToInt() {
+		ToIntImpl toInt = new ToIntImpl();
+		return toInt;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public <S extends Scope<?>> Scope<S> createScope() {
+		ScopeImpl<S> scope = new ScopeImpl<S>();
+		return scope;
 	}
 
 	/**
@@ -421,9 +432,9 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VariableRef createVariableRef() {
-		VariableRefImpl variableRef = new VariableRefImpl();
-		return variableRef;
+	public VariableReference createVariableReference() {
+		VariableReferenceImpl variableReference = new VariableReferenceImpl();
+		return variableReference;
 	}
 
 	/**

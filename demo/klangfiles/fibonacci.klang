@@ -1,17 +1,26 @@
-var n0 = 0.0
-var n1 = 1.0
-var t = 0.0
+var n0 = 0
+var n1 = 1
+var temp = 0
+var line = ""
 
-sprite somesprite 
-	var omg = ""
+when game starts
+	while n0 < 100.0
+		line = line + n0 + ", "
+		temp = n1
+		n1 = n1 + n0
+		n0 = temp
+	print(line)
+		
+sprite sprite1
 	when game starts
 		while n0 < 100.0
-			print("Fib:\t"+n0)
-			t = n1
-			n1 = n1 + n0
-			n0 = t
+			print("I am an eventhandler!")
 			
-sprite someothersprite
 	when game starts
 		while n0 < 100.0
-			print("Some other thread")
+			print("I am another eventhandler!")	
+			
+sprite sprite2
+	when game starts
+		while n0 < 100.0
+			print("I am yet another sprite!")

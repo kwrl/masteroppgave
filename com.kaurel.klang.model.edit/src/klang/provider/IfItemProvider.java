@@ -220,7 +220,7 @@ public class IfItemProvider extends AbstractElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.IF__PREDICATE,
-				 KlangFactory.eINSTANCE.createVariableRef()));
+				 KlangFactory.eINSTANCE.createVariableReference()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -231,6 +231,21 @@ public class IfItemProvider extends AbstractElementItemProvider {
 			(createChildParameter
 				(KlangPackage.Literals.IF__PREDICATE,
 				 KlangFactory.eINSTANCE.createIntegerLiteral()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.IF__PREDICATE,
+				 KlangFactory.eINSTANCE.createUnaryMinus()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.IF__PREDICATE,
+				 KlangFactory.eINSTANCE.createToDouble()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.IF__PREDICATE,
+				 KlangFactory.eINSTANCE.createToInt()));
 
 		newChildDescriptors.add
 			(createChildParameter

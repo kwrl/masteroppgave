@@ -23,7 +23,7 @@ public class KlangFormatter extends AbstractDeclarativeFormatter {
 	@Override
 	protected void configureFormatting(FormattingConfig c) {
 		KlangGrammarAccess f = (KlangGrammarAccess) getGrammarAccess();
-		c.setLinewrap().after(f.getVariableRule());
+		c.setLinewrap().after(f.getVariableDeclarationRule());
 		c.setLinewrap().after(f.getVariableAssignmentRule());
 	
 		//Avoid breaking whitespace grammar

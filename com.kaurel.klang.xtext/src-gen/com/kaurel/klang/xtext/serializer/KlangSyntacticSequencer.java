@@ -87,6 +87,9 @@ public class KlangSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '('*
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) '(' 'double' ')' expression=PrimaryExpression
+	 *     (rule start) (ambiguity) '(' 'int' ')' expression=PrimaryExpression
+	 *     (rule start) (ambiguity) '-' expression=PrimaryExpression
 	 *     (rule start) (ambiguity) 'false' '<' (rule start)
 	 *     (rule start) (ambiguity) 'false' '==' (rule start)
 	 *     (rule start) (ambiguity) 'false' '>' (rule start)
@@ -94,6 +97,7 @@ public class KlangSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) 'not' expression=PrimaryExpression
 	 *     (rule start) (ambiguity) name=ID
 	 *     (rule start) (ambiguity) value=DECIMAL
+	 *     (rule start) (ambiguity) value=INT
 	 *     (rule start) (ambiguity) value=STRING
 	 *     (rule start) (ambiguity) value?='true'
 	 *     (rule start) (ambiguity) variableName=ID

@@ -3,6 +3,7 @@
  */
 package com.kaurel.klang.xtext.ui;
 
+import com.google.inject.Binder;
 import com.kaurel.klang.xtext.ui.AbstractKlangUiModule;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
@@ -13,6 +14,11 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 @FinalFieldsConstructor
 @SuppressWarnings("all")
 public class KlangUiModule extends AbstractKlangUiModule {
+  @Override
+  public void configure(final Binder binder) {
+    super.configure(binder);
+  }
+  
   public KlangUiModule(final AbstractUIPlugin plugin) {
     super(plugin);
   }

@@ -3,7 +3,7 @@
 package klang.impl;
 
 import java.util.Collection;
-import klang.Actor;
+import klang.AbstractActor;
 import klang.EventHandler;
 import klang.KlangPackage;
 import klang.Statement;
@@ -79,9 +79,9 @@ public class EventHandlerImpl extends MinimalEObjectImpl.Container implements Ev
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Actor getActor() {
+	public AbstractActor<?> getActor() {
 		if (eContainerFeatureID() != KlangPackage.EVENT_HANDLER__ACTOR) return null;
-		return (Actor)eInternalContainer();
+		return (AbstractActor<?>)eInternalContainer();
 	}
 
 	/**
@@ -125,7 +125,7 @@ public class EventHandlerImpl extends MinimalEObjectImpl.Container implements Ev
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case KlangPackage.EVENT_HANDLER__ACTOR:
-				return eInternalContainer().eInverseRemove(this, KlangPackage.ACTOR__EVENT_HANDLERS, Actor.class, msgs);
+				return eInternalContainer().eInverseRemove(this, KlangPackage.ABSTRACT_ACTOR__EVENT_HANDLERS, AbstractActor.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}

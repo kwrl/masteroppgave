@@ -14,7 +14,6 @@ package klang;
  * <ul>
  *   <li>{@link klang.VariableAssignment#getExpression <em>Expression</em>}</li>
  *   <li>{@link klang.VariableAssignment#getVariableName <em>Variable Name</em>}</li>
- *   <li>{@link klang.VariableAssignment#getVariable <em>Variable</em>}</li>
  * </ul>
  *
  * @see klang.KlangPackage#getVariableAssignment()
@@ -73,20 +72,5 @@ public interface VariableAssignment extends Statement {
 	 * @generated
 	 */
 	void setVariableName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Variable</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Variable</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Variable</em>' reference.
-	 * @see klang.KlangPackage#getVariableAssignment_Variable()
-	 * @model resolveProxies="false" changeable="false" derived="true"
-	 * @generated
-	 */
-	Variable getVariable();
 
 } // VariableAssignment

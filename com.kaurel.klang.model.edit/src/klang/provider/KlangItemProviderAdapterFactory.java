@@ -5,12 +5,9 @@ package klang.provider;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import klang.util.KlangAdapterFactory;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -22,6 +19,8 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+
+import klang.util.KlangAdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -72,49 +71,49 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link klang.Game} instances.
+	 * This keeps track of the one adapter used for all {@link klang.SceneActor} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GameItemProvider gameItemProvider;
+	protected SceneActorItemProvider sceneActorItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link klang.Game}.
+	 * This creates an adapter for a {@link klang.SceneActor}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createGameAdapter() {
-		if (gameItemProvider == null) {
-			gameItemProvider = new GameItemProvider(this);
+	public Adapter createSceneActorAdapter() {
+		if (sceneActorItemProvider == null) {
+			sceneActorItemProvider = new SceneActorItemProvider(this);
 		}
 
-		return gameItemProvider;
+		return sceneActorItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link klang.Actor} instances.
+	 * This keeps track of the one adapter used for all {@link klang.SpriteActor} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ActorItemProvider actorItemProvider;
+	protected SpriteActorItemProvider spriteActorItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link klang.Actor}.
+	 * This creates an adapter for a {@link klang.SpriteActor}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createActorAdapter() {
-		if (actorItemProvider == null) {
-			actorItemProvider = new ActorItemProvider(this);
+	public Adapter createSpriteActorAdapter() {
+		if (spriteActorItemProvider == null) {
+			spriteActorItemProvider = new SpriteActorItemProvider(this);
 		}
 
-		return actorItemProvider;
+		return spriteActorItemProvider;
 	}
 
 	/**
@@ -233,6 +232,29 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link klang.VariableDeclaration} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VariableDeclarationItemProvider variableDeclarationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link klang.VariableDeclaration}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVariableDeclarationAdapter() {
+		if (variableDeclarationItemProvider == null) {
+			variableDeclarationItemProvider = new VariableDeclarationItemProvider(this);
+		}
+
+		return variableDeclarationItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link klang.VariableAssignment} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -253,98 +275,6 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 		}
 
 		return variableAssignmentItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link klang.Variable} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected VariableItemProvider variableItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link klang.Variable}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createVariableAdapter() {
-		if (variableItemProvider == null) {
-			variableItemProvider = new VariableItemProvider(this);
-		}
-
-		return variableItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link klang.Entity} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EntityItemProvider entityItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link klang.Entity}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createEntityAdapter() {
-		if (entityItemProvider == null) {
-			entityItemProvider = new EntityItemProvider(this);
-		}
-
-		return entityItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link klang.SpriteEntity} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SpriteEntityItemProvider spriteEntityItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link klang.SpriteEntity}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSpriteEntityAdapter() {
-		if (spriteEntityItemProvider == null) {
-			spriteEntityItemProvider = new SpriteEntityItemProvider(this);
-		}
-
-		return spriteEntityItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link klang.SceneEntity} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SceneEntityItemProvider sceneEntityItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link klang.SceneEntity}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSceneEntityAdapter() {
-		if (sceneEntityItemProvider == null) {
-			sceneEntityItemProvider = new SceneEntityItemProvider(this);
-		}
-
-		return sceneEntityItemProvider;
 	}
 
 	/**
@@ -483,6 +413,98 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 		}
 
 		return sleepItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link klang.UnaryMinus} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected UnaryMinusItemProvider unaryMinusItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link klang.UnaryMinus}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createUnaryMinusAdapter() {
+		if (unaryMinusItemProvider == null) {
+			unaryMinusItemProvider = new UnaryMinusItemProvider(this);
+		}
+
+		return unaryMinusItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link klang.ToDouble} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ToDoubleItemProvider toDoubleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link klang.ToDouble}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createToDoubleAdapter() {
+		if (toDoubleItemProvider == null) {
+			toDoubleItemProvider = new ToDoubleItemProvider(this);
+		}
+
+		return toDoubleItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link klang.ToInt} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ToIntItemProvider toIntItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link klang.ToInt}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createToIntAdapter() {
+		if (toIntItemProvider == null) {
+			toIntItemProvider = new ToIntItemProvider(this);
+		}
+
+		return toIntItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link klang.Scope} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ScopeItemProvider scopeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link klang.Scope}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createScopeAdapter() {
+		if (scopeItemProvider == null) {
+			scopeItemProvider = new ScopeItemProvider(this);
+		}
+
+		return scopeItemProvider;
 	}
 
 	/**
@@ -808,26 +830,26 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link klang.VariableRef} instances.
+	 * This keeps track of the one adapter used for all {@link klang.VariableReference} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected VariableRefItemProvider variableRefItemProvider;
+	protected VariableReferenceItemProvider variableReferenceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link klang.VariableRef}.
+	 * This creates an adapter for a {@link klang.VariableReference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createVariableRefAdapter() {
-		if (variableRefItemProvider == null) {
-			variableRefItemProvider = new VariableRefItemProvider(this);
+	public Adapter createVariableReferenceAdapter() {
+		if (variableReferenceItemProvider == null) {
+			variableReferenceItemProvider = new VariableReferenceItemProvider(this);
 		}
 
-		return variableRefItemProvider;
+		return variableReferenceItemProvider;
 	}
 
 	/**
@@ -998,14 +1020,14 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 	 * @generated
 	 */
 	public void dispose() {
-		if (gameItemProvider != null) gameItemProvider.dispose();
-		if (actorItemProvider != null) actorItemProvider.dispose();
+		if (sceneActorItemProvider != null) sceneActorItemProvider.dispose();
+		if (spriteActorItemProvider != null) spriteActorItemProvider.dispose();
 		if (eventHandlerItemProvider != null) eventHandlerItemProvider.dispose();
 		if (whileLoopItemProvider != null) whileLoopItemProvider.dispose();
 		if (ifItemProvider != null) ifItemProvider.dispose();
 		if (foreverLoopItemProvider != null) foreverLoopItemProvider.dispose();
 		if (yieldItemProvider != null) yieldItemProvider.dispose();
-		if (variableItemProvider != null) variableItemProvider.dispose();
+		if (variableDeclarationItemProvider != null) variableDeclarationItemProvider.dispose();
 		if (variableAssignmentItemProvider != null) variableAssignmentItemProvider.dispose();
 		if (expressionItemProvider != null) expressionItemProvider.dispose();
 		if (orItemProvider != null) orItemProvider.dispose();
@@ -1015,25 +1037,26 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 		if (multiplyItemProvider != null) multiplyItemProvider.dispose();
 		if (divideItemProvider != null) divideItemProvider.dispose();
 		if (lessThanItemProvider != null) lessThanItemProvider.dispose();
-		if (entityItemProvider != null) entityItemProvider.dispose();
 		if (equalItemProvider != null) equalItemProvider.dispose();
 		if (greaterThanItemProvider != null) greaterThanItemProvider.dispose();
 		if (notItemProvider != null) notItemProvider.dispose();
 		if (booleanLiteralItemProvider != null) booleanLiteralItemProvider.dispose();
 		if (doubleLiteralItemProvider != null) doubleLiteralItemProvider.dispose();
 		if (stringLiteralItemProvider != null) stringLiteralItemProvider.dispose();
-		if (variableRefItemProvider != null) variableRefItemProvider.dispose();
+		if (variableReferenceItemProvider != null) variableReferenceItemProvider.dispose();
 		if (unaryOperatorItemProvider != null) unaryOperatorItemProvider.dispose();
 		if (binaryOperatorItemProvider != null) binaryOperatorItemProvider.dispose();
 		if (functionCallItemProvider != null) functionCallItemProvider.dispose();
-		if (spriteEntityItemProvider != null) spriteEntityItemProvider.dispose();
-		if (sceneEntityItemProvider != null) sceneEntityItemProvider.dispose();
 		if (gameStartItemProvider != null) gameStartItemProvider.dispose();
 		if (spriteClickedItemProvider != null) spriteClickedItemProvider.dispose();
 		if (keyPressedItemProvider != null) keyPressedItemProvider.dispose();
 		if (collidesWithItemProvider != null) collidesWithItemProvider.dispose();
 		if (integerLiteralItemProvider != null) integerLiteralItemProvider.dispose();
 		if (sleepItemProvider != null) sleepItemProvider.dispose();
+		if (unaryMinusItemProvider != null) unaryMinusItemProvider.dispose();
+		if (toDoubleItemProvider != null) toDoubleItemProvider.dispose();
+		if (toIntItemProvider != null) toIntItemProvider.dispose();
+		if (scopeItemProvider != null) scopeItemProvider.dispose();
 	}
 
 }

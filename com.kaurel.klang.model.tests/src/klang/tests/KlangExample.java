@@ -4,8 +4,7 @@ package klang.tests;
 
 import java.io.File;
 import java.io.IOException;
-
-import klang.Game;
+import klang.SceneActor;
 import klang.KlangFactory;
 import klang.KlangPackage;
 
@@ -60,7 +59,7 @@ public class KlangExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.klang"));
-				Game root = KlangFactory.eINSTANCE.createGame();
+				SceneActor root = KlangFactory.eINSTANCE.createSceneActor();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

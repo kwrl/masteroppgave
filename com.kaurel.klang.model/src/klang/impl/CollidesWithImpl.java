@@ -4,8 +4,7 @@ package klang.impl;
 
 import klang.CollidesWith;
 import klang.KlangPackage;
-import klang.SpriteEntity;
-
+import klang.SpriteActor;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -35,7 +34,7 @@ public class CollidesWithImpl extends EventHandlerImpl implements CollidesWith {
 	 * @generated
 	 * @ordered
 	 */
-	protected SpriteEntity target;
+	protected SpriteActor target;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -61,10 +60,10 @@ public class CollidesWithImpl extends EventHandlerImpl implements CollidesWith {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SpriteEntity getTarget() {
+	public SpriteActor getTarget() {
 		if (target != null && target.eIsProxy()) {
 			InternalEObject oldTarget = (InternalEObject)target;
-			target = (SpriteEntity)eResolveProxy(oldTarget);
+			target = (SpriteActor)eResolveProxy(oldTarget);
 			if (target != oldTarget) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, KlangPackage.COLLIDES_WITH__TARGET, oldTarget, target));
@@ -78,7 +77,7 @@ public class CollidesWithImpl extends EventHandlerImpl implements CollidesWith {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SpriteEntity basicGetTarget() {
+	public SpriteActor basicGetTarget() {
 		return target;
 	}
 
@@ -87,8 +86,8 @@ public class CollidesWithImpl extends EventHandlerImpl implements CollidesWith {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTarget(SpriteEntity newTarget) {
-		SpriteEntity oldTarget = target;
+	public void setTarget(SpriteActor newTarget) {
+		SpriteActor oldTarget = target;
 		target = newTarget;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, KlangPackage.COLLIDES_WITH__TARGET, oldTarget, target));
@@ -118,7 +117,7 @@ public class CollidesWithImpl extends EventHandlerImpl implements CollidesWith {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case KlangPackage.COLLIDES_WITH__TARGET:
-				setTarget((SpriteEntity)newValue);
+				setTarget((SpriteActor)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -133,7 +132,7 @@ public class CollidesWithImpl extends EventHandlerImpl implements CollidesWith {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case KlangPackage.COLLIDES_WITH__TARGET:
-				setTarget((SpriteEntity)null);
+				setTarget((SpriteActor)null);
 				return;
 		}
 		super.eUnset(featureID);

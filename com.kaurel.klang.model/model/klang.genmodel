@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.kaurel.klang.model/src" modelPluginID="com.kaurel.klang.model"
-    modelName="Klang" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    modelName="Klang" modelPluginClass="KlangPlugin" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
     operationReflection="true" importOrganizing="true">
   <foreignModel>klang.ecore</foreignModel>
   <genPackages prefix="Klang" disposableProviderFactory="true" ecorePackage="klang.ecore#/">
-    <genClasses ecoreClass="klang.ecore#//Game">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//Game/variableDeclarations"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//Game/actorDefs"/>
+    <genClasses ecoreClass="klang.ecore#//Program">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//Program/actors"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//Program/globalVariables"/>
+      <genOperations ecoreOperation="klang.ecore#//Program/getAllEntities"/>
+      <genOperations ecoreOperation="klang.ecore#//Program/getAllVariables"/>
     </genClasses>
     <genClasses ecoreClass="klang.ecore#//Actor">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//Actor/variableDeclarations"/>
@@ -17,7 +19,7 @@
     </genClasses>
     <genClasses ecoreClass="klang.ecore#//EventHandler">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//EventHandler/statements"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EReference klang.ecore#//EventHandler/eventType"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference klang.ecore#//EventHandler/actor"/>
     </genClasses>
     <genClasses ecoreClass="klang.ecore#//WhileLoop">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//WhileLoop/predicate"/>
@@ -26,6 +28,7 @@
     <genClasses ecoreClass="klang.ecore#//If">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//If/predicate"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//If/ifBlock"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//If/elseBlock"/>
     </genClasses>
     <genClasses ecoreClass="klang.ecore#//ForeverLoop">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//ForeverLoop/loopStatements"/>
@@ -51,6 +54,7 @@
     <genClasses ecoreClass="klang.ecore#//LessThan"/>
     <genClasses ecoreClass="klang.ecore#//Entity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//Entity/target"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference klang.ecore#//Entity/actor"/>
     </genClasses>
     <genClasses ecoreClass="klang.ecore#//Equal"/>
     <genClasses ecoreClass="klang.ecore#//GreaterThan">
@@ -61,8 +65,8 @@
     <genClasses ecoreClass="klang.ecore#//BooleanLiteral">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//BooleanLiteral/value"/>
     </genClasses>
-    <genClasses ecoreClass="klang.ecore#//NumericLiteral">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//NumericLiteral/value"/>
+    <genClasses ecoreClass="klang.ecore#//DoubleLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//DoubleLiteral/value"/>
     </genClasses>
     <genClasses ecoreClass="klang.ecore#//StringLiteral">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//StringLiteral/value"/>
@@ -95,15 +99,32 @@
       <genOperations ecoreOperation="klang.ecore#//SpriteEntity/setX">
         <genParameters ecoreParameter="klang.ecore#//SpriteEntity/setX/x"/>
       </genOperations>
+      <genOperations ecoreOperation="klang.ecore#//SpriteEntity/print.1">
+        <genParameters ecoreParameter="klang.ecore#//SpriteEntity/print.1/message"/>
+      </genOperations>
+      <genOperations ecoreOperation="klang.ecore#//SpriteEntity/sleep">
+        <genParameters ecoreParameter="klang.ecore#//SpriteEntity/sleep/sleepDuration"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="klang.ecore#//SceneEntity"/>
     <genClasses image="false" ecoreClass="klang.ecore#//Statement"/>
     <genClasses image="false" ecoreClass="klang.ecore#//AbstractElement"/>
-    <genClasses image="false" ecoreClass="klang.ecore#//EventType"/>
     <genClasses ecoreClass="klang.ecore#//GameStart"/>
     <genClasses ecoreClass="klang.ecore#//SpriteClicked"/>
     <genClasses ecoreClass="klang.ecore#//KeyPressed">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//KeyPressed/key"/>
     </genClasses>
+    <genClasses ecoreClass="klang.ecore#//CollidesWith">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference klang.ecore#//CollidesWith/target"/>
+    </genClasses>
+    <genClasses ecoreClass="klang.ecore#//IntegerLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//IntegerLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="klang.ecore#//Sleep">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//Sleep/duration"/>
+    </genClasses>
+    <genClasses ecoreClass="klang.ecore#//UnaryMinus"/>
+    <genClasses ecoreClass="klang.ecore#//ToDouble"/>
+    <genClasses ecoreClass="klang.ecore#//ToInt"/>
   </genPackages>
 </genmodel:GenModel>

@@ -65,15 +65,19 @@ public class KlangSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case KlangPackage.GAME: {
-				Game game = (Game)theEObject;
-				T result = caseGame(game);
+			case KlangPackage.SCENE_ACTOR: {
+				SceneActor sceneActor = (SceneActor)theEObject;
+				T result = caseSceneActor(sceneActor);
+				if (result == null) result = caseAbstractActor(sceneActor);
+				if (result == null) result = caseScope(sceneActor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case KlangPackage.ACTOR: {
-				Actor actor = (Actor)theEObject;
-				T result = caseActor(actor);
+			case KlangPackage.SPRITE_ACTOR: {
+				SpriteActor spriteActor = (SpriteActor)theEObject;
+				T result = caseSpriteActor(spriteActor);
+				if (result == null) result = caseAbstractActor(spriteActor);
+				if (result == null) result = caseScope(spriteActor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -115,10 +119,10 @@ public class KlangSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case KlangPackage.VARIABLE: {
-				Variable variable = (Variable)theEObject;
-				T result = caseVariable(variable);
-				if (result == null) result = caseAbstractElement(variable);
+			case KlangPackage.VARIABLE_DECLARATION: {
+				VariableDeclaration variableDeclaration = (VariableDeclaration)theEObject;
+				T result = caseVariableDeclaration(variableDeclaration);
+				if (result == null) result = caseAbstractElement(variableDeclaration);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -200,12 +204,6 @@ public class KlangSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case KlangPackage.ENTITY: {
-				Entity entity = (Entity)theEObject;
-				T result = caseEntity(entity);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case KlangPackage.EQUAL: {
 				Equal equal = (Equal)theEObject;
 				T result = caseEqual(equal);
@@ -256,11 +254,11 @@ public class KlangSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case KlangPackage.VARIABLE_REF: {
-				VariableRef variableRef = (VariableRef)theEObject;
-				T result = caseVariableRef(variableRef);
-				if (result == null) result = caseExpression(variableRef);
-				if (result == null) result = caseAbstractElement(variableRef);
+			case KlangPackage.VARIABLE_REFERENCE: {
+				VariableReference variableReference = (VariableReference)theEObject;
+				T result = caseVariableReference(variableReference);
+				if (result == null) result = caseExpression(variableReference);
+				if (result == null) result = caseAbstractElement(variableReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -286,20 +284,6 @@ public class KlangSwitch<T> extends Switch<T> {
 				if (result == null) result = caseExpression(functionCall);
 				if (result == null) result = caseStatement(functionCall);
 				if (result == null) result = caseAbstractElement(functionCall);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case KlangPackage.SPRITE_ENTITY: {
-				SpriteEntity spriteEntity = (SpriteEntity)theEObject;
-				T result = caseSpriteEntity(spriteEntity);
-				if (result == null) result = caseEntity(spriteEntity);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case KlangPackage.SCENE_ENTITY: {
-				SceneEntity sceneEntity = (SceneEntity)theEObject;
-				T result = caseSceneEntity(sceneEntity);
-				if (result == null) result = caseEntity(sceneEntity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -360,37 +344,77 @@ public class KlangSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case KlangPackage.UNARY_MINUS: {
+				UnaryMinus unaryMinus = (UnaryMinus)theEObject;
+				T result = caseUnaryMinus(unaryMinus);
+				if (result == null) result = caseUnaryOperator(unaryMinus);
+				if (result == null) result = caseExpression(unaryMinus);
+				if (result == null) result = caseAbstractElement(unaryMinus);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case KlangPackage.TO_DOUBLE: {
+				ToDouble toDouble = (ToDouble)theEObject;
+				T result = caseToDouble(toDouble);
+				if (result == null) result = caseUnaryOperator(toDouble);
+				if (result == null) result = caseExpression(toDouble);
+				if (result == null) result = caseAbstractElement(toDouble);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case KlangPackage.TO_INT: {
+				ToInt toInt = (ToInt)theEObject;
+				T result = caseToInt(toInt);
+				if (result == null) result = caseUnaryOperator(toInt);
+				if (result == null) result = caseExpression(toInt);
+				if (result == null) result = caseAbstractElement(toInt);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case KlangPackage.ABSTRACT_ACTOR: {
+				AbstractActor<?> abstractActor = (AbstractActor<?>)theEObject;
+				T result = caseAbstractActor(abstractActor);
+				if (result == null) result = caseScope(abstractActor);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case KlangPackage.SCOPE: {
+				Scope<?> scope = (Scope<?>)theEObject;
+				T result = caseScope(scope);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Game</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Scene Actor</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Game</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Scene Actor</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseGame(Game object) {
+	public T caseSceneActor(SceneActor object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Actor</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Sprite Actor</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Actor</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Sprite Actor</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseActor(Actor object) {
+	public T caseSpriteActor(SpriteActor object) {
 		return null;
 	}
 
@@ -470,6 +494,21 @@ public class KlangSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Variable Declaration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Variable Declaration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVariableDeclaration(VariableDeclaration object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Variable Assignment</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -481,66 +520,6 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseVariableAssignment(VariableAssignment object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Variable</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseVariable(Variable object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Entity</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Entity</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEntity(Entity object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Sprite Entity</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Sprite Entity</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSpriteEntity(SpriteEntity object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Scene Entity</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Scene Entity</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSceneEntity(SceneEntity object) {
 		return null;
 	}
 
@@ -661,6 +640,81 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSleep(Sleep object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Unary Minus</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Unary Minus</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUnaryMinus(UnaryMinus object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>To Double</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>To Double</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseToDouble(ToDouble object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>To Int</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>To Int</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseToInt(ToInt object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Actor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Actor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <A extends AbstractActor<?>> T caseAbstractActor(AbstractActor<A> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Scope</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Scope</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <S extends Scope<?>> T caseScope(Scope<S> object) {
 		return null;
 	}
 
@@ -875,17 +929,17 @@ public class KlangSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Variable Ref</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Variable Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Variable Ref</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Variable Reference</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseVariableRef(VariableRef object) {
+	public T caseVariableReference(VariableReference object) {
 		return null;
 	}
 

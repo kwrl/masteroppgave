@@ -11,12 +11,6 @@ import klang.VariableAssignment;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Variable Assignment</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are tested:
- * <ul>
- *   <li>{@link klang.VariableAssignment#getVariable() <em>Variable</em>}</li>
- * </ul>
- * </p>
  * @generated
  */
 public class VariableAssignmentTest extends AbstractElementTest {
@@ -71,19 +65,6 @@ public class VariableAssignmentTest extends AbstractElementTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
-	}
-
-	/**
-	 * Tests the '{@link klang.VariableAssignment#getVariable() <em>Variable</em>}' feature getter.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.VariableAssignment#getVariable()
-	 * @generated
-	 */
-	public void testGetVariable() {
-		// TODO: implement this feature getter test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
 	}
 
 } //VariableAssignmentTest

@@ -17,7 +17,7 @@ package klang;
  * </ul>
  *
  * @see klang.KlangPackage#getVariable()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='scope type\n'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='scope\n'"
  * @generated
  */
 public interface Variable extends AbstractElement {

@@ -19,13 +19,13 @@ Forever : 'forever';
 
 Pressed : 'pressed';
 
+Double : 'double';
+
 Sprite : 'sprite';
 
 Starts : 'starts';
 
 False : 'false';
-
-Scene : 'scene';
 
 Sleep : 'sleep';
 
@@ -42,6 +42,8 @@ When : 'when';
 With : 'with';
 
 And : 'and';
+
+Int : 'int';
 
 Key : 'key';
 
@@ -67,6 +69,8 @@ Comma : ',';
 
 HyphenMinus : '-';
 
+FullStop : '.';
+
 Solidus : '/';
 
 LessThanSign : '<';
@@ -81,13 +85,9 @@ fragment RULE_BEGIN : ;
 
 fragment RULE_END : ;
 
-RULE_UPPERCASE : ('A'..'Z'|'0'..'9')*;
-
-RULE_DECIMAL : RULE_INT ('.' RULE_INT)?;
-
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
-fragment RULE_INT : ('0'..'9')+;
+RULE_INT : ('0'..'9')+;
 
 RULE_STRING : ('"' ('\\' .|~(('\\'|'"')))* '"'|'\'' ('\\' .|~(('\\'|'\'')))* '\'');
 

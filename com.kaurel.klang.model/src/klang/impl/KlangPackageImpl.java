@@ -2,21 +2,20 @@
  */
 package klang.impl;
 
+import klang.AbstractActor;
 import klang.AbstractElement;
-import klang.Actor;
 import klang.And;
 import klang.BinaryOperator;
 import klang.BooleanLiteral;
 import klang.CollidesWith;
 import klang.Divide;
 import klang.DoubleLiteral;
-import klang.Entity;
 import klang.Equal;
 import klang.EventHandler;
 import klang.Expression;
 import klang.ForeverLoop;
 import klang.FunctionCall;
-import klang.Game;
+import klang.SceneActor;
 import klang.GameStart;
 import klang.GreaterThan;
 import klang.If;
@@ -30,24 +29,29 @@ import klang.Multiply;
 import klang.Not;
 import klang.Or;
 import klang.Plus;
-import klang.SceneEntity;
+import klang.Scope;
 import klang.Sleep;
+import klang.SpriteActor;
 import klang.SpriteClicked;
-import klang.SpriteEntity;
 import klang.Statement;
 import klang.StringLiteral;
+import klang.ToDouble;
+import klang.ToInt;
+import klang.UnaryMinus;
 import klang.UnaryOperator;
-import klang.Variable;
 import klang.VariableAssignment;
-import klang.VariableRef;
+import klang.VariableDeclaration;
+import klang.VariableReference;
 import klang.WhileLoop;
 import klang.Yield;
 import klang.util.KlangValidator;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
@@ -63,14 +67,14 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass gameEClass = null;
+	private EClass sceneActorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass actorEClass = null;
+	private EClass spriteActorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -112,35 +116,14 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass variableDeclarationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass variableAssignmentEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass variableEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass entityEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass spriteEntityEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass sceneEntityEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -197,6 +180,41 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * @generated
 	 */
 	private EClass sleepEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass unaryMinusEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass toDoubleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass toIntEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass abstractActorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass scopeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -301,7 +319,7 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass variableRefEClass = null;
+	private EClass variableReferenceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -399,8 +417,8 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getGame() {
-		return gameEClass;
+	public EClass getSceneActor() {
+		return sceneActorEClass;
 	}
 
 	/**
@@ -408,8 +426,8 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGame_Actors() {
-		return (EReference)gameEClass.getEStructuralFeatures().get(0);
+	public EOperation getSceneActor__Print__String() {
+		return sceneActorEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -417,8 +435,8 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGame_GlobalVariables() {
-		return (EReference)gameEClass.getEStructuralFeatures().get(1);
+	public EClass getSpriteActor() {
+		return spriteActorEClass;
 	}
 
 	/**
@@ -426,8 +444,8 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getGame__GetAllEntities() {
-		return gameEClass.getEOperations().get(0);
+	public EOperation getSpriteActor__Print__String() {
+		return spriteActorEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -435,8 +453,8 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getGame__GetAllVariables() {
-		return gameEClass.getEOperations().get(1);
+	public EOperation getSpriteActor__GetX() {
+		return spriteActorEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -444,8 +462,8 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getActor() {
-		return actorEClass;
+	public EOperation getSpriteActor__GetY() {
+		return spriteActorEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -453,8 +471,8 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getActor_VariableDeclarations() {
-		return (EReference)actorEClass.getEStructuralFeatures().get(0);
+	public EOperation getSpriteActor__SetY__Double() {
+		return spriteActorEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -462,8 +480,8 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getActor_EventHandlers() {
-		return (EReference)actorEClass.getEStructuralFeatures().get(1);
+	public EOperation getSpriteActor__SetX__Double() {
+		return spriteActorEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -471,8 +489,17 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getActor_Entity() {
-		return (EReference)actorEClass.getEStructuralFeatures().get(2);
+	public EOperation getSpriteActor__Print__Double() {
+		return spriteActorEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSpriteActor__Sleep__Double() {
+		return spriteActorEClass.getEOperations().get(6);
 	}
 
 	/**
@@ -597,6 +624,42 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getVariableDeclaration() {
+		return variableDeclarationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVariableDeclaration_Expression() {
+		return (EReference)variableDeclarationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVariableDeclaration_Name() {
+		return (EAttribute)variableDeclarationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVariableDeclaration_Value() {
+		return (EAttribute)variableDeclarationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getVariableAssignment() {
 		return variableAssignmentEClass;
 	}
@@ -624,168 +687,6 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getVariableAssignment_Variable() {
-		return (EReference)variableAssignmentEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getVariable() {
-		return variableEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getVariable_Expression() {
-		return (EReference)variableEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getVariable_Name() {
-		return (EAttribute)variableEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getVariable_Value() {
-		return (EAttribute)variableEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getEntity() {
-		return entityEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getEntity_Target() {
-		return (EAttribute)entityEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEntity_Actor() {
-		return (EReference)entityEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSpriteEntity() {
-		return spriteEntityEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpriteEntity_Name() {
-		return (EAttribute)spriteEntityEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSpriteEntity__Print__String() {
-		return spriteEntityEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSpriteEntity__GetX() {
-		return spriteEntityEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSpriteEntity__GetY() {
-		return spriteEntityEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSpriteEntity__SetY__Double() {
-		return spriteEntityEClass.getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSpriteEntity__SetX__Double() {
-		return spriteEntityEClass.getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSpriteEntity__Print__Double() {
-		return spriteEntityEClass.getEOperations().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSpriteEntity__Sleep__Double() {
-		return spriteEntityEClass.getEOperations().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSceneEntity() {
-		return sceneEntityEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getStatement() {
 		return statementEClass;
 	}
@@ -797,6 +698,15 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 */
 	public EClass getAbstractElement() {
 		return abstractElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAbstractElement__GetActor() {
+		return abstractElementEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -975,8 +885,8 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getVariableRef() {
-		return variableRefEClass;
+	public EClass getVariableReference() {
+		return variableReferenceEClass;
 	}
 
 	/**
@@ -984,17 +894,8 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getVariableRef_VariableName() {
-		return (EAttribute)variableRefEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getVariableRef_Variable() {
-		return (EReference)variableRefEClass.getEStructuralFeatures().get(1);
+	public EAttribute getVariableReference_VariableName() {
+		return (EAttribute)variableReferenceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1164,6 +1065,150 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUnaryMinus() {
+		return unaryMinusEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getToDouble() {
+		return toDoubleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getToInt() {
+		return toIntEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAbstractActor() {
+		return abstractActorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAbstractActor_EventHandlers() {
+		return (EReference)abstractActorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAbstractActor_Name() {
+		return (EAttribute)abstractActorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAbstractActor_Subject() {
+		return (EAttribute)abstractActorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAbstractActor__GetSubtree() {
+		return abstractActorEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getScope() {
+		return scopeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getScope_LocalVariables() {
+		return (EReference)scopeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getScope_Children() {
+		return (EReference)scopeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getScope_Parent() {
+		return (EReference)scopeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getScope__IsInScope__String() {
+		return scopeEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getScope__GetVariableDeclaration__String() {
+		return scopeEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getScope__IsInLocalScope__String() {
+		return scopeEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getScope__IsInParentScope__String() {
+		return scopeEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public KlangFactory getKlangFactory() {
 		return (KlangFactory)getEFactoryInstance();
 	}
@@ -1187,16 +1232,17 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		isCreated = true;
 
 		// Create classes and their features
-		gameEClass = createEClass(GAME);
-		createEReference(gameEClass, GAME__ACTORS);
-		createEReference(gameEClass, GAME__GLOBAL_VARIABLES);
-		createEOperation(gameEClass, GAME___GET_ALL_ENTITIES);
-		createEOperation(gameEClass, GAME___GET_ALL_VARIABLES);
+		sceneActorEClass = createEClass(SCENE_ACTOR);
+		createEOperation(sceneActorEClass, SCENE_ACTOR___PRINT__STRING);
 
-		actorEClass = createEClass(ACTOR);
-		createEReference(actorEClass, ACTOR__VARIABLE_DECLARATIONS);
-		createEReference(actorEClass, ACTOR__EVENT_HANDLERS);
-		createEReference(actorEClass, ACTOR__ENTITY);
+		spriteActorEClass = createEClass(SPRITE_ACTOR);
+		createEOperation(spriteActorEClass, SPRITE_ACTOR___PRINT__STRING);
+		createEOperation(spriteActorEClass, SPRITE_ACTOR___GET_X);
+		createEOperation(spriteActorEClass, SPRITE_ACTOR___GET_Y);
+		createEOperation(spriteActorEClass, SPRITE_ACTOR___SET_Y__DOUBLE);
+		createEOperation(spriteActorEClass, SPRITE_ACTOR___SET_X__DOUBLE);
+		createEOperation(spriteActorEClass, SPRITE_ACTOR___PRINT__DOUBLE);
+		createEOperation(spriteActorEClass, SPRITE_ACTOR___SLEEP__DOUBLE);
 
 		eventHandlerEClass = createEClass(EVENT_HANDLER);
 		createEReference(eventHandlerEClass, EVENT_HANDLER__STATEMENTS);
@@ -1216,15 +1262,14 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 
 		yieldEClass = createEClass(YIELD);
 
-		variableEClass = createEClass(VARIABLE);
-		createEReference(variableEClass, VARIABLE__EXPRESSION);
-		createEAttribute(variableEClass, VARIABLE__NAME);
-		createEAttribute(variableEClass, VARIABLE__VALUE);
+		variableDeclarationEClass = createEClass(VARIABLE_DECLARATION);
+		createEReference(variableDeclarationEClass, VARIABLE_DECLARATION__EXPRESSION);
+		createEAttribute(variableDeclarationEClass, VARIABLE_DECLARATION__NAME);
+		createEAttribute(variableDeclarationEClass, VARIABLE_DECLARATION__VALUE);
 
 		variableAssignmentEClass = createEClass(VARIABLE_ASSIGNMENT);
 		createEReference(variableAssignmentEClass, VARIABLE_ASSIGNMENT__EXPRESSION);
 		createEAttribute(variableAssignmentEClass, VARIABLE_ASSIGNMENT__VARIABLE_NAME);
-		createEReference(variableAssignmentEClass, VARIABLE_ASSIGNMENT__VARIABLE);
 
 		expressionEClass = createEClass(EXPRESSION);
 
@@ -1241,10 +1286,6 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		divideEClass = createEClass(DIVIDE);
 
 		lessThanEClass = createEClass(LESS_THAN);
-
-		entityEClass = createEClass(ENTITY);
-		createEAttribute(entityEClass, ENTITY__TARGET);
-		createEReference(entityEClass, ENTITY__ACTOR);
 
 		equalEClass = createEClass(EQUAL);
 
@@ -1263,9 +1304,8 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		stringLiteralEClass = createEClass(STRING_LITERAL);
 		createEAttribute(stringLiteralEClass, STRING_LITERAL__VALUE);
 
-		variableRefEClass = createEClass(VARIABLE_REF);
-		createEAttribute(variableRefEClass, VARIABLE_REF__VARIABLE_NAME);
-		createEReference(variableRefEClass, VARIABLE_REF__VARIABLE);
+		variableReferenceEClass = createEClass(VARIABLE_REFERENCE);
+		createEAttribute(variableReferenceEClass, VARIABLE_REFERENCE__VARIABLE_NAME);
 
 		unaryOperatorEClass = createEClass(UNARY_OPERATOR);
 		createEReference(unaryOperatorEClass, UNARY_OPERATOR__EXPRESSION);
@@ -1278,21 +1318,10 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		createEAttribute(functionCallEClass, FUNCTION_CALL__NAME);
 		createEReference(functionCallEClass, FUNCTION_CALL__PARAMETERS);
 
-		spriteEntityEClass = createEClass(SPRITE_ENTITY);
-		createEAttribute(spriteEntityEClass, SPRITE_ENTITY__NAME);
-		createEOperation(spriteEntityEClass, SPRITE_ENTITY___PRINT__STRING);
-		createEOperation(spriteEntityEClass, SPRITE_ENTITY___GET_X);
-		createEOperation(spriteEntityEClass, SPRITE_ENTITY___GET_Y);
-		createEOperation(spriteEntityEClass, SPRITE_ENTITY___SET_Y__DOUBLE);
-		createEOperation(spriteEntityEClass, SPRITE_ENTITY___SET_X__DOUBLE);
-		createEOperation(spriteEntityEClass, SPRITE_ENTITY___PRINT__DOUBLE);
-		createEOperation(spriteEntityEClass, SPRITE_ENTITY___SLEEP__DOUBLE);
-
-		sceneEntityEClass = createEClass(SCENE_ENTITY);
-
 		statementEClass = createEClass(STATEMENT);
 
 		abstractElementEClass = createEClass(ABSTRACT_ELEMENT);
+		createEOperation(abstractElementEClass, ABSTRACT_ELEMENT___GET_ACTOR);
 
 		gameStartEClass = createEClass(GAME_START);
 
@@ -1309,6 +1338,27 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 
 		sleepEClass = createEClass(SLEEP);
 		createEAttribute(sleepEClass, SLEEP__DURATION);
+
+		unaryMinusEClass = createEClass(UNARY_MINUS);
+
+		toDoubleEClass = createEClass(TO_DOUBLE);
+
+		toIntEClass = createEClass(TO_INT);
+
+		abstractActorEClass = createEClass(ABSTRACT_ACTOR);
+		createEReference(abstractActorEClass, ABSTRACT_ACTOR__EVENT_HANDLERS);
+		createEAttribute(abstractActorEClass, ABSTRACT_ACTOR__NAME);
+		createEAttribute(abstractActorEClass, ABSTRACT_ACTOR__SUBJECT);
+		createEOperation(abstractActorEClass, ABSTRACT_ACTOR___GET_SUBTREE);
+
+		scopeEClass = createEClass(SCOPE);
+		createEReference(scopeEClass, SCOPE__LOCAL_VARIABLES);
+		createEReference(scopeEClass, SCOPE__CHILDREN);
+		createEReference(scopeEClass, SCOPE__PARENT);
+		createEOperation(scopeEClass, SCOPE___IS_IN_SCOPE__STRING);
+		createEOperation(scopeEClass, SCOPE___GET_VARIABLE_DECLARATION__STRING);
+		createEOperation(scopeEClass, SCOPE___IS_IN_LOCAL_SCOPE__STRING);
+		createEOperation(scopeEClass, SCOPE___IS_IN_PARENT_SCOPE__STRING);
 	}
 
 	/**
@@ -1335,15 +1385,33 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		setNsURI(eNS_URI);
 
 		// Create type parameters
+		ETypeParameter abstractActorEClass_A = addETypeParameter(abstractActorEClass, "A");
+		ETypeParameter scopeEClass_S = addETypeParameter(scopeEClass, "S");
 
 		// Set bounds for type parameters
+		EGenericType g1 = createEGenericType(this.getAbstractActor());
+		EGenericType g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		abstractActorEClass_A.getEBounds().add(g1);
+		g1 = createEGenericType(this.getScope());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		scopeEClass_S.getEBounds().add(g1);
 
 		// Add supertypes to classes
+		g1 = createEGenericType(this.getAbstractActor());
+		g2 = createEGenericType(this.getSpriteActor());
+		g1.getETypeArguments().add(g2);
+		sceneActorEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getAbstractActor());
+		g2 = createEGenericType(this.getSpriteActor());
+		g1.getETypeArguments().add(g2);
+		spriteActorEClass.getEGenericSuperTypes().add(g1);
 		whileLoopEClass.getESuperTypes().add(this.getStatement());
 		ifEClass.getESuperTypes().add(this.getStatement());
 		foreverLoopEClass.getESuperTypes().add(this.getStatement());
 		yieldEClass.getESuperTypes().add(this.getStatement());
-		variableEClass.getESuperTypes().add(this.getAbstractElement());
+		variableDeclarationEClass.getESuperTypes().add(this.getAbstractElement());
 		variableAssignmentEClass.getESuperTypes().add(this.getStatement());
 		expressionEClass.getESuperTypes().add(this.getAbstractElement());
 		orEClass.getESuperTypes().add(this.getBinaryOperator());
@@ -1359,13 +1427,11 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		booleanLiteralEClass.getESuperTypes().add(this.getExpression());
 		doubleLiteralEClass.getESuperTypes().add(this.getExpression());
 		stringLiteralEClass.getESuperTypes().add(this.getExpression());
-		variableRefEClass.getESuperTypes().add(this.getExpression());
+		variableReferenceEClass.getESuperTypes().add(this.getExpression());
 		unaryOperatorEClass.getESuperTypes().add(this.getExpression());
 		binaryOperatorEClass.getESuperTypes().add(this.getExpression());
 		functionCallEClass.getESuperTypes().add(this.getExpression());
 		functionCallEClass.getESuperTypes().add(this.getStatement());
-		spriteEntityEClass.getESuperTypes().add(this.getEntity());
-		sceneEntityEClass.getESuperTypes().add(this.getEntity());
 		statementEClass.getESuperTypes().add(this.getAbstractElement());
 		gameStartEClass.getESuperTypes().add(this.getEventHandler());
 		spriteClickedEClass.getESuperTypes().add(this.getEventHandler());
@@ -1373,24 +1439,47 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		collidesWithEClass.getESuperTypes().add(this.getEventHandler());
 		integerLiteralEClass.getESuperTypes().add(this.getExpression());
 		sleepEClass.getESuperTypes().add(this.getStatement());
+		unaryMinusEClass.getESuperTypes().add(this.getUnaryOperator());
+		toDoubleEClass.getESuperTypes().add(this.getUnaryOperator());
+		toIntEClass.getESuperTypes().add(this.getUnaryOperator());
+		g1 = createEGenericType(this.getScope());
+		g2 = createEGenericType(abstractActorEClass_A);
+		g1.getETypeArguments().add(g2);
+		abstractActorEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(gameEClass, Game.class, "Game", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGame_Actors(), this.getActor(), null, "actors", null, 0, -1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGame_GlobalVariables(), this.getVariable(), null, "globalVariables", null, 0, -1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(sceneActorEClass, SceneActor.class, "SceneActor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEOperation(getGame__GetAllEntities(), this.getEntity(), "getAllEntities", 0, -1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getSceneActor__Print__String(), null, "print", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "message", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getGame__GetAllVariables(), this.getVariable(), "getAllVariables", 0, -1, IS_UNIQUE, IS_ORDERED);
+		initEClass(spriteActorEClass, SpriteActor.class, "SpriteActor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(actorEClass, Actor.class, "Actor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getActor_VariableDeclarations(), this.getVariable(), null, "variableDeclarations", null, 0, -1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getActor_EventHandlers(), this.getEventHandler(), this.getEventHandler_Actor(), "eventHandlers", null, 0, -1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getActor_Entity(), this.getEntity(), this.getEntity_Actor(), "entity", null, 0, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		op = initEOperation(getSpriteActor__Print__String(), null, "print", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "message", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getSpriteActor__GetX(), ecorePackage.getEDoubleObject(), "getX", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getSpriteActor__GetY(), ecorePackage.getEDoubleObject(), "getY", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getSpriteActor__SetY__Double(), null, "setY", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDoubleObject(), "y", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getSpriteActor__SetX__Double(), null, "setX", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDoubleObject(), "x", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getSpriteActor__Print__Double(), null, "print", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDoubleObject(), "message", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getSpriteActor__Sleep__Double(), null, "sleep", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDoubleObject(), "sleepDuration", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(eventHandlerEClass, EventHandler.class, "EventHandler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEventHandler_Statements(), this.getStatement(), null, "statements", null, 0, -1, EventHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEventHandler_Actor(), this.getActor(), this.getActor_EventHandlers(), "actor", null, 1, 1, EventHandler.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(this.getAbstractActor());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEReference(getEventHandler_Actor(), g1, this.getAbstractActor_EventHandlers(), "actor", null, 1, 1, EventHandler.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(whileLoopEClass, WhileLoop.class, "WhileLoop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getWhileLoop_Predicate(), this.getExpression(), null, "predicate", null, 0, 1, WhileLoop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1406,15 +1495,14 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 
 		initEClass(yieldEClass, Yield.class, "Yield", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getVariable_Expression(), this.getExpression(), null, "expression", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getVariable_Value(), ecorePackage.getEJavaObject(), "value", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(variableDeclarationEClass, VariableDeclaration.class, "VariableDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getVariableDeclaration_Expression(), this.getExpression(), null, "expression", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVariableDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVariableDeclaration_Value(), ecorePackage.getEJavaObject(), "value", null, 0, 1, VariableDeclaration.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(variableAssignmentEClass, VariableAssignment.class, "VariableAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVariableAssignment_Expression(), this.getExpression(), null, "expression", null, 0, 1, VariableAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVariableAssignment_VariableName(), ecorePackage.getEString(), "variableName", null, 1, 1, VariableAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVariableAssignment_Variable(), this.getVariable(), null, "variable", null, 0, 1, VariableAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1431,10 +1519,6 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		initEClass(divideEClass, Divide.class, "Divide", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(lessThanEClass, LessThan.class, "LessThan", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEntity_Target(), ecorePackage.getEJavaObject(), "target", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEntity_Actor(), this.getActor(), this.getActor_Entity(), "actor", null, 1, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(equalEClass, Equal.class, "Equal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1453,9 +1537,8 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		initEClass(stringLiteralEClass, StringLiteral.class, "StringLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStringLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(variableRefEClass, VariableRef.class, "VariableRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getVariableRef_VariableName(), ecorePackage.getEString(), "variableName", "", 1, 1, VariableRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVariableRef_Variable(), this.getVariable(), null, "variable", null, 0, 1, VariableRef.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(variableReferenceEClass, VariableReference.class, "VariableReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getVariableReference_VariableName(), ecorePackage.getEString(), "variableName", "", 1, 1, VariableReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(unaryOperatorEClass, UnaryOperator.class, "UnaryOperator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUnaryOperator_Expression(), this.getExpression(), null, "expression", null, 0, 1, UnaryOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1468,33 +1551,15 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		initEAttribute(getFunctionCall_Name(), ecorePackage.getEString(), "name", null, 0, 1, FunctionCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFunctionCall_Parameters(), this.getExpression(), null, "parameters", null, 0, -1, FunctionCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(spriteEntityEClass, SpriteEntity.class, "SpriteEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSpriteEntity_Name(), ecorePackage.getEString(), "name", null, 0, 1, SpriteEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		EOperation op = initEOperation(getSpriteEntity__Print__String(), null, "print", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "message", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getSpriteEntity__GetX(), ecorePackage.getEDoubleObject(), "getX", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getSpriteEntity__GetY(), ecorePackage.getEDoubleObject(), "getY", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getSpriteEntity__SetY__Double(), null, "setY", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDoubleObject(), "y", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getSpriteEntity__SetX__Double(), null, "setX", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDoubleObject(), "x", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getSpriteEntity__Print__Double(), null, "print", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDoubleObject(), "message", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getSpriteEntity__Sleep__Double(), null, "sleep", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDoubleObject(), "sleepDuration", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(sceneEntityEClass, SceneEntity.class, "SceneEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(statementEClass, Statement.class, "Statement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(abstractElementEClass, AbstractElement.class, "AbstractElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = initEOperation(getAbstractElement__GetActor(), null, "getActor", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getAbstractActor());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
 
 		initEClass(gameStartEClass, GameStart.class, "GameStart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1504,13 +1569,51 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		initEAttribute(getKeyPressed_Key(), ecorePackage.getEString(), "key", null, 0, 1, KeyPressed.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(collidesWithEClass, CollidesWith.class, "CollidesWith", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCollidesWith_Target(), this.getSpriteEntity(), null, "target", null, 0, 1, CollidesWith.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCollidesWith_Target(), this.getSpriteActor(), null, "target", null, 0, 1, CollidesWith.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(integerLiteralEClass, IntegerLiteral.class, "IntegerLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIntegerLiteral_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntegerLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sleepEClass, Sleep.class, "Sleep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSleep_Duration(), ecorePackage.getEDouble(), "duration", null, 0, 1, Sleep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(unaryMinusEClass, UnaryMinus.class, "UnaryMinus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(toDoubleEClass, ToDouble.class, "ToDouble", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(toIntEClass, ToInt.class, "ToInt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(abstractActorEClass, AbstractActor.class, "AbstractActor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAbstractActor_EventHandlers(), this.getEventHandler(), this.getEventHandler_Actor(), "eventHandlers", null, 0, -1, AbstractActor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractActor_Name(), ecorePackage.getEString(), "name", null, 0, 1, AbstractActor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractActor_Subject(), ecorePackage.getEJavaObject(), "subject", null, 0, 1, AbstractActor.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getAbstractActor__GetSubtree(), null, "getSubtree", 0, -1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getAbstractActor());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		initEClass(scopeEClass, Scope.class, "Scope", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getScope_LocalVariables(), this.getVariableDeclaration(), null, "localVariables", null, 0, -1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(scopeEClass_S);
+		initEReference(getScope_Children(), g1, this.getScope_Parent(), "children", null, 0, -1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(this.getScope());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEReference(getScope_Parent(), g1, this.getScope_Children(), "parent", null, 0, 1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getScope__IsInScope__String(), ecorePackage.getEBoolean(), "isInScope", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "variableName", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getScope__GetVariableDeclaration__String(), this.getVariableDeclaration(), "getVariableDeclaration", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "variableName", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getScope__IsInLocalScope__String(), ecorePackage.getEBoolean(), "isInLocalScope", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "variableName", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getScope__IsInParentScope__String(), ecorePackage.getEBoolean(), "isInParentScope", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "variableName", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -1529,10 +1632,10 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	protected void createEcoreAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore";	
 		addAnnotation
-		  (variableEClass, 
+		  (variableDeclarationEClass, 
 		   source, 
 		   new String[] {
-			 "constraints", "scope type\n"
+			 "constraints", "scope\n"
 		   });	
 		addAnnotation
 		  (variableAssignmentEClass, 
@@ -1541,7 +1644,7 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 			 "constraints", "scope type\n"
 		   });	
 		addAnnotation
-		  (variableRefEClass, 
+		  (variableReferenceEClass, 
 		   source, 
 		   new String[] {
 			 "constraints", "scope\n"

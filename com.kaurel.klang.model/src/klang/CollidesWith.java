@@ -29,12 +29,12 @@ public interface CollidesWith extends EventHandler {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target</em>' reference.
-	 * @see #setTarget(SpriteEntity)
+	 * @see #setTarget(SpriteActor)
 	 * @see klang.KlangPackage#getCollidesWith_Target()
 	 * @model
 	 * @generated
 	 */
-	SpriteEntity getTarget();
+	SpriteActor getTarget();
 
 	/**
 	 * Sets the value of the '{@link klang.CollidesWith#getTarget <em>Target</em>}' reference.
@@ -44,6 +44,6 @@ public interface CollidesWith extends EventHandler {
 	 * @see #getTarget()
 	 * @generated
 	 */
-	void setTarget(SpriteEntity value);
+	void setTarget(SpriteActor value);
 
 } // CollidesWith

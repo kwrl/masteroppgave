@@ -216,7 +216,7 @@ public class UnaryOperatorItemProvider extends ExpressionItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.UNARY_OPERATOR__EXPRESSION,
-				 KlangFactory.eINSTANCE.createVariableRef()));
+				 KlangFactory.eINSTANCE.createVariableReference()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -227,6 +227,21 @@ public class UnaryOperatorItemProvider extends ExpressionItemProvider {
 			(createChildParameter
 				(KlangPackage.Literals.UNARY_OPERATOR__EXPRESSION,
 				 KlangFactory.eINSTANCE.createIntegerLiteral()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.UNARY_OPERATOR__EXPRESSION,
+				 KlangFactory.eINSTANCE.createUnaryMinus()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.UNARY_OPERATOR__EXPRESSION,
+				 KlangFactory.eINSTANCE.createToDouble()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.UNARY_OPERATOR__EXPRESSION,
+				 KlangFactory.eINSTANCE.createToInt()));
 	}
 
 }

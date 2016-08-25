@@ -1,6 +1,5 @@
 package com.kaurel.klang.runtime.threading;
 
-import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Timer;
@@ -54,7 +53,7 @@ public class KlangScheduler {
 	}
 	
 	public synchronized void processEventHandler(EventHandler handler) {
-		addThread(new KlangThread(new ArrayList<>(handler.getStatements())));
+		addThread(new KlangThread(handler.getStatements(), handler.getActor()));
 	}
 
 	public void flush() {

@@ -48,7 +48,6 @@ public class VariableAssignmentItemProvider extends AbstractElementItemProvider 
 			super.getPropertyDescriptors(object);
 
 			addVariableNamePropertyDescriptor(object);
-			addVariablePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -71,28 +70,6 @@ public class VariableAssignmentItemProvider extends AbstractElementItemProvider 
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Variable feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addVariablePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_VariableAssignment_variable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_VariableAssignment_variable_feature", "_UI_VariableAssignment_type"),
-				 KlangPackage.Literals.VARIABLE_ASSIGNMENT__VARIABLE,
-				 false,
-				 false,
-				 false,
-				 null,
 				 null,
 				 null));
 	}
@@ -269,7 +246,7 @@ public class VariableAssignmentItemProvider extends AbstractElementItemProvider 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE_ASSIGNMENT__EXPRESSION,
-				 KlangFactory.eINSTANCE.createVariableRef()));
+				 KlangFactory.eINSTANCE.createVariableReference()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -280,6 +257,21 @@ public class VariableAssignmentItemProvider extends AbstractElementItemProvider 
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE_ASSIGNMENT__EXPRESSION,
 				 KlangFactory.eINSTANCE.createIntegerLiteral()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.VARIABLE_ASSIGNMENT__EXPRESSION,
+				 KlangFactory.eINSTANCE.createUnaryMinus()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.VARIABLE_ASSIGNMENT__EXPRESSION,
+				 KlangFactory.eINSTANCE.createToDouble()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.VARIABLE_ASSIGNMENT__EXPRESSION,
+				 KlangFactory.eINSTANCE.createToInt()));
 	}
 
 }

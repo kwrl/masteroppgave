@@ -10,6 +10,12 @@ import klang.AbstractElement;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Abstract Element</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link klang.AbstractElement#getActor() <em>Get Actor</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public abstract class AbstractElementTest extends TestCase {
@@ -50,6 +56,19 @@ public abstract class AbstractElementTest extends TestCase {
 	 */
 	protected AbstractElement getFixture() {
 		return fixture;
+	}
+
+	/**
+	 * Tests the '{@link klang.AbstractElement#getActor() <em>Get Actor</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.AbstractElement#getActor()
+	 * @generated
+	 */
+	public void testGetActor() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //AbstractElementTest
