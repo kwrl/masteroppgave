@@ -9,12 +9,6 @@ import klang.AbstractActor;
  * A test case for the model object '<em><b>Abstract Actor</b></em>'.
  * <!-- end-user-doc -->
  * <p>
- * The following features are tested:
- * <ul>
- *   <li>{@link klang.AbstractActor#getSubject() <em>Subject</em>}</li>
- * </ul>
- * </p>
- * <p>
  * The following operations are tested:
  * <ul>
  *   <li>{@link klang.AbstractActor#getSubtree() <em>Get Subtree</em>}</li>
@@ -43,32 +37,6 @@ public abstract class AbstractActorTest extends ScopeTest {
 	@Override
 	protected AbstractActor<?> getFixture() {
 		return (AbstractActor<?>)fixture;
-	}
-
-	/**
-	 * Tests the '{@link klang.AbstractActor#getSubject() <em>Subject</em>}' feature getter.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.AbstractActor#getSubject()
-	 * @generated
-	 */
-	public void testGetSubject() {
-		// TODO: implement this feature getter test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link klang.AbstractActor#setSubject(java.lang.Object) <em>Subject</em>}' feature setter.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.AbstractActor#setSubject(java.lang.Object)
-	 * @generated
-	 */
-	public void testSetSubject() {
-		// TODO: implement this feature setter test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
 	}
 
 	/**

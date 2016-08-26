@@ -42,7 +42,7 @@ public class KlangParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "SceneActor";
+		return "Program";
 	}
 
 	public KlangGrammarAccess getGrammarAccess() {

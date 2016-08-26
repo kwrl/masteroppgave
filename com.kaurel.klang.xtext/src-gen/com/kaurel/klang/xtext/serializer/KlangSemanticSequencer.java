@@ -26,6 +26,7 @@ import klang.Multiply;
 import klang.Not;
 import klang.Or;
 import klang.Plus;
+import klang.Program;
 import klang.SceneActor;
 import klang.Sleep;
 import klang.SpriteActor;
@@ -118,6 +119,9 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case KlangPackage.PLUS:
 				sequence_Plus(context, (Plus) semanticObject); 
+				return; 
+			case KlangPackage.PROGRAM:
+				sequence_Program(context, (Program) semanticObject); 
 				return; 
 			case KlangPackage.SCENE_ACTOR:
 				sequence_SceneActor(context, (SceneActor) semanticObject); 
@@ -933,10 +937,22 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     Program returns Program
+	 *
+	 * Constraint:
+	 *     ((sceneActor=SceneActor spriteActors+=SpriteActor+) | spriteActors+=SpriteActor+)?
+	 */
+	protected void sequence_Program(ISerializationContext context, Program semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     SceneActor returns SceneActor
 	 *
 	 * Constraint:
-	 *     (localVariables+=VariableDeclaration* eventHandlers+=EventHandler* children+=SpriteActor*)
+	 *     (localVariables+=VariableDeclaration* eventHandlers+=EventHandler*)
 	 */
 	protected void sequence_SceneActor(ISerializationContext context, SceneActor semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

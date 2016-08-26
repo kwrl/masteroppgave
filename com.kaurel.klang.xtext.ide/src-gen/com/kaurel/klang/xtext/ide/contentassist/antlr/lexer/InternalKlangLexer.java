@@ -12,50 +12,51 @@ import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class InternalKlangLexer extends Lexer {
-    public static final int Or=26;
-    public static final int RULE_BEGIN=38;
+    public static final int Or=27;
+    public static final int RULE_BEGIN=39;
     public static final int Clicked=5;
-    public static final int Var=23;
-    public static final int True=16;
+    public static final int Var=24;
+    public static final int True=17;
     public static final int False=11;
-    public static final int LessThanSign=35;
+    public static final int LessThanSign=36;
     public static final int Forever=6;
-    public static final int LeftParenthesis=27;
-    public static final int GreaterThanSign=37;
-    public static final int RULE_ID=40;
+    public static final int LeftParenthesis=28;
+    public static final int GreaterThanSign=38;
+    public static final int RULE_ID=41;
     public static final int Collides=4;
-    public static final int RightParenthesis=28;
+    public static final int RightParenthesis=29;
+    public static final int Scene=12;
     public static final int Double=8;
-    public static final int EqualsSignEqualsSign=24;
-    public static final int Not=22;
-    public static final int Game=15;
-    public static final int And=19;
-    public static final int PlusSign=30;
-    public static final int RULE_INT=41;
-    public static final int RULE_ML_COMMENT=43;
-    public static final int If=25;
-    public static final int Key=21;
+    public static final int EqualsSignEqualsSign=25;
+    public static final int Not=23;
+    public static final int Game=16;
+    public static final int And=20;
+    public static final int PlusSign=31;
+    public static final int RULE_INT=42;
+    public static final int RULE_ML_COMMENT=44;
+    public static final int If=26;
+    public static final int Key=22;
     public static final int Pressed=7;
-    public static final int RULE_END=39;
+    public static final int RULE_END=40;
     public static final int Starts=10;
-    public static final int RULE_STRING=42;
-    public static final int Int=20;
-    public static final int With=18;
-    public static final int RULE_SL_COMMENT=44;
-    public static final int Comma=31;
-    public static final int EqualsSign=36;
-    public static final int HyphenMinus=32;
-    public static final int Solidus=34;
+    public static final int RULE_STRING=43;
+    public static final int Int=21;
+    public static final int With=19;
+    public static final int RULE_SL_COMMENT=45;
+    public static final int Comma=32;
+    public static final int EqualsSign=37;
+    public static final int HyphenMinus=33;
+    public static final int Solidus=35;
     public static final int EOF=-1;
-    public static final int Asterisk=29;
-    public static final int FullStop=33;
+    public static final int Asterisk=30;
+    public static final int FullStop=34;
     public static final int Sprite=9;
-    public static final int RULE_WS=45;
-    public static final int While=13;
-    public static final int RULE_ANY_OTHER=46;
-    public static final int Sleep=12;
-    public static final int When=17;
-    public static final int Else=14;
+    public static final int RULE_WS=46;
+    public static final int While=14;
+    public static final int RULE_ANY_OTHER=47;
+    public static final int Sleep=13;
+    public static final int When=18;
+    public static final int Else=15;
 
     // delegates
     // delegators
@@ -238,13 +239,34 @@ public class InternalKlangLexer extends Lexer {
     }
     // $ANTLR end "False"
 
+    // $ANTLR start "Scene"
+    public final void mScene() throws RecognitionException {
+        try {
+            int _type = Scene;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalKlangLexer.g:30:7: ( 'scene' )
+            // InternalKlangLexer.g:30:9: 'scene'
+            {
+            match("scene"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "Scene"
+
     // $ANTLR start "Sleep"
     public final void mSleep() throws RecognitionException {
         try {
             int _type = Sleep;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:30:7: ( 'sleep' )
-            // InternalKlangLexer.g:30:9: 'sleep'
+            // InternalKlangLexer.g:32:7: ( 'sleep' )
+            // InternalKlangLexer.g:32:9: 'sleep'
             {
             match("sleep"); 
 
@@ -264,8 +286,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = While;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:32:7: ( 'while' )
-            // InternalKlangLexer.g:32:9: 'while'
+            // InternalKlangLexer.g:34:7: ( 'while' )
+            // InternalKlangLexer.g:34:9: 'while'
             {
             match("while"); 
 
@@ -285,8 +307,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = Else;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:34:6: ( 'else' )
-            // InternalKlangLexer.g:34:8: 'else'
+            // InternalKlangLexer.g:36:6: ( 'else' )
+            // InternalKlangLexer.g:36:8: 'else'
             {
             match("else"); 
 
@@ -306,8 +328,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = Game;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:36:6: ( 'game' )
-            // InternalKlangLexer.g:36:8: 'game'
+            // InternalKlangLexer.g:38:6: ( 'game' )
+            // InternalKlangLexer.g:38:8: 'game'
             {
             match("game"); 
 
@@ -327,8 +349,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = True;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:38:6: ( 'true' )
-            // InternalKlangLexer.g:38:8: 'true'
+            // InternalKlangLexer.g:40:6: ( 'true' )
+            // InternalKlangLexer.g:40:8: 'true'
             {
             match("true"); 
 
@@ -348,8 +370,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = When;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:40:6: ( 'when' )
-            // InternalKlangLexer.g:40:8: 'when'
+            // InternalKlangLexer.g:42:6: ( 'when' )
+            // InternalKlangLexer.g:42:8: 'when'
             {
             match("when"); 
 
@@ -369,8 +391,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = With;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:42:6: ( 'with' )
-            // InternalKlangLexer.g:42:8: 'with'
+            // InternalKlangLexer.g:44:6: ( 'with' )
+            // InternalKlangLexer.g:44:8: 'with'
             {
             match("with"); 
 
@@ -390,8 +412,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = And;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:44:5: ( 'and' )
-            // InternalKlangLexer.g:44:7: 'and'
+            // InternalKlangLexer.g:46:5: ( 'and' )
+            // InternalKlangLexer.g:46:7: 'and'
             {
             match("and"); 
 
@@ -411,8 +433,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = Int;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:46:5: ( 'int' )
-            // InternalKlangLexer.g:46:7: 'int'
+            // InternalKlangLexer.g:48:5: ( 'int' )
+            // InternalKlangLexer.g:48:7: 'int'
             {
             match("int"); 
 
@@ -432,8 +454,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = Key;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:48:5: ( 'key' )
-            // InternalKlangLexer.g:48:7: 'key'
+            // InternalKlangLexer.g:50:5: ( 'key' )
+            // InternalKlangLexer.g:50:7: 'key'
             {
             match("key"); 
 
@@ -453,8 +475,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = Not;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:50:5: ( 'not' )
-            // InternalKlangLexer.g:50:7: 'not'
+            // InternalKlangLexer.g:52:5: ( 'not' )
+            // InternalKlangLexer.g:52:7: 'not'
             {
             match("not"); 
 
@@ -474,8 +496,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = Var;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:52:5: ( 'var' )
-            // InternalKlangLexer.g:52:7: 'var'
+            // InternalKlangLexer.g:54:5: ( 'var' )
+            // InternalKlangLexer.g:54:7: 'var'
             {
             match("var"); 
 
@@ -495,8 +517,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = EqualsSignEqualsSign;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:54:22: ( '==' )
-            // InternalKlangLexer.g:54:24: '=='
+            // InternalKlangLexer.g:56:22: ( '==' )
+            // InternalKlangLexer.g:56:24: '=='
             {
             match("=="); 
 
@@ -516,8 +538,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = If;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:56:4: ( 'if' )
-            // InternalKlangLexer.g:56:6: 'if'
+            // InternalKlangLexer.g:58:4: ( 'if' )
+            // InternalKlangLexer.g:58:6: 'if'
             {
             match("if"); 
 
@@ -537,8 +559,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = Or;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:58:4: ( 'or' )
-            // InternalKlangLexer.g:58:6: 'or'
+            // InternalKlangLexer.g:60:4: ( 'or' )
+            // InternalKlangLexer.g:60:6: 'or'
             {
             match("or"); 
 
@@ -558,8 +580,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = LeftParenthesis;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:60:17: ( '(' )
-            // InternalKlangLexer.g:60:19: '('
+            // InternalKlangLexer.g:62:17: ( '(' )
+            // InternalKlangLexer.g:62:19: '('
             {
             match('('); 
 
@@ -578,8 +600,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = RightParenthesis;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:62:18: ( ')' )
-            // InternalKlangLexer.g:62:20: ')'
+            // InternalKlangLexer.g:64:18: ( ')' )
+            // InternalKlangLexer.g:64:20: ')'
             {
             match(')'); 
 
@@ -598,8 +620,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = Asterisk;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:64:10: ( '*' )
-            // InternalKlangLexer.g:64:12: '*'
+            // InternalKlangLexer.g:66:10: ( '*' )
+            // InternalKlangLexer.g:66:12: '*'
             {
             match('*'); 
 
@@ -618,8 +640,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = PlusSign;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:66:10: ( '+' )
-            // InternalKlangLexer.g:66:12: '+'
+            // InternalKlangLexer.g:68:10: ( '+' )
+            // InternalKlangLexer.g:68:12: '+'
             {
             match('+'); 
 
@@ -638,8 +660,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = Comma;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:68:7: ( ',' )
-            // InternalKlangLexer.g:68:9: ','
+            // InternalKlangLexer.g:70:7: ( ',' )
+            // InternalKlangLexer.g:70:9: ','
             {
             match(','); 
 
@@ -658,8 +680,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = HyphenMinus;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:70:13: ( '-' )
-            // InternalKlangLexer.g:70:15: '-'
+            // InternalKlangLexer.g:72:13: ( '-' )
+            // InternalKlangLexer.g:72:15: '-'
             {
             match('-'); 
 
@@ -678,8 +700,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = FullStop;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:72:10: ( '.' )
-            // InternalKlangLexer.g:72:12: '.'
+            // InternalKlangLexer.g:74:10: ( '.' )
+            // InternalKlangLexer.g:74:12: '.'
             {
             match('.'); 
 
@@ -698,8 +720,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = Solidus;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:74:9: ( '/' )
-            // InternalKlangLexer.g:74:11: '/'
+            // InternalKlangLexer.g:76:9: ( '/' )
+            // InternalKlangLexer.g:76:11: '/'
             {
             match('/'); 
 
@@ -718,8 +740,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = LessThanSign;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:76:14: ( '<' )
-            // InternalKlangLexer.g:76:16: '<'
+            // InternalKlangLexer.g:78:14: ( '<' )
+            // InternalKlangLexer.g:78:16: '<'
             {
             match('<'); 
 
@@ -738,8 +760,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = EqualsSign;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:78:12: ( '=' )
-            // InternalKlangLexer.g:78:14: '='
+            // InternalKlangLexer.g:80:12: ( '=' )
+            // InternalKlangLexer.g:80:14: '='
             {
             match('='); 
 
@@ -758,8 +780,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = GreaterThanSign;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:80:17: ( '>' )
-            // InternalKlangLexer.g:80:19: '>'
+            // InternalKlangLexer.g:82:17: ( '>' )
+            // InternalKlangLexer.g:82:19: '>'
             {
             match('>'); 
 
@@ -776,8 +798,8 @@ public class InternalKlangLexer extends Lexer {
     // $ANTLR start "RULE_BEGIN"
     public final void mRULE_BEGIN() throws RecognitionException {
         try {
-            // InternalKlangLexer.g:84:21: ()
-            // InternalKlangLexer.g:84:23: 
+            // InternalKlangLexer.g:86:21: ()
+            // InternalKlangLexer.g:86:23: 
             {
             }
 
@@ -790,8 +812,8 @@ public class InternalKlangLexer extends Lexer {
     // $ANTLR start "RULE_END"
     public final void mRULE_END() throws RecognitionException {
         try {
-            // InternalKlangLexer.g:86:19: ()
-            // InternalKlangLexer.g:86:21: 
+            // InternalKlangLexer.g:88:19: ()
+            // InternalKlangLexer.g:88:21: 
             {
             }
 
@@ -806,10 +828,10 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:88:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalKlangLexer.g:88:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalKlangLexer.g:90:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalKlangLexer.g:90:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalKlangLexer.g:88:11: ( '^' )?
+            // InternalKlangLexer.g:90:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -818,7 +840,7 @@ public class InternalKlangLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalKlangLexer.g:88:11: '^'
+                    // InternalKlangLexer.g:90:11: '^'
                     {
                     match('^'); 
 
@@ -836,7 +858,7 @@ public class InternalKlangLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalKlangLexer.g:88:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalKlangLexer.g:90:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -885,10 +907,10 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:90:10: ( ( '0' .. '9' )+ )
-            // InternalKlangLexer.g:90:12: ( '0' .. '9' )+
+            // InternalKlangLexer.g:92:10: ( ( '0' .. '9' )+ )
+            // InternalKlangLexer.g:92:12: ( '0' .. '9' )+
             {
-            // InternalKlangLexer.g:90:12: ( '0' .. '9' )+
+            // InternalKlangLexer.g:92:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -902,7 +924,7 @@ public class InternalKlangLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalKlangLexer.g:90:13: '0' .. '9'
+            	    // InternalKlangLexer.g:92:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -934,10 +956,10 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:92:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalKlangLexer.g:92:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalKlangLexer.g:94:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalKlangLexer.g:94:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalKlangLexer.g:92:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalKlangLexer.g:94:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -955,10 +977,10 @@ public class InternalKlangLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalKlangLexer.g:92:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalKlangLexer.g:94:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalKlangLexer.g:92:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalKlangLexer.g:94:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -974,7 +996,7 @@ public class InternalKlangLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalKlangLexer.g:92:21: '\\\\' .
+                    	    // InternalKlangLexer.g:94:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -982,7 +1004,7 @@ public class InternalKlangLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalKlangLexer.g:92:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalKlangLexer.g:94:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1007,10 +1029,10 @@ public class InternalKlangLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalKlangLexer.g:92:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalKlangLexer.g:94:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalKlangLexer.g:92:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalKlangLexer.g:94:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -1026,7 +1048,7 @@ public class InternalKlangLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalKlangLexer.g:92:54: '\\\\' .
+                    	    // InternalKlangLexer.g:94:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1034,7 +1056,7 @@ public class InternalKlangLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalKlangLexer.g:92:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalKlangLexer.g:94:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1077,12 +1099,12 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:94:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalKlangLexer.g:94:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalKlangLexer.g:96:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalKlangLexer.g:96:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalKlangLexer.g:94:24: ( options {greedy=false; } : . )*
+            // InternalKlangLexer.g:96:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -1107,7 +1129,7 @@ public class InternalKlangLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalKlangLexer.g:94:52: .
+            	    // InternalKlangLexer.g:96:52: .
             	    {
             	    matchAny(); 
 
@@ -1137,12 +1159,12 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:96:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalKlangLexer.g:96:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalKlangLexer.g:98:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalKlangLexer.g:98:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalKlangLexer.g:96:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalKlangLexer.g:98:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -1155,7 +1177,7 @@ public class InternalKlangLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalKlangLexer.g:96:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalKlangLexer.g:98:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1175,7 +1197,7 @@ public class InternalKlangLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalKlangLexer.g:96:40: ( ( '\\r' )? '\\n' )?
+            // InternalKlangLexer.g:98:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1184,9 +1206,9 @@ public class InternalKlangLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalKlangLexer.g:96:41: ( '\\r' )? '\\n'
+                    // InternalKlangLexer.g:98:41: ( '\\r' )? '\\n'
                     {
-                    // InternalKlangLexer.g:96:41: ( '\\r' )?
+                    // InternalKlangLexer.g:98:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -1195,7 +1217,7 @@ public class InternalKlangLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalKlangLexer.g:96:41: '\\r'
+                            // InternalKlangLexer.g:98:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1227,10 +1249,10 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:98:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalKlangLexer.g:98:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalKlangLexer.g:100:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalKlangLexer.g:100:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalKlangLexer.g:98:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalKlangLexer.g:100:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -1284,8 +1306,8 @@ public class InternalKlangLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalKlangLexer.g:100:16: ( . )
-            // InternalKlangLexer.g:100:18: .
+            // InternalKlangLexer.g:102:16: ( . )
+            // InternalKlangLexer.g:102:18: .
             {
             matchAny(); 
 
@@ -1300,8 +1322,8 @@ public class InternalKlangLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // InternalKlangLexer.g:1:8: ( Collides | Clicked | Forever | Pressed | Double | Sprite | Starts | False | Sleep | While | Else | Game | True | When | With | And | Int | Key | Not | Var | EqualsSignEqualsSign | If | Or | LeftParenthesis | RightParenthesis | Asterisk | PlusSign | Comma | HyphenMinus | FullStop | Solidus | LessThanSign | EqualsSign | GreaterThanSign | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt12=41;
+        // InternalKlangLexer.g:1:8: ( Collides | Clicked | Forever | Pressed | Double | Sprite | Starts | False | Scene | Sleep | While | Else | Game | True | When | With | And | Int | Key | Not | Var | EqualsSignEqualsSign | If | Or | LeftParenthesis | RightParenthesis | Asterisk | PlusSign | Comma | HyphenMinus | FullStop | Solidus | LessThanSign | EqualsSign | GreaterThanSign | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt12=42;
         alt12 = dfa12.predict(input);
         switch (alt12) {
             case 1 :
@@ -1361,231 +1383,238 @@ public class InternalKlangLexer extends Lexer {
                 }
                 break;
             case 9 :
-                // InternalKlangLexer.g:1:70: Sleep
+                // InternalKlangLexer.g:1:70: Scene
+                {
+                mScene(); 
+
+                }
+                break;
+            case 10 :
+                // InternalKlangLexer.g:1:76: Sleep
                 {
                 mSleep(); 
 
                 }
                 break;
-            case 10 :
-                // InternalKlangLexer.g:1:76: While
+            case 11 :
+                // InternalKlangLexer.g:1:82: While
                 {
                 mWhile(); 
 
                 }
                 break;
-            case 11 :
-                // InternalKlangLexer.g:1:82: Else
+            case 12 :
+                // InternalKlangLexer.g:1:88: Else
                 {
                 mElse(); 
 
                 }
                 break;
-            case 12 :
-                // InternalKlangLexer.g:1:87: Game
+            case 13 :
+                // InternalKlangLexer.g:1:93: Game
                 {
                 mGame(); 
 
                 }
                 break;
-            case 13 :
-                // InternalKlangLexer.g:1:92: True
+            case 14 :
+                // InternalKlangLexer.g:1:98: True
                 {
                 mTrue(); 
 
                 }
                 break;
-            case 14 :
-                // InternalKlangLexer.g:1:97: When
+            case 15 :
+                // InternalKlangLexer.g:1:103: When
                 {
                 mWhen(); 
 
                 }
                 break;
-            case 15 :
-                // InternalKlangLexer.g:1:102: With
+            case 16 :
+                // InternalKlangLexer.g:1:108: With
                 {
                 mWith(); 
 
                 }
                 break;
-            case 16 :
-                // InternalKlangLexer.g:1:107: And
+            case 17 :
+                // InternalKlangLexer.g:1:113: And
                 {
                 mAnd(); 
 
                 }
                 break;
-            case 17 :
-                // InternalKlangLexer.g:1:111: Int
+            case 18 :
+                // InternalKlangLexer.g:1:117: Int
                 {
                 mInt(); 
 
                 }
                 break;
-            case 18 :
-                // InternalKlangLexer.g:1:115: Key
+            case 19 :
+                // InternalKlangLexer.g:1:121: Key
                 {
                 mKey(); 
 
                 }
                 break;
-            case 19 :
-                // InternalKlangLexer.g:1:119: Not
+            case 20 :
+                // InternalKlangLexer.g:1:125: Not
                 {
                 mNot(); 
 
                 }
                 break;
-            case 20 :
-                // InternalKlangLexer.g:1:123: Var
+            case 21 :
+                // InternalKlangLexer.g:1:129: Var
                 {
                 mVar(); 
 
                 }
                 break;
-            case 21 :
-                // InternalKlangLexer.g:1:127: EqualsSignEqualsSign
+            case 22 :
+                // InternalKlangLexer.g:1:133: EqualsSignEqualsSign
                 {
                 mEqualsSignEqualsSign(); 
 
                 }
                 break;
-            case 22 :
-                // InternalKlangLexer.g:1:148: If
+            case 23 :
+                // InternalKlangLexer.g:1:154: If
                 {
                 mIf(); 
 
                 }
                 break;
-            case 23 :
-                // InternalKlangLexer.g:1:151: Or
+            case 24 :
+                // InternalKlangLexer.g:1:157: Or
                 {
                 mOr(); 
 
                 }
                 break;
-            case 24 :
-                // InternalKlangLexer.g:1:154: LeftParenthesis
+            case 25 :
+                // InternalKlangLexer.g:1:160: LeftParenthesis
                 {
                 mLeftParenthesis(); 
 
                 }
                 break;
-            case 25 :
-                // InternalKlangLexer.g:1:170: RightParenthesis
+            case 26 :
+                // InternalKlangLexer.g:1:176: RightParenthesis
                 {
                 mRightParenthesis(); 
 
                 }
                 break;
-            case 26 :
-                // InternalKlangLexer.g:1:187: Asterisk
+            case 27 :
+                // InternalKlangLexer.g:1:193: Asterisk
                 {
                 mAsterisk(); 
 
                 }
                 break;
-            case 27 :
-                // InternalKlangLexer.g:1:196: PlusSign
+            case 28 :
+                // InternalKlangLexer.g:1:202: PlusSign
                 {
                 mPlusSign(); 
 
                 }
                 break;
-            case 28 :
-                // InternalKlangLexer.g:1:205: Comma
+            case 29 :
+                // InternalKlangLexer.g:1:211: Comma
                 {
                 mComma(); 
 
                 }
                 break;
-            case 29 :
-                // InternalKlangLexer.g:1:211: HyphenMinus
+            case 30 :
+                // InternalKlangLexer.g:1:217: HyphenMinus
                 {
                 mHyphenMinus(); 
 
                 }
                 break;
-            case 30 :
-                // InternalKlangLexer.g:1:223: FullStop
+            case 31 :
+                // InternalKlangLexer.g:1:229: FullStop
                 {
                 mFullStop(); 
 
                 }
                 break;
-            case 31 :
-                // InternalKlangLexer.g:1:232: Solidus
+            case 32 :
+                // InternalKlangLexer.g:1:238: Solidus
                 {
                 mSolidus(); 
 
                 }
                 break;
-            case 32 :
-                // InternalKlangLexer.g:1:240: LessThanSign
+            case 33 :
+                // InternalKlangLexer.g:1:246: LessThanSign
                 {
                 mLessThanSign(); 
 
                 }
                 break;
-            case 33 :
-                // InternalKlangLexer.g:1:253: EqualsSign
+            case 34 :
+                // InternalKlangLexer.g:1:259: EqualsSign
                 {
                 mEqualsSign(); 
 
                 }
                 break;
-            case 34 :
-                // InternalKlangLexer.g:1:264: GreaterThanSign
+            case 35 :
+                // InternalKlangLexer.g:1:270: GreaterThanSign
                 {
                 mGreaterThanSign(); 
 
                 }
                 break;
-            case 35 :
-                // InternalKlangLexer.g:1:280: RULE_ID
+            case 36 :
+                // InternalKlangLexer.g:1:286: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 36 :
-                // InternalKlangLexer.g:1:288: RULE_INT
+            case 37 :
+                // InternalKlangLexer.g:1:294: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 37 :
-                // InternalKlangLexer.g:1:297: RULE_STRING
+            case 38 :
+                // InternalKlangLexer.g:1:303: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 38 :
-                // InternalKlangLexer.g:1:309: RULE_ML_COMMENT
+            case 39 :
+                // InternalKlangLexer.g:1:315: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 39 :
-                // InternalKlangLexer.g:1:325: RULE_SL_COMMENT
+            case 40 :
+                // InternalKlangLexer.g:1:331: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 40 :
-                // InternalKlangLexer.g:1:341: RULE_WS
+            case 41 :
+                // InternalKlangLexer.g:1:347: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 41 :
-                // InternalKlangLexer.g:1:349: RULE_ANY_OTHER
+            case 42 :
+                // InternalKlangLexer.g:1:355: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -1599,35 +1628,35 @@ public class InternalKlangLexer extends Lexer {
 
     protected DFA12 dfa12 = new DFA12(this);
     static final String DFA12_eotS =
-        "\1\uffff\16\44\1\70\1\44\7\uffff\1\103\2\uffff\1\41\2\uffff\2\41\2\uffff\2\44\1\uffff\16\44\1\132\3\44\2\uffff\1\136\17\uffff\17\44\1\156\1\157\1\uffff\1\160\1\161\1\162\1\uffff\12\44\1\175\1\176\1\177\1\u0080\1\u0081\5\uffff\3\44\1\u0085\4\44\1\u008a\1\u008b\5\uffff\3\44\1\uffff\1\44\1\u0090\1\u0091\1\u0092\2\uffff\1\44\1\u0094\1\u0095\1\u0096\3\uffff\1\u0097\4\uffff";
+        "\1\uffff\16\44\1\71\1\44\7\uffff\1\104\2\uffff\1\41\2\uffff\2\41\2\uffff\2\44\1\uffff\17\44\1\134\3\44\2\uffff\1\140\17\uffff\20\44\1\161\1\162\1\uffff\1\163\1\164\1\165\1\uffff\13\44\1\u0081\1\u0082\1\u0083\1\u0084\1\u0085\5\uffff\3\44\1\u0089\4\44\1\u008e\1\u008f\1\u0090\5\uffff\3\44\1\uffff\1\44\1\u0095\1\u0096\1\u0097\3\uffff\1\44\1\u0099\1\u009a\1\u009b\3\uffff\1\u009c\4\uffff";
     static final String DFA12_eofS =
-        "\u0098\uffff";
+        "\u009d\uffff";
     static final String DFA12_minS =
-        "\1\0\1\154\1\141\1\162\1\157\1\154\1\150\1\154\1\141\1\162\1\156\1\146\1\145\1\157\1\141\1\75\1\162\7\uffff\1\52\2\uffff\1\101\2\uffff\2\0\2\uffff\1\154\1\151\1\uffff\1\162\1\154\1\145\1\165\1\162\1\141\2\145\1\164\1\163\1\155\1\165\1\144\1\164\1\60\1\171\1\164\1\162\2\uffff\1\60\17\uffff\1\154\1\143\1\145\2\163\1\142\1\151\1\162\1\145\1\154\1\156\1\150\3\145\2\60\1\uffff\3\60\1\uffff\1\151\1\153\1\166\1\145\1\163\1\154\2\164\1\160\1\145\5\60\5\uffff\1\144\2\145\1\60\3\145\1\163\2\60\5\uffff\1\145\1\144\1\162\1\uffff\1\144\3\60\2\uffff\1\163\3\60\3\uffff\1\60\4\uffff";
+        "\1\0\1\154\1\141\1\162\1\157\1\143\1\150\1\154\1\141\1\162\1\156\1\146\1\145\1\157\1\141\1\75\1\162\7\uffff\1\52\2\uffff\1\101\2\uffff\2\0\2\uffff\1\154\1\151\1\uffff\1\162\1\154\1\145\1\165\1\162\1\141\3\145\1\164\1\163\1\155\1\165\1\144\1\164\1\60\1\171\1\164\1\162\2\uffff\1\60\17\uffff\1\154\1\143\1\145\2\163\1\142\1\151\1\162\1\156\1\145\1\154\1\156\1\150\3\145\2\60\1\uffff\3\60\1\uffff\1\151\1\153\1\166\1\145\1\163\1\154\2\164\1\145\1\160\1\145\5\60\5\uffff\1\144\2\145\1\60\3\145\1\163\3\60\5\uffff\1\145\1\144\1\162\1\uffff\1\144\3\60\3\uffff\1\163\3\60\3\uffff\1\60\4\uffff";
     static final String DFA12_maxS =
-        "\1\uffff\2\157\1\162\1\157\1\164\1\151\1\154\1\141\1\162\2\156\1\145\1\157\1\141\1\75\1\162\7\uffff\1\57\2\uffff\1\172\2\uffff\2\uffff\2\uffff\1\154\1\151\1\uffff\1\162\1\154\1\145\1\165\1\162\1\141\1\145\1\151\1\164\1\163\1\155\1\165\1\144\1\164\1\172\1\171\1\164\1\162\2\uffff\1\172\17\uffff\1\154\1\143\1\145\2\163\1\142\1\151\1\162\1\145\1\154\1\156\1\150\3\145\2\172\1\uffff\3\172\1\uffff\1\151\1\153\1\166\1\145\1\163\1\154\2\164\1\160\1\145\5\172\5\uffff\1\144\2\145\1\172\3\145\1\163\2\172\5\uffff\1\145\1\144\1\162\1\uffff\1\144\3\172\2\uffff\1\163\3\172\3\uffff\1\172\4\uffff";
+        "\1\uffff\2\157\1\162\1\157\1\164\1\151\1\154\1\141\1\162\2\156\1\145\1\157\1\141\1\75\1\162\7\uffff\1\57\2\uffff\1\172\2\uffff\2\uffff\2\uffff\1\154\1\151\1\uffff\1\162\1\154\1\145\1\165\1\162\1\141\2\145\1\151\1\164\1\163\1\155\1\165\1\144\1\164\1\172\1\171\1\164\1\162\2\uffff\1\172\17\uffff\1\154\1\143\1\145\2\163\1\142\1\151\1\162\1\156\1\145\1\154\1\156\1\150\3\145\2\172\1\uffff\3\172\1\uffff\1\151\1\153\1\166\1\145\1\163\1\154\2\164\1\145\1\160\1\145\5\172\5\uffff\1\144\2\145\1\172\3\145\1\163\3\172\5\uffff\1\145\1\144\1\162\1\uffff\1\144\3\172\3\uffff\1\163\3\172\3\uffff\1\172\4\uffff";
     static final String DFA12_acceptS =
-        "\21\uffff\1\30\1\31\1\32\1\33\1\34\1\35\1\36\1\uffff\1\40\1\42\1\uffff\1\43\1\44\2\uffff\1\50\1\51\2\uffff\1\43\22\uffff\1\25\1\41\1\uffff\1\30\1\31\1\32\1\33\1\34\1\35\1\36\1\46\1\47\1\37\1\40\1\42\1\44\1\45\1\50\21\uffff\1\26\3\uffff\1\27\17\uffff\1\20\1\21\1\22\1\23\1\24\12\uffff\1\16\1\17\1\13\1\14\1\15\3\uffff\1\10\4\uffff\1\11\1\12\4\uffff\1\5\1\6\1\7\1\uffff\1\2\1\3\1\4\1\1";
+        "\21\uffff\1\31\1\32\1\33\1\34\1\35\1\36\1\37\1\uffff\1\41\1\43\1\uffff\1\44\1\45\2\uffff\1\51\1\52\2\uffff\1\44\23\uffff\1\26\1\42\1\uffff\1\31\1\32\1\33\1\34\1\35\1\36\1\37\1\47\1\50\1\40\1\41\1\43\1\45\1\46\1\51\22\uffff\1\27\3\uffff\1\30\20\uffff\1\21\1\22\1\23\1\24\1\25\13\uffff\1\17\1\20\1\14\1\15\1\16\3\uffff\1\10\4\uffff\1\11\1\12\1\13\4\uffff\1\5\1\6\1\7\1\uffff\1\2\1\3\1\4\1\1";
     static final String DFA12_specialS =
-        "\1\2\35\uffff\1\1\1\0\170\uffff}>";
+        "\1\1\35\uffff\1\2\1\0\175\uffff}>";
     static final String[] DFA12_transitionS = {
             "\11\41\2\40\2\41\1\40\22\41\1\40\1\41\1\36\4\41\1\37\1\21\1\22\1\23\1\24\1\25\1\26\1\27\1\30\12\35\2\41\1\31\1\17\1\32\2\41\32\34\3\41\1\33\1\34\1\41\1\12\1\34\1\1\1\4\1\7\1\2\1\10\1\34\1\13\1\34\1\14\2\34\1\15\1\20\1\3\2\34\1\5\1\11\1\34\1\16\1\6\3\34\uff85\41",
             "\1\43\2\uffff\1\42",
             "\1\46\15\uffff\1\45",
             "\1\47",
             "\1\50",
-            "\1\53\3\uffff\1\51\3\uffff\1\52",
-            "\1\54\1\55",
-            "\1\56",
+            "\1\53\10\uffff\1\54\3\uffff\1\51\3\uffff\1\52",
+            "\1\55\1\56",
             "\1\57",
             "\1\60",
             "\1\61",
-            "\1\63\7\uffff\1\62",
-            "\1\64",
+            "\1\62",
+            "\1\64\7\uffff\1\63",
             "\1\65",
             "\1\66",
             "\1\67",
-            "\1\71",
+            "\1\70",
+            "\1\72",
             "",
             "",
             "",
@@ -1635,37 +1664,38 @@ public class InternalKlangLexer extends Lexer {
             "",
             "",
             "",
-            "\1\101\4\uffff\1\102",
+            "\1\102\4\uffff\1\103",
             "",
             "",
             "\32\44\4\uffff\1\44\1\uffff\32\44",
             "",
             "",
-            "\0\107",
-            "\0\107",
+            "\0\110",
+            "\0\110",
             "",
             "",
-            "\1\111",
             "\1\112",
-            "",
             "\1\113",
+            "",
             "\1\114",
             "\1\115",
             "\1\116",
             "\1\117",
             "\1\120",
             "\1\121",
-            "\1\123\3\uffff\1\122",
-            "\1\124",
-            "\1\125",
+            "\1\122",
+            "\1\123",
+            "\1\125\3\uffff\1\124",
             "\1\126",
             "\1\127",
             "\1\130",
             "\1\131",
-            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\132",
             "\1\133",
-            "\1\134",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\135",
+            "\1\136",
+            "\1\137",
             "",
             "",
             "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
@@ -1684,8 +1714,6 @@ public class InternalKlangLexer extends Lexer {
             "",
             "",
             "",
-            "\1\137",
-            "\1\140",
             "\1\141",
             "\1\142",
             "\1\143",
@@ -1699,6 +1727,9 @@ public class InternalKlangLexer extends Lexer {
             "\1\153",
             "\1\154",
             "\1\155",
+            "\1\156",
+            "\1\157",
+            "\1\160",
             "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "",
@@ -1706,9 +1737,6 @@ public class InternalKlangLexer extends Lexer {
             "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "",
-            "\1\163",
-            "\1\164",
-            "\1\165",
             "\1\166",
             "\1\167",
             "\1\170",
@@ -1716,6 +1744,10 @@ public class InternalKlangLexer extends Lexer {
             "\1\172",
             "\1\173",
             "\1\174",
+            "\1\175",
+            "\1\176",
+            "\1\177",
+            "\1\u0080",
             "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
@@ -1726,32 +1758,34 @@ public class InternalKlangLexer extends Lexer {
             "",
             "",
             "",
-            "\1\u0082",
-            "\1\u0083",
-            "\1\u0084",
-            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\u0086",
             "\1\u0087",
             "\1\u0088",
-            "\1\u0089",
             "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
-            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
-            "",
-            "",
-            "",
-            "",
-            "",
+            "\1\u008a",
+            "\1\u008b",
             "\1\u008c",
             "\1\u008d",
-            "\1\u008e",
-            "",
-            "\1\u008f",
             "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "",
             "",
+            "",
+            "",
+            "",
+            "\1\u0091",
+            "\1\u0092",
             "\1\u0093",
+            "",
+            "\1\u0094",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "",
+            "",
+            "",
+            "\1\u0098",
             "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
@@ -1795,7 +1829,7 @@ public class InternalKlangLexer extends Lexer {
             this.transition = DFA12_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( Collides | Clicked | Forever | Pressed | Double | Sprite | Starts | False | Sleep | While | Else | Game | True | When | With | And | Int | Key | Not | Var | EqualsSignEqualsSign | If | Or | LeftParenthesis | RightParenthesis | Asterisk | PlusSign | Comma | HyphenMinus | FullStop | Solidus | LessThanSign | EqualsSign | GreaterThanSign | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( Collides | Clicked | Forever | Pressed | Double | Sprite | Starts | False | Scene | Sleep | While | Else | Game | True | When | With | And | Int | Key | Not | Var | EqualsSignEqualsSign | If | Or | LeftParenthesis | RightParenthesis | Asterisk | PlusSign | Comma | HyphenMinus | FullStop | Solidus | LessThanSign | EqualsSign | GreaterThanSign | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
@@ -1805,23 +1839,13 @@ public class InternalKlangLexer extends Lexer {
                         int LA12_31 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA12_31>='\u0000' && LA12_31<='\uFFFF')) ) {s = 71;}
+                        if ( ((LA12_31>='\u0000' && LA12_31<='\uFFFF')) ) {s = 72;}
 
                         else s = 33;
 
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA12_30 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA12_30>='\u0000' && LA12_30<='\uFFFF')) ) {s = 71;}
-
-                        else s = 33;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
                         int LA12_0 = input.LA(1);
 
                         s = -1;
@@ -1890,6 +1914,16 @@ public class InternalKlangLexer extends Lexer {
                         else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 32;}
 
                         else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>=':' && LA12_0<=';')||(LA12_0>='?' && LA12_0<='@')||(LA12_0>='[' && LA12_0<=']')||LA12_0=='`'||(LA12_0>='{' && LA12_0<='\uFFFF')) ) {s = 33;}
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA12_30 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA12_30>='\u0000' && LA12_30<='\uFFFF')) ) {s = 72;}
+
+                        else s = 33;
 
                         if ( s>=0 ) return s;
                         break;

@@ -36,7 +36,7 @@ import com.kaurel.klang.xtext.services.KlangGrammarAccess;
 
     @Override
     protected String getFirstRuleName() {
-    	return "SceneActor";
+    	return "Program";
    	}
 
    	@Override
@@ -52,6 +52,63 @@ import com.kaurel.klang.xtext.services.KlangGrammarAccess;
         appendSkippedTokens();
     }
 }
+
+// Entry rule entryRuleProgram
+entryRuleProgram returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getProgramRule()); }
+	iv_ruleProgram=ruleProgram
+	{ $current=$iv_ruleProgram.current; }
+	EOF;
+
+// Rule Program
+ruleProgram returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getProgramAccess().getSceneActorSceneActorParserRuleCall_0_0());
+				}
+				lv_sceneActor_0_0=ruleSceneActor
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getProgramRule());
+					}
+					set(
+						$current,
+						"sceneActor",
+						lv_sceneActor_0_0,
+						"com.kaurel.klang.xtext.Klang.SceneActor");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getProgramAccess().getSpriteActorsSpriteActorParserRuleCall_1_0());
+				}
+				lv_spriteActors_1_0=ruleSpriteActor
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getProgramRule());
+					}
+					add(
+						$current,
+						"spriteActors",
+						lv_spriteActors_1_0,
+						"com.kaurel.klang.xtext.Klang.SpriteActor");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+	)
+;
 
 // Entry rule entryRuleSceneActor
 entryRuleSceneActor returns [EObject current=null]:
@@ -76,12 +133,20 @@ ruleSceneActor returns [EObject current=null]
 					$current);
 			}
 		)
+		otherlv_1=Scene
+		{
+			newLeafNode(otherlv_1, grammarAccess.getSceneActorAccess().getSceneKeyword_1());
+		}
+		this_BEGIN_2=RULE_BEGIN
+		{
+			newLeafNode(this_BEGIN_2, grammarAccess.getSceneActorAccess().getBEGINTerminalRuleCall_2());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSceneActorAccess().getLocalVariablesVariableDeclarationParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getSceneActorAccess().getLocalVariablesVariableDeclarationParserRuleCall_3_0());
 				}
-				lv_localVariables_1_0=ruleVariableDeclaration
+				lv_localVariables_3_0=ruleVariableDeclaration
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSceneActorRule());
@@ -89,7 +154,7 @@ ruleSceneActor returns [EObject current=null]
 					add(
 						$current,
 						"localVariables",
-						lv_localVariables_1_0,
+						lv_localVariables_3_0,
 						"com.kaurel.klang.xtext.Klang.VariableDeclaration");
 					afterParserOrEnumRuleCall();
 				}
@@ -98,9 +163,9 @@ ruleSceneActor returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSceneActorAccess().getEventHandlersEventHandlerParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getSceneActorAccess().getEventHandlersEventHandlerParserRuleCall_4_0());
 				}
-				lv_eventHandlers_2_0=ruleEventHandler
+				lv_eventHandlers_4_0=ruleEventHandler
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSceneActorRule());
@@ -108,31 +173,16 @@ ruleSceneActor returns [EObject current=null]
 					add(
 						$current,
 						"eventHandlers",
-						lv_eventHandlers_2_0,
+						lv_eventHandlers_4_0,
 						"com.kaurel.klang.xtext.Klang.EventHandler");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getSceneActorAccess().getChildrenSpriteActorParserRuleCall_3_0());
-				}
-				lv_children_3_0=ruleSpriteActor
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSceneActorRule());
-					}
-					add(
-						$current,
-						"children",
-						lv_children_3_0,
-						"com.kaurel.klang.xtext.Klang.SpriteActor");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
+		this_END_5=RULE_END
+		{
+			newLeafNode(this_END_5, grammarAccess.getSceneActorAccess().getENDTerminalRuleCall_5());
+		}
 	)
 ;
 

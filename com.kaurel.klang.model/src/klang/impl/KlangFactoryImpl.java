@@ -91,7 +91,7 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 			case KlangPackage.UNARY_MINUS: return createUnaryMinus();
 			case KlangPackage.TO_DOUBLE: return createToDouble();
 			case KlangPackage.TO_INT: return createToInt();
-			case KlangPackage.SCOPE: return createScope();
+			case KlangPackage.PROGRAM: return createProgram();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -282,9 +282,9 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public <S extends Scope<?>> Scope<S> createScope() {
-		ScopeImpl<S> scope = new ScopeImpl<S>();
-		return scope;
+	public Program createProgram() {
+		ProgramImpl program = new ProgramImpl();
+		return program;
 	}
 
 	/**

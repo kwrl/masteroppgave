@@ -24,46 +24,81 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 	
+	public class ProgramElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.Program");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cSceneActorAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cSceneActorSceneActorParserRuleCall_0_0 = (RuleCall)cSceneActorAssignment_0.eContents().get(0);
+		private final Assignment cSpriteActorsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cSpriteActorsSpriteActorParserRuleCall_1_0 = (RuleCall)cSpriteActorsAssignment_1.eContents().get(0);
+		
+		//Program:
+		//	sceneActor=SceneActor?
+		//	spriteActors+=SpriteActor*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//sceneActor=SceneActor? spriteActors+=SpriteActor*
+		public Group getGroup() { return cGroup; }
+		
+		//sceneActor=SceneActor?
+		public Assignment getSceneActorAssignment_0() { return cSceneActorAssignment_0; }
+		
+		//SceneActor
+		public RuleCall getSceneActorSceneActorParserRuleCall_0_0() { return cSceneActorSceneActorParserRuleCall_0_0; }
+		
+		//spriteActors+=SpriteActor*
+		public Assignment getSpriteActorsAssignment_1() { return cSpriteActorsAssignment_1; }
+		
+		//SpriteActor
+		public RuleCall getSpriteActorsSpriteActorParserRuleCall_1_0() { return cSpriteActorsSpriteActorParserRuleCall_1_0; }
+	}
 	public class SceneActorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.SceneActor");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cSceneActorAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cLocalVariablesAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cLocalVariablesVariableDeclarationParserRuleCall_1_0 = (RuleCall)cLocalVariablesAssignment_1.eContents().get(0);
-		private final Assignment cEventHandlersAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cEventHandlersEventHandlerParserRuleCall_2_0 = (RuleCall)cEventHandlersAssignment_2.eContents().get(0);
-		private final Assignment cChildrenAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cChildrenSpriteActorParserRuleCall_3_0 = (RuleCall)cChildrenAssignment_3.eContents().get(0);
+		private final Keyword cSceneKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final RuleCall cBEGINTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cLocalVariablesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cLocalVariablesVariableDeclarationParserRuleCall_3_0 = (RuleCall)cLocalVariablesAssignment_3.eContents().get(0);
+		private final Assignment cEventHandlersAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cEventHandlersEventHandlerParserRuleCall_4_0 = (RuleCall)cEventHandlersAssignment_4.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		
 		//SceneActor:
-		//	{SceneActor} localVariables+=VariableDeclaration*
+		//	{SceneActor}
+		//	'scene'
+		//	BEGIN
+		//	localVariables+=VariableDeclaration*
 		//	eventHandlers+=EventHandler*
-		//	children+=SpriteActor*;
+		//	END;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{SceneActor} localVariables+=VariableDeclaration* eventHandlers+=EventHandler* children+=SpriteActor*
+		//{SceneActor} 'scene' BEGIN localVariables+=VariableDeclaration* eventHandlers+=EventHandler* END
 		public Group getGroup() { return cGroup; }
 		
 		//{SceneActor}
 		public Action getSceneActorAction_0() { return cSceneActorAction_0; }
 		
+		//'scene'
+		public Keyword getSceneKeyword_1() { return cSceneKeyword_1; }
+		
+		//BEGIN
+		public RuleCall getBEGINTerminalRuleCall_2() { return cBEGINTerminalRuleCall_2; }
+		
 		//localVariables+=VariableDeclaration*
-		public Assignment getLocalVariablesAssignment_1() { return cLocalVariablesAssignment_1; }
+		public Assignment getLocalVariablesAssignment_3() { return cLocalVariablesAssignment_3; }
 		
 		//VariableDeclaration
-		public RuleCall getLocalVariablesVariableDeclarationParserRuleCall_1_0() { return cLocalVariablesVariableDeclarationParserRuleCall_1_0; }
+		public RuleCall getLocalVariablesVariableDeclarationParserRuleCall_3_0() { return cLocalVariablesVariableDeclarationParserRuleCall_3_0; }
 		
 		//eventHandlers+=EventHandler*
-		public Assignment getEventHandlersAssignment_2() { return cEventHandlersAssignment_2; }
+		public Assignment getEventHandlersAssignment_4() { return cEventHandlersAssignment_4; }
 		
 		//EventHandler
-		public RuleCall getEventHandlersEventHandlerParserRuleCall_2_0() { return cEventHandlersEventHandlerParserRuleCall_2_0; }
+		public RuleCall getEventHandlersEventHandlerParserRuleCall_4_0() { return cEventHandlersEventHandlerParserRuleCall_4_0; }
 		
-		//children+=SpriteActor*
-		public Assignment getChildrenAssignment_3() { return cChildrenAssignment_3; }
-		
-		//SpriteActor
-		public RuleCall getChildrenSpriteActorParserRuleCall_3_0() { return cChildrenSpriteActorParserRuleCall_3_0; }
+		//END
+		public RuleCall getENDTerminalRuleCall_5() { return cENDTerminalRuleCall_5; }
 	}
 	public class SpriteActorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.SpriteActor");
@@ -1271,6 +1306,7 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
+	private final ProgramElements pProgram;
 	private final SceneActorElements pSceneActor;
 	private final SpriteActorElements pSpriteActor;
 	private final EventHandlerElements pEventHandler;
@@ -1310,6 +1346,7 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 			TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
+		this.pProgram = new ProgramElements();
 		this.pSceneActor = new SceneActorElements();
 		this.pSpriteActor = new SpriteActorElements();
 		this.pEventHandler = new EventHandlerElements();
@@ -1368,10 +1405,24 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
+	//Program:
+	//	sceneActor=SceneActor?
+	//	spriteActors+=SpriteActor*;
+	public ProgramElements getProgramAccess() {
+		return pProgram;
+	}
+	
+	public ParserRule getProgramRule() {
+		return getProgramAccess().getRule();
+	}
+	
 	//SceneActor:
-	//	{SceneActor} localVariables+=VariableDeclaration*
+	//	{SceneActor}
+	//	'scene'
+	//	BEGIN
+	//	localVariables+=VariableDeclaration*
 	//	eventHandlers+=EventHandler*
-	//	children+=SpriteActor*;
+	//	END;
 	public SceneActorElements getSceneActorAccess() {
 		return pSceneActor;
 	}

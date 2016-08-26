@@ -12,12 +12,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import klang.AbstractActor;
 import klang.EventHandler;
 import klang.KlangPackage;
-import klang.Scope;
 
 /**
  * <!-- begin-user-doc -->
@@ -113,7 +113,7 @@ public abstract class AbstractActorImpl<A extends AbstractActor<?>> extends Scop
 	@Override
 	public EList<A> getChildren() {
 		if (children == null) {
-			children = new EObjectContainmentWithInverseEList<A>(AbstractActor.class, this, KlangPackage.ABSTRACT_ACTOR__CHILDREN, KlangPackage.SCOPE__PARENT) { private static final long serialVersionUID = 1L; @Override public Class<?> getInverseFeatureClass() { return Scope.class; } };
+			children = new EObjectResolvingEList<A>(AbstractActor.class, this, KlangPackage.ABSTRACT_ACTOR__CHILDREN);
 		}
 		return children;
 	}

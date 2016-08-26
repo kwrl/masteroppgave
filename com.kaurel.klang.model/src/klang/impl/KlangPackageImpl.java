@@ -29,6 +29,7 @@ import klang.Multiply;
 import klang.Not;
 import klang.Or;
 import klang.Plus;
+import klang.Program;
 import klang.Scope;
 import klang.Sleep;
 import klang.SpriteActor;
@@ -215,6 +216,13 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * @generated
 	 */
 	private EClass scopeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass programEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -426,6 +434,15 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSceneActor_Program() {
+		return (EReference)sceneActorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getSceneActor__Print__String() {
 		return sceneActorEClass.getEOperations().get(0);
 	}
@@ -437,6 +454,15 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 */
 	public EClass getSpriteActor() {
 		return spriteActorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSpriteActor_Program() {
+		return (EReference)spriteActorEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1209,6 +1235,33 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getProgram() {
+		return programEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProgram_SceneActor() {
+		return (EReference)programEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProgram_SpriteActors() {
+		return (EReference)programEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public KlangFactory getKlangFactory() {
 		return (KlangFactory)getEFactoryInstance();
 	}
@@ -1233,9 +1286,11 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 
 		// Create classes and their features
 		sceneActorEClass = createEClass(SCENE_ACTOR);
+		createEReference(sceneActorEClass, SCENE_ACTOR__PROGRAM);
 		createEOperation(sceneActorEClass, SCENE_ACTOR___PRINT__STRING);
 
 		spriteActorEClass = createEClass(SPRITE_ACTOR);
+		createEReference(spriteActorEClass, SPRITE_ACTOR__PROGRAM);
 		createEOperation(spriteActorEClass, SPRITE_ACTOR___PRINT__STRING);
 		createEOperation(spriteActorEClass, SPRITE_ACTOR___GET_X);
 		createEOperation(spriteActorEClass, SPRITE_ACTOR___GET_Y);
@@ -1359,6 +1414,10 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		createEOperation(scopeEClass, SCOPE___GET_VARIABLE_DECLARATION__STRING);
 		createEOperation(scopeEClass, SCOPE___IS_IN_LOCAL_SCOPE__STRING);
 		createEOperation(scopeEClass, SCOPE___IS_IN_PARENT_SCOPE__STRING);
+
+		programEClass = createEClass(PROGRAM);
+		createEReference(programEClass, PROGRAM__SCENE_ACTOR);
+		createEReference(programEClass, PROGRAM__SPRITE_ACTORS);
 	}
 
 	/**
@@ -1449,11 +1508,13 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(sceneActorEClass, SceneActor.class, "SceneActor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSceneActor_Program(), this.getProgram(), this.getProgram_SceneActor(), "program", null, 0, 1, SceneActor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getSceneActor__Print__String(), null, "print", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "message", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(spriteActorEClass, SpriteActor.class, "SpriteActor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSpriteActor_Program(), this.getProgram(), null, "program", null, 0, 1, SpriteActor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getSpriteActor__Print__String(), null, "print", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "message", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -1594,14 +1655,14 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
-		initEClass(scopeEClass, Scope.class, "Scope", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(scopeEClass, Scope.class, "Scope", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getScope_LocalVariables(), this.getVariableDeclaration(), null, "localVariables", null, 0, -1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(scopeEClass_S);
-		initEReference(getScope_Children(), g1, this.getScope_Parent(), "children", null, 0, -1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getScope_Children(), g1, null, "children", null, 0, -1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(this.getScope());
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
-		initEReference(getScope_Parent(), g1, this.getScope_Children(), "parent", null, 0, 1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getScope_Parent(), g1, null, "parent", null, 0, 1, Scope.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getScope__IsInScope__String(), ecorePackage.getEBoolean(), "isInScope", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "variableName", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -1614,6 +1675,10 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 
 		op = initEOperation(getScope__IsInParentScope__String(), ecorePackage.getEBoolean(), "isInParentScope", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "variableName", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getProgram_SceneActor(), this.getSceneActor(), this.getSceneActor_Program(), "sceneActor", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProgram_SpriteActors(), this.getSpriteActor(), null, "spriteActors", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

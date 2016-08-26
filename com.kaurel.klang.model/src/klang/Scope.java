@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see klang.KlangPackage#getScope()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Scope<S extends Scope<?>> extends EObject {
@@ -42,35 +42,31 @@ public interface Scope<S extends Scope<?>> extends EObject {
 	EList<VariableDeclaration> getLocalVariables();
 
 	/**
-	 * Returns the value of the '<em><b>Children</b></em>' containment reference list.
-	 * It is bidirectional and its opposite is '{@link klang.Scope#getParent <em>Parent</em>}'.
+	 * Returns the value of the '<em><b>Children</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Children</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Children</em>' containment reference list.
+	 * @return the value of the '<em>Children</em>' reference list.
 	 * @see klang.KlangPackage#getScope_Children()
-	 * @see klang.Scope#getParent
-	 * @model opposite="parent" containment="true"
+	 * @model
 	 * @generated
 	 */
 	EList<S> getChildren();
 
 	/**
-	 * Returns the value of the '<em><b>Parent</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link klang.Scope#getChildren <em>Children</em>}'.
+	 * Returns the value of the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Parent</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parent</em>' container reference.
+	 * @return the value of the '<em>Parent</em>' reference.
 	 * @see klang.KlangPackage#getScope_Parent()
-	 * @see klang.Scope#getChildren
-	 * @model opposite="children" transient="false" changeable="false"
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true"
 	 * @generated
 	 */
 	Scope<?> getParent();

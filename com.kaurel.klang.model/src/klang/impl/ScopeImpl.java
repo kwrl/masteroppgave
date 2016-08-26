@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import klang.KlangPackage;
@@ -34,7 +34,7 @@ import klang.VariableDeclaration;
  *
  * @generated
  */
-public class ScopeImpl<S extends Scope<?>> extends MinimalEObjectImpl.Container implements Scope<S> {
+public abstract class ScopeImpl<S extends Scope<?>> extends MinimalEObjectImpl.Container implements Scope<S> {
 	/**
 	 * The cached value of the '{@link #getLocalVariables() <em>Local Variables</em>}' containment reference list.
 	 * <!-- begin-user-doc --> <!--
@@ -46,8 +46,9 @@ public class ScopeImpl<S extends Scope<?>> extends MinimalEObjectImpl.Container 
 	protected EList<VariableDeclaration> localVariables;
 
 	/**
-	 * The cached value of the '{@link #getChildren() <em>Children</em>}' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getChildren() <em>Children</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getChildren()
 	 * @generated
 	 * @ordered
@@ -88,7 +89,7 @@ public class ScopeImpl<S extends Scope<?>> extends MinimalEObjectImpl.Container 
 	 */
 	public EList<S> getChildren() {
 		if (children == null) {
-			children = new EObjectContainmentWithInverseEList<S>(Scope.class, this, KlangPackage.SCOPE__CHILDREN, KlangPackage.SCOPE__PARENT);
+			children = new EObjectResolvingEList<S>(Scope.class, this, KlangPackage.SCOPE__CHILDREN);
 		}
 		return children;
 	}
@@ -98,8 +99,9 @@ public class ScopeImpl<S extends Scope<?>> extends MinimalEObjectImpl.Container 
 	 * @generated
 	 */
 	public Scope<?> getParent() {
-		if (eContainerFeatureID() != KlangPackage.SCOPE__PARENT) return null;
-		return (Scope<?>)eInternalContainer();
+		// TODO: implement this method to return the 'Parent' reference
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -154,48 +156,13 @@ public class ScopeImpl<S extends Scope<?>> extends MinimalEObjectImpl.Container 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case KlangPackage.SCOPE__CHILDREN:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getChildren()).basicAdd(otherEnd, msgs);
-			case KlangPackage.SCOPE__PARENT:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return eBasicSetContainer(otherEnd, KlangPackage.SCOPE__PARENT, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case KlangPackage.SCOPE__LOCAL_VARIABLES:
 				return ((InternalEList<?>)getLocalVariables()).basicRemove(otherEnd, msgs);
-			case KlangPackage.SCOPE__CHILDREN:
-				return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
-			case KlangPackage.SCOPE__PARENT:
-				return eBasicSetContainer(null, KlangPackage.SCOPE__PARENT, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case KlangPackage.SCOPE__PARENT:
-				return eInternalContainer().eInverseRemove(this, KlangPackage.SCOPE__CHILDREN, Scope.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**

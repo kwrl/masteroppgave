@@ -27,6 +27,8 @@ Starts : 'starts';
 
 False : 'false';
 
+Scene : 'scene';
+
 Sleep : 'sleep';
 
 While : 'while';

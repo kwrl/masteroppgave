@@ -17,6 +17,11 @@
           lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
+    <eStructuralFeatures
+        xsi:type="ecore:EReference"
+        name="program"
+        eType="#//Program"
+        eOpposite="#//Program/sceneActor"/>
     <eGenericSuperTypes
         eClassifier="#//AbstractActor">
       <eTypeArguments
@@ -67,6 +72,10 @@
           name="sleepDuration"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
     </eOperations>
+    <eStructuralFeatures
+        xsi:type="ecore:EReference"
+        name="program"
+        eType="#//Program"/>
     <eGenericSuperTypes
         eClassifier="#//AbstractActor">
       <eTypeArguments
@@ -467,7 +476,8 @@
   </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"
-      name="Scope">
+      name="Scope"
+      abstract="true">
     <eTypeParameters
         name="S">
       <eBounds
@@ -516,9 +526,7 @@
     <eStructuralFeatures
         xsi:type="ecore:EReference"
         name="children"
-        upperBound="-1"
-        containment="true"
-        eOpposite="#//Scope/parent">
+        upperBound="-1">
       <eGenericType
           eTypeParameter="#//Scope/S"/>
     </eStructuralFeatures>
@@ -526,11 +534,29 @@
         xsi:type="ecore:EReference"
         name="parent"
         changeable="false"
-        eOpposite="#//Scope/children">
+        volatile="true"
+        transient="true"
+        resolveProxies="false">
       <eGenericType
           eClassifier="#//Scope">
         <eTypeArguments/>
       </eGenericType>
     </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers
+      xsi:type="ecore:EClass"
+      name="Program">
+    <eStructuralFeatures
+        xsi:type="ecore:EReference"
+        name="sceneActor"
+        eType="#//SceneActor"
+        containment="true"
+        eOpposite="#//SceneActor/program"/>
+    <eStructuralFeatures
+        xsi:type="ecore:EReference"
+        name="spriteActors"
+        upperBound="-1"
+        eType="#//SpriteActor"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

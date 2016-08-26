@@ -3,16 +3,19 @@
 package klang.tests;
 
 import junit.framework.TestCase;
-
-import junit.textui.TestRunner;
-
-import klang.KlangFactory;
 import klang.Scope;
 
 /**
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Scope</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are tested:
+ * <ul>
+ *   <li>{@link klang.Scope#getChildren() <em>Children</em>}</li>
+ *   <li>{@link klang.Scope#getParent() <em>Parent</em>}</li>
+ * </ul>
+ * </p>
  * <p>
  * The following operations are tested:
  * <ul>
@@ -24,7 +27,7 @@ import klang.Scope;
  * </p>
  * @generated
  */
-public class ScopeTest extends TestCase {
+public abstract class ScopeTest extends TestCase {
 
 	/**
 	 * The fixture for this Scope test case.
@@ -33,15 +36,6 @@ public class ScopeTest extends TestCase {
 	 * @generated
 	 */
 	protected Scope<?> fixture = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static void main(String[] args) {
-		TestRunner.run(ScopeTest.class);
-	}
 
 	/**
 	 * Constructs a new Scope test case with the given name.
@@ -74,25 +68,29 @@ public class ScopeTest extends TestCase {
 	}
 
 	/**
+	 * Tests the '{@link klang.Scope#getChildren() <em>Children</em>}' feature getter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
+	 * @see klang.Scope#getChildren()
 	 * @generated
 	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(KlangFactory.eINSTANCE.createScope());
+	public void testGetChildren() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 	/**
+	 * Tests the '{@link klang.Scope#getParent() <em>Parent</em>}' feature getter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
+	 * @see klang.Scope#getParent()
 	 * @generated
 	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
+	public void testGetParent() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 	/**

@@ -77,7 +77,7 @@ public interface KlangPackage extends EPackage {
 	int SCOPE__LOCAL_VARIABLES = 0;
 
 	/**
-	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Children</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -86,7 +86,7 @@ public interface KlangPackage extends EPackage {
 	int SCOPE__CHILDREN = 1;
 
 	/**
-	 * The feature id for the '<em><b>Parent</b></em>' container reference.
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -168,7 +168,7 @@ public interface KlangPackage extends EPackage {
 	int ABSTRACT_ACTOR__LOCAL_VARIABLES = SCOPE__LOCAL_VARIABLES;
 
 	/**
-	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Children</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -177,7 +177,7 @@ public interface KlangPackage extends EPackage {
 	int ABSTRACT_ACTOR__CHILDREN = SCOPE__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Parent</b></em>' container reference.
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -295,7 +295,7 @@ public interface KlangPackage extends EPackage {
 	int SCENE_ACTOR__LOCAL_VARIABLES = ABSTRACT_ACTOR__LOCAL_VARIABLES;
 
 	/**
-	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Children</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -304,7 +304,7 @@ public interface KlangPackage extends EPackage {
 	int SCENE_ACTOR__CHILDREN = ABSTRACT_ACTOR__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Parent</b></em>' container reference.
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -340,13 +340,22 @@ public interface KlangPackage extends EPackage {
 	int SCENE_ACTOR__SUBJECT = ABSTRACT_ACTOR__SUBJECT;
 
 	/**
+	 * The feature id for the '<em><b>Program</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCENE_ACTOR__PROGRAM = ABSTRACT_ACTOR_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Scene Actor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCENE_ACTOR_FEATURE_COUNT = ABSTRACT_ACTOR_FEATURE_COUNT + 0;
+	int SCENE_ACTOR_FEATURE_COUNT = ABSTRACT_ACTOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is In Scope</em>' operation.
@@ -431,7 +440,7 @@ public interface KlangPackage extends EPackage {
 	int SPRITE_ACTOR__LOCAL_VARIABLES = ABSTRACT_ACTOR__LOCAL_VARIABLES;
 
 	/**
-	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Children</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -440,7 +449,7 @@ public interface KlangPackage extends EPackage {
 	int SPRITE_ACTOR__CHILDREN = ABSTRACT_ACTOR__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Parent</b></em>' container reference.
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -476,13 +485,22 @@ public interface KlangPackage extends EPackage {
 	int SPRITE_ACTOR__SUBJECT = ABSTRACT_ACTOR__SUBJECT;
 
 	/**
+	 * The feature id for the '<em><b>Program</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRITE_ACTOR__PROGRAM = ABSTRACT_ACTOR_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Sprite Actor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPRITE_ACTOR_FEATURE_COUNT = ABSTRACT_ACTOR_FEATURE_COUNT + 0;
+	int SPRITE_ACTOR_FEATURE_COUNT = ABSTRACT_ACTOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is In Scope</em>' operation.
@@ -2399,6 +2417,53 @@ public interface KlangPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link klang.impl.ProgramImpl <em>Program</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.ProgramImpl
+	 * @see klang.impl.KlangPackageImpl#getProgram()
+	 * @generated
+	 */
+	int PROGRAM = 40;
+
+	/**
+	 * The feature id for the '<em><b>Scene Actor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROGRAM__SCENE_ACTOR = 0;
+
+	/**
+	 * The feature id for the '<em><b>Sprite Actors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROGRAM__SPRITE_ACTORS = 1;
+
+	/**
+	 * The number of structural features of the '<em>Program</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROGRAM_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Program</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROGRAM_OPERATION_COUNT = 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link klang.SceneActor <em>Scene Actor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2407,6 +2472,17 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSceneActor();
+
+	/**
+	 * Returns the meta object for the container reference '{@link klang.SceneActor#getProgram <em>Program</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Program</em>'.
+	 * @see klang.SceneActor#getProgram()
+	 * @see #getSceneActor()
+	 * @generated
+	 */
+	EReference getSceneActor_Program();
 
 	/**
 	 * Returns the meta object for the '{@link klang.SceneActor#print(java.lang.String) <em>Print</em>}' operation.
@@ -2427,6 +2503,17 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSpriteActor();
+
+	/**
+	 * Returns the meta object for the reference '{@link klang.SpriteActor#getProgram <em>Program</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Program</em>'.
+	 * @see klang.SpriteActor#getProgram()
+	 * @see #getSpriteActor()
+	 * @generated
+	 */
+	EReference getSpriteActor_Program();
 
 	/**
 	 * Returns the meta object for the '{@link klang.SpriteActor#print(java.lang.String) <em>Print</em>}' operation.
@@ -3251,10 +3338,10 @@ public interface KlangPackage extends EPackage {
 	EReference getScope_LocalVariables();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link klang.Scope#getChildren <em>Children</em>}'.
+	 * Returns the meta object for the reference list '{@link klang.Scope#getChildren <em>Children</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Children</em>'.
+	 * @return the meta object for the reference list '<em>Children</em>'.
 	 * @see klang.Scope#getChildren()
 	 * @see #getScope()
 	 * @generated
@@ -3262,10 +3349,10 @@ public interface KlangPackage extends EPackage {
 	EReference getScope_Children();
 
 	/**
-	 * Returns the meta object for the container reference '{@link klang.Scope#getParent <em>Parent</em>}'.
+	 * Returns the meta object for the reference '{@link klang.Scope#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Parent</em>'.
+	 * @return the meta object for the reference '<em>Parent</em>'.
 	 * @see klang.Scope#getParent()
 	 * @see #getScope()
 	 * @generated
@@ -3313,6 +3400,38 @@ public interface KlangPackage extends EPackage {
 	EOperation getScope__IsInParentScope__String();
 
 	/**
+	 * Returns the meta object for class '{@link klang.Program <em>Program</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Program</em>'.
+	 * @see klang.Program
+	 * @generated
+	 */
+	EClass getProgram();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link klang.Program#getSceneActor <em>Scene Actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Scene Actor</em>'.
+	 * @see klang.Program#getSceneActor()
+	 * @see #getProgram()
+	 * @generated
+	 */
+	EReference getProgram_SceneActor();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link klang.Program#getSpriteActors <em>Sprite Actors</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Sprite Actors</em>'.
+	 * @see klang.Program#getSpriteActors()
+	 * @see #getProgram()
+	 * @generated
+	 */
+	EReference getProgram_SpriteActors();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3346,6 +3465,14 @@ public interface KlangPackage extends EPackage {
 		EClass SCENE_ACTOR = eINSTANCE.getSceneActor();
 
 		/**
+		 * The meta object literal for the '<em><b>Program</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCENE_ACTOR__PROGRAM = eINSTANCE.getSceneActor_Program();
+
+		/**
 		 * The meta object literal for the '<em><b>Print</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3362,6 +3489,14 @@ public interface KlangPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SPRITE_ACTOR = eINSTANCE.getSpriteActor();
+
+		/**
+		 * The meta object literal for the '<em><b>Program</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SPRITE_ACTOR__PROGRAM = eINSTANCE.getSpriteActor_Program();
 
 		/**
 		 * The meta object literal for the '<em><b>Print</b></em>' operation.
@@ -4072,7 +4207,7 @@ public interface KlangPackage extends EPackage {
 		EReference SCOPE__LOCAL_VARIABLES = eINSTANCE.getScope_LocalVariables();
 
 		/**
-		 * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Children</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -4080,7 +4215,7 @@ public interface KlangPackage extends EPackage {
 		EReference SCOPE__CHILDREN = eINSTANCE.getScope_Children();
 
 		/**
-		 * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -4118,6 +4253,32 @@ public interface KlangPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SCOPE___IS_IN_PARENT_SCOPE__STRING = eINSTANCE.getScope__IsInParentScope__String();
+
+		/**
+		 * The meta object literal for the '{@link klang.impl.ProgramImpl <em>Program</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klang.impl.ProgramImpl
+		 * @see klang.impl.KlangPackageImpl#getProgram()
+		 * @generated
+		 */
+		EClass PROGRAM = eINSTANCE.getProgram();
+
+		/**
+		 * The meta object literal for the '<em><b>Scene Actor</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROGRAM__SCENE_ACTOR = eINSTANCE.getProgram_SceneActor();
+
+		/**
+		 * The meta object literal for the '<em><b>Sprite Actors</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROGRAM__SPRITE_ACTORS = eINSTANCE.getProgram_SpriteActors();
 
 	}
 

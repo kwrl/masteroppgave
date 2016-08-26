@@ -62,7 +62,6 @@ public class KlangTests extends TestSuite {
 		suite.addTestSuite(UnaryMinusTest.class);
 		suite.addTestSuite(ToDoubleTest.class);
 		suite.addTestSuite(ToIntTest.class);
-		suite.addTestSuite(ScopeTest.class);
 		return suite;
 	}
 

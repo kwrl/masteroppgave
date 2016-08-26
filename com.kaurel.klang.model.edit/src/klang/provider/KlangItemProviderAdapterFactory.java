@@ -485,26 +485,26 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link klang.Scope} instances.
+	 * This keeps track of the one adapter used for all {@link klang.Program} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ScopeItemProvider scopeItemProvider;
+	protected ProgramItemProvider programItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link klang.Scope}.
+	 * This creates an adapter for a {@link klang.Program}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createScopeAdapter() {
-		if (scopeItemProvider == null) {
-			scopeItemProvider = new ScopeItemProvider(this);
+	public Adapter createProgramAdapter() {
+		if (programItemProvider == null) {
+			programItemProvider = new ProgramItemProvider(this);
 		}
 
-		return scopeItemProvider;
+		return programItemProvider;
 	}
 
 	/**
@@ -1056,7 +1056,7 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 		if (unaryMinusItemProvider != null) unaryMinusItemProvider.dispose();
 		if (toDoubleItemProvider != null) toDoubleItemProvider.dispose();
 		if (toIntItemProvider != null) toIntItemProvider.dispose();
-		if (scopeItemProvider != null) scopeItemProvider.dispose();
+		if (programItemProvider != null) programItemProvider.dispose();
 	}
 
 }

@@ -184,13 +184,13 @@ public interface KlangFactory extends EFactory {
 	ToInt createToInt();
 
 	/**
-	 * Returns a new object of class '<em>Scope</em>'.
+	 * Returns a new object of class '<em>Program</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Scope</em>'.
+	 * @return a new object of class '<em>Program</em>'.
 	 * @generated
 	 */
-	<S extends Scope<?>> Scope<S> createScope();
+	Program createProgram();
 
 	/**
 	 * Returns a new object of class '<em>Expression</em>'.

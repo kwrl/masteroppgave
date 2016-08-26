@@ -56,6 +56,7 @@ import com.kaurel.klang.xtext.services.KlangGrammarAccess;
 		tokenNameToValue.put("When", "'when'");
 		tokenNameToValue.put("With", "'with'");
 		tokenNameToValue.put("False", "'false'");
+		tokenNameToValue.put("Scene", "'scene'");
 		tokenNameToValue.put("Sleep", "'sleep'");
 		tokenNameToValue.put("While", "'while'");
 		tokenNameToValue.put("Double", "'double'");
@@ -83,6 +84,31 @@ import com.kaurel.klang.xtext.services.KlangGrammarAccess;
 			result = tokenName;
 		return result;
 	}
+}
+
+// Entry rule entryRuleProgram
+entryRuleProgram
+:
+{ before(grammarAccess.getProgramRule()); }
+	 ruleProgram
+{ after(grammarAccess.getProgramRule()); } 
+	 EOF 
+;
+
+// Rule Program
+ruleProgram 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getProgramAccess().getGroup()); }
+		(rule__Program__Group__0)
+		{ after(grammarAccess.getProgramAccess().getGroup()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
 }
 
 // Entry rule entryRuleSceneActor
@@ -951,6 +977,60 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__Program__Group__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Program__Group__0__Impl
+	rule__Program__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Program__Group__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getProgramAccess().getSceneActorAssignment_0()); }
+	(rule__Program__SceneActorAssignment_0)?
+	{ after(grammarAccess.getProgramAccess().getSceneActorAssignment_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Program__Group__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Program__Group__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Program__Group__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getProgramAccess().getSpriteActorsAssignment_1()); }
+	(rule__Program__SpriteActorsAssignment_1)*
+	{ after(grammarAccess.getProgramAccess().getSpriteActorsAssignment_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 rule__SceneActor__Group__0
 	@init {
 		int stackSize = keepStackSize();
@@ -996,9 +1076,9 @@ rule__SceneActor__Group__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSceneActorAccess().getLocalVariablesAssignment_1()); }
-	(rule__SceneActor__LocalVariablesAssignment_1)*
-	{ after(grammarAccess.getSceneActorAccess().getLocalVariablesAssignment_1()); }
+	{ before(grammarAccess.getSceneActorAccess().getSceneKeyword_1()); }
+	Scene
+	{ after(grammarAccess.getSceneActorAccess().getSceneKeyword_1()); }
 )
 ;
 finally {
@@ -1023,9 +1103,9 @@ rule__SceneActor__Group__2__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSceneActorAccess().getEventHandlersAssignment_2()); }
-	(rule__SceneActor__EventHandlersAssignment_2)*
-	{ after(grammarAccess.getSceneActorAccess().getEventHandlersAssignment_2()); }
+	{ before(grammarAccess.getSceneActorAccess().getBEGINTerminalRuleCall_2()); }
+	RULE_BEGIN
+	{ after(grammarAccess.getSceneActorAccess().getBEGINTerminalRuleCall_2()); }
 )
 ;
 finally {
@@ -1038,6 +1118,7 @@ rule__SceneActor__Group__3
 	}
 :
 	rule__SceneActor__Group__3__Impl
+	rule__SceneActor__Group__4
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -1049,9 +1130,62 @@ rule__SceneActor__Group__3__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSceneActorAccess().getChildrenAssignment_3()); }
-	(rule__SceneActor__ChildrenAssignment_3)*
-	{ after(grammarAccess.getSceneActorAccess().getChildrenAssignment_3()); }
+	{ before(grammarAccess.getSceneActorAccess().getLocalVariablesAssignment_3()); }
+	(rule__SceneActor__LocalVariablesAssignment_3)*
+	{ after(grammarAccess.getSceneActorAccess().getLocalVariablesAssignment_3()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SceneActor__Group__4
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__SceneActor__Group__4__Impl
+	rule__SceneActor__Group__5
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SceneActor__Group__4__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getSceneActorAccess().getEventHandlersAssignment_4()); }
+	(rule__SceneActor__EventHandlersAssignment_4)*
+	{ after(grammarAccess.getSceneActorAccess().getEventHandlersAssignment_4()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SceneActor__Group__5
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__SceneActor__Group__5__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SceneActor__Group__5__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getSceneActorAccess().getENDTerminalRuleCall_5()); }
+	RULE_END
+	{ after(grammarAccess.getSceneActorAccess().getENDTerminalRuleCall_5()); }
 )
 ;
 finally {
@@ -5109,45 +5243,60 @@ finally {
 }
 
 
-rule__SceneActor__LocalVariablesAssignment_1
+rule__Program__SceneActorAssignment_0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSceneActorAccess().getLocalVariablesVariableDeclarationParserRuleCall_1_0()); }
-		ruleVariableDeclaration
-		{ after(grammarAccess.getSceneActorAccess().getLocalVariablesVariableDeclarationParserRuleCall_1_0()); }
+		{ before(grammarAccess.getProgramAccess().getSceneActorSceneActorParserRuleCall_0_0()); }
+		ruleSceneActor
+		{ after(grammarAccess.getProgramAccess().getSceneActorSceneActorParserRuleCall_0_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SceneActor__EventHandlersAssignment_2
+rule__Program__SpriteActorsAssignment_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSceneActorAccess().getEventHandlersEventHandlerParserRuleCall_2_0()); }
-		ruleEventHandler
-		{ after(grammarAccess.getSceneActorAccess().getEventHandlersEventHandlerParserRuleCall_2_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__SceneActor__ChildrenAssignment_3
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getSceneActorAccess().getChildrenSpriteActorParserRuleCall_3_0()); }
+		{ before(grammarAccess.getProgramAccess().getSpriteActorsSpriteActorParserRuleCall_1_0()); }
 		ruleSpriteActor
-		{ after(grammarAccess.getSceneActorAccess().getChildrenSpriteActorParserRuleCall_3_0()); }
+		{ after(grammarAccess.getProgramAccess().getSpriteActorsSpriteActorParserRuleCall_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SceneActor__LocalVariablesAssignment_3
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getSceneActorAccess().getLocalVariablesVariableDeclarationParserRuleCall_3_0()); }
+		ruleVariableDeclaration
+		{ after(grammarAccess.getSceneActorAccess().getLocalVariablesVariableDeclarationParserRuleCall_3_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SceneActor__EventHandlersAssignment_4
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getSceneActorAccess().getEventHandlersEventHandlerParserRuleCall_4_0()); }
+		ruleEventHandler
+		{ after(grammarAccess.getSceneActorAccess().getEventHandlersEventHandlerParserRuleCall_4_0()); }
 	)
 ;
 finally {
