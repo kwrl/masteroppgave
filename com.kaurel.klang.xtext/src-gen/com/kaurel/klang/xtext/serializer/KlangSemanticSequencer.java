@@ -940,7 +940,7 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Program returns Program
 	 *
 	 * Constraint:
-	 *     ((sceneActor=SceneActor spriteActors+=SpriteActor+) | spriteActors+=SpriteActor+)?
+	 *     (sceneActor=SceneActor spriteActors+=SpriteActor*)
 	 */
 	protected void sequence_Program(ISerializationContext context, Program semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -952,7 +952,7 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     SceneActor returns SceneActor
 	 *
 	 * Constraint:
-	 *     (localVariables+=VariableDeclaration* eventHandlers+=EventHandler*)
+	 *     (name=ID localVariables+=VariableDeclaration* eventHandlers+=EventHandler*)
 	 */
 	protected void sequence_SceneActor(ISerializationContext context, SceneActor semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

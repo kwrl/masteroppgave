@@ -79,9 +79,9 @@ public class EventHandlerImpl extends MinimalEObjectImpl.Container implements Ev
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractActor<?> getActor() {
+	public AbstractActor getActor() {
 		if (eContainerFeatureID() != KlangPackage.EVENT_HANDLER__ACTOR) return null;
-		return (AbstractActor<?>)eInternalContainer();
+		return (AbstractActor)eInternalContainer();
 	}
 
 	/**

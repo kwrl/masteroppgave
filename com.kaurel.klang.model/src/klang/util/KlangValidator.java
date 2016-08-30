@@ -3,7 +3,6 @@
 package klang.util;
 
 import java.util.Map;
-import klang.*;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -11,6 +10,50 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
 import com.kaurel.klang.model.KlangPlugin;
+
+import klang.AbstractActor;
+import klang.AbstractElement;
+import klang.And;
+import klang.BinaryOperator;
+import klang.BooleanLiteral;
+import klang.CollidesWith;
+import klang.Divide;
+import klang.DoubleLiteral;
+import klang.Equal;
+import klang.EventHandler;
+import klang.Expression;
+import klang.ForeverLoop;
+import klang.FunctionCall;
+import klang.GameStart;
+import klang.GreaterThan;
+import klang.If;
+import klang.IntegerLiteral;
+import klang.KeyPressed;
+import klang.KlangPackage;
+import klang.LessThan;
+import klang.Minus;
+import klang.Multiply;
+import klang.Not;
+import klang.Or;
+import klang.Plus;
+import klang.Program;
+import klang.SceneActor;
+import klang.Sleep;
+import klang.SpriteActor;
+import klang.SpriteClicked;
+import klang.Statement;
+import klang.StringLiteral;
+import klang.ToDouble;
+import klang.ToInt;
+import klang.TreeNode;
+import klang.TreeTraversal;
+import klang.UnaryMinus;
+import klang.UnaryOperator;
+import klang.VariableAssignment;
+import klang.VariableDeclaration;
+import klang.VariableReference;
+import klang.WhileLoop;
+import klang.Yield;
 
 /**
  * <!-- begin-user-doc --> The <b>Validator</b> for the model. <!-- end-user-doc
@@ -132,6 +175,8 @@ public class KlangValidator extends EObjectValidator {
 				return validateStringLiteral((StringLiteral)value, diagnostics, context);
 			case KlangPackage.VARIABLE_REFERENCE:
 				return validateVariableReference((VariableReference)value, diagnostics, context);
+			case KlangPackage.ABSTRACT_ACTOR:
+				return validateAbstractActor((AbstractActor)value, diagnostics, context);
 			case KlangPackage.UNARY_OPERATOR:
 				return validateUnaryOperator((UnaryOperator)value, diagnostics, context);
 			case KlangPackage.BINARY_OPERATOR:
@@ -160,12 +205,12 @@ public class KlangValidator extends EObjectValidator {
 				return validateToDouble((ToDouble)value, diagnostics, context);
 			case KlangPackage.TO_INT:
 				return validateToInt((ToInt)value, diagnostics, context);
-			case KlangPackage.ABSTRACT_ACTOR:
-				return validateAbstractActor((AbstractActor<?>)value, diagnostics, context);
-			case KlangPackage.SCOPE:
-				return validateScope((Scope<?>)value, diagnostics, context);
 			case KlangPackage.PROGRAM:
 				return validateProgram((Program)value, diagnostics, context);
+			case KlangPackage.TREE_NODE:
+				return validateTreeNode((TreeNode<?>)value, diagnostics, context);
+			case KlangPackage.TREE_TRAVERSAL:
+				return validateTreeTraversal((TreeTraversal)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -257,7 +302,7 @@ public class KlangValidator extends EObjectValidator {
 	 */
 	public boolean validateVariableDeclaration_scope(VariableDeclaration variableDeclaration,
 			DiagnosticChain diagnostics, Map<Object, Object> context) {
-		AbstractActor<?> actor = variableDeclaration.getActor();
+		AbstractActor actor = variableDeclaration.getActor();
 
 		boolean declaredInLocalAndParentScope = actor.isInLocalScope(variableDeclaration.getName())
 				&& actor.isInParentScope(variableDeclaration.getName());
@@ -331,7 +376,7 @@ public class KlangValidator extends EObjectValidator {
 	 */
 	public boolean validateVariableAssignment_scope(VariableAssignment variableAssignment, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		AbstractActor<?> actor = variableAssignment.getActor();
+		AbstractActor actor = variableAssignment.getActor();
 
 		if (!actor.isInScope(variableAssignment.getVariableName())) {
 			if (diagnostics != null) {
@@ -607,14 +652,14 @@ public class KlangValidator extends EObjectValidator {
 	 */
 	public boolean validateVariableReference_scope(VariableReference variableReference, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		AbstractActor<?> actor = variableReference.getActor();
+		AbstractActor actor = variableReference.getActor();
 		if (!actor.isInScope(variableReference.getVariableName())) {
 			if (diagnostics != null) {
 				diagnostics.add(createDiagnostic(Diagnostic.ERROR,
 						DIAGNOSTIC_SOURCE,
 						0,
 						"_VariableReference_undefined",
-						new Object[] { "scope", getObjectLabel(variableReference, context) },
+						new Object[] { variableReference.getVariableName(), getObjectLabel(variableReference, context) },
 						new Object[] { variableReference },
 						context));
 			}
@@ -887,17 +932,8 @@ public class KlangValidator extends EObjectValidator {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateAbstractActor(AbstractActor<?> abstractActor, DiagnosticChain diagnostics,
-			Map<Object, Object> context) {
+	public boolean validateAbstractActor(AbstractActor abstractActor, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(abstractActor, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateScope(Scope<?> scope, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(scope, diagnostics, context);
 	}
 
 	/**
@@ -907,6 +943,24 @@ public class KlangValidator extends EObjectValidator {
 	 */
 	public boolean validateProgram(Program program, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(program, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTreeNode(TreeNode<?> treeNode, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(treeNode, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTreeTraversal(TreeTraversal treeTraversal, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(treeTraversal, diagnostics, context);
 	}
 
 	/**

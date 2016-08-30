@@ -13,11 +13,18 @@ import klang.KlangPackage;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -26,7 +33,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AbstractActorItemProvider extends ScopeItemProvider {
+public class AbstractActorItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -48,10 +55,56 @@ public class AbstractActorItemProvider extends ScopeItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addChildrenPropertyDescriptor(object);
+			addParentPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addSubjectPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Children feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addChildrenPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TreeNode_children_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TreeNode_children_feature", "_UI_TreeNode_type"),
+				 KlangPackage.Literals.TREE_NODE__CHILDREN,
+				 false,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Parent feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addParentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TreeNode_parent_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TreeNode_parent_feature", "_UI_TreeNode_type"),
+				 KlangPackage.Literals.TREE_NODE__PARENT,
+				 false,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -111,6 +164,7 @@ public class AbstractActorItemProvider extends ScopeItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(KlangPackage.Literals.ABSTRACT_ACTOR__EVENT_HANDLERS);
+			childrenFeatures.add(KlangPackage.Literals.ABSTRACT_ACTOR__LOCAL_VARIABLES);
 		}
 		return childrenFeatures;
 	}
@@ -136,7 +190,7 @@ public class AbstractActorItemProvider extends ScopeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((AbstractActor<?>)object).getName();
+		String label = ((AbstractActor)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_AbstractActor_type") :
 			getString("_UI_AbstractActor_type") + " " + label;
@@ -160,6 +214,7 @@ public class AbstractActorItemProvider extends ScopeItemProvider {
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case KlangPackage.ABSTRACT_ACTOR__EVENT_HANDLERS:
+			case KlangPackage.ABSTRACT_ACTOR__LOCAL_VARIABLES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -201,6 +256,22 @@ public class AbstractActorItemProvider extends ScopeItemProvider {
 			(createChildParameter
 				(KlangPackage.Literals.ABSTRACT_ACTOR__EVENT_HANDLERS,
 				 KlangFactory.eINSTANCE.createCollidesWith()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.ABSTRACT_ACTOR__LOCAL_VARIABLES,
+				 KlangFactory.eINSTANCE.createVariableDeclaration()));
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return KlangEditPlugin.INSTANCE;
 	}
 
 }

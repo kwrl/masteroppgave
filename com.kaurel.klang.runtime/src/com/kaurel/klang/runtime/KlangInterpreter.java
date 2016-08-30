@@ -2,7 +2,7 @@ package com.kaurel.klang.runtime;
 
 import com.kaurel.klang.runtime.threading.KlangScheduler;
 
-import klang.Entity;
+import klang.AbstractActor;
 import klang.EventHandler;
 import klang.SceneActor;
 import klang.VariableDeclaration;
@@ -14,34 +14,25 @@ public class KlangInterpreter {
 	public KlangInterpreter(SceneActor sceneActor) {
 		this.sceneActor = sceneActor;
 		
-		// Initialize variables
-		ExpressionEvaluator evaluator = new ExpressionEvaluatorImpl(sceneActor);
-		sceneActor.getLocalVariables().stream()
-				.forEach(v -> v.setValue(evaluator.evaluate(v.getExpression())));
-
-		sceneActor.getChildren().stream()
-				.flatMap(a -> a.getLocalVariables().stream())
-				.forEach(v -> v.setValue(evaluator.evaluate(v.getExpression())));
-		
-		sceneActor.getChildren().stream()
-			.forEach(a -> {
-				ExpressionEvaluator eval = new ExpressionEvaluatorImpl(a);
-				for(VariableDeclaration var : a.getLocalVariables()) {
-					var.setValue(eval.evaluate(var.getExpression()));
-				}
-			});
+		for(AbstractActor actor : sceneActor.traverseBFS()) {
+			ExpressionEvaluator evaluator = new ExpressionEvaluatorImpl(actor);
+			for(VariableDeclaration varDecl : actor.getLocalVariables()) {
+				Object value = evaluator.evaluate(varDecl.getExpression());
+				varDecl.setValue(value);
+			}
+		}
 	}
 
-	public void triggerEvent(Entity entity, Class<? extends EventHandler> type) {
-		entity.getActor()
-				.getEventHandlers()
+	public void triggerEvent(AbstractActor actor, Class<? extends EventHandler> type) {
+		actor.getEventHandlers()
 				.stream()
 				.filter(e -> type.isInstance(e))
 				.forEach(e -> scheduler.processEventHandler(e));
 	}
 
 	public void triggerEvent(Class<? extends EventHandler> type) {
-		sceneActor.getSubtree().stream()
+		sceneActor.traverseBFS()
+				.stream()
 				.flatMap(a -> a.getEventHandlers().stream())
 				.filter(e -> type.isInstance(e))
 				.forEach(e -> scheduler.processEventHandler(e));

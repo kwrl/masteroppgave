@@ -13,7 +13,7 @@ import com.google.inject.Injector;
 import com.kaurel.klang.xtext.KlangStandaloneSetup;
 
 import klang.KlangPackage;
-import klang.SceneActor;
+import klang.Program;
 
 public class ProgramParser {
 	public static final ProgramParser INSTANCE = new ProgramParser();
@@ -28,9 +28,9 @@ public class ProgramParser {
 		resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
 	}
 	
-	public SceneActor parseProgram(InputStream input) throws IOException{
+	public Program parseProgram(InputStream input) throws IOException{
 		Resource resource = resourceSet.createResource(URI.createURI("dummy.klang"));
 		resource.load(input, resourceSet.getLoadOptions());
-		return (SceneActor) resource.getContents().get(0);
+		return (Program) resource.getContents().get(0);
 	}
 }

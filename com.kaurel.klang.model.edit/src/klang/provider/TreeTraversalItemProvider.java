@@ -6,16 +6,10 @@ package klang.provider;
 import java.util.Collection;
 import java.util.List;
 
-import klang.KlangFactory;
-import klang.KlangPackage;
-import klang.Scope;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -24,15 +18,14 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link klang.Scope} object.
+ * This is the item provider adapter for a {@link klang.TreeTraversal} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ScopeItemProvider 
+public class TreeTraversalItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -46,7 +39,7 @@ public class ScopeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ScopeItemProvider(AdapterFactory adapterFactory) {
+	public TreeTraversalItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -66,34 +59,14 @@ public class ScopeItemProvider
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This returns TreeTraversal.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(KlangPackage.Literals.SCOPE__LOCAL_VARIABLES);
-			childrenFeatures.add(KlangPackage.Literals.SCOPE__CHILDREN);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TreeTraversal"));
 	}
 
 	/**
@@ -104,7 +77,7 @@ public class ScopeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Scope_type");
+		return getString("_UI_TreeTraversal_type");
 	}
 	
 
@@ -118,13 +91,6 @@ public class ScopeItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Scope.class)) {
-			case KlangPackage.SCOPE__LOCAL_VARIABLES:
-			case KlangPackage.SCOPE__CHILDREN:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 
@@ -138,21 +104,6 @@ public class ScopeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.SCOPE__LOCAL_VARIABLES,
-				 KlangFactory.eINSTANCE.createVariableDeclaration()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.SCOPE__CHILDREN,
-				 KlangFactory.eINSTANCE.createSceneActor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KlangPackage.Literals.SCOPE__CHILDREN,
-				 KlangFactory.eINSTANCE.createSpriteActor()));
 	}
 
 	/**

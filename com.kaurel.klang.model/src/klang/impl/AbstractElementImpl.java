@@ -42,12 +42,12 @@ public abstract class AbstractElementImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public AbstractActor<?> getActor() {
+	public AbstractActor getActor() {
 		EObject current = this;
 		while (current != null) {
 			current = current.eContainer();
 			if (current instanceof AbstractActor) {
-				return (AbstractActor<?>) current;
+				return (AbstractActor) current;
 			}
 		}
 		return null;

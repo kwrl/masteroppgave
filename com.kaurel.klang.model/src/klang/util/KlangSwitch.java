@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.util.Switch;
  * @see klang.KlangPackage
  * @generated
  */
-public class KlangSwitch<T> extends Switch<T> {
+public class KlangSwitch<T1> extends Switch<T1> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -63,33 +63,33 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	@Override
-	protected T doSwitch(int classifierID, EObject theEObject) {
+	protected T1 doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
 			case KlangPackage.SCENE_ACTOR: {
 				SceneActor sceneActor = (SceneActor)theEObject;
-				T result = caseSceneActor(sceneActor);
+				T1 result = caseSceneActor(sceneActor);
 				if (result == null) result = caseAbstractActor(sceneActor);
-				if (result == null) result = caseScope(sceneActor);
+				if (result == null) result = caseTreeNode(sceneActor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case KlangPackage.SPRITE_ACTOR: {
 				SpriteActor spriteActor = (SpriteActor)theEObject;
-				T result = caseSpriteActor(spriteActor);
+				T1 result = caseSpriteActor(spriteActor);
 				if (result == null) result = caseAbstractActor(spriteActor);
-				if (result == null) result = caseScope(spriteActor);
+				if (result == null) result = caseTreeNode(spriteActor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case KlangPackage.EVENT_HANDLER: {
 				EventHandler eventHandler = (EventHandler)theEObject;
-				T result = caseEventHandler(eventHandler);
+				T1 result = caseEventHandler(eventHandler);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case KlangPackage.WHILE_LOOP: {
 				WhileLoop whileLoop = (WhileLoop)theEObject;
-				T result = caseWhileLoop(whileLoop);
+				T1 result = caseWhileLoop(whileLoop);
 				if (result == null) result = caseStatement(whileLoop);
 				if (result == null) result = caseAbstractElement(whileLoop);
 				if (result == null) result = defaultCase(theEObject);
@@ -97,7 +97,7 @@ public class KlangSwitch<T> extends Switch<T> {
 			}
 			case KlangPackage.IF: {
 				If if_ = (If)theEObject;
-				T result = caseIf(if_);
+				T1 result = caseIf(if_);
 				if (result == null) result = caseStatement(if_);
 				if (result == null) result = caseAbstractElement(if_);
 				if (result == null) result = defaultCase(theEObject);
@@ -105,7 +105,7 @@ public class KlangSwitch<T> extends Switch<T> {
 			}
 			case KlangPackage.FOREVER_LOOP: {
 				ForeverLoop foreverLoop = (ForeverLoop)theEObject;
-				T result = caseForeverLoop(foreverLoop);
+				T1 result = caseForeverLoop(foreverLoop);
 				if (result == null) result = caseStatement(foreverLoop);
 				if (result == null) result = caseAbstractElement(foreverLoop);
 				if (result == null) result = defaultCase(theEObject);
@@ -113,7 +113,7 @@ public class KlangSwitch<T> extends Switch<T> {
 			}
 			case KlangPackage.YIELD: {
 				Yield yield = (Yield)theEObject;
-				T result = caseYield(yield);
+				T1 result = caseYield(yield);
 				if (result == null) result = caseStatement(yield);
 				if (result == null) result = caseAbstractElement(yield);
 				if (result == null) result = defaultCase(theEObject);
@@ -121,14 +121,14 @@ public class KlangSwitch<T> extends Switch<T> {
 			}
 			case KlangPackage.VARIABLE_DECLARATION: {
 				VariableDeclaration variableDeclaration = (VariableDeclaration)theEObject;
-				T result = caseVariableDeclaration(variableDeclaration);
+				T1 result = caseVariableDeclaration(variableDeclaration);
 				if (result == null) result = caseAbstractElement(variableDeclaration);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case KlangPackage.VARIABLE_ASSIGNMENT: {
 				VariableAssignment variableAssignment = (VariableAssignment)theEObject;
-				T result = caseVariableAssignment(variableAssignment);
+				T1 result = caseVariableAssignment(variableAssignment);
 				if (result == null) result = caseStatement(variableAssignment);
 				if (result == null) result = caseAbstractElement(variableAssignment);
 				if (result == null) result = defaultCase(theEObject);
@@ -136,14 +136,14 @@ public class KlangSwitch<T> extends Switch<T> {
 			}
 			case KlangPackage.EXPRESSION: {
 				Expression expression = (Expression)theEObject;
-				T result = caseExpression(expression);
+				T1 result = caseExpression(expression);
 				if (result == null) result = caseAbstractElement(expression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case KlangPackage.OR: {
 				Or or = (Or)theEObject;
-				T result = caseOr(or);
+				T1 result = caseOr(or);
 				if (result == null) result = caseBinaryOperator(or);
 				if (result == null) result = caseExpression(or);
 				if (result == null) result = caseAbstractElement(or);
@@ -152,7 +152,7 @@ public class KlangSwitch<T> extends Switch<T> {
 			}
 			case KlangPackage.AND: {
 				And and = (And)theEObject;
-				T result = caseAnd(and);
+				T1 result = caseAnd(and);
 				if (result == null) result = caseBinaryOperator(and);
 				if (result == null) result = caseExpression(and);
 				if (result == null) result = caseAbstractElement(and);
@@ -161,7 +161,7 @@ public class KlangSwitch<T> extends Switch<T> {
 			}
 			case KlangPackage.PLUS: {
 				Plus plus = (Plus)theEObject;
-				T result = casePlus(plus);
+				T1 result = casePlus(plus);
 				if (result == null) result = caseBinaryOperator(plus);
 				if (result == null) result = caseExpression(plus);
 				if (result == null) result = caseAbstractElement(plus);
@@ -170,7 +170,7 @@ public class KlangSwitch<T> extends Switch<T> {
 			}
 			case KlangPackage.MINUS: {
 				Minus minus = (Minus)theEObject;
-				T result = caseMinus(minus);
+				T1 result = caseMinus(minus);
 				if (result == null) result = caseBinaryOperator(minus);
 				if (result == null) result = caseExpression(minus);
 				if (result == null) result = caseAbstractElement(minus);
@@ -179,7 +179,7 @@ public class KlangSwitch<T> extends Switch<T> {
 			}
 			case KlangPackage.MULTIPLY: {
 				Multiply multiply = (Multiply)theEObject;
-				T result = caseMultiply(multiply);
+				T1 result = caseMultiply(multiply);
 				if (result == null) result = caseBinaryOperator(multiply);
 				if (result == null) result = caseExpression(multiply);
 				if (result == null) result = caseAbstractElement(multiply);
@@ -188,7 +188,7 @@ public class KlangSwitch<T> extends Switch<T> {
 			}
 			case KlangPackage.DIVIDE: {
 				Divide divide = (Divide)theEObject;
-				T result = caseDivide(divide);
+				T1 result = caseDivide(divide);
 				if (result == null) result = caseBinaryOperator(divide);
 				if (result == null) result = caseExpression(divide);
 				if (result == null) result = caseAbstractElement(divide);
@@ -197,7 +197,7 @@ public class KlangSwitch<T> extends Switch<T> {
 			}
 			case KlangPackage.LESS_THAN: {
 				LessThan lessThan = (LessThan)theEObject;
-				T result = caseLessThan(lessThan);
+				T1 result = caseLessThan(lessThan);
 				if (result == null) result = caseBinaryOperator(lessThan);
 				if (result == null) result = caseExpression(lessThan);
 				if (result == null) result = caseAbstractElement(lessThan);
@@ -206,7 +206,7 @@ public class KlangSwitch<T> extends Switch<T> {
 			}
 			case KlangPackage.EQUAL: {
 				Equal equal = (Equal)theEObject;
-				T result = caseEqual(equal);
+				T1 result = caseEqual(equal);
 				if (result == null) result = caseBinaryOperator(equal);
 				if (result == null) result = caseExpression(equal);
 				if (result == null) result = caseAbstractElement(equal);
@@ -215,7 +215,7 @@ public class KlangSwitch<T> extends Switch<T> {
 			}
 			case KlangPackage.GREATER_THAN: {
 				GreaterThan greaterThan = (GreaterThan)theEObject;
-				T result = caseGreaterThan(greaterThan);
+				T1 result = caseGreaterThan(greaterThan);
 				if (result == null) result = caseExpression(greaterThan);
 				if (result == null) result = caseAbstractElement(greaterThan);
 				if (result == null) result = defaultCase(theEObject);
@@ -223,7 +223,7 @@ public class KlangSwitch<T> extends Switch<T> {
 			}
 			case KlangPackage.NOT: {
 				Not not = (Not)theEObject;
-				T result = caseNot(not);
+				T1 result = caseNot(not);
 				if (result == null) result = caseUnaryOperator(not);
 				if (result == null) result = caseExpression(not);
 				if (result == null) result = caseAbstractElement(not);
@@ -232,7 +232,7 @@ public class KlangSwitch<T> extends Switch<T> {
 			}
 			case KlangPackage.BOOLEAN_LITERAL: {
 				BooleanLiteral booleanLiteral = (BooleanLiteral)theEObject;
-				T result = caseBooleanLiteral(booleanLiteral);
+				T1 result = caseBooleanLiteral(booleanLiteral);
 				if (result == null) result = caseExpression(booleanLiteral);
 				if (result == null) result = caseAbstractElement(booleanLiteral);
 				if (result == null) result = defaultCase(theEObject);
@@ -240,7 +240,7 @@ public class KlangSwitch<T> extends Switch<T> {
 			}
 			case KlangPackage.DOUBLE_LITERAL: {
 				DoubleLiteral doubleLiteral = (DoubleLiteral)theEObject;
-				T result = caseDoubleLiteral(doubleLiteral);
+				T1 result = caseDoubleLiteral(doubleLiteral);
 				if (result == null) result = caseExpression(doubleLiteral);
 				if (result == null) result = caseAbstractElement(doubleLiteral);
 				if (result == null) result = defaultCase(theEObject);
@@ -248,7 +248,7 @@ public class KlangSwitch<T> extends Switch<T> {
 			}
 			case KlangPackage.STRING_LITERAL: {
 				StringLiteral stringLiteral = (StringLiteral)theEObject;
-				T result = caseStringLiteral(stringLiteral);
+				T1 result = caseStringLiteral(stringLiteral);
 				if (result == null) result = caseExpression(stringLiteral);
 				if (result == null) result = caseAbstractElement(stringLiteral);
 				if (result == null) result = defaultCase(theEObject);
@@ -256,15 +256,22 @@ public class KlangSwitch<T> extends Switch<T> {
 			}
 			case KlangPackage.VARIABLE_REFERENCE: {
 				VariableReference variableReference = (VariableReference)theEObject;
-				T result = caseVariableReference(variableReference);
+				T1 result = caseVariableReference(variableReference);
 				if (result == null) result = caseExpression(variableReference);
 				if (result == null) result = caseAbstractElement(variableReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case KlangPackage.ABSTRACT_ACTOR: {
+				AbstractActor abstractActor = (AbstractActor)theEObject;
+				T1 result = caseAbstractActor(abstractActor);
+				if (result == null) result = caseTreeNode(abstractActor);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case KlangPackage.UNARY_OPERATOR: {
 				UnaryOperator unaryOperator = (UnaryOperator)theEObject;
-				T result = caseUnaryOperator(unaryOperator);
+				T1 result = caseUnaryOperator(unaryOperator);
 				if (result == null) result = caseExpression(unaryOperator);
 				if (result == null) result = caseAbstractElement(unaryOperator);
 				if (result == null) result = defaultCase(theEObject);
@@ -272,7 +279,7 @@ public class KlangSwitch<T> extends Switch<T> {
 			}
 			case KlangPackage.BINARY_OPERATOR: {
 				BinaryOperator binaryOperator = (BinaryOperator)theEObject;
-				T result = caseBinaryOperator(binaryOperator);
+				T1 result = caseBinaryOperator(binaryOperator);
 				if (result == null) result = caseExpression(binaryOperator);
 				if (result == null) result = caseAbstractElement(binaryOperator);
 				if (result == null) result = defaultCase(theEObject);
@@ -280,7 +287,7 @@ public class KlangSwitch<T> extends Switch<T> {
 			}
 			case KlangPackage.FUNCTION_CALL: {
 				FunctionCall functionCall = (FunctionCall)theEObject;
-				T result = caseFunctionCall(functionCall);
+				T1 result = caseFunctionCall(functionCall);
 				if (result == null) result = caseExpression(functionCall);
 				if (result == null) result = caseStatement(functionCall);
 				if (result == null) result = caseAbstractElement(functionCall);
@@ -289,48 +296,48 @@ public class KlangSwitch<T> extends Switch<T> {
 			}
 			case KlangPackage.STATEMENT: {
 				Statement statement = (Statement)theEObject;
-				T result = caseStatement(statement);
+				T1 result = caseStatement(statement);
 				if (result == null) result = caseAbstractElement(statement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case KlangPackage.ABSTRACT_ELEMENT: {
 				AbstractElement abstractElement = (AbstractElement)theEObject;
-				T result = caseAbstractElement(abstractElement);
+				T1 result = caseAbstractElement(abstractElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case KlangPackage.GAME_START: {
 				GameStart gameStart = (GameStart)theEObject;
-				T result = caseGameStart(gameStart);
+				T1 result = caseGameStart(gameStart);
 				if (result == null) result = caseEventHandler(gameStart);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case KlangPackage.SPRITE_CLICKED: {
 				SpriteClicked spriteClicked = (SpriteClicked)theEObject;
-				T result = caseSpriteClicked(spriteClicked);
+				T1 result = caseSpriteClicked(spriteClicked);
 				if (result == null) result = caseEventHandler(spriteClicked);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case KlangPackage.KEY_PRESSED: {
 				KeyPressed keyPressed = (KeyPressed)theEObject;
-				T result = caseKeyPressed(keyPressed);
+				T1 result = caseKeyPressed(keyPressed);
 				if (result == null) result = caseEventHandler(keyPressed);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case KlangPackage.COLLIDES_WITH: {
 				CollidesWith collidesWith = (CollidesWith)theEObject;
-				T result = caseCollidesWith(collidesWith);
+				T1 result = caseCollidesWith(collidesWith);
 				if (result == null) result = caseEventHandler(collidesWith);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case KlangPackage.INTEGER_LITERAL: {
 				IntegerLiteral integerLiteral = (IntegerLiteral)theEObject;
-				T result = caseIntegerLiteral(integerLiteral);
+				T1 result = caseIntegerLiteral(integerLiteral);
 				if (result == null) result = caseExpression(integerLiteral);
 				if (result == null) result = caseAbstractElement(integerLiteral);
 				if (result == null) result = defaultCase(theEObject);
@@ -338,7 +345,7 @@ public class KlangSwitch<T> extends Switch<T> {
 			}
 			case KlangPackage.SLEEP: {
 				Sleep sleep = (Sleep)theEObject;
-				T result = caseSleep(sleep);
+				T1 result = caseSleep(sleep);
 				if (result == null) result = caseStatement(sleep);
 				if (result == null) result = caseAbstractElement(sleep);
 				if (result == null) result = defaultCase(theEObject);
@@ -346,7 +353,7 @@ public class KlangSwitch<T> extends Switch<T> {
 			}
 			case KlangPackage.UNARY_MINUS: {
 				UnaryMinus unaryMinus = (UnaryMinus)theEObject;
-				T result = caseUnaryMinus(unaryMinus);
+				T1 result = caseUnaryMinus(unaryMinus);
 				if (result == null) result = caseUnaryOperator(unaryMinus);
 				if (result == null) result = caseExpression(unaryMinus);
 				if (result == null) result = caseAbstractElement(unaryMinus);
@@ -355,7 +362,7 @@ public class KlangSwitch<T> extends Switch<T> {
 			}
 			case KlangPackage.TO_DOUBLE: {
 				ToDouble toDouble = (ToDouble)theEObject;
-				T result = caseToDouble(toDouble);
+				T1 result = caseToDouble(toDouble);
 				if (result == null) result = caseUnaryOperator(toDouble);
 				if (result == null) result = caseExpression(toDouble);
 				if (result == null) result = caseAbstractElement(toDouble);
@@ -364,29 +371,28 @@ public class KlangSwitch<T> extends Switch<T> {
 			}
 			case KlangPackage.TO_INT: {
 				ToInt toInt = (ToInt)theEObject;
-				T result = caseToInt(toInt);
+				T1 result = caseToInt(toInt);
 				if (result == null) result = caseUnaryOperator(toInt);
 				if (result == null) result = caseExpression(toInt);
 				if (result == null) result = caseAbstractElement(toInt);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case KlangPackage.ABSTRACT_ACTOR: {
-				AbstractActor<?> abstractActor = (AbstractActor<?>)theEObject;
-				T result = caseAbstractActor(abstractActor);
-				if (result == null) result = caseScope(abstractActor);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case KlangPackage.SCOPE: {
-				Scope<?> scope = (Scope<?>)theEObject;
-				T result = caseScope(scope);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case KlangPackage.PROGRAM: {
 				Program program = (Program)theEObject;
-				T result = caseProgram(program);
+				T1 result = caseProgram(program);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case KlangPackage.TREE_NODE: {
+				TreeNode<?> treeNode = (TreeNode<?>)theEObject;
+				T1 result = caseTreeNode(treeNode);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case KlangPackage.TREE_TRAVERSAL: {
+				TreeTraversal treeTraversal = (TreeTraversal)theEObject;
+				T1 result = caseTreeTraversal(treeTraversal);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -405,7 +411,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSceneActor(SceneActor object) {
+	public T1 caseSceneActor(SceneActor object) {
 		return null;
 	}
 
@@ -420,7 +426,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSpriteActor(SpriteActor object) {
+	public T1 caseSpriteActor(SpriteActor object) {
 		return null;
 	}
 
@@ -435,7 +441,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEventHandler(EventHandler object) {
+	public T1 caseEventHandler(EventHandler object) {
 		return null;
 	}
 
@@ -450,7 +456,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseWhileLoop(WhileLoop object) {
+	public T1 caseWhileLoop(WhileLoop object) {
 		return null;
 	}
 
@@ -465,7 +471,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIf(If object) {
+	public T1 caseIf(If object) {
 		return null;
 	}
 
@@ -480,7 +486,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseForeverLoop(ForeverLoop object) {
+	public T1 caseForeverLoop(ForeverLoop object) {
 		return null;
 	}
 
@@ -495,7 +501,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseYield(Yield object) {
+	public T1 caseYield(Yield object) {
 		return null;
 	}
 
@@ -510,7 +516,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseVariableDeclaration(VariableDeclaration object) {
+	public T1 caseVariableDeclaration(VariableDeclaration object) {
 		return null;
 	}
 
@@ -525,7 +531,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseVariableAssignment(VariableAssignment object) {
+	public T1 caseVariableAssignment(VariableAssignment object) {
 		return null;
 	}
 
@@ -540,7 +546,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseStatement(Statement object) {
+	public T1 caseStatement(Statement object) {
 		return null;
 	}
 
@@ -555,7 +561,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAbstractElement(AbstractElement object) {
+	public T1 caseAbstractElement(AbstractElement object) {
 		return null;
 	}
 
@@ -570,7 +576,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseGameStart(GameStart object) {
+	public T1 caseGameStart(GameStart object) {
 		return null;
 	}
 
@@ -585,7 +591,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSpriteClicked(SpriteClicked object) {
+	public T1 caseSpriteClicked(SpriteClicked object) {
 		return null;
 	}
 
@@ -600,7 +606,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseKeyPressed(KeyPressed object) {
+	public T1 caseKeyPressed(KeyPressed object) {
 		return null;
 	}
 
@@ -615,7 +621,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCollidesWith(CollidesWith object) {
+	public T1 caseCollidesWith(CollidesWith object) {
 		return null;
 	}
 
@@ -630,7 +636,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIntegerLiteral(IntegerLiteral object) {
+	public T1 caseIntegerLiteral(IntegerLiteral object) {
 		return null;
 	}
 
@@ -645,7 +651,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSleep(Sleep object) {
+	public T1 caseSleep(Sleep object) {
 		return null;
 	}
 
@@ -660,7 +666,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseUnaryMinus(UnaryMinus object) {
+	public T1 caseUnaryMinus(UnaryMinus object) {
 		return null;
 	}
 
@@ -675,7 +681,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseToDouble(ToDouble object) {
+	public T1 caseToDouble(ToDouble object) {
 		return null;
 	}
 
@@ -690,7 +696,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseToInt(ToInt object) {
+	public T1 caseToInt(ToInt object) {
 		return null;
 	}
 
@@ -705,22 +711,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <A extends AbstractActor<?>> T caseAbstractActor(AbstractActor<A> object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Scope</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Scope</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public <S extends Scope<?>> T caseScope(Scope<S> object) {
+	public T1 caseAbstractActor(AbstractActor object) {
 		return null;
 	}
 
@@ -735,7 +726,37 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseProgram(Program object) {
+	public T1 caseProgram(Program object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Tree Node</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Tree Node</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <T extends TreeNode<T>> T1 caseTreeNode(TreeNode<T> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Tree Traversal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Tree Traversal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseTreeTraversal(TreeTraversal object) {
 		return null;
 	}
 
@@ -750,7 +771,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseExpression(Expression object) {
+	public T1 caseExpression(Expression object) {
 		return null;
 	}
 
@@ -765,7 +786,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseOr(Or object) {
+	public T1 caseOr(Or object) {
 		return null;
 	}
 
@@ -780,7 +801,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAnd(And object) {
+	public T1 caseAnd(And object) {
 		return null;
 	}
 
@@ -795,7 +816,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePlus(Plus object) {
+	public T1 casePlus(Plus object) {
 		return null;
 	}
 
@@ -810,7 +831,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseMinus(Minus object) {
+	public T1 caseMinus(Minus object) {
 		return null;
 	}
 
@@ -825,7 +846,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseMultiply(Multiply object) {
+	public T1 caseMultiply(Multiply object) {
 		return null;
 	}
 
@@ -840,7 +861,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDivide(Divide object) {
+	public T1 caseDivide(Divide object) {
 		return null;
 	}
 
@@ -855,7 +876,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseLessThan(LessThan object) {
+	public T1 caseLessThan(LessThan object) {
 		return null;
 	}
 
@@ -870,7 +891,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEqual(Equal object) {
+	public T1 caseEqual(Equal object) {
 		return null;
 	}
 
@@ -885,7 +906,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseGreaterThan(GreaterThan object) {
+	public T1 caseGreaterThan(GreaterThan object) {
 		return null;
 	}
 
@@ -900,7 +921,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNot(Not object) {
+	public T1 caseNot(Not object) {
 		return null;
 	}
 
@@ -915,7 +936,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseBooleanLiteral(BooleanLiteral object) {
+	public T1 caseBooleanLiteral(BooleanLiteral object) {
 		return null;
 	}
 
@@ -930,7 +951,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDoubleLiteral(DoubleLiteral object) {
+	public T1 caseDoubleLiteral(DoubleLiteral object) {
 		return null;
 	}
 
@@ -945,7 +966,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseStringLiteral(StringLiteral object) {
+	public T1 caseStringLiteral(StringLiteral object) {
 		return null;
 	}
 
@@ -960,7 +981,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseVariableReference(VariableReference object) {
+	public T1 caseVariableReference(VariableReference object) {
 		return null;
 	}
 
@@ -975,7 +996,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseUnaryOperator(UnaryOperator object) {
+	public T1 caseUnaryOperator(UnaryOperator object) {
 		return null;
 	}
 
@@ -990,7 +1011,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseBinaryOperator(BinaryOperator object) {
+	public T1 caseBinaryOperator(BinaryOperator object) {
 		return null;
 	}
 
@@ -1005,7 +1026,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseFunctionCall(FunctionCall object) {
+	public T1 caseFunctionCall(FunctionCall object) {
 		return null;
 	}
 
@@ -1021,7 +1042,7 @@ public class KlangSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	@Override
-	public T defaultCase(EObject object) {
+	public T1 defaultCase(EObject object) {
 		return null;
 	}
 

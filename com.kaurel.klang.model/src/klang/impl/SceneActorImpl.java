@@ -13,11 +13,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import klang.AbstractActor;
 import klang.KlangPackage;
 import klang.Program;
 import klang.SceneActor;
-import klang.Scope;
-import klang.SpriteActor;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +31,7 @@ import klang.SpriteActor;
  *
  * @generated
  */
-public class SceneActorImpl extends AbstractActorImpl<SpriteActor> implements SceneActor {
+public class SceneActorImpl extends AbstractActorImpl implements SceneActor {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -222,16 +221,16 @@ public class SceneActorImpl extends AbstractActorImpl<SpriteActor> implements Sc
 	}
 
 	@Override
-	public EList<SpriteActor> getChildren() {
-		if(getProgram()==null) {
-			return new BasicEList<>();
-		}
-		return getProgram().getSpriteActors();
+	public AbstractActor getParent() {
+		return null;
 	}
 
 	@Override
-	public Scope<?> getParent() {
-		return null;
+	public EList<AbstractActor> getChildren() {
+		if(getProgram()!=null) {
+			return new BasicEList<>(getProgram().getSpriteActors());
+		}
+		return new BasicEList<>();
 	}
 
 } //SceneActorImpl

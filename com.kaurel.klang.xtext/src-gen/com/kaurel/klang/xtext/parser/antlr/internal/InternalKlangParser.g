@@ -87,7 +87,7 @@ ruleProgram returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)?
+		)
 		(
 			(
 				{
@@ -137,16 +137,34 @@ ruleSceneActor returns [EObject current=null]
 		{
 			newLeafNode(otherlv_1, grammarAccess.getSceneActorAccess().getSceneKeyword_1());
 		}
-		this_BEGIN_2=RULE_BEGIN
+		(
+			(
+				lv_name_2_0=RULE_ID
+				{
+					newLeafNode(lv_name_2_0, grammarAccess.getSceneActorAccess().getNameIDTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSceneActorRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_2_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		this_BEGIN_3=RULE_BEGIN
 		{
-			newLeafNode(this_BEGIN_2, grammarAccess.getSceneActorAccess().getBEGINTerminalRuleCall_2());
+			newLeafNode(this_BEGIN_3, grammarAccess.getSceneActorAccess().getBEGINTerminalRuleCall_3());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSceneActorAccess().getLocalVariablesVariableDeclarationParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getSceneActorAccess().getLocalVariablesVariableDeclarationParserRuleCall_4_0());
 				}
-				lv_localVariables_3_0=ruleVariableDeclaration
+				lv_localVariables_4_0=ruleVariableDeclaration
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSceneActorRule());
@@ -154,7 +172,7 @@ ruleSceneActor returns [EObject current=null]
 					add(
 						$current,
 						"localVariables",
-						lv_localVariables_3_0,
+						lv_localVariables_4_0,
 						"com.kaurel.klang.xtext.Klang.VariableDeclaration");
 					afterParserOrEnumRuleCall();
 				}
@@ -163,9 +181,9 @@ ruleSceneActor returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSceneActorAccess().getEventHandlersEventHandlerParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getSceneActorAccess().getEventHandlersEventHandlerParserRuleCall_5_0());
 				}
-				lv_eventHandlers_4_0=ruleEventHandler
+				lv_eventHandlers_5_0=ruleEventHandler
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSceneActorRule());
@@ -173,15 +191,15 @@ ruleSceneActor returns [EObject current=null]
 					add(
 						$current,
 						"eventHandlers",
-						lv_eventHandlers_4_0,
+						lv_eventHandlers_5_0,
 						"com.kaurel.klang.xtext.Klang.EventHandler");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		this_END_5=RULE_END
+		this_END_6=RULE_END
 		{
-			newLeafNode(this_END_5, grammarAccess.getSceneActorAccess().getENDTerminalRuleCall_5());
+			newLeafNode(this_END_6, grammarAccess.getSceneActorAccess().getENDTerminalRuleCall_6());
 		}
 	)
 ;

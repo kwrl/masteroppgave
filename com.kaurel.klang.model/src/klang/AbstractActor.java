@@ -16,13 +16,14 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link klang.AbstractActor#getEventHandlers <em>Event Handlers</em>}</li>
  *   <li>{@link klang.AbstractActor#getName <em>Name</em>}</li>
  *   <li>{@link klang.AbstractActor#getSubject <em>Subject</em>}</li>
+ *   <li>{@link klang.AbstractActor#getLocalVariables <em>Local Variables</em>}</li>
  * </ul>
  *
  * @see klang.KlangPackage#getAbstractActor()
  * @model abstract="true"
  * @generated
  */
-public interface AbstractActor<A extends AbstractActor<?>> extends Scope<A> {
+public interface AbstractActor extends TreeNode<AbstractActor> {
 	/**
 	 * Returns the value of the '<em><b>Event Handlers</b></em>' containment reference list.
 	 * The list contents are of type {@link klang.EventHandler}.
@@ -94,11 +95,51 @@ public interface AbstractActor<A extends AbstractActor<?>> extends Scope<A> {
 	void setSubject(Object value);
 
 	/**
+	 * Returns the value of the '<em><b>Local Variables</b></em>' containment reference list.
+	 * The list contents are of type {@link klang.VariableDeclaration}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Local Variables</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
+	 * @return the value of the '<em>Local Variables</em>' containment reference list.
+	 * @see klang.KlangPackage#getAbstractActor_LocalVariables()
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<AbstractActor<?>> getSubtree();
+	EList<VariableDeclaration> getLocalVariables();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model variableNameRequired="true"
+	 * @generated
+	 */
+	boolean isInScope(String variableName);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model variableNameRequired="true"
+	 * @generated
+	 */
+	VariableDeclaration getVariableDeclaration(String variableName);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model variableNameRequired="true"
+	 * @generated
+	 */
+	boolean isInLocalScope(String variableName);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model variableNameRequired="true"
+	 * @generated
+	 */
+	boolean isInParentScope(String variableName);
 
 } // AbstractActor

@@ -92,6 +92,7 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 			case KlangPackage.TO_DOUBLE: return createToDouble();
 			case KlangPackage.TO_INT: return createToInt();
 			case KlangPackage.PROGRAM: return createProgram();
+			case KlangPackage.TREE_TRAVERSAL: return createTreeTraversal();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -285,6 +286,16 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	public Program createProgram() {
 		ProgramImpl program = new ProgramImpl();
 		return program;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TreeTraversal createTreeTraversal() {
+		TreeTraversalImpl treeTraversal = new TreeTraversalImpl();
+		return treeTraversal;
 	}
 
 	/**

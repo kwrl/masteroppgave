@@ -15,12 +15,6 @@ import klang.SpriteActor;
  * The following operations are tested:
  * <ul>
  *   <li>{@link klang.SpriteActor#print(java.lang.String) <em>Print</em>}</li>
- *   <li>{@link klang.SpriteActor#getX() <em>Get X</em>}</li>
- *   <li>{@link klang.SpriteActor#getY() <em>Get Y</em>}</li>
- *   <li>{@link klang.SpriteActor#setY(java.lang.Double) <em>Set Y</em>}</li>
- *   <li>{@link klang.SpriteActor#setX(java.lang.Double) <em>Set X</em>}</li>
- *   <li>{@link klang.SpriteActor#print(java.lang.Double) <em>Print</em>}</li>
- *   <li>{@link klang.SpriteActor#sleep(java.lang.Double) <em>Sleep</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -87,84 +81,6 @@ public class SpriteActorTest extends AbstractActorTest {
 	 * @generated
 	 */
 	public void testPrint__String() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link klang.SpriteActor#getX() <em>Get X</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.SpriteActor#getX()
-	 * @generated
-	 */
-	public void testGetX() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link klang.SpriteActor#getY() <em>Get Y</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.SpriteActor#getY()
-	 * @generated
-	 */
-	public void testGetY() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link klang.SpriteActor#setY(java.lang.Double) <em>Set Y</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.SpriteActor#setY(java.lang.Double)
-	 * @generated
-	 */
-	public void testSetY__Double() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link klang.SpriteActor#setX(java.lang.Double) <em>Set X</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.SpriteActor#setX(java.lang.Double)
-	 * @generated
-	 */
-	public void testSetX__Double() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link klang.SpriteActor#print(java.lang.Double) <em>Print</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.SpriteActor#print(java.lang.Double)
-	 * @generated
-	 */
-	public void testPrint__Double() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link klang.SpriteActor#sleep(java.lang.Double) <em>Sleep</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.SpriteActor#sleep(java.lang.Double)
-	 * @generated
-	 */
-	public void testSleep__Double() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

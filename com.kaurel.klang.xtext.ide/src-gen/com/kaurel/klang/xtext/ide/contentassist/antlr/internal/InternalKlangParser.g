@@ -996,7 +996,7 @@ rule__Program__Group__0__Impl
 :
 (
 	{ before(grammarAccess.getProgramAccess().getSceneActorAssignment_0()); }
-	(rule__Program__SceneActorAssignment_0)?
+	(rule__Program__SceneActorAssignment_0)
 	{ after(grammarAccess.getProgramAccess().getSceneActorAssignment_0()); }
 )
 ;
@@ -1103,9 +1103,9 @@ rule__SceneActor__Group__2__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSceneActorAccess().getBEGINTerminalRuleCall_2()); }
-	RULE_BEGIN
-	{ after(grammarAccess.getSceneActorAccess().getBEGINTerminalRuleCall_2()); }
+	{ before(grammarAccess.getSceneActorAccess().getNameAssignment_2()); }
+	(rule__SceneActor__NameAssignment_2)
+	{ after(grammarAccess.getSceneActorAccess().getNameAssignment_2()); }
 )
 ;
 finally {
@@ -1130,9 +1130,9 @@ rule__SceneActor__Group__3__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSceneActorAccess().getLocalVariablesAssignment_3()); }
-	(rule__SceneActor__LocalVariablesAssignment_3)*
-	{ after(grammarAccess.getSceneActorAccess().getLocalVariablesAssignment_3()); }
+	{ before(grammarAccess.getSceneActorAccess().getBEGINTerminalRuleCall_3()); }
+	RULE_BEGIN
+	{ after(grammarAccess.getSceneActorAccess().getBEGINTerminalRuleCall_3()); }
 )
 ;
 finally {
@@ -1157,9 +1157,9 @@ rule__SceneActor__Group__4__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSceneActorAccess().getEventHandlersAssignment_4()); }
-	(rule__SceneActor__EventHandlersAssignment_4)*
-	{ after(grammarAccess.getSceneActorAccess().getEventHandlersAssignment_4()); }
+	{ before(grammarAccess.getSceneActorAccess().getLocalVariablesAssignment_4()); }
+	(rule__SceneActor__LocalVariablesAssignment_4)*
+	{ after(grammarAccess.getSceneActorAccess().getLocalVariablesAssignment_4()); }
 )
 ;
 finally {
@@ -1172,6 +1172,7 @@ rule__SceneActor__Group__5
 	}
 :
 	rule__SceneActor__Group__5__Impl
+	rule__SceneActor__Group__6
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -1183,9 +1184,35 @@ rule__SceneActor__Group__5__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSceneActorAccess().getENDTerminalRuleCall_5()); }
+	{ before(grammarAccess.getSceneActorAccess().getEventHandlersAssignment_5()); }
+	(rule__SceneActor__EventHandlersAssignment_5)*
+	{ after(grammarAccess.getSceneActorAccess().getEventHandlersAssignment_5()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SceneActor__Group__6
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__SceneActor__Group__6__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SceneActor__Group__6__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getSceneActorAccess().getENDTerminalRuleCall_6()); }
 	RULE_END
-	{ after(grammarAccess.getSceneActorAccess().getENDTerminalRuleCall_5()); }
+	{ after(grammarAccess.getSceneActorAccess().getENDTerminalRuleCall_6()); }
 )
 ;
 finally {
@@ -5273,30 +5300,45 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SceneActor__LocalVariablesAssignment_3
+rule__SceneActor__NameAssignment_2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSceneActorAccess().getLocalVariablesVariableDeclarationParserRuleCall_3_0()); }
-		ruleVariableDeclaration
-		{ after(grammarAccess.getSceneActorAccess().getLocalVariablesVariableDeclarationParserRuleCall_3_0()); }
+		{ before(grammarAccess.getSceneActorAccess().getNameIDTerminalRuleCall_2_0()); }
+		RULE_ID
+		{ after(grammarAccess.getSceneActorAccess().getNameIDTerminalRuleCall_2_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SceneActor__EventHandlersAssignment_4
+rule__SceneActor__LocalVariablesAssignment_4
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSceneActorAccess().getEventHandlersEventHandlerParserRuleCall_4_0()); }
+		{ before(grammarAccess.getSceneActorAccess().getLocalVariablesVariableDeclarationParserRuleCall_4_0()); }
+		ruleVariableDeclaration
+		{ after(grammarAccess.getSceneActorAccess().getLocalVariablesVariableDeclarationParserRuleCall_4_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SceneActor__EventHandlersAssignment_5
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getSceneActorAccess().getEventHandlersEventHandlerParserRuleCall_5_0()); }
 		ruleEventHandler
-		{ after(grammarAccess.getSceneActorAccess().getEventHandlersEventHandlerParserRuleCall_4_0()); }
+		{ after(grammarAccess.getSceneActorAccess().getEventHandlersEventHandlerParserRuleCall_5_0()); }
 	)
 ;
 finally {

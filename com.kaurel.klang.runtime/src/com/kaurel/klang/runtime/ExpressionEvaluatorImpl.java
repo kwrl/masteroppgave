@@ -8,9 +8,9 @@ import klang.AbstractActor;
 import klang.BinaryOperator;
 import klang.BooleanLiteral;
 import klang.DoubleLiteral;
-import klang.Entity;
 import klang.Expression;
 import klang.FunctionCall;
+import klang.IntegerLiteral;
 import klang.StringLiteral;
 import klang.UnaryOperator;
 import klang.VariableReference;
@@ -22,9 +22,9 @@ import klang.util.TypeComputer;
 public class ExpressionEvaluatorImpl extends KlangSwitch<Object> implements ExpressionEvaluator {
 	private static final Class operatorClass = Operators.class;
 	private final TypeComputer typeComputer = new MemoizingTypeComputer();
-	private final AbstractActor<?>  actor;
+	private final AbstractActor  actor;
 	
-	public ExpressionEvaluatorImpl(AbstractActor<?> actor) {
+	public ExpressionEvaluatorImpl(AbstractActor actor) {
 		this.actor = actor;
 	}
 
@@ -83,6 +83,11 @@ public class ExpressionEvaluatorImpl extends KlangSwitch<Object> implements Expr
 
 	@Override
 	public Object caseDoubleLiteral(DoubleLiteral object) {
+		return object.getValue();
+	}
+	
+	@Override
+	public Object caseIntegerLiteral(IntegerLiteral object) {
 		return object.getValue();
 	}
 

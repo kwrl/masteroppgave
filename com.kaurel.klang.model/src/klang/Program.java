@@ -55,6 +55,7 @@ public interface Program extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Sprite Actors</b></em>' containment reference list.
 	 * The list contents are of type {@link klang.SpriteActor}.
+	 * It is bidirectional and its opposite is '{@link klang.SpriteActor#getProgram <em>Program</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sprite Actors</em>' reference list isn't clear,
@@ -63,7 +64,8 @@ public interface Program extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sprite Actors</em>' containment reference list.
 	 * @see klang.KlangPackage#getProgram_SpriteActors()
-	 * @model containment="true"
+	 * @see klang.SpriteActor#getProgram
+	 * @model opposite="program" containment="true"
 	 * @generated
 	 */
 	EList<SpriteActor> getSpriteActors();

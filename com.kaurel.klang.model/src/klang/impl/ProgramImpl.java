@@ -19,8 +19,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -127,7 +126,7 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 	 */
 	public EList<SpriteActor> getSpriteActors() {
 		if (spriteActors == null) {
-			spriteActors = new EObjectContainmentEList<SpriteActor>(SpriteActor.class, this, KlangPackage.PROGRAM__SPRITE_ACTORS);
+			spriteActors = new EObjectContainmentWithInverseEList<SpriteActor>(SpriteActor.class, this, KlangPackage.PROGRAM__SPRITE_ACTORS, KlangPackage.SPRITE_ACTOR__PROGRAM);
 		}
 		return spriteActors;
 	}
@@ -137,6 +136,7 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -144,6 +144,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 				if (sceneActor != null)
 					msgs = ((InternalEObject)sceneActor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KlangPackage.PROGRAM__SCENE_ACTOR, null, msgs);
 				return basicSetSceneActor((SceneActor)otherEnd, msgs);
+			case KlangPackage.PROGRAM__SPRITE_ACTORS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSpriteActors()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}

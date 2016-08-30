@@ -2,10 +2,18 @@
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:klang="http://www.example.org/klang" xmlns:mapping="platform:/plugin/no.hal.emfblocks.editor/model/mapping.ecore" xmlns:palette="platform:/plugin/no.hal.emfblocks.editor/model/palette.ecore">
   <mapping:MappingModel>
     <objectMappingsByType key="klang.SceneActor">
-      <value xsi:type="mapping:BlockMapping" defaultColor="0xff8080ff"/>
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xff8080ff">
+        <slotsByReference key="program">
+          <value horizontal="true"/>
+        </slotsByReference>
+      </value>
     </objectMappingsByType>
     <objectMappingsByType key="klang.SpriteActor">
-      <value xsi:type="mapping:BlockMapping" defaultColor="0xff9380ff"/>
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xff9380ff">
+        <slotsByReference key="program">
+          <value horizontal="true"/>
+        </slotsByReference>
+      </value>
     </objectMappingsByType>
     <objectMappingsByType key="klang.EventHandler">
       <value xsi:type="mapping:BlockMapping" defaultColor="0xffa680ff">
@@ -483,6 +491,16 @@
         </slotsByReference>
       </value>
     </objectMappingsByType>
+    <objectMappingsByType key="klang.Program">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xff8092ff">
+        <slotsByReference key="sceneActor">
+          <value horizontal="true"/>
+        </slotsByReference>
+        <slotsByReference key="spriteActors">
+          <value/>
+        </slotsByReference>
+      </value>
+    </objectMappingsByType>
   </mapping:MappingModel>
   <palette:Palette>
     <tabs>
@@ -594,8 +612,8 @@
       <contents xsi:type="palette:PaletteItemContainer">
         <object xsi:type="klang:ToInt"/>
       </contents>
-      <contents xsi:type="palette:PaletteItemContainer" enabled="false">
-        <object xsi:type="klang:Scope"/>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klang:Program"/>
       </contents>
     </tabs>
     <tabs name="Ecore Literals">

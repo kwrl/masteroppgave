@@ -145,7 +145,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleProgram"
-    // InternalKlangParser.g:64:1: ruleProgram returns [EObject current=null] : ( ( (lv_sceneActor_0_0= ruleSceneActor ) )? ( (lv_spriteActors_1_0= ruleSpriteActor ) )* ) ;
+    // InternalKlangParser.g:64:1: ruleProgram returns [EObject current=null] : ( ( (lv_sceneActor_0_0= ruleSceneActor ) ) ( (lv_spriteActors_1_0= ruleSpriteActor ) )* ) ;
     public final EObject ruleProgram() throws RecognitionException {
         EObject current = null;
 
@@ -158,66 +158,55 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKlangParser.g:70:2: ( ( ( (lv_sceneActor_0_0= ruleSceneActor ) )? ( (lv_spriteActors_1_0= ruleSpriteActor ) )* ) )
-            // InternalKlangParser.g:71:2: ( ( (lv_sceneActor_0_0= ruleSceneActor ) )? ( (lv_spriteActors_1_0= ruleSpriteActor ) )* )
+            // InternalKlangParser.g:70:2: ( ( ( (lv_sceneActor_0_0= ruleSceneActor ) ) ( (lv_spriteActors_1_0= ruleSpriteActor ) )* ) )
+            // InternalKlangParser.g:71:2: ( ( (lv_sceneActor_0_0= ruleSceneActor ) ) ( (lv_spriteActors_1_0= ruleSpriteActor ) )* )
             {
-            // InternalKlangParser.g:71:2: ( ( (lv_sceneActor_0_0= ruleSceneActor ) )? ( (lv_spriteActors_1_0= ruleSpriteActor ) )* )
-            // InternalKlangParser.g:72:3: ( (lv_sceneActor_0_0= ruleSceneActor ) )? ( (lv_spriteActors_1_0= ruleSpriteActor ) )*
+            // InternalKlangParser.g:71:2: ( ( (lv_sceneActor_0_0= ruleSceneActor ) ) ( (lv_spriteActors_1_0= ruleSpriteActor ) )* )
+            // InternalKlangParser.g:72:3: ( (lv_sceneActor_0_0= ruleSceneActor ) ) ( (lv_spriteActors_1_0= ruleSpriteActor ) )*
             {
-            // InternalKlangParser.g:72:3: ( (lv_sceneActor_0_0= ruleSceneActor ) )?
-            int alt1=2;
-            int LA1_0 = input.LA(1);
+            // InternalKlangParser.g:72:3: ( (lv_sceneActor_0_0= ruleSceneActor ) )
+            // InternalKlangParser.g:73:4: (lv_sceneActor_0_0= ruleSceneActor )
+            {
+            // InternalKlangParser.g:73:4: (lv_sceneActor_0_0= ruleSceneActor )
+            // InternalKlangParser.g:74:5: lv_sceneActor_0_0= ruleSceneActor
+            {
 
-            if ( (LA1_0==Scene) ) {
-                alt1=1;
+            					newCompositeNode(grammarAccess.getProgramAccess().getSceneActorSceneActorParserRuleCall_0_0());
+            				
+            pushFollow(FOLLOW_3);
+            lv_sceneActor_0_0=ruleSceneActor();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getProgramRule());
+            					}
+            					set(
+            						current,
+            						"sceneActor",
+            						lv_sceneActor_0_0,
+            						"com.kaurel.klang.xtext.Klang.SceneActor");
+            					afterParserOrEnumRuleCall();
+            				
+
             }
-            switch (alt1) {
-                case 1 :
-                    // InternalKlangParser.g:73:4: (lv_sceneActor_0_0= ruleSceneActor )
-                    {
-                    // InternalKlangParser.g:73:4: (lv_sceneActor_0_0= ruleSceneActor )
-                    // InternalKlangParser.g:74:5: lv_sceneActor_0_0= ruleSceneActor
-                    {
 
-                    					newCompositeNode(grammarAccess.getProgramAccess().getSceneActorSceneActorParserRuleCall_0_0());
-                    				
-                    pushFollow(FOLLOW_3);
-                    lv_sceneActor_0_0=ruleSceneActor();
-
-                    state._fsp--;
-
-
-                    					if (current==null) {
-                    						current = createModelElementForParent(grammarAccess.getProgramRule());
-                    					}
-                    					set(
-                    						current,
-                    						"sceneActor",
-                    						lv_sceneActor_0_0,
-                    						"com.kaurel.klang.xtext.Klang.SceneActor");
-                    					afterParserOrEnumRuleCall();
-                    				
-
-                    }
-
-
-                    }
-                    break;
 
             }
 
             // InternalKlangParser.g:91:3: ( (lv_spriteActors_1_0= ruleSpriteActor ) )*
-            loop2:
+            loop1:
             do {
-                int alt2=2;
-                int LA2_0 = input.LA(1);
+                int alt1=2;
+                int LA1_0 = input.LA(1);
 
-                if ( (LA2_0==Sprite) ) {
-                    alt2=1;
+                if ( (LA1_0==Sprite) ) {
+                    alt1=1;
                 }
 
 
-                switch (alt2) {
+                switch (alt1) {
             	case 1 :
             	    // InternalKlangParser.g:92:4: (lv_spriteActors_1_0= ruleSpriteActor )
             	    {
@@ -251,7 +240,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop2;
+            	    break loop1;
                 }
             } while (true);
 
@@ -314,27 +303,28 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSceneActor"
-    // InternalKlangParser.g:121:1: ruleSceneActor returns [EObject current=null] : ( () otherlv_1= Scene this_BEGIN_2= RULE_BEGIN ( (lv_localVariables_3_0= ruleVariableDeclaration ) )* ( (lv_eventHandlers_4_0= ruleEventHandler ) )* this_END_5= RULE_END ) ;
+    // InternalKlangParser.g:121:1: ruleSceneActor returns [EObject current=null] : ( () otherlv_1= Scene ( (lv_name_2_0= RULE_ID ) ) this_BEGIN_3= RULE_BEGIN ( (lv_localVariables_4_0= ruleVariableDeclaration ) )* ( (lv_eventHandlers_5_0= ruleEventHandler ) )* this_END_6= RULE_END ) ;
     public final EObject ruleSceneActor() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
-        Token this_BEGIN_2=null;
-        Token this_END_5=null;
-        EObject lv_localVariables_3_0 = null;
+        Token lv_name_2_0=null;
+        Token this_BEGIN_3=null;
+        Token this_END_6=null;
+        EObject lv_localVariables_4_0 = null;
 
-        EObject lv_eventHandlers_4_0 = null;
+        EObject lv_eventHandlers_5_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalKlangParser.g:127:2: ( ( () otherlv_1= Scene this_BEGIN_2= RULE_BEGIN ( (lv_localVariables_3_0= ruleVariableDeclaration ) )* ( (lv_eventHandlers_4_0= ruleEventHandler ) )* this_END_5= RULE_END ) )
-            // InternalKlangParser.g:128:2: ( () otherlv_1= Scene this_BEGIN_2= RULE_BEGIN ( (lv_localVariables_3_0= ruleVariableDeclaration ) )* ( (lv_eventHandlers_4_0= ruleEventHandler ) )* this_END_5= RULE_END )
+            // InternalKlangParser.g:127:2: ( ( () otherlv_1= Scene ( (lv_name_2_0= RULE_ID ) ) this_BEGIN_3= RULE_BEGIN ( (lv_localVariables_4_0= ruleVariableDeclaration ) )* ( (lv_eventHandlers_5_0= ruleEventHandler ) )* this_END_6= RULE_END ) )
+            // InternalKlangParser.g:128:2: ( () otherlv_1= Scene ( (lv_name_2_0= RULE_ID ) ) this_BEGIN_3= RULE_BEGIN ( (lv_localVariables_4_0= ruleVariableDeclaration ) )* ( (lv_eventHandlers_5_0= ruleEventHandler ) )* this_END_6= RULE_END )
             {
-            // InternalKlangParser.g:128:2: ( () otherlv_1= Scene this_BEGIN_2= RULE_BEGIN ( (lv_localVariables_3_0= ruleVariableDeclaration ) )* ( (lv_eventHandlers_4_0= ruleEventHandler ) )* this_END_5= RULE_END )
-            // InternalKlangParser.g:129:3: () otherlv_1= Scene this_BEGIN_2= RULE_BEGIN ( (lv_localVariables_3_0= ruleVariableDeclaration ) )* ( (lv_eventHandlers_4_0= ruleEventHandler ) )* this_END_5= RULE_END
+            // InternalKlangParser.g:128:2: ( () otherlv_1= Scene ( (lv_name_2_0= RULE_ID ) ) this_BEGIN_3= RULE_BEGIN ( (lv_localVariables_4_0= ruleVariableDeclaration ) )* ( (lv_eventHandlers_5_0= ruleEventHandler ) )* this_END_6= RULE_END )
+            // InternalKlangParser.g:129:3: () otherlv_1= Scene ( (lv_name_2_0= RULE_ID ) ) this_BEGIN_3= RULE_BEGIN ( (lv_localVariables_4_0= ruleVariableDeclaration ) )* ( (lv_eventHandlers_5_0= ruleEventHandler ) )* this_END_6= RULE_END
             {
             // InternalKlangParser.g:129:3: ()
             // InternalKlangParser.g:130:4: 
@@ -351,33 +341,59 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getSceneActorAccess().getSceneKeyword_1());
             		
-            this_BEGIN_2=(Token)match(input,RULE_BEGIN,FOLLOW_5); 
+            // InternalKlangParser.g:140:3: ( (lv_name_2_0= RULE_ID ) )
+            // InternalKlangParser.g:141:4: (lv_name_2_0= RULE_ID )
+            {
+            // InternalKlangParser.g:141:4: (lv_name_2_0= RULE_ID )
+            // InternalKlangParser.g:142:5: lv_name_2_0= RULE_ID
+            {
+            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_5); 
 
-            			newLeafNode(this_BEGIN_2, grammarAccess.getSceneActorAccess().getBEGINTerminalRuleCall_2());
+            					newLeafNode(lv_name_2_0, grammarAccess.getSceneActorAccess().getNameIDTerminalRuleCall_2_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getSceneActorRule());
+            					}
+            					setWithLastConsumed(
+            						current,
+            						"name",
+            						lv_name_2_0,
+            						"org.eclipse.xtext.common.Terminals.ID");
+            				
+
+            }
+
+
+            }
+
+            this_BEGIN_3=(Token)match(input,RULE_BEGIN,FOLLOW_6); 
+
+            			newLeafNode(this_BEGIN_3, grammarAccess.getSceneActorAccess().getBEGINTerminalRuleCall_3());
             		
-            // InternalKlangParser.g:144:3: ( (lv_localVariables_3_0= ruleVariableDeclaration ) )*
-            loop3:
+            // InternalKlangParser.g:162:3: ( (lv_localVariables_4_0= ruleVariableDeclaration ) )*
+            loop2:
             do {
-                int alt3=2;
-                int LA3_0 = input.LA(1);
+                int alt2=2;
+                int LA2_0 = input.LA(1);
 
-                if ( (LA3_0==Var) ) {
-                    alt3=1;
+                if ( (LA2_0==Var) ) {
+                    alt2=1;
                 }
 
 
-                switch (alt3) {
+                switch (alt2) {
             	case 1 :
-            	    // InternalKlangParser.g:145:4: (lv_localVariables_3_0= ruleVariableDeclaration )
+            	    // InternalKlangParser.g:163:4: (lv_localVariables_4_0= ruleVariableDeclaration )
             	    {
-            	    // InternalKlangParser.g:145:4: (lv_localVariables_3_0= ruleVariableDeclaration )
-            	    // InternalKlangParser.g:146:5: lv_localVariables_3_0= ruleVariableDeclaration
+            	    // InternalKlangParser.g:163:4: (lv_localVariables_4_0= ruleVariableDeclaration )
+            	    // InternalKlangParser.g:164:5: lv_localVariables_4_0= ruleVariableDeclaration
             	    {
 
-            	    					newCompositeNode(grammarAccess.getSceneActorAccess().getLocalVariablesVariableDeclarationParserRuleCall_3_0());
+            	    					newCompositeNode(grammarAccess.getSceneActorAccess().getLocalVariablesVariableDeclarationParserRuleCall_4_0());
             	    				
-            	    pushFollow(FOLLOW_5);
-            	    lv_localVariables_3_0=ruleVariableDeclaration();
+            	    pushFollow(FOLLOW_6);
+            	    lv_localVariables_4_0=ruleVariableDeclaration();
 
             	    state._fsp--;
 
@@ -388,8 +404,57 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
             	    					add(
             	    						current,
             	    						"localVariables",
-            	    						lv_localVariables_3_0,
+            	    						lv_localVariables_4_0,
             	    						"com.kaurel.klang.xtext.Klang.VariableDeclaration");
+            	    					afterParserOrEnumRuleCall();
+            	    				
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop2;
+                }
+            } while (true);
+
+            // InternalKlangParser.g:181:3: ( (lv_eventHandlers_5_0= ruleEventHandler ) )*
+            loop3:
+            do {
+                int alt3=2;
+                int LA3_0 = input.LA(1);
+
+                if ( (LA3_0==When) ) {
+                    alt3=1;
+                }
+
+
+                switch (alt3) {
+            	case 1 :
+            	    // InternalKlangParser.g:182:4: (lv_eventHandlers_5_0= ruleEventHandler )
+            	    {
+            	    // InternalKlangParser.g:182:4: (lv_eventHandlers_5_0= ruleEventHandler )
+            	    // InternalKlangParser.g:183:5: lv_eventHandlers_5_0= ruleEventHandler
+            	    {
+
+            	    					newCompositeNode(grammarAccess.getSceneActorAccess().getEventHandlersEventHandlerParserRuleCall_5_0());
+            	    				
+            	    pushFollow(FOLLOW_7);
+            	    lv_eventHandlers_5_0=ruleEventHandler();
+
+            	    state._fsp--;
+
+
+            	    					if (current==null) {
+            	    						current = createModelElementForParent(grammarAccess.getSceneActorRule());
+            	    					}
+            	    					add(
+            	    						current,
+            	    						"eventHandlers",
+            	    						lv_eventHandlers_5_0,
+            	    						"com.kaurel.klang.xtext.Klang.EventHandler");
             	    					afterParserOrEnumRuleCall();
             	    				
 
@@ -404,58 +469,9 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // InternalKlangParser.g:163:3: ( (lv_eventHandlers_4_0= ruleEventHandler ) )*
-            loop4:
-            do {
-                int alt4=2;
-                int LA4_0 = input.LA(1);
+            this_END_6=(Token)match(input,RULE_END,FOLLOW_2); 
 
-                if ( (LA4_0==When) ) {
-                    alt4=1;
-                }
-
-
-                switch (alt4) {
-            	case 1 :
-            	    // InternalKlangParser.g:164:4: (lv_eventHandlers_4_0= ruleEventHandler )
-            	    {
-            	    // InternalKlangParser.g:164:4: (lv_eventHandlers_4_0= ruleEventHandler )
-            	    // InternalKlangParser.g:165:5: lv_eventHandlers_4_0= ruleEventHandler
-            	    {
-
-            	    					newCompositeNode(grammarAccess.getSceneActorAccess().getEventHandlersEventHandlerParserRuleCall_4_0());
-            	    				
-            	    pushFollow(FOLLOW_6);
-            	    lv_eventHandlers_4_0=ruleEventHandler();
-
-            	    state._fsp--;
-
-
-            	    					if (current==null) {
-            	    						current = createModelElementForParent(grammarAccess.getSceneActorRule());
-            	    					}
-            	    					add(
-            	    						current,
-            	    						"eventHandlers",
-            	    						lv_eventHandlers_4_0,
-            	    						"com.kaurel.klang.xtext.Klang.EventHandler");
-            	    					afterParserOrEnumRuleCall();
-            	    				
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop4;
-                }
-            } while (true);
-
-            this_END_5=(Token)match(input,RULE_END,FOLLOW_2); 
-
-            			newLeafNode(this_END_5, grammarAccess.getSceneActorAccess().getENDTerminalRuleCall_5());
+            			newLeafNode(this_END_6, grammarAccess.getSceneActorAccess().getENDTerminalRuleCall_6());
             		
 
             }
@@ -480,7 +496,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSpriteActor"
-    // InternalKlangParser.g:190:1: entryRuleSpriteActor returns [EObject current=null] : iv_ruleSpriteActor= ruleSpriteActor EOF ;
+    // InternalKlangParser.g:208:1: entryRuleSpriteActor returns [EObject current=null] : iv_ruleSpriteActor= ruleSpriteActor EOF ;
     public final EObject entryRuleSpriteActor() throws RecognitionException {
         EObject current = null;
 
@@ -488,8 +504,8 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKlangParser.g:190:52: (iv_ruleSpriteActor= ruleSpriteActor EOF )
-            // InternalKlangParser.g:191:2: iv_ruleSpriteActor= ruleSpriteActor EOF
+            // InternalKlangParser.g:208:52: (iv_ruleSpriteActor= ruleSpriteActor EOF )
+            // InternalKlangParser.g:209:2: iv_ruleSpriteActor= ruleSpriteActor EOF
             {
              newCompositeNode(grammarAccess.getSpriteActorRule()); 
             pushFollow(FOLLOW_1);
@@ -516,7 +532,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSpriteActor"
-    // InternalKlangParser.g:197:1: ruleSpriteActor returns [EObject current=null] : ( () otherlv_1= Sprite ( (lv_name_2_0= RULE_ID ) ) this_BEGIN_3= RULE_BEGIN ( (lv_localVariables_4_0= ruleVariableDeclaration ) )* ( (lv_eventHandlers_5_0= ruleEventHandler ) )* this_END_6= RULE_END ) ;
+    // InternalKlangParser.g:215:1: ruleSpriteActor returns [EObject current=null] : ( () otherlv_1= Sprite ( (lv_name_2_0= RULE_ID ) ) this_BEGIN_3= RULE_BEGIN ( (lv_localVariables_4_0= ruleVariableDeclaration ) )* ( (lv_eventHandlers_5_0= ruleEventHandler ) )* this_END_6= RULE_END ) ;
     public final EObject ruleSpriteActor() throws RecognitionException {
         EObject current = null;
 
@@ -533,14 +549,14 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKlangParser.g:203:2: ( ( () otherlv_1= Sprite ( (lv_name_2_0= RULE_ID ) ) this_BEGIN_3= RULE_BEGIN ( (lv_localVariables_4_0= ruleVariableDeclaration ) )* ( (lv_eventHandlers_5_0= ruleEventHandler ) )* this_END_6= RULE_END ) )
-            // InternalKlangParser.g:204:2: ( () otherlv_1= Sprite ( (lv_name_2_0= RULE_ID ) ) this_BEGIN_3= RULE_BEGIN ( (lv_localVariables_4_0= ruleVariableDeclaration ) )* ( (lv_eventHandlers_5_0= ruleEventHandler ) )* this_END_6= RULE_END )
+            // InternalKlangParser.g:221:2: ( ( () otherlv_1= Sprite ( (lv_name_2_0= RULE_ID ) ) this_BEGIN_3= RULE_BEGIN ( (lv_localVariables_4_0= ruleVariableDeclaration ) )* ( (lv_eventHandlers_5_0= ruleEventHandler ) )* this_END_6= RULE_END ) )
+            // InternalKlangParser.g:222:2: ( () otherlv_1= Sprite ( (lv_name_2_0= RULE_ID ) ) this_BEGIN_3= RULE_BEGIN ( (lv_localVariables_4_0= ruleVariableDeclaration ) )* ( (lv_eventHandlers_5_0= ruleEventHandler ) )* this_END_6= RULE_END )
             {
-            // InternalKlangParser.g:204:2: ( () otherlv_1= Sprite ( (lv_name_2_0= RULE_ID ) ) this_BEGIN_3= RULE_BEGIN ( (lv_localVariables_4_0= ruleVariableDeclaration ) )* ( (lv_eventHandlers_5_0= ruleEventHandler ) )* this_END_6= RULE_END )
-            // InternalKlangParser.g:205:3: () otherlv_1= Sprite ( (lv_name_2_0= RULE_ID ) ) this_BEGIN_3= RULE_BEGIN ( (lv_localVariables_4_0= ruleVariableDeclaration ) )* ( (lv_eventHandlers_5_0= ruleEventHandler ) )* this_END_6= RULE_END
+            // InternalKlangParser.g:222:2: ( () otherlv_1= Sprite ( (lv_name_2_0= RULE_ID ) ) this_BEGIN_3= RULE_BEGIN ( (lv_localVariables_4_0= ruleVariableDeclaration ) )* ( (lv_eventHandlers_5_0= ruleEventHandler ) )* this_END_6= RULE_END )
+            // InternalKlangParser.g:223:3: () otherlv_1= Sprite ( (lv_name_2_0= RULE_ID ) ) this_BEGIN_3= RULE_BEGIN ( (lv_localVariables_4_0= ruleVariableDeclaration ) )* ( (lv_eventHandlers_5_0= ruleEventHandler ) )* this_END_6= RULE_END
             {
-            // InternalKlangParser.g:205:3: ()
-            // InternalKlangParser.g:206:4: 
+            // InternalKlangParser.g:223:3: ()
+            // InternalKlangParser.g:224:4: 
             {
 
             				current = forceCreateModelElement(
@@ -550,17 +566,17 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,Sprite,FOLLOW_7); 
+            otherlv_1=(Token)match(input,Sprite,FOLLOW_4); 
 
             			newLeafNode(otherlv_1, grammarAccess.getSpriteActorAccess().getSpriteKeyword_1());
             		
-            // InternalKlangParser.g:216:3: ( (lv_name_2_0= RULE_ID ) )
-            // InternalKlangParser.g:217:4: (lv_name_2_0= RULE_ID )
+            // InternalKlangParser.g:234:3: ( (lv_name_2_0= RULE_ID ) )
+            // InternalKlangParser.g:235:4: (lv_name_2_0= RULE_ID )
             {
-            // InternalKlangParser.g:217:4: (lv_name_2_0= RULE_ID )
-            // InternalKlangParser.g:218:5: lv_name_2_0= RULE_ID
+            // InternalKlangParser.g:235:4: (lv_name_2_0= RULE_ID )
+            // InternalKlangParser.g:236:5: lv_name_2_0= RULE_ID
             {
-            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_4); 
+            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_5); 
 
             					newLeafNode(lv_name_2_0, grammarAccess.getSpriteActorAccess().getNameIDTerminalRuleCall_2_0());
             				
@@ -580,32 +596,32 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
             }
 
-            this_BEGIN_3=(Token)match(input,RULE_BEGIN,FOLLOW_5); 
+            this_BEGIN_3=(Token)match(input,RULE_BEGIN,FOLLOW_6); 
 
             			newLeafNode(this_BEGIN_3, grammarAccess.getSpriteActorAccess().getBEGINTerminalRuleCall_3());
             		
-            // InternalKlangParser.g:238:3: ( (lv_localVariables_4_0= ruleVariableDeclaration ) )*
-            loop5:
+            // InternalKlangParser.g:256:3: ( (lv_localVariables_4_0= ruleVariableDeclaration ) )*
+            loop4:
             do {
-                int alt5=2;
-                int LA5_0 = input.LA(1);
+                int alt4=2;
+                int LA4_0 = input.LA(1);
 
-                if ( (LA5_0==Var) ) {
-                    alt5=1;
+                if ( (LA4_0==Var) ) {
+                    alt4=1;
                 }
 
 
-                switch (alt5) {
+                switch (alt4) {
             	case 1 :
-            	    // InternalKlangParser.g:239:4: (lv_localVariables_4_0= ruleVariableDeclaration )
+            	    // InternalKlangParser.g:257:4: (lv_localVariables_4_0= ruleVariableDeclaration )
             	    {
-            	    // InternalKlangParser.g:239:4: (lv_localVariables_4_0= ruleVariableDeclaration )
-            	    // InternalKlangParser.g:240:5: lv_localVariables_4_0= ruleVariableDeclaration
+            	    // InternalKlangParser.g:257:4: (lv_localVariables_4_0= ruleVariableDeclaration )
+            	    // InternalKlangParser.g:258:5: lv_localVariables_4_0= ruleVariableDeclaration
             	    {
 
             	    					newCompositeNode(grammarAccess.getSpriteActorAccess().getLocalVariablesVariableDeclarationParserRuleCall_4_0());
             	    				
-            	    pushFollow(FOLLOW_5);
+            	    pushFollow(FOLLOW_6);
             	    lv_localVariables_4_0=ruleVariableDeclaration();
 
             	    state._fsp--;
@@ -629,32 +645,32 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop5;
+            	    break loop4;
                 }
             } while (true);
 
-            // InternalKlangParser.g:257:3: ( (lv_eventHandlers_5_0= ruleEventHandler ) )*
-            loop6:
+            // InternalKlangParser.g:275:3: ( (lv_eventHandlers_5_0= ruleEventHandler ) )*
+            loop5:
             do {
-                int alt6=2;
-                int LA6_0 = input.LA(1);
+                int alt5=2;
+                int LA5_0 = input.LA(1);
 
-                if ( (LA6_0==When) ) {
-                    alt6=1;
+                if ( (LA5_0==When) ) {
+                    alt5=1;
                 }
 
 
-                switch (alt6) {
+                switch (alt5) {
             	case 1 :
-            	    // InternalKlangParser.g:258:4: (lv_eventHandlers_5_0= ruleEventHandler )
+            	    // InternalKlangParser.g:276:4: (lv_eventHandlers_5_0= ruleEventHandler )
             	    {
-            	    // InternalKlangParser.g:258:4: (lv_eventHandlers_5_0= ruleEventHandler )
-            	    // InternalKlangParser.g:259:5: lv_eventHandlers_5_0= ruleEventHandler
+            	    // InternalKlangParser.g:276:4: (lv_eventHandlers_5_0= ruleEventHandler )
+            	    // InternalKlangParser.g:277:5: lv_eventHandlers_5_0= ruleEventHandler
             	    {
 
             	    					newCompositeNode(grammarAccess.getSpriteActorAccess().getEventHandlersEventHandlerParserRuleCall_5_0());
             	    				
-            	    pushFollow(FOLLOW_6);
+            	    pushFollow(FOLLOW_7);
             	    lv_eventHandlers_5_0=ruleEventHandler();
 
             	    state._fsp--;
@@ -678,7 +694,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop6;
+            	    break loop5;
                 }
             } while (true);
 
@@ -709,7 +725,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEventHandler"
-    // InternalKlangParser.g:284:1: entryRuleEventHandler returns [EObject current=null] : iv_ruleEventHandler= ruleEventHandler EOF ;
+    // InternalKlangParser.g:302:1: entryRuleEventHandler returns [EObject current=null] : iv_ruleEventHandler= ruleEventHandler EOF ;
     public final EObject entryRuleEventHandler() throws RecognitionException {
         EObject current = null;
 
@@ -717,8 +733,8 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKlangParser.g:284:53: (iv_ruleEventHandler= ruleEventHandler EOF )
-            // InternalKlangParser.g:285:2: iv_ruleEventHandler= ruleEventHandler EOF
+            // InternalKlangParser.g:302:53: (iv_ruleEventHandler= ruleEventHandler EOF )
+            // InternalKlangParser.g:303:2: iv_ruleEventHandler= ruleEventHandler EOF
             {
              newCompositeNode(grammarAccess.getEventHandlerRule()); 
             pushFollow(FOLLOW_1);
@@ -745,7 +761,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEventHandler"
-    // InternalKlangParser.g:291:1: ruleEventHandler returns [EObject current=null] : (this_GameStart_0= ruleGameStart | this_SpriteClicked_1= ruleSpriteClicked | this_KeyPressed_2= ruleKeyPressed | this_CollidesWith_3= ruleCollidesWith ) ;
+    // InternalKlangParser.g:309:1: ruleEventHandler returns [EObject current=null] : (this_GameStart_0= ruleGameStart | this_SpriteClicked_1= ruleSpriteClicked | this_KeyPressed_2= ruleKeyPressed | this_CollidesWith_3= ruleCollidesWith ) ;
     public final EObject ruleEventHandler() throws RecognitionException {
         EObject current = null;
 
@@ -762,38 +778,38 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKlangParser.g:297:2: ( (this_GameStart_0= ruleGameStart | this_SpriteClicked_1= ruleSpriteClicked | this_KeyPressed_2= ruleKeyPressed | this_CollidesWith_3= ruleCollidesWith ) )
-            // InternalKlangParser.g:298:2: (this_GameStart_0= ruleGameStart | this_SpriteClicked_1= ruleSpriteClicked | this_KeyPressed_2= ruleKeyPressed | this_CollidesWith_3= ruleCollidesWith )
+            // InternalKlangParser.g:315:2: ( (this_GameStart_0= ruleGameStart | this_SpriteClicked_1= ruleSpriteClicked | this_KeyPressed_2= ruleKeyPressed | this_CollidesWith_3= ruleCollidesWith ) )
+            // InternalKlangParser.g:316:2: (this_GameStart_0= ruleGameStart | this_SpriteClicked_1= ruleSpriteClicked | this_KeyPressed_2= ruleKeyPressed | this_CollidesWith_3= ruleCollidesWith )
             {
-            // InternalKlangParser.g:298:2: (this_GameStart_0= ruleGameStart | this_SpriteClicked_1= ruleSpriteClicked | this_KeyPressed_2= ruleKeyPressed | this_CollidesWith_3= ruleCollidesWith )
-            int alt7=4;
-            int LA7_0 = input.LA(1);
+            // InternalKlangParser.g:316:2: (this_GameStart_0= ruleGameStart | this_SpriteClicked_1= ruleSpriteClicked | this_KeyPressed_2= ruleKeyPressed | this_CollidesWith_3= ruleCollidesWith )
+            int alt6=4;
+            int LA6_0 = input.LA(1);
 
-            if ( (LA7_0==When) ) {
+            if ( (LA6_0==When) ) {
                 switch ( input.LA(2) ) {
                 case Game:
                     {
-                    alt7=1;
+                    alt6=1;
                     }
                     break;
                 case Clicked:
                     {
-                    alt7=2;
+                    alt6=2;
                     }
                     break;
                 case Collides:
                     {
-                    alt7=4;
+                    alt6=4;
                     }
                     break;
                 case RULE_ID:
                     {
-                    alt7=3;
+                    alt6=3;
                     }
                     break;
                 default:
                     NoViableAltException nvae =
-                        new NoViableAltException("", 7, 1, input);
+                        new NoViableAltException("", 6, 1, input);
 
                     throw nvae;
                 }
@@ -801,13 +817,13 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 7, 0, input);
+                    new NoViableAltException("", 6, 0, input);
 
                 throw nvae;
             }
-            switch (alt7) {
+            switch (alt6) {
                 case 1 :
-                    // InternalKlangParser.g:299:3: this_GameStart_0= ruleGameStart
+                    // InternalKlangParser.g:317:3: this_GameStart_0= ruleGameStart
                     {
 
                     			newCompositeNode(grammarAccess.getEventHandlerAccess().getGameStartParserRuleCall_0());
@@ -825,7 +841,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalKlangParser.g:308:3: this_SpriteClicked_1= ruleSpriteClicked
+                    // InternalKlangParser.g:326:3: this_SpriteClicked_1= ruleSpriteClicked
                     {
 
                     			newCompositeNode(grammarAccess.getEventHandlerAccess().getSpriteClickedParserRuleCall_1());
@@ -843,7 +859,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalKlangParser.g:317:3: this_KeyPressed_2= ruleKeyPressed
+                    // InternalKlangParser.g:335:3: this_KeyPressed_2= ruleKeyPressed
                     {
 
                     			newCompositeNode(grammarAccess.getEventHandlerAccess().getKeyPressedParserRuleCall_2());
@@ -861,7 +877,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalKlangParser.g:326:3: this_CollidesWith_3= ruleCollidesWith
+                    // InternalKlangParser.g:344:3: this_CollidesWith_3= ruleCollidesWith
                     {
 
                     			newCompositeNode(grammarAccess.getEventHandlerAccess().getCollidesWithParserRuleCall_3());
@@ -901,7 +917,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleStatement"
-    // InternalKlangParser.g:338:1: entryRuleStatement returns [EObject current=null] : iv_ruleStatement= ruleStatement EOF ;
+    // InternalKlangParser.g:356:1: entryRuleStatement returns [EObject current=null] : iv_ruleStatement= ruleStatement EOF ;
     public final EObject entryRuleStatement() throws RecognitionException {
         EObject current = null;
 
@@ -909,8 +925,8 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKlangParser.g:338:50: (iv_ruleStatement= ruleStatement EOF )
-            // InternalKlangParser.g:339:2: iv_ruleStatement= ruleStatement EOF
+            // InternalKlangParser.g:356:50: (iv_ruleStatement= ruleStatement EOF )
+            // InternalKlangParser.g:357:2: iv_ruleStatement= ruleStatement EOF
             {
              newCompositeNode(grammarAccess.getStatementRule()); 
             pushFollow(FOLLOW_1);
@@ -937,7 +953,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStatement"
-    // InternalKlangParser.g:345:1: ruleStatement returns [EObject current=null] : (this_WhileLoop_0= ruleWhileLoop | this_If_1= ruleIf | this_VariableAssignment_2= ruleVariableAssignment | this_ForeverLoop_3= ruleForeverLoop | this_FunctionCall_4= ruleFunctionCall | this_Sleep_5= ruleSleep ) ;
+    // InternalKlangParser.g:363:1: ruleStatement returns [EObject current=null] : (this_WhileLoop_0= ruleWhileLoop | this_If_1= ruleIf | this_VariableAssignment_2= ruleVariableAssignment | this_ForeverLoop_3= ruleForeverLoop | this_FunctionCall_4= ruleFunctionCall | this_Sleep_5= ruleSleep ) ;
     public final EObject ruleStatement() throws RecognitionException {
         EObject current = null;
 
@@ -958,35 +974,35 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKlangParser.g:351:2: ( (this_WhileLoop_0= ruleWhileLoop | this_If_1= ruleIf | this_VariableAssignment_2= ruleVariableAssignment | this_ForeverLoop_3= ruleForeverLoop | this_FunctionCall_4= ruleFunctionCall | this_Sleep_5= ruleSleep ) )
-            // InternalKlangParser.g:352:2: (this_WhileLoop_0= ruleWhileLoop | this_If_1= ruleIf | this_VariableAssignment_2= ruleVariableAssignment | this_ForeverLoop_3= ruleForeverLoop | this_FunctionCall_4= ruleFunctionCall | this_Sleep_5= ruleSleep )
+            // InternalKlangParser.g:369:2: ( (this_WhileLoop_0= ruleWhileLoop | this_If_1= ruleIf | this_VariableAssignment_2= ruleVariableAssignment | this_ForeverLoop_3= ruleForeverLoop | this_FunctionCall_4= ruleFunctionCall | this_Sleep_5= ruleSleep ) )
+            // InternalKlangParser.g:370:2: (this_WhileLoop_0= ruleWhileLoop | this_If_1= ruleIf | this_VariableAssignment_2= ruleVariableAssignment | this_ForeverLoop_3= ruleForeverLoop | this_FunctionCall_4= ruleFunctionCall | this_Sleep_5= ruleSleep )
             {
-            // InternalKlangParser.g:352:2: (this_WhileLoop_0= ruleWhileLoop | this_If_1= ruleIf | this_VariableAssignment_2= ruleVariableAssignment | this_ForeverLoop_3= ruleForeverLoop | this_FunctionCall_4= ruleFunctionCall | this_Sleep_5= ruleSleep )
-            int alt8=6;
+            // InternalKlangParser.g:370:2: (this_WhileLoop_0= ruleWhileLoop | this_If_1= ruleIf | this_VariableAssignment_2= ruleVariableAssignment | this_ForeverLoop_3= ruleForeverLoop | this_FunctionCall_4= ruleFunctionCall | this_Sleep_5= ruleSleep )
+            int alt7=6;
             switch ( input.LA(1) ) {
             case While:
                 {
-                alt8=1;
+                alt7=1;
                 }
                 break;
             case If:
                 {
-                alt8=2;
+                alt7=2;
                 }
                 break;
             case RULE_ID:
                 {
-                int LA8_3 = input.LA(2);
+                int LA7_3 = input.LA(2);
 
-                if ( (LA8_3==EqualsSign) ) {
-                    alt8=3;
+                if ( (LA7_3==EqualsSign) ) {
+                    alt7=3;
                 }
-                else if ( (LA8_3==LeftParenthesis) ) {
-                    alt8=5;
+                else if ( (LA7_3==LeftParenthesis) ) {
+                    alt7=5;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 8, 3, input);
+                        new NoViableAltException("", 7, 3, input);
 
                     throw nvae;
                 }
@@ -994,24 +1010,24 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
                 break;
             case Forever:
                 {
-                alt8=4;
+                alt7=4;
                 }
                 break;
             case Sleep:
                 {
-                alt8=6;
+                alt7=6;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 8, 0, input);
+                    new NoViableAltException("", 7, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt8) {
+            switch (alt7) {
                 case 1 :
-                    // InternalKlangParser.g:353:3: this_WhileLoop_0= ruleWhileLoop
+                    // InternalKlangParser.g:371:3: this_WhileLoop_0= ruleWhileLoop
                     {
 
                     			newCompositeNode(grammarAccess.getStatementAccess().getWhileLoopParserRuleCall_0());
@@ -1029,7 +1045,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalKlangParser.g:362:3: this_If_1= ruleIf
+                    // InternalKlangParser.g:380:3: this_If_1= ruleIf
                     {
 
                     			newCompositeNode(grammarAccess.getStatementAccess().getIfParserRuleCall_1());
@@ -1047,7 +1063,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalKlangParser.g:371:3: this_VariableAssignment_2= ruleVariableAssignment
+                    // InternalKlangParser.g:389:3: this_VariableAssignment_2= ruleVariableAssignment
                     {
 
                     			newCompositeNode(grammarAccess.getStatementAccess().getVariableAssignmentParserRuleCall_2());
@@ -1065,7 +1081,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalKlangParser.g:380:3: this_ForeverLoop_3= ruleForeverLoop
+                    // InternalKlangParser.g:398:3: this_ForeverLoop_3= ruleForeverLoop
                     {
 
                     			newCompositeNode(grammarAccess.getStatementAccess().getForeverLoopParserRuleCall_3());
@@ -1083,7 +1099,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalKlangParser.g:389:3: this_FunctionCall_4= ruleFunctionCall
+                    // InternalKlangParser.g:407:3: this_FunctionCall_4= ruleFunctionCall
                     {
 
                     			newCompositeNode(grammarAccess.getStatementAccess().getFunctionCallParserRuleCall_4());
@@ -1101,7 +1117,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalKlangParser.g:398:3: this_Sleep_5= ruleSleep
+                    // InternalKlangParser.g:416:3: this_Sleep_5= ruleSleep
                     {
 
                     			newCompositeNode(grammarAccess.getStatementAccess().getSleepParserRuleCall_5());
@@ -1141,7 +1157,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGameStart"
-    // InternalKlangParser.g:410:1: entryRuleGameStart returns [EObject current=null] : iv_ruleGameStart= ruleGameStart EOF ;
+    // InternalKlangParser.g:428:1: entryRuleGameStart returns [EObject current=null] : iv_ruleGameStart= ruleGameStart EOF ;
     public final EObject entryRuleGameStart() throws RecognitionException {
         EObject current = null;
 
@@ -1149,8 +1165,8 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKlangParser.g:410:50: (iv_ruleGameStart= ruleGameStart EOF )
-            // InternalKlangParser.g:411:2: iv_ruleGameStart= ruleGameStart EOF
+            // InternalKlangParser.g:428:50: (iv_ruleGameStart= ruleGameStart EOF )
+            // InternalKlangParser.g:429:2: iv_ruleGameStart= ruleGameStart EOF
             {
              newCompositeNode(grammarAccess.getGameStartRule()); 
             pushFollow(FOLLOW_1);
@@ -1177,7 +1193,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGameStart"
-    // InternalKlangParser.g:417:1: ruleGameStart returns [EObject current=null] : ( () otherlv_1= When otherlv_2= Game otherlv_3= Starts this_BEGIN_4= RULE_BEGIN ( (lv_statements_5_0= ruleStatement ) )* this_END_6= RULE_END ) ;
+    // InternalKlangParser.g:435:1: ruleGameStart returns [EObject current=null] : ( () otherlv_1= When otherlv_2= Game otherlv_3= Starts this_BEGIN_4= RULE_BEGIN ( (lv_statements_5_0= ruleStatement ) )* this_END_6= RULE_END ) ;
     public final EObject ruleGameStart() throws RecognitionException {
         EObject current = null;
 
@@ -1193,14 +1209,14 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKlangParser.g:423:2: ( ( () otherlv_1= When otherlv_2= Game otherlv_3= Starts this_BEGIN_4= RULE_BEGIN ( (lv_statements_5_0= ruleStatement ) )* this_END_6= RULE_END ) )
-            // InternalKlangParser.g:424:2: ( () otherlv_1= When otherlv_2= Game otherlv_3= Starts this_BEGIN_4= RULE_BEGIN ( (lv_statements_5_0= ruleStatement ) )* this_END_6= RULE_END )
+            // InternalKlangParser.g:441:2: ( ( () otherlv_1= When otherlv_2= Game otherlv_3= Starts this_BEGIN_4= RULE_BEGIN ( (lv_statements_5_0= ruleStatement ) )* this_END_6= RULE_END ) )
+            // InternalKlangParser.g:442:2: ( () otherlv_1= When otherlv_2= Game otherlv_3= Starts this_BEGIN_4= RULE_BEGIN ( (lv_statements_5_0= ruleStatement ) )* this_END_6= RULE_END )
             {
-            // InternalKlangParser.g:424:2: ( () otherlv_1= When otherlv_2= Game otherlv_3= Starts this_BEGIN_4= RULE_BEGIN ( (lv_statements_5_0= ruleStatement ) )* this_END_6= RULE_END )
-            // InternalKlangParser.g:425:3: () otherlv_1= When otherlv_2= Game otherlv_3= Starts this_BEGIN_4= RULE_BEGIN ( (lv_statements_5_0= ruleStatement ) )* this_END_6= RULE_END
+            // InternalKlangParser.g:442:2: ( () otherlv_1= When otherlv_2= Game otherlv_3= Starts this_BEGIN_4= RULE_BEGIN ( (lv_statements_5_0= ruleStatement ) )* this_END_6= RULE_END )
+            // InternalKlangParser.g:443:3: () otherlv_1= When otherlv_2= Game otherlv_3= Starts this_BEGIN_4= RULE_BEGIN ( (lv_statements_5_0= ruleStatement ) )* this_END_6= RULE_END
             {
-            // InternalKlangParser.g:425:3: ()
-            // InternalKlangParser.g:426:4: 
+            // InternalKlangParser.g:443:3: ()
+            // InternalKlangParser.g:444:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1218,7 +1234,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getGameStartAccess().getGameKeyword_2());
             		
-            otherlv_3=(Token)match(input,Starts,FOLLOW_4); 
+            otherlv_3=(Token)match(input,Starts,FOLLOW_5); 
 
             			newLeafNode(otherlv_3, grammarAccess.getGameStartAccess().getStartsKeyword_3());
             		
@@ -1226,23 +1242,23 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(this_BEGIN_4, grammarAccess.getGameStartAccess().getBEGINTerminalRuleCall_4());
             		
-            // InternalKlangParser.g:448:3: ( (lv_statements_5_0= ruleStatement ) )*
-            loop9:
+            // InternalKlangParser.g:466:3: ( (lv_statements_5_0= ruleStatement ) )*
+            loop8:
             do {
-                int alt9=2;
-                int LA9_0 = input.LA(1);
+                int alt8=2;
+                int LA8_0 = input.LA(1);
 
-                if ( (LA9_0==Forever||(LA9_0>=Sleep && LA9_0<=While)||LA9_0==If||LA9_0==RULE_ID) ) {
-                    alt9=1;
+                if ( (LA8_0==Forever||(LA8_0>=Sleep && LA8_0<=While)||LA8_0==If||LA8_0==RULE_ID) ) {
+                    alt8=1;
                 }
 
 
-                switch (alt9) {
+                switch (alt8) {
             	case 1 :
-            	    // InternalKlangParser.g:449:4: (lv_statements_5_0= ruleStatement )
+            	    // InternalKlangParser.g:467:4: (lv_statements_5_0= ruleStatement )
             	    {
-            	    // InternalKlangParser.g:449:4: (lv_statements_5_0= ruleStatement )
-            	    // InternalKlangParser.g:450:5: lv_statements_5_0= ruleStatement
+            	    // InternalKlangParser.g:467:4: (lv_statements_5_0= ruleStatement )
+            	    // InternalKlangParser.g:468:5: lv_statements_5_0= ruleStatement
             	    {
 
             	    					newCompositeNode(grammarAccess.getGameStartAccess().getStatementsStatementParserRuleCall_5_0());
@@ -1271,7 +1287,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop9;
+            	    break loop8;
                 }
             } while (true);
 
@@ -1302,7 +1318,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSpriteClicked"
-    // InternalKlangParser.g:475:1: entryRuleSpriteClicked returns [EObject current=null] : iv_ruleSpriteClicked= ruleSpriteClicked EOF ;
+    // InternalKlangParser.g:493:1: entryRuleSpriteClicked returns [EObject current=null] : iv_ruleSpriteClicked= ruleSpriteClicked EOF ;
     public final EObject entryRuleSpriteClicked() throws RecognitionException {
         EObject current = null;
 
@@ -1310,8 +1326,8 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKlangParser.g:475:54: (iv_ruleSpriteClicked= ruleSpriteClicked EOF )
-            // InternalKlangParser.g:476:2: iv_ruleSpriteClicked= ruleSpriteClicked EOF
+            // InternalKlangParser.g:493:54: (iv_ruleSpriteClicked= ruleSpriteClicked EOF )
+            // InternalKlangParser.g:494:2: iv_ruleSpriteClicked= ruleSpriteClicked EOF
             {
              newCompositeNode(grammarAccess.getSpriteClickedRule()); 
             pushFollow(FOLLOW_1);
@@ -1338,7 +1354,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSpriteClicked"
-    // InternalKlangParser.g:482:1: ruleSpriteClicked returns [EObject current=null] : ( () otherlv_1= When otherlv_2= Clicked this_BEGIN_3= RULE_BEGIN ( (lv_statements_4_0= ruleStatement ) )* this_END_5= RULE_END ) ;
+    // InternalKlangParser.g:500:1: ruleSpriteClicked returns [EObject current=null] : ( () otherlv_1= When otherlv_2= Clicked this_BEGIN_3= RULE_BEGIN ( (lv_statements_4_0= ruleStatement ) )* this_END_5= RULE_END ) ;
     public final EObject ruleSpriteClicked() throws RecognitionException {
         EObject current = null;
 
@@ -1353,14 +1369,14 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKlangParser.g:488:2: ( ( () otherlv_1= When otherlv_2= Clicked this_BEGIN_3= RULE_BEGIN ( (lv_statements_4_0= ruleStatement ) )* this_END_5= RULE_END ) )
-            // InternalKlangParser.g:489:2: ( () otherlv_1= When otherlv_2= Clicked this_BEGIN_3= RULE_BEGIN ( (lv_statements_4_0= ruleStatement ) )* this_END_5= RULE_END )
+            // InternalKlangParser.g:506:2: ( ( () otherlv_1= When otherlv_2= Clicked this_BEGIN_3= RULE_BEGIN ( (lv_statements_4_0= ruleStatement ) )* this_END_5= RULE_END ) )
+            // InternalKlangParser.g:507:2: ( () otherlv_1= When otherlv_2= Clicked this_BEGIN_3= RULE_BEGIN ( (lv_statements_4_0= ruleStatement ) )* this_END_5= RULE_END )
             {
-            // InternalKlangParser.g:489:2: ( () otherlv_1= When otherlv_2= Clicked this_BEGIN_3= RULE_BEGIN ( (lv_statements_4_0= ruleStatement ) )* this_END_5= RULE_END )
-            // InternalKlangParser.g:490:3: () otherlv_1= When otherlv_2= Clicked this_BEGIN_3= RULE_BEGIN ( (lv_statements_4_0= ruleStatement ) )* this_END_5= RULE_END
+            // InternalKlangParser.g:507:2: ( () otherlv_1= When otherlv_2= Clicked this_BEGIN_3= RULE_BEGIN ( (lv_statements_4_0= ruleStatement ) )* this_END_5= RULE_END )
+            // InternalKlangParser.g:508:3: () otherlv_1= When otherlv_2= Clicked this_BEGIN_3= RULE_BEGIN ( (lv_statements_4_0= ruleStatement ) )* this_END_5= RULE_END
             {
-            // InternalKlangParser.g:490:3: ()
-            // InternalKlangParser.g:491:4: 
+            // InternalKlangParser.g:508:3: ()
+            // InternalKlangParser.g:509:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1374,7 +1390,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getSpriteClickedAccess().getWhenKeyword_1());
             		
-            otherlv_2=(Token)match(input,Clicked,FOLLOW_4); 
+            otherlv_2=(Token)match(input,Clicked,FOLLOW_5); 
 
             			newLeafNode(otherlv_2, grammarAccess.getSpriteClickedAccess().getClickedKeyword_2());
             		
@@ -1382,23 +1398,23 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(this_BEGIN_3, grammarAccess.getSpriteClickedAccess().getBEGINTerminalRuleCall_3());
             		
-            // InternalKlangParser.g:509:3: ( (lv_statements_4_0= ruleStatement ) )*
-            loop10:
+            // InternalKlangParser.g:527:3: ( (lv_statements_4_0= ruleStatement ) )*
+            loop9:
             do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
+                int alt9=2;
+                int LA9_0 = input.LA(1);
 
-                if ( (LA10_0==Forever||(LA10_0>=Sleep && LA10_0<=While)||LA10_0==If||LA10_0==RULE_ID) ) {
-                    alt10=1;
+                if ( (LA9_0==Forever||(LA9_0>=Sleep && LA9_0<=While)||LA9_0==If||LA9_0==RULE_ID) ) {
+                    alt9=1;
                 }
 
 
-                switch (alt10) {
+                switch (alt9) {
             	case 1 :
-            	    // InternalKlangParser.g:510:4: (lv_statements_4_0= ruleStatement )
+            	    // InternalKlangParser.g:528:4: (lv_statements_4_0= ruleStatement )
             	    {
-            	    // InternalKlangParser.g:510:4: (lv_statements_4_0= ruleStatement )
-            	    // InternalKlangParser.g:511:5: lv_statements_4_0= ruleStatement
+            	    // InternalKlangParser.g:528:4: (lv_statements_4_0= ruleStatement )
+            	    // InternalKlangParser.g:529:5: lv_statements_4_0= ruleStatement
             	    {
 
             	    					newCompositeNode(grammarAccess.getSpriteClickedAccess().getStatementsStatementParserRuleCall_4_0());
@@ -1427,7 +1443,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop10;
+            	    break loop9;
                 }
             } while (true);
 
@@ -1458,7 +1474,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleKeyPressed"
-    // InternalKlangParser.g:536:1: entryRuleKeyPressed returns [EObject current=null] : iv_ruleKeyPressed= ruleKeyPressed EOF ;
+    // InternalKlangParser.g:554:1: entryRuleKeyPressed returns [EObject current=null] : iv_ruleKeyPressed= ruleKeyPressed EOF ;
     public final EObject entryRuleKeyPressed() throws RecognitionException {
         EObject current = null;
 
@@ -1466,8 +1482,8 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKlangParser.g:536:51: (iv_ruleKeyPressed= ruleKeyPressed EOF )
-            // InternalKlangParser.g:537:2: iv_ruleKeyPressed= ruleKeyPressed EOF
+            // InternalKlangParser.g:554:51: (iv_ruleKeyPressed= ruleKeyPressed EOF )
+            // InternalKlangParser.g:555:2: iv_ruleKeyPressed= ruleKeyPressed EOF
             {
              newCompositeNode(grammarAccess.getKeyPressedRule()); 
             pushFollow(FOLLOW_1);
@@ -1494,7 +1510,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleKeyPressed"
-    // InternalKlangParser.g:543:1: ruleKeyPressed returns [EObject current=null] : ( () otherlv_1= When ( (lv_key_2_0= RULE_ID ) ) otherlv_3= Key otherlv_4= Pressed this_BEGIN_5= RULE_BEGIN ( (lv_statements_6_0= ruleStatement ) )* this_END_7= RULE_END ) ;
+    // InternalKlangParser.g:561:1: ruleKeyPressed returns [EObject current=null] : ( () otherlv_1= When ( (lv_key_2_0= RULE_ID ) ) otherlv_3= Key otherlv_4= Pressed this_BEGIN_5= RULE_BEGIN ( (lv_statements_6_0= ruleStatement ) )* this_END_7= RULE_END ) ;
     public final EObject ruleKeyPressed() throws RecognitionException {
         EObject current = null;
 
@@ -1511,14 +1527,14 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKlangParser.g:549:2: ( ( () otherlv_1= When ( (lv_key_2_0= RULE_ID ) ) otherlv_3= Key otherlv_4= Pressed this_BEGIN_5= RULE_BEGIN ( (lv_statements_6_0= ruleStatement ) )* this_END_7= RULE_END ) )
-            // InternalKlangParser.g:550:2: ( () otherlv_1= When ( (lv_key_2_0= RULE_ID ) ) otherlv_3= Key otherlv_4= Pressed this_BEGIN_5= RULE_BEGIN ( (lv_statements_6_0= ruleStatement ) )* this_END_7= RULE_END )
+            // InternalKlangParser.g:567:2: ( ( () otherlv_1= When ( (lv_key_2_0= RULE_ID ) ) otherlv_3= Key otherlv_4= Pressed this_BEGIN_5= RULE_BEGIN ( (lv_statements_6_0= ruleStatement ) )* this_END_7= RULE_END ) )
+            // InternalKlangParser.g:568:2: ( () otherlv_1= When ( (lv_key_2_0= RULE_ID ) ) otherlv_3= Key otherlv_4= Pressed this_BEGIN_5= RULE_BEGIN ( (lv_statements_6_0= ruleStatement ) )* this_END_7= RULE_END )
             {
-            // InternalKlangParser.g:550:2: ( () otherlv_1= When ( (lv_key_2_0= RULE_ID ) ) otherlv_3= Key otherlv_4= Pressed this_BEGIN_5= RULE_BEGIN ( (lv_statements_6_0= ruleStatement ) )* this_END_7= RULE_END )
-            // InternalKlangParser.g:551:3: () otherlv_1= When ( (lv_key_2_0= RULE_ID ) ) otherlv_3= Key otherlv_4= Pressed this_BEGIN_5= RULE_BEGIN ( (lv_statements_6_0= ruleStatement ) )* this_END_7= RULE_END
+            // InternalKlangParser.g:568:2: ( () otherlv_1= When ( (lv_key_2_0= RULE_ID ) ) otherlv_3= Key otherlv_4= Pressed this_BEGIN_5= RULE_BEGIN ( (lv_statements_6_0= ruleStatement ) )* this_END_7= RULE_END )
+            // InternalKlangParser.g:569:3: () otherlv_1= When ( (lv_key_2_0= RULE_ID ) ) otherlv_3= Key otherlv_4= Pressed this_BEGIN_5= RULE_BEGIN ( (lv_statements_6_0= ruleStatement ) )* this_END_7= RULE_END
             {
-            // InternalKlangParser.g:551:3: ()
-            // InternalKlangParser.g:552:4: 
+            // InternalKlangParser.g:569:3: ()
+            // InternalKlangParser.g:570:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1528,15 +1544,15 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,When,FOLLOW_7); 
+            otherlv_1=(Token)match(input,When,FOLLOW_4); 
 
             			newLeafNode(otherlv_1, grammarAccess.getKeyPressedAccess().getWhenKeyword_1());
             		
-            // InternalKlangParser.g:562:3: ( (lv_key_2_0= RULE_ID ) )
-            // InternalKlangParser.g:563:4: (lv_key_2_0= RULE_ID )
+            // InternalKlangParser.g:580:3: ( (lv_key_2_0= RULE_ID ) )
+            // InternalKlangParser.g:581:4: (lv_key_2_0= RULE_ID )
             {
-            // InternalKlangParser.g:563:4: (lv_key_2_0= RULE_ID )
-            // InternalKlangParser.g:564:5: lv_key_2_0= RULE_ID
+            // InternalKlangParser.g:581:4: (lv_key_2_0= RULE_ID )
+            // InternalKlangParser.g:582:5: lv_key_2_0= RULE_ID
             {
             lv_key_2_0=(Token)match(input,RULE_ID,FOLLOW_12); 
 
@@ -1562,7 +1578,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_3, grammarAccess.getKeyPressedAccess().getKeyKeyword_3());
             		
-            otherlv_4=(Token)match(input,Pressed,FOLLOW_4); 
+            otherlv_4=(Token)match(input,Pressed,FOLLOW_5); 
 
             			newLeafNode(otherlv_4, grammarAccess.getKeyPressedAccess().getPressedKeyword_4());
             		
@@ -1570,23 +1586,23 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(this_BEGIN_5, grammarAccess.getKeyPressedAccess().getBEGINTerminalRuleCall_5());
             		
-            // InternalKlangParser.g:592:3: ( (lv_statements_6_0= ruleStatement ) )*
-            loop11:
+            // InternalKlangParser.g:610:3: ( (lv_statements_6_0= ruleStatement ) )*
+            loop10:
             do {
-                int alt11=2;
-                int LA11_0 = input.LA(1);
+                int alt10=2;
+                int LA10_0 = input.LA(1);
 
-                if ( (LA11_0==Forever||(LA11_0>=Sleep && LA11_0<=While)||LA11_0==If||LA11_0==RULE_ID) ) {
-                    alt11=1;
+                if ( (LA10_0==Forever||(LA10_0>=Sleep && LA10_0<=While)||LA10_0==If||LA10_0==RULE_ID) ) {
+                    alt10=1;
                 }
 
 
-                switch (alt11) {
+                switch (alt10) {
             	case 1 :
-            	    // InternalKlangParser.g:593:4: (lv_statements_6_0= ruleStatement )
+            	    // InternalKlangParser.g:611:4: (lv_statements_6_0= ruleStatement )
             	    {
-            	    // InternalKlangParser.g:593:4: (lv_statements_6_0= ruleStatement )
-            	    // InternalKlangParser.g:594:5: lv_statements_6_0= ruleStatement
+            	    // InternalKlangParser.g:611:4: (lv_statements_6_0= ruleStatement )
+            	    // InternalKlangParser.g:612:5: lv_statements_6_0= ruleStatement
             	    {
 
             	    					newCompositeNode(grammarAccess.getKeyPressedAccess().getStatementsStatementParserRuleCall_6_0());
@@ -1615,7 +1631,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop11;
+            	    break loop10;
                 }
             } while (true);
 
@@ -1646,7 +1662,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCollidesWith"
-    // InternalKlangParser.g:619:1: entryRuleCollidesWith returns [EObject current=null] : iv_ruleCollidesWith= ruleCollidesWith EOF ;
+    // InternalKlangParser.g:637:1: entryRuleCollidesWith returns [EObject current=null] : iv_ruleCollidesWith= ruleCollidesWith EOF ;
     public final EObject entryRuleCollidesWith() throws RecognitionException {
         EObject current = null;
 
@@ -1654,8 +1670,8 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKlangParser.g:619:53: (iv_ruleCollidesWith= ruleCollidesWith EOF )
-            // InternalKlangParser.g:620:2: iv_ruleCollidesWith= ruleCollidesWith EOF
+            // InternalKlangParser.g:637:53: (iv_ruleCollidesWith= ruleCollidesWith EOF )
+            // InternalKlangParser.g:638:2: iv_ruleCollidesWith= ruleCollidesWith EOF
             {
              newCompositeNode(grammarAccess.getCollidesWithRule()); 
             pushFollow(FOLLOW_1);
@@ -1682,7 +1698,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCollidesWith"
-    // InternalKlangParser.g:626:1: ruleCollidesWith returns [EObject current=null] : ( () otherlv_1= When otherlv_2= Collides otherlv_3= With ( (otherlv_4= RULE_ID ) ) this_BEGIN_5= RULE_BEGIN ( (lv_statements_6_0= ruleStatement ) )* this_END_7= RULE_END ) ;
+    // InternalKlangParser.g:644:1: ruleCollidesWith returns [EObject current=null] : ( () otherlv_1= When otherlv_2= Collides otherlv_3= With ( (otherlv_4= RULE_ID ) ) this_BEGIN_5= RULE_BEGIN ( (lv_statements_6_0= ruleStatement ) )* this_END_7= RULE_END ) ;
     public final EObject ruleCollidesWith() throws RecognitionException {
         EObject current = null;
 
@@ -1699,14 +1715,14 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKlangParser.g:632:2: ( ( () otherlv_1= When otherlv_2= Collides otherlv_3= With ( (otherlv_4= RULE_ID ) ) this_BEGIN_5= RULE_BEGIN ( (lv_statements_6_0= ruleStatement ) )* this_END_7= RULE_END ) )
-            // InternalKlangParser.g:633:2: ( () otherlv_1= When otherlv_2= Collides otherlv_3= With ( (otherlv_4= RULE_ID ) ) this_BEGIN_5= RULE_BEGIN ( (lv_statements_6_0= ruleStatement ) )* this_END_7= RULE_END )
+            // InternalKlangParser.g:650:2: ( ( () otherlv_1= When otherlv_2= Collides otherlv_3= With ( (otherlv_4= RULE_ID ) ) this_BEGIN_5= RULE_BEGIN ( (lv_statements_6_0= ruleStatement ) )* this_END_7= RULE_END ) )
+            // InternalKlangParser.g:651:2: ( () otherlv_1= When otherlv_2= Collides otherlv_3= With ( (otherlv_4= RULE_ID ) ) this_BEGIN_5= RULE_BEGIN ( (lv_statements_6_0= ruleStatement ) )* this_END_7= RULE_END )
             {
-            // InternalKlangParser.g:633:2: ( () otherlv_1= When otherlv_2= Collides otherlv_3= With ( (otherlv_4= RULE_ID ) ) this_BEGIN_5= RULE_BEGIN ( (lv_statements_6_0= ruleStatement ) )* this_END_7= RULE_END )
-            // InternalKlangParser.g:634:3: () otherlv_1= When otherlv_2= Collides otherlv_3= With ( (otherlv_4= RULE_ID ) ) this_BEGIN_5= RULE_BEGIN ( (lv_statements_6_0= ruleStatement ) )* this_END_7= RULE_END
+            // InternalKlangParser.g:651:2: ( () otherlv_1= When otherlv_2= Collides otherlv_3= With ( (otherlv_4= RULE_ID ) ) this_BEGIN_5= RULE_BEGIN ( (lv_statements_6_0= ruleStatement ) )* this_END_7= RULE_END )
+            // InternalKlangParser.g:652:3: () otherlv_1= When otherlv_2= Collides otherlv_3= With ( (otherlv_4= RULE_ID ) ) this_BEGIN_5= RULE_BEGIN ( (lv_statements_6_0= ruleStatement ) )* this_END_7= RULE_END
             {
-            // InternalKlangParser.g:634:3: ()
-            // InternalKlangParser.g:635:4: 
+            // InternalKlangParser.g:652:3: ()
+            // InternalKlangParser.g:653:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1724,22 +1740,22 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getCollidesWithAccess().getCollidesKeyword_2());
             		
-            otherlv_3=(Token)match(input,With,FOLLOW_7); 
+            otherlv_3=(Token)match(input,With,FOLLOW_4); 
 
             			newLeafNode(otherlv_3, grammarAccess.getCollidesWithAccess().getWithKeyword_3());
             		
-            // InternalKlangParser.g:653:3: ( (otherlv_4= RULE_ID ) )
-            // InternalKlangParser.g:654:4: (otherlv_4= RULE_ID )
+            // InternalKlangParser.g:671:3: ( (otherlv_4= RULE_ID ) )
+            // InternalKlangParser.g:672:4: (otherlv_4= RULE_ID )
             {
-            // InternalKlangParser.g:654:4: (otherlv_4= RULE_ID )
-            // InternalKlangParser.g:655:5: otherlv_4= RULE_ID
+            // InternalKlangParser.g:672:4: (otherlv_4= RULE_ID )
+            // InternalKlangParser.g:673:5: otherlv_4= RULE_ID
             {
 
             					if (current==null) {
             						current = createModelElement(grammarAccess.getCollidesWithRule());
             					}
             				
-            otherlv_4=(Token)match(input,RULE_ID,FOLLOW_4); 
+            otherlv_4=(Token)match(input,RULE_ID,FOLLOW_5); 
 
             					newLeafNode(otherlv_4, grammarAccess.getCollidesWithAccess().getTargetSpriteActorCrossReference_4_0());
             				
@@ -1753,23 +1769,23 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(this_BEGIN_5, grammarAccess.getCollidesWithAccess().getBEGINTerminalRuleCall_5());
             		
-            // InternalKlangParser.g:670:3: ( (lv_statements_6_0= ruleStatement ) )*
-            loop12:
+            // InternalKlangParser.g:688:3: ( (lv_statements_6_0= ruleStatement ) )*
+            loop11:
             do {
-                int alt12=2;
-                int LA12_0 = input.LA(1);
+                int alt11=2;
+                int LA11_0 = input.LA(1);
 
-                if ( (LA12_0==Forever||(LA12_0>=Sleep && LA12_0<=While)||LA12_0==If||LA12_0==RULE_ID) ) {
-                    alt12=1;
+                if ( (LA11_0==Forever||(LA11_0>=Sleep && LA11_0<=While)||LA11_0==If||LA11_0==RULE_ID) ) {
+                    alt11=1;
                 }
 
 
-                switch (alt12) {
+                switch (alt11) {
             	case 1 :
-            	    // InternalKlangParser.g:671:4: (lv_statements_6_0= ruleStatement )
+            	    // InternalKlangParser.g:689:4: (lv_statements_6_0= ruleStatement )
             	    {
-            	    // InternalKlangParser.g:671:4: (lv_statements_6_0= ruleStatement )
-            	    // InternalKlangParser.g:672:5: lv_statements_6_0= ruleStatement
+            	    // InternalKlangParser.g:689:4: (lv_statements_6_0= ruleStatement )
+            	    // InternalKlangParser.g:690:5: lv_statements_6_0= ruleStatement
             	    {
 
             	    					newCompositeNode(grammarAccess.getCollidesWithAccess().getStatementsStatementParserRuleCall_6_0());
@@ -1798,7 +1814,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop12;
+            	    break loop11;
                 }
             } while (true);
 
@@ -1829,7 +1845,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleWhileLoop"
-    // InternalKlangParser.g:697:1: entryRuleWhileLoop returns [EObject current=null] : iv_ruleWhileLoop= ruleWhileLoop EOF ;
+    // InternalKlangParser.g:715:1: entryRuleWhileLoop returns [EObject current=null] : iv_ruleWhileLoop= ruleWhileLoop EOF ;
     public final EObject entryRuleWhileLoop() throws RecognitionException {
         EObject current = null;
 
@@ -1837,8 +1853,8 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKlangParser.g:697:50: (iv_ruleWhileLoop= ruleWhileLoop EOF )
-            // InternalKlangParser.g:698:2: iv_ruleWhileLoop= ruleWhileLoop EOF
+            // InternalKlangParser.g:715:50: (iv_ruleWhileLoop= ruleWhileLoop EOF )
+            // InternalKlangParser.g:716:2: iv_ruleWhileLoop= ruleWhileLoop EOF
             {
              newCompositeNode(grammarAccess.getWhileLoopRule()); 
             pushFollow(FOLLOW_1);
@@ -1865,7 +1881,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleWhileLoop"
-    // InternalKlangParser.g:704:1: ruleWhileLoop returns [EObject current=null] : ( () otherlv_1= While ( (lv_predicate_2_0= ruleExpression ) ) this_BEGIN_3= RULE_BEGIN ( (lv_loopBlock_4_0= ruleStatement ) )* this_END_5= RULE_END ) ;
+    // InternalKlangParser.g:722:1: ruleWhileLoop returns [EObject current=null] : ( () otherlv_1= While ( (lv_predicate_2_0= ruleExpression ) ) this_BEGIN_3= RULE_BEGIN ( (lv_loopBlock_4_0= ruleStatement ) )* this_END_5= RULE_END ) ;
     public final EObject ruleWhileLoop() throws RecognitionException {
         EObject current = null;
 
@@ -1881,14 +1897,14 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKlangParser.g:710:2: ( ( () otherlv_1= While ( (lv_predicate_2_0= ruleExpression ) ) this_BEGIN_3= RULE_BEGIN ( (lv_loopBlock_4_0= ruleStatement ) )* this_END_5= RULE_END ) )
-            // InternalKlangParser.g:711:2: ( () otherlv_1= While ( (lv_predicate_2_0= ruleExpression ) ) this_BEGIN_3= RULE_BEGIN ( (lv_loopBlock_4_0= ruleStatement ) )* this_END_5= RULE_END )
+            // InternalKlangParser.g:728:2: ( ( () otherlv_1= While ( (lv_predicate_2_0= ruleExpression ) ) this_BEGIN_3= RULE_BEGIN ( (lv_loopBlock_4_0= ruleStatement ) )* this_END_5= RULE_END ) )
+            // InternalKlangParser.g:729:2: ( () otherlv_1= While ( (lv_predicate_2_0= ruleExpression ) ) this_BEGIN_3= RULE_BEGIN ( (lv_loopBlock_4_0= ruleStatement ) )* this_END_5= RULE_END )
             {
-            // InternalKlangParser.g:711:2: ( () otherlv_1= While ( (lv_predicate_2_0= ruleExpression ) ) this_BEGIN_3= RULE_BEGIN ( (lv_loopBlock_4_0= ruleStatement ) )* this_END_5= RULE_END )
-            // InternalKlangParser.g:712:3: () otherlv_1= While ( (lv_predicate_2_0= ruleExpression ) ) this_BEGIN_3= RULE_BEGIN ( (lv_loopBlock_4_0= ruleStatement ) )* this_END_5= RULE_END
+            // InternalKlangParser.g:729:2: ( () otherlv_1= While ( (lv_predicate_2_0= ruleExpression ) ) this_BEGIN_3= RULE_BEGIN ( (lv_loopBlock_4_0= ruleStatement ) )* this_END_5= RULE_END )
+            // InternalKlangParser.g:730:3: () otherlv_1= While ( (lv_predicate_2_0= ruleExpression ) ) this_BEGIN_3= RULE_BEGIN ( (lv_loopBlock_4_0= ruleStatement ) )* this_END_5= RULE_END
             {
-            // InternalKlangParser.g:712:3: ()
-            // InternalKlangParser.g:713:4: 
+            // InternalKlangParser.g:730:3: ()
+            // InternalKlangParser.g:731:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1902,16 +1918,16 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getWhileLoopAccess().getWhileKeyword_1());
             		
-            // InternalKlangParser.g:723:3: ( (lv_predicate_2_0= ruleExpression ) )
-            // InternalKlangParser.g:724:4: (lv_predicate_2_0= ruleExpression )
+            // InternalKlangParser.g:741:3: ( (lv_predicate_2_0= ruleExpression ) )
+            // InternalKlangParser.g:742:4: (lv_predicate_2_0= ruleExpression )
             {
-            // InternalKlangParser.g:724:4: (lv_predicate_2_0= ruleExpression )
-            // InternalKlangParser.g:725:5: lv_predicate_2_0= ruleExpression
+            // InternalKlangParser.g:742:4: (lv_predicate_2_0= ruleExpression )
+            // InternalKlangParser.g:743:5: lv_predicate_2_0= ruleExpression
             {
 
             					newCompositeNode(grammarAccess.getWhileLoopAccess().getPredicateExpressionParserRuleCall_2_0());
             				
-            pushFollow(FOLLOW_4);
+            pushFollow(FOLLOW_5);
             lv_predicate_2_0=ruleExpression();
 
             state._fsp--;
@@ -1937,23 +1953,23 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(this_BEGIN_3, grammarAccess.getWhileLoopAccess().getBEGINTerminalRuleCall_3());
             		
-            // InternalKlangParser.g:746:3: ( (lv_loopBlock_4_0= ruleStatement ) )*
-            loop13:
+            // InternalKlangParser.g:764:3: ( (lv_loopBlock_4_0= ruleStatement ) )*
+            loop12:
             do {
-                int alt13=2;
-                int LA13_0 = input.LA(1);
+                int alt12=2;
+                int LA12_0 = input.LA(1);
 
-                if ( (LA13_0==Forever||(LA13_0>=Sleep && LA13_0<=While)||LA13_0==If||LA13_0==RULE_ID) ) {
-                    alt13=1;
+                if ( (LA12_0==Forever||(LA12_0>=Sleep && LA12_0<=While)||LA12_0==If||LA12_0==RULE_ID) ) {
+                    alt12=1;
                 }
 
 
-                switch (alt13) {
+                switch (alt12) {
             	case 1 :
-            	    // InternalKlangParser.g:747:4: (lv_loopBlock_4_0= ruleStatement )
+            	    // InternalKlangParser.g:765:4: (lv_loopBlock_4_0= ruleStatement )
             	    {
-            	    // InternalKlangParser.g:747:4: (lv_loopBlock_4_0= ruleStatement )
-            	    // InternalKlangParser.g:748:5: lv_loopBlock_4_0= ruleStatement
+            	    // InternalKlangParser.g:765:4: (lv_loopBlock_4_0= ruleStatement )
+            	    // InternalKlangParser.g:766:5: lv_loopBlock_4_0= ruleStatement
             	    {
 
             	    					newCompositeNode(grammarAccess.getWhileLoopAccess().getLoopBlockStatementParserRuleCall_4_0());
@@ -1982,7 +1998,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop13;
+            	    break loop12;
                 }
             } while (true);
 
@@ -2013,7 +2029,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleIf"
-    // InternalKlangParser.g:773:1: entryRuleIf returns [EObject current=null] : iv_ruleIf= ruleIf EOF ;
+    // InternalKlangParser.g:791:1: entryRuleIf returns [EObject current=null] : iv_ruleIf= ruleIf EOF ;
     public final EObject entryRuleIf() throws RecognitionException {
         EObject current = null;
 
@@ -2021,8 +2037,8 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKlangParser.g:773:43: (iv_ruleIf= ruleIf EOF )
-            // InternalKlangParser.g:774:2: iv_ruleIf= ruleIf EOF
+            // InternalKlangParser.g:791:43: (iv_ruleIf= ruleIf EOF )
+            // InternalKlangParser.g:792:2: iv_ruleIf= ruleIf EOF
             {
              newCompositeNode(grammarAccess.getIfRule()); 
             pushFollow(FOLLOW_1);
@@ -2049,7 +2065,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIf"
-    // InternalKlangParser.g:780:1: ruleIf returns [EObject current=null] : ( () otherlv_1= If ( (lv_predicate_2_0= ruleExpression ) ) this_BEGIN_3= RULE_BEGIN ( (lv_ifBlock_4_0= ruleStatement ) )* this_END_5= RULE_END (otherlv_6= Else this_BEGIN_7= RULE_BEGIN ( (lv_elseBlock_8_0= ruleStatement ) )* this_END_9= RULE_END )? ) ;
+    // InternalKlangParser.g:798:1: ruleIf returns [EObject current=null] : ( () otherlv_1= If ( (lv_predicate_2_0= ruleExpression ) ) this_BEGIN_3= RULE_BEGIN ( (lv_ifBlock_4_0= ruleStatement ) )* this_END_5= RULE_END (otherlv_6= Else this_BEGIN_7= RULE_BEGIN ( (lv_elseBlock_8_0= ruleStatement ) )* this_END_9= RULE_END )? ) ;
     public final EObject ruleIf() throws RecognitionException {
         EObject current = null;
 
@@ -2070,14 +2086,14 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKlangParser.g:786:2: ( ( () otherlv_1= If ( (lv_predicate_2_0= ruleExpression ) ) this_BEGIN_3= RULE_BEGIN ( (lv_ifBlock_4_0= ruleStatement ) )* this_END_5= RULE_END (otherlv_6= Else this_BEGIN_7= RULE_BEGIN ( (lv_elseBlock_8_0= ruleStatement ) )* this_END_9= RULE_END )? ) )
-            // InternalKlangParser.g:787:2: ( () otherlv_1= If ( (lv_predicate_2_0= ruleExpression ) ) this_BEGIN_3= RULE_BEGIN ( (lv_ifBlock_4_0= ruleStatement ) )* this_END_5= RULE_END (otherlv_6= Else this_BEGIN_7= RULE_BEGIN ( (lv_elseBlock_8_0= ruleStatement ) )* this_END_9= RULE_END )? )
+            // InternalKlangParser.g:804:2: ( ( () otherlv_1= If ( (lv_predicate_2_0= ruleExpression ) ) this_BEGIN_3= RULE_BEGIN ( (lv_ifBlock_4_0= ruleStatement ) )* this_END_5= RULE_END (otherlv_6= Else this_BEGIN_7= RULE_BEGIN ( (lv_elseBlock_8_0= ruleStatement ) )* this_END_9= RULE_END )? ) )
+            // InternalKlangParser.g:805:2: ( () otherlv_1= If ( (lv_predicate_2_0= ruleExpression ) ) this_BEGIN_3= RULE_BEGIN ( (lv_ifBlock_4_0= ruleStatement ) )* this_END_5= RULE_END (otherlv_6= Else this_BEGIN_7= RULE_BEGIN ( (lv_elseBlock_8_0= ruleStatement ) )* this_END_9= RULE_END )? )
             {
-            // InternalKlangParser.g:787:2: ( () otherlv_1= If ( (lv_predicate_2_0= ruleExpression ) ) this_BEGIN_3= RULE_BEGIN ( (lv_ifBlock_4_0= ruleStatement ) )* this_END_5= RULE_END (otherlv_6= Else this_BEGIN_7= RULE_BEGIN ( (lv_elseBlock_8_0= ruleStatement ) )* this_END_9= RULE_END )? )
-            // InternalKlangParser.g:788:3: () otherlv_1= If ( (lv_predicate_2_0= ruleExpression ) ) this_BEGIN_3= RULE_BEGIN ( (lv_ifBlock_4_0= ruleStatement ) )* this_END_5= RULE_END (otherlv_6= Else this_BEGIN_7= RULE_BEGIN ( (lv_elseBlock_8_0= ruleStatement ) )* this_END_9= RULE_END )?
+            // InternalKlangParser.g:805:2: ( () otherlv_1= If ( (lv_predicate_2_0= ruleExpression ) ) this_BEGIN_3= RULE_BEGIN ( (lv_ifBlock_4_0= ruleStatement ) )* this_END_5= RULE_END (otherlv_6= Else this_BEGIN_7= RULE_BEGIN ( (lv_elseBlock_8_0= ruleStatement ) )* this_END_9= RULE_END )? )
+            // InternalKlangParser.g:806:3: () otherlv_1= If ( (lv_predicate_2_0= ruleExpression ) ) this_BEGIN_3= RULE_BEGIN ( (lv_ifBlock_4_0= ruleStatement ) )* this_END_5= RULE_END (otherlv_6= Else this_BEGIN_7= RULE_BEGIN ( (lv_elseBlock_8_0= ruleStatement ) )* this_END_9= RULE_END )?
             {
-            // InternalKlangParser.g:788:3: ()
-            // InternalKlangParser.g:789:4: 
+            // InternalKlangParser.g:806:3: ()
+            // InternalKlangParser.g:807:4: 
             {
 
             				current = forceCreateModelElement(
@@ -2091,16 +2107,16 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getIfAccess().getIfKeyword_1());
             		
-            // InternalKlangParser.g:799:3: ( (lv_predicate_2_0= ruleExpression ) )
-            // InternalKlangParser.g:800:4: (lv_predicate_2_0= ruleExpression )
+            // InternalKlangParser.g:817:3: ( (lv_predicate_2_0= ruleExpression ) )
+            // InternalKlangParser.g:818:4: (lv_predicate_2_0= ruleExpression )
             {
-            // InternalKlangParser.g:800:4: (lv_predicate_2_0= ruleExpression )
-            // InternalKlangParser.g:801:5: lv_predicate_2_0= ruleExpression
+            // InternalKlangParser.g:818:4: (lv_predicate_2_0= ruleExpression )
+            // InternalKlangParser.g:819:5: lv_predicate_2_0= ruleExpression
             {
 
             					newCompositeNode(grammarAccess.getIfAccess().getPredicateExpressionParserRuleCall_2_0());
             				
-            pushFollow(FOLLOW_4);
+            pushFollow(FOLLOW_5);
             lv_predicate_2_0=ruleExpression();
 
             state._fsp--;
@@ -2126,23 +2142,23 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(this_BEGIN_3, grammarAccess.getIfAccess().getBEGINTerminalRuleCall_3());
             		
-            // InternalKlangParser.g:822:3: ( (lv_ifBlock_4_0= ruleStatement ) )*
-            loop14:
+            // InternalKlangParser.g:840:3: ( (lv_ifBlock_4_0= ruleStatement ) )*
+            loop13:
             do {
-                int alt14=2;
-                int LA14_0 = input.LA(1);
+                int alt13=2;
+                int LA13_0 = input.LA(1);
 
-                if ( (LA14_0==Forever||(LA14_0>=Sleep && LA14_0<=While)||LA14_0==If||LA14_0==RULE_ID) ) {
-                    alt14=1;
+                if ( (LA13_0==Forever||(LA13_0>=Sleep && LA13_0<=While)||LA13_0==If||LA13_0==RULE_ID) ) {
+                    alt13=1;
                 }
 
 
-                switch (alt14) {
+                switch (alt13) {
             	case 1 :
-            	    // InternalKlangParser.g:823:4: (lv_ifBlock_4_0= ruleStatement )
+            	    // InternalKlangParser.g:841:4: (lv_ifBlock_4_0= ruleStatement )
             	    {
-            	    // InternalKlangParser.g:823:4: (lv_ifBlock_4_0= ruleStatement )
-            	    // InternalKlangParser.g:824:5: lv_ifBlock_4_0= ruleStatement
+            	    // InternalKlangParser.g:841:4: (lv_ifBlock_4_0= ruleStatement )
+            	    // InternalKlangParser.g:842:5: lv_ifBlock_4_0= ruleStatement
             	    {
 
             	    					newCompositeNode(grammarAccess.getIfAccess().getIfBlockStatementParserRuleCall_4_0());
@@ -2171,7 +2187,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop14;
+            	    break loop13;
                 }
             } while (true);
 
@@ -2179,18 +2195,18 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(this_END_5, grammarAccess.getIfAccess().getENDTerminalRuleCall_5());
             		
-            // InternalKlangParser.g:845:3: (otherlv_6= Else this_BEGIN_7= RULE_BEGIN ( (lv_elseBlock_8_0= ruleStatement ) )* this_END_9= RULE_END )?
-            int alt16=2;
-            int LA16_0 = input.LA(1);
+            // InternalKlangParser.g:863:3: (otherlv_6= Else this_BEGIN_7= RULE_BEGIN ( (lv_elseBlock_8_0= ruleStatement ) )* this_END_9= RULE_END )?
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA16_0==Else) ) {
-                alt16=1;
+            if ( (LA15_0==Else) ) {
+                alt15=1;
             }
-            switch (alt16) {
+            switch (alt15) {
                 case 1 :
-                    // InternalKlangParser.g:846:4: otherlv_6= Else this_BEGIN_7= RULE_BEGIN ( (lv_elseBlock_8_0= ruleStatement ) )* this_END_9= RULE_END
+                    // InternalKlangParser.g:864:4: otherlv_6= Else this_BEGIN_7= RULE_BEGIN ( (lv_elseBlock_8_0= ruleStatement ) )* this_END_9= RULE_END
                     {
-                    otherlv_6=(Token)match(input,Else,FOLLOW_4); 
+                    otherlv_6=(Token)match(input,Else,FOLLOW_5); 
 
                     				newLeafNode(otherlv_6, grammarAccess.getIfAccess().getElseKeyword_6_0());
                     			
@@ -2198,23 +2214,23 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
                     				newLeafNode(this_BEGIN_7, grammarAccess.getIfAccess().getBEGINTerminalRuleCall_6_1());
                     			
-                    // InternalKlangParser.g:854:4: ( (lv_elseBlock_8_0= ruleStatement ) )*
-                    loop15:
+                    // InternalKlangParser.g:872:4: ( (lv_elseBlock_8_0= ruleStatement ) )*
+                    loop14:
                     do {
-                        int alt15=2;
-                        int LA15_0 = input.LA(1);
+                        int alt14=2;
+                        int LA14_0 = input.LA(1);
 
-                        if ( (LA15_0==Forever||(LA15_0>=Sleep && LA15_0<=While)||LA15_0==If||LA15_0==RULE_ID) ) {
-                            alt15=1;
+                        if ( (LA14_0==Forever||(LA14_0>=Sleep && LA14_0<=While)||LA14_0==If||LA14_0==RULE_ID) ) {
+                            alt14=1;
                         }
 
 
-                        switch (alt15) {
+                        switch (alt14) {
                     	case 1 :
-                    	    // InternalKlangParser.g:855:5: (lv_elseBlock_8_0= ruleStatement )
+                    	    // InternalKlangParser.g:873:5: (lv_elseBlock_8_0= ruleStatement )
                     	    {
-                    	    // InternalKlangParser.g:855:5: (lv_elseBlock_8_0= ruleStatement )
-                    	    // InternalKlangParser.g:856:6: lv_elseBlock_8_0= ruleStatement
+                    	    // InternalKlangParser.g:873:5: (lv_elseBlock_8_0= ruleStatement )
+                    	    // InternalKlangParser.g:874:6: lv_elseBlock_8_0= ruleStatement
                     	    {
 
                     	    						newCompositeNode(grammarAccess.getIfAccess().getElseBlockStatementParserRuleCall_6_2_0());
@@ -2243,7 +2259,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop15;
+                    	    break loop14;
                         }
                     } while (true);
 
@@ -2280,7 +2296,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleForeverLoop"
-    // InternalKlangParser.g:882:1: entryRuleForeverLoop returns [EObject current=null] : iv_ruleForeverLoop= ruleForeverLoop EOF ;
+    // InternalKlangParser.g:900:1: entryRuleForeverLoop returns [EObject current=null] : iv_ruleForeverLoop= ruleForeverLoop EOF ;
     public final EObject entryRuleForeverLoop() throws RecognitionException {
         EObject current = null;
 
@@ -2288,8 +2304,8 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKlangParser.g:882:52: (iv_ruleForeverLoop= ruleForeverLoop EOF )
-            // InternalKlangParser.g:883:2: iv_ruleForeverLoop= ruleForeverLoop EOF
+            // InternalKlangParser.g:900:52: (iv_ruleForeverLoop= ruleForeverLoop EOF )
+            // InternalKlangParser.g:901:2: iv_ruleForeverLoop= ruleForeverLoop EOF
             {
              newCompositeNode(grammarAccess.getForeverLoopRule()); 
             pushFollow(FOLLOW_1);
@@ -2316,7 +2332,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleForeverLoop"
-    // InternalKlangParser.g:889:1: ruleForeverLoop returns [EObject current=null] : ( () otherlv_1= Forever this_BEGIN_2= RULE_BEGIN ( (lv_loopStatements_3_0= ruleStatement ) )* this_END_4= RULE_END ) ;
+    // InternalKlangParser.g:907:1: ruleForeverLoop returns [EObject current=null] : ( () otherlv_1= Forever this_BEGIN_2= RULE_BEGIN ( (lv_loopStatements_3_0= ruleStatement ) )* this_END_4= RULE_END ) ;
     public final EObject ruleForeverLoop() throws RecognitionException {
         EObject current = null;
 
@@ -2330,14 +2346,14 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKlangParser.g:895:2: ( ( () otherlv_1= Forever this_BEGIN_2= RULE_BEGIN ( (lv_loopStatements_3_0= ruleStatement ) )* this_END_4= RULE_END ) )
-            // InternalKlangParser.g:896:2: ( () otherlv_1= Forever this_BEGIN_2= RULE_BEGIN ( (lv_loopStatements_3_0= ruleStatement ) )* this_END_4= RULE_END )
+            // InternalKlangParser.g:913:2: ( ( () otherlv_1= Forever this_BEGIN_2= RULE_BEGIN ( (lv_loopStatements_3_0= ruleStatement ) )* this_END_4= RULE_END ) )
+            // InternalKlangParser.g:914:2: ( () otherlv_1= Forever this_BEGIN_2= RULE_BEGIN ( (lv_loopStatements_3_0= ruleStatement ) )* this_END_4= RULE_END )
             {
-            // InternalKlangParser.g:896:2: ( () otherlv_1= Forever this_BEGIN_2= RULE_BEGIN ( (lv_loopStatements_3_0= ruleStatement ) )* this_END_4= RULE_END )
-            // InternalKlangParser.g:897:3: () otherlv_1= Forever this_BEGIN_2= RULE_BEGIN ( (lv_loopStatements_3_0= ruleStatement ) )* this_END_4= RULE_END
+            // InternalKlangParser.g:914:2: ( () otherlv_1= Forever this_BEGIN_2= RULE_BEGIN ( (lv_loopStatements_3_0= ruleStatement ) )* this_END_4= RULE_END )
+            // InternalKlangParser.g:915:3: () otherlv_1= Forever this_BEGIN_2= RULE_BEGIN ( (lv_loopStatements_3_0= ruleStatement ) )* this_END_4= RULE_END
             {
-            // InternalKlangParser.g:897:3: ()
-            // InternalKlangParser.g:898:4: 
+            // InternalKlangParser.g:915:3: ()
+            // InternalKlangParser.g:916:4: 
             {
 
             				current = forceCreateModelElement(
@@ -2347,7 +2363,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,Forever,FOLLOW_4); 
+            otherlv_1=(Token)match(input,Forever,FOLLOW_5); 
 
             			newLeafNode(otherlv_1, grammarAccess.getForeverLoopAccess().getForeverKeyword_1());
             		
@@ -2355,23 +2371,23 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(this_BEGIN_2, grammarAccess.getForeverLoopAccess().getBEGINTerminalRuleCall_2());
             		
-            // InternalKlangParser.g:912:3: ( (lv_loopStatements_3_0= ruleStatement ) )*
-            loop17:
+            // InternalKlangParser.g:930:3: ( (lv_loopStatements_3_0= ruleStatement ) )*
+            loop16:
             do {
-                int alt17=2;
-                int LA17_0 = input.LA(1);
+                int alt16=2;
+                int LA16_0 = input.LA(1);
 
-                if ( (LA17_0==Forever||(LA17_0>=Sleep && LA17_0<=While)||LA17_0==If||LA17_0==RULE_ID) ) {
-                    alt17=1;
+                if ( (LA16_0==Forever||(LA16_0>=Sleep && LA16_0<=While)||LA16_0==If||LA16_0==RULE_ID) ) {
+                    alt16=1;
                 }
 
 
-                switch (alt17) {
+                switch (alt16) {
             	case 1 :
-            	    // InternalKlangParser.g:913:4: (lv_loopStatements_3_0= ruleStatement )
+            	    // InternalKlangParser.g:931:4: (lv_loopStatements_3_0= ruleStatement )
             	    {
-            	    // InternalKlangParser.g:913:4: (lv_loopStatements_3_0= ruleStatement )
-            	    // InternalKlangParser.g:914:5: lv_loopStatements_3_0= ruleStatement
+            	    // InternalKlangParser.g:931:4: (lv_loopStatements_3_0= ruleStatement )
+            	    // InternalKlangParser.g:932:5: lv_loopStatements_3_0= ruleStatement
             	    {
 
             	    					newCompositeNode(grammarAccess.getForeverLoopAccess().getLoopStatementsStatementParserRuleCall_3_0());
@@ -2400,7 +2416,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop17;
+            	    break loop16;
                 }
             } while (true);
 
@@ -2431,7 +2447,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleVariableDeclaration"
-    // InternalKlangParser.g:939:1: entryRuleVariableDeclaration returns [EObject current=null] : iv_ruleVariableDeclaration= ruleVariableDeclaration EOF ;
+    // InternalKlangParser.g:957:1: entryRuleVariableDeclaration returns [EObject current=null] : iv_ruleVariableDeclaration= ruleVariableDeclaration EOF ;
     public final EObject entryRuleVariableDeclaration() throws RecognitionException {
         EObject current = null;
 
@@ -2439,8 +2455,8 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKlangParser.g:939:60: (iv_ruleVariableDeclaration= ruleVariableDeclaration EOF )
-            // InternalKlangParser.g:940:2: iv_ruleVariableDeclaration= ruleVariableDeclaration EOF
+            // InternalKlangParser.g:957:60: (iv_ruleVariableDeclaration= ruleVariableDeclaration EOF )
+            // InternalKlangParser.g:958:2: iv_ruleVariableDeclaration= ruleVariableDeclaration EOF
             {
              newCompositeNode(grammarAccess.getVariableDeclarationRule()); 
             pushFollow(FOLLOW_1);
@@ -2467,7 +2483,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVariableDeclaration"
-    // InternalKlangParser.g:946:1: ruleVariableDeclaration returns [EObject current=null] : (otherlv_0= Var ( (lv_name_1_0= RULE_ID ) ) otherlv_2= EqualsSign ( (lv_expression_3_0= ruleExpression ) ) ) ;
+    // InternalKlangParser.g:964:1: ruleVariableDeclaration returns [EObject current=null] : (otherlv_0= Var ( (lv_name_1_0= RULE_ID ) ) otherlv_2= EqualsSign ( (lv_expression_3_0= ruleExpression ) ) ) ;
     public final EObject ruleVariableDeclaration() throws RecognitionException {
         EObject current = null;
 
@@ -2481,21 +2497,21 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKlangParser.g:952:2: ( (otherlv_0= Var ( (lv_name_1_0= RULE_ID ) ) otherlv_2= EqualsSign ( (lv_expression_3_0= ruleExpression ) ) ) )
-            // InternalKlangParser.g:953:2: (otherlv_0= Var ( (lv_name_1_0= RULE_ID ) ) otherlv_2= EqualsSign ( (lv_expression_3_0= ruleExpression ) ) )
+            // InternalKlangParser.g:970:2: ( (otherlv_0= Var ( (lv_name_1_0= RULE_ID ) ) otherlv_2= EqualsSign ( (lv_expression_3_0= ruleExpression ) ) ) )
+            // InternalKlangParser.g:971:2: (otherlv_0= Var ( (lv_name_1_0= RULE_ID ) ) otherlv_2= EqualsSign ( (lv_expression_3_0= ruleExpression ) ) )
             {
-            // InternalKlangParser.g:953:2: (otherlv_0= Var ( (lv_name_1_0= RULE_ID ) ) otherlv_2= EqualsSign ( (lv_expression_3_0= ruleExpression ) ) )
-            // InternalKlangParser.g:954:3: otherlv_0= Var ( (lv_name_1_0= RULE_ID ) ) otherlv_2= EqualsSign ( (lv_expression_3_0= ruleExpression ) )
+            // InternalKlangParser.g:971:2: (otherlv_0= Var ( (lv_name_1_0= RULE_ID ) ) otherlv_2= EqualsSign ( (lv_expression_3_0= ruleExpression ) ) )
+            // InternalKlangParser.g:972:3: otherlv_0= Var ( (lv_name_1_0= RULE_ID ) ) otherlv_2= EqualsSign ( (lv_expression_3_0= ruleExpression ) )
             {
-            otherlv_0=(Token)match(input,Var,FOLLOW_7); 
+            otherlv_0=(Token)match(input,Var,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getVariableDeclarationAccess().getVarKeyword_0());
             		
-            // InternalKlangParser.g:958:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalKlangParser.g:959:4: (lv_name_1_0= RULE_ID )
+            // InternalKlangParser.g:976:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalKlangParser.g:977:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalKlangParser.g:959:4: (lv_name_1_0= RULE_ID )
-            // InternalKlangParser.g:960:5: lv_name_1_0= RULE_ID
+            // InternalKlangParser.g:977:4: (lv_name_1_0= RULE_ID )
+            // InternalKlangParser.g:978:5: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_18); 
 
@@ -2521,11 +2537,11 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getVariableDeclarationAccess().getEqualsSignKeyword_2());
             		
-            // InternalKlangParser.g:980:3: ( (lv_expression_3_0= ruleExpression ) )
-            // InternalKlangParser.g:981:4: (lv_expression_3_0= ruleExpression )
+            // InternalKlangParser.g:998:3: ( (lv_expression_3_0= ruleExpression ) )
+            // InternalKlangParser.g:999:4: (lv_expression_3_0= ruleExpression )
             {
-            // InternalKlangParser.g:981:4: (lv_expression_3_0= ruleExpression )
-            // InternalKlangParser.g:982:5: lv_expression_3_0= ruleExpression
+            // InternalKlangParser.g:999:4: (lv_expression_3_0= ruleExpression )
+            // InternalKlangParser.g:1000:5: lv_expression_3_0= ruleExpression
             {
 
             					newCompositeNode(grammarAccess.getVariableDeclarationAccess().getExpressionExpressionParserRuleCall_3_0());
@@ -2575,7 +2591,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleVariableAssignment"
-    // InternalKlangParser.g:1003:1: entryRuleVariableAssignment returns [EObject current=null] : iv_ruleVariableAssignment= ruleVariableAssignment EOF ;
+    // InternalKlangParser.g:1021:1: entryRuleVariableAssignment returns [EObject current=null] : iv_ruleVariableAssignment= ruleVariableAssignment EOF ;
     public final EObject entryRuleVariableAssignment() throws RecognitionException {
         EObject current = null;
 
@@ -2583,8 +2599,8 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKlangParser.g:1003:59: (iv_ruleVariableAssignment= ruleVariableAssignment EOF )
-            // InternalKlangParser.g:1004:2: iv_ruleVariableAssignment= ruleVariableAssignment EOF
+            // InternalKlangParser.g:1021:59: (iv_ruleVariableAssignment= ruleVariableAssignment EOF )
+            // InternalKlangParser.g:1022:2: iv_ruleVariableAssignment= ruleVariableAssignment EOF
             {
              newCompositeNode(grammarAccess.getVariableAssignmentRule()); 
             pushFollow(FOLLOW_1);
@@ -2611,7 +2627,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVariableAssignment"
-    // InternalKlangParser.g:1010:1: ruleVariableAssignment returns [EObject current=null] : ( ( (lv_variableName_0_0= RULE_ID ) ) otherlv_1= EqualsSign ( (lv_expression_2_0= ruleExpression ) ) ) ;
+    // InternalKlangParser.g:1028:1: ruleVariableAssignment returns [EObject current=null] : ( ( (lv_variableName_0_0= RULE_ID ) ) otherlv_1= EqualsSign ( (lv_expression_2_0= ruleExpression ) ) ) ;
     public final EObject ruleVariableAssignment() throws RecognitionException {
         EObject current = null;
 
@@ -2624,17 +2640,17 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKlangParser.g:1016:2: ( ( ( (lv_variableName_0_0= RULE_ID ) ) otherlv_1= EqualsSign ( (lv_expression_2_0= ruleExpression ) ) ) )
-            // InternalKlangParser.g:1017:2: ( ( (lv_variableName_0_0= RULE_ID ) ) otherlv_1= EqualsSign ( (lv_expression_2_0= ruleExpression ) ) )
+            // InternalKlangParser.g:1034:2: ( ( ( (lv_variableName_0_0= RULE_ID ) ) otherlv_1= EqualsSign ( (lv_expression_2_0= ruleExpression ) ) ) )
+            // InternalKlangParser.g:1035:2: ( ( (lv_variableName_0_0= RULE_ID ) ) otherlv_1= EqualsSign ( (lv_expression_2_0= ruleExpression ) ) )
             {
-            // InternalKlangParser.g:1017:2: ( ( (lv_variableName_0_0= RULE_ID ) ) otherlv_1= EqualsSign ( (lv_expression_2_0= ruleExpression ) ) )
-            // InternalKlangParser.g:1018:3: ( (lv_variableName_0_0= RULE_ID ) ) otherlv_1= EqualsSign ( (lv_expression_2_0= ruleExpression ) )
+            // InternalKlangParser.g:1035:2: ( ( (lv_variableName_0_0= RULE_ID ) ) otherlv_1= EqualsSign ( (lv_expression_2_0= ruleExpression ) ) )
+            // InternalKlangParser.g:1036:3: ( (lv_variableName_0_0= RULE_ID ) ) otherlv_1= EqualsSign ( (lv_expression_2_0= ruleExpression ) )
             {
-            // InternalKlangParser.g:1018:3: ( (lv_variableName_0_0= RULE_ID ) )
-            // InternalKlangParser.g:1019:4: (lv_variableName_0_0= RULE_ID )
+            // InternalKlangParser.g:1036:3: ( (lv_variableName_0_0= RULE_ID ) )
+            // InternalKlangParser.g:1037:4: (lv_variableName_0_0= RULE_ID )
             {
-            // InternalKlangParser.g:1019:4: (lv_variableName_0_0= RULE_ID )
-            // InternalKlangParser.g:1020:5: lv_variableName_0_0= RULE_ID
+            // InternalKlangParser.g:1037:4: (lv_variableName_0_0= RULE_ID )
+            // InternalKlangParser.g:1038:5: lv_variableName_0_0= RULE_ID
             {
             lv_variableName_0_0=(Token)match(input,RULE_ID,FOLLOW_18); 
 
@@ -2660,11 +2676,11 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getVariableAssignmentAccess().getEqualsSignKeyword_1());
             		
-            // InternalKlangParser.g:1040:3: ( (lv_expression_2_0= ruleExpression ) )
-            // InternalKlangParser.g:1041:4: (lv_expression_2_0= ruleExpression )
+            // InternalKlangParser.g:1058:3: ( (lv_expression_2_0= ruleExpression ) )
+            // InternalKlangParser.g:1059:4: (lv_expression_2_0= ruleExpression )
             {
-            // InternalKlangParser.g:1041:4: (lv_expression_2_0= ruleExpression )
-            // InternalKlangParser.g:1042:5: lv_expression_2_0= ruleExpression
+            // InternalKlangParser.g:1059:4: (lv_expression_2_0= ruleExpression )
+            // InternalKlangParser.g:1060:5: lv_expression_2_0= ruleExpression
             {
 
             					newCompositeNode(grammarAccess.getVariableAssignmentAccess().getExpressionExpressionParserRuleCall_2_0());
@@ -2714,7 +2730,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSleep"
-    // InternalKlangParser.g:1063:1: entryRuleSleep returns [EObject current=null] : iv_ruleSleep= ruleSleep EOF ;
+    // InternalKlangParser.g:1081:1: entryRuleSleep returns [EObject current=null] : iv_ruleSleep= ruleSleep EOF ;
     public final EObject entryRuleSleep() throws RecognitionException {
         EObject current = null;
 
@@ -2722,8 +2738,8 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKlangParser.g:1063:46: (iv_ruleSleep= ruleSleep EOF )
-            // InternalKlangParser.g:1064:2: iv_ruleSleep= ruleSleep EOF
+            // InternalKlangParser.g:1081:46: (iv_ruleSleep= ruleSleep EOF )
+            // InternalKlangParser.g:1082:2: iv_ruleSleep= ruleSleep EOF
             {
              newCompositeNode(grammarAccess.getSleepRule()); 
             pushFollow(FOLLOW_1);
@@ -2750,7 +2766,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSleep"
-    // InternalKlangParser.g:1070:1: ruleSleep returns [EObject current=null] : ( () otherlv_1= Sleep otherlv_2= LeftParenthesis ( (lv_duration_3_0= ruleDECIMAL ) ) otherlv_4= RightParenthesis ) ;
+    // InternalKlangParser.g:1088:1: ruleSleep returns [EObject current=null] : ( () otherlv_1= Sleep otherlv_2= LeftParenthesis ( (lv_duration_3_0= ruleDECIMAL ) ) otherlv_4= RightParenthesis ) ;
     public final EObject ruleSleep() throws RecognitionException {
         EObject current = null;
 
@@ -2764,14 +2780,14 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKlangParser.g:1076:2: ( ( () otherlv_1= Sleep otherlv_2= LeftParenthesis ( (lv_duration_3_0= ruleDECIMAL ) ) otherlv_4= RightParenthesis ) )
-            // InternalKlangParser.g:1077:2: ( () otherlv_1= Sleep otherlv_2= LeftParenthesis ( (lv_duration_3_0= ruleDECIMAL ) ) otherlv_4= RightParenthesis )
+            // InternalKlangParser.g:1094:2: ( ( () otherlv_1= Sleep otherlv_2= LeftParenthesis ( (lv_duration_3_0= ruleDECIMAL ) ) otherlv_4= RightParenthesis ) )
+            // InternalKlangParser.g:1095:2: ( () otherlv_1= Sleep otherlv_2= LeftParenthesis ( (lv_duration_3_0= ruleDECIMAL ) ) otherlv_4= RightParenthesis )
             {
-            // InternalKlangParser.g:1077:2: ( () otherlv_1= Sleep otherlv_2= LeftParenthesis ( (lv_duration_3_0= ruleDECIMAL ) ) otherlv_4= RightParenthesis )
-            // InternalKlangParser.g:1078:3: () otherlv_1= Sleep otherlv_2= LeftParenthesis ( (lv_duration_3_0= ruleDECIMAL ) ) otherlv_4= RightParenthesis
+            // InternalKlangParser.g:1095:2: ( () otherlv_1= Sleep otherlv_2= LeftParenthesis ( (lv_duration_3_0= ruleDECIMAL ) ) otherlv_4= RightParenthesis )
+            // InternalKlangParser.g:1096:3: () otherlv_1= Sleep otherlv_2= LeftParenthesis ( (lv_duration_3_0= ruleDECIMAL ) ) otherlv_4= RightParenthesis
             {
-            // InternalKlangParser.g:1078:3: ()
-            // InternalKlangParser.g:1079:4: 
+            // InternalKlangParser.g:1096:3: ()
+            // InternalKlangParser.g:1097:4: 
             {
 
             				current = forceCreateModelElement(
@@ -2789,11 +2805,11 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getSleepAccess().getLeftParenthesisKeyword_2());
             		
-            // InternalKlangParser.g:1093:3: ( (lv_duration_3_0= ruleDECIMAL ) )
-            // InternalKlangParser.g:1094:4: (lv_duration_3_0= ruleDECIMAL )
+            // InternalKlangParser.g:1111:3: ( (lv_duration_3_0= ruleDECIMAL ) )
+            // InternalKlangParser.g:1112:4: (lv_duration_3_0= ruleDECIMAL )
             {
-            // InternalKlangParser.g:1094:4: (lv_duration_3_0= ruleDECIMAL )
-            // InternalKlangParser.g:1095:5: lv_duration_3_0= ruleDECIMAL
+            // InternalKlangParser.g:1112:4: (lv_duration_3_0= ruleDECIMAL )
+            // InternalKlangParser.g:1113:5: lv_duration_3_0= ruleDECIMAL
             {
 
             					newCompositeNode(grammarAccess.getSleepAccess().getDurationDECIMALParserRuleCall_3_0());
@@ -2847,7 +2863,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExpression"
-    // InternalKlangParser.g:1120:1: entryRuleExpression returns [EObject current=null] : iv_ruleExpression= ruleExpression EOF ;
+    // InternalKlangParser.g:1138:1: entryRuleExpression returns [EObject current=null] : iv_ruleExpression= ruleExpression EOF ;
     public final EObject entryRuleExpression() throws RecognitionException {
         EObject current = null;
 
@@ -2855,8 +2871,8 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKlangParser.g:1120:51: (iv_ruleExpression= ruleExpression EOF )
-            // InternalKlangParser.g:1121:2: iv_ruleExpression= ruleExpression EOF
+            // InternalKlangParser.g:1138:51: (iv_ruleExpression= ruleExpression EOF )
+            // InternalKlangParser.g:1139:2: iv_ruleExpression= ruleExpression EOF
             {
              newCompositeNode(grammarAccess.getExpressionRule()); 
             pushFollow(FOLLOW_1);
@@ -2883,7 +2899,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExpression"
-    // InternalKlangParser.g:1127:1: ruleExpression returns [EObject current=null] : this_Or_0= ruleOr ;
+    // InternalKlangParser.g:1145:1: ruleExpression returns [EObject current=null] : this_Or_0= ruleOr ;
     public final EObject ruleExpression() throws RecognitionException {
         EObject current = null;
 
@@ -2894,8 +2910,8 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKlangParser.g:1133:2: (this_Or_0= ruleOr )
-            // InternalKlangParser.g:1134:2: this_Or_0= ruleOr
+            // InternalKlangParser.g:1151:2: (this_Or_0= ruleOr )
+            // InternalKlangParser.g:1152:2: this_Or_0= ruleOr
             {
 
             		newCompositeNode(grammarAccess.getExpressionAccess().getOrParserRuleCall());
@@ -2929,7 +2945,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleOr"
-    // InternalKlangParser.g:1145:1: entryRuleOr returns [EObject current=null] : iv_ruleOr= ruleOr EOF ;
+    // InternalKlangParser.g:1163:1: entryRuleOr returns [EObject current=null] : iv_ruleOr= ruleOr EOF ;
     public final EObject entryRuleOr() throws RecognitionException {
         EObject current = null;
 
@@ -2937,8 +2953,8 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKlangParser.g:1145:43: (iv_ruleOr= ruleOr EOF )
-            // InternalKlangParser.g:1146:2: iv_ruleOr= ruleOr EOF
+            // InternalKlangParser.g:1163:43: (iv_ruleOr= ruleOr EOF )
+            // InternalKlangParser.g:1164:2: iv_ruleOr= ruleOr EOF
             {
              newCompositeNode(grammarAccess.getOrRule()); 
             pushFollow(FOLLOW_1);
@@ -2965,7 +2981,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOr"
-    // InternalKlangParser.g:1152:1: ruleOr returns [EObject current=null] : (this_And_0= ruleAnd ( () otherlv_2= Or ( (lv_right_3_0= ruleAnd ) ) )* ) ;
+    // InternalKlangParser.g:1170:1: ruleOr returns [EObject current=null] : (this_And_0= ruleAnd ( () otherlv_2= Or ( (lv_right_3_0= ruleAnd ) ) )* ) ;
     public final EObject ruleOr() throws RecognitionException {
         EObject current = null;
 
@@ -2979,11 +2995,11 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKlangParser.g:1158:2: ( (this_And_0= ruleAnd ( () otherlv_2= Or ( (lv_right_3_0= ruleAnd ) ) )* ) )
-            // InternalKlangParser.g:1159:2: (this_And_0= ruleAnd ( () otherlv_2= Or ( (lv_right_3_0= ruleAnd ) ) )* )
+            // InternalKlangParser.g:1176:2: ( (this_And_0= ruleAnd ( () otherlv_2= Or ( (lv_right_3_0= ruleAnd ) ) )* ) )
+            // InternalKlangParser.g:1177:2: (this_And_0= ruleAnd ( () otherlv_2= Or ( (lv_right_3_0= ruleAnd ) ) )* )
             {
-            // InternalKlangParser.g:1159:2: (this_And_0= ruleAnd ( () otherlv_2= Or ( (lv_right_3_0= ruleAnd ) ) )* )
-            // InternalKlangParser.g:1160:3: this_And_0= ruleAnd ( () otherlv_2= Or ( (lv_right_3_0= ruleAnd ) ) )*
+            // InternalKlangParser.g:1177:2: (this_And_0= ruleAnd ( () otherlv_2= Or ( (lv_right_3_0= ruleAnd ) ) )* )
+            // InternalKlangParser.g:1178:3: this_And_0= ruleAnd ( () otherlv_2= Or ( (lv_right_3_0= ruleAnd ) ) )*
             {
 
             			newCompositeNode(grammarAccess.getOrAccess().getAndParserRuleCall_0());
@@ -2997,23 +3013,23 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
             			current = this_And_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalKlangParser.g:1168:3: ( () otherlv_2= Or ( (lv_right_3_0= ruleAnd ) ) )*
-            loop18:
+            // InternalKlangParser.g:1186:3: ( () otherlv_2= Or ( (lv_right_3_0= ruleAnd ) ) )*
+            loop17:
             do {
-                int alt18=2;
-                int LA18_0 = input.LA(1);
+                int alt17=2;
+                int LA17_0 = input.LA(1);
 
-                if ( (LA18_0==Or) ) {
-                    alt18=1;
+                if ( (LA17_0==Or) ) {
+                    alt17=1;
                 }
 
 
-                switch (alt18) {
+                switch (alt17) {
             	case 1 :
-            	    // InternalKlangParser.g:1169:4: () otherlv_2= Or ( (lv_right_3_0= ruleAnd ) )
+            	    // InternalKlangParser.g:1187:4: () otherlv_2= Or ( (lv_right_3_0= ruleAnd ) )
             	    {
-            	    // InternalKlangParser.g:1169:4: ()
-            	    // InternalKlangParser.g:1170:5: 
+            	    // InternalKlangParser.g:1187:4: ()
+            	    // InternalKlangParser.g:1188:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
@@ -3027,11 +3043,11 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
             	    				newLeafNode(otherlv_2, grammarAccess.getOrAccess().getOrKeyword_1_1());
             	    			
-            	    // InternalKlangParser.g:1180:4: ( (lv_right_3_0= ruleAnd ) )
-            	    // InternalKlangParser.g:1181:5: (lv_right_3_0= ruleAnd )
+            	    // InternalKlangParser.g:1198:4: ( (lv_right_3_0= ruleAnd ) )
+            	    // InternalKlangParser.g:1199:5: (lv_right_3_0= ruleAnd )
             	    {
-            	    // InternalKlangParser.g:1181:5: (lv_right_3_0= ruleAnd )
-            	    // InternalKlangParser.g:1182:6: lv_right_3_0= ruleAnd
+            	    // InternalKlangParser.g:1199:5: (lv_right_3_0= ruleAnd )
+            	    // InternalKlangParser.g:1200:6: lv_right_3_0= ruleAnd
             	    {
 
             	    						newCompositeNode(grammarAccess.getOrAccess().getRightAndParserRuleCall_1_2_0());
@@ -3050,6 +3066,167 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
             	    							"right",
             	    							lv_right_3_0,
             	    							"com.kaurel.klang.xtext.Klang.And");
+            	    						afterParserOrEnumRuleCall();
+            	    					
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop17;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleOr"
+
+
+    // $ANTLR start "entryRuleAnd"
+    // InternalKlangParser.g:1222:1: entryRuleAnd returns [EObject current=null] : iv_ruleAnd= ruleAnd EOF ;
+    public final EObject entryRuleAnd() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleAnd = null;
+
+
+        try {
+            // InternalKlangParser.g:1222:44: (iv_ruleAnd= ruleAnd EOF )
+            // InternalKlangParser.g:1223:2: iv_ruleAnd= ruleAnd EOF
+            {
+             newCompositeNode(grammarAccess.getAndRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleAnd=ruleAnd();
+
+            state._fsp--;
+
+             current =iv_ruleAnd; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleAnd"
+
+
+    // $ANTLR start "ruleAnd"
+    // InternalKlangParser.g:1229:1: ruleAnd returns [EObject current=null] : (this_Comparison_0= ruleComparison ( () otherlv_2= And ( (lv_right_3_0= ruleComparison ) ) )* ) ;
+    public final EObject ruleAnd() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_2=null;
+        EObject this_Comparison_0 = null;
+
+        EObject lv_right_3_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalKlangParser.g:1235:2: ( (this_Comparison_0= ruleComparison ( () otherlv_2= And ( (lv_right_3_0= ruleComparison ) ) )* ) )
+            // InternalKlangParser.g:1236:2: (this_Comparison_0= ruleComparison ( () otherlv_2= And ( (lv_right_3_0= ruleComparison ) ) )* )
+            {
+            // InternalKlangParser.g:1236:2: (this_Comparison_0= ruleComparison ( () otherlv_2= And ( (lv_right_3_0= ruleComparison ) ) )* )
+            // InternalKlangParser.g:1237:3: this_Comparison_0= ruleComparison ( () otherlv_2= And ( (lv_right_3_0= ruleComparison ) ) )*
+            {
+
+            			newCompositeNode(grammarAccess.getAndAccess().getComparisonParserRuleCall_0());
+            		
+            pushFollow(FOLLOW_23);
+            this_Comparison_0=ruleComparison();
+
+            state._fsp--;
+
+
+            			current = this_Comparison_0;
+            			afterParserOrEnumRuleCall();
+            		
+            // InternalKlangParser.g:1245:3: ( () otherlv_2= And ( (lv_right_3_0= ruleComparison ) ) )*
+            loop18:
+            do {
+                int alt18=2;
+                int LA18_0 = input.LA(1);
+
+                if ( (LA18_0==And) ) {
+                    alt18=1;
+                }
+
+
+                switch (alt18) {
+            	case 1 :
+            	    // InternalKlangParser.g:1246:4: () otherlv_2= And ( (lv_right_3_0= ruleComparison ) )
+            	    {
+            	    // InternalKlangParser.g:1246:4: ()
+            	    // InternalKlangParser.g:1247:5: 
+            	    {
+
+            	    					current = forceCreateModelElementAndSet(
+            	    						grammarAccess.getAndAccess().getAndLeftAction_1_0(),
+            	    						current);
+            	    				
+
+            	    }
+
+            	    otherlv_2=(Token)match(input,And,FOLLOW_16); 
+
+            	    				newLeafNode(otherlv_2, grammarAccess.getAndAccess().getAndKeyword_1_1());
+            	    			
+            	    // InternalKlangParser.g:1257:4: ( (lv_right_3_0= ruleComparison ) )
+            	    // InternalKlangParser.g:1258:5: (lv_right_3_0= ruleComparison )
+            	    {
+            	    // InternalKlangParser.g:1258:5: (lv_right_3_0= ruleComparison )
+            	    // InternalKlangParser.g:1259:6: lv_right_3_0= ruleComparison
+            	    {
+
+            	    						newCompositeNode(grammarAccess.getAndAccess().getRightComparisonParserRuleCall_1_2_0());
+            	    					
+            	    pushFollow(FOLLOW_23);
+            	    lv_right_3_0=ruleComparison();
+
+            	    state._fsp--;
+
+
+            	    						if (current==null) {
+            	    							current = createModelElementForParent(grammarAccess.getAndRule());
+            	    						}
+            	    						set(
+            	    							current,
+            	    							"right",
+            	    							lv_right_3_0,
+            	    							"com.kaurel.klang.xtext.Klang.Comparison");
             	    						afterParserOrEnumRuleCall();
             	    					
 
@@ -3086,28 +3263,28 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleOr"
+    // $ANTLR end "ruleAnd"
 
 
-    // $ANTLR start "entryRuleAnd"
-    // InternalKlangParser.g:1204:1: entryRuleAnd returns [EObject current=null] : iv_ruleAnd= ruleAnd EOF ;
-    public final EObject entryRuleAnd() throws RecognitionException {
+    // $ANTLR start "entryRulePlus"
+    // InternalKlangParser.g:1281:1: entryRulePlus returns [EObject current=null] : iv_rulePlus= rulePlus EOF ;
+    public final EObject entryRulePlus() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleAnd = null;
+        EObject iv_rulePlus = null;
 
 
         try {
-            // InternalKlangParser.g:1204:44: (iv_ruleAnd= ruleAnd EOF )
-            // InternalKlangParser.g:1205:2: iv_ruleAnd= ruleAnd EOF
+            // InternalKlangParser.g:1281:45: (iv_rulePlus= rulePlus EOF )
+            // InternalKlangParser.g:1282:2: iv_rulePlus= rulePlus EOF
             {
-             newCompositeNode(grammarAccess.getAndRule()); 
+             newCompositeNode(grammarAccess.getPlusRule()); 
             pushFollow(FOLLOW_1);
-            iv_ruleAnd=ruleAnd();
+            iv_rulePlus=rulePlus();
 
             state._fsp--;
 
-             current =iv_ruleAnd; 
+             current =iv_rulePlus; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -3122,16 +3299,16 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleAnd"
+    // $ANTLR end "entryRulePlus"
 
 
-    // $ANTLR start "ruleAnd"
-    // InternalKlangParser.g:1211:1: ruleAnd returns [EObject current=null] : (this_Comparison_0= ruleComparison ( () otherlv_2= And ( (lv_right_3_0= ruleComparison ) ) )* ) ;
-    public final EObject ruleAnd() throws RecognitionException {
+    // $ANTLR start "rulePlus"
+    // InternalKlangParser.g:1288:1: rulePlus returns [EObject current=null] : (this_Minus_0= ruleMinus ( () otherlv_2= PlusSign ( (lv_right_3_0= ruleMinus ) ) )* ) ;
+    public final EObject rulePlus() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_2=null;
-        EObject this_Comparison_0 = null;
+        EObject this_Minus_0 = null;
 
         EObject lv_right_3_0 = null;
 
@@ -3140,77 +3317,77 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKlangParser.g:1217:2: ( (this_Comparison_0= ruleComparison ( () otherlv_2= And ( (lv_right_3_0= ruleComparison ) ) )* ) )
-            // InternalKlangParser.g:1218:2: (this_Comparison_0= ruleComparison ( () otherlv_2= And ( (lv_right_3_0= ruleComparison ) ) )* )
+            // InternalKlangParser.g:1294:2: ( (this_Minus_0= ruleMinus ( () otherlv_2= PlusSign ( (lv_right_3_0= ruleMinus ) ) )* ) )
+            // InternalKlangParser.g:1295:2: (this_Minus_0= ruleMinus ( () otherlv_2= PlusSign ( (lv_right_3_0= ruleMinus ) ) )* )
             {
-            // InternalKlangParser.g:1218:2: (this_Comparison_0= ruleComparison ( () otherlv_2= And ( (lv_right_3_0= ruleComparison ) ) )* )
-            // InternalKlangParser.g:1219:3: this_Comparison_0= ruleComparison ( () otherlv_2= And ( (lv_right_3_0= ruleComparison ) ) )*
+            // InternalKlangParser.g:1295:2: (this_Minus_0= ruleMinus ( () otherlv_2= PlusSign ( (lv_right_3_0= ruleMinus ) ) )* )
+            // InternalKlangParser.g:1296:3: this_Minus_0= ruleMinus ( () otherlv_2= PlusSign ( (lv_right_3_0= ruleMinus ) ) )*
             {
 
-            			newCompositeNode(grammarAccess.getAndAccess().getComparisonParserRuleCall_0());
+            			newCompositeNode(grammarAccess.getPlusAccess().getMinusParserRuleCall_0());
             		
-            pushFollow(FOLLOW_23);
-            this_Comparison_0=ruleComparison();
+            pushFollow(FOLLOW_24);
+            this_Minus_0=ruleMinus();
 
             state._fsp--;
 
 
-            			current = this_Comparison_0;
+            			current = this_Minus_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalKlangParser.g:1227:3: ( () otherlv_2= And ( (lv_right_3_0= ruleComparison ) ) )*
+            // InternalKlangParser.g:1304:3: ( () otherlv_2= PlusSign ( (lv_right_3_0= ruleMinus ) ) )*
             loop19:
             do {
                 int alt19=2;
                 int LA19_0 = input.LA(1);
 
-                if ( (LA19_0==And) ) {
+                if ( (LA19_0==PlusSign) ) {
                     alt19=1;
                 }
 
 
                 switch (alt19) {
             	case 1 :
-            	    // InternalKlangParser.g:1228:4: () otherlv_2= And ( (lv_right_3_0= ruleComparison ) )
+            	    // InternalKlangParser.g:1305:4: () otherlv_2= PlusSign ( (lv_right_3_0= ruleMinus ) )
             	    {
-            	    // InternalKlangParser.g:1228:4: ()
-            	    // InternalKlangParser.g:1229:5: 
+            	    // InternalKlangParser.g:1305:4: ()
+            	    // InternalKlangParser.g:1306:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
-            	    						grammarAccess.getAndAccess().getAndLeftAction_1_0(),
+            	    						grammarAccess.getPlusAccess().getPlusLeftAction_1_0(),
             	    						current);
             	    				
 
             	    }
 
-            	    otherlv_2=(Token)match(input,And,FOLLOW_16); 
+            	    otherlv_2=(Token)match(input,PlusSign,FOLLOW_16); 
 
-            	    				newLeafNode(otherlv_2, grammarAccess.getAndAccess().getAndKeyword_1_1());
+            	    				newLeafNode(otherlv_2, grammarAccess.getPlusAccess().getPlusSignKeyword_1_1());
             	    			
-            	    // InternalKlangParser.g:1239:4: ( (lv_right_3_0= ruleComparison ) )
-            	    // InternalKlangParser.g:1240:5: (lv_right_3_0= ruleComparison )
+            	    // InternalKlangParser.g:1316:4: ( (lv_right_3_0= ruleMinus ) )
+            	    // InternalKlangParser.g:1317:5: (lv_right_3_0= ruleMinus )
             	    {
-            	    // InternalKlangParser.g:1240:5: (lv_right_3_0= ruleComparison )
-            	    // InternalKlangParser.g:1241:6: lv_right_3_0= ruleComparison
+            	    // InternalKlangParser.g:1317:5: (lv_right_3_0= ruleMinus )
+            	    // InternalKlangParser.g:1318:6: lv_right_3_0= ruleMinus
             	    {
 
-            	    						newCompositeNode(grammarAccess.getAndAccess().getRightComparisonParserRuleCall_1_2_0());
+            	    						newCompositeNode(grammarAccess.getPlusAccess().getRightMinusParserRuleCall_1_2_0());
             	    					
-            	    pushFollow(FOLLOW_23);
-            	    lv_right_3_0=ruleComparison();
+            	    pushFollow(FOLLOW_24);
+            	    lv_right_3_0=ruleMinus();
 
             	    state._fsp--;
 
 
             	    						if (current==null) {
-            	    							current = createModelElementForParent(grammarAccess.getAndRule());
+            	    							current = createModelElementForParent(grammarAccess.getPlusRule());
             	    						}
             	    						set(
             	    							current,
             	    							"right",
             	    							lv_right_3_0,
-            	    							"com.kaurel.klang.xtext.Klang.Comparison");
+            	    							"com.kaurel.klang.xtext.Klang.Minus");
             	    						afterParserOrEnumRuleCall();
             	    					
 
@@ -3247,28 +3424,28 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleAnd"
+    // $ANTLR end "rulePlus"
 
 
-    // $ANTLR start "entryRulePlus"
-    // InternalKlangParser.g:1263:1: entryRulePlus returns [EObject current=null] : iv_rulePlus= rulePlus EOF ;
-    public final EObject entryRulePlus() throws RecognitionException {
+    // $ANTLR start "entryRuleMinus"
+    // InternalKlangParser.g:1340:1: entryRuleMinus returns [EObject current=null] : iv_ruleMinus= ruleMinus EOF ;
+    public final EObject entryRuleMinus() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_rulePlus = null;
+        EObject iv_ruleMinus = null;
 
 
         try {
-            // InternalKlangParser.g:1263:45: (iv_rulePlus= rulePlus EOF )
-            // InternalKlangParser.g:1264:2: iv_rulePlus= rulePlus EOF
+            // InternalKlangParser.g:1340:46: (iv_ruleMinus= ruleMinus EOF )
+            // InternalKlangParser.g:1341:2: iv_ruleMinus= ruleMinus EOF
             {
-             newCompositeNode(grammarAccess.getPlusRule()); 
+             newCompositeNode(grammarAccess.getMinusRule()); 
             pushFollow(FOLLOW_1);
-            iv_rulePlus=rulePlus();
+            iv_ruleMinus=ruleMinus();
 
             state._fsp--;
 
-             current =iv_rulePlus; 
+             current =iv_ruleMinus; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -3283,16 +3460,16 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRulePlus"
+    // $ANTLR end "entryRuleMinus"
 
 
-    // $ANTLR start "rulePlus"
-    // InternalKlangParser.g:1270:1: rulePlus returns [EObject current=null] : (this_Minus_0= ruleMinus ( () otherlv_2= PlusSign ( (lv_right_3_0= ruleMinus ) ) )* ) ;
-    public final EObject rulePlus() throws RecognitionException {
+    // $ANTLR start "ruleMinus"
+    // InternalKlangParser.g:1347:1: ruleMinus returns [EObject current=null] : (this_Multiply_0= ruleMultiply ( () otherlv_2= HyphenMinus ( (lv_right_3_0= ruleMultiply ) ) )* ) ;
+    public final EObject ruleMinus() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_2=null;
-        EObject this_Minus_0 = null;
+        EObject this_Multiply_0 = null;
 
         EObject lv_right_3_0 = null;
 
@@ -3301,77 +3478,77 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKlangParser.g:1276:2: ( (this_Minus_0= ruleMinus ( () otherlv_2= PlusSign ( (lv_right_3_0= ruleMinus ) ) )* ) )
-            // InternalKlangParser.g:1277:2: (this_Minus_0= ruleMinus ( () otherlv_2= PlusSign ( (lv_right_3_0= ruleMinus ) ) )* )
+            // InternalKlangParser.g:1353:2: ( (this_Multiply_0= ruleMultiply ( () otherlv_2= HyphenMinus ( (lv_right_3_0= ruleMultiply ) ) )* ) )
+            // InternalKlangParser.g:1354:2: (this_Multiply_0= ruleMultiply ( () otherlv_2= HyphenMinus ( (lv_right_3_0= ruleMultiply ) ) )* )
             {
-            // InternalKlangParser.g:1277:2: (this_Minus_0= ruleMinus ( () otherlv_2= PlusSign ( (lv_right_3_0= ruleMinus ) ) )* )
-            // InternalKlangParser.g:1278:3: this_Minus_0= ruleMinus ( () otherlv_2= PlusSign ( (lv_right_3_0= ruleMinus ) ) )*
+            // InternalKlangParser.g:1354:2: (this_Multiply_0= ruleMultiply ( () otherlv_2= HyphenMinus ( (lv_right_3_0= ruleMultiply ) ) )* )
+            // InternalKlangParser.g:1355:3: this_Multiply_0= ruleMultiply ( () otherlv_2= HyphenMinus ( (lv_right_3_0= ruleMultiply ) ) )*
             {
 
-            			newCompositeNode(grammarAccess.getPlusAccess().getMinusParserRuleCall_0());
+            			newCompositeNode(grammarAccess.getMinusAccess().getMultiplyParserRuleCall_0());
             		
-            pushFollow(FOLLOW_24);
-            this_Minus_0=ruleMinus();
+            pushFollow(FOLLOW_25);
+            this_Multiply_0=ruleMultiply();
 
             state._fsp--;
 
 
-            			current = this_Minus_0;
+            			current = this_Multiply_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalKlangParser.g:1286:3: ( () otherlv_2= PlusSign ( (lv_right_3_0= ruleMinus ) ) )*
+            // InternalKlangParser.g:1363:3: ( () otherlv_2= HyphenMinus ( (lv_right_3_0= ruleMultiply ) ) )*
             loop20:
             do {
                 int alt20=2;
                 int LA20_0 = input.LA(1);
 
-                if ( (LA20_0==PlusSign) ) {
+                if ( (LA20_0==HyphenMinus) ) {
                     alt20=1;
                 }
 
 
                 switch (alt20) {
             	case 1 :
-            	    // InternalKlangParser.g:1287:4: () otherlv_2= PlusSign ( (lv_right_3_0= ruleMinus ) )
+            	    // InternalKlangParser.g:1364:4: () otherlv_2= HyphenMinus ( (lv_right_3_0= ruleMultiply ) )
             	    {
-            	    // InternalKlangParser.g:1287:4: ()
-            	    // InternalKlangParser.g:1288:5: 
+            	    // InternalKlangParser.g:1364:4: ()
+            	    // InternalKlangParser.g:1365:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
-            	    						grammarAccess.getPlusAccess().getPlusLeftAction_1_0(),
+            	    						grammarAccess.getMinusAccess().getMinusLeftAction_1_0(),
             	    						current);
             	    				
 
             	    }
 
-            	    otherlv_2=(Token)match(input,PlusSign,FOLLOW_16); 
+            	    otherlv_2=(Token)match(input,HyphenMinus,FOLLOW_16); 
 
-            	    				newLeafNode(otherlv_2, grammarAccess.getPlusAccess().getPlusSignKeyword_1_1());
+            	    				newLeafNode(otherlv_2, grammarAccess.getMinusAccess().getHyphenMinusKeyword_1_1());
             	    			
-            	    // InternalKlangParser.g:1298:4: ( (lv_right_3_0= ruleMinus ) )
-            	    // InternalKlangParser.g:1299:5: (lv_right_3_0= ruleMinus )
+            	    // InternalKlangParser.g:1375:4: ( (lv_right_3_0= ruleMultiply ) )
+            	    // InternalKlangParser.g:1376:5: (lv_right_3_0= ruleMultiply )
             	    {
-            	    // InternalKlangParser.g:1299:5: (lv_right_3_0= ruleMinus )
-            	    // InternalKlangParser.g:1300:6: lv_right_3_0= ruleMinus
+            	    // InternalKlangParser.g:1376:5: (lv_right_3_0= ruleMultiply )
+            	    // InternalKlangParser.g:1377:6: lv_right_3_0= ruleMultiply
             	    {
 
-            	    						newCompositeNode(grammarAccess.getPlusAccess().getRightMinusParserRuleCall_1_2_0());
+            	    						newCompositeNode(grammarAccess.getMinusAccess().getRightMultiplyParserRuleCall_1_2_0());
             	    					
-            	    pushFollow(FOLLOW_24);
-            	    lv_right_3_0=ruleMinus();
+            	    pushFollow(FOLLOW_25);
+            	    lv_right_3_0=ruleMultiply();
 
             	    state._fsp--;
 
 
             	    						if (current==null) {
-            	    							current = createModelElementForParent(grammarAccess.getPlusRule());
+            	    							current = createModelElementForParent(grammarAccess.getMinusRule());
             	    						}
             	    						set(
             	    							current,
             	    							"right",
             	    							lv_right_3_0,
-            	    							"com.kaurel.klang.xtext.Klang.Minus");
+            	    							"com.kaurel.klang.xtext.Klang.Multiply");
             	    						afterParserOrEnumRuleCall();
             	    					
 
@@ -3408,28 +3585,28 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "rulePlus"
+    // $ANTLR end "ruleMinus"
 
 
-    // $ANTLR start "entryRuleMinus"
-    // InternalKlangParser.g:1322:1: entryRuleMinus returns [EObject current=null] : iv_ruleMinus= ruleMinus EOF ;
-    public final EObject entryRuleMinus() throws RecognitionException {
+    // $ANTLR start "entryRuleMultiply"
+    // InternalKlangParser.g:1399:1: entryRuleMultiply returns [EObject current=null] : iv_ruleMultiply= ruleMultiply EOF ;
+    public final EObject entryRuleMultiply() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleMinus = null;
+        EObject iv_ruleMultiply = null;
 
 
         try {
-            // InternalKlangParser.g:1322:46: (iv_ruleMinus= ruleMinus EOF )
-            // InternalKlangParser.g:1323:2: iv_ruleMinus= ruleMinus EOF
+            // InternalKlangParser.g:1399:49: (iv_ruleMultiply= ruleMultiply EOF )
+            // InternalKlangParser.g:1400:2: iv_ruleMultiply= ruleMultiply EOF
             {
-             newCompositeNode(grammarAccess.getMinusRule()); 
+             newCompositeNode(grammarAccess.getMultiplyRule()); 
             pushFollow(FOLLOW_1);
-            iv_ruleMinus=ruleMinus();
+            iv_ruleMultiply=ruleMultiply();
 
             state._fsp--;
 
-             current =iv_ruleMinus; 
+             current =iv_ruleMultiply; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -3444,16 +3621,16 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleMinus"
+    // $ANTLR end "entryRuleMultiply"
 
 
-    // $ANTLR start "ruleMinus"
-    // InternalKlangParser.g:1329:1: ruleMinus returns [EObject current=null] : (this_Multiply_0= ruleMultiply ( () otherlv_2= HyphenMinus ( (lv_right_3_0= ruleMultiply ) ) )* ) ;
-    public final EObject ruleMinus() throws RecognitionException {
+    // $ANTLR start "ruleMultiply"
+    // InternalKlangParser.g:1406:1: ruleMultiply returns [EObject current=null] : (this_Divide_0= ruleDivide ( () otherlv_2= Asterisk ( (lv_right_3_0= ruleDivide ) ) )* ) ;
+    public final EObject ruleMultiply() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_2=null;
-        EObject this_Multiply_0 = null;
+        EObject this_Divide_0 = null;
 
         EObject lv_right_3_0 = null;
 
@@ -3462,77 +3639,77 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKlangParser.g:1335:2: ( (this_Multiply_0= ruleMultiply ( () otherlv_2= HyphenMinus ( (lv_right_3_0= ruleMultiply ) ) )* ) )
-            // InternalKlangParser.g:1336:2: (this_Multiply_0= ruleMultiply ( () otherlv_2= HyphenMinus ( (lv_right_3_0= ruleMultiply ) ) )* )
+            // InternalKlangParser.g:1412:2: ( (this_Divide_0= ruleDivide ( () otherlv_2= Asterisk ( (lv_right_3_0= ruleDivide ) ) )* ) )
+            // InternalKlangParser.g:1413:2: (this_Divide_0= ruleDivide ( () otherlv_2= Asterisk ( (lv_right_3_0= ruleDivide ) ) )* )
             {
-            // InternalKlangParser.g:1336:2: (this_Multiply_0= ruleMultiply ( () otherlv_2= HyphenMinus ( (lv_right_3_0= ruleMultiply ) ) )* )
-            // InternalKlangParser.g:1337:3: this_Multiply_0= ruleMultiply ( () otherlv_2= HyphenMinus ( (lv_right_3_0= ruleMultiply ) ) )*
+            // InternalKlangParser.g:1413:2: (this_Divide_0= ruleDivide ( () otherlv_2= Asterisk ( (lv_right_3_0= ruleDivide ) ) )* )
+            // InternalKlangParser.g:1414:3: this_Divide_0= ruleDivide ( () otherlv_2= Asterisk ( (lv_right_3_0= ruleDivide ) ) )*
             {
 
-            			newCompositeNode(grammarAccess.getMinusAccess().getMultiplyParserRuleCall_0());
+            			newCompositeNode(grammarAccess.getMultiplyAccess().getDivideParserRuleCall_0());
             		
-            pushFollow(FOLLOW_25);
-            this_Multiply_0=ruleMultiply();
+            pushFollow(FOLLOW_26);
+            this_Divide_0=ruleDivide();
 
             state._fsp--;
 
 
-            			current = this_Multiply_0;
+            			current = this_Divide_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalKlangParser.g:1345:3: ( () otherlv_2= HyphenMinus ( (lv_right_3_0= ruleMultiply ) ) )*
+            // InternalKlangParser.g:1422:3: ( () otherlv_2= Asterisk ( (lv_right_3_0= ruleDivide ) ) )*
             loop21:
             do {
                 int alt21=2;
                 int LA21_0 = input.LA(1);
 
-                if ( (LA21_0==HyphenMinus) ) {
+                if ( (LA21_0==Asterisk) ) {
                     alt21=1;
                 }
 
 
                 switch (alt21) {
             	case 1 :
-            	    // InternalKlangParser.g:1346:4: () otherlv_2= HyphenMinus ( (lv_right_3_0= ruleMultiply ) )
+            	    // InternalKlangParser.g:1423:4: () otherlv_2= Asterisk ( (lv_right_3_0= ruleDivide ) )
             	    {
-            	    // InternalKlangParser.g:1346:4: ()
-            	    // InternalKlangParser.g:1347:5: 
+            	    // InternalKlangParser.g:1423:4: ()
+            	    // InternalKlangParser.g:1424:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
-            	    						grammarAccess.getMinusAccess().getMinusLeftAction_1_0(),
+            	    						grammarAccess.getMultiplyAccess().getMultiplyLeftAction_1_0(),
             	    						current);
             	    				
 
             	    }
 
-            	    otherlv_2=(Token)match(input,HyphenMinus,FOLLOW_16); 
+            	    otherlv_2=(Token)match(input,Asterisk,FOLLOW_16); 
 
-            	    				newLeafNode(otherlv_2, grammarAccess.getMinusAccess().getHyphenMinusKeyword_1_1());
+            	    				newLeafNode(otherlv_2, grammarAccess.getMultiplyAccess().getAsteriskKeyword_1_1());
             	    			
-            	    // InternalKlangParser.g:1357:4: ( (lv_right_3_0= ruleMultiply ) )
-            	    // InternalKlangParser.g:1358:5: (lv_right_3_0= ruleMultiply )
+            	    // InternalKlangParser.g:1434:4: ( (lv_right_3_0= ruleDivide ) )
+            	    // InternalKlangParser.g:1435:5: (lv_right_3_0= ruleDivide )
             	    {
-            	    // InternalKlangParser.g:1358:5: (lv_right_3_0= ruleMultiply )
-            	    // InternalKlangParser.g:1359:6: lv_right_3_0= ruleMultiply
+            	    // InternalKlangParser.g:1435:5: (lv_right_3_0= ruleDivide )
+            	    // InternalKlangParser.g:1436:6: lv_right_3_0= ruleDivide
             	    {
 
-            	    						newCompositeNode(grammarAccess.getMinusAccess().getRightMultiplyParserRuleCall_1_2_0());
+            	    						newCompositeNode(grammarAccess.getMultiplyAccess().getRightDivideParserRuleCall_1_2_0());
             	    					
-            	    pushFollow(FOLLOW_25);
-            	    lv_right_3_0=ruleMultiply();
+            	    pushFollow(FOLLOW_26);
+            	    lv_right_3_0=ruleDivide();
 
             	    state._fsp--;
 
 
             	    						if (current==null) {
-            	    							current = createModelElementForParent(grammarAccess.getMinusRule());
+            	    							current = createModelElementForParent(grammarAccess.getMultiplyRule());
             	    						}
             	    						set(
             	    							current,
             	    							"right",
             	    							lv_right_3_0,
-            	    							"com.kaurel.klang.xtext.Klang.Multiply");
+            	    							"com.kaurel.klang.xtext.Klang.Divide");
             	    						afterParserOrEnumRuleCall();
             	    					
 
@@ -3569,28 +3746,28 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleMinus"
+    // $ANTLR end "ruleMultiply"
 
 
-    // $ANTLR start "entryRuleMultiply"
-    // InternalKlangParser.g:1381:1: entryRuleMultiply returns [EObject current=null] : iv_ruleMultiply= ruleMultiply EOF ;
-    public final EObject entryRuleMultiply() throws RecognitionException {
+    // $ANTLR start "entryRuleDivide"
+    // InternalKlangParser.g:1458:1: entryRuleDivide returns [EObject current=null] : iv_ruleDivide= ruleDivide EOF ;
+    public final EObject entryRuleDivide() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleMultiply = null;
+        EObject iv_ruleDivide = null;
 
 
         try {
-            // InternalKlangParser.g:1381:49: (iv_ruleMultiply= ruleMultiply EOF )
-            // InternalKlangParser.g:1382:2: iv_ruleMultiply= ruleMultiply EOF
+            // InternalKlangParser.g:1458:47: (iv_ruleDivide= ruleDivide EOF )
+            // InternalKlangParser.g:1459:2: iv_ruleDivide= ruleDivide EOF
             {
-             newCompositeNode(grammarAccess.getMultiplyRule()); 
+             newCompositeNode(grammarAccess.getDivideRule()); 
             pushFollow(FOLLOW_1);
-            iv_ruleMultiply=ruleMultiply();
+            iv_ruleDivide=ruleDivide();
 
             state._fsp--;
 
-             current =iv_ruleMultiply; 
+             current =iv_ruleDivide; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -3605,16 +3782,16 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleMultiply"
+    // $ANTLR end "entryRuleDivide"
 
 
-    // $ANTLR start "ruleMultiply"
-    // InternalKlangParser.g:1388:1: ruleMultiply returns [EObject current=null] : (this_Divide_0= ruleDivide ( () otherlv_2= Asterisk ( (lv_right_3_0= ruleDivide ) ) )* ) ;
-    public final EObject ruleMultiply() throws RecognitionException {
+    // $ANTLR start "ruleDivide"
+    // InternalKlangParser.g:1465:1: ruleDivide returns [EObject current=null] : (this_PrimaryExpression_0= rulePrimaryExpression ( () otherlv_2= Solidus ( (lv_right_3_0= rulePrimaryExpression ) ) )* ) ;
+    public final EObject ruleDivide() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_2=null;
-        EObject this_Divide_0 = null;
+        EObject this_PrimaryExpression_0 = null;
 
         EObject lv_right_3_0 = null;
 
@@ -3623,77 +3800,77 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKlangParser.g:1394:2: ( (this_Divide_0= ruleDivide ( () otherlv_2= Asterisk ( (lv_right_3_0= ruleDivide ) ) )* ) )
-            // InternalKlangParser.g:1395:2: (this_Divide_0= ruleDivide ( () otherlv_2= Asterisk ( (lv_right_3_0= ruleDivide ) ) )* )
+            // InternalKlangParser.g:1471:2: ( (this_PrimaryExpression_0= rulePrimaryExpression ( () otherlv_2= Solidus ( (lv_right_3_0= rulePrimaryExpression ) ) )* ) )
+            // InternalKlangParser.g:1472:2: (this_PrimaryExpression_0= rulePrimaryExpression ( () otherlv_2= Solidus ( (lv_right_3_0= rulePrimaryExpression ) ) )* )
             {
-            // InternalKlangParser.g:1395:2: (this_Divide_0= ruleDivide ( () otherlv_2= Asterisk ( (lv_right_3_0= ruleDivide ) ) )* )
-            // InternalKlangParser.g:1396:3: this_Divide_0= ruleDivide ( () otherlv_2= Asterisk ( (lv_right_3_0= ruleDivide ) ) )*
+            // InternalKlangParser.g:1472:2: (this_PrimaryExpression_0= rulePrimaryExpression ( () otherlv_2= Solidus ( (lv_right_3_0= rulePrimaryExpression ) ) )* )
+            // InternalKlangParser.g:1473:3: this_PrimaryExpression_0= rulePrimaryExpression ( () otherlv_2= Solidus ( (lv_right_3_0= rulePrimaryExpression ) ) )*
             {
 
-            			newCompositeNode(grammarAccess.getMultiplyAccess().getDivideParserRuleCall_0());
+            			newCompositeNode(grammarAccess.getDivideAccess().getPrimaryExpressionParserRuleCall_0());
             		
-            pushFollow(FOLLOW_26);
-            this_Divide_0=ruleDivide();
+            pushFollow(FOLLOW_27);
+            this_PrimaryExpression_0=rulePrimaryExpression();
 
             state._fsp--;
 
 
-            			current = this_Divide_0;
+            			current = this_PrimaryExpression_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalKlangParser.g:1404:3: ( () otherlv_2= Asterisk ( (lv_right_3_0= ruleDivide ) ) )*
+            // InternalKlangParser.g:1481:3: ( () otherlv_2= Solidus ( (lv_right_3_0= rulePrimaryExpression ) ) )*
             loop22:
             do {
                 int alt22=2;
                 int LA22_0 = input.LA(1);
 
-                if ( (LA22_0==Asterisk) ) {
+                if ( (LA22_0==Solidus) ) {
                     alt22=1;
                 }
 
 
                 switch (alt22) {
             	case 1 :
-            	    // InternalKlangParser.g:1405:4: () otherlv_2= Asterisk ( (lv_right_3_0= ruleDivide ) )
+            	    // InternalKlangParser.g:1482:4: () otherlv_2= Solidus ( (lv_right_3_0= rulePrimaryExpression ) )
             	    {
-            	    // InternalKlangParser.g:1405:4: ()
-            	    // InternalKlangParser.g:1406:5: 
+            	    // InternalKlangParser.g:1482:4: ()
+            	    // InternalKlangParser.g:1483:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
-            	    						grammarAccess.getMultiplyAccess().getMultiplyLeftAction_1_0(),
+            	    						grammarAccess.getDivideAccess().getDivideLeftAction_1_0(),
             	    						current);
             	    				
 
             	    }
 
-            	    otherlv_2=(Token)match(input,Asterisk,FOLLOW_16); 
+            	    otherlv_2=(Token)match(input,Solidus,FOLLOW_16); 
 
-            	    				newLeafNode(otherlv_2, grammarAccess.getMultiplyAccess().getAsteriskKeyword_1_1());
+            	    				newLeafNode(otherlv_2, grammarAccess.getDivideAccess().getSolidusKeyword_1_1());
             	    			
-            	    // InternalKlangParser.g:1416:4: ( (lv_right_3_0= ruleDivide ) )
-            	    // InternalKlangParser.g:1417:5: (lv_right_3_0= ruleDivide )
+            	    // InternalKlangParser.g:1493:4: ( (lv_right_3_0= rulePrimaryExpression ) )
+            	    // InternalKlangParser.g:1494:5: (lv_right_3_0= rulePrimaryExpression )
             	    {
-            	    // InternalKlangParser.g:1417:5: (lv_right_3_0= ruleDivide )
-            	    // InternalKlangParser.g:1418:6: lv_right_3_0= ruleDivide
+            	    // InternalKlangParser.g:1494:5: (lv_right_3_0= rulePrimaryExpression )
+            	    // InternalKlangParser.g:1495:6: lv_right_3_0= rulePrimaryExpression
             	    {
 
-            	    						newCompositeNode(grammarAccess.getMultiplyAccess().getRightDivideParserRuleCall_1_2_0());
+            	    						newCompositeNode(grammarAccess.getDivideAccess().getRightPrimaryExpressionParserRuleCall_1_2_0());
             	    					
-            	    pushFollow(FOLLOW_26);
-            	    lv_right_3_0=ruleDivide();
+            	    pushFollow(FOLLOW_27);
+            	    lv_right_3_0=rulePrimaryExpression();
 
             	    state._fsp--;
 
 
             	    						if (current==null) {
-            	    							current = createModelElementForParent(grammarAccess.getMultiplyRule());
+            	    							current = createModelElementForParent(grammarAccess.getDivideRule());
             	    						}
             	    						set(
             	    							current,
             	    							"right",
             	    							lv_right_3_0,
-            	    							"com.kaurel.klang.xtext.Klang.Divide");
+            	    							"com.kaurel.klang.xtext.Klang.PrimaryExpression");
             	    						afterParserOrEnumRuleCall();
             	    					
 
@@ -3730,172 +3907,11 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleMultiply"
-
-
-    // $ANTLR start "entryRuleDivide"
-    // InternalKlangParser.g:1440:1: entryRuleDivide returns [EObject current=null] : iv_ruleDivide= ruleDivide EOF ;
-    public final EObject entryRuleDivide() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleDivide = null;
-
-
-        try {
-            // InternalKlangParser.g:1440:47: (iv_ruleDivide= ruleDivide EOF )
-            // InternalKlangParser.g:1441:2: iv_ruleDivide= ruleDivide EOF
-            {
-             newCompositeNode(grammarAccess.getDivideRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleDivide=ruleDivide();
-
-            state._fsp--;
-
-             current =iv_ruleDivide; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleDivide"
-
-
-    // $ANTLR start "ruleDivide"
-    // InternalKlangParser.g:1447:1: ruleDivide returns [EObject current=null] : (this_PrimaryExpression_0= rulePrimaryExpression ( () otherlv_2= Solidus ( (lv_right_3_0= rulePrimaryExpression ) ) )* ) ;
-    public final EObject ruleDivide() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_2=null;
-        EObject this_PrimaryExpression_0 = null;
-
-        EObject lv_right_3_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalKlangParser.g:1453:2: ( (this_PrimaryExpression_0= rulePrimaryExpression ( () otherlv_2= Solidus ( (lv_right_3_0= rulePrimaryExpression ) ) )* ) )
-            // InternalKlangParser.g:1454:2: (this_PrimaryExpression_0= rulePrimaryExpression ( () otherlv_2= Solidus ( (lv_right_3_0= rulePrimaryExpression ) ) )* )
-            {
-            // InternalKlangParser.g:1454:2: (this_PrimaryExpression_0= rulePrimaryExpression ( () otherlv_2= Solidus ( (lv_right_3_0= rulePrimaryExpression ) ) )* )
-            // InternalKlangParser.g:1455:3: this_PrimaryExpression_0= rulePrimaryExpression ( () otherlv_2= Solidus ( (lv_right_3_0= rulePrimaryExpression ) ) )*
-            {
-
-            			newCompositeNode(grammarAccess.getDivideAccess().getPrimaryExpressionParserRuleCall_0());
-            		
-            pushFollow(FOLLOW_27);
-            this_PrimaryExpression_0=rulePrimaryExpression();
-
-            state._fsp--;
-
-
-            			current = this_PrimaryExpression_0;
-            			afterParserOrEnumRuleCall();
-            		
-            // InternalKlangParser.g:1463:3: ( () otherlv_2= Solidus ( (lv_right_3_0= rulePrimaryExpression ) ) )*
-            loop23:
-            do {
-                int alt23=2;
-                int LA23_0 = input.LA(1);
-
-                if ( (LA23_0==Solidus) ) {
-                    alt23=1;
-                }
-
-
-                switch (alt23) {
-            	case 1 :
-            	    // InternalKlangParser.g:1464:4: () otherlv_2= Solidus ( (lv_right_3_0= rulePrimaryExpression ) )
-            	    {
-            	    // InternalKlangParser.g:1464:4: ()
-            	    // InternalKlangParser.g:1465:5: 
-            	    {
-
-            	    					current = forceCreateModelElementAndSet(
-            	    						grammarAccess.getDivideAccess().getDivideLeftAction_1_0(),
-            	    						current);
-            	    				
-
-            	    }
-
-            	    otherlv_2=(Token)match(input,Solidus,FOLLOW_16); 
-
-            	    				newLeafNode(otherlv_2, grammarAccess.getDivideAccess().getSolidusKeyword_1_1());
-            	    			
-            	    // InternalKlangParser.g:1475:4: ( (lv_right_3_0= rulePrimaryExpression ) )
-            	    // InternalKlangParser.g:1476:5: (lv_right_3_0= rulePrimaryExpression )
-            	    {
-            	    // InternalKlangParser.g:1476:5: (lv_right_3_0= rulePrimaryExpression )
-            	    // InternalKlangParser.g:1477:6: lv_right_3_0= rulePrimaryExpression
-            	    {
-
-            	    						newCompositeNode(grammarAccess.getDivideAccess().getRightPrimaryExpressionParserRuleCall_1_2_0());
-            	    					
-            	    pushFollow(FOLLOW_27);
-            	    lv_right_3_0=rulePrimaryExpression();
-
-            	    state._fsp--;
-
-
-            	    						if (current==null) {
-            	    							current = createModelElementForParent(grammarAccess.getDivideRule());
-            	    						}
-            	    						set(
-            	    							current,
-            	    							"right",
-            	    							lv_right_3_0,
-            	    							"com.kaurel.klang.xtext.Klang.PrimaryExpression");
-            	    						afterParserOrEnumRuleCall();
-            	    					
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop23;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
     // $ANTLR end "ruleDivide"
 
 
     // $ANTLR start "entryRuleComparison"
-    // InternalKlangParser.g:1499:1: entryRuleComparison returns [EObject current=null] : iv_ruleComparison= ruleComparison EOF ;
+    // InternalKlangParser.g:1517:1: entryRuleComparison returns [EObject current=null] : iv_ruleComparison= ruleComparison EOF ;
     public final EObject entryRuleComparison() throws RecognitionException {
         EObject current = null;
 
@@ -3903,8 +3919,8 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKlangParser.g:1499:51: (iv_ruleComparison= ruleComparison EOF )
-            // InternalKlangParser.g:1500:2: iv_ruleComparison= ruleComparison EOF
+            // InternalKlangParser.g:1517:51: (iv_ruleComparison= ruleComparison EOF )
+            // InternalKlangParser.g:1518:2: iv_ruleComparison= ruleComparison EOF
             {
              newCompositeNode(grammarAccess.getComparisonRule()); 
             pushFollow(FOLLOW_1);
@@ -3931,7 +3947,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleComparison"
-    // InternalKlangParser.g:1506:1: ruleComparison returns [EObject current=null] : (this_Plus_0= rulePlus ( ( (otherlv_1= LessThanSign () ) | (otherlv_3= EqualsSignEqualsSign () ) | (otherlv_5= GreaterThanSign () ) ) ( (lv_right_7_0= rulePlus ) ) )* ) ;
+    // InternalKlangParser.g:1524:1: ruleComparison returns [EObject current=null] : (this_Plus_0= rulePlus ( ( (otherlv_1= LessThanSign () ) | (otherlv_3= EqualsSignEqualsSign () ) | (otherlv_5= GreaterThanSign () ) ) ( (lv_right_7_0= rulePlus ) ) )* ) ;
     public final EObject ruleComparison() throws RecognitionException {
         EObject current = null;
 
@@ -3947,11 +3963,11 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKlangParser.g:1512:2: ( (this_Plus_0= rulePlus ( ( (otherlv_1= LessThanSign () ) | (otherlv_3= EqualsSignEqualsSign () ) | (otherlv_5= GreaterThanSign () ) ) ( (lv_right_7_0= rulePlus ) ) )* ) )
-            // InternalKlangParser.g:1513:2: (this_Plus_0= rulePlus ( ( (otherlv_1= LessThanSign () ) | (otherlv_3= EqualsSignEqualsSign () ) | (otherlv_5= GreaterThanSign () ) ) ( (lv_right_7_0= rulePlus ) ) )* )
+            // InternalKlangParser.g:1530:2: ( (this_Plus_0= rulePlus ( ( (otherlv_1= LessThanSign () ) | (otherlv_3= EqualsSignEqualsSign () ) | (otherlv_5= GreaterThanSign () ) ) ( (lv_right_7_0= rulePlus ) ) )* ) )
+            // InternalKlangParser.g:1531:2: (this_Plus_0= rulePlus ( ( (otherlv_1= LessThanSign () ) | (otherlv_3= EqualsSignEqualsSign () ) | (otherlv_5= GreaterThanSign () ) ) ( (lv_right_7_0= rulePlus ) ) )* )
             {
-            // InternalKlangParser.g:1513:2: (this_Plus_0= rulePlus ( ( (otherlv_1= LessThanSign () ) | (otherlv_3= EqualsSignEqualsSign () ) | (otherlv_5= GreaterThanSign () ) ) ( (lv_right_7_0= rulePlus ) ) )* )
-            // InternalKlangParser.g:1514:3: this_Plus_0= rulePlus ( ( (otherlv_1= LessThanSign () ) | (otherlv_3= EqualsSignEqualsSign () ) | (otherlv_5= GreaterThanSign () ) ) ( (lv_right_7_0= rulePlus ) ) )*
+            // InternalKlangParser.g:1531:2: (this_Plus_0= rulePlus ( ( (otherlv_1= LessThanSign () ) | (otherlv_3= EqualsSignEqualsSign () ) | (otherlv_5= GreaterThanSign () ) ) ( (lv_right_7_0= rulePlus ) ) )* )
+            // InternalKlangParser.g:1532:3: this_Plus_0= rulePlus ( ( (otherlv_1= LessThanSign () ) | (otherlv_3= EqualsSignEqualsSign () ) | (otherlv_5= GreaterThanSign () ) ) ( (lv_right_7_0= rulePlus ) ) )*
             {
 
             			newCompositeNode(grammarAccess.getComparisonAccess().getPlusParserRuleCall_0());
@@ -3965,59 +3981,59 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
             			current = this_Plus_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalKlangParser.g:1522:3: ( ( (otherlv_1= LessThanSign () ) | (otherlv_3= EqualsSignEqualsSign () ) | (otherlv_5= GreaterThanSign () ) ) ( (lv_right_7_0= rulePlus ) ) )*
-            loop25:
+            // InternalKlangParser.g:1540:3: ( ( (otherlv_1= LessThanSign () ) | (otherlv_3= EqualsSignEqualsSign () ) | (otherlv_5= GreaterThanSign () ) ) ( (lv_right_7_0= rulePlus ) ) )*
+            loop24:
             do {
-                int alt25=2;
-                int LA25_0 = input.LA(1);
+                int alt24=2;
+                int LA24_0 = input.LA(1);
 
-                if ( (LA25_0==EqualsSignEqualsSign||LA25_0==LessThanSign||LA25_0==GreaterThanSign) ) {
-                    alt25=1;
+                if ( (LA24_0==EqualsSignEqualsSign||LA24_0==LessThanSign||LA24_0==GreaterThanSign) ) {
+                    alt24=1;
                 }
 
 
-                switch (alt25) {
+                switch (alt24) {
             	case 1 :
-            	    // InternalKlangParser.g:1523:4: ( (otherlv_1= LessThanSign () ) | (otherlv_3= EqualsSignEqualsSign () ) | (otherlv_5= GreaterThanSign () ) ) ( (lv_right_7_0= rulePlus ) )
+            	    // InternalKlangParser.g:1541:4: ( (otherlv_1= LessThanSign () ) | (otherlv_3= EqualsSignEqualsSign () ) | (otherlv_5= GreaterThanSign () ) ) ( (lv_right_7_0= rulePlus ) )
             	    {
-            	    // InternalKlangParser.g:1523:4: ( (otherlv_1= LessThanSign () ) | (otherlv_3= EqualsSignEqualsSign () ) | (otherlv_5= GreaterThanSign () ) )
-            	    int alt24=3;
+            	    // InternalKlangParser.g:1541:4: ( (otherlv_1= LessThanSign () ) | (otherlv_3= EqualsSignEqualsSign () ) | (otherlv_5= GreaterThanSign () ) )
+            	    int alt23=3;
             	    switch ( input.LA(1) ) {
             	    case LessThanSign:
             	        {
-            	        alt24=1;
+            	        alt23=1;
             	        }
             	        break;
             	    case EqualsSignEqualsSign:
             	        {
-            	        alt24=2;
+            	        alt23=2;
             	        }
             	        break;
             	    case GreaterThanSign:
             	        {
-            	        alt24=3;
+            	        alt23=3;
             	        }
             	        break;
             	    default:
             	        NoViableAltException nvae =
-            	            new NoViableAltException("", 24, 0, input);
+            	            new NoViableAltException("", 23, 0, input);
 
             	        throw nvae;
             	    }
 
-            	    switch (alt24) {
+            	    switch (alt23) {
             	        case 1 :
-            	            // InternalKlangParser.g:1524:5: (otherlv_1= LessThanSign () )
+            	            // InternalKlangParser.g:1542:5: (otherlv_1= LessThanSign () )
             	            {
-            	            // InternalKlangParser.g:1524:5: (otherlv_1= LessThanSign () )
-            	            // InternalKlangParser.g:1525:6: otherlv_1= LessThanSign ()
+            	            // InternalKlangParser.g:1542:5: (otherlv_1= LessThanSign () )
+            	            // InternalKlangParser.g:1543:6: otherlv_1= LessThanSign ()
             	            {
             	            otherlv_1=(Token)match(input,LessThanSign,FOLLOW_16); 
 
             	            						newLeafNode(otherlv_1, grammarAccess.getComparisonAccess().getLessThanSignKeyword_1_0_0_0());
             	            					
-            	            // InternalKlangParser.g:1529:6: ()
-            	            // InternalKlangParser.g:1530:7: 
+            	            // InternalKlangParser.g:1547:6: ()
+            	            // InternalKlangParser.g:1548:7: 
             	            {
 
             	            							current = forceCreateModelElementAndSet(
@@ -4034,17 +4050,17 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
             	            }
             	            break;
             	        case 2 :
-            	            // InternalKlangParser.g:1538:5: (otherlv_3= EqualsSignEqualsSign () )
+            	            // InternalKlangParser.g:1556:5: (otherlv_3= EqualsSignEqualsSign () )
             	            {
-            	            // InternalKlangParser.g:1538:5: (otherlv_3= EqualsSignEqualsSign () )
-            	            // InternalKlangParser.g:1539:6: otherlv_3= EqualsSignEqualsSign ()
+            	            // InternalKlangParser.g:1556:5: (otherlv_3= EqualsSignEqualsSign () )
+            	            // InternalKlangParser.g:1557:6: otherlv_3= EqualsSignEqualsSign ()
             	            {
             	            otherlv_3=(Token)match(input,EqualsSignEqualsSign,FOLLOW_16); 
 
             	            						newLeafNode(otherlv_3, grammarAccess.getComparisonAccess().getEqualsSignEqualsSignKeyword_1_0_1_0());
             	            					
-            	            // InternalKlangParser.g:1543:6: ()
-            	            // InternalKlangParser.g:1544:7: 
+            	            // InternalKlangParser.g:1561:6: ()
+            	            // InternalKlangParser.g:1562:7: 
             	            {
 
             	            							current = forceCreateModelElementAndSet(
@@ -4061,17 +4077,17 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
             	            }
             	            break;
             	        case 3 :
-            	            // InternalKlangParser.g:1552:5: (otherlv_5= GreaterThanSign () )
+            	            // InternalKlangParser.g:1570:5: (otherlv_5= GreaterThanSign () )
             	            {
-            	            // InternalKlangParser.g:1552:5: (otherlv_5= GreaterThanSign () )
-            	            // InternalKlangParser.g:1553:6: otherlv_5= GreaterThanSign ()
+            	            // InternalKlangParser.g:1570:5: (otherlv_5= GreaterThanSign () )
+            	            // InternalKlangParser.g:1571:6: otherlv_5= GreaterThanSign ()
             	            {
             	            otherlv_5=(Token)match(input,GreaterThanSign,FOLLOW_16); 
 
             	            						newLeafNode(otherlv_5, grammarAccess.getComparisonAccess().getGreaterThanSignKeyword_1_0_2_0());
             	            					
-            	            // InternalKlangParser.g:1557:6: ()
-            	            // InternalKlangParser.g:1558:7: 
+            	            // InternalKlangParser.g:1575:6: ()
+            	            // InternalKlangParser.g:1576:7: 
             	            {
 
             	            							current = forceCreateModelElementAndSet(
@@ -4090,11 +4106,11 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalKlangParser.g:1566:4: ( (lv_right_7_0= rulePlus ) )
-            	    // InternalKlangParser.g:1567:5: (lv_right_7_0= rulePlus )
+            	    // InternalKlangParser.g:1584:4: ( (lv_right_7_0= rulePlus ) )
+            	    // InternalKlangParser.g:1585:5: (lv_right_7_0= rulePlus )
             	    {
-            	    // InternalKlangParser.g:1567:5: (lv_right_7_0= rulePlus )
-            	    // InternalKlangParser.g:1568:6: lv_right_7_0= rulePlus
+            	    // InternalKlangParser.g:1585:5: (lv_right_7_0= rulePlus )
+            	    // InternalKlangParser.g:1586:6: lv_right_7_0= rulePlus
             	    {
 
             	    						newCompositeNode(grammarAccess.getComparisonAccess().getRightPlusParserRuleCall_1_1_0());
@@ -4126,7 +4142,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop25;
+            	    break loop24;
                 }
             } while (true);
 
@@ -4153,7 +4169,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleFunctionCall"
-    // InternalKlangParser.g:1590:1: entryRuleFunctionCall returns [EObject current=null] : iv_ruleFunctionCall= ruleFunctionCall EOF ;
+    // InternalKlangParser.g:1608:1: entryRuleFunctionCall returns [EObject current=null] : iv_ruleFunctionCall= ruleFunctionCall EOF ;
     public final EObject entryRuleFunctionCall() throws RecognitionException {
         EObject current = null;
 
@@ -4161,8 +4177,8 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKlangParser.g:1590:53: (iv_ruleFunctionCall= ruleFunctionCall EOF )
-            // InternalKlangParser.g:1591:2: iv_ruleFunctionCall= ruleFunctionCall EOF
+            // InternalKlangParser.g:1608:53: (iv_ruleFunctionCall= ruleFunctionCall EOF )
+            // InternalKlangParser.g:1609:2: iv_ruleFunctionCall= ruleFunctionCall EOF
             {
              newCompositeNode(grammarAccess.getFunctionCallRule()); 
             pushFollow(FOLLOW_1);
@@ -4189,7 +4205,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFunctionCall"
-    // InternalKlangParser.g:1597:1: ruleFunctionCall returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= LeftParenthesis ( ( (lv_parameters_2_0= ruleExpression ) ) (otherlv_3= Comma ( (lv_parameters_4_0= ruleExpression ) ) )* )? otherlv_5= RightParenthesis ) ;
+    // InternalKlangParser.g:1615:1: ruleFunctionCall returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= LeftParenthesis ( ( (lv_parameters_2_0= ruleExpression ) ) (otherlv_3= Comma ( (lv_parameters_4_0= ruleExpression ) ) )* )? otherlv_5= RightParenthesis ) ;
     public final EObject ruleFunctionCall() throws RecognitionException {
         EObject current = null;
 
@@ -4206,17 +4222,17 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKlangParser.g:1603:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= LeftParenthesis ( ( (lv_parameters_2_0= ruleExpression ) ) (otherlv_3= Comma ( (lv_parameters_4_0= ruleExpression ) ) )* )? otherlv_5= RightParenthesis ) )
-            // InternalKlangParser.g:1604:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= LeftParenthesis ( ( (lv_parameters_2_0= ruleExpression ) ) (otherlv_3= Comma ( (lv_parameters_4_0= ruleExpression ) ) )* )? otherlv_5= RightParenthesis )
+            // InternalKlangParser.g:1621:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= LeftParenthesis ( ( (lv_parameters_2_0= ruleExpression ) ) (otherlv_3= Comma ( (lv_parameters_4_0= ruleExpression ) ) )* )? otherlv_5= RightParenthesis ) )
+            // InternalKlangParser.g:1622:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= LeftParenthesis ( ( (lv_parameters_2_0= ruleExpression ) ) (otherlv_3= Comma ( (lv_parameters_4_0= ruleExpression ) ) )* )? otherlv_5= RightParenthesis )
             {
-            // InternalKlangParser.g:1604:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= LeftParenthesis ( ( (lv_parameters_2_0= ruleExpression ) ) (otherlv_3= Comma ( (lv_parameters_4_0= ruleExpression ) ) )* )? otherlv_5= RightParenthesis )
-            // InternalKlangParser.g:1605:3: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= LeftParenthesis ( ( (lv_parameters_2_0= ruleExpression ) ) (otherlv_3= Comma ( (lv_parameters_4_0= ruleExpression ) ) )* )? otherlv_5= RightParenthesis
+            // InternalKlangParser.g:1622:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= LeftParenthesis ( ( (lv_parameters_2_0= ruleExpression ) ) (otherlv_3= Comma ( (lv_parameters_4_0= ruleExpression ) ) )* )? otherlv_5= RightParenthesis )
+            // InternalKlangParser.g:1623:3: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= LeftParenthesis ( ( (lv_parameters_2_0= ruleExpression ) ) (otherlv_3= Comma ( (lv_parameters_4_0= ruleExpression ) ) )* )? otherlv_5= RightParenthesis
             {
-            // InternalKlangParser.g:1605:3: ( (lv_name_0_0= RULE_ID ) )
-            // InternalKlangParser.g:1606:4: (lv_name_0_0= RULE_ID )
+            // InternalKlangParser.g:1623:3: ( (lv_name_0_0= RULE_ID ) )
+            // InternalKlangParser.g:1624:4: (lv_name_0_0= RULE_ID )
             {
-            // InternalKlangParser.g:1606:4: (lv_name_0_0= RULE_ID )
-            // InternalKlangParser.g:1607:5: lv_name_0_0= RULE_ID
+            // InternalKlangParser.g:1624:4: (lv_name_0_0= RULE_ID )
+            // InternalKlangParser.g:1625:5: lv_name_0_0= RULE_ID
             {
             lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_19); 
 
@@ -4242,22 +4258,22 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getFunctionCallAccess().getLeftParenthesisKeyword_1());
             		
-            // InternalKlangParser.g:1627:3: ( ( (lv_parameters_2_0= ruleExpression ) ) (otherlv_3= Comma ( (lv_parameters_4_0= ruleExpression ) ) )* )?
-            int alt27=2;
-            int LA27_0 = input.LA(1);
+            // InternalKlangParser.g:1645:3: ( ( (lv_parameters_2_0= ruleExpression ) ) (otherlv_3= Comma ( (lv_parameters_4_0= ruleExpression ) ) )* )?
+            int alt26=2;
+            int LA26_0 = input.LA(1);
 
-            if ( (LA27_0==False||LA27_0==True||LA27_0==Not||LA27_0==LeftParenthesis||LA27_0==HyphenMinus||(LA27_0>=RULE_ID && LA27_0<=RULE_STRING)) ) {
-                alt27=1;
+            if ( (LA26_0==False||LA26_0==True||LA26_0==Not||LA26_0==LeftParenthesis||LA26_0==HyphenMinus||(LA26_0>=RULE_ID && LA26_0<=RULE_STRING)) ) {
+                alt26=1;
             }
-            switch (alt27) {
+            switch (alt26) {
                 case 1 :
-                    // InternalKlangParser.g:1628:4: ( (lv_parameters_2_0= ruleExpression ) ) (otherlv_3= Comma ( (lv_parameters_4_0= ruleExpression ) ) )*
+                    // InternalKlangParser.g:1646:4: ( (lv_parameters_2_0= ruleExpression ) ) (otherlv_3= Comma ( (lv_parameters_4_0= ruleExpression ) ) )*
                     {
-                    // InternalKlangParser.g:1628:4: ( (lv_parameters_2_0= ruleExpression ) )
-                    // InternalKlangParser.g:1629:5: (lv_parameters_2_0= ruleExpression )
+                    // InternalKlangParser.g:1646:4: ( (lv_parameters_2_0= ruleExpression ) )
+                    // InternalKlangParser.g:1647:5: (lv_parameters_2_0= ruleExpression )
                     {
-                    // InternalKlangParser.g:1629:5: (lv_parameters_2_0= ruleExpression )
-                    // InternalKlangParser.g:1630:6: lv_parameters_2_0= ruleExpression
+                    // InternalKlangParser.g:1647:5: (lv_parameters_2_0= ruleExpression )
+                    // InternalKlangParser.g:1648:6: lv_parameters_2_0= ruleExpression
                     {
 
                     						newCompositeNode(grammarAccess.getFunctionCallAccess().getParametersExpressionParserRuleCall_2_0_0());
@@ -4284,30 +4300,30 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalKlangParser.g:1647:4: (otherlv_3= Comma ( (lv_parameters_4_0= ruleExpression ) ) )*
-                    loop26:
+                    // InternalKlangParser.g:1665:4: (otherlv_3= Comma ( (lv_parameters_4_0= ruleExpression ) ) )*
+                    loop25:
                     do {
-                        int alt26=2;
-                        int LA26_0 = input.LA(1);
+                        int alt25=2;
+                        int LA25_0 = input.LA(1);
 
-                        if ( (LA26_0==Comma) ) {
-                            alt26=1;
+                        if ( (LA25_0==Comma) ) {
+                            alt25=1;
                         }
 
 
-                        switch (alt26) {
+                        switch (alt25) {
                     	case 1 :
-                    	    // InternalKlangParser.g:1648:5: otherlv_3= Comma ( (lv_parameters_4_0= ruleExpression ) )
+                    	    // InternalKlangParser.g:1666:5: otherlv_3= Comma ( (lv_parameters_4_0= ruleExpression ) )
                     	    {
                     	    otherlv_3=(Token)match(input,Comma,FOLLOW_16); 
 
                     	    					newLeafNode(otherlv_3, grammarAccess.getFunctionCallAccess().getCommaKeyword_2_1_0());
                     	    				
-                    	    // InternalKlangParser.g:1652:5: ( (lv_parameters_4_0= ruleExpression ) )
-                    	    // InternalKlangParser.g:1653:6: (lv_parameters_4_0= ruleExpression )
+                    	    // InternalKlangParser.g:1670:5: ( (lv_parameters_4_0= ruleExpression ) )
+                    	    // InternalKlangParser.g:1671:6: (lv_parameters_4_0= ruleExpression )
                     	    {
-                    	    // InternalKlangParser.g:1653:6: (lv_parameters_4_0= ruleExpression )
-                    	    // InternalKlangParser.g:1654:7: lv_parameters_4_0= ruleExpression
+                    	    // InternalKlangParser.g:1671:6: (lv_parameters_4_0= ruleExpression )
+                    	    // InternalKlangParser.g:1672:7: lv_parameters_4_0= ruleExpression
                     	    {
 
                     	    							newCompositeNode(grammarAccess.getFunctionCallAccess().getParametersExpressionParserRuleCall_2_1_1_0());
@@ -4339,7 +4355,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop26;
+                    	    break loop25;
                         }
                     } while (true);
 
@@ -4376,7 +4392,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePrimaryExpression"
-    // InternalKlangParser.g:1681:1: entryRulePrimaryExpression returns [EObject current=null] : iv_rulePrimaryExpression= rulePrimaryExpression EOF ;
+    // InternalKlangParser.g:1699:1: entryRulePrimaryExpression returns [EObject current=null] : iv_rulePrimaryExpression= rulePrimaryExpression EOF ;
     public final EObject entryRulePrimaryExpression() throws RecognitionException {
         EObject current = null;
 
@@ -4384,8 +4400,8 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKlangParser.g:1681:58: (iv_rulePrimaryExpression= rulePrimaryExpression EOF )
-            // InternalKlangParser.g:1682:2: iv_rulePrimaryExpression= rulePrimaryExpression EOF
+            // InternalKlangParser.g:1699:58: (iv_rulePrimaryExpression= rulePrimaryExpression EOF )
+            // InternalKlangParser.g:1700:2: iv_rulePrimaryExpression= rulePrimaryExpression EOF
             {
              newCompositeNode(grammarAccess.getPrimaryExpressionRule()); 
             pushFollow(FOLLOW_1);
@@ -4412,7 +4428,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePrimaryExpression"
-    // InternalKlangParser.g:1688:1: rulePrimaryExpression returns [EObject current=null] : ( (otherlv_0= LeftParenthesis this_Expression_1= ruleExpression otherlv_2= RightParenthesis ) | ( () otherlv_4= Not ( (lv_expression_5_0= rulePrimaryExpression ) ) ) | ( () otherlv_7= HyphenMinus ( (lv_expression_8_0= rulePrimaryExpression ) ) ) | ( () otherlv_10= LeftParenthesis otherlv_11= Double otherlv_12= RightParenthesis ( (lv_expression_13_0= rulePrimaryExpression ) ) ) | ( () otherlv_15= LeftParenthesis otherlv_16= Int otherlv_17= RightParenthesis ( (lv_expression_18_0= rulePrimaryExpression ) ) ) | this_FunctionCall_19= ruleFunctionCall | this_AtomicExpression_20= ruleAtomicExpression ) ;
+    // InternalKlangParser.g:1706:1: rulePrimaryExpression returns [EObject current=null] : ( (otherlv_0= LeftParenthesis this_Expression_1= ruleExpression otherlv_2= RightParenthesis ) | ( () otherlv_4= Not ( (lv_expression_5_0= rulePrimaryExpression ) ) ) | ( () otherlv_7= HyphenMinus ( (lv_expression_8_0= rulePrimaryExpression ) ) ) | ( () otherlv_10= LeftParenthesis otherlv_11= Double otherlv_12= RightParenthesis ( (lv_expression_13_0= rulePrimaryExpression ) ) ) | ( () otherlv_15= LeftParenthesis otherlv_16= Int otherlv_17= RightParenthesis ( (lv_expression_18_0= rulePrimaryExpression ) ) ) | this_FunctionCall_19= ruleFunctionCall | this_AtomicExpression_20= ruleAtomicExpression ) ;
     public final EObject rulePrimaryExpression() throws RecognitionException {
         EObject current = null;
 
@@ -4445,18 +4461,18 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKlangParser.g:1694:2: ( ( (otherlv_0= LeftParenthesis this_Expression_1= ruleExpression otherlv_2= RightParenthesis ) | ( () otherlv_4= Not ( (lv_expression_5_0= rulePrimaryExpression ) ) ) | ( () otherlv_7= HyphenMinus ( (lv_expression_8_0= rulePrimaryExpression ) ) ) | ( () otherlv_10= LeftParenthesis otherlv_11= Double otherlv_12= RightParenthesis ( (lv_expression_13_0= rulePrimaryExpression ) ) ) | ( () otherlv_15= LeftParenthesis otherlv_16= Int otherlv_17= RightParenthesis ( (lv_expression_18_0= rulePrimaryExpression ) ) ) | this_FunctionCall_19= ruleFunctionCall | this_AtomicExpression_20= ruleAtomicExpression ) )
-            // InternalKlangParser.g:1695:2: ( (otherlv_0= LeftParenthesis this_Expression_1= ruleExpression otherlv_2= RightParenthesis ) | ( () otherlv_4= Not ( (lv_expression_5_0= rulePrimaryExpression ) ) ) | ( () otherlv_7= HyphenMinus ( (lv_expression_8_0= rulePrimaryExpression ) ) ) | ( () otherlv_10= LeftParenthesis otherlv_11= Double otherlv_12= RightParenthesis ( (lv_expression_13_0= rulePrimaryExpression ) ) ) | ( () otherlv_15= LeftParenthesis otherlv_16= Int otherlv_17= RightParenthesis ( (lv_expression_18_0= rulePrimaryExpression ) ) ) | this_FunctionCall_19= ruleFunctionCall | this_AtomicExpression_20= ruleAtomicExpression )
+            // InternalKlangParser.g:1712:2: ( ( (otherlv_0= LeftParenthesis this_Expression_1= ruleExpression otherlv_2= RightParenthesis ) | ( () otherlv_4= Not ( (lv_expression_5_0= rulePrimaryExpression ) ) ) | ( () otherlv_7= HyphenMinus ( (lv_expression_8_0= rulePrimaryExpression ) ) ) | ( () otherlv_10= LeftParenthesis otherlv_11= Double otherlv_12= RightParenthesis ( (lv_expression_13_0= rulePrimaryExpression ) ) ) | ( () otherlv_15= LeftParenthesis otherlv_16= Int otherlv_17= RightParenthesis ( (lv_expression_18_0= rulePrimaryExpression ) ) ) | this_FunctionCall_19= ruleFunctionCall | this_AtomicExpression_20= ruleAtomicExpression ) )
+            // InternalKlangParser.g:1713:2: ( (otherlv_0= LeftParenthesis this_Expression_1= ruleExpression otherlv_2= RightParenthesis ) | ( () otherlv_4= Not ( (lv_expression_5_0= rulePrimaryExpression ) ) ) | ( () otherlv_7= HyphenMinus ( (lv_expression_8_0= rulePrimaryExpression ) ) ) | ( () otherlv_10= LeftParenthesis otherlv_11= Double otherlv_12= RightParenthesis ( (lv_expression_13_0= rulePrimaryExpression ) ) ) | ( () otherlv_15= LeftParenthesis otherlv_16= Int otherlv_17= RightParenthesis ( (lv_expression_18_0= rulePrimaryExpression ) ) ) | this_FunctionCall_19= ruleFunctionCall | this_AtomicExpression_20= ruleAtomicExpression )
             {
-            // InternalKlangParser.g:1695:2: ( (otherlv_0= LeftParenthesis this_Expression_1= ruleExpression otherlv_2= RightParenthesis ) | ( () otherlv_4= Not ( (lv_expression_5_0= rulePrimaryExpression ) ) ) | ( () otherlv_7= HyphenMinus ( (lv_expression_8_0= rulePrimaryExpression ) ) ) | ( () otherlv_10= LeftParenthesis otherlv_11= Double otherlv_12= RightParenthesis ( (lv_expression_13_0= rulePrimaryExpression ) ) ) | ( () otherlv_15= LeftParenthesis otherlv_16= Int otherlv_17= RightParenthesis ( (lv_expression_18_0= rulePrimaryExpression ) ) ) | this_FunctionCall_19= ruleFunctionCall | this_AtomicExpression_20= ruleAtomicExpression )
-            int alt28=7;
-            alt28 = dfa28.predict(input);
-            switch (alt28) {
+            // InternalKlangParser.g:1713:2: ( (otherlv_0= LeftParenthesis this_Expression_1= ruleExpression otherlv_2= RightParenthesis ) | ( () otherlv_4= Not ( (lv_expression_5_0= rulePrimaryExpression ) ) ) | ( () otherlv_7= HyphenMinus ( (lv_expression_8_0= rulePrimaryExpression ) ) ) | ( () otherlv_10= LeftParenthesis otherlv_11= Double otherlv_12= RightParenthesis ( (lv_expression_13_0= rulePrimaryExpression ) ) ) | ( () otherlv_15= LeftParenthesis otherlv_16= Int otherlv_17= RightParenthesis ( (lv_expression_18_0= rulePrimaryExpression ) ) ) | this_FunctionCall_19= ruleFunctionCall | this_AtomicExpression_20= ruleAtomicExpression )
+            int alt27=7;
+            alt27 = dfa27.predict(input);
+            switch (alt27) {
                 case 1 :
-                    // InternalKlangParser.g:1696:3: (otherlv_0= LeftParenthesis this_Expression_1= ruleExpression otherlv_2= RightParenthesis )
+                    // InternalKlangParser.g:1714:3: (otherlv_0= LeftParenthesis this_Expression_1= ruleExpression otherlv_2= RightParenthesis )
                     {
-                    // InternalKlangParser.g:1696:3: (otherlv_0= LeftParenthesis this_Expression_1= ruleExpression otherlv_2= RightParenthesis )
-                    // InternalKlangParser.g:1697:4: otherlv_0= LeftParenthesis this_Expression_1= ruleExpression otherlv_2= RightParenthesis
+                    // InternalKlangParser.g:1714:3: (otherlv_0= LeftParenthesis this_Expression_1= ruleExpression otherlv_2= RightParenthesis )
+                    // InternalKlangParser.g:1715:4: otherlv_0= LeftParenthesis this_Expression_1= ruleExpression otherlv_2= RightParenthesis
                     {
                     otherlv_0=(Token)match(input,LeftParenthesis,FOLLOW_16); 
 
@@ -4485,13 +4501,13 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalKlangParser.g:1715:3: ( () otherlv_4= Not ( (lv_expression_5_0= rulePrimaryExpression ) ) )
+                    // InternalKlangParser.g:1733:3: ( () otherlv_4= Not ( (lv_expression_5_0= rulePrimaryExpression ) ) )
                     {
-                    // InternalKlangParser.g:1715:3: ( () otherlv_4= Not ( (lv_expression_5_0= rulePrimaryExpression ) ) )
-                    // InternalKlangParser.g:1716:4: () otherlv_4= Not ( (lv_expression_5_0= rulePrimaryExpression ) )
+                    // InternalKlangParser.g:1733:3: ( () otherlv_4= Not ( (lv_expression_5_0= rulePrimaryExpression ) ) )
+                    // InternalKlangParser.g:1734:4: () otherlv_4= Not ( (lv_expression_5_0= rulePrimaryExpression ) )
                     {
-                    // InternalKlangParser.g:1716:4: ()
-                    // InternalKlangParser.g:1717:5: 
+                    // InternalKlangParser.g:1734:4: ()
+                    // InternalKlangParser.g:1735:5: 
                     {
 
                     					current = forceCreateModelElement(
@@ -4505,11 +4521,11 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
                     				newLeafNode(otherlv_4, grammarAccess.getPrimaryExpressionAccess().getNotKeyword_1_1());
                     			
-                    // InternalKlangParser.g:1727:4: ( (lv_expression_5_0= rulePrimaryExpression ) )
-                    // InternalKlangParser.g:1728:5: (lv_expression_5_0= rulePrimaryExpression )
+                    // InternalKlangParser.g:1745:4: ( (lv_expression_5_0= rulePrimaryExpression ) )
+                    // InternalKlangParser.g:1746:5: (lv_expression_5_0= rulePrimaryExpression )
                     {
-                    // InternalKlangParser.g:1728:5: (lv_expression_5_0= rulePrimaryExpression )
-                    // InternalKlangParser.g:1729:6: lv_expression_5_0= rulePrimaryExpression
+                    // InternalKlangParser.g:1746:5: (lv_expression_5_0= rulePrimaryExpression )
+                    // InternalKlangParser.g:1747:6: lv_expression_5_0= rulePrimaryExpression
                     {
 
                     						newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getExpressionPrimaryExpressionParserRuleCall_1_2_0());
@@ -4543,13 +4559,13 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalKlangParser.g:1748:3: ( () otherlv_7= HyphenMinus ( (lv_expression_8_0= rulePrimaryExpression ) ) )
+                    // InternalKlangParser.g:1766:3: ( () otherlv_7= HyphenMinus ( (lv_expression_8_0= rulePrimaryExpression ) ) )
                     {
-                    // InternalKlangParser.g:1748:3: ( () otherlv_7= HyphenMinus ( (lv_expression_8_0= rulePrimaryExpression ) ) )
-                    // InternalKlangParser.g:1749:4: () otherlv_7= HyphenMinus ( (lv_expression_8_0= rulePrimaryExpression ) )
+                    // InternalKlangParser.g:1766:3: ( () otherlv_7= HyphenMinus ( (lv_expression_8_0= rulePrimaryExpression ) ) )
+                    // InternalKlangParser.g:1767:4: () otherlv_7= HyphenMinus ( (lv_expression_8_0= rulePrimaryExpression ) )
                     {
-                    // InternalKlangParser.g:1749:4: ()
-                    // InternalKlangParser.g:1750:5: 
+                    // InternalKlangParser.g:1767:4: ()
+                    // InternalKlangParser.g:1768:5: 
                     {
 
                     					current = forceCreateModelElement(
@@ -4563,11 +4579,11 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
                     				newLeafNode(otherlv_7, grammarAccess.getPrimaryExpressionAccess().getHyphenMinusKeyword_2_1());
                     			
-                    // InternalKlangParser.g:1760:4: ( (lv_expression_8_0= rulePrimaryExpression ) )
-                    // InternalKlangParser.g:1761:5: (lv_expression_8_0= rulePrimaryExpression )
+                    // InternalKlangParser.g:1778:4: ( (lv_expression_8_0= rulePrimaryExpression ) )
+                    // InternalKlangParser.g:1779:5: (lv_expression_8_0= rulePrimaryExpression )
                     {
-                    // InternalKlangParser.g:1761:5: (lv_expression_8_0= rulePrimaryExpression )
-                    // InternalKlangParser.g:1762:6: lv_expression_8_0= rulePrimaryExpression
+                    // InternalKlangParser.g:1779:5: (lv_expression_8_0= rulePrimaryExpression )
+                    // InternalKlangParser.g:1780:6: lv_expression_8_0= rulePrimaryExpression
                     {
 
                     						newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getExpressionPrimaryExpressionParserRuleCall_2_2_0());
@@ -4601,13 +4617,13 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalKlangParser.g:1781:3: ( () otherlv_10= LeftParenthesis otherlv_11= Double otherlv_12= RightParenthesis ( (lv_expression_13_0= rulePrimaryExpression ) ) )
+                    // InternalKlangParser.g:1799:3: ( () otherlv_10= LeftParenthesis otherlv_11= Double otherlv_12= RightParenthesis ( (lv_expression_13_0= rulePrimaryExpression ) ) )
                     {
-                    // InternalKlangParser.g:1781:3: ( () otherlv_10= LeftParenthesis otherlv_11= Double otherlv_12= RightParenthesis ( (lv_expression_13_0= rulePrimaryExpression ) ) )
-                    // InternalKlangParser.g:1782:4: () otherlv_10= LeftParenthesis otherlv_11= Double otherlv_12= RightParenthesis ( (lv_expression_13_0= rulePrimaryExpression ) )
+                    // InternalKlangParser.g:1799:3: ( () otherlv_10= LeftParenthesis otherlv_11= Double otherlv_12= RightParenthesis ( (lv_expression_13_0= rulePrimaryExpression ) ) )
+                    // InternalKlangParser.g:1800:4: () otherlv_10= LeftParenthesis otherlv_11= Double otherlv_12= RightParenthesis ( (lv_expression_13_0= rulePrimaryExpression ) )
                     {
-                    // InternalKlangParser.g:1782:4: ()
-                    // InternalKlangParser.g:1783:5: 
+                    // InternalKlangParser.g:1800:4: ()
+                    // InternalKlangParser.g:1801:5: 
                     {
 
                     					current = forceCreateModelElement(
@@ -4629,11 +4645,11 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
                     				newLeafNode(otherlv_12, grammarAccess.getPrimaryExpressionAccess().getRightParenthesisKeyword_3_3());
                     			
-                    // InternalKlangParser.g:1801:4: ( (lv_expression_13_0= rulePrimaryExpression ) )
-                    // InternalKlangParser.g:1802:5: (lv_expression_13_0= rulePrimaryExpression )
+                    // InternalKlangParser.g:1819:4: ( (lv_expression_13_0= rulePrimaryExpression ) )
+                    // InternalKlangParser.g:1820:5: (lv_expression_13_0= rulePrimaryExpression )
                     {
-                    // InternalKlangParser.g:1802:5: (lv_expression_13_0= rulePrimaryExpression )
-                    // InternalKlangParser.g:1803:6: lv_expression_13_0= rulePrimaryExpression
+                    // InternalKlangParser.g:1820:5: (lv_expression_13_0= rulePrimaryExpression )
+                    // InternalKlangParser.g:1821:6: lv_expression_13_0= rulePrimaryExpression
                     {
 
                     						newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getExpressionPrimaryExpressionParserRuleCall_3_4_0());
@@ -4667,13 +4683,13 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalKlangParser.g:1822:3: ( () otherlv_15= LeftParenthesis otherlv_16= Int otherlv_17= RightParenthesis ( (lv_expression_18_0= rulePrimaryExpression ) ) )
+                    // InternalKlangParser.g:1840:3: ( () otherlv_15= LeftParenthesis otherlv_16= Int otherlv_17= RightParenthesis ( (lv_expression_18_0= rulePrimaryExpression ) ) )
                     {
-                    // InternalKlangParser.g:1822:3: ( () otherlv_15= LeftParenthesis otherlv_16= Int otherlv_17= RightParenthesis ( (lv_expression_18_0= rulePrimaryExpression ) ) )
-                    // InternalKlangParser.g:1823:4: () otherlv_15= LeftParenthesis otherlv_16= Int otherlv_17= RightParenthesis ( (lv_expression_18_0= rulePrimaryExpression ) )
+                    // InternalKlangParser.g:1840:3: ( () otherlv_15= LeftParenthesis otherlv_16= Int otherlv_17= RightParenthesis ( (lv_expression_18_0= rulePrimaryExpression ) ) )
+                    // InternalKlangParser.g:1841:4: () otherlv_15= LeftParenthesis otherlv_16= Int otherlv_17= RightParenthesis ( (lv_expression_18_0= rulePrimaryExpression ) )
                     {
-                    // InternalKlangParser.g:1823:4: ()
-                    // InternalKlangParser.g:1824:5: 
+                    // InternalKlangParser.g:1841:4: ()
+                    // InternalKlangParser.g:1842:5: 
                     {
 
                     					current = forceCreateModelElement(
@@ -4695,11 +4711,11 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
                     				newLeafNode(otherlv_17, grammarAccess.getPrimaryExpressionAccess().getRightParenthesisKeyword_4_3());
                     			
-                    // InternalKlangParser.g:1842:4: ( (lv_expression_18_0= rulePrimaryExpression ) )
-                    // InternalKlangParser.g:1843:5: (lv_expression_18_0= rulePrimaryExpression )
+                    // InternalKlangParser.g:1860:4: ( (lv_expression_18_0= rulePrimaryExpression ) )
+                    // InternalKlangParser.g:1861:5: (lv_expression_18_0= rulePrimaryExpression )
                     {
-                    // InternalKlangParser.g:1843:5: (lv_expression_18_0= rulePrimaryExpression )
-                    // InternalKlangParser.g:1844:6: lv_expression_18_0= rulePrimaryExpression
+                    // InternalKlangParser.g:1861:5: (lv_expression_18_0= rulePrimaryExpression )
+                    // InternalKlangParser.g:1862:6: lv_expression_18_0= rulePrimaryExpression
                     {
 
                     						newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getExpressionPrimaryExpressionParserRuleCall_4_4_0());
@@ -4733,7 +4749,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalKlangParser.g:1863:3: this_FunctionCall_19= ruleFunctionCall
+                    // InternalKlangParser.g:1881:3: this_FunctionCall_19= ruleFunctionCall
                     {
 
                     			newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getFunctionCallParserRuleCall_5());
@@ -4751,7 +4767,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalKlangParser.g:1872:3: this_AtomicExpression_20= ruleAtomicExpression
+                    // InternalKlangParser.g:1890:3: this_AtomicExpression_20= ruleAtomicExpression
                     {
 
                     			newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getAtomicExpressionParserRuleCall_6());
@@ -4791,7 +4807,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAtomicExpression"
-    // InternalKlangParser.g:1884:1: entryRuleAtomicExpression returns [EObject current=null] : iv_ruleAtomicExpression= ruleAtomicExpression EOF ;
+    // InternalKlangParser.g:1902:1: entryRuleAtomicExpression returns [EObject current=null] : iv_ruleAtomicExpression= ruleAtomicExpression EOF ;
     public final EObject entryRuleAtomicExpression() throws RecognitionException {
         EObject current = null;
 
@@ -4799,8 +4815,8 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKlangParser.g:1884:57: (iv_ruleAtomicExpression= ruleAtomicExpression EOF )
-            // InternalKlangParser.g:1885:2: iv_ruleAtomicExpression= ruleAtomicExpression EOF
+            // InternalKlangParser.g:1902:57: (iv_ruleAtomicExpression= ruleAtomicExpression EOF )
+            // InternalKlangParser.g:1903:2: iv_ruleAtomicExpression= ruleAtomicExpression EOF
             {
              newCompositeNode(grammarAccess.getAtomicExpressionRule()); 
             pushFollow(FOLLOW_1);
@@ -4827,7 +4843,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAtomicExpression"
-    // InternalKlangParser.g:1891:1: ruleAtomicExpression returns [EObject current=null] : ( ( () ( ( (lv_value_1_0= True ) ) | otherlv_2= False ) ) | ( () ( (lv_value_4_0= ruleDECIMAL ) ) ) | ( () ( (lv_value_6_0= RULE_INT ) ) ) | ( () ( (lv_value_8_0= RULE_STRING ) ) ) | ( () ( (lv_variableName_10_0= RULE_ID ) ) ) ) ;
+    // InternalKlangParser.g:1909:1: ruleAtomicExpression returns [EObject current=null] : ( ( () ( ( (lv_value_1_0= True ) ) | otherlv_2= False ) ) | ( () ( (lv_value_4_0= ruleDECIMAL ) ) ) | ( () ( (lv_value_6_0= RULE_INT ) ) ) | ( () ( (lv_value_8_0= RULE_STRING ) ) ) | ( () ( (lv_variableName_10_0= RULE_ID ) ) ) ) ;
     public final EObject ruleAtomicExpression() throws RecognitionException {
         EObject current = null;
 
@@ -4843,31 +4859,31 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKlangParser.g:1897:2: ( ( ( () ( ( (lv_value_1_0= True ) ) | otherlv_2= False ) ) | ( () ( (lv_value_4_0= ruleDECIMAL ) ) ) | ( () ( (lv_value_6_0= RULE_INT ) ) ) | ( () ( (lv_value_8_0= RULE_STRING ) ) ) | ( () ( (lv_variableName_10_0= RULE_ID ) ) ) ) )
-            // InternalKlangParser.g:1898:2: ( ( () ( ( (lv_value_1_0= True ) ) | otherlv_2= False ) ) | ( () ( (lv_value_4_0= ruleDECIMAL ) ) ) | ( () ( (lv_value_6_0= RULE_INT ) ) ) | ( () ( (lv_value_8_0= RULE_STRING ) ) ) | ( () ( (lv_variableName_10_0= RULE_ID ) ) ) )
+            // InternalKlangParser.g:1915:2: ( ( ( () ( ( (lv_value_1_0= True ) ) | otherlv_2= False ) ) | ( () ( (lv_value_4_0= ruleDECIMAL ) ) ) | ( () ( (lv_value_6_0= RULE_INT ) ) ) | ( () ( (lv_value_8_0= RULE_STRING ) ) ) | ( () ( (lv_variableName_10_0= RULE_ID ) ) ) ) )
+            // InternalKlangParser.g:1916:2: ( ( () ( ( (lv_value_1_0= True ) ) | otherlv_2= False ) ) | ( () ( (lv_value_4_0= ruleDECIMAL ) ) ) | ( () ( (lv_value_6_0= RULE_INT ) ) ) | ( () ( (lv_value_8_0= RULE_STRING ) ) ) | ( () ( (lv_variableName_10_0= RULE_ID ) ) ) )
             {
-            // InternalKlangParser.g:1898:2: ( ( () ( ( (lv_value_1_0= True ) ) | otherlv_2= False ) ) | ( () ( (lv_value_4_0= ruleDECIMAL ) ) ) | ( () ( (lv_value_6_0= RULE_INT ) ) ) | ( () ( (lv_value_8_0= RULE_STRING ) ) ) | ( () ( (lv_variableName_10_0= RULE_ID ) ) ) )
-            int alt30=5;
+            // InternalKlangParser.g:1916:2: ( ( () ( ( (lv_value_1_0= True ) ) | otherlv_2= False ) ) | ( () ( (lv_value_4_0= ruleDECIMAL ) ) ) | ( () ( (lv_value_6_0= RULE_INT ) ) ) | ( () ( (lv_value_8_0= RULE_STRING ) ) ) | ( () ( (lv_variableName_10_0= RULE_ID ) ) ) )
+            int alt29=5;
             switch ( input.LA(1) ) {
             case False:
             case True:
                 {
-                alt30=1;
+                alt29=1;
                 }
                 break;
             case RULE_INT:
                 {
-                int LA30_2 = input.LA(2);
+                int LA29_2 = input.LA(2);
 
-                if ( (LA30_2==EOF||LA30_2==Forever||(LA30_2>=Sleep && LA30_2<=While)||LA30_2==When||LA30_2==And||(LA30_2>=Var && LA30_2<=Or)||(LA30_2>=RightParenthesis && LA30_2<=HyphenMinus)||(LA30_2>=Solidus && LA30_2<=LessThanSign)||(LA30_2>=GreaterThanSign && LA30_2<=RULE_ID)) ) {
-                    alt30=3;
+                if ( (LA29_2==FullStop) ) {
+                    alt29=2;
                 }
-                else if ( (LA30_2==FullStop) ) {
-                    alt30=2;
+                else if ( (LA29_2==EOF||LA29_2==Forever||(LA29_2>=Sleep && LA29_2<=While)||LA29_2==When||LA29_2==And||(LA29_2>=Var && LA29_2<=Or)||(LA29_2>=RightParenthesis && LA29_2<=HyphenMinus)||(LA29_2>=Solidus && LA29_2<=LessThanSign)||(LA29_2>=GreaterThanSign && LA29_2<=RULE_ID)) ) {
+                    alt29=3;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 30, 2, input);
+                        new NoViableAltException("", 29, 2, input);
 
                     throw nvae;
                 }
@@ -4875,30 +4891,30 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
                 break;
             case RULE_STRING:
                 {
-                alt30=4;
+                alt29=4;
                 }
                 break;
             case RULE_ID:
                 {
-                alt30=5;
+                alt29=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 30, 0, input);
+                    new NoViableAltException("", 29, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt30) {
+            switch (alt29) {
                 case 1 :
-                    // InternalKlangParser.g:1899:3: ( () ( ( (lv_value_1_0= True ) ) | otherlv_2= False ) )
+                    // InternalKlangParser.g:1917:3: ( () ( ( (lv_value_1_0= True ) ) | otherlv_2= False ) )
                     {
-                    // InternalKlangParser.g:1899:3: ( () ( ( (lv_value_1_0= True ) ) | otherlv_2= False ) )
-                    // InternalKlangParser.g:1900:4: () ( ( (lv_value_1_0= True ) ) | otherlv_2= False )
+                    // InternalKlangParser.g:1917:3: ( () ( ( (lv_value_1_0= True ) ) | otherlv_2= False ) )
+                    // InternalKlangParser.g:1918:4: () ( ( (lv_value_1_0= True ) ) | otherlv_2= False )
                     {
-                    // InternalKlangParser.g:1900:4: ()
-                    // InternalKlangParser.g:1901:5: 
+                    // InternalKlangParser.g:1918:4: ()
+                    // InternalKlangParser.g:1919:5: 
                     {
 
                     					current = forceCreateModelElement(
@@ -4908,31 +4924,31 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalKlangParser.g:1907:4: ( ( (lv_value_1_0= True ) ) | otherlv_2= False )
-                    int alt29=2;
-                    int LA29_0 = input.LA(1);
+                    // InternalKlangParser.g:1925:4: ( ( (lv_value_1_0= True ) ) | otherlv_2= False )
+                    int alt28=2;
+                    int LA28_0 = input.LA(1);
 
-                    if ( (LA29_0==True) ) {
-                        alt29=1;
+                    if ( (LA28_0==True) ) {
+                        alt28=1;
                     }
-                    else if ( (LA29_0==False) ) {
-                        alt29=2;
+                    else if ( (LA28_0==False) ) {
+                        alt28=2;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("", 29, 0, input);
+                            new NoViableAltException("", 28, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt29) {
+                    switch (alt28) {
                         case 1 :
-                            // InternalKlangParser.g:1908:5: ( (lv_value_1_0= True ) )
+                            // InternalKlangParser.g:1926:5: ( (lv_value_1_0= True ) )
                             {
-                            // InternalKlangParser.g:1908:5: ( (lv_value_1_0= True ) )
-                            // InternalKlangParser.g:1909:6: (lv_value_1_0= True )
+                            // InternalKlangParser.g:1926:5: ( (lv_value_1_0= True ) )
+                            // InternalKlangParser.g:1927:6: (lv_value_1_0= True )
                             {
-                            // InternalKlangParser.g:1909:6: (lv_value_1_0= True )
-                            // InternalKlangParser.g:1910:7: lv_value_1_0= True
+                            // InternalKlangParser.g:1927:6: (lv_value_1_0= True )
+                            // InternalKlangParser.g:1928:7: lv_value_1_0= True
                             {
                             lv_value_1_0=(Token)match(input,True,FOLLOW_2); 
 
@@ -4954,7 +4970,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // InternalKlangParser.g:1923:5: otherlv_2= False
+                            // InternalKlangParser.g:1941:5: otherlv_2= False
                             {
                             otherlv_2=(Token)match(input,False,FOLLOW_2); 
 
@@ -4973,13 +4989,13 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalKlangParser.g:1930:3: ( () ( (lv_value_4_0= ruleDECIMAL ) ) )
+                    // InternalKlangParser.g:1948:3: ( () ( (lv_value_4_0= ruleDECIMAL ) ) )
                     {
-                    // InternalKlangParser.g:1930:3: ( () ( (lv_value_4_0= ruleDECIMAL ) ) )
-                    // InternalKlangParser.g:1931:4: () ( (lv_value_4_0= ruleDECIMAL ) )
+                    // InternalKlangParser.g:1948:3: ( () ( (lv_value_4_0= ruleDECIMAL ) ) )
+                    // InternalKlangParser.g:1949:4: () ( (lv_value_4_0= ruleDECIMAL ) )
                     {
-                    // InternalKlangParser.g:1931:4: ()
-                    // InternalKlangParser.g:1932:5: 
+                    // InternalKlangParser.g:1949:4: ()
+                    // InternalKlangParser.g:1950:5: 
                     {
 
                     					current = forceCreateModelElement(
@@ -4989,11 +5005,11 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalKlangParser.g:1938:4: ( (lv_value_4_0= ruleDECIMAL ) )
-                    // InternalKlangParser.g:1939:5: (lv_value_4_0= ruleDECIMAL )
+                    // InternalKlangParser.g:1956:4: ( (lv_value_4_0= ruleDECIMAL ) )
+                    // InternalKlangParser.g:1957:5: (lv_value_4_0= ruleDECIMAL )
                     {
-                    // InternalKlangParser.g:1939:5: (lv_value_4_0= ruleDECIMAL )
-                    // InternalKlangParser.g:1940:6: lv_value_4_0= ruleDECIMAL
+                    // InternalKlangParser.g:1957:5: (lv_value_4_0= ruleDECIMAL )
+                    // InternalKlangParser.g:1958:6: lv_value_4_0= ruleDECIMAL
                     {
 
                     						newCompositeNode(grammarAccess.getAtomicExpressionAccess().getValueDECIMALParserRuleCall_1_1_0());
@@ -5027,13 +5043,13 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalKlangParser.g:1959:3: ( () ( (lv_value_6_0= RULE_INT ) ) )
+                    // InternalKlangParser.g:1977:3: ( () ( (lv_value_6_0= RULE_INT ) ) )
                     {
-                    // InternalKlangParser.g:1959:3: ( () ( (lv_value_6_0= RULE_INT ) ) )
-                    // InternalKlangParser.g:1960:4: () ( (lv_value_6_0= RULE_INT ) )
+                    // InternalKlangParser.g:1977:3: ( () ( (lv_value_6_0= RULE_INT ) ) )
+                    // InternalKlangParser.g:1978:4: () ( (lv_value_6_0= RULE_INT ) )
                     {
-                    // InternalKlangParser.g:1960:4: ()
-                    // InternalKlangParser.g:1961:5: 
+                    // InternalKlangParser.g:1978:4: ()
+                    // InternalKlangParser.g:1979:5: 
                     {
 
                     					current = forceCreateModelElement(
@@ -5043,11 +5059,11 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalKlangParser.g:1967:4: ( (lv_value_6_0= RULE_INT ) )
-                    // InternalKlangParser.g:1968:5: (lv_value_6_0= RULE_INT )
+                    // InternalKlangParser.g:1985:4: ( (lv_value_6_0= RULE_INT ) )
+                    // InternalKlangParser.g:1986:5: (lv_value_6_0= RULE_INT )
                     {
-                    // InternalKlangParser.g:1968:5: (lv_value_6_0= RULE_INT )
-                    // InternalKlangParser.g:1969:6: lv_value_6_0= RULE_INT
+                    // InternalKlangParser.g:1986:5: (lv_value_6_0= RULE_INT )
+                    // InternalKlangParser.g:1987:6: lv_value_6_0= RULE_INT
                     {
                     lv_value_6_0=(Token)match(input,RULE_INT,FOLLOW_2); 
 
@@ -5076,13 +5092,13 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalKlangParser.g:1987:3: ( () ( (lv_value_8_0= RULE_STRING ) ) )
+                    // InternalKlangParser.g:2005:3: ( () ( (lv_value_8_0= RULE_STRING ) ) )
                     {
-                    // InternalKlangParser.g:1987:3: ( () ( (lv_value_8_0= RULE_STRING ) ) )
-                    // InternalKlangParser.g:1988:4: () ( (lv_value_8_0= RULE_STRING ) )
+                    // InternalKlangParser.g:2005:3: ( () ( (lv_value_8_0= RULE_STRING ) ) )
+                    // InternalKlangParser.g:2006:4: () ( (lv_value_8_0= RULE_STRING ) )
                     {
-                    // InternalKlangParser.g:1988:4: ()
-                    // InternalKlangParser.g:1989:5: 
+                    // InternalKlangParser.g:2006:4: ()
+                    // InternalKlangParser.g:2007:5: 
                     {
 
                     					current = forceCreateModelElement(
@@ -5092,11 +5108,11 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalKlangParser.g:1995:4: ( (lv_value_8_0= RULE_STRING ) )
-                    // InternalKlangParser.g:1996:5: (lv_value_8_0= RULE_STRING )
+                    // InternalKlangParser.g:2013:4: ( (lv_value_8_0= RULE_STRING ) )
+                    // InternalKlangParser.g:2014:5: (lv_value_8_0= RULE_STRING )
                     {
-                    // InternalKlangParser.g:1996:5: (lv_value_8_0= RULE_STRING )
-                    // InternalKlangParser.g:1997:6: lv_value_8_0= RULE_STRING
+                    // InternalKlangParser.g:2014:5: (lv_value_8_0= RULE_STRING )
+                    // InternalKlangParser.g:2015:6: lv_value_8_0= RULE_STRING
                     {
                     lv_value_8_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -5125,13 +5141,13 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalKlangParser.g:2015:3: ( () ( (lv_variableName_10_0= RULE_ID ) ) )
+                    // InternalKlangParser.g:2033:3: ( () ( (lv_variableName_10_0= RULE_ID ) ) )
                     {
-                    // InternalKlangParser.g:2015:3: ( () ( (lv_variableName_10_0= RULE_ID ) ) )
-                    // InternalKlangParser.g:2016:4: () ( (lv_variableName_10_0= RULE_ID ) )
+                    // InternalKlangParser.g:2033:3: ( () ( (lv_variableName_10_0= RULE_ID ) ) )
+                    // InternalKlangParser.g:2034:4: () ( (lv_variableName_10_0= RULE_ID ) )
                     {
-                    // InternalKlangParser.g:2016:4: ()
-                    // InternalKlangParser.g:2017:5: 
+                    // InternalKlangParser.g:2034:4: ()
+                    // InternalKlangParser.g:2035:5: 
                     {
 
                     					current = forceCreateModelElement(
@@ -5141,11 +5157,11 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalKlangParser.g:2023:4: ( (lv_variableName_10_0= RULE_ID ) )
-                    // InternalKlangParser.g:2024:5: (lv_variableName_10_0= RULE_ID )
+                    // InternalKlangParser.g:2041:4: ( (lv_variableName_10_0= RULE_ID ) )
+                    // InternalKlangParser.g:2042:5: (lv_variableName_10_0= RULE_ID )
                     {
-                    // InternalKlangParser.g:2024:5: (lv_variableName_10_0= RULE_ID )
-                    // InternalKlangParser.g:2025:6: lv_variableName_10_0= RULE_ID
+                    // InternalKlangParser.g:2042:5: (lv_variableName_10_0= RULE_ID )
+                    // InternalKlangParser.g:2043:6: lv_variableName_10_0= RULE_ID
                     {
                     lv_variableName_10_0=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -5196,7 +5212,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDECIMAL"
-    // InternalKlangParser.g:2046:1: entryRuleDECIMAL returns [String current=null] : iv_ruleDECIMAL= ruleDECIMAL EOF ;
+    // InternalKlangParser.g:2064:1: entryRuleDECIMAL returns [String current=null] : iv_ruleDECIMAL= ruleDECIMAL EOF ;
     public final String entryRuleDECIMAL() throws RecognitionException {
         String current = null;
 
@@ -5204,8 +5220,8 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalKlangParser.g:2046:47: (iv_ruleDECIMAL= ruleDECIMAL EOF )
-            // InternalKlangParser.g:2047:2: iv_ruleDECIMAL= ruleDECIMAL EOF
+            // InternalKlangParser.g:2064:47: (iv_ruleDECIMAL= ruleDECIMAL EOF )
+            // InternalKlangParser.g:2065:2: iv_ruleDECIMAL= ruleDECIMAL EOF
             {
              newCompositeNode(grammarAccess.getDECIMALRule()); 
             pushFollow(FOLLOW_1);
@@ -5232,7 +5248,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDECIMAL"
-    // InternalKlangParser.g:2053:1: ruleDECIMAL returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_INT_0= RULE_INT kw= FullStop this_INT_2= RULE_INT ) ;
+    // InternalKlangParser.g:2071:1: ruleDECIMAL returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_INT_0= RULE_INT kw= FullStop this_INT_2= RULE_INT ) ;
     public final AntlrDatatypeRuleToken ruleDECIMAL() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -5244,11 +5260,11 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalKlangParser.g:2059:2: ( (this_INT_0= RULE_INT kw= FullStop this_INT_2= RULE_INT ) )
-            // InternalKlangParser.g:2060:2: (this_INT_0= RULE_INT kw= FullStop this_INT_2= RULE_INT )
+            // InternalKlangParser.g:2077:2: ( (this_INT_0= RULE_INT kw= FullStop this_INT_2= RULE_INT ) )
+            // InternalKlangParser.g:2078:2: (this_INT_0= RULE_INT kw= FullStop this_INT_2= RULE_INT )
             {
-            // InternalKlangParser.g:2060:2: (this_INT_0= RULE_INT kw= FullStop this_INT_2= RULE_INT )
-            // InternalKlangParser.g:2061:3: this_INT_0= RULE_INT kw= FullStop this_INT_2= RULE_INT
+            // InternalKlangParser.g:2078:2: (this_INT_0= RULE_INT kw= FullStop this_INT_2= RULE_INT )
+            // InternalKlangParser.g:2079:3: this_INT_0= RULE_INT kw= FullStop this_INT_2= RULE_INT
             {
             this_INT_0=(Token)match(input,RULE_INT,FOLLOW_33); 
 
@@ -5293,16 +5309,16 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
     // Delegated rules
 
 
-    protected DFA28 dfa28 = new DFA28(this);
+    protected DFA27 dfa27 = new DFA27(this);
     static final String dfa_1s = "\12\uffff";
     static final String dfa_2s = "\4\uffff\1\5\5\uffff";
     static final String dfa_3s = "\1\13\1\10\2\uffff\1\6\5\uffff";
     static final String dfa_4s = "\2\53\2\uffff\1\51\5\uffff";
-    static final String dfa_5s = "\2\uffff\1\2\1\3\1\uffff\1\7\1\4\1\1\1\5\1\6";
+    static final String dfa_5s = "\2\uffff\1\2\1\3\1\uffff\1\7\1\1\1\5\1\4\1\6";
     static final String dfa_6s = "\12\uffff}>";
     static final String[] dfa_7s = {
             "\1\5\5\uffff\1\5\5\uffff\1\2\4\uffff\1\1\4\uffff\1\3\7\uffff\1\4\2\5",
-            "\1\6\2\uffff\1\7\5\uffff\1\7\3\uffff\1\10\1\uffff\1\7\4\uffff\1\7\4\uffff\1\7\7\uffff\3\7",
+            "\1\10\2\uffff\1\6\5\uffff\1\6\3\uffff\1\7\1\uffff\1\6\4\uffff\1\6\4\uffff\1\6\7\uffff\3\6",
             "",
             "",
             "\1\5\6\uffff\2\5\3\uffff\1\5\1\uffff\1\5\3\uffff\4\5\1\11\5\5\1\uffff\2\5\1\uffff\4\5",
@@ -5321,11 +5337,11 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
     static final short[] dfa_6 = DFA.unpackEncodedString(dfa_6s);
     static final short[][] dfa_7 = unpackEncodedStringArray(dfa_7s);
 
-    class DFA28 extends DFA {
+    class DFA27 extends DFA {
 
-        public DFA28(BaseRecognizer recognizer) {
+        public DFA27(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 28;
+            this.decisionNumber = 27;
             this.eot = dfa_1;
             this.eof = dfa_2;
             this.min = dfa_3;
@@ -5335,7 +5351,7 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
             this.transition = dfa_7;
         }
         public String getDescription() {
-            return "1695:2: ( (otherlv_0= LeftParenthesis this_Expression_1= ruleExpression otherlv_2= RightParenthesis ) | ( () otherlv_4= Not ( (lv_expression_5_0= rulePrimaryExpression ) ) ) | ( () otherlv_7= HyphenMinus ( (lv_expression_8_0= rulePrimaryExpression ) ) ) | ( () otherlv_10= LeftParenthesis otherlv_11= Double otherlv_12= RightParenthesis ( (lv_expression_13_0= rulePrimaryExpression ) ) ) | ( () otherlv_15= LeftParenthesis otherlv_16= Int otherlv_17= RightParenthesis ( (lv_expression_18_0= rulePrimaryExpression ) ) ) | this_FunctionCall_19= ruleFunctionCall | this_AtomicExpression_20= ruleAtomicExpression )";
+            return "1713:2: ( (otherlv_0= LeftParenthesis this_Expression_1= ruleExpression otherlv_2= RightParenthesis ) | ( () otherlv_4= Not ( (lv_expression_5_0= rulePrimaryExpression ) ) ) | ( () otherlv_7= HyphenMinus ( (lv_expression_8_0= rulePrimaryExpression ) ) ) | ( () otherlv_10= LeftParenthesis otherlv_11= Double otherlv_12= RightParenthesis ( (lv_expression_13_0= rulePrimaryExpression ) ) ) | ( () otherlv_15= LeftParenthesis otherlv_16= Int otherlv_17= RightParenthesis ( (lv_expression_18_0= rulePrimaryExpression ) ) ) | this_FunctionCall_19= ruleFunctionCall | this_AtomicExpression_20= ruleAtomicExpression )";
         }
     }
  
@@ -5343,10 +5359,10 @@ public class InternalKlangParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000202L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000010001040000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000010000040000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000010001040000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000010000040000L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000010000L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000000400L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000030004006040L});

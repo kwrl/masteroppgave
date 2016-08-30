@@ -508,6 +508,29 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link klang.TreeTraversal} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TreeTraversalItemProvider treeTraversalItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link klang.TreeTraversal}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTreeTraversalAdapter() {
+		if (treeTraversalItemProvider == null) {
+			treeTraversalItemProvider = new TreeTraversalItemProvider(this);
+		}
+
+		return treeTraversalItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link klang.Expression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1057,6 +1080,7 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 		if (toDoubleItemProvider != null) toDoubleItemProvider.dispose();
 		if (toIntItemProvider != null) toIntItemProvider.dispose();
 		if (programItemProvider != null) programItemProvider.dispose();
+		if (treeTraversalItemProvider != null) treeTraversalItemProvider.dispose();
 	}
 
 }

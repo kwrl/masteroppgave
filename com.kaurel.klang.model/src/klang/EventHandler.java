@@ -55,6 +55,6 @@ public interface EventHandler extends EObject {
 	 * @model opposite="eventHandlers" required="true" transient="false" changeable="false"
 	 * @generated
 	 */
-	AbstractActor<?> getActor();
+	AbstractActor getActor();
 
 } // EventHandler

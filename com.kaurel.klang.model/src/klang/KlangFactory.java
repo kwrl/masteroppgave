@@ -193,6 +193,15 @@ public interface KlangFactory extends EFactory {
 	Program createProgram();
 
 	/**
+	 * Returns a new object of class '<em>Tree Traversal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Tree Traversal</em>'.
+	 * @generated
+	 */
+	TreeTraversal createTreeTraversal();
+
+	/**
 	 * Returns a new object of class '<em>Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

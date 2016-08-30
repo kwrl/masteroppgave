@@ -96,8 +96,9 @@ public class KlangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDECIMALAccess().getGroup(), "rule__DECIMAL__Group__0");
 					put(grammarAccess.getProgramAccess().getSceneActorAssignment_0(), "rule__Program__SceneActorAssignment_0");
 					put(grammarAccess.getProgramAccess().getSpriteActorsAssignment_1(), "rule__Program__SpriteActorsAssignment_1");
-					put(grammarAccess.getSceneActorAccess().getLocalVariablesAssignment_3(), "rule__SceneActor__LocalVariablesAssignment_3");
-					put(grammarAccess.getSceneActorAccess().getEventHandlersAssignment_4(), "rule__SceneActor__EventHandlersAssignment_4");
+					put(grammarAccess.getSceneActorAccess().getNameAssignment_2(), "rule__SceneActor__NameAssignment_2");
+					put(grammarAccess.getSceneActorAccess().getLocalVariablesAssignment_4(), "rule__SceneActor__LocalVariablesAssignment_4");
+					put(grammarAccess.getSceneActorAccess().getEventHandlersAssignment_5(), "rule__SceneActor__EventHandlersAssignment_5");
 					put(grammarAccess.getSpriteActorAccess().getNameAssignment_2(), "rule__SpriteActor__NameAssignment_2");
 					put(grammarAccess.getSpriteActorAccess().getLocalVariablesAssignment_4(), "rule__SpriteActor__LocalVariablesAssignment_4");
 					put(grammarAccess.getSpriteActorAccess().getEventHandlersAssignment_5(), "rule__SpriteActor__EventHandlersAssignment_5");

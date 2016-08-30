@@ -22,11 +22,11 @@ import klang.util.KlangSwitch;
 
 public class KlangThread extends KlangSwitch<Object> {
 	private final ExpressionEvaluator expressionEvaluator;
-	private final AbstractActor<?> actor;
+	private final AbstractActor actor;
 
 	private LinkedList<Statement> queue;
 
-	public KlangThread(EList<Statement> statements, AbstractActor<?> actor) {
+	public KlangThread(EList<Statement> statements, AbstractActor actor) {
 		this.actor = actor;
 		this.expressionEvaluator = new ExpressionEvaluatorImpl(actor);
 		this.queue = new LinkedList<>(statements);

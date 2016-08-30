@@ -19,7 +19,7 @@ package klang;
  * @model
  * @generated
  */
-public interface SceneActor extends AbstractActor<SpriteActor> {
+public interface SceneActor extends AbstractActor {
 
 	/**
 	 * Returns the value of the '<em><b>Program</b></em>' container reference.

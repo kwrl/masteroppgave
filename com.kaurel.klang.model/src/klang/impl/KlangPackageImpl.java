@@ -30,7 +30,6 @@ import klang.Not;
 import klang.Or;
 import klang.Plus;
 import klang.Program;
-import klang.Scope;
 import klang.Sleep;
 import klang.SpriteActor;
 import klang.SpriteClicked;
@@ -38,6 +37,8 @@ import klang.Statement;
 import klang.StringLiteral;
 import klang.ToDouble;
 import klang.ToInt;
+import klang.TreeNode;
+import klang.TreeTraversal;
 import klang.UnaryMinus;
 import klang.UnaryOperator;
 import klang.VariableAssignment;
@@ -215,14 +216,21 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass scopeEClass = null;
+	private EClass programEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass programEClass = null;
+	private EClass treeNodeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass treeTraversalEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -472,60 +480,6 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 */
 	public EOperation getSpriteActor__Print__String() {
 		return spriteActorEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSpriteActor__GetX() {
-		return spriteActorEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSpriteActor__GetY() {
-		return spriteActorEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSpriteActor__SetY__Double() {
-		return spriteActorEClass.getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSpriteActor__SetX__Double() {
-		return spriteActorEClass.getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSpriteActor__Print__Double() {
-		return spriteActorEClass.getEOperations().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSpriteActor__Sleep__Double() {
-		return spriteActorEClass.getEOperations().get(6);
 	}
 
 	/**
@@ -1154,7 +1108,16 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAbstractActor__GetSubtree() {
+	public EReference getAbstractActor_LocalVariables() {
+		return (EReference)abstractActorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAbstractActor__IsInScope__String() {
 		return abstractActorEClass.getEOperations().get(0);
 	}
 
@@ -1163,8 +1126,8 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getScope() {
-		return scopeEClass;
+	public EOperation getAbstractActor__GetVariableDeclaration__String() {
+		return abstractActorEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -1172,8 +1135,8 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getScope_LocalVariables() {
-		return (EReference)scopeEClass.getEStructuralFeatures().get(0);
+	public EOperation getAbstractActor__IsInLocalScope__String() {
+		return abstractActorEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -1181,53 +1144,8 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getScope_Children() {
-		return (EReference)scopeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getScope_Parent() {
-		return (EReference)scopeEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getScope__IsInScope__String() {
-		return scopeEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getScope__GetVariableDeclaration__String() {
-		return scopeEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getScope__IsInLocalScope__String() {
-		return scopeEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getScope__IsInParentScope__String() {
-		return scopeEClass.getEOperations().get(3);
+	public EOperation getAbstractActor__IsInParentScope__String() {
+		return abstractActorEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -1255,6 +1173,60 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 */
 	public EReference getProgram_SpriteActors() {
 		return (EReference)programEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTreeNode() {
+		return treeNodeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTreeNode_Children() {
+		return (EReference)treeNodeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTreeNode_Parent() {
+		return (EReference)treeNodeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTreeTraversal() {
+		return treeTraversalEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTreeTraversal__BreadthFirst__TreeNode() {
+		return treeTraversalEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTreeTraversal__DepthFirst__TreeNode() {
+		return treeTraversalEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -1292,12 +1264,6 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		spriteActorEClass = createEClass(SPRITE_ACTOR);
 		createEReference(spriteActorEClass, SPRITE_ACTOR__PROGRAM);
 		createEOperation(spriteActorEClass, SPRITE_ACTOR___PRINT__STRING);
-		createEOperation(spriteActorEClass, SPRITE_ACTOR___GET_X);
-		createEOperation(spriteActorEClass, SPRITE_ACTOR___GET_Y);
-		createEOperation(spriteActorEClass, SPRITE_ACTOR___SET_Y__DOUBLE);
-		createEOperation(spriteActorEClass, SPRITE_ACTOR___SET_X__DOUBLE);
-		createEOperation(spriteActorEClass, SPRITE_ACTOR___PRINT__DOUBLE);
-		createEOperation(spriteActorEClass, SPRITE_ACTOR___SLEEP__DOUBLE);
 
 		eventHandlerEClass = createEClass(EVENT_HANDLER);
 		createEReference(eventHandlerEClass, EVENT_HANDLER__STATEMENTS);
@@ -1362,6 +1328,16 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		variableReferenceEClass = createEClass(VARIABLE_REFERENCE);
 		createEAttribute(variableReferenceEClass, VARIABLE_REFERENCE__VARIABLE_NAME);
 
+		abstractActorEClass = createEClass(ABSTRACT_ACTOR);
+		createEReference(abstractActorEClass, ABSTRACT_ACTOR__EVENT_HANDLERS);
+		createEAttribute(abstractActorEClass, ABSTRACT_ACTOR__NAME);
+		createEAttribute(abstractActorEClass, ABSTRACT_ACTOR__SUBJECT);
+		createEReference(abstractActorEClass, ABSTRACT_ACTOR__LOCAL_VARIABLES);
+		createEOperation(abstractActorEClass, ABSTRACT_ACTOR___IS_IN_SCOPE__STRING);
+		createEOperation(abstractActorEClass, ABSTRACT_ACTOR___GET_VARIABLE_DECLARATION__STRING);
+		createEOperation(abstractActorEClass, ABSTRACT_ACTOR___IS_IN_LOCAL_SCOPE__STRING);
+		createEOperation(abstractActorEClass, ABSTRACT_ACTOR___IS_IN_PARENT_SCOPE__STRING);
+
 		unaryOperatorEClass = createEClass(UNARY_OPERATOR);
 		createEReference(unaryOperatorEClass, UNARY_OPERATOR__EXPRESSION);
 
@@ -1400,24 +1376,17 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 
 		toIntEClass = createEClass(TO_INT);
 
-		abstractActorEClass = createEClass(ABSTRACT_ACTOR);
-		createEReference(abstractActorEClass, ABSTRACT_ACTOR__EVENT_HANDLERS);
-		createEAttribute(abstractActorEClass, ABSTRACT_ACTOR__NAME);
-		createEAttribute(abstractActorEClass, ABSTRACT_ACTOR__SUBJECT);
-		createEOperation(abstractActorEClass, ABSTRACT_ACTOR___GET_SUBTREE);
-
-		scopeEClass = createEClass(SCOPE);
-		createEReference(scopeEClass, SCOPE__LOCAL_VARIABLES);
-		createEReference(scopeEClass, SCOPE__CHILDREN);
-		createEReference(scopeEClass, SCOPE__PARENT);
-		createEOperation(scopeEClass, SCOPE___IS_IN_SCOPE__STRING);
-		createEOperation(scopeEClass, SCOPE___GET_VARIABLE_DECLARATION__STRING);
-		createEOperation(scopeEClass, SCOPE___IS_IN_LOCAL_SCOPE__STRING);
-		createEOperation(scopeEClass, SCOPE___IS_IN_PARENT_SCOPE__STRING);
-
 		programEClass = createEClass(PROGRAM);
 		createEReference(programEClass, PROGRAM__SCENE_ACTOR);
 		createEReference(programEClass, PROGRAM__SPRITE_ACTORS);
+
+		treeNodeEClass = createEClass(TREE_NODE);
+		createEReference(treeNodeEClass, TREE_NODE__CHILDREN);
+		createEReference(treeNodeEClass, TREE_NODE__PARENT);
+
+		treeTraversalEClass = createEClass(TREE_TRAVERSAL);
+		createEOperation(treeTraversalEClass, TREE_TRAVERSAL___BREADTH_FIRST__TREENODE);
+		createEOperation(treeTraversalEClass, TREE_TRAVERSAL___DEPTH_FIRST__TREENODE);
 	}
 
 	/**
@@ -1444,28 +1413,17 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		setNsURI(eNS_URI);
 
 		// Create type parameters
-		ETypeParameter abstractActorEClass_A = addETypeParameter(abstractActorEClass, "A");
-		ETypeParameter scopeEClass_S = addETypeParameter(scopeEClass, "S");
+		ETypeParameter treeNodeEClass_T = addETypeParameter(treeNodeEClass, "T");
 
 		// Set bounds for type parameters
-		EGenericType g1 = createEGenericType(this.getAbstractActor());
-		EGenericType g2 = createEGenericType();
+		EGenericType g1 = createEGenericType(this.getTreeNode());
+		EGenericType g2 = createEGenericType(treeNodeEClass_T);
 		g1.getETypeArguments().add(g2);
-		abstractActorEClass_A.getEBounds().add(g1);
-		g1 = createEGenericType(this.getScope());
-		g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		scopeEClass_S.getEBounds().add(g1);
+		treeNodeEClass_T.getEBounds().add(g1);
 
 		// Add supertypes to classes
-		g1 = createEGenericType(this.getAbstractActor());
-		g2 = createEGenericType(this.getSpriteActor());
-		g1.getETypeArguments().add(g2);
-		sceneActorEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getAbstractActor());
-		g2 = createEGenericType(this.getSpriteActor());
-		g1.getETypeArguments().add(g2);
-		spriteActorEClass.getEGenericSuperTypes().add(g1);
+		sceneActorEClass.getESuperTypes().add(this.getAbstractActor());
+		spriteActorEClass.getESuperTypes().add(this.getAbstractActor());
 		whileLoopEClass.getESuperTypes().add(this.getStatement());
 		ifEClass.getESuperTypes().add(this.getStatement());
 		foreverLoopEClass.getESuperTypes().add(this.getStatement());
@@ -1487,6 +1445,10 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		doubleLiteralEClass.getESuperTypes().add(this.getExpression());
 		stringLiteralEClass.getESuperTypes().add(this.getExpression());
 		variableReferenceEClass.getESuperTypes().add(this.getExpression());
+		g1 = createEGenericType(this.getTreeNode());
+		g2 = createEGenericType(this.getAbstractActor());
+		g1.getETypeArguments().add(g2);
+		abstractActorEClass.getEGenericSuperTypes().add(g1);
 		unaryOperatorEClass.getESuperTypes().add(this.getExpression());
 		binaryOperatorEClass.getESuperTypes().add(this.getExpression());
 		functionCallEClass.getESuperTypes().add(this.getExpression());
@@ -1501,10 +1463,6 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		unaryMinusEClass.getESuperTypes().add(this.getUnaryOperator());
 		toDoubleEClass.getESuperTypes().add(this.getUnaryOperator());
 		toIntEClass.getESuperTypes().add(this.getUnaryOperator());
-		g1 = createEGenericType(this.getScope());
-		g2 = createEGenericType(abstractActorEClass_A);
-		g1.getETypeArguments().add(g2);
-		abstractActorEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(sceneActorEClass, SceneActor.class, "SceneActor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1514,33 +1472,14 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		addEParameter(op, ecorePackage.getEString(), "message", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(spriteActorEClass, SpriteActor.class, "SpriteActor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSpriteActor_Program(), this.getProgram(), null, "program", null, 0, 1, SpriteActor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSpriteActor_Program(), this.getProgram(), this.getProgram_SpriteActors(), "program", null, 0, 1, SpriteActor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getSpriteActor__Print__String(), null, "print", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "message", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getSpriteActor__GetX(), ecorePackage.getEDoubleObject(), "getX", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getSpriteActor__GetY(), ecorePackage.getEDoubleObject(), "getY", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getSpriteActor__SetY__Double(), null, "setY", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDoubleObject(), "y", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getSpriteActor__SetX__Double(), null, "setX", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDoubleObject(), "x", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getSpriteActor__Print__Double(), null, "print", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDoubleObject(), "message", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getSpriteActor__Sleep__Double(), null, "sleep", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDoubleObject(), "sleepDuration", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(eventHandlerEClass, EventHandler.class, "EventHandler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEventHandler_Statements(), this.getStatement(), null, "statements", null, 0, -1, EventHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(this.getAbstractActor());
-		g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		initEReference(getEventHandler_Actor(), g1, this.getAbstractActor_EventHandlers(), "actor", null, 1, 1, EventHandler.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEventHandler_Actor(), this.getAbstractActor(), this.getAbstractActor_EventHandlers(), "actor", null, 1, 1, EventHandler.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(whileLoopEClass, WhileLoop.class, "WhileLoop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getWhileLoop_Predicate(), this.getExpression(), null, "predicate", null, 0, 1, WhileLoop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1601,6 +1540,24 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		initEClass(variableReferenceEClass, VariableReference.class, "VariableReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVariableReference_VariableName(), ecorePackage.getEString(), "variableName", "", 1, 1, VariableReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(abstractActorEClass, AbstractActor.class, "AbstractActor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAbstractActor_EventHandlers(), this.getEventHandler(), this.getEventHandler_Actor(), "eventHandlers", null, 0, -1, AbstractActor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractActor_Name(), ecorePackage.getEString(), "name", null, 0, 1, AbstractActor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractActor_Subject(), ecorePackage.getEJavaObject(), "subject", null, 0, 1, AbstractActor.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAbstractActor_LocalVariables(), this.getVariableDeclaration(), null, "localVariables", null, 0, -1, AbstractActor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getAbstractActor__IsInScope__String(), ecorePackage.getEBoolean(), "isInScope", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "variableName", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getAbstractActor__GetVariableDeclaration__String(), this.getVariableDeclaration(), "getVariableDeclaration", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "variableName", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getAbstractActor__IsInLocalScope__String(), ecorePackage.getEBoolean(), "isInLocalScope", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "variableName", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getAbstractActor__IsInParentScope__String(), ecorePackage.getEBoolean(), "isInParentScope", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "variableName", 1, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(unaryOperatorEClass, UnaryOperator.class, "UnaryOperator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUnaryOperator_Expression(), this.getExpression(), null, "expression", null, 0, 1, UnaryOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1616,11 +1573,7 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 
 		initEClass(abstractElementEClass, AbstractElement.class, "AbstractElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getAbstractElement__GetActor(), null, "getActor", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(this.getAbstractActor());
-		g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		initEOperation(op, g1);
+		initEOperation(getAbstractElement__GetActor(), this.getAbstractActor(), "getActor", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(gameStartEClass, GameStart.class, "GameStart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1644,41 +1597,39 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 
 		initEClass(toIntEClass, ToInt.class, "ToInt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(abstractActorEClass, AbstractActor.class, "AbstractActor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAbstractActor_EventHandlers(), this.getEventHandler(), this.getEventHandler_Actor(), "eventHandlers", null, 0, -1, AbstractActor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAbstractActor_Name(), ecorePackage.getEString(), "name", null, 0, 1, AbstractActor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAbstractActor_Subject(), ecorePackage.getEJavaObject(), "subject", null, 0, 1, AbstractActor.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getAbstractActor__GetSubtree(), null, "getSubtree", 0, -1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(this.getAbstractActor());
-		g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		initEOperation(op, g1);
-
-		initEClass(scopeEClass, Scope.class, "Scope", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getScope_LocalVariables(), this.getVariableDeclaration(), null, "localVariables", null, 0, -1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(scopeEClass_S);
-		initEReference(getScope_Children(), g1, null, "children", null, 0, -1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(this.getScope());
-		g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		initEReference(getScope_Parent(), g1, null, "parent", null, 0, 1, Scope.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getScope__IsInScope__String(), ecorePackage.getEBoolean(), "isInScope", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "variableName", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getScope__GetVariableDeclaration__String(), this.getVariableDeclaration(), "getVariableDeclaration", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "variableName", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getScope__IsInLocalScope__String(), ecorePackage.getEBoolean(), "isInLocalScope", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "variableName", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getScope__IsInParentScope__String(), ecorePackage.getEBoolean(), "isInParentScope", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "variableName", 1, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProgram_SceneActor(), this.getSceneActor(), this.getSceneActor_Program(), "sceneActor", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProgram_SpriteActors(), this.getSpriteActor(), null, "spriteActors", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProgram_SpriteActors(), this.getSpriteActor(), this.getSpriteActor_Program(), "spriteActors", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(treeNodeEClass, TreeNode.class, "TreeNode", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		g1 = createEGenericType(treeNodeEClass_T);
+		initEReference(getTreeNode_Children(), g1, null, "children", null, 0, -1, TreeNode.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(treeNodeEClass_T);
+		initEReference(getTreeNode_Parent(), g1, null, "parent", null, 0, 1, TreeNode.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEClass(treeTraversalEClass, TreeTraversal.class, "TreeTraversal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = initEOperation(getTreeTraversal__BreadthFirst__TreeNode(), null, "BreadthFirst", 0, -1, IS_UNIQUE, IS_ORDERED);
+		ETypeParameter t1 = addETypeParameter(op, "T");
+		g1 = createEGenericType(this.getTreeNode());
+		g2 = createEGenericType(t1);
+		g1.getETypeArguments().add(g2);
+		t1.getEBounds().add(g1);
+		g1 = createEGenericType(t1);
+		addEParameter(op, g1, "root", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(t1);
+		initEOperation(op, g1);
+
+		op = initEOperation(getTreeTraversal__DepthFirst__TreeNode(), null, "DepthFirst", 0, -1, IS_UNIQUE, IS_ORDERED);
+		t1 = addETypeParameter(op, "T");
+		g1 = createEGenericType(this.getTreeNode());
+		g2 = createEGenericType(t1);
+		g1.getETypeArguments().add(g2);
+		t1.getEBounds().add(g1);
+		g1 = createEGenericType(t1);
+		addEParameter(op, g1, "root", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(t1);
+		initEOperation(op, g1);
 
 		// Create resource
 		createResource(eNS_URI);

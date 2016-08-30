@@ -5,15 +5,17 @@ package klang.impl;
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import klang.AbstractActor;
 import klang.KlangPackage;
 import klang.Program;
-import klang.Scope;
 import klang.SpriteActor;
 
 /**
@@ -29,17 +31,7 @@ import klang.SpriteActor;
  *
  * @generated
  */
-public class SpriteActorImpl extends AbstractActorImpl<SpriteActor> implements SpriteActor {
-	/**
-	 * The cached value of the '{@link #getProgram() <em>Program</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProgram()
-	 * @generated
-	 * @ordered
-	 */
-	protected Program program;
-
+public class SpriteActorImpl extends AbstractActorImpl implements SpriteActor {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,15 +57,8 @@ public class SpriteActorImpl extends AbstractActorImpl<SpriteActor> implements S
 	 * @generated
 	 */
 	public Program getProgram() {
-		if (program != null && program.eIsProxy()) {
-			InternalEObject oldProgram = (InternalEObject)program;
-			program = (Program)eResolveProxy(oldProgram);
-			if (program != oldProgram) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, KlangPackage.SPRITE_ACTOR__PROGRAM, oldProgram, program));
-			}
-		}
-		return program;
+		if (eContainerFeatureID() != KlangPackage.SPRITE_ACTOR__PROGRAM) return null;
+		return (Program)eInternalContainer();
 	}
 
 	/**
@@ -81,8 +66,9 @@ public class SpriteActorImpl extends AbstractActorImpl<SpriteActor> implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Program basicGetProgram() {
-		return program;
+	public NotificationChain basicSetProgram(Program newProgram, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newProgram, KlangPackage.SPRITE_ACTOR__PROGRAM, msgs);
+		return msgs;
 	}
 
 	/**
@@ -91,10 +77,19 @@ public class SpriteActorImpl extends AbstractActorImpl<SpriteActor> implements S
 	 * @generated
 	 */
 	public void setProgram(Program newProgram) {
-		Program oldProgram = program;
-		program = newProgram;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, KlangPackage.SPRITE_ACTOR__PROGRAM, oldProgram, program));
+		if (newProgram != eInternalContainer() || (eContainerFeatureID() != KlangPackage.SPRITE_ACTOR__PROGRAM && newProgram != null)) {
+			if (EcoreUtil.isAncestor(this, newProgram))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newProgram != null)
+				msgs = ((InternalEObject)newProgram).eInverseAdd(this, KlangPackage.PROGRAM__SPRITE_ACTORS, Program.class, msgs);
+			msgs = basicSetProgram(newProgram, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, KlangPackage.SPRITE_ACTOR__PROGRAM, newProgram, newProgram));
 	}
 
 	/**
@@ -113,10 +108,15 @@ public class SpriteActorImpl extends AbstractActorImpl<SpriteActor> implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Double getX() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case KlangPackage.SPRITE_ACTOR__PROGRAM:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetProgram((Program)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -124,10 +124,13 @@ public class SpriteActorImpl extends AbstractActorImpl<SpriteActor> implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Double getY() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case KlangPackage.SPRITE_ACTOR__PROGRAM:
+				return basicSetProgram(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -135,43 +138,13 @@ public class SpriteActorImpl extends AbstractActorImpl<SpriteActor> implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setY(Double y) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setX(Double x) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void print(Double message) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void sleep(Double sleepDuration) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case KlangPackage.SPRITE_ACTOR__PROGRAM:
+				return eInternalContainer().eInverseRemove(this, KlangPackage.PROGRAM__SPRITE_ACTORS, Program.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -183,8 +156,7 @@ public class SpriteActorImpl extends AbstractActorImpl<SpriteActor> implements S
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case KlangPackage.SPRITE_ACTOR__PROGRAM:
-				if (resolve) return getProgram();
-				return basicGetProgram();
+				return getProgram();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -228,7 +200,7 @@ public class SpriteActorImpl extends AbstractActorImpl<SpriteActor> implements S
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case KlangPackage.SPRITE_ACTOR__PROGRAM:
-				return program != null;
+				return getProgram() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -244,33 +216,17 @@ public class SpriteActorImpl extends AbstractActorImpl<SpriteActor> implements S
 			case KlangPackage.SPRITE_ACTOR___PRINT__STRING:
 				print((String)arguments.get(0));
 				return null;
-			case KlangPackage.SPRITE_ACTOR___GET_X:
-				return getX();
-			case KlangPackage.SPRITE_ACTOR___GET_Y:
-				return getY();
-			case KlangPackage.SPRITE_ACTOR___SET_Y__DOUBLE:
-				setY((Double)arguments.get(0));
-				return null;
-			case KlangPackage.SPRITE_ACTOR___SET_X__DOUBLE:
-				setX((Double)arguments.get(0));
-				return null;
-			case KlangPackage.SPRITE_ACTOR___PRINT__DOUBLE:
-				print((Double)arguments.get(0));
-				return null;
-			case KlangPackage.SPRITE_ACTOR___SLEEP__DOUBLE:
-				sleep((Double)arguments.get(0));
-				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
 
 	@Override
-	public EList<SpriteActor> getChildren() {
+	public EList<AbstractActor> getChildren() {
 		return new BasicEList<>();
 	}
 
 	@Override
-	public Scope<?> getParent() {
+	public AbstractActor getParent() {
 		if(getProgram()!=null) {
 			return getProgram().getSceneActor();
 		}

@@ -58,97 +58,6 @@ public interface KlangPackage extends EPackage {
 	KlangPackage eINSTANCE = klang.impl.KlangPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link klang.impl.ScopeImpl <em>Scope</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.ScopeImpl
-	 * @see klang.impl.KlangPackageImpl#getScope()
-	 * @generated
-	 */
-	int SCOPE = 39;
-
-	/**
-	 * The feature id for the '<em><b>Local Variables</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCOPE__LOCAL_VARIABLES = 0;
-
-	/**
-	 * The feature id for the '<em><b>Children</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCOPE__CHILDREN = 1;
-
-	/**
-	 * The feature id for the '<em><b>Parent</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCOPE__PARENT = 2;
-
-	/**
-	 * The number of structural features of the '<em>Scope</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCOPE_FEATURE_COUNT = 3;
-
-	/**
-	 * The operation id for the '<em>Is In Scope</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCOPE___IS_IN_SCOPE__STRING = 0;
-
-	/**
-	 * The operation id for the '<em>Get Variable Declaration</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCOPE___GET_VARIABLE_DECLARATION__STRING = 1;
-
-	/**
-	 * The operation id for the '<em>Is In Local Scope</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCOPE___IS_IN_LOCAL_SCOPE__STRING = 2;
-
-	/**
-	 * The operation id for the '<em>Is In Parent Scope</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCOPE___IS_IN_PARENT_SCOPE__STRING = 3;
-
-	/**
-	 * The number of operations of the '<em>Scope</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCOPE_OPERATION_COUNT = 4;
-
-	/**
 	 * The meta object id for the '{@link klang.impl.AbstractActorImpl <em>Abstract Actor</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -156,124 +65,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getAbstractActor()
 	 * @generated
 	 */
-	int ABSTRACT_ACTOR = 38;
-
-	/**
-	 * The feature id for the '<em><b>Local Variables</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ACTOR__LOCAL_VARIABLES = SCOPE__LOCAL_VARIABLES;
-
-	/**
-	 * The feature id for the '<em><b>Children</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ACTOR__CHILDREN = SCOPE__CHILDREN;
-
-	/**
-	 * The feature id for the '<em><b>Parent</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ACTOR__PARENT = SCOPE__PARENT;
-
-	/**
-	 * The feature id for the '<em><b>Event Handlers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ACTOR__EVENT_HANDLERS = SCOPE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ACTOR__NAME = SCOPE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Subject</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ACTOR__SUBJECT = SCOPE_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Abstract Actor</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ACTOR_FEATURE_COUNT = SCOPE_FEATURE_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Is In Scope</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ACTOR___IS_IN_SCOPE__STRING = SCOPE___IS_IN_SCOPE__STRING;
-
-	/**
-	 * The operation id for the '<em>Get Variable Declaration</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ACTOR___GET_VARIABLE_DECLARATION__STRING = SCOPE___GET_VARIABLE_DECLARATION__STRING;
-
-	/**
-	 * The operation id for the '<em>Is In Local Scope</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ACTOR___IS_IN_LOCAL_SCOPE__STRING = SCOPE___IS_IN_LOCAL_SCOPE__STRING;
-
-	/**
-	 * The operation id for the '<em>Is In Parent Scope</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ACTOR___IS_IN_PARENT_SCOPE__STRING = SCOPE___IS_IN_PARENT_SCOPE__STRING;
-
-	/**
-	 * The operation id for the '<em>Get Subtree</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ACTOR___GET_SUBTREE = SCOPE_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Abstract Actor</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ACTOR_OPERATION_COUNT = SCOPE_OPERATION_COUNT + 1;
+	int ABSTRACT_ACTOR = 24;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.SceneActorImpl <em>Scene Actor</em>}' class.
@@ -286,141 +78,6 @@ public interface KlangPackage extends EPackage {
 	int SCENE_ACTOR = 0;
 
 	/**
-	 * The feature id for the '<em><b>Local Variables</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENE_ACTOR__LOCAL_VARIABLES = ABSTRACT_ACTOR__LOCAL_VARIABLES;
-
-	/**
-	 * The feature id for the '<em><b>Children</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENE_ACTOR__CHILDREN = ABSTRACT_ACTOR__CHILDREN;
-
-	/**
-	 * The feature id for the '<em><b>Parent</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENE_ACTOR__PARENT = ABSTRACT_ACTOR__PARENT;
-
-	/**
-	 * The feature id for the '<em><b>Event Handlers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENE_ACTOR__EVENT_HANDLERS = ABSTRACT_ACTOR__EVENT_HANDLERS;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENE_ACTOR__NAME = ABSTRACT_ACTOR__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Subject</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENE_ACTOR__SUBJECT = ABSTRACT_ACTOR__SUBJECT;
-
-	/**
-	 * The feature id for the '<em><b>Program</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENE_ACTOR__PROGRAM = ABSTRACT_ACTOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Scene Actor</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENE_ACTOR_FEATURE_COUNT = ABSTRACT_ACTOR_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Is In Scope</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENE_ACTOR___IS_IN_SCOPE__STRING = ABSTRACT_ACTOR___IS_IN_SCOPE__STRING;
-
-	/**
-	 * The operation id for the '<em>Get Variable Declaration</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENE_ACTOR___GET_VARIABLE_DECLARATION__STRING = ABSTRACT_ACTOR___GET_VARIABLE_DECLARATION__STRING;
-
-	/**
-	 * The operation id for the '<em>Is In Local Scope</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENE_ACTOR___IS_IN_LOCAL_SCOPE__STRING = ABSTRACT_ACTOR___IS_IN_LOCAL_SCOPE__STRING;
-
-	/**
-	 * The operation id for the '<em>Is In Parent Scope</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENE_ACTOR___IS_IN_PARENT_SCOPE__STRING = ABSTRACT_ACTOR___IS_IN_PARENT_SCOPE__STRING;
-
-	/**
-	 * The operation id for the '<em>Get Subtree</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENE_ACTOR___GET_SUBTREE = ABSTRACT_ACTOR___GET_SUBTREE;
-
-	/**
-	 * The operation id for the '<em>Print</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENE_ACTOR___PRINT__STRING = ABSTRACT_ACTOR_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Scene Actor</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENE_ACTOR_OPERATION_COUNT = ABSTRACT_ACTOR_OPERATION_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link klang.impl.SpriteActorImpl <em>Sprite Actor</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -429,195 +86,6 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 */
 	int SPRITE_ACTOR = 1;
-
-	/**
-	 * The feature id for the '<em><b>Local Variables</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPRITE_ACTOR__LOCAL_VARIABLES = ABSTRACT_ACTOR__LOCAL_VARIABLES;
-
-	/**
-	 * The feature id for the '<em><b>Children</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPRITE_ACTOR__CHILDREN = ABSTRACT_ACTOR__CHILDREN;
-
-	/**
-	 * The feature id for the '<em><b>Parent</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPRITE_ACTOR__PARENT = ABSTRACT_ACTOR__PARENT;
-
-	/**
-	 * The feature id for the '<em><b>Event Handlers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPRITE_ACTOR__EVENT_HANDLERS = ABSTRACT_ACTOR__EVENT_HANDLERS;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPRITE_ACTOR__NAME = ABSTRACT_ACTOR__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Subject</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPRITE_ACTOR__SUBJECT = ABSTRACT_ACTOR__SUBJECT;
-
-	/**
-	 * The feature id for the '<em><b>Program</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPRITE_ACTOR__PROGRAM = ABSTRACT_ACTOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Sprite Actor</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPRITE_ACTOR_FEATURE_COUNT = ABSTRACT_ACTOR_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Is In Scope</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPRITE_ACTOR___IS_IN_SCOPE__STRING = ABSTRACT_ACTOR___IS_IN_SCOPE__STRING;
-
-	/**
-	 * The operation id for the '<em>Get Variable Declaration</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPRITE_ACTOR___GET_VARIABLE_DECLARATION__STRING = ABSTRACT_ACTOR___GET_VARIABLE_DECLARATION__STRING;
-
-	/**
-	 * The operation id for the '<em>Is In Local Scope</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPRITE_ACTOR___IS_IN_LOCAL_SCOPE__STRING = ABSTRACT_ACTOR___IS_IN_LOCAL_SCOPE__STRING;
-
-	/**
-	 * The operation id for the '<em>Is In Parent Scope</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPRITE_ACTOR___IS_IN_PARENT_SCOPE__STRING = ABSTRACT_ACTOR___IS_IN_PARENT_SCOPE__STRING;
-
-	/**
-	 * The operation id for the '<em>Get Subtree</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPRITE_ACTOR___GET_SUBTREE = ABSTRACT_ACTOR___GET_SUBTREE;
-
-	/**
-	 * The operation id for the '<em>Print</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPRITE_ACTOR___PRINT__STRING = ABSTRACT_ACTOR_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Get X</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPRITE_ACTOR___GET_X = ABSTRACT_ACTOR_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get Y</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPRITE_ACTOR___GET_Y = ABSTRACT_ACTOR_OPERATION_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Set Y</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPRITE_ACTOR___SET_Y__DOUBLE = ABSTRACT_ACTOR_OPERATION_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Set X</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPRITE_ACTOR___SET_X__DOUBLE = ABSTRACT_ACTOR_OPERATION_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Print</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPRITE_ACTOR___PRINT__DOUBLE = ABSTRACT_ACTOR_OPERATION_COUNT + 5;
-
-	/**
-	 * The operation id for the '<em>Sleep</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPRITE_ACTOR___SLEEP__DOUBLE = ABSTRACT_ACTOR_OPERATION_COUNT + 6;
-
-	/**
-	 * The number of operations of the '<em>Sprite Actor</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPRITE_ACTOR_OPERATION_COUNT = ABSTRACT_ACTOR_OPERATION_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.EventHandlerImpl <em>Event Handler</em>}' class.
@@ -630,42 +98,6 @@ public interface KlangPackage extends EPackage {
 	int EVENT_HANDLER = 2;
 
 	/**
-	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_HANDLER__STATEMENTS = 0;
-
-	/**
-	 * The feature id for the '<em><b>Actor</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_HANDLER__ACTOR = 1;
-
-	/**
-	 * The number of structural features of the '<em>Event Handler</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_HANDLER_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Event Handler</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_HANDLER_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link klang.impl.AbstractElementImpl <em>Abstract Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -673,34 +105,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getAbstractElement()
 	 * @generated
 	 */
-	int ABSTRACT_ELEMENT = 28;
-
-	/**
-	 * The number of structural features of the '<em>Abstract Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ELEMENT_FEATURE_COUNT = 0;
-
-	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ELEMENT___GET_ACTOR = 0;
-
-	/**
-	 * The number of operations of the '<em>Abstract Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ELEMENT_OPERATION_COUNT = 1;
+	int ABSTRACT_ELEMENT = 29;
 
 	/**
 	 * The meta object id for the '{@link klang.Statement <em>Statement</em>}' class.
@@ -710,34 +115,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getStatement()
 	 * @generated
 	 */
-	int STATEMENT = 27;
-
-	/**
-	 * The number of structural features of the '<em>Statement</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATEMENT_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATEMENT___GET_ACTOR = ABSTRACT_ELEMENT___GET_ACTOR;
-
-	/**
-	 * The number of operations of the '<em>Statement</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATEMENT_OPERATION_COUNT = ABSTRACT_ELEMENT_OPERATION_COUNT + 0;
+	int STATEMENT = 28;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.WhileLoopImpl <em>While Loop</em>}' class.
@@ -807,7 +185,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getBinaryOperator()
 	 * @generated
 	 */
-	int BINARY_OPERATOR = 25;
+	int BINARY_OPERATOR = 26;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.OrImpl <em>Or</em>}' class.
@@ -907,7 +285,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getUnaryOperator()
 	 * @generated
 	 */
-	int UNARY_OPERATOR = 24;
+	int UNARY_OPERATOR = 25;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.NotImpl <em>Not</em>}' class.
@@ -947,7 +325,633 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getFunctionCall()
 	 * @generated
 	 */
-	int FUNCTION_CALL = 26;
+	int FUNCTION_CALL = 27;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.VariableDeclarationImpl <em>Variable Declaration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.VariableDeclarationImpl
+	 * @see klang.impl.KlangPackageImpl#getVariableDeclaration()
+	 * @generated
+	 */
+	int VARIABLE_DECLARATION = 7;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.DoubleLiteralImpl <em>Double Literal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.DoubleLiteralImpl
+	 * @see klang.impl.KlangPackageImpl#getDoubleLiteral()
+	 * @generated
+	 */
+	int DOUBLE_LITERAL = 21;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.VariableReferenceImpl <em>Variable Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.VariableReferenceImpl
+	 * @see klang.impl.KlangPackageImpl#getVariableReference()
+	 * @generated
+	 */
+	int VARIABLE_REFERENCE = 23;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.GameStartImpl <em>Game Start</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.GameStartImpl
+	 * @see klang.impl.KlangPackageImpl#getGameStart()
+	 * @generated
+	 */
+	int GAME_START = 30;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.SpriteClickedImpl <em>Sprite Clicked</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.SpriteClickedImpl
+	 * @see klang.impl.KlangPackageImpl#getSpriteClicked()
+	 * @generated
+	 */
+	int SPRITE_CLICKED = 31;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.KeyPressedImpl <em>Key Pressed</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.KeyPressedImpl
+	 * @see klang.impl.KlangPackageImpl#getKeyPressed()
+	 * @generated
+	 */
+	int KEY_PRESSED = 32;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.CollidesWithImpl <em>Collides With</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.CollidesWithImpl
+	 * @see klang.impl.KlangPackageImpl#getCollidesWith()
+	 * @generated
+	 */
+	int COLLIDES_WITH = 33;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.IntegerLiteralImpl <em>Integer Literal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.IntegerLiteralImpl
+	 * @see klang.impl.KlangPackageImpl#getIntegerLiteral()
+	 * @generated
+	 */
+	int INTEGER_LITERAL = 34;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.SleepImpl <em>Sleep</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.SleepImpl
+	 * @see klang.impl.KlangPackageImpl#getSleep()
+	 * @generated
+	 */
+	int SLEEP = 35;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.UnaryMinusImpl <em>Unary Minus</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.UnaryMinusImpl
+	 * @see klang.impl.KlangPackageImpl#getUnaryMinus()
+	 * @generated
+	 */
+	int UNARY_MINUS = 36;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.ToDoubleImpl <em>To Double</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.ToDoubleImpl
+	 * @see klang.impl.KlangPackageImpl#getToDouble()
+	 * @generated
+	 */
+	int TO_DOUBLE = 37;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.ToIntImpl <em>To Int</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.ToIntImpl
+	 * @see klang.impl.KlangPackageImpl#getToInt()
+	 * @generated
+	 */
+	int TO_INT = 38;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.ProgramImpl <em>Program</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.ProgramImpl
+	 * @see klang.impl.KlangPackageImpl#getProgram()
+	 * @generated
+	 */
+	int PROGRAM = 39;
+
+	/**
+	 * The meta object id for the '{@link klang.TreeNode <em>Tree Node</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.TreeNode
+	 * @see klang.impl.KlangPackageImpl#getTreeNode()
+	 * @generated
+	 */
+	int TREE_NODE = 40;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_NODE__CHILDREN = 0;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_NODE__PARENT = 1;
+
+	/**
+	 * The number of structural features of the '<em>Tree Node</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_NODE_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Tree Node</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_NODE_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ACTOR__CHILDREN = TREE_NODE__CHILDREN;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ACTOR__PARENT = TREE_NODE__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Handlers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ACTOR__EVENT_HANDLERS = TREE_NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ACTOR__NAME = TREE_NODE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Subject</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ACTOR__SUBJECT = TREE_NODE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Local Variables</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ACTOR__LOCAL_VARIABLES = TREE_NODE_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Abstract Actor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ACTOR_FEATURE_COUNT = TREE_NODE_FEATURE_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Is In Scope</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ACTOR___IS_IN_SCOPE__STRING = TREE_NODE_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Variable Declaration</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ACTOR___GET_VARIABLE_DECLARATION__STRING = TREE_NODE_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Is In Local Scope</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ACTOR___IS_IN_LOCAL_SCOPE__STRING = TREE_NODE_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Is In Parent Scope</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ACTOR___IS_IN_PARENT_SCOPE__STRING = TREE_NODE_OPERATION_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Abstract Actor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ACTOR_OPERATION_COUNT = TREE_NODE_OPERATION_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCENE_ACTOR__CHILDREN = ABSTRACT_ACTOR__CHILDREN;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCENE_ACTOR__PARENT = ABSTRACT_ACTOR__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Handlers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCENE_ACTOR__EVENT_HANDLERS = ABSTRACT_ACTOR__EVENT_HANDLERS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCENE_ACTOR__NAME = ABSTRACT_ACTOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Subject</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCENE_ACTOR__SUBJECT = ABSTRACT_ACTOR__SUBJECT;
+
+	/**
+	 * The feature id for the '<em><b>Local Variables</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCENE_ACTOR__LOCAL_VARIABLES = ABSTRACT_ACTOR__LOCAL_VARIABLES;
+
+	/**
+	 * The feature id for the '<em><b>Program</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCENE_ACTOR__PROGRAM = ABSTRACT_ACTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Scene Actor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCENE_ACTOR_FEATURE_COUNT = ABSTRACT_ACTOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Is In Scope</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCENE_ACTOR___IS_IN_SCOPE__STRING = ABSTRACT_ACTOR___IS_IN_SCOPE__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Variable Declaration</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCENE_ACTOR___GET_VARIABLE_DECLARATION__STRING = ABSTRACT_ACTOR___GET_VARIABLE_DECLARATION__STRING;
+
+	/**
+	 * The operation id for the '<em>Is In Local Scope</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCENE_ACTOR___IS_IN_LOCAL_SCOPE__STRING = ABSTRACT_ACTOR___IS_IN_LOCAL_SCOPE__STRING;
+
+	/**
+	 * The operation id for the '<em>Is In Parent Scope</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCENE_ACTOR___IS_IN_PARENT_SCOPE__STRING = ABSTRACT_ACTOR___IS_IN_PARENT_SCOPE__STRING;
+
+	/**
+	 * The operation id for the '<em>Print</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCENE_ACTOR___PRINT__STRING = ABSTRACT_ACTOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Scene Actor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCENE_ACTOR_OPERATION_COUNT = ABSTRACT_ACTOR_OPERATION_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRITE_ACTOR__CHILDREN = ABSTRACT_ACTOR__CHILDREN;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRITE_ACTOR__PARENT = ABSTRACT_ACTOR__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Handlers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRITE_ACTOR__EVENT_HANDLERS = ABSTRACT_ACTOR__EVENT_HANDLERS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRITE_ACTOR__NAME = ABSTRACT_ACTOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Subject</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRITE_ACTOR__SUBJECT = ABSTRACT_ACTOR__SUBJECT;
+
+	/**
+	 * The feature id for the '<em><b>Local Variables</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRITE_ACTOR__LOCAL_VARIABLES = ABSTRACT_ACTOR__LOCAL_VARIABLES;
+
+	/**
+	 * The feature id for the '<em><b>Program</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRITE_ACTOR__PROGRAM = ABSTRACT_ACTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Sprite Actor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRITE_ACTOR_FEATURE_COUNT = ABSTRACT_ACTOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Is In Scope</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRITE_ACTOR___IS_IN_SCOPE__STRING = ABSTRACT_ACTOR___IS_IN_SCOPE__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Variable Declaration</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRITE_ACTOR___GET_VARIABLE_DECLARATION__STRING = ABSTRACT_ACTOR___GET_VARIABLE_DECLARATION__STRING;
+
+	/**
+	 * The operation id for the '<em>Is In Local Scope</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRITE_ACTOR___IS_IN_LOCAL_SCOPE__STRING = ABSTRACT_ACTOR___IS_IN_LOCAL_SCOPE__STRING;
+
+	/**
+	 * The operation id for the '<em>Is In Parent Scope</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRITE_ACTOR___IS_IN_PARENT_SCOPE__STRING = ABSTRACT_ACTOR___IS_IN_PARENT_SCOPE__STRING;
+
+	/**
+	 * The operation id for the '<em>Print</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRITE_ACTOR___PRINT__STRING = ABSTRACT_ACTOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Sprite Actor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRITE_ACTOR_OPERATION_COUNT = ABSTRACT_ACTOR_OPERATION_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_HANDLER__STATEMENTS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Actor</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_HANDLER__ACTOR = 1;
+
+	/**
+	 * The number of structural features of the '<em>Event Handler</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_HANDLER_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Event Handler</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_HANDLER_OPERATION_COUNT = 0;
+
+	/**
+	 * The number of structural features of the '<em>Abstract Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ELEMENT_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Get Actor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ELEMENT___GET_ACTOR = 0;
+
+	/**
+	 * The number of operations of the '<em>Abstract Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ELEMENT_OPERATION_COUNT = 1;
+
+	/**
+	 * The number of structural features of the '<em>Statement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATEMENT_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Actor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATEMENT___GET_ACTOR = ABSTRACT_ELEMENT___GET_ACTOR;
+
+	/**
+	 * The number of operations of the '<em>Statement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATEMENT_OPERATION_COUNT = ABSTRACT_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Predicate</b></em>' containment reference.
@@ -1110,16 +1114,6 @@ public interface KlangPackage extends EPackage {
 	 * @ordered
 	 */
 	int YIELD_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link klang.impl.VariableDeclarationImpl <em>Variable Declaration</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.VariableDeclarationImpl
-	 * @see klang.impl.KlangPackageImpl#getVariableDeclaration()
-	 * @generated
-	 */
-	int VARIABLE_DECLARATION = 7;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1806,16 +1800,6 @@ public interface KlangPackage extends EPackage {
 	int BOOLEAN_LITERAL_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link klang.impl.DoubleLiteralImpl <em>Double Literal</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.DoubleLiteralImpl
-	 * @see klang.impl.KlangPackageImpl#getDoubleLiteral()
-	 * @generated
-	 */
-	int DOUBLE_LITERAL = 21;
-
-	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1886,16 +1870,6 @@ public interface KlangPackage extends EPackage {
 	 * @ordered
 	 */
 	int STRING_LITERAL_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link klang.impl.VariableReferenceImpl <em>Variable Reference</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.VariableReferenceImpl
-	 * @see klang.impl.KlangPackageImpl#getVariableReference()
-	 * @generated
-	 */
-	int VARIABLE_REFERENCE = 23;
 
 	/**
 	 * The feature id for the '<em><b>Variable Name</b></em>' attribute.
@@ -1979,16 +1953,6 @@ public interface KlangPackage extends EPackage {
 	int FUNCTION_CALL_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link klang.impl.GameStartImpl <em>Game Start</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.GameStartImpl
-	 * @see klang.impl.KlangPackageImpl#getGameStart()
-	 * @generated
-	 */
-	int GAME_START = 29;
-
-	/**
 	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2025,16 +1989,6 @@ public interface KlangPackage extends EPackage {
 	int GAME_START_OPERATION_COUNT = EVENT_HANDLER_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link klang.impl.SpriteClickedImpl <em>Sprite Clicked</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.SpriteClickedImpl
-	 * @see klang.impl.KlangPackageImpl#getSpriteClicked()
-	 * @generated
-	 */
-	int SPRITE_CLICKED = 30;
-
-	/**
 	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2069,16 +2023,6 @@ public interface KlangPackage extends EPackage {
 	 * @ordered
 	 */
 	int SPRITE_CLICKED_OPERATION_COUNT = EVENT_HANDLER_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link klang.impl.KeyPressedImpl <em>Key Pressed</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.KeyPressedImpl
-	 * @see klang.impl.KlangPackageImpl#getKeyPressed()
-	 * @generated
-	 */
-	int KEY_PRESSED = 31;
 
 	/**
 	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
@@ -2125,17 +2069,6 @@ public interface KlangPackage extends EPackage {
 	 */
 	int KEY_PRESSED_OPERATION_COUNT = EVENT_HANDLER_OPERATION_COUNT + 0;
 
-
-	/**
-	 * The meta object id for the '{@link klang.impl.CollidesWithImpl <em>Collides With</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.CollidesWithImpl
-	 * @see klang.impl.KlangPackageImpl#getCollidesWith()
-	 * @generated
-	 */
-	int COLLIDES_WITH = 32;
-
 	/**
 	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -2181,17 +2114,6 @@ public interface KlangPackage extends EPackage {
 	 */
 	int COLLIDES_WITH_OPERATION_COUNT = EVENT_HANDLER_OPERATION_COUNT + 0;
 
-
-	/**
-	 * The meta object id for the '{@link klang.impl.IntegerLiteralImpl <em>Integer Literal</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.IntegerLiteralImpl
-	 * @see klang.impl.KlangPackageImpl#getIntegerLiteral()
-	 * @generated
-	 */
-	int INTEGER_LITERAL = 33;
-
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -2227,17 +2149,6 @@ public interface KlangPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTEGER_LITERAL_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
-
-
-	/**
-	 * The meta object id for the '{@link klang.impl.SleepImpl <em>Sleep</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.SleepImpl
-	 * @see klang.impl.KlangPackageImpl#getSleep()
-	 * @generated
-	 */
-	int SLEEP = 34;
 
 	/**
 	 * The feature id for the '<em><b>Duration</b></em>' attribute.
@@ -2275,17 +2186,6 @@ public interface KlangPackage extends EPackage {
 	 */
 	int SLEEP_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
 
-
-	/**
-	 * The meta object id for the '{@link klang.impl.UnaryMinusImpl <em>Unary Minus</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.UnaryMinusImpl
-	 * @see klang.impl.KlangPackageImpl#getUnaryMinus()
-	 * @generated
-	 */
-	int UNARY_MINUS = 35;
-
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -2321,17 +2221,6 @@ public interface KlangPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNARY_MINUS_OPERATION_COUNT = UNARY_OPERATOR_OPERATION_COUNT + 0;
-
-
-	/**
-	 * The meta object id for the '{@link klang.impl.ToDoubleImpl <em>To Double</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.ToDoubleImpl
-	 * @see klang.impl.KlangPackageImpl#getToDouble()
-	 * @generated
-	 */
-	int TO_DOUBLE = 36;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -2370,16 +2259,6 @@ public interface KlangPackage extends EPackage {
 	int TO_DOUBLE_OPERATION_COUNT = UNARY_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link klang.impl.ToIntImpl <em>To Int</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.ToIntImpl
-	 * @see klang.impl.KlangPackageImpl#getToInt()
-	 * @generated
-	 */
-	int TO_INT = 37;
-
-	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2414,17 +2293,6 @@ public interface KlangPackage extends EPackage {
 	 * @ordered
 	 */
 	int TO_INT_OPERATION_COUNT = UNARY_OPERATOR_OPERATION_COUNT + 0;
-
-
-	/**
-	 * The meta object id for the '{@link klang.impl.ProgramImpl <em>Program</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.ProgramImpl
-	 * @see klang.impl.KlangPackageImpl#getProgram()
-	 * @generated
-	 */
-	int PROGRAM = 40;
 
 	/**
 	 * The feature id for the '<em><b>Scene Actor</b></em>' containment reference.
@@ -2461,6 +2329,53 @@ public interface KlangPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROGRAM_OPERATION_COUNT = 0;
+
+
+	/**
+	 * The meta object id for the '{@link klang.impl.TreeTraversalImpl <em>Tree Traversal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.TreeTraversalImpl
+	 * @see klang.impl.KlangPackageImpl#getTreeTraversal()
+	 * @generated
+	 */
+	int TREE_TRAVERSAL = 41;
+
+	/**
+	 * The number of structural features of the '<em>Tree Traversal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_TRAVERSAL_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Breadth First</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_TRAVERSAL___BREADTH_FIRST__TREENODE = 0;
+
+	/**
+	 * The operation id for the '<em>Depth First</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_TRAVERSAL___DEPTH_FIRST__TREENODE = 1;
+
+	/**
+	 * The number of operations of the '<em>Tree Traversal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_TRAVERSAL_OPERATION_COUNT = 2;
 
 
 	/**
@@ -2505,10 +2420,10 @@ public interface KlangPackage extends EPackage {
 	EClass getSpriteActor();
 
 	/**
-	 * Returns the meta object for the reference '{@link klang.SpriteActor#getProgram <em>Program</em>}'.
+	 * Returns the meta object for the container reference '{@link klang.SpriteActor#getProgram <em>Program</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Program</em>'.
+	 * @return the meta object for the container reference '<em>Program</em>'.
 	 * @see klang.SpriteActor#getProgram()
 	 * @see #getSpriteActor()
 	 * @generated
@@ -2524,66 +2439,6 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getSpriteActor__Print__String();
-
-	/**
-	 * Returns the meta object for the '{@link klang.SpriteActor#getX() <em>Get X</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get X</em>' operation.
-	 * @see klang.SpriteActor#getX()
-	 * @generated
-	 */
-	EOperation getSpriteActor__GetX();
-
-	/**
-	 * Returns the meta object for the '{@link klang.SpriteActor#getY() <em>Get Y</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Y</em>' operation.
-	 * @see klang.SpriteActor#getY()
-	 * @generated
-	 */
-	EOperation getSpriteActor__GetY();
-
-	/**
-	 * Returns the meta object for the '{@link klang.SpriteActor#setY(java.lang.Double) <em>Set Y</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Set Y</em>' operation.
-	 * @see klang.SpriteActor#setY(java.lang.Double)
-	 * @generated
-	 */
-	EOperation getSpriteActor__SetY__Double();
-
-	/**
-	 * Returns the meta object for the '{@link klang.SpriteActor#setX(java.lang.Double) <em>Set X</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Set X</em>' operation.
-	 * @see klang.SpriteActor#setX(java.lang.Double)
-	 * @generated
-	 */
-	EOperation getSpriteActor__SetX__Double();
-
-	/**
-	 * Returns the meta object for the '{@link klang.SpriteActor#print(java.lang.Double) <em>Print</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Print</em>' operation.
-	 * @see klang.SpriteActor#print(java.lang.Double)
-	 * @generated
-	 */
-	EOperation getSpriteActor__Print__Double();
-
-	/**
-	 * Returns the meta object for the '{@link klang.SpriteActor#sleep(java.lang.Double) <em>Sleep</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Sleep</em>' operation.
-	 * @see klang.SpriteActor#sleep(java.lang.Double)
-	 * @generated
-	 */
-	EOperation getSpriteActor__Sleep__Double();
 
 	/**
 	 * Returns the meta object for class '{@link klang.EventHandler <em>Event Handler</em>}'.
@@ -3307,97 +3162,55 @@ public interface KlangPackage extends EPackage {
 	EAttribute getAbstractActor_Subject();
 
 	/**
-	 * Returns the meta object for the '{@link klang.AbstractActor#getSubtree() <em>Get Subtree</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Subtree</em>' operation.
-	 * @see klang.AbstractActor#getSubtree()
-	 * @generated
-	 */
-	EOperation getAbstractActor__GetSubtree();
-
-	/**
-	 * Returns the meta object for class '{@link klang.Scope <em>Scope</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Scope</em>'.
-	 * @see klang.Scope
-	 * @generated
-	 */
-	EClass getScope();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link klang.Scope#getLocalVariables <em>Local Variables</em>}'.
+	 * Returns the meta object for the containment reference list '{@link klang.AbstractActor#getLocalVariables <em>Local Variables</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Local Variables</em>'.
-	 * @see klang.Scope#getLocalVariables()
-	 * @see #getScope()
+	 * @see klang.AbstractActor#getLocalVariables()
+	 * @see #getAbstractActor()
 	 * @generated
 	 */
-	EReference getScope_LocalVariables();
+	EReference getAbstractActor_LocalVariables();
 
 	/**
-	 * Returns the meta object for the reference list '{@link klang.Scope#getChildren <em>Children</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Children</em>'.
-	 * @see klang.Scope#getChildren()
-	 * @see #getScope()
-	 * @generated
-	 */
-	EReference getScope_Children();
-
-	/**
-	 * Returns the meta object for the reference '{@link klang.Scope#getParent <em>Parent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Parent</em>'.
-	 * @see klang.Scope#getParent()
-	 * @see #getScope()
-	 * @generated
-	 */
-	EReference getScope_Parent();
-
-	/**
-	 * Returns the meta object for the '{@link klang.Scope#isInScope(java.lang.String) <em>Is In Scope</em>}' operation.
+	 * Returns the meta object for the '{@link klang.AbstractActor#isInScope(java.lang.String) <em>Is In Scope</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is In Scope</em>' operation.
-	 * @see klang.Scope#isInScope(java.lang.String)
+	 * @see klang.AbstractActor#isInScope(java.lang.String)
 	 * @generated
 	 */
-	EOperation getScope__IsInScope__String();
+	EOperation getAbstractActor__IsInScope__String();
 
 	/**
-	 * Returns the meta object for the '{@link klang.Scope#getVariableDeclaration(java.lang.String) <em>Get Variable Declaration</em>}' operation.
+	 * Returns the meta object for the '{@link klang.AbstractActor#getVariableDeclaration(java.lang.String) <em>Get Variable Declaration</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Variable Declaration</em>' operation.
-	 * @see klang.Scope#getVariableDeclaration(java.lang.String)
+	 * @see klang.AbstractActor#getVariableDeclaration(java.lang.String)
 	 * @generated
 	 */
-	EOperation getScope__GetVariableDeclaration__String();
+	EOperation getAbstractActor__GetVariableDeclaration__String();
 
 	/**
-	 * Returns the meta object for the '{@link klang.Scope#isInLocalScope(java.lang.String) <em>Is In Local Scope</em>}' operation.
+	 * Returns the meta object for the '{@link klang.AbstractActor#isInLocalScope(java.lang.String) <em>Is In Local Scope</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is In Local Scope</em>' operation.
-	 * @see klang.Scope#isInLocalScope(java.lang.String)
+	 * @see klang.AbstractActor#isInLocalScope(java.lang.String)
 	 * @generated
 	 */
-	EOperation getScope__IsInLocalScope__String();
+	EOperation getAbstractActor__IsInLocalScope__String();
 
 	/**
-	 * Returns the meta object for the '{@link klang.Scope#isInParentScope(java.lang.String) <em>Is In Parent Scope</em>}' operation.
+	 * Returns the meta object for the '{@link klang.AbstractActor#isInParentScope(java.lang.String) <em>Is In Parent Scope</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is In Parent Scope</em>' operation.
-	 * @see klang.Scope#isInParentScope(java.lang.String)
+	 * @see klang.AbstractActor#isInParentScope(java.lang.String)
 	 * @generated
 	 */
-	EOperation getScope__IsInParentScope__String();
+	EOperation getAbstractActor__IsInParentScope__String();
 
 	/**
 	 * Returns the meta object for class '{@link klang.Program <em>Program</em>}'.
@@ -3430,6 +3243,68 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProgram_SpriteActors();
+
+	/**
+	 * Returns the meta object for class '{@link klang.TreeNode <em>Tree Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Tree Node</em>'.
+	 * @see klang.TreeNode
+	 * @generated
+	 */
+	EClass getTreeNode();
+
+	/**
+	 * Returns the meta object for the reference list '{@link klang.TreeNode#getChildren <em>Children</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Children</em>'.
+	 * @see klang.TreeNode#getChildren()
+	 * @see #getTreeNode()
+	 * @generated
+	 */
+	EReference getTreeNode_Children();
+
+	/**
+	 * Returns the meta object for the reference '{@link klang.TreeNode#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Parent</em>'.
+	 * @see klang.TreeNode#getParent()
+	 * @see #getTreeNode()
+	 * @generated
+	 */
+	EReference getTreeNode_Parent();
+
+	/**
+	 * Returns the meta object for class '{@link klang.TreeTraversal <em>Tree Traversal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Tree Traversal</em>'.
+	 * @see klang.TreeTraversal
+	 * @generated
+	 */
+	EClass getTreeTraversal();
+
+	/**
+	 * Returns the meta object for the '{@link klang.TreeTraversal#BreadthFirst(klang.TreeNode) <em>Breadth First</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Breadth First</em>' operation.
+	 * @see klang.TreeTraversal#BreadthFirst(klang.TreeNode)
+	 * @generated
+	 */
+	EOperation getTreeTraversal__BreadthFirst__TreeNode();
+
+	/**
+	 * Returns the meta object for the '{@link klang.TreeTraversal#DepthFirst(klang.TreeNode) <em>Depth First</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Depth First</em>' operation.
+	 * @see klang.TreeTraversal#DepthFirst(klang.TreeNode)
+	 * @generated
+	 */
+	EOperation getTreeTraversal__DepthFirst__TreeNode();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -3491,7 +3366,7 @@ public interface KlangPackage extends EPackage {
 		EClass SPRITE_ACTOR = eINSTANCE.getSpriteActor();
 
 		/**
-		 * The meta object literal for the '<em><b>Program</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Program</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -3505,54 +3380,6 @@ public interface KlangPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SPRITE_ACTOR___PRINT__STRING = eINSTANCE.getSpriteActor__Print__String();
-
-		/**
-		 * The meta object literal for the '<em><b>Get X</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SPRITE_ACTOR___GET_X = eINSTANCE.getSpriteActor__GetX();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Y</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SPRITE_ACTOR___GET_Y = eINSTANCE.getSpriteActor__GetY();
-
-		/**
-		 * The meta object literal for the '<em><b>Set Y</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SPRITE_ACTOR___SET_Y__DOUBLE = eINSTANCE.getSpriteActor__SetY__Double();
-
-		/**
-		 * The meta object literal for the '<em><b>Set X</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SPRITE_ACTOR___SET_X__DOUBLE = eINSTANCE.getSpriteActor__SetX__Double();
-
-		/**
-		 * The meta object literal for the '<em><b>Print</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SPRITE_ACTOR___PRINT__DOUBLE = eINSTANCE.getSpriteActor__Print__Double();
-
-		/**
-		 * The meta object literal for the '<em><b>Sleep</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SPRITE_ACTOR___SLEEP__DOUBLE = eINSTANCE.getSpriteActor__Sleep__Double();
 
 		/**
 		 * The meta object literal for the '{@link klang.impl.EventHandlerImpl <em>Event Handler</em>}' class.
@@ -4181,46 +4008,12 @@ public interface KlangPackage extends EPackage {
 		EAttribute ABSTRACT_ACTOR__SUBJECT = eINSTANCE.getAbstractActor_Subject();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Subtree</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ABSTRACT_ACTOR___GET_SUBTREE = eINSTANCE.getAbstractActor__GetSubtree();
-
-		/**
-		 * The meta object literal for the '{@link klang.impl.ScopeImpl <em>Scope</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see klang.impl.ScopeImpl
-		 * @see klang.impl.KlangPackageImpl#getScope()
-		 * @generated
-		 */
-		EClass SCOPE = eINSTANCE.getScope();
-
-		/**
 		 * The meta object literal for the '<em><b>Local Variables</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SCOPE__LOCAL_VARIABLES = eINSTANCE.getScope_LocalVariables();
-
-		/**
-		 * The meta object literal for the '<em><b>Children</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SCOPE__CHILDREN = eINSTANCE.getScope_Children();
-
-		/**
-		 * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SCOPE__PARENT = eINSTANCE.getScope_Parent();
+		EReference ABSTRACT_ACTOR__LOCAL_VARIABLES = eINSTANCE.getAbstractActor_LocalVariables();
 
 		/**
 		 * The meta object literal for the '<em><b>Is In Scope</b></em>' operation.
@@ -4228,7 +4021,7 @@ public interface KlangPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SCOPE___IS_IN_SCOPE__STRING = eINSTANCE.getScope__IsInScope__String();
+		EOperation ABSTRACT_ACTOR___IS_IN_SCOPE__STRING = eINSTANCE.getAbstractActor__IsInScope__String();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Variable Declaration</b></em>' operation.
@@ -4236,7 +4029,7 @@ public interface KlangPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SCOPE___GET_VARIABLE_DECLARATION__STRING = eINSTANCE.getScope__GetVariableDeclaration__String();
+		EOperation ABSTRACT_ACTOR___GET_VARIABLE_DECLARATION__STRING = eINSTANCE.getAbstractActor__GetVariableDeclaration__String();
 
 		/**
 		 * The meta object literal for the '<em><b>Is In Local Scope</b></em>' operation.
@@ -4244,7 +4037,7 @@ public interface KlangPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SCOPE___IS_IN_LOCAL_SCOPE__STRING = eINSTANCE.getScope__IsInLocalScope__String();
+		EOperation ABSTRACT_ACTOR___IS_IN_LOCAL_SCOPE__STRING = eINSTANCE.getAbstractActor__IsInLocalScope__String();
 
 		/**
 		 * The meta object literal for the '<em><b>Is In Parent Scope</b></em>' operation.
@@ -4252,7 +4045,7 @@ public interface KlangPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SCOPE___IS_IN_PARENT_SCOPE__STRING = eINSTANCE.getScope__IsInParentScope__String();
+		EOperation ABSTRACT_ACTOR___IS_IN_PARENT_SCOPE__STRING = eINSTANCE.getAbstractActor__IsInParentScope__String();
 
 		/**
 		 * The meta object literal for the '{@link klang.impl.ProgramImpl <em>Program</em>}' class.
@@ -4279,6 +4072,58 @@ public interface KlangPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROGRAM__SPRITE_ACTORS = eINSTANCE.getProgram_SpriteActors();
+
+		/**
+		 * The meta object literal for the '{@link klang.TreeNode <em>Tree Node</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klang.TreeNode
+		 * @see klang.impl.KlangPackageImpl#getTreeNode()
+		 * @generated
+		 */
+		EClass TREE_NODE = eINSTANCE.getTreeNode();
+
+		/**
+		 * The meta object literal for the '<em><b>Children</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TREE_NODE__CHILDREN = eINSTANCE.getTreeNode_Children();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TREE_NODE__PARENT = eINSTANCE.getTreeNode_Parent();
+
+		/**
+		 * The meta object literal for the '{@link klang.impl.TreeTraversalImpl <em>Tree Traversal</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klang.impl.TreeTraversalImpl
+		 * @see klang.impl.KlangPackageImpl#getTreeTraversal()
+		 * @generated
+		 */
+		EClass TREE_TRAVERSAL = eINSTANCE.getTreeTraversal();
+
+		/**
+		 * The meta object literal for the '<em><b>Breadth First</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TREE_TRAVERSAL___BREADTH_FIRST__TREENODE = eINSTANCE.getTreeTraversal__BreadthFirst__TreeNode();
+
+		/**
+		 * The meta object literal for the '<em><b>Depth First</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TREE_TRAVERSAL___DEPTH_FIRST__TREENODE = eINSTANCE.getTreeTraversal__DepthFirst__TreeNode();
 
 	}
 

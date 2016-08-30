@@ -163,6 +163,10 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 				return createVariableReferenceAdapter();
 			}
 			@Override
+			public Adapter caseAbstractActor(AbstractActor object) {
+				return createAbstractActorAdapter();
+			}
+			@Override
 			public Adapter caseUnaryOperator(UnaryOperator object) {
 				return createUnaryOperatorAdapter();
 			}
@@ -219,16 +223,16 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 				return createToIntAdapter();
 			}
 			@Override
-			public <A extends AbstractActor<?>> Adapter caseAbstractActor(AbstractActor<A> object) {
-				return createAbstractActorAdapter();
-			}
-			@Override
-			public <S extends Scope<?>> Adapter caseScope(Scope<S> object) {
-				return createScopeAdapter();
-			}
-			@Override
 			public Adapter caseProgram(Program object) {
 				return createProgramAdapter();
+			}
+			@Override
+			public <T extends TreeNode<T>> Adapter caseTreeNode(TreeNode<T> object) {
+				return createTreeNodeAdapter();
+			}
+			@Override
+			public Adapter caseTreeTraversal(TreeTraversal object) {
+				return createTreeTraversalAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -545,20 +549,6 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link klang.Scope <em>Scope</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see klang.Scope
-	 * @generated
-	 */
-	public Adapter createScopeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link klang.Program <em>Program</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -569,6 +559,34 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProgramAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link klang.TreeNode <em>Tree Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klang.TreeNode
+	 * @generated
+	 */
+	public Adapter createTreeNodeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link klang.TreeTraversal <em>Tree Traversal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klang.TreeTraversal
+	 * @generated
+	 */
+	public Adapter createTreeTraversalAdapter() {
 		return null;
 	}
 

@@ -22,5 +22,5 @@ public interface AbstractElement extends EObject {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	AbstractActor<?> getActor();
+	AbstractActor getActor();
 } // AbstractElement
