@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="core" nsURI="http://www.example.org/core" nsPrefix="core">
+  <eClassifiers xsi:type="ecore:EClass" name="TreeNode" abstract="true" interface="true">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="#//TreeNode">
+        <eTypeArguments eTypeParameter="#//TreeNode/T"/>
+      </eBounds>
+    </eTypeParameters>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" changeable="false"
+        volatile="true" transient="true" unsettable="true" derived="true" resolveProxies="false">
+      <eGenericType eTypeParameter="#//TreeNode/T"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        changeable="false" volatile="true" transient="true" unsettable="true" derived="true"
+        resolveProxies="false">
+      <eGenericType eTypeParameter="#//TreeNode/T"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Actor">
+    <eOperations name="isInScope" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="variableName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="isInLocalScope" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="variableName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="isInParentScope" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="variableName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="subject" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eventHandlers" upperBound="-1"
+        eType="#//EventHandler" containment="true" eOpposite="#//EventHandler/actor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="localVariables" upperBound="-1"
+        eType="#//VariableDeclaration" containment="true"/>
+    <eGenericSuperTypes eClassifier="#//TreeNode">
+      <eTypeArguments eClassifier="#//Actor"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Statement" abstract="true" eSuperTypes="#//AbstractElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true" eSuperTypes="#//AbstractElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EventHandler" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" eType="#//Actor"
+        changeable="false" eOpposite="#//Actor/eventHandlers"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statements" upperBound="-1"
+        eType="#//Statement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VariableDeclaration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="variableName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractElement">
+    <eOperations name="getActor" eType="#//Actor"/>
+  </eClassifiers>
+</ecore:EPackage>

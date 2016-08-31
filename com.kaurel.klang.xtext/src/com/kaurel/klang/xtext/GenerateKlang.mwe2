@@ -32,6 +32,7 @@ Workflow {
 			name = "com.kaurel.klang.xtext.Klang"
 			fileExtensions = "klang"
 			referencedResource = "platform:/resource/com.kaurel.klang.model/model/klang.genmodel"
+			referencedResource = "platform:/resource/com.kaurel.klang.core/model/core.genmodel"
 			
 			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
 
