@@ -8,4 +8,5 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: com.kaurel.klang.xtext;bundle-version="1.0.0",
  org.eclipse.xtext,
  com.kaurel.klang.model;bundle-version="0.1.0"
-Export-Package: com.kaurel.klang.runtime
+Export-Package: com.kaurel.klang.runtime,
+ com.kaurel.klang.runtime.events

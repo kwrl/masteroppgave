@@ -2,6 +2,8 @@
  */
 package klang.tests;
 
+import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
 
 import klang.KlangFactory;
@@ -13,7 +15,15 @@ import klang.VariableDeclaration;
  * <!-- end-user-doc -->
  * @generated
  */
-public class VariableDeclarationTest extends AbstractElementTest {
+public class VariableDeclarationTest extends TestCase {
+
+	/**
+	 * The fixture for this Variable Declaration test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VariableDeclaration fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -35,14 +45,23 @@ public class VariableDeclarationTest extends AbstractElementTest {
 	}
 
 	/**
+	 * Sets the fixture for this Variable Declaration test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(VariableDeclaration fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
 	 * Returns the fixture for this Variable Declaration test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	protected VariableDeclaration getFixture() {
-		return (VariableDeclaration)fixture;
+		return fixture;
 	}
 
 	/**

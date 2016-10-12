@@ -2,6 +2,7 @@
  */
 package klang.presentation;
 
+import klangexpr.provider.KlangexprEditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
@@ -40,6 +41,7 @@ public final class KlangEditorPlugin extends EMFPlugin {
 	public KlangEditorPlugin() {
 		super
 			(new ResourceLocator [] {
+				KlangexprEditPlugin.INSTANCE,
 			});
 	}
 

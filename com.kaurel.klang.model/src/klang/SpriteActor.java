@@ -56,4 +56,12 @@ public interface SpriteActor extends AbstractActor {
 	 * @generated
 	 */
 	void print(String message);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void setColor(Double red, Double green, Double blue);
 } // SpriteActor

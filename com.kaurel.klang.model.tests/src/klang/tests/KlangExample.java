@@ -4,9 +4,10 @@ package klang.tests;
 
 import java.io.File;
 import java.io.IOException;
-import klang.SceneActor;
+
 import klang.KlangFactory;
 import klang.KlangPackage;
+import klang.SceneActor;
 
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;

@@ -8,19 +8,18 @@ import com.kaurel.klang.runtime.ExpressionEvaluator;
 import com.kaurel.klang.runtime.ExpressionEvaluatorImpl;
 
 import klang.AbstractActor;
-import klang.Expression;
-import klang.ForeverLoop;
-import klang.If;
-import klang.KlangFactory;
-import klang.Sleep;
-import klang.Statement;
-import klang.VariableAssignment;
-import klang.VariableDeclaration;
-import klang.WhileLoop;
-import klang.Yield;
-import klang.util.KlangSwitch;
+import klangexpr.Expression;
+import klangexpr.ForeverLoop;
+import klangexpr.If;
+import klangexpr.KlangexprFactory;
+import klangexpr.Sleep;
+import klangexpr.Statement;
+import klangexpr.VariableAssignment;
+import klangexpr.WhileLoop;
+import klangexpr.Yield;
+import klangexpr.util.KlangexprSwitch;
 
-public class KlangThread extends KlangSwitch<Object> {
+public class KlangThread extends KlangexprSwitch<Object> {
 	private final ExpressionEvaluator expressionEvaluator;
 	private final AbstractActor actor;
 
@@ -64,17 +63,11 @@ public class KlangThread extends KlangSwitch<Object> {
 	}
 
 	@Override
-	public Void caseVariableDeclaration(VariableDeclaration object) {
-		object.setValue(expressionEvaluator.evaluate(object.getExpression()));
-		return null;
-	}
-
-	@Override
 	public Void caseWhileLoop(WhileLoop object) {
 		if (expressionEvaluator.evaluateBoolean(object.getPredicate())) {
 			queue.addFirst(object);
-			queue.addFirst(KlangFactory.eINSTANCE.createYield());
-			queue.addAll(0, object.getLoopBlock());
+			queue.addFirst(KlangexprFactory.eINSTANCE.createYield());
+			queue.addAll(0, object.getStatements());
 		}
 		return null;
 	}
@@ -82,8 +75,8 @@ public class KlangThread extends KlangSwitch<Object> {
 	@Override
 	public Void caseForeverLoop(ForeverLoop object) {
 		queue.addFirst(object);
-		queue.addFirst(KlangFactory.eINSTANCE.createYield());
-		queue.addAll(0, object.getLoopStatements());
+		queue.addFirst(KlangexprFactory.eINSTANCE.createYield());
+		queue.addAll(0, object.getStatements());
 		return null;
 	}
 

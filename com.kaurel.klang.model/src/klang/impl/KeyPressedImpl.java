@@ -3,6 +3,7 @@
 package klang.impl;
 
 import klang.KeyPressed;
+import klang.Keys;
 import klang.KlangPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -33,7 +34,7 @@ public class KeyPressedImpl extends EventHandlerImpl implements KeyPressed {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String KEY_EDEFAULT = null;
+	protected static final Keys KEY_EDEFAULT = Keys.A;
 
 	/**
 	 * The cached value of the '{@link #getKey() <em>Key</em>}' attribute.
@@ -43,7 +44,7 @@ public class KeyPressedImpl extends EventHandlerImpl implements KeyPressed {
 	 * @generated
 	 * @ordered
 	 */
-	protected String key = KEY_EDEFAULT;
+	protected Keys key = KEY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -69,7 +70,7 @@ public class KeyPressedImpl extends EventHandlerImpl implements KeyPressed {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getKey() {
+	public Keys getKey() {
 		return key;
 	}
 
@@ -78,9 +79,9 @@ public class KeyPressedImpl extends EventHandlerImpl implements KeyPressed {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setKey(String newKey) {
-		String oldKey = key;
-		key = newKey;
+	public void setKey(Keys newKey) {
+		Keys oldKey = key;
+		key = newKey == null ? KEY_EDEFAULT : newKey;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, KlangPackage.KEY_PRESSED__KEY, oldKey, key));
 	}
@@ -108,7 +109,7 @@ public class KeyPressedImpl extends EventHandlerImpl implements KeyPressed {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case KlangPackage.KEY_PRESSED__KEY:
-				setKey((String)newValue);
+				setKey((Keys)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -138,7 +139,7 @@ public class KeyPressedImpl extends EventHandlerImpl implements KeyPressed {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case KlangPackage.KEY_PRESSED__KEY:
-				return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
+				return key != KEY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -108,6 +108,17 @@ public class SpriteActorImpl extends AbstractActorImpl implements SpriteActor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void setColor(Double red, Double green, Double blue) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -215,6 +226,9 @@ public class SpriteActorImpl extends AbstractActorImpl implements SpriteActor {
 		switch (operationID) {
 			case KlangPackage.SPRITE_ACTOR___PRINT__STRING:
 				print((String)arguments.get(0));
+				return null;
+			case KlangPackage.SPRITE_ACTOR___SET_COLOR__DOUBLE_DOUBLE_DOUBLE:
+				setColor((Double)arguments.get(0), (Double)arguments.get(1), (Double)arguments.get(2));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

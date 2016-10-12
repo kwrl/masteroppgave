@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -207,7 +206,7 @@ public abstract class AbstractActorImpl extends MinimalEObjectImpl.Container imp
 	 */
 	public EList<VariableDeclaration> getLocalVariables() {
 		if (localVariables == null) {
-			localVariables = new EObjectContainmentEList<VariableDeclaration>(VariableDeclaration.class, this, KlangPackage.ABSTRACT_ACTOR__LOCAL_VARIABLES);
+			localVariables = new EObjectContainmentWithInverseEList<VariableDeclaration>(VariableDeclaration.class, this, KlangPackage.ABSTRACT_ACTOR__LOCAL_VARIABLES, KlangPackage.VARIABLE_DECLARATION__ACTOR);
 		}
 		return localVariables;
 	}
@@ -265,12 +264,25 @@ public abstract class AbstractActorImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Double random() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case KlangPackage.ABSTRACT_ACTOR__EVENT_HANDLERS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getEventHandlers()).basicAdd(otherEnd, msgs);
+			case KlangPackage.ABSTRACT_ACTOR__LOCAL_VARIABLES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getLocalVariables()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -406,6 +418,8 @@ public abstract class AbstractActorImpl extends MinimalEObjectImpl.Container imp
 				return isInLocalScope((String)arguments.get(0));
 			case KlangPackage.ABSTRACT_ACTOR___IS_IN_PARENT_SCOPE__STRING:
 				return isInParentScope((String)arguments.get(0));
+			case KlangPackage.ABSTRACT_ACTOR___RANDOM:
+				return random();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

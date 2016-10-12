@@ -2,7 +2,7 @@ package com.kaurel.klang.runtime;
 
 import java.util.List;
 
-import klang.Expression;
+import klangexpr.Expression;
 
 public interface ExpressionEvaluator {
 	public Object evaluate(Expression expression);

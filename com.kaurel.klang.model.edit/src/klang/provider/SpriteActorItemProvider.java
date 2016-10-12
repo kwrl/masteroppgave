@@ -8,6 +8,7 @@ import java.util.List;
 
 import klang.KlangPackage;
 import klang.SpriteActor;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 

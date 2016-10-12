@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.List;
 
 import klang.KeyPressed;
+import klang.Keys;
 import klang.KlangPackage;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -91,7 +92,8 @@ public class KeyPressedItemProvider extends EventHandlerItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((KeyPressed)object).getKey();
+		Keys labelValue = ((KeyPressed)object).getKey();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_KeyPressed_type") :
 			getString("_UI_KeyPressed_type") + " " + label;

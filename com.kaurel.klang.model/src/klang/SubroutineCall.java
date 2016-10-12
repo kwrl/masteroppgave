@@ -4,6 +4,9 @@ package klang;
 
 import org.eclipse.emf.common.util.EList;
 
+import klangexpr.Expression;
+import klangexpr.Statement;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Subroutine Call</b></em>'.
@@ -50,7 +53,7 @@ public interface SubroutineCall extends Statement {
 
 	/**
 	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
-	 * The list contents are of type {@link klang.Expression}.
+	 * The list contents are of type {@link klangexpr.Expression}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,

@@ -2,10 +2,11 @@
  */
 package klang.impl;
 
-import klang.Expression;
+import klang.AbstractActor;
 import klang.KlangPackage;
 import klang.VariableDeclaration;
 
+import klangexpr.Expression;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -13,6 +14,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,11 +28,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link klang.impl.VariableDeclarationImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link klang.impl.VariableDeclarationImpl#getName <em>Name</em>}</li>
  *   <li>{@link klang.impl.VariableDeclarationImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link klang.impl.VariableDeclarationImpl#getActor <em>Actor</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class VariableDeclarationImpl extends AbstractElementImpl implements VariableDeclaration {
+public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implements VariableDeclaration {
 	/**
 	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -189,13 +193,86 @@ public class VariableDeclarationImpl extends AbstractElementImpl implements Vari
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public AbstractActor getActor() {
+		if (eContainerFeatureID() != KlangPackage.VARIABLE_DECLARATION__ACTOR) return null;
+		return (AbstractActor)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetActor(AbstractActor newActor, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newActor, KlangPackage.VARIABLE_DECLARATION__ACTOR, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setActor(AbstractActor newActor) {
+		if (newActor != eInternalContainer() || (eContainerFeatureID() != KlangPackage.VARIABLE_DECLARATION__ACTOR && newActor != null)) {
+			if (EcoreUtil.isAncestor(this, newActor))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newActor != null)
+				msgs = ((InternalEObject)newActor).eInverseAdd(this, KlangPackage.ABSTRACT_ACTOR__LOCAL_VARIABLES, AbstractActor.class, msgs);
+			msgs = basicSetActor(newActor, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, KlangPackage.VARIABLE_DECLARATION__ACTOR, newActor, newActor));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case KlangPackage.VARIABLE_DECLARATION__ACTOR:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetActor((AbstractActor)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case KlangPackage.VARIABLE_DECLARATION__EXPRESSION:
 				return basicSetExpression(null, msgs);
+			case KlangPackage.VARIABLE_DECLARATION__ACTOR:
+				return basicSetActor(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case KlangPackage.VARIABLE_DECLARATION__ACTOR:
+				return eInternalContainer().eInverseRemove(this, KlangPackage.ABSTRACT_ACTOR__LOCAL_VARIABLES, AbstractActor.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -212,6 +289,8 @@ public class VariableDeclarationImpl extends AbstractElementImpl implements Vari
 				return getName();
 			case KlangPackage.VARIABLE_DECLARATION__VALUE:
 				return getValue();
+			case KlangPackage.VARIABLE_DECLARATION__ACTOR:
+				return getActor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -232,6 +311,9 @@ public class VariableDeclarationImpl extends AbstractElementImpl implements Vari
 				return;
 			case KlangPackage.VARIABLE_DECLARATION__VALUE:
 				setValue(newValue);
+				return;
+			case KlangPackage.VARIABLE_DECLARATION__ACTOR:
+				setActor((AbstractActor)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -254,6 +336,9 @@ public class VariableDeclarationImpl extends AbstractElementImpl implements Vari
 			case KlangPackage.VARIABLE_DECLARATION__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
+			case KlangPackage.VARIABLE_DECLARATION__ACTOR:
+				setActor((AbstractActor)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -272,6 +357,8 @@ public class VariableDeclarationImpl extends AbstractElementImpl implements Vari
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case KlangPackage.VARIABLE_DECLARATION__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+			case KlangPackage.VARIABLE_DECLARATION__ACTOR:
+				return getActor() != null;
 		}
 		return super.eIsSet(featureID);
 	}

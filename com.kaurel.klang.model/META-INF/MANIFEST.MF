@@ -10,7 +10,11 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: klang,
  klang.impl,
- klang.util
+ klang.util,
+ klangexpr,
+ klangexpr.impl,
+ klangexpr.util
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport,
+ com.kaurel.klang.model;visibility:=reexport
 Bundle-ActivationPolicy: lazy

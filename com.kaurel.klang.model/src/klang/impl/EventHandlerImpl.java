@@ -6,7 +6,8 @@ import java.util.Collection;
 import klang.AbstractActor;
 import klang.EventHandler;
 import klang.KlangPackage;
-import klang.Statement;
+import klangexpr.Statement;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -32,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class EventHandlerImpl extends MinimalEObjectImpl.Container implements EventHandler {
+public abstract class EventHandlerImpl extends MinimalEObjectImpl.Container implements EventHandler {
 	/**
 	 * The cached value of the '{@link #getStatements() <em>Statements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

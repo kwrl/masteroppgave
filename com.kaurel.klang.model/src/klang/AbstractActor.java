@@ -97,6 +97,7 @@ public interface AbstractActor extends TreeNode<AbstractActor> {
 	/**
 	 * Returns the value of the '<em><b>Local Variables</b></em>' containment reference list.
 	 * The list contents are of type {@link klang.VariableDeclaration}.
+	 * It is bidirectional and its opposite is '{@link klang.VariableDeclaration#getActor <em>Actor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Local Variables</em>' containment reference list isn't clear,
@@ -105,7 +106,8 @@ public interface AbstractActor extends TreeNode<AbstractActor> {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Local Variables</em>' containment reference list.
 	 * @see klang.KlangPackage#getAbstractActor_LocalVariables()
-	 * @model containment="true"
+	 * @see klang.VariableDeclaration#getActor
+	 * @model opposite="actor" containment="true"
 	 * @generated
 	 */
 	EList<VariableDeclaration> getLocalVariables();
@@ -141,5 +143,13 @@ public interface AbstractActor extends TreeNode<AbstractActor> {
 	 * @generated
 	 */
 	boolean isInParentScope(String variableName);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Double random();
 
 } // AbstractActor

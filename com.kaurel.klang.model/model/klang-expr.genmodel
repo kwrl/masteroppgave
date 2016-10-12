@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.kaurel.klang.model/src" modelPluginID="com.kaurel.klang.model"
+    modelName="Klang-expr" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>klang-expr.ecore</foreignModel>
+  <genPackages prefix="Klangexpr" disposableProviderFactory="true" ecorePackage="klang-expr.ecore#/">
+    <genClasses ecoreClass="klang-expr.ecore#//WhileLoop">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang-expr.ecore#//WhileLoop/predicate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang-expr.ecore#//WhileLoop/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="klang-expr.ecore#//If">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang-expr.ecore#//If/predicate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang-expr.ecore#//If/ifBlock"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang-expr.ecore#//If/elseBlock"/>
+    </genClasses>
+    <genClasses ecoreClass="klang-expr.ecore#//ForeverLoop">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang-expr.ecore#//ForeverLoop/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="klang-expr.ecore#//Yield"/>
+    <genClasses ecoreClass="klang-expr.ecore#//VariableDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang-expr.ecore#//VariableDeclaration/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang-expr.ecore#//VariableDeclaration/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang-expr.ecore#//VariableDeclaration/value"/>
+    </genClasses>
+    <genClasses ecoreClass="klang-expr.ecore#//VariableAssignment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang-expr.ecore#//VariableAssignment/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang-expr.ecore#//VariableAssignment/variableName"/>
+    </genClasses>
+    <genClasses ecoreClass="klang-expr.ecore#//Expression"/>
+    <genClasses ecoreClass="klang-expr.ecore#//Or"/>
+    <genClasses ecoreClass="klang-expr.ecore#//And"/>
+    <genClasses ecoreClass="klang-expr.ecore#//Plus"/>
+    <genClasses ecoreClass="klang-expr.ecore#//Minus"/>
+    <genClasses ecoreClass="klang-expr.ecore#//Multiply"/>
+    <genClasses ecoreClass="klang-expr.ecore#//Divide"/>
+    <genClasses ecoreClass="klang-expr.ecore#//LessThan"/>
+    <genClasses ecoreClass="klang-expr.ecore#//Equal"/>
+    <genClasses ecoreClass="klang-expr.ecore#//GreaterThan"/>
+    <genClasses ecoreClass="klang-expr.ecore#//Not"/>
+    <genClasses ecoreClass="klang-expr.ecore#//BooleanLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang-expr.ecore#//BooleanLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="klang-expr.ecore#//DoubleLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang-expr.ecore#//DoubleLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="klang-expr.ecore#//StringLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang-expr.ecore#//StringLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="klang-expr.ecore#//VariableReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang-expr.ecore#//VariableReference/variableName"/>
+    </genClasses>
+    <genClasses ecoreClass="klang-expr.ecore#//UnaryOperator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang-expr.ecore#//UnaryOperator/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="klang-expr.ecore#//BinaryOperator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang-expr.ecore#//BinaryOperator/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang-expr.ecore#//BinaryOperator/right"/>
+    </genClasses>
+    <genClasses ecoreClass="klang-expr.ecore#//FunctionCall">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang-expr.ecore#//FunctionCall/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang-expr.ecore#//FunctionCall/parameters"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="klang-expr.ecore#//Statement"/>
+    <genClasses image="false" ecoreClass="klang-expr.ecore#//AbstractElement">
+      <genOperations ecoreOperation="klang-expr.ecore#//AbstractElement/getActor"/>
+    </genClasses>
+    <genClasses ecoreClass="klang-expr.ecore#//IntegerLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang-expr.ecore#//IntegerLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="klang-expr.ecore#//UnaryMinus"/>
+    <genClasses ecoreClass="klang-expr.ecore#//ToDouble"/>
+    <genClasses ecoreClass="klang-expr.ecore#//ToInt"/>
+    <genClasses image="false" ecoreClass="klang-expr.ecore#//Operator"/>
+  </genPackages>
+</genmodel:GenModel>

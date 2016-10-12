@@ -2,6 +2,8 @@
  */
 package klang.provider;
 
+import klangexpr.provider.KlangexprEditPlugin;
+
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -38,6 +40,7 @@ public final class KlangEditPlugin extends EMFPlugin {
 	public KlangEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     KlangexprEditPlugin.INSTANCE,
 		   });
 	}
 

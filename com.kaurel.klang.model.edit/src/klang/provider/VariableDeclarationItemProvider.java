@@ -6,18 +6,26 @@ package klang.provider;
 import java.util.Collection;
 import java.util.List;
 
-import klang.KlangFactory;
 import klang.KlangPackage;
 import klang.VariableDeclaration;
 
+import klangexpr.KlangexprFactory;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -26,7 +34,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class VariableDeclarationItemProvider extends AbstractElementItemProvider {
+public class VariableDeclarationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -191,112 +199,123 @@ public class VariableDeclarationItemProvider extends AbstractElementItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE_DECLARATION__EXPRESSION,
-				 KlangFactory.eINSTANCE.createExpression()));
+				 KlangexprFactory.eINSTANCE.createExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE_DECLARATION__EXPRESSION,
-				 KlangFactory.eINSTANCE.createBinaryOperator()));
+				 KlangexprFactory.eINSTANCE.createBinaryOperator()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE_DECLARATION__EXPRESSION,
-				 KlangFactory.eINSTANCE.createOr()));
+				 KlangexprFactory.eINSTANCE.createOr()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE_DECLARATION__EXPRESSION,
-				 KlangFactory.eINSTANCE.createAnd()));
+				 KlangexprFactory.eINSTANCE.createAnd()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE_DECLARATION__EXPRESSION,
-				 KlangFactory.eINSTANCE.createPlus()));
+				 KlangexprFactory.eINSTANCE.createPlus()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE_DECLARATION__EXPRESSION,
-				 KlangFactory.eINSTANCE.createMinus()));
+				 KlangexprFactory.eINSTANCE.createMinus()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE_DECLARATION__EXPRESSION,
-				 KlangFactory.eINSTANCE.createMultiply()));
+				 KlangexprFactory.eINSTANCE.createMultiply()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE_DECLARATION__EXPRESSION,
-				 KlangFactory.eINSTANCE.createDivide()));
+				 KlangexprFactory.eINSTANCE.createDivide()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE_DECLARATION__EXPRESSION,
-				 KlangFactory.eINSTANCE.createLessThan()));
+				 KlangexprFactory.eINSTANCE.createLessThan()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE_DECLARATION__EXPRESSION,
-				 KlangFactory.eINSTANCE.createEqual()));
+				 KlangexprFactory.eINSTANCE.createEqual()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE_DECLARATION__EXPRESSION,
-				 KlangFactory.eINSTANCE.createGreaterThan()));
+				 KlangexprFactory.eINSTANCE.createGreaterThan()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE_DECLARATION__EXPRESSION,
-				 KlangFactory.eINSTANCE.createUnaryOperator()));
+				 KlangexprFactory.eINSTANCE.createUnaryOperator()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE_DECLARATION__EXPRESSION,
-				 KlangFactory.eINSTANCE.createNot()));
+				 KlangexprFactory.eINSTANCE.createNot()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE_DECLARATION__EXPRESSION,
-				 KlangFactory.eINSTANCE.createBooleanLiteral()));
+				 KlangexprFactory.eINSTANCE.createBooleanLiteral()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE_DECLARATION__EXPRESSION,
-				 KlangFactory.eINSTANCE.createDoubleLiteral()));
+				 KlangexprFactory.eINSTANCE.createDoubleLiteral()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE_DECLARATION__EXPRESSION,
-				 KlangFactory.eINSTANCE.createStringLiteral()));
+				 KlangexprFactory.eINSTANCE.createStringLiteral()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE_DECLARATION__EXPRESSION,
-				 KlangFactory.eINSTANCE.createVariableReference()));
+				 KlangexprFactory.eINSTANCE.createVariableReference()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE_DECLARATION__EXPRESSION,
-				 KlangFactory.eINSTANCE.createFunctionCall()));
+				 KlangexprFactory.eINSTANCE.createFunctionCall()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE_DECLARATION__EXPRESSION,
-				 KlangFactory.eINSTANCE.createIntegerLiteral()));
+				 KlangexprFactory.eINSTANCE.createIntegerLiteral()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE_DECLARATION__EXPRESSION,
-				 KlangFactory.eINSTANCE.createUnaryMinus()));
+				 KlangexprFactory.eINSTANCE.createUnaryMinus()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE_DECLARATION__EXPRESSION,
-				 KlangFactory.eINSTANCE.createToDouble()));
+				 KlangexprFactory.eINSTANCE.createToDouble()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE_DECLARATION__EXPRESSION,
-				 KlangFactory.eINSTANCE.createToInt()));
+				 KlangexprFactory.eINSTANCE.createToInt()));
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return KlangEditPlugin.INSTANCE;
 	}
 
 }

@@ -9,8 +9,21 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated klang -->
       <factory
-            uri="http://www.example.org/klang"
+            uri="platform:/plugin/com.kaurel.klang.model/model/klang.ecore"
             class="klang.provider.KlangItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated klang-expr -->
+      <factory
+            uri="platform:/plugin/com.kaurel.klang.model/model/klang-expr.ecore"
+            class="klangexpr.provider.KlangexprItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

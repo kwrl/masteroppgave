@@ -7,8 +7,9 @@ import java.util.Collection;
 import java.util.List;
 
 import klang.EventHandler;
-import klang.KlangFactory;
 import klang.KlangPackage;
+
+import klangexpr.KlangexprFactory;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -16,6 +17,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -150,37 +152,37 @@ public class EventHandlerItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.EVENT_HANDLER__STATEMENTS,
-				 KlangFactory.eINSTANCE.createWhileLoop()));
+				 KlangexprFactory.eINSTANCE.createWhileLoop()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.EVENT_HANDLER__STATEMENTS,
-				 KlangFactory.eINSTANCE.createIf()));
+				 KlangexprFactory.eINSTANCE.createIf()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.EVENT_HANDLER__STATEMENTS,
-				 KlangFactory.eINSTANCE.createForeverLoop()));
+				 KlangexprFactory.eINSTANCE.createForeverLoop()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.EVENT_HANDLER__STATEMENTS,
-				 KlangFactory.eINSTANCE.createYield()));
+				 KlangexprFactory.eINSTANCE.createYield()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.EVENT_HANDLER__STATEMENTS,
-				 KlangFactory.eINSTANCE.createVariableAssignment()));
+				 KlangexprFactory.eINSTANCE.createVariableAssignment()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.EVENT_HANDLER__STATEMENTS,
-				 KlangFactory.eINSTANCE.createFunctionCall()));
+				 KlangexprFactory.eINSTANCE.createFunctionCall()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.EVENT_HANDLER__STATEMENTS,
-				 KlangFactory.eINSTANCE.createSleep()));
+				 KlangexprFactory.eINSTANCE.createSleep()));
 	}
 
 	/**

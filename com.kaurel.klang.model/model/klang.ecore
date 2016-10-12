@@ -5,7 +5,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     name="klang"
-    nsURI="http://www.example.org/klang"
+    nsURI="platform:/plugin/com.kaurel.klang.model/model/klang.ecore"
     nsPrefix="klang">
   <eClassifiers
       xsi:type="ecore:EClass"
@@ -35,6 +35,18 @@
           lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
+    <eOperations
+        name="setColor">
+      <eParameters
+          name="red"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+      <eParameters
+          name="green"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+      <eParameters
+          name="blue"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+    </eOperations>
     <eStructuralFeatures
         xsi:type="ecore:EReference"
         name="program"
@@ -43,12 +55,13 @@
   </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"
-      name="EventHandler">
+      name="EventHandler"
+      abstract="true">
     <eStructuralFeatures
         xsi:type="ecore:EReference"
         name="statements"
         upperBound="-1"
-        eType="#//Statement"
+        eType="ecore:EClass klang-expr.ecore#//Statement"
         containment="true"/>
     <eStructuralFeatures
         xsi:type="ecore:EReference"
@@ -60,61 +73,7 @@
   </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"
-      name="WhileLoop"
-      eSuperTypes="#//Statement">
-    <eStructuralFeatures
-        xsi:type="ecore:EReference"
-        name="predicate"
-        eType="#//Expression"
-        containment="true"/>
-    <eStructuralFeatures
-        xsi:type="ecore:EReference"
-        name="loopBlock"
-        upperBound="-1"
-        eType="#//Statement"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="If"
-      eSuperTypes="#//Statement">
-    <eStructuralFeatures
-        xsi:type="ecore:EReference"
-        name="predicate"
-        eType="#//Expression"
-        containment="true"/>
-    <eStructuralFeatures
-        xsi:type="ecore:EReference"
-        name="ifBlock"
-        upperBound="-1"
-        eType="#//Statement"
-        containment="true"/>
-    <eStructuralFeatures
-        xsi:type="ecore:EReference"
-        name="elseBlock"
-        upperBound="-1"
-        eType="#//Statement"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="ForeverLoop"
-      eSuperTypes="#//Statement">
-    <eStructuralFeatures
-        xsi:type="ecore:EReference"
-        name="loopStatements"
-        upperBound="-1"
-        eType="#//Statement"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="Yield"
-      eSuperTypes="#//Statement"/>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="VariableDeclaration"
-      eSuperTypes="#//AbstractElement">
+      name="VariableDeclaration">
     <eAnnotations
         source="http://www.eclipse.org/emf/2002/Ecore">
       <details
@@ -124,7 +83,7 @@
     <eStructuralFeatures
         xsi:type="ecore:EReference"
         name="expression"
-        eType="#//Expression"
+        eType="ecore:EClass klang-expr.ecore#//Expression"
         containment="true"/>
     <eStructuralFeatures
         xsi:type="ecore:EAttribute"
@@ -135,126 +94,11 @@
         name="value"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
         transient="true"/>
-  </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="VariableAssignment"
-      eSuperTypes="#//Statement">
-    <eAnnotations
-        source="http://www.eclipse.org/emf/2002/Ecore">
-      <details
-          key="constraints"
-          value="scope type&#xA;"/>
-    </eAnnotations>
     <eStructuralFeatures
         xsi:type="ecore:EReference"
-        name="expression"
-        eType="#//Expression"
-        containment="true"/>
-    <eStructuralFeatures
-        xsi:type="ecore:EAttribute"
-        name="variableName"
-        lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="Expression"
-      eSuperTypes="#//AbstractElement"/>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="Or"
-      eSuperTypes="#//BinaryOperator"/>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="And"
-      eSuperTypes="#//BinaryOperator"/>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="Plus"
-      eSuperTypes="#//BinaryOperator"/>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="Minus"
-      eSuperTypes="#//BinaryOperator"/>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="Multiply"
-      eSuperTypes="#//BinaryOperator"/>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="Divide"
-      eSuperTypes="#//BinaryOperator"/>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="LessThan"
-      eSuperTypes="#//BinaryOperator"/>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="Equal"
-      eSuperTypes="#//BinaryOperator"/>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="GreaterThan"
-      eSuperTypes="#//Expression">
-    <eStructuralFeatures
-        xsi:type="ecore:EReference"
-        name="left"
-        eType="#//Expression"
-        containment="true"/>
-    <eStructuralFeatures
-        xsi:type="ecore:EReference"
-        name="right"
-        eType="#//Expression"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="Not"
-      eSuperTypes="#//UnaryOperator"/>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="BooleanLiteral"
-      eSuperTypes="#//Expression">
-    <eStructuralFeatures
-        xsi:type="ecore:EAttribute"
-        name="value"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-  </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="DoubleLiteral"
-      eSuperTypes="#//Expression">
-    <eStructuralFeatures
-        xsi:type="ecore:EAttribute"
-        name="value"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-  </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="StringLiteral"
-      eSuperTypes="#//Expression">
-    <eStructuralFeatures
-        xsi:type="ecore:EAttribute"
-        name="value"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="VariableReference"
-      eSuperTypes="#//Expression">
-    <eAnnotations
-        source="http://www.eclipse.org/emf/2002/Ecore">
-      <details
-          key="constraints"
-          value="scope&#xA;"/>
-    </eAnnotations>
-    <eStructuralFeatures
-        xsi:type="ecore:EAttribute"
-        name="variableName"
-        lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral=""/>
+        name="actor"
+        eType="#//AbstractActor"
+        eOpposite="#//AbstractActor/localVariables"/>
   </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"
@@ -292,6 +136,9 @@
           lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
+    <eOperations
+        name="random"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
     <eStructuralFeatures
         xsi:type="ecore:EReference"
         name="eventHandlers"
@@ -313,84 +160,13 @@
         name="localVariables"
         upperBound="-1"
         eType="#//VariableDeclaration"
-        containment="true"/>
+        containment="true"
+        eOpposite="#//VariableDeclaration/actor"/>
     <eGenericSuperTypes
         eClassifier="#//TreeNode">
       <eTypeArguments
           eClassifier="#//AbstractActor"/>
     </eGenericSuperTypes>
-  </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="UnaryOperator"
-      eSuperTypes="#//Expression">
-    <eAnnotations
-        source="http://www.eclipse.org/emf/2002/Ecore">
-      <details
-          key="constraints"
-          value="type&#xA;"/>
-    </eAnnotations>
-    <eStructuralFeatures
-        xsi:type="ecore:EReference"
-        name="expression"
-        eType="#//Expression"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="BinaryOperator"
-      eSuperTypes="#//Expression">
-    <eAnnotations
-        source="http://www.eclipse.org/emf/2002/Ecore">
-      <details
-          key="constraints"
-          value="type&#xA;"/>
-    </eAnnotations>
-    <eStructuralFeatures
-        xsi:type="ecore:EReference"
-        name="left"
-        eType="#//Expression"
-        containment="true"/>
-    <eStructuralFeatures
-        xsi:type="ecore:EReference"
-        name="right"
-        eType="#//Expression"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="FunctionCall"
-      eSuperTypes="#//Expression #//Statement">
-    <eAnnotations
-        source="http://www.eclipse.org/emf/2002/Ecore">
-      <details
-          key="constraints"
-          value="methodDeclaration&#xA;"/>
-    </eAnnotations>
-    <eStructuralFeatures
-        xsi:type="ecore:EAttribute"
-        name="name"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures
-        xsi:type="ecore:EReference"
-        name="parameters"
-        upperBound="-1"
-        eType="#//Expression"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="Statement"
-      abstract="true"
-      interface="true"
-      eSuperTypes="#//AbstractElement"/>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="AbstractElement"
-      abstract="true">
-    <eOperations
-        name="getActor"
-        eType="#//AbstractActor"/>
   </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"
@@ -407,7 +183,7 @@
     <eStructuralFeatures
         xsi:type="ecore:EAttribute"
         name="key"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="#//Keys"/>
   </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"
@@ -418,36 +194,6 @@
         name="target"
         eType="#//SpriteActor"/>
   </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="IntegerLiteral"
-      eSuperTypes="#//Expression">
-    <eStructuralFeatures
-        xsi:type="ecore:EAttribute"
-        name="value"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="Sleep"
-      eSuperTypes="#//Statement">
-    <eStructuralFeatures
-        xsi:type="ecore:EAttribute"
-        name="duration"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-  </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="UnaryMinus"
-      eSuperTypes="#//UnaryOperator"/>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="ToDouble"
-      eSuperTypes="#//UnaryOperator"/>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="ToInt"
-      eSuperTypes="#//UnaryOperator"/>
   <eClassifiers
       xsi:type="ecore:EClass"
       name="Program">
@@ -543,5 +289,104 @@
             eTypeParameter="#//TreeTraversal/DepthFirst/T"/>
       </eParameters>
     </eOperations>
+  </eClassifiers>
+  <eClassifiers
+      xsi:type="ecore:EEnum"
+      name="Keys">
+    <eLiterals
+        name="A"/>
+    <eLiterals
+        name="B"
+        value="1"/>
+    <eLiterals
+        name="C"
+        value="2"/>
+    <eLiterals
+        name="D"
+        value="3"/>
+    <eLiterals
+        name="E"
+        value="4"/>
+    <eLiterals
+        name="F"
+        value="5"/>
+    <eLiterals
+        name="G"
+        value="6"/>
+    <eLiterals
+        name="H"
+        value="7"/>
+    <eLiterals
+        name="I"
+        value="8"/>
+    <eLiterals
+        name="J"
+        value="9"/>
+    <eLiterals
+        name="K"
+        value="10"/>
+    <eLiterals
+        name="L"
+        value="11"/>
+    <eLiterals
+        name="M"
+        value="12"/>
+    <eLiterals
+        name="N"
+        value="13"/>
+    <eLiterals
+        name="O"
+        value="14"/>
+    <eLiterals
+        name="P"
+        value="15"/>
+    <eLiterals
+        name="Q"
+        value="16"/>
+    <eLiterals
+        name="R"
+        value="17"/>
+    <eLiterals
+        name="S"
+        value="18"/>
+    <eLiterals
+        name="T"
+        value="19"/>
+    <eLiterals
+        name="U"
+        value="20"/>
+    <eLiterals
+        name="V"
+        value="21"/>
+    <eLiterals
+        name="W"
+        value="22"/>
+    <eLiterals
+        name="X"
+        value="23"/>
+    <eLiterals
+        name="Y"
+        value="24"/>
+    <eLiterals
+        name="Z"
+        value="25"/>
+    <eLiterals
+        name="SPACE"
+        value="26"/>
+    <eLiterals
+        name="ENTER"
+        value="27"/>
+    <eLiterals
+        name="UP"
+        value="28"/>
+    <eLiterals
+        name="DOWN"
+        value="29"/>
+    <eLiterals
+        name="LEFT"
+        value="30"/>
+    <eLiterals
+        name="RIGHT"
+        value="31"/>
   </eClassifiers>
 </ecore:EPackage>

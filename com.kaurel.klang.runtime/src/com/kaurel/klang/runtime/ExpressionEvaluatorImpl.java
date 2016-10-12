@@ -5,22 +5,22 @@ import java.lang.reflect.Method;
 import java.util.List;
 
 import klang.AbstractActor;
-import klang.BinaryOperator;
-import klang.BooleanLiteral;
-import klang.DoubleLiteral;
-import klang.Expression;
-import klang.FunctionCall;
-import klang.IntegerLiteral;
-import klang.StringLiteral;
-import klang.UnaryOperator;
-import klang.VariableReference;
-import klang.util.KlangSwitch;
+import klang.util.KlangUtil;
 import klang.util.MemoizingTypeComputer;
-import klang.util.Operators;
+import klang.util.OperatorUtil;
 import klang.util.TypeComputer;
+import klangexpr.BinaryOperator;
+import klangexpr.BooleanLiteral;
+import klangexpr.DoubleLiteral;
+import klangexpr.Expression;
+import klangexpr.FunctionCall;
+import klangexpr.IntegerLiteral;
+import klangexpr.StringLiteral;
+import klangexpr.UnaryOperator;
+import klangexpr.VariableReference;
+import klangexpr.util.KlangexprSwitch;
 
-public class ExpressionEvaluatorImpl extends KlangSwitch<Object> implements ExpressionEvaluator {
-	private static final Class operatorClass = Operators.class;
+public class ExpressionEvaluatorImpl extends KlangexprSwitch<Object> implements ExpressionEvaluator {
 	private final TypeComputer typeComputer = new MemoizingTypeComputer();
 	private final AbstractActor  actor;
 	
@@ -60,10 +60,11 @@ public class ExpressionEvaluatorImpl extends KlangSwitch<Object> implements Expr
 	@Override
 	public Object caseFunctionCall(FunctionCall object) {
 		Method method = null;
+		KlangUtil.getActor(object);
 		try {
-			method = object.getActor().getSubject().getClass().getMethod(object.getName(),
+			method = actor.getSubject().getClass().getMethod(object.getName(),
 					typeComputer.computeTypes(object.getParameters()));
-			return method.invoke(object.getActor().getSubject(), evaluate(object.getParameters()));
+			return method.invoke(actor.getSubject(), evaluate(object.getParameters()));
 		} catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
 				| InvocationTargetException e) {
 			e.printStackTrace();
@@ -91,39 +92,14 @@ public class ExpressionEvaluatorImpl extends KlangSwitch<Object> implements Expr
 		return object.getValue();
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public Object caseUnaryOperator(UnaryOperator object) {
-		try {
-			Method method = operatorClass.getMethod(object.getClass().getSimpleName(),
-					typeComputer.computeType(object.getExpression()));
-			return method.invoke(null, evaluate(object.getExpression()));
-		} catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
-				| InvocationTargetException e) {
-			e.printStackTrace();
-		}
-		return super.caseUnaryOperator(object);
+		return OperatorUtil.invokeOperator(object, evaluate(object.getExpression()));
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public Object caseBinaryOperator(BinaryOperator object) {
-		Expression left, right;
-		left = object.getLeft();
-		right = object.getRight();
-
-		Class leftType, rightType;
-		leftType = typeComputer.computeType(left);
-		rightType = typeComputer.computeType(right);
-		
-		try {
-			Method method = operatorClass.getMethod(object.getClass().getSimpleName(), leftType, rightType);
-			return method.invoke(null, evaluate(left), evaluate(right));
-		} catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
-				| InvocationTargetException e) {
-			e.printStackTrace();
-		}
-		return null;
+		return OperatorUtil.invokeOperator(object, evaluate(object.getLeft()), evaluate(object.getRight()));
 	}
 
 	@Override

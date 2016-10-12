@@ -3,11 +3,7 @@
 package klang.tests;
 
 import junit.framework.TestCase;
-
-import junit.textui.TestRunner;
-
 import klang.EventHandler;
-import klang.KlangFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,7 +11,7 @@ import klang.KlangFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EventHandlerTest extends TestCase {
+public abstract class EventHandlerTest extends TestCase {
 
 	/**
 	 * The fixture for this Event Handler test case.
@@ -24,15 +20,6 @@ public class EventHandlerTest extends TestCase {
 	 * @generated
 	 */
 	protected EventHandler fixture = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static void main(String[] args) {
-		TestRunner.run(EventHandlerTest.class);
-	}
 
 	/**
 	 * Constructs a new Event Handler test case with the given name.
@@ -62,28 +49,6 @@ public class EventHandlerTest extends TestCase {
 	 */
 	protected EventHandler getFixture() {
 		return fixture;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(KlangFactory.eINSTANCE.createEventHandler());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
 	}
 
 } //EventHandlerTest

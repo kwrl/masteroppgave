@@ -6,6 +6,8 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
+import klangexpr.Statement;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Event Handler</b></em>'.
@@ -20,13 +22,13 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see klang.KlangPackage#getEventHandler()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface EventHandler extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Statements</b></em>' containment reference list.
-	 * The list contents are of type {@link klang.Statement}.
+	 * The list contents are of type {@link klangexpr.Statement}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Statements</em>' containment reference list isn't clear,

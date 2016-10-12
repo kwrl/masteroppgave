@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Jbox2d
+Bundle-SymbolicName: com.kaurel.klang.jbox2d
+Bundle-Version: 1.0.0.qualifier
+Export-Package: com.kaurel.klang.jbox2d
+Require-Bundle: com.kaurel.klang.model;bundle-version="0.1.0",
+ com.kaurel.klang.runtime;bundle-version="1.0.0"

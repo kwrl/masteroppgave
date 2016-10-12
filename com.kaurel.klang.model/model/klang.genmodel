@@ -3,7 +3,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.kaurel.klang.model/src" modelPluginID="com.kaurel.klang.model"
     modelName="Klang" modelPluginClass="KlangPlugin" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
-    operationReflection="true" importOrganizing="true">
+    usedGenPackages="klang-expr.genmodel#//klangexpr" operationReflection="true" importOrganizing="true">
   <foreignModel>klang.ecore</foreignModel>
   <genPackages prefix="Klang" disposableProviderFactory="true" ecorePackage="klang.ecore#/">
     <genClasses ecoreClass="klang.ecore#//SceneActor">
@@ -17,38 +17,11 @@
       <genOperations ecoreOperation="klang.ecore#//SpriteActor/print">
         <genParameters ecoreParameter="klang.ecore#//SpriteActor/print/message"/>
       </genOperations>
-      <genOperations ecoreOperation="klang.ecore#//SpriteActor/getX"/>
-      <genOperations ecoreOperation="klang.ecore#//SpriteActor/getY"/>
-      <genOperations ecoreOperation="klang.ecore#//SpriteActor/setY">
-        <genParameters ecoreParameter="klang.ecore#//SpriteActor/setY/y"/>
-      </genOperations>
-      <genOperations ecoreOperation="klang.ecore#//SpriteActor/setX">
-        <genParameters ecoreParameter="klang.ecore#//SpriteActor/setX/x"/>
-      </genOperations>
-      <genOperations ecoreOperation="klang.ecore#//SpriteActor/print.1">
-        <genParameters ecoreParameter="klang.ecore#//SpriteActor/print.1/message"/>
-      </genOperations>
-      <genOperations ecoreOperation="klang.ecore#//SpriteActor/sleep">
-        <genParameters ecoreParameter="klang.ecore#//SpriteActor/sleep/sleepDuration"/>
-      </genOperations>
     </genClasses>
     <genClasses ecoreClass="klang.ecore#//EventHandler">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//EventHandler/statements"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference klang.ecore#//EventHandler/actor"/>
     </genClasses>
-    <genClasses ecoreClass="klang.ecore#//WhileLoop">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//WhileLoop/predicate"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//WhileLoop/loopBlock"/>
-    </genClasses>
-    <genClasses ecoreClass="klang.ecore#//If">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//If/predicate"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//If/ifBlock"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//If/elseBlock"/>
-    </genClasses>
-    <genClasses ecoreClass="klang.ecore#//ForeverLoop">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//ForeverLoop/loopStatements"/>
-    </genClasses>
-    <genClasses ecoreClass="klang.ecore#//Yield"/>
     <genClasses ecoreClass="klang.ecore#//VariableDeclaration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//VariableDeclaration/expression"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//VariableDeclaration/name"/>
@@ -58,53 +31,23 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//VariableAssignment/expression"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//VariableAssignment/variableName"/>
     </genClasses>
-    <genClasses ecoreClass="klang.ecore#//Expression"/>
-    <genClasses ecoreClass="klang.ecore#//Or"/>
-    <genClasses ecoreClass="klang.ecore#//And"/>
-    <genClasses ecoreClass="klang.ecore#//Plus"/>
-    <genClasses ecoreClass="klang.ecore#//Minus"/>
-    <genClasses ecoreClass="klang.ecore#//Multiply"/>
-    <genClasses ecoreClass="klang.ecore#//Divide"/>
-    <genClasses ecoreClass="klang.ecore#//LessThan"/>
-    <genClasses ecoreClass="klang.ecore#//Equal"/>
-    <genClasses ecoreClass="klang.ecore#//GreaterThan">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//GreaterThan/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//GreaterThan/right"/>
-    </genClasses>
-    <genClasses ecoreClass="klang.ecore#//Not"/>
-    <genClasses ecoreClass="klang.ecore#//BooleanLiteral">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//BooleanLiteral/value"/>
-    </genClasses>
-    <genClasses ecoreClass="klang.ecore#//DoubleLiteral">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//DoubleLiteral/value"/>
-    </genClasses>
-    <genClasses ecoreClass="klang.ecore#//StringLiteral">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//StringLiteral/value"/>
-    </genClasses>
-    <genClasses ecoreClass="klang.ecore#//VariableReference">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//VariableReference/variableName"/>
-    </genClasses>
     <genClasses image="false" ecoreClass="klang.ecore#//AbstractActor">
-      <genTypeParameters ecoreTypeParameter="klang.ecore#//AbstractActor/A"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//AbstractActor/eventHandlers"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//AbstractActor/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//AbstractActor/subject"/>
-      <genOperations ecoreOperation="klang.ecore#//AbstractActor/getSubtree"/>
-    </genClasses>
-    <genClasses ecoreClass="klang.ecore#//UnaryOperator">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//UnaryOperator/expression"/>
-    </genClasses>
-    <genClasses ecoreClass="klang.ecore#//BinaryOperator">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//BinaryOperator/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//BinaryOperator/right"/>
-    </genClasses>
-    <genClasses ecoreClass="klang.ecore#//FunctionCall">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//FunctionCall/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//FunctionCall/parameters"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="klang.ecore#//Statement"/>
-    <genClasses image="false" ecoreClass="klang.ecore#//AbstractElement">
-      <genOperations ecoreOperation="klang.ecore#//AbstractElement/getActor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//AbstractActor/localVariables"/>
+      <genOperations ecoreOperation="klang.ecore#//AbstractActor/isInScope">
+        <genParameters ecoreParameter="klang.ecore#//AbstractActor/isInScope/variableName"/>
+      </genOperations>
+      <genOperations ecoreOperation="klang.ecore#//AbstractActor/getVariableDeclaration">
+        <genParameters ecoreParameter="klang.ecore#//AbstractActor/getVariableDeclaration/variableName"/>
+      </genOperations>
+      <genOperations ecoreOperation="klang.ecore#//AbstractActor/isInLocalScope">
+        <genParameters ecoreParameter="klang.ecore#//AbstractActor/isInLocalScope/variableName"/>
+      </genOperations>
+      <genOperations ecoreOperation="klang.ecore#//AbstractActor/isInParentScope">
+        <genParameters ecoreParameter="klang.ecore#//AbstractActor/isInParentScope/variableName"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="klang.ecore#//GameStart"/>
     <genClasses ecoreClass="klang.ecore#//SpriteClicked"/>
@@ -114,39 +57,27 @@
     <genClasses ecoreClass="klang.ecore#//CollidesWith">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference klang.ecore#//CollidesWith/target"/>
     </genClasses>
-    <genClasses ecoreClass="klang.ecore#//IntegerLiteral">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//IntegerLiteral/value"/>
-    </genClasses>
     <genClasses ecoreClass="klang.ecore#//Sleep">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute klang.ecore#//Sleep/duration"/>
-    </genClasses>
-    <genClasses ecoreClass="klang.ecore#//UnaryMinus"/>
-    <genClasses ecoreClass="klang.ecore#//ToDouble"/>
-    <genClasses ecoreClass="klang.ecore#//ToInt"/>
-    <genClasses image="false" ecoreClass="klang.ecore#//Scope">
-      <genTypeParameters ecoreTypeParameter="klang.ecore#//Scope/S"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//Scope/localVariables"/>
-      <genOperations ecoreOperation="klang.ecore#//Scope/isInScope">
-        <genParameters ecoreParameter="klang.ecore#//Scope/isInScope/variableName"/>
-      </genOperations>
-      <genOperations ecoreOperation="klang.ecore#//Scope/getVariableDeclaration">
-        <genParameters ecoreParameter="klang.ecore#//Scope/getVariableDeclaration/variableName"/>
-      </genOperations>
-      <genOperations ecoreOperation="klang.ecore#//Scope/isInLocalScope">
-        <genParameters ecoreParameter="klang.ecore#//Scope/isInLocalScope/variableName"/>
-      </genOperations>
-      <genOperations ecoreOperation="klang.ecore#//Scope/isInParentScope">
-        <genParameters ecoreParameter="klang.ecore#//Scope/isInParentScope/variableName"/>
-      </genOperations>
     </genClasses>
     <genClasses ecoreClass="klang.ecore#//Program">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//Program/sceneActor"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference klang.ecore#//Program/spriteActors"/>
     </genClasses>
     <genClasses image="false" ecoreClass="klang.ecore#//TreeNode">
-      <genTypeParameters ecoreTypeParameter="klang.ecore#//TreeNode/C"/>
+      <genTypeParameters ecoreTypeParameter="klang.ecore#//TreeNode/T"/>
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference klang.ecore#//TreeNode/children"/>
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference klang.ecore#//TreeNode/parent"/>
+    </genClasses>
+    <genClasses ecoreClass="klang.ecore#//TreeTraversal">
+      <genOperations ecoreOperation="klang.ecore#//TreeTraversal/BreadthFirst">
+        <genParameters ecoreParameter="klang.ecore#//TreeTraversal/BreadthFirst/root"/>
+        <genTypeParameters ecoreTypeParameter="klang.ecore#//TreeTraversal/BreadthFirst/T"/>
+      </genOperations>
+      <genOperations ecoreOperation="klang.ecore#//TreeTraversal/DepthFirst">
+        <genParameters ecoreParameter="klang.ecore#//TreeTraversal/DepthFirst/root"/>
+        <genTypeParameters ecoreTypeParameter="klang.ecore#//TreeTraversal/DepthFirst/T"/>
+      </genOperations>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -3,34 +3,33 @@ package klang.util;
 import java.lang.reflect.Method;
 import java.util.List;
 
-import klang.BinaryOperator;
-import klang.BooleanLiteral;
-import klang.DoubleLiteral;
-import klang.Expression;
-import klang.FunctionCall;
-import klang.IntegerLiteral;
-import klang.StringLiteral;
-import klang.UnaryOperator;
-import klang.VariableReference;
+import klang.AbstractActor;
+import klangexpr.BinaryOperator;
+import klangexpr.BooleanLiteral;
+import klangexpr.DoubleLiteral;
+import klangexpr.Expression;
+import klangexpr.FunctionCall;
+import klangexpr.IntegerLiteral;
+import klangexpr.StringLiteral;
+import klangexpr.UnaryOperator;
+import klangexpr.VariableReference;
+import klangexpr.util.KlangexprSwitch;
 
-@SuppressWarnings("rawtypes")
-public class TypeComputer extends KlangSwitch<Class> {
-	private static final Class operatorClass = Operators.class;
-
-	public Class computeType(Expression expression) {
-		Class type = doSwitch(expression);
+public class TypeComputer extends KlangexprSwitch<Class<?>> {
+	public Class<?> computeType(Expression expression) {
+		Class<?> type = doSwitch(expression);
 		if (type == null) {
 			System.err.println("Invalid type " + expression);
 		}
 		return type;
 	}
 
-	public Class[] computeTypes(List<Expression> expressions) {
+	public Class<?>[] computeTypes(List<Expression> expressions) {
 		return computeTypes((Expression[]) expressions.toArray());
 	}
 
-	public Class[] computeTypes(Expression[] expressions) {
-		Class[] types = new Class[expressions.length];
+	public Class<?>[] computeTypes(Expression ... expressions) {
+		Class<?>[] types = new Class[expressions.length];
 		for (int i = 0; i < expressions.length; i++) {
 			types[i] = computeType(expressions[i]);
 		}
@@ -38,64 +37,50 @@ public class TypeComputer extends KlangSwitch<Class> {
 	}
 
 	@Override
-	public Class caseBooleanLiteral(BooleanLiteral object) {
+	public Class<?> caseBooleanLiteral(BooleanLiteral object) {
 		return Boolean.class;
 	}
 
 	@Override
-	public Class caseStringLiteral(StringLiteral object) {
+	public Class<?> caseStringLiteral(StringLiteral object) {
 		return String.class;
 	}
 
 	@Override
-	public Class caseIntegerLiteral(IntegerLiteral object) {
+	public Class<?> caseIntegerLiteral(IntegerLiteral object) {
 		return Integer.class;
 	}
 
 	@Override
-	public Class caseDoubleLiteral(DoubleLiteral object) {
+	public Class<?> caseDoubleLiteral(DoubleLiteral object) {
 		return Double.class;
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public Class caseUnaryOperator(UnaryOperator object) {
-		try {
-			Method method = operatorClass.getMethod(object.getClass().getSimpleName(),
-					computeType(object.getExpression()));
-			return method.getReturnType();
-		} catch (NoSuchMethodException | SecurityException e) {
-			e.printStackTrace();
-		}
-		return super.caseUnaryOperator(object);
+	public Class<?> caseUnaryOperator(UnaryOperator object) {
+		return OperatorUtil.getOperatorReturnType(object, computeType(object.getExpression()));
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public Class caseBinaryOperator(BinaryOperator object) {
-		try {
-			Method method = operatorClass.getMethod(object.getClass().getSimpleName(), computeType(object.getLeft()),
-					computeType(object.getRight()));
-			return method.getReturnType();
-		} catch (NoSuchMethodException | SecurityException e) {
-			e.printStackTrace();
+	public Class<?> caseBinaryOperator(BinaryOperator object) {
+		return OperatorUtil.getOperatorReturnType(object, computeTypes(object.getLeft(), object.getRight()));
+	}
+
+	@Override
+	public Class<?> caseVariableReference(VariableReference object) {
+		AbstractActor actor = KlangUtil.getActor(object);
+		if (actor.isInScope(object.getVariableName())) {
+			return computeType(actor.getVariableDeclaration(object.getVariableName()).getExpression());
 		}
 		return null;
 	}
 
 	@Override
-	public Class caseVariableReference(VariableReference object) {
-		if (object.getActor().isInScope(object.getVariableName())) {
-			return computeType(object.getActor().getVariableDeclaration(object.getVariableName()).getExpression());
-		}
-		return null;
-	}
-
-	@Override
-	public Class caseFunctionCall(FunctionCall object) {
+	public Class<?> caseFunctionCall(FunctionCall object) {
 		Method method = null;
+		AbstractActor actor = KlangUtil.getActor(object);
 		try {
-			method = object.getActor().getClass().getMethod(object.getName(), computeTypes(object.getParameters()));
+			method = actor.getClass().getMethod(object.getName(), computeTypes(object.getParameters()));
 			return method.getReturnType();
 		} catch (NoSuchMethodException | SecurityException | IllegalArgumentException e) {
 			e.printStackTrace();

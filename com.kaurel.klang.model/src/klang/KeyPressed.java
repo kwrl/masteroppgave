@@ -22,6 +22,7 @@ package klang;
 public interface KeyPressed extends EventHandler {
 	/**
 	 * Returns the value of the '<em><b>Key</b></em>' attribute.
+	 * The literals are from the enumeration {@link klang.Keys}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Key</em>' attribute isn't clear,
@@ -29,21 +30,23 @@ public interface KeyPressed extends EventHandler {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Key</em>' attribute.
-	 * @see #setKey(String)
+	 * @see klang.Keys
+	 * @see #setKey(Keys)
 	 * @see klang.KlangPackage#getKeyPressed_Key()
 	 * @model
 	 * @generated
 	 */
-	String getKey();
+	Keys getKey();
 
 	/**
 	 * Sets the value of the '{@link klang.KeyPressed#getKey <em>Key</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Key</em>' attribute.
+	 * @see klang.Keys
 	 * @see #getKey()
 	 * @generated
 	 */
-	void setKey(String value);
+	void setKey(Keys value);
 
 } // KeyPressed

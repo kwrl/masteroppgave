@@ -15,6 +15,7 @@ import klang.SpriteActor;
  * The following operations are tested:
  * <ul>
  *   <li>{@link klang.SpriteActor#print(java.lang.String) <em>Print</em>}</li>
+ *   <li>{@link klang.SpriteActor#setColor(java.lang.Double, java.lang.Double, java.lang.Double) <em>Set Color</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -81,6 +82,19 @@ public class SpriteActorTest extends AbstractActorTest {
 	 * @generated
 	 */
 	public void testPrint__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link klang.SpriteActor#setColor(java.lang.Double, java.lang.Double, java.lang.Double) <em>Set Color</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.SpriteActor#setColor(java.lang.Double, java.lang.Double, java.lang.Double)
+	 * @generated
+	 */
+	public void testSetColor__Double_Double_Double() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

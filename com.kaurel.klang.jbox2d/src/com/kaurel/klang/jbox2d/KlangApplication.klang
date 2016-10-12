@@ -1,0 +1,17 @@
+scene Program
+
+sprite ball
+	var swapColors = true
+	
+	when game starts
+		while true
+			if swapColors
+				setColor(random(), random(), random())	
+				sleep(1.0)
+				
+	
+	when collides with paddle
+		setX(0.0)
+		swapColors = not swapColors
+		
+sprite paddle

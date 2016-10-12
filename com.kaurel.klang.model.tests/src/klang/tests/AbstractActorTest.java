@@ -3,6 +3,7 @@
 package klang.tests;
 
 import junit.framework.TestCase;
+
 import klang.AbstractActor;
 
 /**
@@ -23,6 +24,7 @@ import klang.AbstractActor;
  *   <li>{@link klang.AbstractActor#getVariableDeclaration(java.lang.String) <em>Get Variable Declaration</em>}</li>
  *   <li>{@link klang.AbstractActor#isInLocalScope(java.lang.String) <em>Is In Local Scope</em>}</li>
  *   <li>{@link klang.AbstractActor#isInParentScope(java.lang.String) <em>Is In Parent Scope</em>}</li>
+ *   <li>{@link klang.AbstractActor#random() <em>Random</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -66,14 +68,6 @@ public abstract class AbstractActorTest extends TestCase {
 	protected AbstractActor getFixture() {
 		return fixture;
 	}
-
-	/**
-	 * Returns the fixture for this Abstract Actor test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	
 
 	/**
 	 * Tests the '{@link klang.TreeNode#getChildren() <em>Children</em>}' feature getter.
@@ -148,6 +142,19 @@ public abstract class AbstractActorTest extends TestCase {
 	 * @generated
 	 */
 	public void testIsInParentScope__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link klang.AbstractActor#random() <em>Random</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.AbstractActor#random()
+	 * @generated
+	 */
+	public void testRandom() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
