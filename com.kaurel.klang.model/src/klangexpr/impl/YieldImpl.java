@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class YieldImpl extends AbstractElementImpl implements Yield {
+public class YieldImpl extends StatementImpl implements Yield {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

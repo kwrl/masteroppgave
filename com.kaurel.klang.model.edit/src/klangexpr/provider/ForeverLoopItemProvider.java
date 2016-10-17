@@ -24,7 +24,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ForeverLoopItemProvider extends AbstractElementItemProvider {
+public class ForeverLoopItemProvider extends StatementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -136,6 +136,11 @@ public class ForeverLoopItemProvider extends AbstractElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangexprPackage.Literals.FOREVER_LOOP__STATEMENTS,
+				 KlangexprFactory.eINSTANCE.createStatement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangexprPackage.Literals.FOREVER_LOOP__STATEMENTS,
 				 KlangexprFactory.eINSTANCE.createWhileLoop()));
 
 		newChildDescriptors.add
@@ -167,6 +172,11 @@ public class ForeverLoopItemProvider extends AbstractElementItemProvider {
 			(createChildParameter
 				(KlangexprPackage.Literals.FOREVER_LOOP__STATEMENTS,
 				 KlangexprFactory.eINSTANCE.createSleep()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangexprPackage.Literals.FOREVER_LOOP__STATEMENTS,
+				 KlangexprFactory.eINSTANCE.createSendMessage()));
 	}
 
 }

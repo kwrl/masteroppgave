@@ -13,7 +13,7 @@ import klangexpr.VariableAssignment;
  * <!-- end-user-doc -->
  * @generated
  */
-public class VariableAssignmentTest extends AbstractElementTest {
+public class VariableAssignmentTest extends StatementTest {
 
 	/**
 	 * <!-- begin-user-doc -->

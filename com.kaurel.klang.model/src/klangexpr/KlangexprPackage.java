@@ -4,7 +4,6 @@ package klangexpr;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -58,51 +57,14 @@ public interface KlangexprPackage extends EPackage {
 	KlangexprPackage eINSTANCE = klangexpr.impl.KlangexprPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link klangexpr.impl.AbstractElementImpl <em>Abstract Element</em>}' class.
+	 * The meta object id for the '{@link klangexpr.impl.StatementImpl <em>Statement</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see klangexpr.impl.AbstractElementImpl
-	 * @see klangexpr.impl.KlangexprPackageImpl#getAbstractElement()
-	 * @generated
-	 */
-	int ABSTRACT_ELEMENT = 24;
-
-	/**
-	 * The number of structural features of the '<em>Abstract Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ELEMENT_FEATURE_COUNT = 0;
-
-	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ELEMENT___GET_ACTOR = 0;
-
-	/**
-	 * The number of operations of the '<em>Abstract Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ELEMENT_OPERATION_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link klangexpr.Statement <em>Statement</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klangexpr.Statement
+	 * @see klangexpr.impl.StatementImpl
 	 * @see klangexpr.impl.KlangexprPackageImpl#getStatement()
 	 * @generated
 	 */
-	int STATEMENT = 23;
+	int STATEMENT = 28;
 
 	/**
 	 * The number of structural features of the '<em>Statement</em>' class.
@@ -111,16 +73,7 @@ public interface KlangexprPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATEMENT_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATEMENT___GET_ACTOR = ABSTRACT_ELEMENT___GET_ACTOR;
+	int STATEMENT_FEATURE_COUNT = 0;
 
 	/**
 	 * The number of operations of the '<em>Statement</em>' class.
@@ -129,7 +82,7 @@ public interface KlangexprPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATEMENT_OPERATION_COUNT = ABSTRACT_ELEMENT_OPERATION_COUNT + 0;
+	int STATEMENT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link klangexpr.impl.WhileLoopImpl <em>While Loop</em>}' class.
@@ -140,6 +93,56 @@ public interface KlangexprPackage extends EPackage {
 	 * @generated
 	 */
 	int WHILE_LOOP = 0;
+
+	/**
+	 * The meta object id for the '{@link klangexpr.impl.IfImpl <em>If</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klangexpr.impl.IfImpl
+	 * @see klangexpr.impl.KlangexprPackageImpl#getIf()
+	 * @generated
+	 */
+	int IF = 1;
+
+	/**
+	 * The meta object id for the '{@link klangexpr.impl.ForeverLoopImpl <em>Forever Loop</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klangexpr.impl.ForeverLoopImpl
+	 * @see klangexpr.impl.KlangexprPackageImpl#getForeverLoop()
+	 * @generated
+	 */
+	int FOREVER_LOOP = 2;
+
+	/**
+	 * The meta object id for the '{@link klangexpr.impl.YieldImpl <em>Yield</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klangexpr.impl.YieldImpl
+	 * @see klangexpr.impl.KlangexprPackageImpl#getYield()
+	 * @generated
+	 */
+	int YIELD = 3;
+
+	/**
+	 * The meta object id for the '{@link klangexpr.impl.VariableAssignmentImpl <em>Variable Assignment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klangexpr.impl.VariableAssignmentImpl
+	 * @see klangexpr.impl.KlangexprPackageImpl#getVariableAssignment()
+	 * @generated
+	 */
+	int VARIABLE_ASSIGNMENT = 4;
+
+	/**
+	 * The meta object id for the '{@link klangexpr.impl.ExpressionImpl <em>Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klangexpr.impl.ExpressionImpl
+	 * @see klangexpr.impl.KlangexprPackageImpl#getExpression()
+	 * @generated
+	 */
+	int EXPRESSION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Predicate</b></em>' containment reference.
@@ -169,15 +172,6 @@ public interface KlangexprPackage extends EPackage {
 	int WHILE_LOOP_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WHILE_LOOP___GET_ACTOR = STATEMENT___GET_ACTOR;
-
-	/**
 	 * The number of operations of the '<em>While Loop</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -185,16 +179,6 @@ public interface KlangexprPackage extends EPackage {
 	 * @ordered
 	 */
 	int WHILE_LOOP_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link klangexpr.impl.IfImpl <em>If</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klangexpr.impl.IfImpl
-	 * @see klangexpr.impl.KlangexprPackageImpl#getIf()
-	 * @generated
-	 */
-	int IF = 1;
 
 	/**
 	 * The feature id for the '<em><b>Predicate</b></em>' containment reference.
@@ -233,15 +217,6 @@ public interface KlangexprPackage extends EPackage {
 	int IF_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IF___GET_ACTOR = STATEMENT___GET_ACTOR;
-
-	/**
 	 * The number of operations of the '<em>If</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -249,16 +224,6 @@ public interface KlangexprPackage extends EPackage {
 	 * @ordered
 	 */
 	int IF_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link klangexpr.impl.ForeverLoopImpl <em>Forever Loop</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klangexpr.impl.ForeverLoopImpl
-	 * @see klangexpr.impl.KlangexprPackageImpl#getForeverLoop()
-	 * @generated
-	 */
-	int FOREVER_LOOP = 2;
 
 	/**
 	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
@@ -279,15 +244,6 @@ public interface KlangexprPackage extends EPackage {
 	int FOREVER_LOOP_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FOREVER_LOOP___GET_ACTOR = STATEMENT___GET_ACTOR;
-
-	/**
 	 * The number of operations of the '<em>Forever Loop</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -295,16 +251,6 @@ public interface KlangexprPackage extends EPackage {
 	 * @ordered
 	 */
 	int FOREVER_LOOP_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link klangexpr.impl.YieldImpl <em>Yield</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klangexpr.impl.YieldImpl
-	 * @see klangexpr.impl.KlangexprPackageImpl#getYield()
-	 * @generated
-	 */
-	int YIELD = 3;
 
 	/**
 	 * The number of structural features of the '<em>Yield</em>' class.
@@ -316,15 +262,6 @@ public interface KlangexprPackage extends EPackage {
 	int YIELD_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YIELD___GET_ACTOR = STATEMENT___GET_ACTOR;
-
-	/**
 	 * The number of operations of the '<em>Yield</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -332,16 +269,6 @@ public interface KlangexprPackage extends EPackage {
 	 * @ordered
 	 */
 	int YIELD_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link klangexpr.impl.VariableAssignmentImpl <em>Variable Assignment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klangexpr.impl.VariableAssignmentImpl
-	 * @see klangexpr.impl.KlangexprPackageImpl#getVariableAssignment()
-	 * @generated
-	 */
-	int VARIABLE_ASSIGNMENT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -371,15 +298,6 @@ public interface KlangexprPackage extends EPackage {
 	int VARIABLE_ASSIGNMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_ASSIGNMENT___GET_ACTOR = STATEMENT___GET_ACTOR;
-
-	/**
 	 * The number of operations of the '<em>Variable Assignment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -389,32 +307,13 @@ public interface KlangexprPackage extends EPackage {
 	int VARIABLE_ASSIGNMENT_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link klangexpr.impl.ExpressionImpl <em>Expression</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klangexpr.impl.ExpressionImpl
-	 * @see klangexpr.impl.KlangexprPackageImpl#getExpression()
-	 * @generated
-	 */
-	int EXPRESSION = 5;
-
-	/**
 	 * The number of structural features of the '<em>Expression</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPRESSION___GET_ACTOR = ABSTRACT_ELEMENT___GET_ACTOR;
+	int EXPRESSION_FEATURE_COUNT = 0;
 
 	/**
 	 * The number of operations of the '<em>Expression</em>' class.
@@ -423,7 +322,7 @@ public interface KlangexprPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION_OPERATION_COUNT = ABSTRACT_ELEMENT_OPERATION_COUNT + 0;
+	int EXPRESSION_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link klangexpr.Operator <em>Operator</em>}' class.
@@ -433,7 +332,7 @@ public interface KlangexprPackage extends EPackage {
 	 * @see klangexpr.impl.KlangexprPackageImpl#getOperator()
 	 * @generated
 	 */
-	int OPERATOR = 29;
+	int OPERATOR = 27;
 
 	/**
 	 * The number of structural features of the '<em>Operator</em>' class.
@@ -443,15 +342,6 @@ public interface KlangexprPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATOR_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR___GET_ACTOR = EXPRESSION___GET_ACTOR;
 
 	/**
 	 * The number of operations of the '<em>Operator</em>' class.
@@ -500,15 +390,6 @@ public interface KlangexprPackage extends EPackage {
 	int BINARY_OPERATOR_FEATURE_COUNT = OPERATOR_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BINARY_OPERATOR___GET_ACTOR = OPERATOR___GET_ACTOR;
-
-	/**
 	 * The number of operations of the '<em>Binary Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -553,15 +434,6 @@ public interface KlangexprPackage extends EPackage {
 	 * @ordered
 	 */
 	int OR_FEATURE_COUNT = BINARY_OPERATOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OR___GET_ACTOR = BINARY_OPERATOR___GET_ACTOR;
 
 	/**
 	 * The number of operations of the '<em>Or</em>' class.
@@ -610,15 +482,6 @@ public interface KlangexprPackage extends EPackage {
 	int AND_FEATURE_COUNT = BINARY_OPERATOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AND___GET_ACTOR = BINARY_OPERATOR___GET_ACTOR;
-
-	/**
 	 * The number of operations of the '<em>And</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -663,15 +526,6 @@ public interface KlangexprPackage extends EPackage {
 	 * @ordered
 	 */
 	int PLUS_FEATURE_COUNT = BINARY_OPERATOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLUS___GET_ACTOR = BINARY_OPERATOR___GET_ACTOR;
 
 	/**
 	 * The number of operations of the '<em>Plus</em>' class.
@@ -720,15 +574,6 @@ public interface KlangexprPackage extends EPackage {
 	int MINUS_FEATURE_COUNT = BINARY_OPERATOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINUS___GET_ACTOR = BINARY_OPERATOR___GET_ACTOR;
-
-	/**
 	 * The number of operations of the '<em>Minus</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -773,15 +618,6 @@ public interface KlangexprPackage extends EPackage {
 	 * @ordered
 	 */
 	int MULTIPLY_FEATURE_COUNT = BINARY_OPERATOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULTIPLY___GET_ACTOR = BINARY_OPERATOR___GET_ACTOR;
 
 	/**
 	 * The number of operations of the '<em>Multiply</em>' class.
@@ -830,15 +666,6 @@ public interface KlangexprPackage extends EPackage {
 	int DIVIDE_FEATURE_COUNT = BINARY_OPERATOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIVIDE___GET_ACTOR = BINARY_OPERATOR___GET_ACTOR;
-
-	/**
 	 * The number of operations of the '<em>Divide</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -883,15 +710,6 @@ public interface KlangexprPackage extends EPackage {
 	 * @ordered
 	 */
 	int LESS_THAN_FEATURE_COUNT = BINARY_OPERATOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LESS_THAN___GET_ACTOR = BINARY_OPERATOR___GET_ACTOR;
 
 	/**
 	 * The number of operations of the '<em>Less Than</em>' class.
@@ -940,15 +758,6 @@ public interface KlangexprPackage extends EPackage {
 	int EQUAL_FEATURE_COUNT = BINARY_OPERATOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EQUAL___GET_ACTOR = BINARY_OPERATOR___GET_ACTOR;
-
-	/**
 	 * The number of operations of the '<em>Equal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -995,15 +804,6 @@ public interface KlangexprPackage extends EPackage {
 	int GREATER_THAN_FEATURE_COUNT = BINARY_OPERATOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GREATER_THAN___GET_ACTOR = BINARY_OPERATOR___GET_ACTOR;
-
-	/**
 	 * The number of operations of the '<em>Greater Than</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1039,15 +839,6 @@ public interface KlangexprPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNARY_OPERATOR_FEATURE_COUNT = OPERATOR_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNARY_OPERATOR___GET_ACTOR = OPERATOR___GET_ACTOR;
 
 	/**
 	 * The number of operations of the '<em>Unary Operator</em>' class.
@@ -1087,15 +878,6 @@ public interface KlangexprPackage extends EPackage {
 	int NOT_FEATURE_COUNT = UNARY_OPERATOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOT___GET_ACTOR = UNARY_OPERATOR___GET_ACTOR;
-
-	/**
 	 * The number of operations of the '<em>Not</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1131,15 +913,6 @@ public interface KlangexprPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_LITERAL___GET_ACTOR = EXPRESSION___GET_ACTOR;
 
 	/**
 	 * The number of operations of the '<em>Boolean Literal</em>' class.
@@ -1179,15 +952,6 @@ public interface KlangexprPackage extends EPackage {
 	int DOUBLE_LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOUBLE_LITERAL___GET_ACTOR = EXPRESSION___GET_ACTOR;
-
-	/**
 	 * The number of operations of the '<em>Double Literal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1225,15 +989,6 @@ public interface KlangexprPackage extends EPackage {
 	int STRING_LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRING_LITERAL___GET_ACTOR = EXPRESSION___GET_ACTOR;
-
-	/**
 	 * The number of operations of the '<em>String Literal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1269,15 +1024,6 @@ public interface KlangexprPackage extends EPackage {
 	 * @ordered
 	 */
 	int VARIABLE_REFERENCE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_REFERENCE___GET_ACTOR = EXPRESSION___GET_ACTOR;
 
 	/**
 	 * The number of operations of the '<em>Variable Reference</em>' class.
@@ -1326,15 +1072,6 @@ public interface KlangexprPackage extends EPackage {
 	int FUNCTION_CALL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FUNCTION_CALL___GET_ACTOR = EXPRESSION___GET_ACTOR;
-
-	/**
 	 * The number of operations of the '<em>Function Call</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1351,7 +1088,7 @@ public interface KlangexprPackage extends EPackage {
 	 * @see klangexpr.impl.KlangexprPackageImpl#getIntegerLiteral()
 	 * @generated
 	 */
-	int INTEGER_LITERAL = 25;
+	int INTEGER_LITERAL = 23;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1372,15 +1109,6 @@ public interface KlangexprPackage extends EPackage {
 	int INTEGER_LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTEGER_LITERAL___GET_ACTOR = EXPRESSION___GET_ACTOR;
-
-	/**
 	 * The number of operations of the '<em>Integer Literal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1397,7 +1125,7 @@ public interface KlangexprPackage extends EPackage {
 	 * @see klangexpr.impl.KlangexprPackageImpl#getUnaryMinus()
 	 * @generated
 	 */
-	int UNARY_MINUS = 26;
+	int UNARY_MINUS = 24;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1418,15 +1146,6 @@ public interface KlangexprPackage extends EPackage {
 	int UNARY_MINUS_FEATURE_COUNT = UNARY_OPERATOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNARY_MINUS___GET_ACTOR = UNARY_OPERATOR___GET_ACTOR;
-
-	/**
 	 * The number of operations of the '<em>Unary Minus</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1443,7 +1162,7 @@ public interface KlangexprPackage extends EPackage {
 	 * @see klangexpr.impl.KlangexprPackageImpl#getToDouble()
 	 * @generated
 	 */
-	int TO_DOUBLE = 27;
+	int TO_DOUBLE = 25;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1464,15 +1183,6 @@ public interface KlangexprPackage extends EPackage {
 	int TO_DOUBLE_FEATURE_COUNT = UNARY_OPERATOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_DOUBLE___GET_ACTOR = UNARY_OPERATOR___GET_ACTOR;
-
-	/**
 	 * The number of operations of the '<em>To Double</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1489,7 +1199,7 @@ public interface KlangexprPackage extends EPackage {
 	 * @see klangexpr.impl.KlangexprPackageImpl#getToInt()
 	 * @generated
 	 */
-	int TO_INT = 28;
+	int TO_INT = 26;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1510,15 +1220,6 @@ public interface KlangexprPackage extends EPackage {
 	int TO_INT_FEATURE_COUNT = UNARY_OPERATOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_INT___GET_ACTOR = UNARY_OPERATOR___GET_ACTOR;
-
-	/**
 	 * The number of operations of the '<em>To Int</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1535,10 +1236,10 @@ public interface KlangexprPackage extends EPackage {
 	 * @see klangexpr.impl.KlangexprPackageImpl#getSleep()
 	 * @generated
 	 */
-	int SLEEP = 30;
+	int SLEEP = 29;
 
 	/**
-	 * The feature id for the '<em><b>Duration</b></em>' attribute.
+	 * The feature id for the '<em><b>Duration</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1556,15 +1257,6 @@ public interface KlangexprPackage extends EPackage {
 	int SLEEP_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Get Actor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLEEP___GET_ACTOR = STATEMENT___GET_ACTOR;
-
-	/**
 	 * The number of operations of the '<em>Sleep</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1572,6 +1264,44 @@ public interface KlangexprPackage extends EPackage {
 	 * @ordered
 	 */
 	int SLEEP_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link klangexpr.impl.SendMessageImpl <em>Send Message</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klangexpr.impl.SendMessageImpl
+	 * @see klangexpr.impl.KlangexprPackageImpl#getSendMessage()
+	 * @generated
+	 */
+	int SEND_MESSAGE = 30;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEND_MESSAGE__NAME = STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Send Message</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEND_MESSAGE_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Send Message</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEND_MESSAGE_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
 
 
 	/**
@@ -1992,36 +1722,6 @@ public interface KlangexprPackage extends EPackage {
 	EReference getFunctionCall_Parameters();
 
 	/**
-	 * Returns the meta object for class '{@link klangexpr.Statement <em>Statement</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Statement</em>'.
-	 * @see klangexpr.Statement
-	 * @generated
-	 */
-	EClass getStatement();
-
-	/**
-	 * Returns the meta object for class '{@link klangexpr.AbstractElement <em>Abstract Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Abstract Element</em>'.
-	 * @see klangexpr.AbstractElement
-	 * @generated
-	 */
-	EClass getAbstractElement();
-
-	/**
-	 * Returns the meta object for the '{@link klangexpr.AbstractElement#getActor() <em>Get Actor</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Actor</em>' operation.
-	 * @see klangexpr.AbstractElement#getActor()
-	 * @generated
-	 */
-	EOperation getAbstractElement__GetActor();
-
-	/**
 	 * Returns the meta object for class '{@link klangexpr.IntegerLiteral <em>Integer Literal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2083,6 +1783,16 @@ public interface KlangexprPackage extends EPackage {
 	EClass getOperator();
 
 	/**
+	 * Returns the meta object for class '{@link klangexpr.Statement <em>Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Statement</em>'.
+	 * @see klangexpr.Statement
+	 * @generated
+	 */
+	EClass getStatement();
+
+	/**
 	 * Returns the meta object for class '{@link klangexpr.Sleep <em>Sleep</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2093,15 +1803,36 @@ public interface KlangexprPackage extends EPackage {
 	EClass getSleep();
 
 	/**
-	 * Returns the meta object for the attribute '{@link klangexpr.Sleep#getDuration <em>Duration</em>}'.
+	 * Returns the meta object for the containment reference '{@link klangexpr.Sleep#getDuration <em>Duration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Duration</em>'.
+	 * @return the meta object for the containment reference '<em>Duration</em>'.
 	 * @see klangexpr.Sleep#getDuration()
 	 * @see #getSleep()
 	 * @generated
 	 */
-	EAttribute getSleep_Duration();
+	EReference getSleep_Duration();
+
+	/**
+	 * Returns the meta object for class '{@link klangexpr.SendMessage <em>Send Message</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Send Message</em>'.
+	 * @see klangexpr.SendMessage
+	 * @generated
+	 */
+	EClass getSendMessage();
+
+	/**
+	 * Returns the meta object for the attribute '{@link klangexpr.SendMessage#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see klangexpr.SendMessage#getName()
+	 * @see #getSendMessage()
+	 * @generated
+	 */
+	EAttribute getSendMessage_Name();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2493,34 +2224,6 @@ public interface KlangexprPackage extends EPackage {
 		EReference FUNCTION_CALL__PARAMETERS = eINSTANCE.getFunctionCall_Parameters();
 
 		/**
-		 * The meta object literal for the '{@link klangexpr.Statement <em>Statement</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see klangexpr.Statement
-		 * @see klangexpr.impl.KlangexprPackageImpl#getStatement()
-		 * @generated
-		 */
-		EClass STATEMENT = eINSTANCE.getStatement();
-
-		/**
-		 * The meta object literal for the '{@link klangexpr.impl.AbstractElementImpl <em>Abstract Element</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see klangexpr.impl.AbstractElementImpl
-		 * @see klangexpr.impl.KlangexprPackageImpl#getAbstractElement()
-		 * @generated
-		 */
-		EClass ABSTRACT_ELEMENT = eINSTANCE.getAbstractElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Actor</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ABSTRACT_ELEMENT___GET_ACTOR = eINSTANCE.getAbstractElement__GetActor();
-
-		/**
 		 * The meta object literal for the '{@link klangexpr.impl.IntegerLiteralImpl <em>Integer Literal</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2579,6 +2282,16 @@ public interface KlangexprPackage extends EPackage {
 		EClass OPERATOR = eINSTANCE.getOperator();
 
 		/**
+		 * The meta object literal for the '{@link klangexpr.impl.StatementImpl <em>Statement</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klangexpr.impl.StatementImpl
+		 * @see klangexpr.impl.KlangexprPackageImpl#getStatement()
+		 * @generated
+		 */
+		EClass STATEMENT = eINSTANCE.getStatement();
+
+		/**
 		 * The meta object literal for the '{@link klangexpr.impl.SleepImpl <em>Sleep</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2589,12 +2302,30 @@ public interface KlangexprPackage extends EPackage {
 		EClass SLEEP = eINSTANCE.getSleep();
 
 		/**
-		 * The meta object literal for the '<em><b>Duration</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Duration</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SLEEP__DURATION = eINSTANCE.getSleep_Duration();
+		EReference SLEEP__DURATION = eINSTANCE.getSleep_Duration();
+
+		/**
+		 * The meta object literal for the '{@link klangexpr.impl.SendMessageImpl <em>Send Message</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klangexpr.impl.SendMessageImpl
+		 * @see klangexpr.impl.KlangexprPackageImpl#getSendMessage()
+		 * @generated
+		 */
+		EClass SEND_MESSAGE = eINSTANCE.getSendMessage();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEND_MESSAGE__NAME = eINSTANCE.getSendMessage_Name();
 
 	}
 

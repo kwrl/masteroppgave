@@ -31,7 +31,6 @@ public class KlangexprAllTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new KlangexprAllTests("Klang-expr Tests");
-		suite.addTest(KlangexprTests.suite());
 		return suite;
 	}
 

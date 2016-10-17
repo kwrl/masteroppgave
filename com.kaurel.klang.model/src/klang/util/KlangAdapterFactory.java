@@ -115,6 +115,10 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 				return createTreeTraversalAdapter();
 			}
 			@Override
+			public Adapter caseMessageReceived(MessageReceived object) {
+				return createMessageReceivedAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -299,6 +303,20 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTreeTraversalAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link klang.MessageReceived <em>Message Received</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klang.MessageReceived
+	 * @generated
+	 */
+	public Adapter createMessageReceivedAdapter() {
 		return null;
 	}
 

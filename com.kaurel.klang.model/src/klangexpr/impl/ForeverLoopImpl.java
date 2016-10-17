@@ -3,11 +3,9 @@
 package klangexpr.impl;
 
 import java.util.Collection;
-
 import klangexpr.ForeverLoop;
 import klangexpr.KlangexprPackage;
 import klangexpr.Statement;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -31,7 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ForeverLoopImpl extends AbstractElementImpl implements ForeverLoop {
+public class ForeverLoopImpl extends StatementImpl implements ForeverLoop {
 	/**
 	 * The cached value of the '{@link #getStatements() <em>Statements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

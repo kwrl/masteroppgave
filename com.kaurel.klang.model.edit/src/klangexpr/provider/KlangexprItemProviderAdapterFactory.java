@@ -693,6 +693,29 @@ public class KlangexprItemProviderAdapterFactory extends KlangexprAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link klangexpr.Statement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StatementItemProvider statementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link klangexpr.Statement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStatementAdapter() {
+		if (statementItemProvider == null) {
+			statementItemProvider = new StatementItemProvider(this);
+		}
+
+		return statementItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link klangexpr.Sleep} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -713,6 +736,29 @@ public class KlangexprItemProviderAdapterFactory extends KlangexprAdapterFactory
 		}
 
 		return sleepItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link klangexpr.SendMessage} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SendMessageItemProvider sendMessageItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link klangexpr.SendMessage}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSendMessageAdapter() {
+		if (sendMessageItemProvider == null) {
+			sendMessageItemProvider = new SendMessageItemProvider(this);
+		}
+
+		return sendMessageItemProvider;
 	}
 
 	/**
@@ -841,7 +887,9 @@ public class KlangexprItemProviderAdapterFactory extends KlangexprAdapterFactory
 		if (unaryMinusItemProvider != null) unaryMinusItemProvider.dispose();
 		if (toDoubleItemProvider != null) toDoubleItemProvider.dispose();
 		if (toIntItemProvider != null) toIntItemProvider.dispose();
+		if (statementItemProvider != null) statementItemProvider.dispose();
 		if (sleepItemProvider != null) sleepItemProvider.dispose();
+		if (sendMessageItemProvider != null) sendMessageItemProvider.dispose();
 	}
 
 }

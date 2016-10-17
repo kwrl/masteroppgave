@@ -937,6 +937,61 @@ public interface KlangPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link klang.impl.MessageReceivedImpl <em>Message Received</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.MessageReceivedImpl
+	 * @see klang.impl.KlangPackageImpl#getMessageReceived()
+	 * @generated
+	 */
+	int MESSAGE_RECEIVED = 12;
+
+	/**
+	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE_RECEIVED__STATEMENTS = EVENT_HANDLER__STATEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Actor</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE_RECEIVED__ACTOR = EVENT_HANDLER__ACTOR;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE_RECEIVED__NAME = EVENT_HANDLER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Message Received</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE_RECEIVED_FEATURE_COUNT = EVENT_HANDLER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Message Received</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE_RECEIVED_OPERATION_COUNT = EVENT_HANDLER_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link klang.Keys <em>Keys</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -944,7 +999,7 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getKeys()
 	 * @generated
 	 */
-	int KEYS = 12;
+	int KEYS = 13;
 
 
 	/**
@@ -1366,6 +1421,27 @@ public interface KlangPackage extends EPackage {
 	EOperation getTreeTraversal__DepthFirst__TreeNode();
 
 	/**
+	 * Returns the meta object for class '{@link klang.MessageReceived <em>Message Received</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Message Received</em>'.
+	 * @see klang.MessageReceived
+	 * @generated
+	 */
+	EClass getMessageReceived();
+
+	/**
+	 * Returns the meta object for the attribute '{@link klang.MessageReceived#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see klang.MessageReceived#getName()
+	 * @see #getMessageReceived()
+	 * @generated
+	 */
+	EAttribute getMessageReceived_Name();
+
+	/**
 	 * Returns the meta object for enum '{@link klang.Keys <em>Keys</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1741,6 +1817,24 @@ public interface KlangPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation TREE_TRAVERSAL___DEPTH_FIRST__TREENODE = eINSTANCE.getTreeTraversal__DepthFirst__TreeNode();
+
+		/**
+		 * The meta object literal for the '{@link klang.impl.MessageReceivedImpl <em>Message Received</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klang.impl.MessageReceivedImpl
+		 * @see klang.impl.KlangPackageImpl#getMessageReceived()
+		 * @generated
+		 */
+		EClass MESSAGE_RECEIVED = eINSTANCE.getMessageReceived();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MESSAGE_RECEIVED__NAME = eINSTANCE.getMessageReceived_Name();
 
 		/**
 		 * The meta object literal for the '{@link klang.Keys <em>Keys</em>}' enum.

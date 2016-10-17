@@ -13,7 +13,7 @@ import klangexpr.KlangexprFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class IfTest extends AbstractElementTest {
+public class IfTest extends StatementTest {
 
 	/**
 	 * <!-- begin-user-doc -->

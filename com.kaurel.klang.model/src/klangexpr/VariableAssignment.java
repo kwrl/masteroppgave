@@ -2,7 +2,6 @@
  */
 package klangexpr;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Variable Assignment</b></em>'.

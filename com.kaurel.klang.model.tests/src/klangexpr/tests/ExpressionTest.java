@@ -2,6 +2,8 @@
  */
 package klangexpr.tests;
 
+import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
 
 import klangexpr.Expression;
@@ -13,7 +15,15 @@ import klangexpr.KlangexprFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ExpressionTest extends AbstractElementTest {
+public class ExpressionTest extends TestCase {
+
+	/**
+	 * The fixture for this Expression test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Expression fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -35,14 +45,23 @@ public class ExpressionTest extends AbstractElementTest {
 	}
 
 	/**
+	 * Sets the fixture for this Expression test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(Expression fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
 	 * Returns the fixture for this Expression test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	protected Expression getFixture() {
-		return (Expression)fixture;
+		return fixture;
 	}
 
 	/**

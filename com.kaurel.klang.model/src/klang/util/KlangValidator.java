@@ -126,6 +126,8 @@ public class KlangValidator extends EObjectValidator {
 				return validateTreeNode((TreeNode<?>)value, diagnostics, context);
 			case KlangPackage.TREE_TRAVERSAL:
 				return validateTreeTraversal((TreeTraversal)value, diagnostics, context);
+			case KlangPackage.MESSAGE_RECEIVED:
+				return validateMessageReceived((MessageReceived)value, diagnostics, context);
 			case KlangPackage.KEYS:
 				return validateKeys((Keys)value, diagnostics, context);
 			default:
@@ -428,6 +430,15 @@ public class KlangValidator extends EObjectValidator {
 	 */
 	public boolean validateTreeTraversal(TreeTraversal treeTraversal, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(treeTraversal, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateMessageReceived(MessageReceived messageReceived, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(messageReceived, diagnostics, context);
 	}
 
 	/**

@@ -103,6 +103,15 @@ public interface KlangFactory extends EFactory {
 	TreeTraversal createTreeTraversal();
 
 	/**
+	 * Returns a new object of class '<em>Message Received</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Message Received</em>'.
+	 * @generated
+	 */
+	MessageReceived createMessageReceived();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

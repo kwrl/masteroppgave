@@ -83,7 +83,9 @@ public class KlangexprFactoryImpl extends EFactoryImpl implements KlangexprFacto
 			case KlangexprPackage.UNARY_MINUS: return createUnaryMinus();
 			case KlangexprPackage.TO_DOUBLE: return createToDouble();
 			case KlangexprPackage.TO_INT: return createToInt();
+			case KlangexprPackage.STATEMENT: return createStatement();
 			case KlangexprPackage.SLEEP: return createSleep();
+			case KlangexprPackage.SEND_MESSAGE: return createSendMessage();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -364,9 +366,29 @@ public class KlangexprFactoryImpl extends EFactoryImpl implements KlangexprFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Statement createStatement() {
+		StatementImpl statement = new StatementImpl();
+		return statement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Sleep createSleep() {
 		SleepImpl sleep = new SleepImpl();
 		return sleep;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SendMessage createSendMessage() {
+		SendMessageImpl sendMessage = new SendMessageImpl();
+		return sendMessage;
 	}
 
 	/**

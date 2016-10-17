@@ -6,6 +6,7 @@ import klangexpr.Expression;
 import klangexpr.KlangexprPackage;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,7 +15,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class ExpressionImpl extends AbstractElementImpl implements Expression {
+public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -13,7 +13,7 @@ import klangexpr.Sleep;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SleepTest extends AbstractElementTest {
+public class SleepTest extends StatementTest {
 
 	/**
 	 * <!-- begin-user-doc -->

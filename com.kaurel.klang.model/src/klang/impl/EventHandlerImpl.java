@@ -7,7 +7,6 @@ import klang.AbstractActor;
 import klang.EventHandler;
 import klang.KlangPackage;
 import klangexpr.Statement;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;

@@ -36,7 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class WhileLoopImpl extends AbstractElementImpl implements WhileLoop {
+public class WhileLoopImpl extends StatementImpl implements WhileLoop {
 	/**
 	 * The cached value of the '{@link #getPredicate() <em>Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->

@@ -265,6 +265,15 @@ public interface KlangexprFactory extends EFactory {
 	ToInt createToInt();
 
 	/**
+	 * Returns a new object of class '<em>Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Statement</em>'.
+	 * @generated
+	 */
+	Statement createStatement();
+
+	/**
 	 * Returns a new object of class '<em>Sleep</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -272,6 +281,15 @@ public interface KlangexprFactory extends EFactory {
 	 * @generated
 	 */
 	Sleep createSleep();
+
+	/**
+	 * Returns a new object of class '<em>Send Message</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Send Message</em>'.
+	 * @generated
+	 */
+	SendMessage createSendMessage();
 
 	/**
 	 * Returns the package supported by this factory.

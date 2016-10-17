@@ -3,15 +3,11 @@ scene Program
 sprite ball
 	var swapColors = true
 	
-	when game starts
-		while true
-			if swapColors
-				setColor(random(), random(), random())	
-				sleep(1.0)
-				
+	when game starts 
+		print("GAME STARTED")	
+		sendMessage("SOMEMESSAGE")
 	
-	when collides with paddle
-		setX(0.0)
-		swapColors = not swapColors
-		
 sprite paddle
+	when ["SOMEMESSAGE"] received
+		print("MOTTOK SOMEMESSAGE!")
+		sendMessage("SOMEMESSAGE")

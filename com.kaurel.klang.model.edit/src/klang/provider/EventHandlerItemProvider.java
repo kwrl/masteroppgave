@@ -152,6 +152,11 @@ public class EventHandlerItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangPackage.Literals.EVENT_HANDLER__STATEMENTS,
+				 KlangexprFactory.eINSTANCE.createStatement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.EVENT_HANDLER__STATEMENTS,
 				 KlangexprFactory.eINSTANCE.createWhileLoop()));
 
 		newChildDescriptors.add
@@ -183,6 +188,11 @@ public class EventHandlerItemProvider
 			(createChildParameter
 				(KlangPackage.Literals.EVENT_HANDLER__STATEMENTS,
 				 KlangexprFactory.eINSTANCE.createSleep()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.EVENT_HANDLER__STATEMENTS,
+				 KlangexprFactory.eINSTANCE.createSendMessage()));
 	}
 
 	/**

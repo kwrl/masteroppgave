@@ -10,6 +10,7 @@ import klang.KeyPressed;
 import klang.Keys;
 import klang.KlangFactory;
 import klang.KlangPackage;
+import klang.MessageReceived;
 import klang.Program;
 import klang.SceneActor;
 import klang.SpriteActor;
@@ -124,6 +125,13 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * @generated
 	 */
 	private EClass treeTraversalEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass messageReceivedEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -570,6 +578,24 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getMessageReceived() {
+		return messageReceivedEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMessageReceived_Name() {
+		return (EAttribute)messageReceivedEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getKeys() {
 		return keysEEnum;
 	}
@@ -654,6 +680,9 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		createEOperation(treeTraversalEClass, TREE_TRAVERSAL___BREADTH_FIRST__TREENODE);
 		createEOperation(treeTraversalEClass, TREE_TRAVERSAL___DEPTH_FIRST__TREENODE);
 
+		messageReceivedEClass = createEClass(MESSAGE_RECEIVED);
+		createEAttribute(messageReceivedEClass, MESSAGE_RECEIVED__NAME);
+
 		// Create enums
 		keysEEnum = createEEnum(KEYS);
 	}
@@ -704,6 +733,7 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		spriteClickedEClass.getESuperTypes().add(this.getEventHandler());
 		keyPressedEClass.getESuperTypes().add(this.getEventHandler());
 		collidesWithEClass.getESuperTypes().add(this.getEventHandler());
+		messageReceivedEClass.getESuperTypes().add(this.getEventHandler());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(sceneActorEClass, SceneActor.class, "SceneActor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -796,6 +826,9 @@ public class KlangPackageImpl extends EPackageImpl implements KlangPackage {
 		addEParameter(op, g1, "root", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(t1);
 		initEOperation(op, g1);
+
+		initEClass(messageReceivedEClass, MessageReceived.class, "MessageReceived", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMessageReceived_Name(), ecorePackage.getEString(), "name", null, 0, 1, MessageReceived.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(keysEEnum, Keys.class, "Keys");

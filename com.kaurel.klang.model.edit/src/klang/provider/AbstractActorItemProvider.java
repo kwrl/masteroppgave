@@ -262,6 +262,11 @@ public class AbstractActorItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(KlangPackage.Literals.ABSTRACT_ACTOR__EVENT_HANDLERS,
+				 KlangFactory.eINSTANCE.createMessageReceived()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(KlangPackage.Literals.ABSTRACT_ACTOR__LOCAL_VARIABLES,
 				 KlangFactory.eINSTANCE.createVariableDeclaration()));
 	}

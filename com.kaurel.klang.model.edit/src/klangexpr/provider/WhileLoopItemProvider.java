@@ -24,7 +24,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class WhileLoopItemProvider extends AbstractElementItemProvider {
+public class WhileLoopItemProvider extends StatementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -248,6 +248,11 @@ public class WhileLoopItemProvider extends AbstractElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangexprPackage.Literals.WHILE_LOOP__STATEMENTS,
+				 KlangexprFactory.eINSTANCE.createStatement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangexprPackage.Literals.WHILE_LOOP__STATEMENTS,
 				 KlangexprFactory.eINSTANCE.createWhileLoop()));
 
 		newChildDescriptors.add
@@ -279,6 +284,11 @@ public class WhileLoopItemProvider extends AbstractElementItemProvider {
 			(createChildParameter
 				(KlangexprPackage.Literals.WHILE_LOOP__STATEMENTS,
 				 KlangexprFactory.eINSTANCE.createSleep()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangexprPackage.Literals.WHILE_LOOP__STATEMENTS,
+				 KlangexprFactory.eINSTANCE.createSendMessage()));
 	}
 
 	/**

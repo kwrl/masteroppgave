@@ -2,6 +2,8 @@
  */
 package klangexpr;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Statement</b></em>'.
@@ -9,8 +11,8 @@ package klangexpr;
  *
  *
  * @see klangexpr.KlangexprPackage#getStatement()
- * @model interface="true" abstract="true"
+ * @model
  * @generated
  */
-public interface Statement extends AbstractElement {
+public interface Statement extends EObject {
 } // Statement

@@ -2,7 +2,6 @@
  */
 package klangexpr.impl;
 
-import klangexpr.AbstractElement;
 import klangexpr.And;
 import klangexpr.BinaryOperator;
 import klangexpr.BooleanLiteral;
@@ -24,6 +23,7 @@ import klangexpr.Not;
 import klangexpr.Operator;
 import klangexpr.Or;
 import klangexpr.Plus;
+import klangexpr.SendMessage;
 import klangexpr.Sleep;
 import klangexpr.Statement;
 import klangexpr.StringLiteral;
@@ -40,7 +40,6 @@ import klangexpr.util.KlangexprValidator;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
@@ -220,20 +219,6 @@ public class KlangexprPackageImpl extends EPackageImpl implements KlangexprPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass statementEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass abstractElementEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass integerLiteralEClass = null;
 
 	/**
@@ -269,7 +254,21 @@ public class KlangexprPackageImpl extends EPackageImpl implements KlangexprPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass statementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass sleepEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sendMessageEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -706,33 +705,6 @@ public class KlangexprPackageImpl extends EPackageImpl implements KlangexprPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getStatement() {
-		return statementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getAbstractElement() {
-		return abstractElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getAbstractElement__GetActor() {
-		return abstractElementEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getIntegerLiteral() {
 		return integerLiteralEClass;
 	}
@@ -787,6 +759,15 @@ public class KlangexprPackageImpl extends EPackageImpl implements KlangexprPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getStatement() {
+		return statementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSleep() {
 		return sleepEClass;
 	}
@@ -796,8 +777,26 @@ public class KlangexprPackageImpl extends EPackageImpl implements KlangexprPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSleep_Duration() {
-		return (EAttribute)sleepEClass.getEStructuralFeatures().get(0);
+	public EReference getSleep_Duration() {
+		return (EReference)sleepEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSendMessage() {
+		return sendMessageEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSendMessage_Name() {
+		return (EAttribute)sendMessageEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -891,11 +890,6 @@ public class KlangexprPackageImpl extends EPackageImpl implements KlangexprPacka
 		createEAttribute(functionCallEClass, FUNCTION_CALL__NAME);
 		createEReference(functionCallEClass, FUNCTION_CALL__PARAMETERS);
 
-		statementEClass = createEClass(STATEMENT);
-
-		abstractElementEClass = createEClass(ABSTRACT_ELEMENT);
-		createEOperation(abstractElementEClass, ABSTRACT_ELEMENT___GET_ACTOR);
-
 		integerLiteralEClass = createEClass(INTEGER_LITERAL);
 		createEAttribute(integerLiteralEClass, INTEGER_LITERAL__VALUE);
 
@@ -907,8 +901,13 @@ public class KlangexprPackageImpl extends EPackageImpl implements KlangexprPacka
 
 		operatorEClass = createEClass(OPERATOR);
 
+		statementEClass = createEClass(STATEMENT);
+
 		sleepEClass = createEClass(SLEEP);
-		createEAttribute(sleepEClass, SLEEP__DURATION);
+		createEReference(sleepEClass, SLEEP__DURATION);
+
+		sendMessageEClass = createEClass(SEND_MESSAGE);
+		createEAttribute(sendMessageEClass, SEND_MESSAGE__NAME);
 	}
 
 	/**
@@ -944,7 +943,6 @@ public class KlangexprPackageImpl extends EPackageImpl implements KlangexprPacka
 		foreverLoopEClass.getESuperTypes().add(this.getStatement());
 		yieldEClass.getESuperTypes().add(this.getStatement());
 		variableAssignmentEClass.getESuperTypes().add(this.getStatement());
-		expressionEClass.getESuperTypes().add(this.getAbstractElement());
 		orEClass.getESuperTypes().add(this.getBinaryOperator());
 		andEClass.getESuperTypes().add(this.getBinaryOperator());
 		plusEClass.getESuperTypes().add(this.getBinaryOperator());
@@ -963,13 +961,13 @@ public class KlangexprPackageImpl extends EPackageImpl implements KlangexprPacka
 		binaryOperatorEClass.getESuperTypes().add(this.getOperator());
 		functionCallEClass.getESuperTypes().add(this.getExpression());
 		functionCallEClass.getESuperTypes().add(this.getStatement());
-		statementEClass.getESuperTypes().add(this.getAbstractElement());
 		integerLiteralEClass.getESuperTypes().add(this.getExpression());
 		unaryMinusEClass.getESuperTypes().add(this.getUnaryOperator());
 		toDoubleEClass.getESuperTypes().add(this.getUnaryOperator());
 		toIntEClass.getESuperTypes().add(this.getUnaryOperator());
 		operatorEClass.getESuperTypes().add(this.getExpression());
 		sleepEClass.getESuperTypes().add(this.getStatement());
+		sendMessageEClass.getESuperTypes().add(this.getStatement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(whileLoopEClass, WhileLoop.class, "WhileLoop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1035,12 +1033,6 @@ public class KlangexprPackageImpl extends EPackageImpl implements KlangexprPacka
 		initEAttribute(getFunctionCall_Name(), ecorePackage.getEString(), "name", null, 0, 1, FunctionCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFunctionCall_Parameters(), this.getExpression(), null, "parameters", null, 0, -1, FunctionCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(statementEClass, Statement.class, "Statement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(abstractElementEClass, AbstractElement.class, "AbstractElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEOperation(getAbstractElement__GetActor(), null, "getActor", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(integerLiteralEClass, IntegerLiteral.class, "IntegerLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIntegerLiteral_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntegerLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1052,8 +1044,13 @@ public class KlangexprPackageImpl extends EPackageImpl implements KlangexprPacka
 
 		initEClass(operatorEClass, Operator.class, "Operator", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		initEClass(sleepEClass, Sleep.class, "Sleep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSleep_Duration(), ecorePackage.getEDouble(), "duration", null, 0, 1, Sleep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSleep_Duration(), this.getExpression(), null, "duration", null, 0, 1, Sleep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(sendMessageEClass, SendMessage.class, "SendMessage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSendMessage_Name(), ecorePackage.getEString(), "name", null, 0, 1, SendMessage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

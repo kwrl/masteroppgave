@@ -160,14 +160,6 @@ public class KlangexprAdapterFactory extends AdapterFactoryImpl {
 				return createFunctionCallAdapter();
 			}
 			@Override
-			public Adapter caseStatement(Statement object) {
-				return createStatementAdapter();
-			}
-			@Override
-			public Adapter caseAbstractElement(AbstractElement object) {
-				return createAbstractElementAdapter();
-			}
-			@Override
 			public Adapter caseIntegerLiteral(IntegerLiteral object) {
 				return createIntegerLiteralAdapter();
 			}
@@ -188,8 +180,16 @@ public class KlangexprAdapterFactory extends AdapterFactoryImpl {
 				return createOperatorAdapter();
 			}
 			@Override
+			public Adapter caseStatement(Statement object) {
+				return createStatementAdapter();
+			}
+			@Override
 			public Adapter caseSleep(Sleep object) {
 				return createSleepAdapter();
+			}
+			@Override
+			public Adapter caseSendMessage(SendMessage object) {
+				return createSendMessageAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -534,34 +534,6 @@ public class KlangexprAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link klangexpr.Statement <em>Statement</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see klangexpr.Statement
-	 * @generated
-	 */
-	public Adapter createStatementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link klangexpr.AbstractElement <em>Abstract Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see klangexpr.AbstractElement
-	 * @generated
-	 */
-	public Adapter createAbstractElementAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link klangexpr.IntegerLiteral <em>Integer Literal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -632,6 +604,20 @@ public class KlangexprAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link klangexpr.Statement <em>Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klangexpr.Statement
+	 * @generated
+	 */
+	public Adapter createStatementAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link klangexpr.Sleep <em>Sleep</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -642,6 +628,20 @@ public class KlangexprAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSleepAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link klangexpr.SendMessage <em>Send Message</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klangexpr.SendMessage
+	 * @generated
+	 */
+	public Adapter createSendMessageAdapter() {
 		return null;
 	}
 

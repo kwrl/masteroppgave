@@ -24,7 +24,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class IfItemProvider extends AbstractElementItemProvider {
+public class IfItemProvider extends StatementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -250,6 +250,11 @@ public class IfItemProvider extends AbstractElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(KlangexprPackage.Literals.IF__IF_BLOCK,
+				 KlangexprFactory.eINSTANCE.createStatement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangexprPackage.Literals.IF__IF_BLOCK,
 				 KlangexprFactory.eINSTANCE.createWhileLoop()));
 
 		newChildDescriptors.add
@@ -284,6 +289,16 @@ public class IfItemProvider extends AbstractElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(KlangexprPackage.Literals.IF__IF_BLOCK,
+				 KlangexprFactory.eINSTANCE.createSendMessage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangexprPackage.Literals.IF__ELSE_BLOCK,
+				 KlangexprFactory.eINSTANCE.createStatement()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(KlangexprPackage.Literals.IF__ELSE_BLOCK,
 				 KlangexprFactory.eINSTANCE.createWhileLoop()));
 
@@ -316,6 +331,11 @@ public class IfItemProvider extends AbstractElementItemProvider {
 			(createChildParameter
 				(KlangexprPackage.Literals.IF__ELSE_BLOCK,
 				 KlangexprFactory.eINSTANCE.createSleep()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangexprPackage.Literals.IF__ELSE_BLOCK,
+				 KlangexprFactory.eINSTANCE.createSendMessage()));
 	}
 
 	/**

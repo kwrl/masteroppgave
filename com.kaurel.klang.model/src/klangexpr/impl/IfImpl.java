@@ -8,7 +8,6 @@ import klangexpr.Expression;
 import klangexpr.If;
 import klangexpr.KlangexprPackage;
 import klangexpr.Statement;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -37,7 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class IfImpl extends AbstractElementImpl implements If {
+public class IfImpl extends StatementImpl implements If {
 	/**
 	 * The cached value of the '{@link #getPredicate() <em>Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->

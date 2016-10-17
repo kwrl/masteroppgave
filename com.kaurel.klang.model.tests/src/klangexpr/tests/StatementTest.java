@@ -2,6 +2,11 @@
  */
 package klangexpr.tests;
 
+import junit.framework.TestCase;
+
+import junit.textui.TestRunner;
+
+import klangexpr.KlangexprFactory;
 import klangexpr.Statement;
 
 /**
@@ -10,7 +15,24 @@ import klangexpr.Statement;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class StatementTest extends AbstractElementTest {
+public class StatementTest extends TestCase {
+
+	/**
+	 * The fixture for this Statement test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Statement fixture = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static void main(String[] args) {
+		TestRunner.run(StatementTest.class);
+	}
 
 	/**
 	 * Constructs a new Statement test case with the given name.
@@ -23,14 +45,45 @@ public abstract class StatementTest extends AbstractElementTest {
 	}
 
 	/**
+	 * Sets the fixture for this Statement test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(Statement fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
 	 * Returns the fixture for this Statement test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	protected Statement getFixture() {
-		return (Statement)fixture;
+		return fixture;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(KlangexprFactory.eINSTANCE.createStatement());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
 	}
 
 } //StatementTest

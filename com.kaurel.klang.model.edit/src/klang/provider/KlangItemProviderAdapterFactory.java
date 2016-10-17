@@ -279,6 +279,29 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link klang.MessageReceived} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MessageReceivedItemProvider messageReceivedItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link klang.MessageReceived}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMessageReceivedAdapter() {
+		if (messageReceivedItemProvider == null) {
+			messageReceivedItemProvider = new MessageReceivedItemProvider(this);
+		}
+
+		return messageReceivedItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -386,6 +409,7 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 		if (collidesWithItemProvider != null) collidesWithItemProvider.dispose();
 		if (programItemProvider != null) programItemProvider.dispose();
 		if (treeTraversalItemProvider != null) treeTraversalItemProvider.dispose();
+		if (messageReceivedItemProvider != null) messageReceivedItemProvider.dispose();
 	}
 
 }

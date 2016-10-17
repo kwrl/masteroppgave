@@ -2,11 +2,10 @@
  */
 package klang;
 
+import klangexpr.Statement;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
-
-import klangexpr.Statement;
 
 /**
  * <!-- begin-user-doc -->

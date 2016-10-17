@@ -146,6 +146,13 @@ public class KlangSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case KlangPackage.MESSAGE_RECEIVED: {
+				MessageReceived messageReceived = (MessageReceived)theEObject;
+				T1 result = caseMessageReceived(messageReceived);
+				if (result == null) result = caseEventHandler(messageReceived);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -327,6 +334,21 @@ public class KlangSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseTreeTraversal(TreeTraversal object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Message Received</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Message Received</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseMessageReceived(MessageReceived object) {
 		return null;
 	}
 

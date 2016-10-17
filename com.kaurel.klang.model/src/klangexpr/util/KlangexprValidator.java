@@ -132,10 +132,6 @@ public class KlangexprValidator extends EObjectValidator {
 				return validateBinaryOperator((BinaryOperator)value, diagnostics, context);
 			case KlangexprPackage.FUNCTION_CALL:
 				return validateFunctionCall((FunctionCall)value, diagnostics, context);
-			case KlangexprPackage.STATEMENT:
-				return validateStatement((Statement)value, diagnostics, context);
-			case KlangexprPackage.ABSTRACT_ELEMENT:
-				return validateAbstractElement((AbstractElement)value, diagnostics, context);
 			case KlangexprPackage.INTEGER_LITERAL:
 				return validateIntegerLiteral((IntegerLiteral)value, diagnostics, context);
 			case KlangexprPackage.UNARY_MINUS:
@@ -146,8 +142,12 @@ public class KlangexprValidator extends EObjectValidator {
 				return validateToInt((ToInt)value, diagnostics, context);
 			case KlangexprPackage.OPERATOR:
 				return validateOperator((Operator)value, diagnostics, context);
+			case KlangexprPackage.STATEMENT:
+				return validateStatement((Statement)value, diagnostics, context);
 			case KlangexprPackage.SLEEP:
 				return validateSleep((Sleep)value, diagnostics, context);
+			case KlangexprPackage.SEND_MESSAGE:
+				return validateSendMessage((SendMessage)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -684,24 +684,6 @@ public class KlangexprValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateStatement(Statement statement, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(statement, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateAbstractElement(AbstractElement abstractElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(abstractElement, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateIntegerLiteral(IntegerLiteral integerLiteral, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(integerLiteral, diagnostics, context);
 	}
@@ -777,8 +759,26 @@ public class KlangexprValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateStatement(Statement statement, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(statement, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateSleep(Sleep sleep, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(sleep, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSendMessage(SendMessage sendMessage, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(sendMessage, diagnostics, context);
 	}
 
 	/**
