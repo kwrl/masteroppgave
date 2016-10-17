@@ -2,7 +2,7 @@ package com.kaurel.klang.runtime.events;
 
 import klang.AbstractActor;
 
-public class CollisionEvent {
+public class CollisionEvent extends KlangEvent {
 	private final AbstractActor actorA;
 	private final AbstractActor actorB;
 	

@@ -1,6 +1,6 @@
 package com.kaurel.klang.runtime.events;
 
-public class MessageEvent extends GlobalRuntimeEvent {
+public class MessageEvent extends GlobalEvent {
 	private String name;
 	
 	public MessageEvent(String name) {

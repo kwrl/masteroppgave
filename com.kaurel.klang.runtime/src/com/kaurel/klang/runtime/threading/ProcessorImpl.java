@@ -79,20 +79,20 @@ public class ProcessorImpl extends KlangexprSwitch<Object> implements Processor 
 
 		while ((current = thread.poll()) != null) {
 			if (current instanceof Yield) {
-				scheduler.yield();
+				scheduler.yieldCurrentThread();
 				break;
 			}
 
 			if (current instanceof Sleep) {
 				long duration = (long) evaluate(((Sleep) current).getDuration()) * 1000;
-				scheduler.sleep(duration);
+				scheduler.sleepCurrentThread(duration);
 				break;
 			}
 
 			doSwitch(current);
 		}
 
-		scheduler.terminate();
+		scheduler.terminateCurrentThread();
 	}
 
 	@Override
@@ -134,7 +134,7 @@ public class ProcessorImpl extends KlangexprSwitch<Object> implements Processor 
 
 	@Override
 	public Void caseSendMessage(SendMessage object) {
-		interpreter.onMessageReceived(new MessageEvent(object.getName()));
+		interpreter.onKlangEvent(new MessageEvent(object.getName()));
 		return null;
 	}
 
@@ -168,7 +168,6 @@ public class ProcessorImpl extends KlangexprSwitch<Object> implements Processor 
 	@Override
 	public Object caseFunctionCall(FunctionCall object) {
 		Object[] parameters = evaluate(object.getParameters());
-		AbstractActor actor = getActor();
 
 		if (!methodCache.containsKey(object)) {
 			try {

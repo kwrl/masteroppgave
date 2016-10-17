@@ -2,10 +2,10 @@ package com.kaurel.klang.runtime.events;
 
 import klang.AbstractActor;
 
-public abstract class ActorRuntimeEvent {
+public abstract class ActorEvent extends KlangEvent {
 	private AbstractActor actor;
 	
-	public ActorRuntimeEvent(AbstractActor actor) {
+	public ActorEvent(AbstractActor actor) {
 		this.actor = actor;
 	}
 	

@@ -5,21 +5,12 @@ import java.util.Queue;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import com.kaurel.klang.runtime.KlangInterpreter;
-
 public class Scheduler {
 	private LinkedList<KlangThread> threads = new LinkedList<>();
 
 	private Timer sleepTimer = new Timer(true);
-
-	private KlangInterpreter interpreter;
-
 	private SchedulerPass currentPass;
 	private Queue<KlangThread> currentThreads;
-
-	public Scheduler(KlangInterpreter interpreter) {
-		this.interpreter = interpreter;
-	}
 
 	public boolean isIdle() {
 		return threads.isEmpty() && (getCurrentPass() == null || getCurrentPass().isDone());
@@ -36,15 +27,15 @@ public class Scheduler {
 		threads.addFirst(thread);
 	}
 
-	public void yield() {
+	public void yieldCurrentThread() {
 		threads.add(currentThreads.poll());
 	}
 
-	public void terminate() {
+	public void terminateCurrentThread() {
 		currentThreads.poll();
 	}
 
-	public void sleep(long duration) {
+	public void sleepCurrentThread(long duration) {
 		KlangThread thread = currentThreads.poll();
 
 		sleepTimer.schedule(new TimerTask() {
