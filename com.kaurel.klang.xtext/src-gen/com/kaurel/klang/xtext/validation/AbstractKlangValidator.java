@@ -13,7 +13,8 @@ public abstract class AbstractKlangValidator extends AbstractDeclarativeValidato
 	@Override
 	protected List<EPackage> getEPackages() {
 		List<EPackage> result = new ArrayList<EPackage>();
-		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.example.org/klang"));
+		result.add(EPackage.Registry.INSTANCE.getEPackage("platform:/plugin/com.kaurel.klang.model/model/klang.ecore"));
+		result.add(EPackage.Registry.INSTANCE.getEPackage("platform:/plugin/com.kaurel.klang.model/model/klang-expr.ecore"));
 		return result;
 	}
 	

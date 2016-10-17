@@ -8,15 +8,15 @@ import org.eclipse.emf.common.util.EList;
 import klang.AbstractActor;
 import klangexpr.Statement;
 
-public class KThread {
+public class KlangThread {
 	private final AbstractActor actor;
 	private final LinkedList<Statement> queue;
 
-	public KThread(EList<Statement> statements, AbstractActor actor) {
+	public KlangThread(EList<Statement> statements, AbstractActor actor) {
 		this((List<Statement>)statements, actor);
 	}
 	
-	public KThread(List<Statement> statements, AbstractActor actor) {
+	public KlangThread(List<Statement> statements, AbstractActor actor) {
 		this.actor = actor;
 		this.queue = new LinkedList<>(statements);
 	}

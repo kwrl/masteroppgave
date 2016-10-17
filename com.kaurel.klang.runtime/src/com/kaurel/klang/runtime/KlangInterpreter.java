@@ -5,7 +5,7 @@ import com.kaurel.klang.runtime.events.CollisionEvent;
 import com.kaurel.klang.runtime.events.KeyboardEvent;
 import com.kaurel.klang.runtime.events.KlangEventListener;
 import com.kaurel.klang.runtime.events.MessageEvent;
-import com.kaurel.klang.runtime.threading.KThread;
+import com.kaurel.klang.runtime.threading.KlangThread;
 import com.kaurel.klang.runtime.threading.Processor;
 import com.kaurel.klang.runtime.threading.ProcessorImpl;
 import com.kaurel.klang.runtime.threading.Scheduler;
@@ -24,7 +24,6 @@ public class KlangInterpreter implements KlangEventListener {
 
 	public KlangInterpreter(SceneActor sceneActor) {
 		this.sceneActor = sceneActor;
-		
 		processor.initializeAllVariables(sceneActor);
 	}
 
@@ -93,7 +92,7 @@ public class KlangInterpreter implements KlangEventListener {
 	}
 
 	public void processEventHandler(EventHandler handler) {
-		scheduler.addThread(new KThread(handler.getStatements(), handler.getActor()));
+		scheduler.addThread(new KlangThread(handler.getStatements(), handler.getActor()));
 	}
 	
 	public Processor getProcessor() {

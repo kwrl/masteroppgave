@@ -1,4 +1,4 @@
 package com.kaurel.klang.runtime.events;
 
-public abstract class RuntimeEvent {
+public abstract class KlangEvent {
 }

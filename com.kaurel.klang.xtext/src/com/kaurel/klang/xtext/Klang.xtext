@@ -1,6 +1,7 @@
 grammar com.kaurel.klang.xtext.Klang with org.eclipse.xtext.common.Terminals
 
-import "http://www.example.org/klang"
+import "platform:/plugin/com.kaurel.klang.model/model/klang.ecore"
+import "platform:/plugin/com.kaurel.klang.model/model/klang-expr.ecore"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Program:
@@ -11,26 +12,45 @@ Program:
 SceneActor:
 	{SceneActor}
 	'scene' name=ID
+	(
 	BEGIN
 	(localVariables+=VariableDeclaration)*
 	(eventHandlers+=EventHandler)*
 	END
+	)?
 ;
 
 SpriteActor returns SpriteActor:
 	{SpriteActor}
 	'sprite' name=ID
+	(
 	BEGIN
 	(localVariables+=VariableDeclaration)*
 	(eventHandlers+=EventHandler)*
-	END;
+	END
+	)?
+	;
 
 EventHandler:
-	GameStart | SpriteClicked | KeyPressed | CollidesWith
-;	
-	
+	GameStart | SpriteClicked | KeyPressed | CollidesWith | MessageReceived
+;
+
+MessageReceived returns EventHandler:
+	{MessageReceived}	
+	'when' '[' name=STRING']' 'received'
+	BEGIN
+	(statements+=Statement)*
+	END
+;
+
+
 Statement returns Statement:
-	WhileLoop | If | VariableAssignment	| ForeverLoop | FunctionCall | Sleep
+	WhileLoop | If | VariableAssignment	| ForeverLoop | FunctionCall | Sleep | SendMessage
+;
+
+SendMessage returns Statement:
+	{SendMessage}
+	'sendMessage' '(' name=STRING ')'
 ;
 
 GameStart returns EventHandler:
@@ -51,11 +71,15 @@ SpriteClicked returns EventHandler:
 
 KeyPressed returns EventHandler:
 	{KeyPressed}	
-	'when' key=ID 'key' 'pressed'
+	'when' '[' key=Keys ']' 'pressed'
 	BEGIN
 	(statements+=Statement)*
 	END
 
+;
+
+enum Keys returns Keys:
+	A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T| U | V | W | X | Y | Z | SPACE | ENTER
 ;
 
 CollidesWith returns EventHandler: 
@@ -71,7 +95,7 @@ WhileLoop returns Statement:
 	{WhileLoop}
 	'while' predicate=Expression
 	BEGIN
-	(loopBlock+=Statement)*
+	(statements+=Statement)*
 	END
 ;
 
@@ -93,15 +117,11 @@ ForeverLoop returns Statement:
 	{ForeverLoop}
 	'forever'
 	BEGIN
-	(loopStatements+=Statement)*
+	(statements+=Statement)*
 	END;
 
 VariableDeclaration:
 	'var' name=ID '=' expression=Expression;
-	
-AbstractElement:
-	VariableAssignment | Expression 
-;
 
 VariableAssignment:
 	variableName=ID '='	expression=Expression
@@ -109,7 +129,7 @@ VariableAssignment:
 
 Sleep returns Statement:
 	{Sleep}
-	'sleep' '(' duration=DECIMAL')'
+	'sleep' '(' duration=Expression')'
 ;
 
 Expression:
@@ -164,3 +184,4 @@ terminal END:
 DECIMAL returns ecore::EDouble:
 	INT '.' INT
 ;
+

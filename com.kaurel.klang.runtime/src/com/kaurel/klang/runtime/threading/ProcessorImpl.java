@@ -34,19 +34,19 @@ import klangexpr.util.KlangexprSwitch;
 
 public class ProcessorImpl extends KlangexprSwitch<Object> implements Processor {
 	private KlangInterpreter interpreter;
-	private KThread thread;
+	private KlangThread thread;
 
 	public ProcessorImpl(KlangInterpreter interpreter) {
 		this.interpreter = interpreter;
 	}
-	
+
 	@Override
 	public void initializeVariables(AbstractActor actor) {
 		actor.getLocalVariables()
 				.stream()
 				.forEach(decl -> decl.setValue(evaluate(decl.getExpression())));
 	}
-	
+
 	@Override
 	public void initializeAllVariables(AbstractActor rootActor) {
 		rootActor.traverseBFS()
@@ -54,10 +54,10 @@ public class ProcessorImpl extends KlangexprSwitch<Object> implements Processor 
 				.flatMap(a -> a.getLocalVariables().stream())
 				.forEach(decl -> decl.setValue(evaluate(decl.getExpression())));
 	}
-	
+
 	@Override
 	public void processSingleThread() {
-		if(!getSchedulerPass().isDone()) {
+		if (!getSchedulerPass().isDone()) {
 			processThread(thread);
 		}
 	}
@@ -71,7 +71,7 @@ public class ProcessorImpl extends KlangexprSwitch<Object> implements Processor 
 		}
 	}
 
-	private void processThread(KThread thread) {
+	private void processThread(KlangThread thread) {
 		Statement current;
 		Scheduler scheduler = interpreter.getScheduler();
 
@@ -246,13 +246,11 @@ public class ProcessorImpl extends KlangexprSwitch<Object> implements Processor 
 		return (Double) evaluate(expression);
 	}
 
-	
-
 	private SchedulerPass getSchedulerPass() {
 		return interpreter.getScheduler().getCurrentPass();
 	}
 
-	private void setThread(KThread thread) {
+	private void setThread(KlangThread thread) {
 		this.thread = thread;
 	}
 
@@ -260,10 +258,8 @@ public class ProcessorImpl extends KlangexprSwitch<Object> implements Processor 
 		return getThread().getActor();
 	}
 
-	private KThread getThread() {
+	private KlangThread getThread() {
 		return thread;
 	}
-
-	
 
 }

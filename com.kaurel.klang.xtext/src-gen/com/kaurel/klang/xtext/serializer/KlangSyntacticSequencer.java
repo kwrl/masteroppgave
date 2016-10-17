@@ -24,6 +24,8 @@ public class KlangSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_If___ElseKeyword_6_0_BEGINTerminalRuleCall_6_1_ENDTerminalRuleCall_6_3__q;
 	protected AbstractElementAlias match_PrimaryExpression_LeftParenthesisKeyword_0_0_a;
 	protected AbstractElementAlias match_PrimaryExpression_LeftParenthesisKeyword_0_0_p;
+	protected AbstractElementAlias match_SceneActor___BEGINTerminalRuleCall_3_0_ENDTerminalRuleCall_3_3__q;
+	protected AbstractElementAlias match_SpriteActor___BEGINTerminalRuleCall_3_0_ENDTerminalRuleCall_3_3__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
@@ -31,6 +33,8 @@ public class KlangSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_If___ElseKeyword_6_0_BEGINTerminalRuleCall_6_1_ENDTerminalRuleCall_6_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getIfAccess().getElseKeyword_6_0()), new TokenAlias(false, false, grammarAccess.getIfAccess().getBEGINTerminalRuleCall_6_1()), new TokenAlias(false, false, grammarAccess.getIfAccess().getENDTerminalRuleCall_6_3()));
 		match_PrimaryExpression_LeftParenthesisKeyword_0_0_a = new TokenAlias(true, true, grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_0_0());
 		match_PrimaryExpression_LeftParenthesisKeyword_0_0_p = new TokenAlias(true, false, grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_0_0());
+		match_SceneActor___BEGINTerminalRuleCall_3_0_ENDTerminalRuleCall_3_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getSceneActorAccess().getBEGINTerminalRuleCall_3_0()), new TokenAlias(false, false, grammarAccess.getSceneActorAccess().getENDTerminalRuleCall_3_3()));
+		match_SpriteActor___BEGINTerminalRuleCall_3_0_ENDTerminalRuleCall_3_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getSpriteActorAccess().getBEGINTerminalRuleCall_3_0()), new TokenAlias(false, false, grammarAccess.getSpriteActorAccess().getENDTerminalRuleCall_3_3()));
 	}
 	
 	@Override
@@ -66,6 +70,10 @@ public class KlangSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_PrimaryExpression_LeftParenthesisKeyword_0_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_PrimaryExpression_LeftParenthesisKeyword_0_0_p.equals(syntax))
 				emit_PrimaryExpression_LeftParenthesisKeyword_0_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SceneActor___BEGINTerminalRuleCall_3_0_ENDTerminalRuleCall_3_3__q.equals(syntax))
+				emit_SceneActor___BEGINTerminalRuleCall_3_0_ENDTerminalRuleCall_3_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SpriteActor___BEGINTerminalRuleCall_3_0_ENDTerminalRuleCall_3_3__q.equals(syntax))
+				emit_SpriteActor___BEGINTerminalRuleCall_3_0_ENDTerminalRuleCall_3_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -131,6 +139,28 @@ public class KlangSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) {Plus.left=}
 	 */
 	protected void emit_PrimaryExpression_LeftParenthesisKeyword_0_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     (BEGIN END)?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=ID (ambiguity) (rule end)
+	 */
+	protected void emit_SceneActor___BEGINTerminalRuleCall_3_0_ENDTerminalRuleCall_3_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     (BEGIN END)?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=ID (ambiguity) (rule end)
+	 */
+	protected void emit_SpriteActor___BEGINTerminalRuleCall_3_0_ENDTerminalRuleCall_3_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

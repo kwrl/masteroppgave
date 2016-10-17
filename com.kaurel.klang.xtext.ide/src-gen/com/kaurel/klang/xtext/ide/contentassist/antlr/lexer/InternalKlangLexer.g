@@ -11,7 +11,11 @@ package com.kaurel.klang.xtext.ide.contentassist.antlr.lexer;
 import org.eclipse.xtext.ide.editor.contentassist.antlr.internal.Lexer;
 }
 
+SendMessage : 'sendMessage';
+
 Collides : 'collides';
+
+Received : 'received';
 
 Clicked : 'clicked';
 
@@ -24,6 +28,10 @@ Double : 'double';
 Sprite : 'sprite';
 
 Starts : 'starts';
+
+ENTER : 'ENTER';
+
+SPACE : 'SPACE';
 
 False : 'false';
 
@@ -46,8 +54,6 @@ With : 'with';
 And : 'and';
 
 Int : 'int';
-
-Key : 'key';
 
 Not : 'not';
 
@@ -80,6 +86,62 @@ LessThanSign : '<';
 EqualsSign : '=';
 
 GreaterThanSign : '>';
+
+A : 'A';
+
+B : 'B';
+
+C : 'C';
+
+D : 'D';
+
+E : 'E';
+
+F : 'F';
+
+G : 'G';
+
+H : 'H';
+
+I : 'I';
+
+J : 'J';
+
+K : 'K';
+
+L : 'L';
+
+M : 'M';
+
+N : 'N';
+
+O : 'O';
+
+P : 'P';
+
+Q : 'Q';
+
+R : 'R';
+
+S : 'S';
+
+T : 'T';
+
+U : 'U';
+
+V : 'V';
+
+W : 'W';
+
+X : 'X';
+
+Y : 'Y';
+
+Z : 'Z';
+
+LeftSquareBracket : '[';
+
+RightSquareBracket : ']';
 
 // Rules duplicated to allow inter-rule references
 

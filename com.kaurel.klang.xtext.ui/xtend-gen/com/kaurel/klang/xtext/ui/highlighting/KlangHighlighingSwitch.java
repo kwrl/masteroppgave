@@ -3,16 +3,15 @@ package com.kaurel.klang.xtext.ui.highlighting;
 import com.google.common.base.Objects;
 import com.kaurel.klang.xtext.ui.highlighting.KlangHighlightingConfiguration;
 import java.util.List;
-import klang.BooleanLiteral;
-import klang.DoubleLiteral;
-import klang.Expression;
-import klang.IntegerLiteral;
-import klang.KlangPackage;
-import klang.StringLiteral;
-import klang.VariableAssignment;
-import klang.VariableDeclaration;
-import klang.util.KlangSwitch;
 import klang.util.TypeComputer;
+import klangexpr.BooleanLiteral;
+import klangexpr.DoubleLiteral;
+import klangexpr.Expression;
+import klangexpr.IntegerLiteral;
+import klangexpr.KlangexprPackage;
+import klangexpr.StringLiteral;
+import klangexpr.VariableAssignment;
+import klangexpr.util.KlangexprSwitch;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -23,7 +22,7 @@ import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 
 @SuppressWarnings("all")
-public class KlangHighlighingSwitch extends KlangSwitch<Void> {
+public class KlangHighlighingSwitch extends KlangexprSwitch<Void> {
   private final IHighlightedPositionAcceptor acceptor;
   
   private final TypeComputer typeComputer = new TypeComputer();
@@ -57,7 +56,7 @@ public class KlangHighlighingSwitch extends KlangSwitch<Void> {
   
   @Override
   public Void caseBooleanLiteral(final BooleanLiteral object) {
-    EAttribute _booleanLiteral_Value = KlangPackage.eINSTANCE.getBooleanLiteral_Value();
+    EAttribute _booleanLiteral_Value = KlangexprPackage.eINSTANCE.getBooleanLiteral_Value();
     INode node = this.getFirstFeatureNode(object, _booleanLiteral_Value);
     this.highlightByType(node, Boolean.class);
     return null;
@@ -65,7 +64,7 @@ public class KlangHighlighingSwitch extends KlangSwitch<Void> {
   
   @Override
   public Void caseIntegerLiteral(final IntegerLiteral object) {
-    EAttribute _booleanLiteral_Value = KlangPackage.eINSTANCE.getBooleanLiteral_Value();
+    EAttribute _booleanLiteral_Value = KlangexprPackage.eINSTANCE.getBooleanLiteral_Value();
     INode node = this.getFirstFeatureNode(object, _booleanLiteral_Value);
     this.highlightByType(node, Integer.class);
     return null;
@@ -73,7 +72,7 @@ public class KlangHighlighingSwitch extends KlangSwitch<Void> {
   
   @Override
   public Void caseDoubleLiteral(final DoubleLiteral object) {
-    EAttribute _booleanLiteral_Value = KlangPackage.eINSTANCE.getBooleanLiteral_Value();
+    EAttribute _booleanLiteral_Value = KlangexprPackage.eINSTANCE.getBooleanLiteral_Value();
     INode node = this.getFirstFeatureNode(object, _booleanLiteral_Value);
     this.highlightByType(node, Double.class);
     return null;
@@ -81,38 +80,25 @@ public class KlangHighlighingSwitch extends KlangSwitch<Void> {
   
   @Override
   public Void caseStringLiteral(final StringLiteral object) {
-    EAttribute _stringLiteral_Value = KlangPackage.eINSTANCE.getStringLiteral_Value();
+    EAttribute _stringLiteral_Value = KlangexprPackage.eINSTANCE.getStringLiteral_Value();
     INode node = this.getFirstFeatureNode(object, _stringLiteral_Value);
     this.highlightByType(node, String.class);
     return null;
   }
   
   @Override
-  public Void caseVariableDeclaration(final VariableDeclaration object) {
-    EAttribute _variableDeclaration_Name = KlangPackage.eINSTANCE.getVariableDeclaration_Name();
-    INode name = this.getFirstFeatureNode(object, _variableDeclaration_Name);
-    EReference _variableDeclaration_Expression = KlangPackage.eINSTANCE.getVariableDeclaration_Expression();
-    INode expression = this.getFirstFeatureNode(object, _variableDeclaration_Expression);
-    Expression _expression = object.getExpression();
-    Class type = this.typeComputer.computeType(_expression);
-    this.highlightByType(name, type);
-    this.highlightByType(expression, type);
-    return null;
-  }
-  
-  @Override
   public Void caseVariableAssignment(final VariableAssignment object) {
-    EAttribute _variableAssignment_VariableName = KlangPackage.eINSTANCE.getVariableAssignment_VariableName();
+    EAttribute _variableAssignment_VariableName = KlangexprPackage.eINSTANCE.getVariableAssignment_VariableName();
     INode variableName = this.getFirstFeatureNode(object, _variableAssignment_VariableName);
-    EReference _variableAssignment_Expression = KlangPackage.eINSTANCE.getVariableAssignment_Expression();
+    EReference _variableAssignment_Expression = KlangexprPackage.eINSTANCE.getVariableAssignment_Expression();
     INode variableExpression = this.getFirstFeatureNode(object, _variableAssignment_Expression);
     Expression _expression = object.getExpression();
-    Class _computeType = this.typeComputer.computeType(_expression);
+    Class<?> _computeType = this.typeComputer.computeType(_expression);
     this.highlightByType(variableExpression, _computeType);
     return null;
   }
   
-  public void highlightByType(final INode node, final Class type) {
+  public void highlightByType(final INode node, final Class<?> type) {
     boolean _equals = Objects.equal(type, Boolean.class);
     if (_equals) {
       this.highlightNode(node, KlangHighlightingConfiguration.BOOLEAN_EXPRESSION_ID);

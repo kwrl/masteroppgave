@@ -10,6 +10,8 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.CrossReference;
+import org.eclipse.xtext.EnumLiteralDeclaration;
+import org.eclipse.xtext.EnumRule;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -18,6 +20,7 @@ import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
 import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
+import org.eclipse.xtext.service.AbstractElementFinder.AbstractEnumRuleElementFinder;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
 
@@ -59,23 +62,23 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSceneKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final RuleCall cBEGINTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
-		private final Assignment cLocalVariablesAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cLocalVariablesVariableDeclarationParserRuleCall_4_0 = (RuleCall)cLocalVariablesAssignment_4.eContents().get(0);
-		private final Assignment cEventHandlersAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cEventHandlersEventHandlerParserRuleCall_5_0 = (RuleCall)cEventHandlersAssignment_5.eContents().get(0);
-		private final RuleCall cENDTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final RuleCall cBEGINTerminalRuleCall_3_0 = (RuleCall)cGroup_3.eContents().get(0);
+		private final Assignment cLocalVariablesAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cLocalVariablesVariableDeclarationParserRuleCall_3_1_0 = (RuleCall)cLocalVariablesAssignment_3_1.eContents().get(0);
+		private final Assignment cEventHandlersAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cEventHandlersEventHandlerParserRuleCall_3_2_0 = (RuleCall)cEventHandlersAssignment_3_2.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_3_3 = (RuleCall)cGroup_3.eContents().get(3);
 		
 		//SceneActor:
 		//	{SceneActor}
-		//	'scene' name=ID
-		//	BEGIN
+		//	'scene' name=ID (BEGIN
 		//	localVariables+=VariableDeclaration*
 		//	eventHandlers+=EventHandler*
-		//	END;
+		//	END)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{SceneActor} 'scene' name=ID BEGIN localVariables+=VariableDeclaration* eventHandlers+=EventHandler* END
+		//{SceneActor} 'scene' name=ID (BEGIN localVariables+=VariableDeclaration* eventHandlers+=EventHandler* END)?
 		public Group getGroup() { return cGroup; }
 		
 		//{SceneActor}
@@ -90,23 +93,26 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 		
+		//(BEGIN localVariables+=VariableDeclaration* eventHandlers+=EventHandler* END)?
+		public Group getGroup_3() { return cGroup_3; }
+		
 		//BEGIN
-		public RuleCall getBEGINTerminalRuleCall_3() { return cBEGINTerminalRuleCall_3; }
+		public RuleCall getBEGINTerminalRuleCall_3_0() { return cBEGINTerminalRuleCall_3_0; }
 		
 		//localVariables+=VariableDeclaration*
-		public Assignment getLocalVariablesAssignment_4() { return cLocalVariablesAssignment_4; }
+		public Assignment getLocalVariablesAssignment_3_1() { return cLocalVariablesAssignment_3_1; }
 		
 		//VariableDeclaration
-		public RuleCall getLocalVariablesVariableDeclarationParserRuleCall_4_0() { return cLocalVariablesVariableDeclarationParserRuleCall_4_0; }
+		public RuleCall getLocalVariablesVariableDeclarationParserRuleCall_3_1_0() { return cLocalVariablesVariableDeclarationParserRuleCall_3_1_0; }
 		
 		//eventHandlers+=EventHandler*
-		public Assignment getEventHandlersAssignment_5() { return cEventHandlersAssignment_5; }
+		public Assignment getEventHandlersAssignment_3_2() { return cEventHandlersAssignment_3_2; }
 		
 		//EventHandler
-		public RuleCall getEventHandlersEventHandlerParserRuleCall_5_0() { return cEventHandlersEventHandlerParserRuleCall_5_0; }
+		public RuleCall getEventHandlersEventHandlerParserRuleCall_3_2_0() { return cEventHandlersEventHandlerParserRuleCall_3_2_0; }
 		
 		//END
-		public RuleCall getENDTerminalRuleCall_6() { return cENDTerminalRuleCall_6; }
+		public RuleCall getENDTerminalRuleCall_3_3() { return cENDTerminalRuleCall_3_3; }
 	}
 	public class SpriteActorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.SpriteActor");
@@ -115,23 +121,23 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSpriteKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final RuleCall cBEGINTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
-		private final Assignment cLocalVariablesAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cLocalVariablesVariableDeclarationParserRuleCall_4_0 = (RuleCall)cLocalVariablesAssignment_4.eContents().get(0);
-		private final Assignment cEventHandlersAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cEventHandlersEventHandlerParserRuleCall_5_0 = (RuleCall)cEventHandlersAssignment_5.eContents().get(0);
-		private final RuleCall cENDTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final RuleCall cBEGINTerminalRuleCall_3_0 = (RuleCall)cGroup_3.eContents().get(0);
+		private final Assignment cLocalVariablesAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cLocalVariablesVariableDeclarationParserRuleCall_3_1_0 = (RuleCall)cLocalVariablesAssignment_3_1.eContents().get(0);
+		private final Assignment cEventHandlersAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cEventHandlersEventHandlerParserRuleCall_3_2_0 = (RuleCall)cEventHandlersAssignment_3_2.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_3_3 = (RuleCall)cGroup_3.eContents().get(3);
 		
 		//SpriteActor:
 		//	{SpriteActor}
-		//	'sprite' name=ID
-		//	BEGIN
+		//	'sprite' name=ID (BEGIN
 		//	localVariables+=VariableDeclaration*
 		//	eventHandlers+=EventHandler*
-		//	END;
+		//	END)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{SpriteActor} 'sprite' name=ID BEGIN localVariables+=VariableDeclaration* eventHandlers+=EventHandler* END
+		//{SpriteActor} 'sprite' name=ID (BEGIN localVariables+=VariableDeclaration* eventHandlers+=EventHandler* END)?
 		public Group getGroup() { return cGroup; }
 		
 		//{SpriteActor}
@@ -146,23 +152,26 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 		
+		//(BEGIN localVariables+=VariableDeclaration* eventHandlers+=EventHandler* END)?
+		public Group getGroup_3() { return cGroup_3; }
+		
 		//BEGIN
-		public RuleCall getBEGINTerminalRuleCall_3() { return cBEGINTerminalRuleCall_3; }
+		public RuleCall getBEGINTerminalRuleCall_3_0() { return cBEGINTerminalRuleCall_3_0; }
 		
 		//localVariables+=VariableDeclaration*
-		public Assignment getLocalVariablesAssignment_4() { return cLocalVariablesAssignment_4; }
+		public Assignment getLocalVariablesAssignment_3_1() { return cLocalVariablesAssignment_3_1; }
 		
 		//VariableDeclaration
-		public RuleCall getLocalVariablesVariableDeclarationParserRuleCall_4_0() { return cLocalVariablesVariableDeclarationParserRuleCall_4_0; }
+		public RuleCall getLocalVariablesVariableDeclarationParserRuleCall_3_1_0() { return cLocalVariablesVariableDeclarationParserRuleCall_3_1_0; }
 		
 		//eventHandlers+=EventHandler*
-		public Assignment getEventHandlersAssignment_5() { return cEventHandlersAssignment_5; }
+		public Assignment getEventHandlersAssignment_3_2() { return cEventHandlersAssignment_3_2; }
 		
 		//EventHandler
-		public RuleCall getEventHandlersEventHandlerParserRuleCall_5_0() { return cEventHandlersEventHandlerParserRuleCall_5_0; }
+		public RuleCall getEventHandlersEventHandlerParserRuleCall_3_2_0() { return cEventHandlersEventHandlerParserRuleCall_3_2_0; }
 		
 		//END
-		public RuleCall getENDTerminalRuleCall_6() { return cENDTerminalRuleCall_6; }
+		public RuleCall getENDTerminalRuleCall_3_3() { return cENDTerminalRuleCall_3_3; }
 	}
 	public class EventHandlerElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.EventHandler");
@@ -171,12 +180,13 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSpriteClickedParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cKeyPressedParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cCollidesWithParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cMessageReceivedParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//EventHandler:
-		//	GameStart | SpriteClicked | KeyPressed | CollidesWith;
+		//	GameStart | SpriteClicked | KeyPressed | CollidesWith | MessageReceived;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//GameStart | SpriteClicked | KeyPressed | CollidesWith
+		//GameStart | SpriteClicked | KeyPressed | CollidesWith | MessageReceived
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//GameStart
@@ -190,6 +200,68 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//CollidesWith
 		public RuleCall getCollidesWithParserRuleCall_3() { return cCollidesWithParserRuleCall_3; }
+		
+		//MessageReceived
+		public RuleCall getMessageReceivedParserRuleCall_4() { return cMessageReceivedParserRuleCall_4; }
+	}
+	public class MessageReceivedElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.MessageReceived");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cMessageReceivedAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cWhenKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftSquareBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameSTRINGTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cReceivedKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final RuleCall cBEGINTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		private final Assignment cStatementsAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cStatementsStatementParserRuleCall_7_0 = (RuleCall)cStatementsAssignment_7.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_8 = (RuleCall)cGroup.eContents().get(8);
+		
+		//MessageReceived EventHandler:
+		//	{MessageReceived}
+		//	'when' '[' name=STRING ']' 'received'
+		//	BEGIN
+		//	statements+=Statement*
+		//	END
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{MessageReceived} 'when' '[' name=STRING ']' 'received' BEGIN statements+=Statement* END
+		public Group getGroup() { return cGroup; }
+		
+		//{MessageReceived}
+		public Action getMessageReceivedAction_0() { return cMessageReceivedAction_0; }
+		
+		//'when'
+		public Keyword getWhenKeyword_1() { return cWhenKeyword_1; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_2() { return cLeftSquareBracketKeyword_2; }
+		
+		//name=STRING
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+		
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_3_0() { return cNameSTRINGTerminalRuleCall_3_0; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_4() { return cRightSquareBracketKeyword_4; }
+		
+		//'received'
+		public Keyword getReceivedKeyword_5() { return cReceivedKeyword_5; }
+		
+		//BEGIN
+		public RuleCall getBEGINTerminalRuleCall_6() { return cBEGINTerminalRuleCall_6; }
+		
+		//statements+=Statement*
+		public Assignment getStatementsAssignment_7() { return cStatementsAssignment_7; }
+		
+		//Statement
+		public RuleCall getStatementsStatementParserRuleCall_7_0() { return cStatementsStatementParserRuleCall_7_0; }
+		
+		//END
+		public RuleCall getENDTerminalRuleCall_8() { return cENDTerminalRuleCall_8; }
 	}
 	public class StatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.Statement");
@@ -200,12 +272,13 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cForeverLoopParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cFunctionCallParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cSleepParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cSendMessageParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		
 		//Statement:
-		//	WhileLoop | If | VariableAssignment | ForeverLoop | FunctionCall | Sleep;
+		//	WhileLoop | If | VariableAssignment | ForeverLoop | FunctionCall | Sleep | SendMessage;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//WhileLoop | If | VariableAssignment | ForeverLoop | FunctionCall | Sleep
+		//WhileLoop | If | VariableAssignment | ForeverLoop | FunctionCall | Sleep | SendMessage
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//WhileLoop
@@ -225,6 +298,45 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Sleep
 		public RuleCall getSleepParserRuleCall_5() { return cSleepParserRuleCall_5; }
+		
+		//SendMessage
+		public RuleCall getSendMessageParserRuleCall_6() { return cSendMessageParserRuleCall_6; }
+	}
+	public class SendMessageElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.SendMessage");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cSendMessageAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cSendMessageKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameSTRINGTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//SendMessage Statement:
+		//	{SendMessage}
+		//	'sendMessage' '(' name=STRING ')'
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{SendMessage} 'sendMessage' '(' name=STRING ')'
+		public Group getGroup() { return cGroup; }
+		
+		//{SendMessage}
+		public Action getSendMessageAction_0() { return cSendMessageAction_0; }
+		
+		//'sendMessage'
+		public Keyword getSendMessageKeyword_1() { return cSendMessageKeyword_1; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
+		
+		//name=STRING
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+		
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_3_0() { return cNameSTRINGTerminalRuleCall_3_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
 	}
 	public class GameStartElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.GameStart");
@@ -321,24 +433,25 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cKeyPressedAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cWhenKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cKeyAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cKeyIDTerminalRuleCall_2_0 = (RuleCall)cKeyAssignment_2.eContents().get(0);
-		private final Keyword cKeyKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cPressedKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final RuleCall cBEGINTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
-		private final Assignment cStatementsAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cStatementsStatementParserRuleCall_6_0 = (RuleCall)cStatementsAssignment_6.eContents().get(0);
-		private final RuleCall cENDTerminalRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
+		private final Keyword cLeftSquareBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cKeyAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cKeyKeysEnumRuleCall_3_0 = (RuleCall)cKeyAssignment_3.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cPressedKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final RuleCall cBEGINTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		private final Assignment cStatementsAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cStatementsStatementParserRuleCall_7_0 = (RuleCall)cStatementsAssignment_7.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_8 = (RuleCall)cGroup.eContents().get(8);
 		
 		//KeyPressed EventHandler:
 		//	{KeyPressed}
-		//	'when' key=ID 'key' 'pressed'
+		//	'when' '[' key=Keys ']' 'pressed'
 		//	BEGIN
 		//	statements+=Statement*
 		//	END
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{KeyPressed} 'when' key=ID 'key' 'pressed' BEGIN statements+=Statement* END
+		//{KeyPressed} 'when' '[' key=Keys ']' 'pressed' BEGIN statements+=Statement* END
 		public Group getGroup() { return cGroup; }
 		
 		//{KeyPressed}
@@ -347,29 +460,32 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		//'when'
 		public Keyword getWhenKeyword_1() { return cWhenKeyword_1; }
 		
-		//key=ID
-		public Assignment getKeyAssignment_2() { return cKeyAssignment_2; }
+		//'['
+		public Keyword getLeftSquareBracketKeyword_2() { return cLeftSquareBracketKeyword_2; }
 		
-		//ID
-		public RuleCall getKeyIDTerminalRuleCall_2_0() { return cKeyIDTerminalRuleCall_2_0; }
+		//key=Keys
+		public Assignment getKeyAssignment_3() { return cKeyAssignment_3; }
 		
-		//'key'
-		public Keyword getKeyKeyword_3() { return cKeyKeyword_3; }
+		//Keys
+		public RuleCall getKeyKeysEnumRuleCall_3_0() { return cKeyKeysEnumRuleCall_3_0; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_4() { return cRightSquareBracketKeyword_4; }
 		
 		//'pressed'
-		public Keyword getPressedKeyword_4() { return cPressedKeyword_4; }
+		public Keyword getPressedKeyword_5() { return cPressedKeyword_5; }
 		
 		//BEGIN
-		public RuleCall getBEGINTerminalRuleCall_5() { return cBEGINTerminalRuleCall_5; }
+		public RuleCall getBEGINTerminalRuleCall_6() { return cBEGINTerminalRuleCall_6; }
 		
 		//statements+=Statement*
-		public Assignment getStatementsAssignment_6() { return cStatementsAssignment_6; }
+		public Assignment getStatementsAssignment_7() { return cStatementsAssignment_7; }
 		
 		//Statement
-		public RuleCall getStatementsStatementParserRuleCall_6_0() { return cStatementsStatementParserRuleCall_6_0; }
+		public RuleCall getStatementsStatementParserRuleCall_7_0() { return cStatementsStatementParserRuleCall_7_0; }
 		
 		//END
-		public RuleCall getENDTerminalRuleCall_7() { return cENDTerminalRuleCall_7; }
+		public RuleCall getENDTerminalRuleCall_8() { return cENDTerminalRuleCall_8; }
 	}
 	public class CollidesWithElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.CollidesWith");
@@ -437,19 +553,19 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cPredicateAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cPredicateExpressionParserRuleCall_2_0 = (RuleCall)cPredicateAssignment_2.eContents().get(0);
 		private final RuleCall cBEGINTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
-		private final Assignment cLoopBlockAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cLoopBlockStatementParserRuleCall_4_0 = (RuleCall)cLoopBlockAssignment_4.eContents().get(0);
+		private final Assignment cStatementsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cStatementsStatementParserRuleCall_4_0 = (RuleCall)cStatementsAssignment_4.eContents().get(0);
 		private final RuleCall cENDTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		
 		//WhileLoop Statement:
 		//	{WhileLoop}
 		//	'while' predicate=Expression
 		//	BEGIN
-		//	loopBlock+=Statement*
+		//	statements+=Statement*
 		//	END
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{WhileLoop} 'while' predicate=Expression BEGIN loopBlock+=Statement* END
+		//{WhileLoop} 'while' predicate=Expression BEGIN statements+=Statement* END
 		public Group getGroup() { return cGroup; }
 		
 		//{WhileLoop}
@@ -467,11 +583,11 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		//BEGIN
 		public RuleCall getBEGINTerminalRuleCall_3() { return cBEGINTerminalRuleCall_3; }
 		
-		//loopBlock+=Statement*
-		public Assignment getLoopBlockAssignment_4() { return cLoopBlockAssignment_4; }
+		//statements+=Statement*
+		public Assignment getStatementsAssignment_4() { return cStatementsAssignment_4; }
 		
 		//Statement
-		public RuleCall getLoopBlockStatementParserRuleCall_4_0() { return cLoopBlockStatementParserRuleCall_4_0; }
+		public RuleCall getStatementsStatementParserRuleCall_4_0() { return cStatementsStatementParserRuleCall_4_0; }
 		
 		//END
 		public RuleCall getENDTerminalRuleCall_5() { return cENDTerminalRuleCall_5; }
@@ -556,19 +672,19 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cForeverLoopAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cForeverKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final RuleCall cBEGINTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
-		private final Assignment cLoopStatementsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cLoopStatementsStatementParserRuleCall_3_0 = (RuleCall)cLoopStatementsAssignment_3.eContents().get(0);
+		private final Assignment cStatementsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cStatementsStatementParserRuleCall_3_0 = (RuleCall)cStatementsAssignment_3.eContents().get(0);
 		private final RuleCall cENDTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		
 		//ForeverLoop Statement:
 		//	{ForeverLoop}
 		//	'forever'
 		//	BEGIN
-		//	loopStatements+=Statement*
+		//	statements+=Statement*
 		//	END
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ForeverLoop} 'forever' BEGIN loopStatements+=Statement* END
+		//{ForeverLoop} 'forever' BEGIN statements+=Statement* END
 		public Group getGroup() { return cGroup; }
 		
 		//{ForeverLoop}
@@ -580,11 +696,11 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		//BEGIN
 		public RuleCall getBEGINTerminalRuleCall_2() { return cBEGINTerminalRuleCall_2; }
 		
-		//loopStatements+=Statement*
-		public Assignment getLoopStatementsAssignment_3() { return cLoopStatementsAssignment_3; }
+		//statements+=Statement*
+		public Assignment getStatementsAssignment_3() { return cStatementsAssignment_3; }
 		
 		//Statement
-		public RuleCall getLoopStatementsStatementParserRuleCall_3_0() { return cLoopStatementsStatementParserRuleCall_3_0; }
+		public RuleCall getStatementsStatementParserRuleCall_3_0() { return cStatementsStatementParserRuleCall_3_0; }
 		
 		//END
 		public RuleCall getENDTerminalRuleCall_4() { return cENDTerminalRuleCall_4; }
@@ -624,25 +740,6 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		//Expression
 		public RuleCall getExpressionExpressionParserRuleCall_3_0() { return cExpressionExpressionParserRuleCall_3_0; }
 	}
-	public class AbstractElementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.AbstractElement");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cVariableAssignmentParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cExpressionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		
-		//AbstractElement:
-		//	VariableAssignment | Expression;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//VariableAssignment | Expression
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//VariableAssignment
-		public RuleCall getVariableAssignmentParserRuleCall_0() { return cVariableAssignmentParserRuleCall_0; }
-		
-		//Expression
-		public RuleCall getExpressionParserRuleCall_1() { return cExpressionParserRuleCall_1; }
-	}
 	public class VariableAssignmentElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.VariableAssignment");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -681,15 +778,15 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSleepKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cDurationAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cDurationDECIMALParserRuleCall_3_0 = (RuleCall)cDurationAssignment_3.eContents().get(0);
+		private final RuleCall cDurationExpressionParserRuleCall_3_0 = (RuleCall)cDurationAssignment_3.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Sleep Statement:
 		//	{Sleep}
-		//	'sleep' '(' duration=DECIMAL ')'
+		//	'sleep' '(' duration=Expression ')'
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Sleep} 'sleep' '(' duration=DECIMAL ')'
+		//{Sleep} 'sleep' '(' duration=Expression ')'
 		public Group getGroup() { return cGroup; }
 		
 		//{Sleep}
@@ -701,11 +798,11 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		//'('
 		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
 		
-		//duration=DECIMAL
+		//duration=Expression
 		public Assignment getDurationAssignment_3() { return cDurationAssignment_3; }
 		
-		//DECIMAL
-		public RuleCall getDurationDECIMALParserRuleCall_3_0() { return cDurationDECIMALParserRuleCall_3_0; }
+		//Expression
+		public RuleCall getDurationExpressionParserRuleCall_3_0() { return cDurationExpressionParserRuleCall_3_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
@@ -1313,21 +1410,258 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getINTTerminalRuleCall_2() { return cINTTerminalRuleCall_2; }
 	}
 	
+	public class KeysElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.Keys");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cAEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cAAKeyword_0_0 = (Keyword)cAEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cBEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cBBKeyword_1_0 = (Keyword)cBEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cCEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cCCKeyword_2_0 = (Keyword)cCEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cDEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cDDKeyword_3_0 = (Keyword)cDEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cEEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cEEKeyword_4_0 = (Keyword)cEEnumLiteralDeclaration_4.eContents().get(0);
+		private final EnumLiteralDeclaration cFEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
+		private final Keyword cFFKeyword_5_0 = (Keyword)cFEnumLiteralDeclaration_5.eContents().get(0);
+		private final EnumLiteralDeclaration cGEnumLiteralDeclaration_6 = (EnumLiteralDeclaration)cAlternatives.eContents().get(6);
+		private final Keyword cGGKeyword_6_0 = (Keyword)cGEnumLiteralDeclaration_6.eContents().get(0);
+		private final EnumLiteralDeclaration cHEnumLiteralDeclaration_7 = (EnumLiteralDeclaration)cAlternatives.eContents().get(7);
+		private final Keyword cHHKeyword_7_0 = (Keyword)cHEnumLiteralDeclaration_7.eContents().get(0);
+		private final EnumLiteralDeclaration cIEnumLiteralDeclaration_8 = (EnumLiteralDeclaration)cAlternatives.eContents().get(8);
+		private final Keyword cIIKeyword_8_0 = (Keyword)cIEnumLiteralDeclaration_8.eContents().get(0);
+		private final EnumLiteralDeclaration cJEnumLiteralDeclaration_9 = (EnumLiteralDeclaration)cAlternatives.eContents().get(9);
+		private final Keyword cJJKeyword_9_0 = (Keyword)cJEnumLiteralDeclaration_9.eContents().get(0);
+		private final EnumLiteralDeclaration cKEnumLiteralDeclaration_10 = (EnumLiteralDeclaration)cAlternatives.eContents().get(10);
+		private final Keyword cKKKeyword_10_0 = (Keyword)cKEnumLiteralDeclaration_10.eContents().get(0);
+		private final EnumLiteralDeclaration cLEnumLiteralDeclaration_11 = (EnumLiteralDeclaration)cAlternatives.eContents().get(11);
+		private final Keyword cLLKeyword_11_0 = (Keyword)cLEnumLiteralDeclaration_11.eContents().get(0);
+		private final EnumLiteralDeclaration cMEnumLiteralDeclaration_12 = (EnumLiteralDeclaration)cAlternatives.eContents().get(12);
+		private final Keyword cMMKeyword_12_0 = (Keyword)cMEnumLiteralDeclaration_12.eContents().get(0);
+		private final EnumLiteralDeclaration cNEnumLiteralDeclaration_13 = (EnumLiteralDeclaration)cAlternatives.eContents().get(13);
+		private final Keyword cNNKeyword_13_0 = (Keyword)cNEnumLiteralDeclaration_13.eContents().get(0);
+		private final EnumLiteralDeclaration cOEnumLiteralDeclaration_14 = (EnumLiteralDeclaration)cAlternatives.eContents().get(14);
+		private final Keyword cOOKeyword_14_0 = (Keyword)cOEnumLiteralDeclaration_14.eContents().get(0);
+		private final EnumLiteralDeclaration cPEnumLiteralDeclaration_15 = (EnumLiteralDeclaration)cAlternatives.eContents().get(15);
+		private final Keyword cPPKeyword_15_0 = (Keyword)cPEnumLiteralDeclaration_15.eContents().get(0);
+		private final EnumLiteralDeclaration cQEnumLiteralDeclaration_16 = (EnumLiteralDeclaration)cAlternatives.eContents().get(16);
+		private final Keyword cQQKeyword_16_0 = (Keyword)cQEnumLiteralDeclaration_16.eContents().get(0);
+		private final EnumLiteralDeclaration cREnumLiteralDeclaration_17 = (EnumLiteralDeclaration)cAlternatives.eContents().get(17);
+		private final Keyword cRRKeyword_17_0 = (Keyword)cREnumLiteralDeclaration_17.eContents().get(0);
+		private final EnumLiteralDeclaration cSEnumLiteralDeclaration_18 = (EnumLiteralDeclaration)cAlternatives.eContents().get(18);
+		private final Keyword cSSKeyword_18_0 = (Keyword)cSEnumLiteralDeclaration_18.eContents().get(0);
+		private final EnumLiteralDeclaration cTEnumLiteralDeclaration_19 = (EnumLiteralDeclaration)cAlternatives.eContents().get(19);
+		private final Keyword cTTKeyword_19_0 = (Keyword)cTEnumLiteralDeclaration_19.eContents().get(0);
+		private final EnumLiteralDeclaration cUEnumLiteralDeclaration_20 = (EnumLiteralDeclaration)cAlternatives.eContents().get(20);
+		private final Keyword cUUKeyword_20_0 = (Keyword)cUEnumLiteralDeclaration_20.eContents().get(0);
+		private final EnumLiteralDeclaration cVEnumLiteralDeclaration_21 = (EnumLiteralDeclaration)cAlternatives.eContents().get(21);
+		private final Keyword cVVKeyword_21_0 = (Keyword)cVEnumLiteralDeclaration_21.eContents().get(0);
+		private final EnumLiteralDeclaration cWEnumLiteralDeclaration_22 = (EnumLiteralDeclaration)cAlternatives.eContents().get(22);
+		private final Keyword cWWKeyword_22_0 = (Keyword)cWEnumLiteralDeclaration_22.eContents().get(0);
+		private final EnumLiteralDeclaration cXEnumLiteralDeclaration_23 = (EnumLiteralDeclaration)cAlternatives.eContents().get(23);
+		private final Keyword cXXKeyword_23_0 = (Keyword)cXEnumLiteralDeclaration_23.eContents().get(0);
+		private final EnumLiteralDeclaration cYEnumLiteralDeclaration_24 = (EnumLiteralDeclaration)cAlternatives.eContents().get(24);
+		private final Keyword cYYKeyword_24_0 = (Keyword)cYEnumLiteralDeclaration_24.eContents().get(0);
+		private final EnumLiteralDeclaration cZEnumLiteralDeclaration_25 = (EnumLiteralDeclaration)cAlternatives.eContents().get(25);
+		private final Keyword cZZKeyword_25_0 = (Keyword)cZEnumLiteralDeclaration_25.eContents().get(0);
+		private final EnumLiteralDeclaration cSPACEEnumLiteralDeclaration_26 = (EnumLiteralDeclaration)cAlternatives.eContents().get(26);
+		private final Keyword cSPACESPACEKeyword_26_0 = (Keyword)cSPACEEnumLiteralDeclaration_26.eContents().get(0);
+		private final EnumLiteralDeclaration cENTEREnumLiteralDeclaration_27 = (EnumLiteralDeclaration)cAlternatives.eContents().get(27);
+		private final Keyword cENTERENTERKeyword_27_0 = (Keyword)cENTEREnumLiteralDeclaration_27.eContents().get(0);
+		
+		//enum Keys:
+		//	A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | SPACE | ENTER;
+		public EnumRule getRule() { return rule; }
+		
+		//A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | SPACE | ENTER
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//A
+		public EnumLiteralDeclaration getAEnumLiteralDeclaration_0() { return cAEnumLiteralDeclaration_0; }
+		
+		//"A"
+		public Keyword getAAKeyword_0_0() { return cAAKeyword_0_0; }
+		
+		//B
+		public EnumLiteralDeclaration getBEnumLiteralDeclaration_1() { return cBEnumLiteralDeclaration_1; }
+		
+		//"B"
+		public Keyword getBBKeyword_1_0() { return cBBKeyword_1_0; }
+		
+		//C
+		public EnumLiteralDeclaration getCEnumLiteralDeclaration_2() { return cCEnumLiteralDeclaration_2; }
+		
+		//"C"
+		public Keyword getCCKeyword_2_0() { return cCCKeyword_2_0; }
+		
+		//D
+		public EnumLiteralDeclaration getDEnumLiteralDeclaration_3() { return cDEnumLiteralDeclaration_3; }
+		
+		//"D"
+		public Keyword getDDKeyword_3_0() { return cDDKeyword_3_0; }
+		
+		//E
+		public EnumLiteralDeclaration getEEnumLiteralDeclaration_4() { return cEEnumLiteralDeclaration_4; }
+		
+		//"E"
+		public Keyword getEEKeyword_4_0() { return cEEKeyword_4_0; }
+		
+		//F
+		public EnumLiteralDeclaration getFEnumLiteralDeclaration_5() { return cFEnumLiteralDeclaration_5; }
+		
+		//"F"
+		public Keyword getFFKeyword_5_0() { return cFFKeyword_5_0; }
+		
+		//G
+		public EnumLiteralDeclaration getGEnumLiteralDeclaration_6() { return cGEnumLiteralDeclaration_6; }
+		
+		//"G"
+		public Keyword getGGKeyword_6_0() { return cGGKeyword_6_0; }
+		
+		//H
+		public EnumLiteralDeclaration getHEnumLiteralDeclaration_7() { return cHEnumLiteralDeclaration_7; }
+		
+		//"H"
+		public Keyword getHHKeyword_7_0() { return cHHKeyword_7_0; }
+		
+		//I
+		public EnumLiteralDeclaration getIEnumLiteralDeclaration_8() { return cIEnumLiteralDeclaration_8; }
+		
+		//"I"
+		public Keyword getIIKeyword_8_0() { return cIIKeyword_8_0; }
+		
+		//J
+		public EnumLiteralDeclaration getJEnumLiteralDeclaration_9() { return cJEnumLiteralDeclaration_9; }
+		
+		//"J"
+		public Keyword getJJKeyword_9_0() { return cJJKeyword_9_0; }
+		
+		//K
+		public EnumLiteralDeclaration getKEnumLiteralDeclaration_10() { return cKEnumLiteralDeclaration_10; }
+		
+		//"K"
+		public Keyword getKKKeyword_10_0() { return cKKKeyword_10_0; }
+		
+		//L
+		public EnumLiteralDeclaration getLEnumLiteralDeclaration_11() { return cLEnumLiteralDeclaration_11; }
+		
+		//"L"
+		public Keyword getLLKeyword_11_0() { return cLLKeyword_11_0; }
+		
+		//M
+		public EnumLiteralDeclaration getMEnumLiteralDeclaration_12() { return cMEnumLiteralDeclaration_12; }
+		
+		//"M"
+		public Keyword getMMKeyword_12_0() { return cMMKeyword_12_0; }
+		
+		//N
+		public EnumLiteralDeclaration getNEnumLiteralDeclaration_13() { return cNEnumLiteralDeclaration_13; }
+		
+		//"N"
+		public Keyword getNNKeyword_13_0() { return cNNKeyword_13_0; }
+		
+		//O
+		public EnumLiteralDeclaration getOEnumLiteralDeclaration_14() { return cOEnumLiteralDeclaration_14; }
+		
+		//"O"
+		public Keyword getOOKeyword_14_0() { return cOOKeyword_14_0; }
+		
+		//P
+		public EnumLiteralDeclaration getPEnumLiteralDeclaration_15() { return cPEnumLiteralDeclaration_15; }
+		
+		//"P"
+		public Keyword getPPKeyword_15_0() { return cPPKeyword_15_0; }
+		
+		//Q
+		public EnumLiteralDeclaration getQEnumLiteralDeclaration_16() { return cQEnumLiteralDeclaration_16; }
+		
+		//"Q"
+		public Keyword getQQKeyword_16_0() { return cQQKeyword_16_0; }
+		
+		//R
+		public EnumLiteralDeclaration getREnumLiteralDeclaration_17() { return cREnumLiteralDeclaration_17; }
+		
+		//"R"
+		public Keyword getRRKeyword_17_0() { return cRRKeyword_17_0; }
+		
+		//S
+		public EnumLiteralDeclaration getSEnumLiteralDeclaration_18() { return cSEnumLiteralDeclaration_18; }
+		
+		//"S"
+		public Keyword getSSKeyword_18_0() { return cSSKeyword_18_0; }
+		
+		//T
+		public EnumLiteralDeclaration getTEnumLiteralDeclaration_19() { return cTEnumLiteralDeclaration_19; }
+		
+		//"T"
+		public Keyword getTTKeyword_19_0() { return cTTKeyword_19_0; }
+		
+		//U
+		public EnumLiteralDeclaration getUEnumLiteralDeclaration_20() { return cUEnumLiteralDeclaration_20; }
+		
+		//"U"
+		public Keyword getUUKeyword_20_0() { return cUUKeyword_20_0; }
+		
+		//V
+		public EnumLiteralDeclaration getVEnumLiteralDeclaration_21() { return cVEnumLiteralDeclaration_21; }
+		
+		//"V"
+		public Keyword getVVKeyword_21_0() { return cVVKeyword_21_0; }
+		
+		//W
+		public EnumLiteralDeclaration getWEnumLiteralDeclaration_22() { return cWEnumLiteralDeclaration_22; }
+		
+		//"W"
+		public Keyword getWWKeyword_22_0() { return cWWKeyword_22_0; }
+		
+		//X
+		public EnumLiteralDeclaration getXEnumLiteralDeclaration_23() { return cXEnumLiteralDeclaration_23; }
+		
+		//"X"
+		public Keyword getXXKeyword_23_0() { return cXXKeyword_23_0; }
+		
+		//Y
+		public EnumLiteralDeclaration getYEnumLiteralDeclaration_24() { return cYEnumLiteralDeclaration_24; }
+		
+		//"Y"
+		public Keyword getYYKeyword_24_0() { return cYYKeyword_24_0; }
+		
+		//Z
+		public EnumLiteralDeclaration getZEnumLiteralDeclaration_25() { return cZEnumLiteralDeclaration_25; }
+		
+		//"Z"
+		public Keyword getZZKeyword_25_0() { return cZZKeyword_25_0; }
+		
+		//SPACE
+		public EnumLiteralDeclaration getSPACEEnumLiteralDeclaration_26() { return cSPACEEnumLiteralDeclaration_26; }
+		
+		//"SPACE"
+		public Keyword getSPACESPACEKeyword_26_0() { return cSPACESPACEKeyword_26_0; }
+		
+		//ENTER
+		public EnumLiteralDeclaration getENTEREnumLiteralDeclaration_27() { return cENTEREnumLiteralDeclaration_27; }
+		
+		//"ENTER"
+		public Keyword getENTERENTERKeyword_27_0() { return cENTERENTERKeyword_27_0; }
+	}
 	
 	private final ProgramElements pProgram;
 	private final SceneActorElements pSceneActor;
 	private final SpriteActorElements pSpriteActor;
 	private final EventHandlerElements pEventHandler;
+	private final MessageReceivedElements pMessageReceived;
 	private final StatementElements pStatement;
+	private final SendMessageElements pSendMessage;
 	private final GameStartElements pGameStart;
 	private final SpriteClickedElements pSpriteClicked;
 	private final KeyPressedElements pKeyPressed;
+	private final KeysElements eKeys;
 	private final CollidesWithElements pCollidesWith;
 	private final WhileLoopElements pWhileLoop;
 	private final IfElements pIf;
 	private final ForeverLoopElements pForeverLoop;
 	private final VariableDeclarationElements pVariableDeclaration;
-	private final AbstractElementElements pAbstractElement;
 	private final VariableAssignmentElements pVariableAssignment;
 	private final SleepElements pSleep;
 	private final ExpressionElements pExpression;
@@ -1358,16 +1692,18 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		this.pSceneActor = new SceneActorElements();
 		this.pSpriteActor = new SpriteActorElements();
 		this.pEventHandler = new EventHandlerElements();
+		this.pMessageReceived = new MessageReceivedElements();
 		this.pStatement = new StatementElements();
+		this.pSendMessage = new SendMessageElements();
 		this.pGameStart = new GameStartElements();
 		this.pSpriteClicked = new SpriteClickedElements();
 		this.pKeyPressed = new KeyPressedElements();
+		this.eKeys = new KeysElements();
 		this.pCollidesWith = new CollidesWithElements();
 		this.pWhileLoop = new WhileLoopElements();
 		this.pIf = new IfElements();
 		this.pForeverLoop = new ForeverLoopElements();
 		this.pVariableDeclaration = new VariableDeclarationElements();
-		this.pAbstractElement = new AbstractElementElements();
 		this.pVariableAssignment = new VariableAssignmentElements();
 		this.pSleep = new SleepElements();
 		this.pExpression = new ExpressionElements();
@@ -1426,11 +1762,10 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//SceneActor:
 	//	{SceneActor}
-	//	'scene' name=ID
-	//	BEGIN
+	//	'scene' name=ID (BEGIN
 	//	localVariables+=VariableDeclaration*
 	//	eventHandlers+=EventHandler*
-	//	END;
+	//	END)?;
 	public SceneActorElements getSceneActorAccess() {
 		return pSceneActor;
 	}
@@ -1441,11 +1776,10 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//SpriteActor:
 	//	{SpriteActor}
-	//	'sprite' name=ID
-	//	BEGIN
+	//	'sprite' name=ID (BEGIN
 	//	localVariables+=VariableDeclaration*
 	//	eventHandlers+=EventHandler*
-	//	END;
+	//	END)?;
 	public SpriteActorElements getSpriteActorAccess() {
 		return pSpriteActor;
 	}
@@ -1455,7 +1789,7 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//EventHandler:
-	//	GameStart | SpriteClicked | KeyPressed | CollidesWith;
+	//	GameStart | SpriteClicked | KeyPressed | CollidesWith | MessageReceived;
 	public EventHandlerElements getEventHandlerAccess() {
 		return pEventHandler;
 	}
@@ -1464,14 +1798,39 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		return getEventHandlerAccess().getRule();
 	}
 	
+	//MessageReceived EventHandler:
+	//	{MessageReceived}
+	//	'when' '[' name=STRING ']' 'received'
+	//	BEGIN
+	//	statements+=Statement*
+	//	END
+	public MessageReceivedElements getMessageReceivedAccess() {
+		return pMessageReceived;
+	}
+	
+	public ParserRule getMessageReceivedRule() {
+		return getMessageReceivedAccess().getRule();
+	}
+	
 	//Statement:
-	//	WhileLoop | If | VariableAssignment | ForeverLoop | FunctionCall | Sleep;
+	//	WhileLoop | If | VariableAssignment | ForeverLoop | FunctionCall | Sleep | SendMessage;
 	public StatementElements getStatementAccess() {
 		return pStatement;
 	}
 	
 	public ParserRule getStatementRule() {
 		return getStatementAccess().getRule();
+	}
+	
+	//SendMessage Statement:
+	//	{SendMessage}
+	//	'sendMessage' '(' name=STRING ')'
+	public SendMessageElements getSendMessageAccess() {
+		return pSendMessage;
+	}
+	
+	public ParserRule getSendMessageRule() {
+		return getSendMessageAccess().getRule();
 	}
 	
 	//GameStart EventHandler:
@@ -1504,7 +1863,7 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//KeyPressed EventHandler:
 	//	{KeyPressed}
-	//	'when' key=ID 'key' 'pressed'
+	//	'when' '[' key=Keys ']' 'pressed'
 	//	BEGIN
 	//	statements+=Statement*
 	//	END
@@ -1514,6 +1873,16 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getKeyPressedRule() {
 		return getKeyPressedAccess().getRule();
+	}
+	
+	//enum Keys:
+	//	A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | SPACE | ENTER;
+	public KeysElements getKeysAccess() {
+		return eKeys;
+	}
+	
+	public EnumRule getKeysRule() {
+		return getKeysAccess().getRule();
 	}
 	
 	//CollidesWith EventHandler:
@@ -1533,7 +1902,7 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 	//	{WhileLoop}
 	//	'while' predicate=Expression
 	//	BEGIN
-	//	loopBlock+=Statement*
+	//	statements+=Statement*
 	//	END
 	public WhileLoopElements getWhileLoopAccess() {
 		return pWhileLoop;
@@ -1564,7 +1933,7 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 	//	{ForeverLoop}
 	//	'forever'
 	//	BEGIN
-	//	loopStatements+=Statement*
+	//	statements+=Statement*
 	//	END
 	public ForeverLoopElements getForeverLoopAccess() {
 		return pForeverLoop;
@@ -1584,16 +1953,6 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		return getVariableDeclarationAccess().getRule();
 	}
 	
-	//AbstractElement:
-	//	VariableAssignment | Expression;
-	public AbstractElementElements getAbstractElementAccess() {
-		return pAbstractElement;
-	}
-	
-	public ParserRule getAbstractElementRule() {
-		return getAbstractElementAccess().getRule();
-	}
-	
 	//VariableAssignment:
 	//	variableName=ID '=' expression=Expression;
 	public VariableAssignmentElements getVariableAssignmentAccess() {
@@ -1606,7 +1965,7 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Sleep Statement:
 	//	{Sleep}
-	//	'sleep' '(' duration=DECIMAL ')'
+	//	'sleep' '(' duration=Expression ')'
 	public SleepElements getSleepAccess() {
 		return pSleep;
 	}

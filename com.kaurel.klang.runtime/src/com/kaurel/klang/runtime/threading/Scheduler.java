@@ -8,14 +8,14 @@ import java.util.TimerTask;
 import com.kaurel.klang.runtime.KlangInterpreter;
 
 public class Scheduler {
-	private LinkedList<KThread> threads = new LinkedList<>();
+	private LinkedList<KlangThread> threads = new LinkedList<>();
 
 	private Timer sleepTimer = new Timer(true);
 
 	private KlangInterpreter interpreter;
 
 	private SchedulerPass currentPass;
-	private Queue<KThread> currentThreads;
+	private Queue<KlangThread> currentThreads;
 
 	public Scheduler(KlangInterpreter interpreter) {
 		this.interpreter = interpreter;
@@ -32,7 +32,7 @@ public class Scheduler {
 		return currentPass;
 	}
 
-	public void addThread(KThread thread) {
+	public void addThread(KlangThread thread) {
 		threads.addFirst(thread);
 	}
 
@@ -45,7 +45,7 @@ public class Scheduler {
 	}
 
 	public void sleep(long duration) {
-		KThread thread = currentThreads.poll();
+		KlangThread thread = currentThreads.poll();
 
 		sleepTimer.schedule(new TimerTask() {
 			@Override
@@ -66,7 +66,7 @@ public class Scheduler {
 			return current() == null;
 		}
 
-		public KThread current() {
+		public KlangThread current() {
 			return currentThreads.peek();
 		}
 
