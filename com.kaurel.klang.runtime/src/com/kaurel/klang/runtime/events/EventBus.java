@@ -16,7 +16,6 @@ public class EventBus {
 				.map(h -> {
 					return (KlangEventHandler<T>) h;
 				})
-				.filter(h -> h != null)
 				.forEach(h -> {
 					try {
 						h.handle(event);
