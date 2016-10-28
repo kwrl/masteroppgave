@@ -95,13 +95,15 @@ public class KlangSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '('*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) '(' 'double' ')' expression=PrimaryExpression
-	 *     (rule start) (ambiguity) '(' 'int' ')' expression=PrimaryExpression
 	 *     (rule start) (ambiguity) '-' expression=PrimaryExpression
+	 *     (rule start) (ambiguity) 'double' '(' expression=PrimaryExpression
 	 *     (rule start) (ambiguity) 'false' '<' (rule start)
+	 *     (rule start) (ambiguity) 'false' '<=' (rule start)
 	 *     (rule start) (ambiguity) 'false' '==' (rule start)
 	 *     (rule start) (ambiguity) 'false' '>' (rule start)
+	 *     (rule start) (ambiguity) 'false' '>=' (rule start)
 	 *     (rule start) (ambiguity) 'false' (rule start)
+	 *     (rule start) (ambiguity) 'int' '(' expression=PrimaryExpression
 	 *     (rule start) (ambiguity) 'not' expression=PrimaryExpression
 	 *     (rule start) (ambiguity) name=ID
 	 *     (rule start) (ambiguity) value=DECIMAL
@@ -113,7 +115,9 @@ public class KlangSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) {Divide.left=}
 	 *     (rule start) (ambiguity) {Equal.left=}
 	 *     (rule start) (ambiguity) {GreaterThan.left=}
+	 *     (rule start) (ambiguity) {GreaterThanOrEqual.left=}
 	 *     (rule start) (ambiguity) {LessThan.left=}
+	 *     (rule start) (ambiguity) {LessThanOrEqual.left=}
 	 *     (rule start) (ambiguity) {Minus.left=}
 	 *     (rule start) (ambiguity) {Multiply.left=}
 	 *     (rule start) (ambiguity) {Or.left=}
@@ -132,7 +136,9 @@ public class KlangSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) {Divide.left=}
 	 *     (rule start) (ambiguity) {Equal.left=}
 	 *     (rule start) (ambiguity) {GreaterThan.left=}
+	 *     (rule start) (ambiguity) {GreaterThanOrEqual.left=}
 	 *     (rule start) (ambiguity) {LessThan.left=}
+	 *     (rule start) (ambiguity) {LessThanOrEqual.left=}
 	 *     (rule start) (ambiguity) {Minus.left=}
 	 *     (rule start) (ambiguity) {Multiply.left=}
 	 *     (rule start) (ambiguity) {Or.left=}

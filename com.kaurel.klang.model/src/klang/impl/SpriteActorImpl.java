@@ -2,8 +2,6 @@
  */
 package klang.impl;
 
-import java.lang.reflect.InvocationTargetException;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -17,6 +15,7 @@ import klang.AbstractActor;
 import klang.KlangPackage;
 import klang.Program;
 import klang.SpriteActor;
+import klang.entities.SpriteEntity;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +30,7 @@ import klang.SpriteActor;
  *
  * @generated
  */
-public class SpriteActorImpl extends AbstractActorImpl implements SpriteActor {
+public class SpriteActorImpl extends AbstractActorImpl<SpriteEntity> implements SpriteActor {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -49,6 +48,17 @@ public class SpriteActorImpl extends AbstractActorImpl implements SpriteActor {
 	@Override
 	protected EClass eStaticClass() {
 		return KlangPackage.Literals.SPRITE_ACTOR;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * This is specialized for the more specific type known in this context.
+	 * @generated
+	 */
+	@Override
+	public void setSubject(SpriteEntity newSubject) {
+		super.setSubject(newSubject);
 	}
 
 	/**
@@ -90,28 +100,6 @@ public class SpriteActorImpl extends AbstractActorImpl implements SpriteActor {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, KlangPackage.SPRITE_ACTOR__PROGRAM, newProgram, newProgram));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void print(String message) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setColor(Double red, Double green, Double blue) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -216,35 +204,22 @@ public class SpriteActorImpl extends AbstractActorImpl implements SpriteActor {
 		return super.eIsSet(featureID);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case KlangPackage.SPRITE_ACTOR___PRINT__STRING:
-				print((String)arguments.get(0));
-				return null;
-			case KlangPackage.SPRITE_ACTOR___SET_COLOR__DOUBLE_DOUBLE_DOUBLE:
-				setColor((Double)arguments.get(0), (Double)arguments.get(1), (Double)arguments.get(2));
-				return null;
-		}
-		return super.eInvoke(operationID, arguments);
-	}
-
-	@Override
-	public EList<AbstractActor> getChildren() {
+	public EList<AbstractActor<?>> getChildren() {
 		return new BasicEList<>();
 	}
 
 	@Override
-	public AbstractActor getParent() {
+	public AbstractActor<?> getParent() {
 		if(getProgram()!=null) {
 			return getProgram().getSceneActor();
 		}
 		return null;
+	}
+	
+	@Override
+	public Class<SpriteEntity> getSubjectType() {
+		return SpriteEntity.class;
 	}
 
 } //SpriteActorImpl

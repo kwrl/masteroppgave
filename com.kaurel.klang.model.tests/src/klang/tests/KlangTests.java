@@ -33,7 +33,11 @@ public class KlangTests extends TestSuite {
 		TestSuite suite = new KlangTests("klang Tests");
 		suite.addTestSuite(SceneActorTest.class);
 		suite.addTestSuite(SpriteActorTest.class);
-		suite.addTestSuite(TreeTraversalTest.class);
+		suite.addTestSuite(GameStartEventTest.class);
+		suite.addTestSuite(ClickEventTest.class);
+		suite.addTestSuite(KeyPressEventTest.class);
+		suite.addTestSuite(CollisionEventTest.class);
+		suite.addTestSuite(MessageReceivedEventTest.class);
 		return suite;
 	}
 

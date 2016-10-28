@@ -4,6 +4,7 @@ package klang;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -107,46 +108,6 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 */
 	int VARIABLE_DECLARATION = 3;
-
-	/**
-	 * The meta object id for the '{@link klang.impl.GameStartImpl <em>Game Start</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.GameStartImpl
-	 * @see klang.impl.KlangPackageImpl#getGameStart()
-	 * @generated
-	 */
-	int GAME_START = 5;
-
-	/**
-	 * The meta object id for the '{@link klang.impl.SpriteClickedImpl <em>Sprite Clicked</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.SpriteClickedImpl
-	 * @see klang.impl.KlangPackageImpl#getSpriteClicked()
-	 * @generated
-	 */
-	int SPRITE_CLICKED = 6;
-
-	/**
-	 * The meta object id for the '{@link klang.impl.KeyPressedImpl <em>Key Pressed</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.KeyPressedImpl
-	 * @see klang.impl.KlangPackageImpl#getKeyPressed()
-	 * @generated
-	 */
-	int KEY_PRESSED = 7;
-
-	/**
-	 * The meta object id for the '{@link klang.impl.CollidesWithImpl <em>Collides With</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.CollidesWithImpl
-	 * @see klang.impl.KlangPackageImpl#getCollidesWith()
-	 * @generated
-	 */
-	int COLLIDES_WITH = 8;
 
 	/**
 	 * The meta object id for the '{@link klang.impl.ProgramImpl <em>Program</em>}' class.
@@ -259,13 +220,22 @@ public interface KlangPackage extends EPackage {
 	int ABSTRACT_ACTOR__LOCAL_VARIABLES = TREE_NODE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Subject Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ACTOR__SUBJECT_TYPE = TREE_NODE_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Abstract Actor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_ACTOR_FEATURE_COUNT = TREE_NODE_FEATURE_COUNT + 4;
+	int ABSTRACT_ACTOR_FEATURE_COUNT = TREE_NODE_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Is In Scope</em>' operation.
@@ -304,13 +274,13 @@ public interface KlangPackage extends EPackage {
 	int ABSTRACT_ACTOR___IS_IN_PARENT_SCOPE__STRING = TREE_NODE_OPERATION_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Random</em>' operation.
+	 * The operation id for the '<em>Get Variable Declarations</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_ACTOR___RANDOM = TREE_NODE_OPERATION_COUNT + 4;
+	int ABSTRACT_ACTOR___GET_VARIABLE_DECLARATIONS__STRING = TREE_NODE_OPERATION_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Abstract Actor</em>' class.
@@ -376,6 +346,15 @@ public interface KlangPackage extends EPackage {
 	int SCENE_ACTOR__LOCAL_VARIABLES = ABSTRACT_ACTOR__LOCAL_VARIABLES;
 
 	/**
+	 * The feature id for the '<em><b>Subject Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCENE_ACTOR__SUBJECT_TYPE = ABSTRACT_ACTOR__SUBJECT_TYPE;
+
+	/**
 	 * The feature id for the '<em><b>Program</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -430,22 +409,13 @@ public interface KlangPackage extends EPackage {
 	int SCENE_ACTOR___IS_IN_PARENT_SCOPE__STRING = ABSTRACT_ACTOR___IS_IN_PARENT_SCOPE__STRING;
 
 	/**
-	 * The operation id for the '<em>Random</em>' operation.
+	 * The operation id for the '<em>Get Variable Declarations</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCENE_ACTOR___RANDOM = ABSTRACT_ACTOR___RANDOM;
-
-	/**
-	 * The operation id for the '<em>Print</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENE_ACTOR___PRINT__STRING = ABSTRACT_ACTOR_OPERATION_COUNT + 0;
+	int SCENE_ACTOR___GET_VARIABLE_DECLARATIONS__STRING = ABSTRACT_ACTOR___GET_VARIABLE_DECLARATIONS__STRING;
 
 	/**
 	 * The number of operations of the '<em>Scene Actor</em>' class.
@@ -454,7 +424,7 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCENE_ACTOR_OPERATION_COUNT = ABSTRACT_ACTOR_OPERATION_COUNT + 1;
+	int SCENE_ACTOR_OPERATION_COUNT = ABSTRACT_ACTOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Children</b></em>' reference list.
@@ -511,6 +481,15 @@ public interface KlangPackage extends EPackage {
 	int SPRITE_ACTOR__LOCAL_VARIABLES = ABSTRACT_ACTOR__LOCAL_VARIABLES;
 
 	/**
+	 * The feature id for the '<em><b>Subject Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRITE_ACTOR__SUBJECT_TYPE = ABSTRACT_ACTOR__SUBJECT_TYPE;
+
+	/**
 	 * The feature id for the '<em><b>Program</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -565,31 +544,13 @@ public interface KlangPackage extends EPackage {
 	int SPRITE_ACTOR___IS_IN_PARENT_SCOPE__STRING = ABSTRACT_ACTOR___IS_IN_PARENT_SCOPE__STRING;
 
 	/**
-	 * The operation id for the '<em>Random</em>' operation.
+	 * The operation id for the '<em>Get Variable Declarations</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPRITE_ACTOR___RANDOM = ABSTRACT_ACTOR___RANDOM;
-
-	/**
-	 * The operation id for the '<em>Print</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPRITE_ACTOR___PRINT__STRING = ABSTRACT_ACTOR_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Set Color</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPRITE_ACTOR___SET_COLOR__DOUBLE_DOUBLE_DOUBLE = ABSTRACT_ACTOR_OPERATION_COUNT + 1;
+	int SPRITE_ACTOR___GET_VARIABLE_DECLARATIONS__STRING = ABSTRACT_ACTOR___GET_VARIABLE_DECLARATIONS__STRING;
 
 	/**
 	 * The number of operations of the '<em>Sprite Actor</em>' class.
@@ -598,7 +559,7 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPRITE_ACTOR_OPERATION_COUNT = ABSTRACT_ACTOR_OPERATION_COUNT + 2;
+	int SPRITE_ACTOR_OPERATION_COUNT = ABSTRACT_ACTOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
@@ -619,13 +580,22 @@ public interface KlangPackage extends EPackage {
 	int EVENT_HANDLER__ACTOR = 1;
 
 	/**
+	 * The feature id for the '<em><b>Reference Event</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_HANDLER__REFERENCE_EVENT = 2;
+
+	/**
 	 * The number of structural features of the '<em>Event Handler</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_HANDLER_FEATURE_COUNT = 2;
+	int EVENT_HANDLER_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Event Handler</em>' class.
@@ -655,22 +625,13 @@ public interface KlangPackage extends EPackage {
 	int VARIABLE_DECLARATION__NAME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_DECLARATION__VALUE = 2;
-
-	/**
 	 * The feature id for the '<em><b>Actor</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_DECLARATION__ACTOR = 3;
+	int VARIABLE_DECLARATION__ACTOR = 2;
 
 	/**
 	 * The number of structural features of the '<em>Variable Declaration</em>' class.
@@ -679,7 +640,7 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_DECLARATION_FEATURE_COUNT = 4;
+	int VARIABLE_DECLARATION_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Variable Declaration</em>' class.
@@ -691,94 +652,199 @@ public interface KlangPackage extends EPackage {
 	int VARIABLE_DECLARATION_OPERATION_COUNT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
+	 * The meta object id for the '{@link klang.impl.EventImpl <em>Event</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see klang.impl.EventImpl
+	 * @see klang.impl.KlangPackageImpl#getEvent()
 	 * @generated
-	 * @ordered
 	 */
-	int GAME_START__STATEMENTS = EVENT_HANDLER__STATEMENTS;
+	int EVENT = 12;
 
 	/**
-	 * The feature id for the '<em><b>Actor</b></em>' container reference.
+	 * The number of structural features of the '<em>Event</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GAME_START__ACTOR = EVENT_HANDLER__ACTOR;
+	int EVENT_FEATURE_COUNT = 0;
 
 	/**
-	 * The number of structural features of the '<em>Game Start</em>' class.
+	 * The operation id for the '<em>Matching Event</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GAME_START_FEATURE_COUNT = EVENT_HANDLER_FEATURE_COUNT + 0;
+	int EVENT___MATCHING_EVENT__EVENT = 0;
 
 	/**
-	 * The number of operations of the '<em>Game Start</em>' class.
+	 * The number of operations of the '<em>Event</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GAME_START_OPERATION_COUNT = EVENT_HANDLER_OPERATION_COUNT + 0;
+	int EVENT_OPERATION_COUNT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
+	 * The meta object id for the '{@link klang.impl.GlobalEventImpl <em>Global Event</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see klang.impl.GlobalEventImpl
+	 * @see klang.impl.KlangPackageImpl#getGlobalEvent()
 	 * @generated
-	 * @ordered
 	 */
-	int SPRITE_CLICKED__STATEMENTS = EVENT_HANDLER__STATEMENTS;
+	int GLOBAL_EVENT = 13;
 
 	/**
-	 * The feature id for the '<em><b>Actor</b></em>' container reference.
+	 * The number of structural features of the '<em>Global Event</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPRITE_CLICKED__ACTOR = EVENT_HANDLER__ACTOR;
+	int GLOBAL_EVENT_FEATURE_COUNT = EVENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Sprite Clicked</em>' class.
+	 * The operation id for the '<em>Matching Event</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPRITE_CLICKED_FEATURE_COUNT = EVENT_HANDLER_FEATURE_COUNT + 0;
+	int GLOBAL_EVENT___MATCHING_EVENT__EVENT = EVENT___MATCHING_EVENT__EVENT;
 
 	/**
-	 * The number of operations of the '<em>Sprite Clicked</em>' class.
+	 * The number of operations of the '<em>Global Event</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPRITE_CLICKED_OPERATION_COUNT = EVENT_HANDLER_OPERATION_COUNT + 0;
+	int GLOBAL_EVENT_OPERATION_COUNT = EVENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
+	 * The meta object id for the '{@link klang.impl.GameStartEventImpl <em>Game Start Event</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see klang.impl.GameStartEventImpl
+	 * @see klang.impl.KlangPackageImpl#getGameStartEvent()
 	 * @generated
-	 * @ordered
 	 */
-	int KEY_PRESSED__STATEMENTS = EVENT_HANDLER__STATEMENTS;
+	int GAME_START_EVENT = 5;
 
 	/**
-	 * The feature id for the '<em><b>Actor</b></em>' container reference.
+	 * The number of structural features of the '<em>Game Start Event</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_PRESSED__ACTOR = EVENT_HANDLER__ACTOR;
+	int GAME_START_EVENT_FEATURE_COUNT = GLOBAL_EVENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Matching Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME_START_EVENT___MATCHING_EVENT__EVENT = GLOBAL_EVENT___MATCHING_EVENT__EVENT;
+
+	/**
+	 * The number of operations of the '<em>Game Start Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME_START_EVENT_OPERATION_COUNT = GLOBAL_EVENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.ActorEventImpl <em>Actor Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.ActorEventImpl
+	 * @see klang.impl.KlangPackageImpl#getActorEvent()
+	 * @generated
+	 */
+	int ACTOR_EVENT = 14;
+
+	/**
+	 * The number of structural features of the '<em>Actor Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_EVENT_FEATURE_COUNT = EVENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Matching Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_EVENT___MATCHING_EVENT__EVENT = EVENT___MATCHING_EVENT__EVENT;
+
+	/**
+	 * The number of operations of the '<em>Actor Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_EVENT_OPERATION_COUNT = EVENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.ClickEventImpl <em>Click Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.ClickEventImpl
+	 * @see klang.impl.KlangPackageImpl#getClickEvent()
+	 * @generated
+	 */
+	int CLICK_EVENT = 6;
+
+	/**
+	 * The number of structural features of the '<em>Click Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLICK_EVENT_FEATURE_COUNT = ACTOR_EVENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Matching Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLICK_EVENT___MATCHING_EVENT__EVENT = ACTOR_EVENT___MATCHING_EVENT__EVENT;
+
+	/**
+	 * The number of operations of the '<em>Click Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLICK_EVENT_OPERATION_COUNT = ACTOR_EVENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link klang.impl.KeyPressEventImpl <em>Key Press Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.impl.KeyPressEventImpl
+	 * @see klang.impl.KlangPackageImpl#getKeyPressEvent()
+	 * @generated
+	 */
+	int KEY_PRESS_EVENT = 7;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -787,43 +853,44 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_PRESSED__KEY = EVENT_HANDLER_FEATURE_COUNT + 0;
+	int KEY_PRESS_EVENT__KEY = GLOBAL_EVENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Key Pressed</em>' class.
+	 * The number of structural features of the '<em>Key Press Event</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_PRESSED_FEATURE_COUNT = EVENT_HANDLER_FEATURE_COUNT + 1;
+	int KEY_PRESS_EVENT_FEATURE_COUNT = GLOBAL_EVENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Key Pressed</em>' class.
+	 * The operation id for the '<em>Matching Event</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_PRESSED_OPERATION_COUNT = EVENT_HANDLER_OPERATION_COUNT + 0;
+	int KEY_PRESS_EVENT___MATCHING_EVENT__EVENT = GLOBAL_EVENT___MATCHING_EVENT__EVENT;
 
 	/**
-	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
+	 * The number of operations of the '<em>Key Press Event</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLLIDES_WITH__STATEMENTS = EVENT_HANDLER__STATEMENTS;
+	int KEY_PRESS_EVENT_OPERATION_COUNT = GLOBAL_EVENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Actor</b></em>' container reference.
+	 * The meta object id for the '{@link klang.impl.CollisionEventImpl <em>Collision Event</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see klang.impl.CollisionEventImpl
+	 * @see klang.impl.KlangPackageImpl#getCollisionEvent()
 	 * @generated
-	 * @ordered
 	 */
-	int COLLIDES_WITH__ACTOR = EVENT_HANDLER__ACTOR;
+	int COLLISION_EVENT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -832,25 +899,34 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLLIDES_WITH__TARGET = EVENT_HANDLER_FEATURE_COUNT + 0;
+	int COLLISION_EVENT__TARGET = ACTOR_EVENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Collides With</em>' class.
+	 * The number of structural features of the '<em>Collision Event</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLLIDES_WITH_FEATURE_COUNT = EVENT_HANDLER_FEATURE_COUNT + 1;
+	int COLLISION_EVENT_FEATURE_COUNT = ACTOR_EVENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Collides With</em>' class.
+	 * The operation id for the '<em>Matching Event</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLLIDES_WITH_OPERATION_COUNT = EVENT_HANDLER_OPERATION_COUNT + 0;
+	int COLLISION_EVENT___MATCHING_EVENT__EVENT = ACTOR_EVENT___MATCHING_EVENT__EVENT;
+
+	/**
+	 * The number of operations of the '<em>Collision Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLLISION_EVENT_OPERATION_COUNT = ACTOR_EVENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Scene Actor</b></em>' containment reference.
@@ -890,79 +966,14 @@ public interface KlangPackage extends EPackage {
 
 
 	/**
-	 * The meta object id for the '{@link klang.impl.TreeTraversalImpl <em>Tree Traversal</em>}' class.
+	 * The meta object id for the '{@link klang.impl.MessageReceivedEventImpl <em>Message Received Event</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see klang.impl.TreeTraversalImpl
-	 * @see klang.impl.KlangPackageImpl#getTreeTraversal()
+	 * @see klang.impl.MessageReceivedEventImpl
+	 * @see klang.impl.KlangPackageImpl#getMessageReceivedEvent()
 	 * @generated
 	 */
-	int TREE_TRAVERSAL = 11;
-
-	/**
-	 * The number of structural features of the '<em>Tree Traversal</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TREE_TRAVERSAL_FEATURE_COUNT = 0;
-
-	/**
-	 * The operation id for the '<em>Breadth First</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TREE_TRAVERSAL___BREADTH_FIRST__TREENODE = 0;
-
-	/**
-	 * The operation id for the '<em>Depth First</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TREE_TRAVERSAL___DEPTH_FIRST__TREENODE = 1;
-
-	/**
-	 * The number of operations of the '<em>Tree Traversal</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TREE_TRAVERSAL_OPERATION_COUNT = 2;
-
-
-	/**
-	 * The meta object id for the '{@link klang.impl.MessageReceivedImpl <em>Message Received</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.impl.MessageReceivedImpl
-	 * @see klang.impl.KlangPackageImpl#getMessageReceived()
-	 * @generated
-	 */
-	int MESSAGE_RECEIVED = 12;
-
-	/**
-	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MESSAGE_RECEIVED__STATEMENTS = EVENT_HANDLER__STATEMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Actor</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MESSAGE_RECEIVED__ACTOR = EVENT_HANDLER__ACTOR;
+	int MESSAGE_RECEIVED_EVENT = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -971,25 +982,34 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_RECEIVED__NAME = EVENT_HANDLER_FEATURE_COUNT + 0;
+	int MESSAGE_RECEIVED_EVENT__NAME = GLOBAL_EVENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Message Received</em>' class.
+	 * The number of structural features of the '<em>Message Received Event</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_RECEIVED_FEATURE_COUNT = EVENT_HANDLER_FEATURE_COUNT + 1;
+	int MESSAGE_RECEIVED_EVENT_FEATURE_COUNT = GLOBAL_EVENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Message Received</em>' class.
+	 * The operation id for the '<em>Matching Event</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_RECEIVED_OPERATION_COUNT = EVENT_HANDLER_OPERATION_COUNT + 0;
+	int MESSAGE_RECEIVED_EVENT___MATCHING_EVENT__EVENT = GLOBAL_EVENT___MATCHING_EVENT__EVENT;
+
+	/**
+	 * The number of operations of the '<em>Message Received Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE_RECEIVED_EVENT_OPERATION_COUNT = GLOBAL_EVENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link klang.Keys <em>Keys</em>}' enum.
@@ -999,7 +1019,60 @@ public interface KlangPackage extends EPackage {
 	 * @see klang.impl.KlangPackageImpl#getKeys()
 	 * @generated
 	 */
-	int KEYS = 13;
+	int KEYS = 15;
+
+
+	/**
+	 * The meta object id for the '<em>Entity</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.entities.Entity
+	 * @see klang.impl.KlangPackageImpl#getEntity()
+	 * @generated
+	 */
+	int ENTITY = 16;
+
+	/**
+	 * The meta object id for the '<em>Sprite Entity</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.entities.SpriteEntity
+	 * @see klang.impl.KlangPackageImpl#getSpriteEntity()
+	 * @generated
+	 */
+	int SPRITE_ENTITY = 17;
+
+	/**
+	 * The meta object id for the '<em>Scene Entity</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.entities.SceneEntity
+	 * @see klang.impl.KlangPackageImpl#getSceneEntity()
+	 * @generated
+	 */
+	int SCENE_ENTITY = 18;
+
+
+	/**
+	 * The meta object id for the '<em>Optional</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.util.Optional
+	 * @see klang.impl.KlangPackageImpl#getOptional()
+	 * @generated
+	 */
+	int OPTIONAL = 19;
+
+
+	/**
+	 * The meta object id for the '<em>Stream</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.util.stream.Stream
+	 * @see klang.impl.KlangPackageImpl#getStream()
+	 * @generated
+	 */
+	int STREAM = 20;
 
 
 	/**
@@ -1024,16 +1097,6 @@ public interface KlangPackage extends EPackage {
 	EReference getSceneActor_Program();
 
 	/**
-	 * Returns the meta object for the '{@link klang.SceneActor#print(java.lang.String) <em>Print</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Print</em>' operation.
-	 * @see klang.SceneActor#print(java.lang.String)
-	 * @generated
-	 */
-	EOperation getSceneActor__Print__String();
-
-	/**
 	 * Returns the meta object for class '{@link klang.SpriteActor <em>Sprite Actor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1053,26 +1116,6 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSpriteActor_Program();
-
-	/**
-	 * Returns the meta object for the '{@link klang.SpriteActor#print(java.lang.String) <em>Print</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Print</em>' operation.
-	 * @see klang.SpriteActor#print(java.lang.String)
-	 * @generated
-	 */
-	EOperation getSpriteActor__Print__String();
-
-	/**
-	 * Returns the meta object for the '{@link klang.SpriteActor#setColor(java.lang.Double, java.lang.Double, java.lang.Double) <em>Set Color</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Set Color</em>' operation.
-	 * @see klang.SpriteActor#setColor(java.lang.Double, java.lang.Double, java.lang.Double)
-	 * @generated
-	 */
-	EOperation getSpriteActor__SetColor__Double_Double_Double();
 
 	/**
 	 * Returns the meta object for class '{@link klang.EventHandler <em>Event Handler</em>}'.
@@ -1107,6 +1150,17 @@ public interface KlangPackage extends EPackage {
 	EReference getEventHandler_Actor();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link klang.EventHandler#getReferenceEvent <em>Reference Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Reference Event</em>'.
+	 * @see klang.EventHandler#getReferenceEvent()
+	 * @see #getEventHandler()
+	 * @generated
+	 */
+	EReference getEventHandler_ReferenceEvent();
+
+	/**
 	 * Returns the meta object for class '{@link klang.VariableDeclaration <em>Variable Declaration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1139,17 +1193,6 @@ public interface KlangPackage extends EPackage {
 	EAttribute getVariableDeclaration_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link klang.VariableDeclaration#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see klang.VariableDeclaration#getValue()
-	 * @see #getVariableDeclaration()
-	 * @generated
-	 */
-	EAttribute getVariableDeclaration_Value();
-
-	/**
 	 * Returns the meta object for the container reference '{@link klang.VariableDeclaration#getActor <em>Actor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1159,68 +1202,6 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getVariableDeclaration_Actor();
-
-	/**
-	 * Returns the meta object for class '{@link klang.GameStart <em>Game Start</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Game Start</em>'.
-	 * @see klang.GameStart
-	 * @generated
-	 */
-	EClass getGameStart();
-
-	/**
-	 * Returns the meta object for class '{@link klang.SpriteClicked <em>Sprite Clicked</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Sprite Clicked</em>'.
-	 * @see klang.SpriteClicked
-	 * @generated
-	 */
-	EClass getSpriteClicked();
-
-	/**
-	 * Returns the meta object for class '{@link klang.KeyPressed <em>Key Pressed</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Key Pressed</em>'.
-	 * @see klang.KeyPressed
-	 * @generated
-	 */
-	EClass getKeyPressed();
-
-	/**
-	 * Returns the meta object for the attribute '{@link klang.KeyPressed#getKey <em>Key</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Key</em>'.
-	 * @see klang.KeyPressed#getKey()
-	 * @see #getKeyPressed()
-	 * @generated
-	 */
-	EAttribute getKeyPressed_Key();
-
-	/**
-	 * Returns the meta object for class '{@link klang.CollidesWith <em>Collides With</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Collides With</em>'.
-	 * @see klang.CollidesWith
-	 * @generated
-	 */
-	EClass getCollidesWith();
-
-	/**
-	 * Returns the meta object for the reference '{@link klang.CollidesWith#getTarget <em>Target</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Target</em>'.
-	 * @see klang.CollidesWith#getTarget()
-	 * @see #getCollidesWith()
-	 * @generated
-	 */
-	EReference getCollidesWith_Target();
 
 	/**
 	 * Returns the meta object for class '{@link klang.AbstractActor <em>Abstract Actor</em>}'.
@@ -1277,6 +1258,17 @@ public interface KlangPackage extends EPackage {
 	EReference getAbstractActor_LocalVariables();
 
 	/**
+	 * Returns the meta object for the attribute '{@link klang.AbstractActor#getSubjectType <em>Subject Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Subject Type</em>'.
+	 * @see klang.AbstractActor#getSubjectType()
+	 * @see #getAbstractActor()
+	 * @generated
+	 */
+	EAttribute getAbstractActor_SubjectType();
+
+	/**
 	 * Returns the meta object for the '{@link klang.AbstractActor#isInScope(java.lang.String) <em>Is In Scope</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1317,14 +1309,76 @@ public interface KlangPackage extends EPackage {
 	EOperation getAbstractActor__IsInParentScope__String();
 
 	/**
-	 * Returns the meta object for the '{@link klang.AbstractActor#random() <em>Random</em>}' operation.
+	 * Returns the meta object for the '{@link klang.AbstractActor#getVariableDeclarations(java.lang.String) <em>Get Variable Declarations</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Random</em>' operation.
-	 * @see klang.AbstractActor#random()
+	 * @return the meta object for the '<em>Get Variable Declarations</em>' operation.
+	 * @see klang.AbstractActor#getVariableDeclarations(java.lang.String)
 	 * @generated
 	 */
-	EOperation getAbstractActor__Random();
+	EOperation getAbstractActor__GetVariableDeclarations__String();
+
+	/**
+	 * Returns the meta object for class '{@link klang.GameStartEvent <em>Game Start Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Game Start Event</em>'.
+	 * @see klang.GameStartEvent
+	 * @generated
+	 */
+	EClass getGameStartEvent();
+
+	/**
+	 * Returns the meta object for class '{@link klang.ClickEvent <em>Click Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Click Event</em>'.
+	 * @see klang.ClickEvent
+	 * @generated
+	 */
+	EClass getClickEvent();
+
+	/**
+	 * Returns the meta object for class '{@link klang.KeyPressEvent <em>Key Press Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Key Press Event</em>'.
+	 * @see klang.KeyPressEvent
+	 * @generated
+	 */
+	EClass getKeyPressEvent();
+
+	/**
+	 * Returns the meta object for the attribute '{@link klang.KeyPressEvent#getKey <em>Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key</em>'.
+	 * @see klang.KeyPressEvent#getKey()
+	 * @see #getKeyPressEvent()
+	 * @generated
+	 */
+	EAttribute getKeyPressEvent_Key();
+
+	/**
+	 * Returns the meta object for class '{@link klang.CollisionEvent <em>Collision Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Collision Event</em>'.
+	 * @see klang.CollisionEvent
+	 * @generated
+	 */
+	EClass getCollisionEvent();
+
+	/**
+	 * Returns the meta object for the reference '{@link klang.CollisionEvent#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see klang.CollisionEvent#getTarget()
+	 * @see #getCollisionEvent()
+	 * @generated
+	 */
+	EReference getCollisionEvent_Target();
 
 	/**
 	 * Returns the meta object for class '{@link klang.Program <em>Program</em>}'.
@@ -1391,55 +1445,65 @@ public interface KlangPackage extends EPackage {
 	EReference getTreeNode_Parent();
 
 	/**
-	 * Returns the meta object for class '{@link klang.TreeTraversal <em>Tree Traversal</em>}'.
+	 * Returns the meta object for class '{@link klang.MessageReceivedEvent <em>Message Received Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Tree Traversal</em>'.
-	 * @see klang.TreeTraversal
+	 * @return the meta object for class '<em>Message Received Event</em>'.
+	 * @see klang.MessageReceivedEvent
 	 * @generated
 	 */
-	EClass getTreeTraversal();
+	EClass getMessageReceivedEvent();
 
 	/**
-	 * Returns the meta object for the '{@link klang.TreeTraversal#BreadthFirst(klang.TreeNode) <em>Breadth First</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Breadth First</em>' operation.
-	 * @see klang.TreeTraversal#BreadthFirst(klang.TreeNode)
-	 * @generated
-	 */
-	EOperation getTreeTraversal__BreadthFirst__TreeNode();
-
-	/**
-	 * Returns the meta object for the '{@link klang.TreeTraversal#DepthFirst(klang.TreeNode) <em>Depth First</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Depth First</em>' operation.
-	 * @see klang.TreeTraversal#DepthFirst(klang.TreeNode)
-	 * @generated
-	 */
-	EOperation getTreeTraversal__DepthFirst__TreeNode();
-
-	/**
-	 * Returns the meta object for class '{@link klang.MessageReceived <em>Message Received</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Message Received</em>'.
-	 * @see klang.MessageReceived
-	 * @generated
-	 */
-	EClass getMessageReceived();
-
-	/**
-	 * Returns the meta object for the attribute '{@link klang.MessageReceived#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link klang.MessageReceivedEvent#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see klang.MessageReceived#getName()
-	 * @see #getMessageReceived()
+	 * @see klang.MessageReceivedEvent#getName()
+	 * @see #getMessageReceivedEvent()
 	 * @generated
 	 */
-	EAttribute getMessageReceived_Name();
+	EAttribute getMessageReceivedEvent_Name();
+
+	/**
+	 * Returns the meta object for class '{@link klang.Event <em>Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Event</em>'.
+	 * @see klang.Event
+	 * @generated
+	 */
+	EClass getEvent();
+
+	/**
+	 * Returns the meta object for the '{@link klang.Event#matchingEvent(klang.Event) <em>Matching Event</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Matching Event</em>' operation.
+	 * @see klang.Event#matchingEvent(klang.Event)
+	 * @generated
+	 */
+	EOperation getEvent__MatchingEvent__Event();
+
+	/**
+	 * Returns the meta object for class '{@link klang.GlobalEvent <em>Global Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Global Event</em>'.
+	 * @see klang.GlobalEvent
+	 * @generated
+	 */
+	EClass getGlobalEvent();
+
+	/**
+	 * Returns the meta object for class '{@link klang.ActorEvent <em>Actor Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Actor Event</em>'.
+	 * @see klang.ActorEvent
+	 * @generated
+	 */
+	EClass getActorEvent();
 
 	/**
 	 * Returns the meta object for enum '{@link klang.Keys <em>Keys</em>}'.
@@ -1450,6 +1514,61 @@ public interface KlangPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getKeys();
+
+	/**
+	 * Returns the meta object for data type '{@link klang.entities.Entity <em>Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Entity</em>'.
+	 * @see klang.entities.Entity
+	 * @model instanceClass="klang.entities.Entity"
+	 * @generated
+	 */
+	EDataType getEntity();
+
+	/**
+	 * Returns the meta object for data type '{@link klang.entities.SpriteEntity <em>Sprite Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Sprite Entity</em>'.
+	 * @see klang.entities.SpriteEntity
+	 * @model instanceClass="klang.entities.SpriteEntity"
+	 * @generated
+	 */
+	EDataType getSpriteEntity();
+
+	/**
+	 * Returns the meta object for data type '{@link klang.entities.SceneEntity <em>Scene Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Scene Entity</em>'.
+	 * @see klang.entities.SceneEntity
+	 * @model instanceClass="klang.entities.SceneEntity"
+	 * @generated
+	 */
+	EDataType getSceneEntity();
+
+	/**
+	 * Returns the meta object for data type '{@link java.util.Optional <em>Optional</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Optional</em>'.
+	 * @see java.util.Optional
+	 * @model instanceClass="java.util.Optional" typeParameters="T"
+	 * @generated
+	 */
+	EDataType getOptional();
+
+	/**
+	 * Returns the meta object for data type '{@link java.util.stream.Stream <em>Stream</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Stream</em>'.
+	 * @see java.util.stream.Stream
+	 * @model instanceClass="java.util.stream.Stream" typeParameters="T"
+	 * @generated
+	 */
+	EDataType getStream();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1493,14 +1612,6 @@ public interface KlangPackage extends EPackage {
 		EReference SCENE_ACTOR__PROGRAM = eINSTANCE.getSceneActor_Program();
 
 		/**
-		 * The meta object literal for the '<em><b>Print</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SCENE_ACTOR___PRINT__STRING = eINSTANCE.getSceneActor__Print__String();
-
-		/**
 		 * The meta object literal for the '{@link klang.impl.SpriteActorImpl <em>Sprite Actor</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1517,22 +1628,6 @@ public interface KlangPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SPRITE_ACTOR__PROGRAM = eINSTANCE.getSpriteActor_Program();
-
-		/**
-		 * The meta object literal for the '<em><b>Print</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SPRITE_ACTOR___PRINT__STRING = eINSTANCE.getSpriteActor__Print__String();
-
-		/**
-		 * The meta object literal for the '<em><b>Set Color</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SPRITE_ACTOR___SET_COLOR__DOUBLE_DOUBLE_DOUBLE = eINSTANCE.getSpriteActor__SetColor__Double_Double_Double();
 
 		/**
 		 * The meta object literal for the '{@link klang.impl.EventHandlerImpl <em>Event Handler</em>}' class.
@@ -1561,6 +1656,14 @@ public interface KlangPackage extends EPackage {
 		EReference EVENT_HANDLER__ACTOR = eINSTANCE.getEventHandler_Actor();
 
 		/**
+		 * The meta object literal for the '<em><b>Reference Event</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EVENT_HANDLER__REFERENCE_EVENT = eINSTANCE.getEventHandler_ReferenceEvent();
+
+		/**
 		 * The meta object literal for the '{@link klang.impl.VariableDeclarationImpl <em>Variable Declaration</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1587,76 +1690,12 @@ public interface KlangPackage extends EPackage {
 		EAttribute VARIABLE_DECLARATION__NAME = eINSTANCE.getVariableDeclaration_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VARIABLE_DECLARATION__VALUE = eINSTANCE.getVariableDeclaration_Value();
-
-		/**
 		 * The meta object literal for the '<em><b>Actor</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference VARIABLE_DECLARATION__ACTOR = eINSTANCE.getVariableDeclaration_Actor();
-
-		/**
-		 * The meta object literal for the '{@link klang.impl.GameStartImpl <em>Game Start</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see klang.impl.GameStartImpl
-		 * @see klang.impl.KlangPackageImpl#getGameStart()
-		 * @generated
-		 */
-		EClass GAME_START = eINSTANCE.getGameStart();
-
-		/**
-		 * The meta object literal for the '{@link klang.impl.SpriteClickedImpl <em>Sprite Clicked</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see klang.impl.SpriteClickedImpl
-		 * @see klang.impl.KlangPackageImpl#getSpriteClicked()
-		 * @generated
-		 */
-		EClass SPRITE_CLICKED = eINSTANCE.getSpriteClicked();
-
-		/**
-		 * The meta object literal for the '{@link klang.impl.KeyPressedImpl <em>Key Pressed</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see klang.impl.KeyPressedImpl
-		 * @see klang.impl.KlangPackageImpl#getKeyPressed()
-		 * @generated
-		 */
-		EClass KEY_PRESSED = eINSTANCE.getKeyPressed();
-
-		/**
-		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute KEY_PRESSED__KEY = eINSTANCE.getKeyPressed_Key();
-
-		/**
-		 * The meta object literal for the '{@link klang.impl.CollidesWithImpl <em>Collides With</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see klang.impl.CollidesWithImpl
-		 * @see klang.impl.KlangPackageImpl#getCollidesWith()
-		 * @generated
-		 */
-		EClass COLLIDES_WITH = eINSTANCE.getCollidesWith();
-
-		/**
-		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COLLIDES_WITH__TARGET = eINSTANCE.getCollidesWith_Target();
 
 		/**
 		 * The meta object literal for the '{@link klang.impl.AbstractActorImpl <em>Abstract Actor</em>}' class.
@@ -1701,6 +1740,14 @@ public interface KlangPackage extends EPackage {
 		EReference ABSTRACT_ACTOR__LOCAL_VARIABLES = eINSTANCE.getAbstractActor_LocalVariables();
 
 		/**
+		 * The meta object literal for the '<em><b>Subject Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ACTOR__SUBJECT_TYPE = eINSTANCE.getAbstractActor_SubjectType();
+
+		/**
 		 * The meta object literal for the '<em><b>Is In Scope</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1733,12 +1780,68 @@ public interface KlangPackage extends EPackage {
 		EOperation ABSTRACT_ACTOR___IS_IN_PARENT_SCOPE__STRING = eINSTANCE.getAbstractActor__IsInParentScope__String();
 
 		/**
-		 * The meta object literal for the '<em><b>Random</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Variable Declarations</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ABSTRACT_ACTOR___RANDOM = eINSTANCE.getAbstractActor__Random();
+		EOperation ABSTRACT_ACTOR___GET_VARIABLE_DECLARATIONS__STRING = eINSTANCE.getAbstractActor__GetVariableDeclarations__String();
+
+		/**
+		 * The meta object literal for the '{@link klang.impl.GameStartEventImpl <em>Game Start Event</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klang.impl.GameStartEventImpl
+		 * @see klang.impl.KlangPackageImpl#getGameStartEvent()
+		 * @generated
+		 */
+		EClass GAME_START_EVENT = eINSTANCE.getGameStartEvent();
+
+		/**
+		 * The meta object literal for the '{@link klang.impl.ClickEventImpl <em>Click Event</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klang.impl.ClickEventImpl
+		 * @see klang.impl.KlangPackageImpl#getClickEvent()
+		 * @generated
+		 */
+		EClass CLICK_EVENT = eINSTANCE.getClickEvent();
+
+		/**
+		 * The meta object literal for the '{@link klang.impl.KeyPressEventImpl <em>Key Press Event</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klang.impl.KeyPressEventImpl
+		 * @see klang.impl.KlangPackageImpl#getKeyPressEvent()
+		 * @generated
+		 */
+		EClass KEY_PRESS_EVENT = eINSTANCE.getKeyPressEvent();
+
+		/**
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute KEY_PRESS_EVENT__KEY = eINSTANCE.getKeyPressEvent_Key();
+
+		/**
+		 * The meta object literal for the '{@link klang.impl.CollisionEventImpl <em>Collision Event</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klang.impl.CollisionEventImpl
+		 * @see klang.impl.KlangPackageImpl#getCollisionEvent()
+		 * @generated
+		 */
+		EClass COLLISION_EVENT = eINSTANCE.getCollisionEvent();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COLLISION_EVENT__TARGET = eINSTANCE.getCollisionEvent_Target();
 
 		/**
 		 * The meta object literal for the '{@link klang.impl.ProgramImpl <em>Program</em>}' class.
@@ -1793,40 +1896,14 @@ public interface KlangPackage extends EPackage {
 		EReference TREE_NODE__PARENT = eINSTANCE.getTreeNode_Parent();
 
 		/**
-		 * The meta object literal for the '{@link klang.impl.TreeTraversalImpl <em>Tree Traversal</em>}' class.
+		 * The meta object literal for the '{@link klang.impl.MessageReceivedEventImpl <em>Message Received Event</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see klang.impl.TreeTraversalImpl
-		 * @see klang.impl.KlangPackageImpl#getTreeTraversal()
+		 * @see klang.impl.MessageReceivedEventImpl
+		 * @see klang.impl.KlangPackageImpl#getMessageReceivedEvent()
 		 * @generated
 		 */
-		EClass TREE_TRAVERSAL = eINSTANCE.getTreeTraversal();
-
-		/**
-		 * The meta object literal for the '<em><b>Breadth First</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation TREE_TRAVERSAL___BREADTH_FIRST__TREENODE = eINSTANCE.getTreeTraversal__BreadthFirst__TreeNode();
-
-		/**
-		 * The meta object literal for the '<em><b>Depth First</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation TREE_TRAVERSAL___DEPTH_FIRST__TREENODE = eINSTANCE.getTreeTraversal__DepthFirst__TreeNode();
-
-		/**
-		 * The meta object literal for the '{@link klang.impl.MessageReceivedImpl <em>Message Received</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see klang.impl.MessageReceivedImpl
-		 * @see klang.impl.KlangPackageImpl#getMessageReceived()
-		 * @generated
-		 */
-		EClass MESSAGE_RECEIVED = eINSTANCE.getMessageReceived();
+		EClass MESSAGE_RECEIVED_EVENT = eINSTANCE.getMessageReceivedEvent();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1834,7 +1911,45 @@ public interface KlangPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute MESSAGE_RECEIVED__NAME = eINSTANCE.getMessageReceived_Name();
+		EAttribute MESSAGE_RECEIVED_EVENT__NAME = eINSTANCE.getMessageReceivedEvent_Name();
+
+		/**
+		 * The meta object literal for the '{@link klang.impl.EventImpl <em>Event</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klang.impl.EventImpl
+		 * @see klang.impl.KlangPackageImpl#getEvent()
+		 * @generated
+		 */
+		EClass EVENT = eINSTANCE.getEvent();
+
+		/**
+		 * The meta object literal for the '<em><b>Matching Event</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation EVENT___MATCHING_EVENT__EVENT = eINSTANCE.getEvent__MatchingEvent__Event();
+
+		/**
+		 * The meta object literal for the '{@link klang.impl.GlobalEventImpl <em>Global Event</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klang.impl.GlobalEventImpl
+		 * @see klang.impl.KlangPackageImpl#getGlobalEvent()
+		 * @generated
+		 */
+		EClass GLOBAL_EVENT = eINSTANCE.getGlobalEvent();
+
+		/**
+		 * The meta object literal for the '{@link klang.impl.ActorEventImpl <em>Actor Event</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klang.impl.ActorEventImpl
+		 * @see klang.impl.KlangPackageImpl#getActorEvent()
+		 * @generated
+		 */
+		EClass ACTOR_EVENT = eINSTANCE.getActorEvent();
 
 		/**
 		 * The meta object literal for the '{@link klang.Keys <em>Keys</em>}' enum.
@@ -1845,6 +1960,56 @@ public interface KlangPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum KEYS = eINSTANCE.getKeys();
+
+		/**
+		 * The meta object literal for the '<em>Entity</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klang.entities.Entity
+		 * @see klang.impl.KlangPackageImpl#getEntity()
+		 * @generated
+		 */
+		EDataType ENTITY = eINSTANCE.getEntity();
+
+		/**
+		 * The meta object literal for the '<em>Sprite Entity</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klang.entities.SpriteEntity
+		 * @see klang.impl.KlangPackageImpl#getSpriteEntity()
+		 * @generated
+		 */
+		EDataType SPRITE_ENTITY = eINSTANCE.getSpriteEntity();
+
+		/**
+		 * The meta object literal for the '<em>Scene Entity</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klang.entities.SceneEntity
+		 * @see klang.impl.KlangPackageImpl#getSceneEntity()
+		 * @generated
+		 */
+		EDataType SCENE_ENTITY = eINSTANCE.getSceneEntity();
+
+		/**
+		 * The meta object literal for the '<em>Optional</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.util.Optional
+		 * @see klang.impl.KlangPackageImpl#getOptional()
+		 * @generated
+		 */
+		EDataType OPTIONAL = eINSTANCE.getOptional();
+
+		/**
+		 * The meta object literal for the '<em>Stream</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.util.stream.Stream
+		 * @see klang.impl.KlangPackageImpl#getStream()
+		 * @generated
+		 */
+		EDataType STREAM = eINSTANCE.getStream();
 
 	}
 

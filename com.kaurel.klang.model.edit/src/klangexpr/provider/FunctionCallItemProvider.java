@@ -273,6 +273,16 @@ public class FunctionCallItemProvider extends ExpressionItemProvider {
 			(createChildParameter
 				(KlangexprPackage.Literals.FUNCTION_CALL__PARAMETERS,
 				 KlangexprFactory.eINSTANCE.createToInt()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangexprPackage.Literals.FUNCTION_CALL__PARAMETERS,
+				 KlangexprFactory.eINSTANCE.createLessThanOrEqual()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangexprPackage.Literals.FUNCTION_CALL__PARAMETERS,
+				 KlangexprFactory.eINSTANCE.createGreaterThanOrEqual()));
 	}
 
 }

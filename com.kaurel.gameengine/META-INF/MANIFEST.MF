@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Gameengine
-Bundle-SymbolicName: com.kaurel.gameengine
-Bundle-Version: 1.0.0.qualifier
-Export-Package: com.kaurel.gameengine,
- com.kaurel.gameengine.models,
- com.kaurel.gameengine.util
-Require-Bundle: jbox2ddemo;bundle-version="1.0.0"

@@ -310,6 +310,24 @@ public class KlangexprSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case KlangexprPackage.LESS_THAN_OR_EQUAL: {
+				LessThanOrEqual lessThanOrEqual = (LessThanOrEqual)theEObject;
+				T result = caseLessThanOrEqual(lessThanOrEqual);
+				if (result == null) result = caseBinaryOperator(lessThanOrEqual);
+				if (result == null) result = caseOperator(lessThanOrEqual);
+				if (result == null) result = caseExpression(lessThanOrEqual);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case KlangexprPackage.GREATER_THAN_OR_EQUAL: {
+				GreaterThanOrEqual greaterThanOrEqual = (GreaterThanOrEqual)theEObject;
+				T result = caseGreaterThanOrEqual(greaterThanOrEqual);
+				if (result == null) result = caseBinaryOperator(greaterThanOrEqual);
+				if (result == null) result = caseOperator(greaterThanOrEqual);
+				if (result == null) result = caseExpression(greaterThanOrEqual);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -776,6 +794,36 @@ public class KlangexprSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSendMessage(SendMessage object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Less Than Or Equal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Less Than Or Equal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLessThanOrEqual(LessThanOrEqual object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Greater Than Or Equal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Greater Than Or Equal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGreaterThanOrEqual(GreaterThanOrEqual object) {
 		return null;
 	}
 

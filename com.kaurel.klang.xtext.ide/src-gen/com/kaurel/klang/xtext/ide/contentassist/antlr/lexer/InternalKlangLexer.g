@@ -59,7 +59,11 @@ Not : 'not';
 
 Var : 'var';
 
+LessThanSignEqualsSign : '<=';
+
 EqualsSignEqualsSign : '==';
+
+GreaterThanSignEqualsSign : '>=';
 
 If : 'if';
 
@@ -138,10 +142,6 @@ X : 'X';
 Y : 'Y';
 
 Z : 'Z';
-
-LeftSquareBracket : '[';
-
-RightSquareBracket : ']';
 
 // Rules duplicated to allow inter-rule references
 

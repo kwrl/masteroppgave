@@ -2,6 +2,8 @@
  */
 package klang;
 
+import klang.entities.SceneEntity;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -16,10 +18,10 @@ package klang;
  * </ul>
  *
  * @see klang.KlangPackage#getSceneActor()
- * @model
+ * @model superTypes="klang.AbstractActor<klang.SceneEntity>"
  * @generated
  */
-public interface SceneActor extends AbstractActor {
+public interface SceneActor extends AbstractActor<SceneEntity> {
 
 	/**
 	 * Returns the value of the '<em><b>Program</b></em>' container reference.
@@ -48,12 +50,4 @@ public interface SceneActor extends AbstractActor {
 	 * @generated
 	 */
 	void setProgram(Program value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model messageRequired="true"
-	 * @generated
-	 */
-	void print(String message);
 } // SceneActor

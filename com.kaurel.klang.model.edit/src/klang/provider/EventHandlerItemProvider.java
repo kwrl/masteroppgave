@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.List;
 
 import klang.EventHandler;
+import klang.KlangFactory;
 import klang.KlangPackage;
 
 import klangexpr.KlangexprFactory;
@@ -79,6 +80,7 @@ public class EventHandlerItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(KlangPackage.Literals.EVENT_HANDLER__STATEMENTS);
+			childrenFeatures.add(KlangPackage.Literals.EVENT_HANDLER__REFERENCE_EVENT);
 		}
 		return childrenFeatures;
 	}
@@ -132,6 +134,7 @@ public class EventHandlerItemProvider
 
 		switch (notification.getFeatureID(EventHandler.class)) {
 			case KlangPackage.EVENT_HANDLER__STATEMENTS:
+			case KlangPackage.EVENT_HANDLER__REFERENCE_EVENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -193,6 +196,31 @@ public class EventHandlerItemProvider
 			(createChildParameter
 				(KlangPackage.Literals.EVENT_HANDLER__STATEMENTS,
 				 KlangexprFactory.eINSTANCE.createSendMessage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.EVENT_HANDLER__REFERENCE_EVENT,
+				 KlangFactory.eINSTANCE.createGameStartEvent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.EVENT_HANDLER__REFERENCE_EVENT,
+				 KlangFactory.eINSTANCE.createClickEvent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.EVENT_HANDLER__REFERENCE_EVENT,
+				 KlangFactory.eINSTANCE.createKeyPressEvent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.EVENT_HANDLER__REFERENCE_EVENT,
+				 KlangFactory.eINSTANCE.createCollisionEvent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.EVENT_HANDLER__REFERENCE_EVENT,
+				 KlangFactory.eINSTANCE.createMessageReceivedEvent()));
 	}
 
 	/**

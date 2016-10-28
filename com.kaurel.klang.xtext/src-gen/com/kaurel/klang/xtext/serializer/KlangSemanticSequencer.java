@@ -6,15 +6,16 @@ package com.kaurel.klang.xtext.serializer;
 import com.google.inject.Inject;
 import com.kaurel.klang.xtext.services.KlangGrammarAccess;
 import java.util.Set;
-import klang.CollidesWith;
-import klang.GameStart;
-import klang.KeyPressed;
+import klang.ClickEvent;
+import klang.CollisionEvent;
+import klang.EventHandler;
+import klang.GameStartEvent;
+import klang.KeyPressEvent;
 import klang.KlangPackage;
-import klang.MessageReceived;
+import klang.MessageReceivedEvent;
 import klang.Program;
 import klang.SceneActor;
 import klang.SpriteActor;
-import klang.SpriteClicked;
 import klang.VariableDeclaration;
 import klangexpr.And;
 import klangexpr.BooleanLiteral;
@@ -24,10 +25,12 @@ import klangexpr.Equal;
 import klangexpr.ForeverLoop;
 import klangexpr.FunctionCall;
 import klangexpr.GreaterThan;
+import klangexpr.GreaterThanOrEqual;
 import klangexpr.If;
 import klangexpr.IntegerLiteral;
 import klangexpr.KlangexprPackage;
 import klangexpr.LessThan;
+import klangexpr.LessThanOrEqual;
 import klangexpr.Minus;
 import klangexpr.Multiply;
 import klangexpr.Not;
@@ -66,17 +69,23 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == KlangPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case KlangPackage.COLLIDES_WITH:
-				sequence_CollidesWith(context, (CollidesWith) semanticObject); 
+			case KlangPackage.CLICK_EVENT:
+				sequence_ClickEvent(context, (ClickEvent) semanticObject); 
 				return; 
-			case KlangPackage.GAME_START:
-				sequence_GameStart(context, (GameStart) semanticObject); 
+			case KlangPackage.COLLISION_EVENT:
+				sequence_CollisionEvent(context, (CollisionEvent) semanticObject); 
 				return; 
-			case KlangPackage.KEY_PRESSED:
-				sequence_KeyPressed(context, (KeyPressed) semanticObject); 
+			case KlangPackage.EVENT_HANDLER:
+				sequence_EventHandler(context, (EventHandler) semanticObject); 
 				return; 
-			case KlangPackage.MESSAGE_RECEIVED:
-				sequence_MessageReceived(context, (MessageReceived) semanticObject); 
+			case KlangPackage.GAME_START_EVENT:
+				sequence_GameStartEvent(context, (GameStartEvent) semanticObject); 
+				return; 
+			case KlangPackage.KEY_PRESS_EVENT:
+				sequence_KeyPressedEvent(context, (KeyPressEvent) semanticObject); 
+				return; 
+			case KlangPackage.MESSAGE_RECEIVED_EVENT:
+				sequence_MessageReceivedEvent(context, (MessageReceivedEvent) semanticObject); 
 				return; 
 			case KlangPackage.PROGRAM:
 				sequence_Program(context, (Program) semanticObject); 
@@ -86,9 +95,6 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case KlangPackage.SPRITE_ACTOR:
 				sequence_SpriteActor(context, (SpriteActor) semanticObject); 
-				return; 
-			case KlangPackage.SPRITE_CLICKED:
-				sequence_SpriteClicked(context, (SpriteClicked) semanticObject); 
 				return; 
 			case KlangPackage.VARIABLE_DECLARATION:
 				sequence_VariableDeclaration(context, (VariableDeclaration) semanticObject); 
@@ -120,6 +126,9 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case KlangexprPackage.GREATER_THAN:
 				sequence_Comparison(context, (GreaterThan) semanticObject); 
 				return; 
+			case KlangexprPackage.GREATER_THAN_OR_EQUAL:
+				sequence_Comparison(context, (GreaterThanOrEqual) semanticObject); 
+				return; 
 			case KlangexprPackage.IF:
 				sequence_If(context, (If) semanticObject); 
 				return; 
@@ -128,6 +137,9 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case KlangexprPackage.LESS_THAN:
 				sequence_Comparison(context, (LessThan) semanticObject); 
+				return; 
+			case KlangexprPackage.LESS_THAN_OR_EQUAL:
+				sequence_Comparison(context, (LessThanOrEqual) semanticObject); 
 				return; 
 			case KlangexprPackage.MINUS:
 				sequence_Minus(context, (Minus) semanticObject); 
@@ -195,6 +207,8 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Comparison.LessThan_1_0_0_1 returns And
 	 *     Comparison.Equal_1_0_1_1 returns And
 	 *     Comparison.GreaterThan_1_0_2_1 returns And
+	 *     Comparison.LessThanOrEqual_1_0_3_1 returns And
+	 *     Comparison.GreaterThanOrEqual_1_0_4_1 returns And
 	 *     PrimaryExpression returns And
 	 *
 	 * Constraint:
@@ -233,6 +247,8 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Comparison.LessThan_1_0_0_1 returns BooleanLiteral
 	 *     Comparison.Equal_1_0_1_1 returns BooleanLiteral
 	 *     Comparison.GreaterThan_1_0_2_1 returns BooleanLiteral
+	 *     Comparison.LessThanOrEqual_1_0_3_1 returns BooleanLiteral
+	 *     Comparison.GreaterThanOrEqual_1_0_4_1 returns BooleanLiteral
 	 *     PrimaryExpression returns BooleanLiteral
 	 *     AtomicExpression returns BooleanLiteral
 	 *
@@ -263,6 +279,8 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Comparison.LessThan_1_0_0_1 returns DoubleLiteral
 	 *     Comparison.Equal_1_0_1_1 returns DoubleLiteral
 	 *     Comparison.GreaterThan_1_0_2_1 returns DoubleLiteral
+	 *     Comparison.LessThanOrEqual_1_0_3_1 returns DoubleLiteral
+	 *     Comparison.GreaterThanOrEqual_1_0_4_1 returns DoubleLiteral
 	 *     PrimaryExpression returns DoubleLiteral
 	 *     AtomicExpression returns DoubleLiteral
 	 *
@@ -299,6 +317,8 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Comparison.LessThan_1_0_0_1 returns IntegerLiteral
 	 *     Comparison.Equal_1_0_1_1 returns IntegerLiteral
 	 *     Comparison.GreaterThan_1_0_2_1 returns IntegerLiteral
+	 *     Comparison.LessThanOrEqual_1_0_3_1 returns IntegerLiteral
+	 *     Comparison.GreaterThanOrEqual_1_0_4_1 returns IntegerLiteral
 	 *     PrimaryExpression returns IntegerLiteral
 	 *     AtomicExpression returns IntegerLiteral
 	 *
@@ -335,6 +355,8 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Comparison.LessThan_1_0_0_1 returns StringLiteral
 	 *     Comparison.Equal_1_0_1_1 returns StringLiteral
 	 *     Comparison.GreaterThan_1_0_2_1 returns StringLiteral
+	 *     Comparison.LessThanOrEqual_1_0_3_1 returns StringLiteral
+	 *     Comparison.GreaterThanOrEqual_1_0_4_1 returns StringLiteral
 	 *     PrimaryExpression returns StringLiteral
 	 *     AtomicExpression returns StringLiteral
 	 *
@@ -371,6 +393,8 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Comparison.LessThan_1_0_0_1 returns VariableReference
 	 *     Comparison.Equal_1_0_1_1 returns VariableReference
 	 *     Comparison.GreaterThan_1_0_2_1 returns VariableReference
+	 *     Comparison.LessThanOrEqual_1_0_3_1 returns VariableReference
+	 *     Comparison.GreaterThanOrEqual_1_0_4_1 returns VariableReference
 	 *     PrimaryExpression returns VariableReference
 	 *     AtomicExpression returns VariableReference
 	 *
@@ -390,14 +414,33 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     EventHandler returns CollidesWith
-	 *     CollidesWith returns CollidesWith
+	 *     Event returns ClickEvent
+	 *     ClickEvent returns ClickEvent
 	 *
 	 * Constraint:
-	 *     (target=[SpriteActor|ID] statements+=Statement*)
+	 *     {ClickEvent}
 	 */
-	protected void sequence_CollidesWith(ISerializationContext context, CollidesWith semanticObject) {
+	protected void sequence_ClickEvent(ISerializationContext context, ClickEvent semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Event returns CollisionEvent
+	 *     CollisionEvent returns CollisionEvent
+	 *
+	 * Constraint:
+	 *     target=[SpriteActor|ID]
+	 */
+	protected void sequence_CollisionEvent(ISerializationContext context, CollisionEvent semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.COLLISION_EVENT__TARGET) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.COLLISION_EVENT__TARGET));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCollisionEventAccess().getTargetSpriteActorIDTerminalRuleCall_3_0_1(), semanticObject.getTarget());
+		feeder.finish();
 	}
 	
 	
@@ -420,6 +463,8 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Comparison.LessThan_1_0_0_1 returns Equal
 	 *     Comparison.Equal_1_0_1_1 returns Equal
 	 *     Comparison.GreaterThan_1_0_2_1 returns Equal
+	 *     Comparison.LessThanOrEqual_1_0_3_1 returns Equal
+	 *     Comparison.GreaterThanOrEqual_1_0_4_1 returns Equal
 	 *     PrimaryExpression returns Equal
 	 *
 	 * Constraint:
@@ -458,6 +503,8 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Comparison.LessThan_1_0_0_1 returns GreaterThan
 	 *     Comparison.Equal_1_0_1_1 returns GreaterThan
 	 *     Comparison.GreaterThan_1_0_2_1 returns GreaterThan
+	 *     Comparison.LessThanOrEqual_1_0_3_1 returns GreaterThan
+	 *     Comparison.GreaterThanOrEqual_1_0_4_1 returns GreaterThan
 	 *     PrimaryExpression returns GreaterThan
 	 *
 	 * Constraint:
@@ -472,6 +519,46 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getComparisonAccess().getGreaterThanLeftAction_1_0_2_1(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getComparisonAccess().getRightPlusParserRuleCall_1_1_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns GreaterThanOrEqual
+	 *     Or returns GreaterThanOrEqual
+	 *     Or.Or_1_0 returns GreaterThanOrEqual
+	 *     And returns GreaterThanOrEqual
+	 *     And.And_1_0 returns GreaterThanOrEqual
+	 *     Plus returns GreaterThanOrEqual
+	 *     Plus.Plus_1_0 returns GreaterThanOrEqual
+	 *     Minus returns GreaterThanOrEqual
+	 *     Minus.Minus_1_0 returns GreaterThanOrEqual
+	 *     Multiply returns GreaterThanOrEqual
+	 *     Multiply.Multiply_1_0 returns GreaterThanOrEqual
+	 *     Divide returns GreaterThanOrEqual
+	 *     Divide.Divide_1_0 returns GreaterThanOrEqual
+	 *     Comparison returns GreaterThanOrEqual
+	 *     Comparison.LessThan_1_0_0_1 returns GreaterThanOrEqual
+	 *     Comparison.Equal_1_0_1_1 returns GreaterThanOrEqual
+	 *     Comparison.GreaterThan_1_0_2_1 returns GreaterThanOrEqual
+	 *     Comparison.LessThanOrEqual_1_0_3_1 returns GreaterThanOrEqual
+	 *     Comparison.GreaterThanOrEqual_1_0_4_1 returns GreaterThanOrEqual
+	 *     PrimaryExpression returns GreaterThanOrEqual
+	 *
+	 * Constraint:
+	 *     (left=Comparison_GreaterThanOrEqual_1_0_4_1 right=Plus)
+	 */
+	protected void sequence_Comparison(ISerializationContext context, GreaterThanOrEqual semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, KlangexprPackage.Literals.BINARY_OPERATOR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangexprPackage.Literals.BINARY_OPERATOR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, KlangexprPackage.Literals.BINARY_OPERATOR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangexprPackage.Literals.BINARY_OPERATOR__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getComparisonAccess().getGreaterThanOrEqualLeftAction_1_0_4_1(), semanticObject.getLeft());
 		feeder.accept(grammarAccess.getComparisonAccess().getRightPlusParserRuleCall_1_1_0(), semanticObject.getRight());
 		feeder.finish();
 	}
@@ -496,6 +583,8 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Comparison.LessThan_1_0_0_1 returns LessThan
 	 *     Comparison.Equal_1_0_1_1 returns LessThan
 	 *     Comparison.GreaterThan_1_0_2_1 returns LessThan
+	 *     Comparison.LessThanOrEqual_1_0_3_1 returns LessThan
+	 *     Comparison.GreaterThanOrEqual_1_0_4_1 returns LessThan
 	 *     PrimaryExpression returns LessThan
 	 *
 	 * Constraint:
@@ -510,6 +599,46 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getComparisonAccess().getLessThanLeftAction_1_0_0_1(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getComparisonAccess().getRightPlusParserRuleCall_1_1_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns LessThanOrEqual
+	 *     Or returns LessThanOrEqual
+	 *     Or.Or_1_0 returns LessThanOrEqual
+	 *     And returns LessThanOrEqual
+	 *     And.And_1_0 returns LessThanOrEqual
+	 *     Plus returns LessThanOrEqual
+	 *     Plus.Plus_1_0 returns LessThanOrEqual
+	 *     Minus returns LessThanOrEqual
+	 *     Minus.Minus_1_0 returns LessThanOrEqual
+	 *     Multiply returns LessThanOrEqual
+	 *     Multiply.Multiply_1_0 returns LessThanOrEqual
+	 *     Divide returns LessThanOrEqual
+	 *     Divide.Divide_1_0 returns LessThanOrEqual
+	 *     Comparison returns LessThanOrEqual
+	 *     Comparison.LessThan_1_0_0_1 returns LessThanOrEqual
+	 *     Comparison.Equal_1_0_1_1 returns LessThanOrEqual
+	 *     Comparison.GreaterThan_1_0_2_1 returns LessThanOrEqual
+	 *     Comparison.LessThanOrEqual_1_0_3_1 returns LessThanOrEqual
+	 *     Comparison.GreaterThanOrEqual_1_0_4_1 returns LessThanOrEqual
+	 *     PrimaryExpression returns LessThanOrEqual
+	 *
+	 * Constraint:
+	 *     (left=Comparison_LessThanOrEqual_1_0_3_1 right=Plus)
+	 */
+	protected void sequence_Comparison(ISerializationContext context, LessThanOrEqual semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, KlangexprPackage.Literals.BINARY_OPERATOR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangexprPackage.Literals.BINARY_OPERATOR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, KlangexprPackage.Literals.BINARY_OPERATOR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangexprPackage.Literals.BINARY_OPERATOR__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getComparisonAccess().getLessThanOrEqualLeftAction_1_0_3_1(), semanticObject.getLeft());
 		feeder.accept(grammarAccess.getComparisonAccess().getRightPlusParserRuleCall_1_1_0(), semanticObject.getRight());
 		feeder.finish();
 	}
@@ -534,6 +663,8 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Comparison.LessThan_1_0_0_1 returns Divide
 	 *     Comparison.Equal_1_0_1_1 returns Divide
 	 *     Comparison.GreaterThan_1_0_2_1 returns Divide
+	 *     Comparison.LessThanOrEqual_1_0_3_1 returns Divide
+	 *     Comparison.GreaterThanOrEqual_1_0_4_1 returns Divide
 	 *     PrimaryExpression returns Divide
 	 *
 	 * Constraint:
@@ -550,6 +681,18 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		feeder.accept(grammarAccess.getDivideAccess().getDivideLeftAction_1_0(), semanticObject.getLeft());
 		feeder.accept(grammarAccess.getDivideAccess().getRightPrimaryExpressionParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     EventHandler returns EventHandler
+	 *
+	 * Constraint:
+	 *     (referenceEvent=Event statements+=Statement*)
+	 */
+	protected void sequence_EventHandler(ISerializationContext context, EventHandler semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -586,6 +729,8 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Comparison.LessThan_1_0_0_1 returns FunctionCall
 	 *     Comparison.Equal_1_0_1_1 returns FunctionCall
 	 *     Comparison.GreaterThan_1_0_2_1 returns FunctionCall
+	 *     Comparison.LessThanOrEqual_1_0_3_1 returns FunctionCall
+	 *     Comparison.GreaterThanOrEqual_1_0_4_1 returns FunctionCall
 	 *     FunctionCall returns FunctionCall
 	 *     PrimaryExpression returns FunctionCall
 	 *
@@ -599,13 +744,13 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     EventHandler returns GameStart
-	 *     GameStart returns GameStart
+	 *     Event returns GameStartEvent
+	 *     GameStartEvent returns GameStartEvent
 	 *
 	 * Constraint:
-	 *     statements+=Statement*
+	 *     {GameStartEvent}
 	 */
-	protected void sequence_GameStart(ISerializationContext context, GameStart semanticObject) {
+	protected void sequence_GameStartEvent(ISerializationContext context, GameStartEvent semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -625,27 +770,39 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     EventHandler returns KeyPressed
-	 *     KeyPressed returns KeyPressed
+	 *     Event returns KeyPressEvent
+	 *     KeyPressedEvent returns KeyPressEvent
 	 *
 	 * Constraint:
-	 *     (key=Keys statements+=Statement*)
+	 *     key=Keys
 	 */
-	protected void sequence_KeyPressed(ISerializationContext context, KeyPressed semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_KeyPressedEvent(ISerializationContext context, KeyPressEvent semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.KEY_PRESS_EVENT__KEY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.KEY_PRESS_EVENT__KEY));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getKeyPressedEventAccess().getKeyKeysEnumRuleCall_1_0(), semanticObject.getKey());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     EventHandler returns MessageReceived
-	 *     MessageReceived returns MessageReceived
+	 *     Event returns MessageReceivedEvent
+	 *     MessageReceivedEvent returns MessageReceivedEvent
 	 *
 	 * Constraint:
-	 *     (name=STRING statements+=Statement*)
+	 *     name=STRING
 	 */
-	protected void sequence_MessageReceived(ISerializationContext context, MessageReceived semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_MessageReceivedEvent(ISerializationContext context, MessageReceivedEvent semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, KlangPackage.Literals.MESSAGE_RECEIVED_EVENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangPackage.Literals.MESSAGE_RECEIVED_EVENT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getMessageReceivedEventAccess().getNameSTRINGTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	
@@ -668,6 +825,8 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Comparison.LessThan_1_0_0_1 returns Minus
 	 *     Comparison.Equal_1_0_1_1 returns Minus
 	 *     Comparison.GreaterThan_1_0_2_1 returns Minus
+	 *     Comparison.LessThanOrEqual_1_0_3_1 returns Minus
+	 *     Comparison.GreaterThanOrEqual_1_0_4_1 returns Minus
 	 *     PrimaryExpression returns Minus
 	 *
 	 * Constraint:
@@ -706,6 +865,8 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Comparison.LessThan_1_0_0_1 returns Multiply
 	 *     Comparison.Equal_1_0_1_1 returns Multiply
 	 *     Comparison.GreaterThan_1_0_2_1 returns Multiply
+	 *     Comparison.LessThanOrEqual_1_0_3_1 returns Multiply
+	 *     Comparison.GreaterThanOrEqual_1_0_4_1 returns Multiply
 	 *     PrimaryExpression returns Multiply
 	 *
 	 * Constraint:
@@ -744,6 +905,8 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Comparison.LessThan_1_0_0_1 returns Or
 	 *     Comparison.Equal_1_0_1_1 returns Or
 	 *     Comparison.GreaterThan_1_0_2_1 returns Or
+	 *     Comparison.LessThanOrEqual_1_0_3_1 returns Or
+	 *     Comparison.GreaterThanOrEqual_1_0_4_1 returns Or
 	 *     PrimaryExpression returns Or
 	 *
 	 * Constraint:
@@ -782,6 +945,8 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Comparison.LessThan_1_0_0_1 returns Plus
 	 *     Comparison.Equal_1_0_1_1 returns Plus
 	 *     Comparison.GreaterThan_1_0_2_1 returns Plus
+	 *     Comparison.LessThanOrEqual_1_0_3_1 returns Plus
+	 *     Comparison.GreaterThanOrEqual_1_0_4_1 returns Plus
 	 *     PrimaryExpression returns Plus
 	 *
 	 * Constraint:
@@ -820,6 +985,8 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Comparison.LessThan_1_0_0_1 returns Not
 	 *     Comparison.Equal_1_0_1_1 returns Not
 	 *     Comparison.GreaterThan_1_0_2_1 returns Not
+	 *     Comparison.LessThanOrEqual_1_0_3_1 returns Not
+	 *     Comparison.GreaterThanOrEqual_1_0_4_1 returns Not
 	 *     PrimaryExpression returns Not
 	 *
 	 * Constraint:
@@ -855,6 +1022,8 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Comparison.LessThan_1_0_0_1 returns ToDouble
 	 *     Comparison.Equal_1_0_1_1 returns ToDouble
 	 *     Comparison.GreaterThan_1_0_2_1 returns ToDouble
+	 *     Comparison.LessThanOrEqual_1_0_3_1 returns ToDouble
+	 *     Comparison.GreaterThanOrEqual_1_0_4_1 returns ToDouble
 	 *     PrimaryExpression returns ToDouble
 	 *
 	 * Constraint:
@@ -866,7 +1035,7 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangexprPackage.Literals.UNARY_OPERATOR__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPrimaryExpressionAccess().getExpressionPrimaryExpressionParserRuleCall_3_4_0(), semanticObject.getExpression());
+		feeder.accept(grammarAccess.getPrimaryExpressionAccess().getExpressionPrimaryExpressionParserRuleCall_3_3_0(), semanticObject.getExpression());
 		feeder.finish();
 	}
 	
@@ -890,6 +1059,8 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Comparison.LessThan_1_0_0_1 returns ToInt
 	 *     Comparison.Equal_1_0_1_1 returns ToInt
 	 *     Comparison.GreaterThan_1_0_2_1 returns ToInt
+	 *     Comparison.LessThanOrEqual_1_0_3_1 returns ToInt
+	 *     Comparison.GreaterThanOrEqual_1_0_4_1 returns ToInt
 	 *     PrimaryExpression returns ToInt
 	 *
 	 * Constraint:
@@ -901,7 +1072,7 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KlangexprPackage.Literals.UNARY_OPERATOR__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPrimaryExpressionAccess().getExpressionPrimaryExpressionParserRuleCall_4_4_0(), semanticObject.getExpression());
+		feeder.accept(grammarAccess.getPrimaryExpressionAccess().getExpressionPrimaryExpressionParserRuleCall_4_3_0(), semanticObject.getExpression());
 		feeder.finish();
 	}
 	
@@ -925,6 +1096,8 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Comparison.LessThan_1_0_0_1 returns UnaryMinus
 	 *     Comparison.Equal_1_0_1_1 returns UnaryMinus
 	 *     Comparison.GreaterThan_1_0_2_1 returns UnaryMinus
+	 *     Comparison.LessThanOrEqual_1_0_3_1 returns UnaryMinus
+	 *     Comparison.GreaterThanOrEqual_1_0_4_1 returns UnaryMinus
 	 *     PrimaryExpression returns UnaryMinus
 	 *
 	 * Constraint:
@@ -1011,19 +1184,6 @@ public class KlangSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (name=ID localVariables+=VariableDeclaration* eventHandlers+=EventHandler*)
 	 */
 	protected void sequence_SpriteActor(ISerializationContext context, SpriteActor semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     EventHandler returns SpriteClicked
-	 *     SpriteClicked returns SpriteClicked
-	 *
-	 * Constraint:
-	 *     statements+=Statement*
-	 */
-	protected void sequence_SpriteClicked(ISerializationContext context, SpriteClicked semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

@@ -3,6 +3,7 @@
 package klang.util;
 
 import klang.*;
+import klang.entities.Entity;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -94,37 +95,41 @@ public class KlangSwitch<T1> extends Switch<T1> {
 				return result;
 			}
 			case KlangPackage.ABSTRACT_ACTOR: {
-				AbstractActor abstractActor = (AbstractActor)theEObject;
+				AbstractActor<?> abstractActor = (AbstractActor<?>)theEObject;
 				T1 result = caseAbstractActor(abstractActor);
 				if (result == null) result = caseTreeNode(abstractActor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case KlangPackage.GAME_START: {
-				GameStart gameStart = (GameStart)theEObject;
-				T1 result = caseGameStart(gameStart);
-				if (result == null) result = caseEventHandler(gameStart);
+			case KlangPackage.GAME_START_EVENT: {
+				GameStartEvent gameStartEvent = (GameStartEvent)theEObject;
+				T1 result = caseGameStartEvent(gameStartEvent);
+				if (result == null) result = caseGlobalEvent(gameStartEvent);
+				if (result == null) result = caseEvent(gameStartEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case KlangPackage.SPRITE_CLICKED: {
-				SpriteClicked spriteClicked = (SpriteClicked)theEObject;
-				T1 result = caseSpriteClicked(spriteClicked);
-				if (result == null) result = caseEventHandler(spriteClicked);
+			case KlangPackage.CLICK_EVENT: {
+				ClickEvent clickEvent = (ClickEvent)theEObject;
+				T1 result = caseClickEvent(clickEvent);
+				if (result == null) result = caseActorEvent(clickEvent);
+				if (result == null) result = caseEvent(clickEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case KlangPackage.KEY_PRESSED: {
-				KeyPressed keyPressed = (KeyPressed)theEObject;
-				T1 result = caseKeyPressed(keyPressed);
-				if (result == null) result = caseEventHandler(keyPressed);
+			case KlangPackage.KEY_PRESS_EVENT: {
+				KeyPressEvent keyPressEvent = (KeyPressEvent)theEObject;
+				T1 result = caseKeyPressEvent(keyPressEvent);
+				if (result == null) result = caseGlobalEvent(keyPressEvent);
+				if (result == null) result = caseEvent(keyPressEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case KlangPackage.COLLIDES_WITH: {
-				CollidesWith collidesWith = (CollidesWith)theEObject;
-				T1 result = caseCollidesWith(collidesWith);
-				if (result == null) result = caseEventHandler(collidesWith);
+			case KlangPackage.COLLISION_EVENT: {
+				CollisionEvent collisionEvent = (CollisionEvent)theEObject;
+				T1 result = caseCollisionEvent(collisionEvent);
+				if (result == null) result = caseActorEvent(collisionEvent);
+				if (result == null) result = caseEvent(collisionEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -140,16 +145,31 @@ public class KlangSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case KlangPackage.TREE_TRAVERSAL: {
-				TreeTraversal treeTraversal = (TreeTraversal)theEObject;
-				T1 result = caseTreeTraversal(treeTraversal);
+			case KlangPackage.MESSAGE_RECEIVED_EVENT: {
+				MessageReceivedEvent messageReceivedEvent = (MessageReceivedEvent)theEObject;
+				T1 result = caseMessageReceivedEvent(messageReceivedEvent);
+				if (result == null) result = caseGlobalEvent(messageReceivedEvent);
+				if (result == null) result = caseEvent(messageReceivedEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case KlangPackage.MESSAGE_RECEIVED: {
-				MessageReceived messageReceived = (MessageReceived)theEObject;
-				T1 result = caseMessageReceived(messageReceived);
-				if (result == null) result = caseEventHandler(messageReceived);
+			case KlangPackage.EVENT: {
+				Event event = (Event)theEObject;
+				T1 result = caseEvent(event);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case KlangPackage.GLOBAL_EVENT: {
+				GlobalEvent globalEvent = (GlobalEvent)theEObject;
+				T1 result = caseGlobalEvent(globalEvent);
+				if (result == null) result = caseEvent(globalEvent);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case KlangPackage.ACTOR_EVENT: {
+				ActorEvent actorEvent = (ActorEvent)theEObject;
+				T1 result = caseActorEvent(actorEvent);
+				if (result == null) result = caseEvent(actorEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -218,66 +238,6 @@ public class KlangSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Game Start</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Game Start</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseGameStart(GameStart object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Sprite Clicked</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Sprite Clicked</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseSpriteClicked(SpriteClicked object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Key Pressed</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Key Pressed</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseKeyPressed(KeyPressed object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Collides With</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Collides With</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseCollidesWith(CollidesWith object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Abstract Actor</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -288,7 +248,67 @@ public class KlangSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseAbstractActor(AbstractActor object) {
+	public <T extends Entity> T1 caseAbstractActor(AbstractActor<T> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Game Start Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Game Start Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseGameStartEvent(GameStartEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Click Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Click Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseClickEvent(ClickEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Key Press Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Key Press Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseKeyPressEvent(KeyPressEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Collision Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Collision Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseCollisionEvent(CollisionEvent object) {
 		return null;
 	}
 
@@ -323,32 +343,62 @@ public class KlangSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Tree Traversal</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Message Received Event</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Tree Traversal</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Message Received Event</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseTreeTraversal(TreeTraversal object) {
+	public T1 caseMessageReceivedEvent(MessageReceivedEvent object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Message Received</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Event</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Message Received</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Event</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseMessageReceived(MessageReceived object) {
+	public T1 caseEvent(Event object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Global Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Global Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseGlobalEvent(GlobalEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Actor Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Actor Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseActorEvent(ActorEvent object) {
 		return null;
 	}
 

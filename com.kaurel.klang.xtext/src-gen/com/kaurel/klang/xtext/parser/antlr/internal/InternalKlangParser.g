@@ -319,62 +319,131 @@ ruleEventHandler returns [EObject current=null]
 	leaveRule();
 }:
 	(
+		otherlv_0=When
 		{
-			newCompositeNode(grammarAccess.getEventHandlerAccess().getGameStartParserRuleCall_0());
+			newLeafNode(otherlv_0, grammarAccess.getEventHandlerAccess().getWhenKeyword_0());
 		}
-		this_GameStart_0=ruleGameStart
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEventHandlerAccess().getReferenceEventEventParserRuleCall_1_0());
+				}
+				lv_referenceEvent_1_0=ruleEvent
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEventHandlerRule());
+					}
+					set(
+						$current,
+						"referenceEvent",
+						lv_referenceEvent_1_0,
+						"com.kaurel.klang.xtext.Klang.Event");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		this_BEGIN_2=RULE_BEGIN
 		{
-			$current = $this_GameStart_0.current;
+			newLeafNode(this_BEGIN_2, grammarAccess.getEventHandlerAccess().getBEGINTerminalRuleCall_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEventHandlerAccess().getStatementsStatementParserRuleCall_3_0());
+				}
+				lv_statements_3_0=ruleStatement
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEventHandlerRule());
+					}
+					add(
+						$current,
+						"statements",
+						lv_statements_3_0,
+						"com.kaurel.klang.xtext.Klang.Statement");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		this_END_4=RULE_END
+		{
+			newLeafNode(this_END_4, grammarAccess.getEventHandlerAccess().getENDTerminalRuleCall_4());
+		}
+	)
+;
+
+// Entry rule entryRuleEvent
+entryRuleEvent returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEventRule()); }
+	iv_ruleEvent=ruleEvent
+	{ $current=$iv_ruleEvent.current; }
+	EOF;
+
+// Rule Event
+ruleEvent returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getEventAccess().getCollisionEventParserRuleCall_0());
+		}
+		this_CollisionEvent_0=ruleCollisionEvent
+		{
+			$current = $this_CollisionEvent_0.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getEventHandlerAccess().getSpriteClickedParserRuleCall_1());
+			newCompositeNode(grammarAccess.getEventAccess().getKeyPressedEventParserRuleCall_1());
 		}
-		this_SpriteClicked_1=ruleSpriteClicked
+		this_KeyPressedEvent_1=ruleKeyPressedEvent
 		{
-			$current = $this_SpriteClicked_1.current;
+			$current = $this_KeyPressedEvent_1.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getEventHandlerAccess().getKeyPressedParserRuleCall_2());
+			newCompositeNode(grammarAccess.getEventAccess().getMessageReceivedEventParserRuleCall_2());
 		}
-		this_KeyPressed_2=ruleKeyPressed
+		this_MessageReceivedEvent_2=ruleMessageReceivedEvent
 		{
-			$current = $this_KeyPressed_2.current;
+			$current = $this_MessageReceivedEvent_2.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getEventHandlerAccess().getCollidesWithParserRuleCall_3());
+			newCompositeNode(grammarAccess.getEventAccess().getGameStartEventParserRuleCall_3());
 		}
-		this_CollidesWith_3=ruleCollidesWith
+		this_GameStartEvent_3=ruleGameStartEvent
 		{
-			$current = $this_CollidesWith_3.current;
+			$current = $this_GameStartEvent_3.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getEventHandlerAccess().getMessageReceivedParserRuleCall_4());
+			newCompositeNode(grammarAccess.getEventAccess().getClickEventParserRuleCall_4());
 		}
-		this_MessageReceived_4=ruleMessageReceived
+		this_ClickEvent_4=ruleClickEvent
 		{
-			$current = $this_MessageReceived_4.current;
+			$current = $this_ClickEvent_4.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
 ;
 
-// Entry rule entryRuleMessageReceived
-entryRuleMessageReceived returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getMessageReceivedRule()); }
-	iv_ruleMessageReceived=ruleMessageReceived
-	{ $current=$iv_ruleMessageReceived.current; }
+// Entry rule entryRuleMessageReceivedEvent
+entryRuleMessageReceivedEvent returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getMessageReceivedEventRule()); }
+	iv_ruleMessageReceivedEvent=ruleMessageReceivedEvent
+	{ $current=$iv_ruleMessageReceivedEvent.current; }
 	EOF;
 
-// Rule MessageReceived
-ruleMessageReceived returns [EObject current=null]
+// Rule MessageReceivedEvent
+ruleMessageReceivedEvent returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -385,71 +454,192 @@ ruleMessageReceived returns [EObject current=null]
 		(
 			{
 				$current = forceCreateModelElement(
-					grammarAccess.getMessageReceivedAccess().getMessageReceivedAction_0(),
+					grammarAccess.getMessageReceivedEventAccess().getMessageReceivedEventAction_0(),
 					$current);
 			}
 		)
-		otherlv_1=When
-		{
-			newLeafNode(otherlv_1, grammarAccess.getMessageReceivedAccess().getWhenKeyword_1());
-		}
-		otherlv_2=LeftSquareBracket
-		{
-			newLeafNode(otherlv_2, grammarAccess.getMessageReceivedAccess().getLeftSquareBracketKeyword_2());
-		}
 		(
 			(
-				lv_name_3_0=RULE_STRING
+				lv_name_1_0=RULE_STRING
 				{
-					newLeafNode(lv_name_3_0, grammarAccess.getMessageReceivedAccess().getNameSTRINGTerminalRuleCall_3_0());
+					newLeafNode(lv_name_1_0, grammarAccess.getMessageReceivedEventAccess().getNameSTRINGTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getMessageReceivedRule());
+						$current = createModelElement(grammarAccess.getMessageReceivedEventRule());
 					}
 					setWithLastConsumed(
 						$current,
 						"name",
-						lv_name_3_0,
+						lv_name_1_0,
 						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)
-		otherlv_4=RightSquareBracket
+		otherlv_2=Received
 		{
-			newLeafNode(otherlv_4, grammarAccess.getMessageReceivedAccess().getRightSquareBracketKeyword_4());
+			newLeafNode(otherlv_2, grammarAccess.getMessageReceivedEventAccess().getReceivedKeyword_2());
 		}
-		otherlv_5=Received
+	)
+;
+
+// Entry rule entryRuleGameStartEvent
+entryRuleGameStartEvent returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getGameStartEventRule()); }
+	iv_ruleGameStartEvent=ruleGameStartEvent
+	{ $current=$iv_ruleGameStartEvent.current; }
+	EOF;
+
+// Rule GameStartEvent
+ruleGameStartEvent returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getGameStartEventAccess().getGameStartEventAction_0(),
+					$current);
+			}
+		)
+		otherlv_1=Game
 		{
-			newLeafNode(otherlv_5, grammarAccess.getMessageReceivedAccess().getReceivedKeyword_5());
+			newLeafNode(otherlv_1, grammarAccess.getGameStartEventAccess().getGameKeyword_1());
 		}
-		this_BEGIN_6=RULE_BEGIN
+		otherlv_2=Starts
 		{
-			newLeafNode(this_BEGIN_6, grammarAccess.getMessageReceivedAccess().getBEGINTerminalRuleCall_6());
+			newLeafNode(otherlv_2, grammarAccess.getGameStartEventAccess().getStartsKeyword_2());
+		}
+	)
+;
+
+// Entry rule entryRuleClickEvent
+entryRuleClickEvent returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getClickEventRule()); }
+	iv_ruleClickEvent=ruleClickEvent
+	{ $current=$iv_ruleClickEvent.current; }
+	EOF;
+
+// Rule ClickEvent
+ruleClickEvent returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getClickEventAccess().getClickEventAction_0(),
+					$current);
+			}
+		)
+		otherlv_1=Clicked
+		{
+			newLeafNode(otherlv_1, grammarAccess.getClickEventAccess().getClickedKeyword_1());
+		}
+	)
+;
+
+// Entry rule entryRuleKeyPressedEvent
+entryRuleKeyPressedEvent returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getKeyPressedEventRule()); }
+	iv_ruleKeyPressedEvent=ruleKeyPressedEvent
+	{ $current=$iv_ruleKeyPressedEvent.current; }
+	EOF;
+
+// Rule KeyPressedEvent
+ruleKeyPressedEvent returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getKeyPressedEventAccess().getKeyPressEventAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getKeyPressedEventAccess().getKeyKeysEnumRuleCall_1_0());
+				}
+				lv_key_1_0=ruleKeys
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getKeyPressedEventRule());
+					}
+					set(
+						$current,
+						"key",
+						lv_key_1_0,
+						"com.kaurel.klang.xtext.Klang.Keys");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_2=Pressed
+		{
+			newLeafNode(otherlv_2, grammarAccess.getKeyPressedEventAccess().getPressedKeyword_2());
+		}
+	)
+;
+
+// Entry rule entryRuleCollisionEvent
+entryRuleCollisionEvent returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getCollisionEventRule()); }
+	iv_ruleCollisionEvent=ruleCollisionEvent
+	{ $current=$iv_ruleCollisionEvent.current; }
+	EOF;
+
+// Rule CollisionEvent
+ruleCollisionEvent returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getCollisionEventAccess().getCollisionEventAction_0(),
+					$current);
+			}
+		)
+		otherlv_1=Collides
+		{
+			newLeafNode(otherlv_1, grammarAccess.getCollisionEventAccess().getCollidesKeyword_1());
+		}
+		otherlv_2=With
+		{
+			newLeafNode(otherlv_2, grammarAccess.getCollisionEventAccess().getWithKeyword_2());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getMessageReceivedAccess().getStatementsStatementParserRuleCall_7_0());
-				}
-				lv_statements_7_0=ruleStatement
-				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getMessageReceivedRule());
+						$current = createModelElement(grammarAccess.getCollisionEventRule());
 					}
-					add(
-						$current,
-						"statements",
-						lv_statements_7_0,
-						"com.kaurel.klang.xtext.Klang.Statement");
-					afterParserOrEnumRuleCall();
+				}
+				otherlv_3=RULE_ID
+				{
+					newLeafNode(otherlv_3, grammarAccess.getCollisionEventAccess().getTargetSpriteActorCrossReference_3_0());
 				}
 			)
-		)*
-		this_END_8=RULE_END
-		{
-			newLeafNode(this_END_8, grammarAccess.getMessageReceivedAccess().getENDTerminalRuleCall_8());
-		}
+		)
 	)
 ;
 
@@ -586,298 +776,6 @@ ruleSendMessage returns [EObject current=null]
 		otherlv_4=RightParenthesis
 		{
 			newLeafNode(otherlv_4, grammarAccess.getSendMessageAccess().getRightParenthesisKeyword_4());
-		}
-	)
-;
-
-// Entry rule entryRuleGameStart
-entryRuleGameStart returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getGameStartRule()); }
-	iv_ruleGameStart=ruleGameStart
-	{ $current=$iv_ruleGameStart.current; }
-	EOF;
-
-// Rule GameStart
-ruleGameStart returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getGameStartAccess().getGameStartAction_0(),
-					$current);
-			}
-		)
-		otherlv_1=When
-		{
-			newLeafNode(otherlv_1, grammarAccess.getGameStartAccess().getWhenKeyword_1());
-		}
-		otherlv_2=Game
-		{
-			newLeafNode(otherlv_2, grammarAccess.getGameStartAccess().getGameKeyword_2());
-		}
-		otherlv_3=Starts
-		{
-			newLeafNode(otherlv_3, grammarAccess.getGameStartAccess().getStartsKeyword_3());
-		}
-		this_BEGIN_4=RULE_BEGIN
-		{
-			newLeafNode(this_BEGIN_4, grammarAccess.getGameStartAccess().getBEGINTerminalRuleCall_4());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getGameStartAccess().getStatementsStatementParserRuleCall_5_0());
-				}
-				lv_statements_5_0=ruleStatement
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getGameStartRule());
-					}
-					add(
-						$current,
-						"statements",
-						lv_statements_5_0,
-						"com.kaurel.klang.xtext.Klang.Statement");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
-		this_END_6=RULE_END
-		{
-			newLeafNode(this_END_6, grammarAccess.getGameStartAccess().getENDTerminalRuleCall_6());
-		}
-	)
-;
-
-// Entry rule entryRuleSpriteClicked
-entryRuleSpriteClicked returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getSpriteClickedRule()); }
-	iv_ruleSpriteClicked=ruleSpriteClicked
-	{ $current=$iv_ruleSpriteClicked.current; }
-	EOF;
-
-// Rule SpriteClicked
-ruleSpriteClicked returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getSpriteClickedAccess().getSpriteClickedAction_0(),
-					$current);
-			}
-		)
-		otherlv_1=When
-		{
-			newLeafNode(otherlv_1, grammarAccess.getSpriteClickedAccess().getWhenKeyword_1());
-		}
-		otherlv_2=Clicked
-		{
-			newLeafNode(otherlv_2, grammarAccess.getSpriteClickedAccess().getClickedKeyword_2());
-		}
-		this_BEGIN_3=RULE_BEGIN
-		{
-			newLeafNode(this_BEGIN_3, grammarAccess.getSpriteClickedAccess().getBEGINTerminalRuleCall_3());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getSpriteClickedAccess().getStatementsStatementParserRuleCall_4_0());
-				}
-				lv_statements_4_0=ruleStatement
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSpriteClickedRule());
-					}
-					add(
-						$current,
-						"statements",
-						lv_statements_4_0,
-						"com.kaurel.klang.xtext.Klang.Statement");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
-		this_END_5=RULE_END
-		{
-			newLeafNode(this_END_5, grammarAccess.getSpriteClickedAccess().getENDTerminalRuleCall_5());
-		}
-	)
-;
-
-// Entry rule entryRuleKeyPressed
-entryRuleKeyPressed returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getKeyPressedRule()); }
-	iv_ruleKeyPressed=ruleKeyPressed
-	{ $current=$iv_ruleKeyPressed.current; }
-	EOF;
-
-// Rule KeyPressed
-ruleKeyPressed returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getKeyPressedAccess().getKeyPressedAction_0(),
-					$current);
-			}
-		)
-		otherlv_1=When
-		{
-			newLeafNode(otherlv_1, grammarAccess.getKeyPressedAccess().getWhenKeyword_1());
-		}
-		otherlv_2=LeftSquareBracket
-		{
-			newLeafNode(otherlv_2, grammarAccess.getKeyPressedAccess().getLeftSquareBracketKeyword_2());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getKeyPressedAccess().getKeyKeysEnumRuleCall_3_0());
-				}
-				lv_key_3_0=ruleKeys
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getKeyPressedRule());
-					}
-					set(
-						$current,
-						"key",
-						lv_key_3_0,
-						"com.kaurel.klang.xtext.Klang.Keys");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_4=RightSquareBracket
-		{
-			newLeafNode(otherlv_4, grammarAccess.getKeyPressedAccess().getRightSquareBracketKeyword_4());
-		}
-		otherlv_5=Pressed
-		{
-			newLeafNode(otherlv_5, grammarAccess.getKeyPressedAccess().getPressedKeyword_5());
-		}
-		this_BEGIN_6=RULE_BEGIN
-		{
-			newLeafNode(this_BEGIN_6, grammarAccess.getKeyPressedAccess().getBEGINTerminalRuleCall_6());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getKeyPressedAccess().getStatementsStatementParserRuleCall_7_0());
-				}
-				lv_statements_7_0=ruleStatement
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getKeyPressedRule());
-					}
-					add(
-						$current,
-						"statements",
-						lv_statements_7_0,
-						"com.kaurel.klang.xtext.Klang.Statement");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
-		this_END_8=RULE_END
-		{
-			newLeafNode(this_END_8, grammarAccess.getKeyPressedAccess().getENDTerminalRuleCall_8());
-		}
-	)
-;
-
-// Entry rule entryRuleCollidesWith
-entryRuleCollidesWith returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getCollidesWithRule()); }
-	iv_ruleCollidesWith=ruleCollidesWith
-	{ $current=$iv_ruleCollidesWith.current; }
-	EOF;
-
-// Rule CollidesWith
-ruleCollidesWith returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getCollidesWithAccess().getCollidesWithAction_0(),
-					$current);
-			}
-		)
-		otherlv_1=When
-		{
-			newLeafNode(otherlv_1, grammarAccess.getCollidesWithAccess().getWhenKeyword_1());
-		}
-		otherlv_2=Collides
-		{
-			newLeafNode(otherlv_2, grammarAccess.getCollidesWithAccess().getCollidesKeyword_2());
-		}
-		otherlv_3=With
-		{
-			newLeafNode(otherlv_3, grammarAccess.getCollidesWithAccess().getWithKeyword_3());
-		}
-		(
-			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getCollidesWithRule());
-					}
-				}
-				otherlv_4=RULE_ID
-				{
-					newLeafNode(otherlv_4, grammarAccess.getCollidesWithAccess().getTargetSpriteActorCrossReference_4_0());
-				}
-			)
-		)
-		this_BEGIN_5=RULE_BEGIN
-		{
-			newLeafNode(this_BEGIN_5, grammarAccess.getCollidesWithAccess().getBEGINTerminalRuleCall_5());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getCollidesWithAccess().getStatementsStatementParserRuleCall_6_0());
-				}
-				lv_statements_6_0=ruleStatement
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getCollidesWithRule());
-					}
-					add(
-						$current,
-						"statements",
-						lv_statements_6_0,
-						"com.kaurel.klang.xtext.Klang.Statement");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
-		this_END_7=RULE_END
-		{
-			newLeafNode(this_END_7, grammarAccess.getCollidesWithAccess().getENDTerminalRuleCall_7());
 		}
 	)
 ;
@@ -1751,13 +1649,41 @@ ruleComparison returns [EObject current=null]
 						}
 					)
 				)
+				    |
+				(
+					otherlv_7=LessThanSignEqualsSign
+					{
+						newLeafNode(otherlv_7, grammarAccess.getComparisonAccess().getLessThanSignEqualsSignKeyword_1_0_3_0());
+					}
+					(
+						{
+							$current = forceCreateModelElementAndSet(
+								grammarAccess.getComparisonAccess().getLessThanOrEqualLeftAction_1_0_3_1(),
+								$current);
+						}
+					)
+				)
+				    |
+				(
+					otherlv_9=GreaterThanSignEqualsSign
+					{
+						newLeafNode(otherlv_9, grammarAccess.getComparisonAccess().getGreaterThanSignEqualsSignKeyword_1_0_4_0());
+					}
+					(
+						{
+							$current = forceCreateModelElementAndSet(
+								grammarAccess.getComparisonAccess().getGreaterThanOrEqualLeftAction_1_0_4_1(),
+								$current);
+						}
+					)
+				)
 			)
 			(
 				(
 					{
 						newCompositeNode(grammarAccess.getComparisonAccess().getRightPlusParserRuleCall_1_1_0());
 					}
-					lv_right_7_0=rulePlus
+					lv_right_11_0=rulePlus
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getComparisonRule());
@@ -1765,7 +1691,7 @@ ruleComparison returns [EObject current=null]
 						set(
 							$current,
 							"right",
-							lv_right_7_0,
+							lv_right_11_0,
 							"com.kaurel.klang.xtext.Klang.Plus");
 						afterParserOrEnumRuleCall();
 					}
@@ -1975,24 +1901,20 @@ rulePrimaryExpression returns [EObject current=null]
 						$current);
 				}
 			)
-			otherlv_10=LeftParenthesis
+			otherlv_10=Double
 			{
-				newLeafNode(otherlv_10, grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_3_1());
+				newLeafNode(otherlv_10, grammarAccess.getPrimaryExpressionAccess().getDoubleKeyword_3_1());
 			}
-			otherlv_11=Double
+			otherlv_11=LeftParenthesis
 			{
-				newLeafNode(otherlv_11, grammarAccess.getPrimaryExpressionAccess().getDoubleKeyword_3_2());
-			}
-			otherlv_12=RightParenthesis
-			{
-				newLeafNode(otherlv_12, grammarAccess.getPrimaryExpressionAccess().getRightParenthesisKeyword_3_3());
+				newLeafNode(otherlv_11, grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_3_2());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getExpressionPrimaryExpressionParserRuleCall_3_4_0());
+						newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getExpressionPrimaryExpressionParserRuleCall_3_3_0());
 					}
-					lv_expression_13_0=rulePrimaryExpression
+					lv_expression_12_0=rulePrimaryExpression
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPrimaryExpressionRule());
@@ -2000,12 +1922,16 @@ rulePrimaryExpression returns [EObject current=null]
 						set(
 							$current,
 							"expression",
-							lv_expression_13_0,
+							lv_expression_12_0,
 							"com.kaurel.klang.xtext.Klang.PrimaryExpression");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
+			otherlv_13=RightParenthesis
+			{
+				newLeafNode(otherlv_13, grammarAccess.getPrimaryExpressionAccess().getRightParenthesisKeyword_3_4());
+			}
 		)
 		    |
 		(
@@ -2016,24 +1942,20 @@ rulePrimaryExpression returns [EObject current=null]
 						$current);
 				}
 			)
-			otherlv_15=LeftParenthesis
+			otherlv_15=Int
 			{
-				newLeafNode(otherlv_15, grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_4_1());
+				newLeafNode(otherlv_15, grammarAccess.getPrimaryExpressionAccess().getIntKeyword_4_1());
 			}
-			otherlv_16=Int
+			otherlv_16=LeftParenthesis
 			{
-				newLeafNode(otherlv_16, grammarAccess.getPrimaryExpressionAccess().getIntKeyword_4_2());
-			}
-			otherlv_17=RightParenthesis
-			{
-				newLeafNode(otherlv_17, grammarAccess.getPrimaryExpressionAccess().getRightParenthesisKeyword_4_3());
+				newLeafNode(otherlv_16, grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_4_2());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getExpressionPrimaryExpressionParserRuleCall_4_4_0());
+						newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getExpressionPrimaryExpressionParserRuleCall_4_3_0());
 					}
-					lv_expression_18_0=rulePrimaryExpression
+					lv_expression_17_0=rulePrimaryExpression
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPrimaryExpressionRule());
@@ -2041,12 +1963,16 @@ rulePrimaryExpression returns [EObject current=null]
 						set(
 							$current,
 							"expression",
-							lv_expression_18_0,
+							lv_expression_17_0,
 							"com.kaurel.klang.xtext.Klang.PrimaryExpression");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
+			otherlv_18=RightParenthesis
+			{
+				newLeafNode(otherlv_18, grammarAccess.getPrimaryExpressionAccess().getRightParenthesisKeyword_4_4());
+			}
 		)
 		    |
 		{

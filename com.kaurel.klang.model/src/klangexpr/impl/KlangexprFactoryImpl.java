@@ -86,6 +86,8 @@ public class KlangexprFactoryImpl extends EFactoryImpl implements KlangexprFacto
 			case KlangexprPackage.STATEMENT: return createStatement();
 			case KlangexprPackage.SLEEP: return createSleep();
 			case KlangexprPackage.SEND_MESSAGE: return createSendMessage();
+			case KlangexprPackage.LESS_THAN_OR_EQUAL: return createLessThanOrEqual();
+			case KlangexprPackage.GREATER_THAN_OR_EQUAL: return createGreaterThanOrEqual();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -389,6 +391,26 @@ public class KlangexprFactoryImpl extends EFactoryImpl implements KlangexprFacto
 	public SendMessage createSendMessage() {
 		SendMessageImpl sendMessage = new SendMessageImpl();
 		return sendMessage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LessThanOrEqual createLessThanOrEqual() {
+		LessThanOrEqualImpl lessThanOrEqual = new LessThanOrEqualImpl();
+		return lessThanOrEqual;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GreaterThanOrEqual createGreaterThanOrEqual() {
+		GreaterThanOrEqualImpl greaterThanOrEqual = new GreaterThanOrEqualImpl();
+		return greaterThanOrEqual;
 	}
 
 	/**

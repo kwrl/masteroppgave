@@ -1,45 +1,62 @@
 package com.kaurel.klang.runtime;
 
-import com.kaurel.klang.runtime.events.ClickedEvent;
-import com.kaurel.klang.runtime.events.CollisionEvent;
-import com.kaurel.klang.runtime.events.EventBus;
-import com.kaurel.klang.runtime.events.KeyboardEvent;
-import com.kaurel.klang.runtime.events.KlangEvent;
-import com.kaurel.klang.runtime.events.KlangEventHandler;
-import com.kaurel.klang.runtime.events.MessageEvent;
+import java.util.stream.Stream;
+
+import com.kaurel.klang.runtime.datastore.DataStore;
+import com.kaurel.klang.runtime.events.ActorEventHandler;
+import com.kaurel.klang.runtime.events.EventRegistry;
+import com.kaurel.klang.runtime.events.GlobalEventHandler;
 import com.kaurel.klang.runtime.threading.KlangThread;
 import com.kaurel.klang.runtime.threading.Processor;
 import com.kaurel.klang.runtime.threading.ProcessorImpl;
 import com.kaurel.klang.runtime.threading.Scheduler;
 
-import klang.CollidesWith;
+import klang.AbstractActor;
+import klang.ActorEvent;
 import klang.EventHandler;
-import klang.KeyPressed;
-import klang.MessageReceived;
+import klang.GlobalEvent;
 import klang.SceneActor;
-import klang.SpriteClicked;
+import klang.util.TreeTraversal;
 
 public class KlangInterpreter {
+	private final EventRegistry eventRegistry = new EventRegistry();
 	private final Processor processor = new ProcessorImpl(this);
 	private final Scheduler scheduler = new Scheduler();
+	
+	private final DataStore dataStore = new DataStore();
+	
 	private final SceneActor sceneActor;
 
 	public KlangInterpreter(SceneActor sceneActor) {
 		this.sceneActor = sceneActor;
 		processor.initializeAllVariables(sceneActor);
-		
-		addKlangEventHandler(onClick);
-		addKlangEventHandler(onCollision);
-		addKlangEventHandler(onKeyPressed);
-		addKlangEventHandler(onMessage);
+
+		eventRegistry.addHandler(GlobalEvent.class, globalEventHandler);
+		eventRegistry.addHandler(ActorEvent.class, actorEventHandler);
 	}
 
-	public void triggerEvent(Class<? extends EventHandler> type) {
-		sceneActor.traverseBFS()
-				.stream()
-				.flatMap(a -> a.getEventHandlers().stream())
-				.filter(e -> type.isInstance(e))
-				.forEach(e -> processEventHandler(e));
+	private GlobalEventHandler<GlobalEvent> globalEventHandler = new GlobalEventHandler<GlobalEvent>() {
+		@Override
+		public void handle(GlobalEvent event) {
+			TreeTraversal.INSTANCE.BreadthFirst(sceneActor)
+					.flatMap(a -> a.getEventHandlers().stream())
+					.filter(h -> h.getReferenceEvent().matchingEvent(event))
+					.forEach(KlangInterpreter.this::processEventHandler);
+		}
+	};
+
+	private ActorEventHandler<ActorEvent> actorEventHandler = new ActorEventHandler<ActorEvent>() {
+		@Override
+		public void handle(ActorEvent event, AbstractActor<?> actor) {
+			actor.getEventHandlers()
+					.stream()
+					.filter(h -> h.getReferenceEvent().matchingEvent(event))
+					.forEach(KlangInterpreter.this::processEventHandler);
+		}
+	};
+
+	private void processEventHandler(EventHandler handler) {
+		scheduler.addThread(new KlangThread(handler.getStatements(), handler.getActor()));
 	}
 
 	public boolean isIdle() {
@@ -50,10 +67,6 @@ public class KlangInterpreter {
 		processor.processSchedulerPass();
 	}
 
-	public void processEventHandler(EventHandler handler) {
-		scheduler.addThread(new KlangThread(handler.getStatements(), handler.getActor()));
-	}
-
 	public Processor getProcessor() {
 		return processor;
 	}
@@ -62,72 +75,18 @@ public class KlangInterpreter {
 		return scheduler;
 	}
 
-	private EventBus eventBus = new EventBus();
-
-	public void addKlangEventHandler(KlangEventHandler<?> handler) {
-		eventBus.addKlangEventHandler(handler);
+	public EventRegistry getEventRegistry() {
+		return eventRegistry;
+	}
+	
+	public DataStore getDatastore() {
+		return dataStore;
 	}
 
-	public <T extends KlangEvent> void onKlangEvent(T event) {
-		eventBus.onKlangEvent(event);
+	@SuppressWarnings("unchecked")
+	public <T extends AbstractActor<?>> Stream<T> getActors(Class<T> type) {
+		return TreeTraversal.INSTANCE.BreadthFirst(sceneActor)	
+			.filter(type::isInstance)
+			.map(a -> (T) a);
 	}
-
-	private KlangEventHandler<MessageEvent> onMessage = new KlangEventHandler<MessageEvent>() {
-		@Override
-		public void handle(MessageEvent event) {
-			sceneActor
-					.traverseBFS()
-					.stream()
-					.flatMap(a -> a.getEventHandlers().stream())
-					.filter(e -> e instanceof MessageReceived)
-					.map(e -> (MessageReceived) e)
-					.filter(e -> event.getName().equals(e.getName()))
-					.forEach(e -> processEventHandler(e));
-		}
-	};
-
-	private KlangEventHandler<ClickedEvent> onClick = new KlangEventHandler<ClickedEvent>() {
-		@Override
-		public void handle(ClickedEvent event) {
-			sceneActor
-					.traverseBFS()
-					.stream()
-					.filter(a -> a == event.getActor())
-					.flatMap(a -> a.getEventHandlers().stream())
-					.filter(e -> e instanceof SpriteClicked)
-					.forEach(e -> processEventHandler(e));
-
-		}
-	};
-
-	private KlangEventHandler<CollisionEvent> onCollision = new KlangEventHandler<CollisionEvent>() {
-		@Override
-		public void handle(CollisionEvent event) {
-			sceneActor
-					.traverseBFS()
-					.stream()
-					.filter(a -> a == event.getActorA())
-					.flatMap(a -> a.getEventHandlers().stream())
-					.filter(e -> e instanceof CollidesWith)
-					.map(e -> (CollidesWith) e)
-					.filter(e -> e.getTarget() == event.getActorB())
-					.forEach(e -> processEventHandler(e));
-
-		}
-	};
-
-	private KlangEventHandler<KeyboardEvent> onKeyPressed = new KlangEventHandler<KeyboardEvent>() {
-		@Override
-		public void handle(KeyboardEvent event) {
-			sceneActor
-					.traverseBFS()
-					.stream()
-					.flatMap(a -> a.getEventHandlers().stream())
-					.filter(e -> e instanceof KeyPressed)
-					.map(e -> (KeyPressed) e)
-					.filter(e -> e.getKey() == event.getKeyCode())
-					.forEach(e -> processEventHandler(e));
-		}
-	};
-
 }

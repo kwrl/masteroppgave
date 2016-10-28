@@ -15,6 +15,7 @@ import klang.AbstractActor;
  * <ul>
  *   <li>{@link klang.TreeNode#getChildren() <em>Children</em>}</li>
  *   <li>{@link klang.TreeNode#getParent() <em>Parent</em>}</li>
+ *   <li>{@link klang.AbstractActor#getSubjectType() <em>Subject Type</em>}</li>
  * </ul>
  * </p>
  * <p>
@@ -24,7 +25,7 @@ import klang.AbstractActor;
  *   <li>{@link klang.AbstractActor#getVariableDeclaration(java.lang.String) <em>Get Variable Declaration</em>}</li>
  *   <li>{@link klang.AbstractActor#isInLocalScope(java.lang.String) <em>Is In Local Scope</em>}</li>
  *   <li>{@link klang.AbstractActor#isInParentScope(java.lang.String) <em>Is In Parent Scope</em>}</li>
- *   <li>{@link klang.AbstractActor#random() <em>Random</em>}</li>
+ *   <li>{@link klang.AbstractActor#getVariableDeclarations(java.lang.String) <em>Get Variable Declarations</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -37,7 +38,7 @@ public abstract class AbstractActorTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AbstractActor fixture = null;
+	protected AbstractActor<?> fixture = null;
 
 	/**
 	 * Constructs a new Abstract Actor test case with the given name.
@@ -55,7 +56,7 @@ public abstract class AbstractActorTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(AbstractActor fixture) {
+	protected void setFixture(AbstractActor<?> fixture) {
 		this.fixture = fixture;
 	}
 
@@ -65,7 +66,7 @@ public abstract class AbstractActorTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AbstractActor getFixture() {
+	protected AbstractActor<?> getFixture() {
 		return fixture;
 	}
 
@@ -90,6 +91,19 @@ public abstract class AbstractActorTest extends TestCase {
 	 * @generated
 	 */
 	public void testGetParent() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link klang.AbstractActor#getSubjectType() <em>Subject Type</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klang.AbstractActor#getSubjectType()
+	 * @generated
+	 */
+	public void testGetSubjectType() {
 		// TODO: implement this feature getter test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -148,13 +162,13 @@ public abstract class AbstractActorTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link klang.AbstractActor#random() <em>Random</em>}' operation.
+	 * Tests the '{@link klang.AbstractActor#getVariableDeclarations(java.lang.String) <em>Get Variable Declarations</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see klang.AbstractActor#random()
+	 * @see klang.AbstractActor#getVariableDeclarations(java.lang.String)
 	 * @generated
 	 */
-	public void testRandom() {
+	public void testGetVariableDeclarations__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

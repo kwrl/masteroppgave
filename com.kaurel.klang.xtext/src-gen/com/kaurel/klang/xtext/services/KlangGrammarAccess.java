@@ -175,93 +175,210 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class EventHandlerElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.EventHandler");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cGameStartParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cSpriteClickedParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cKeyPressedParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cCollidesWithParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cMessageReceivedParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cWhenKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cReferenceEventAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cReferenceEventEventParserRuleCall_1_0 = (RuleCall)cReferenceEventAssignment_1.eContents().get(0);
+		private final RuleCall cBEGINTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cStatementsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cStatementsStatementParserRuleCall_3_0 = (RuleCall)cStatementsAssignment_3.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		
 		//EventHandler:
-		//	GameStart | SpriteClicked | KeyPressed | CollidesWith | MessageReceived;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//GameStart | SpriteClicked | KeyPressed | CollidesWith | MessageReceived
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//GameStart
-		public RuleCall getGameStartParserRuleCall_0() { return cGameStartParserRuleCall_0; }
-		
-		//SpriteClicked
-		public RuleCall getSpriteClickedParserRuleCall_1() { return cSpriteClickedParserRuleCall_1; }
-		
-		//KeyPressed
-		public RuleCall getKeyPressedParserRuleCall_2() { return cKeyPressedParserRuleCall_2; }
-		
-		//CollidesWith
-		public RuleCall getCollidesWithParserRuleCall_3() { return cCollidesWithParserRuleCall_3; }
-		
-		//MessageReceived
-		public RuleCall getMessageReceivedParserRuleCall_4() { return cMessageReceivedParserRuleCall_4; }
-	}
-	public class MessageReceivedElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.MessageReceived");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cMessageReceivedAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cWhenKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftSquareBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameSTRINGTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Keyword cReceivedKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final RuleCall cBEGINTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
-		private final Assignment cStatementsAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cStatementsStatementParserRuleCall_7_0 = (RuleCall)cStatementsAssignment_7.eContents().get(0);
-		private final RuleCall cENDTerminalRuleCall_8 = (RuleCall)cGroup.eContents().get(8);
-		
-		//MessageReceived EventHandler:
-		//	{MessageReceived}
-		//	'when' '[' name=STRING ']' 'received'
+		//	'when' referenceEvent=Event
 		//	BEGIN
 		//	statements+=Statement*
-		//	END
+		//	END;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{MessageReceived} 'when' '[' name=STRING ']' 'received' BEGIN statements+=Statement* END
+		//'when' referenceEvent=Event BEGIN statements+=Statement* END
 		public Group getGroup() { return cGroup; }
 		
-		//{MessageReceived}
-		public Action getMessageReceivedAction_0() { return cMessageReceivedAction_0; }
-		
 		//'when'
-		public Keyword getWhenKeyword_1() { return cWhenKeyword_1; }
+		public Keyword getWhenKeyword_0() { return cWhenKeyword_0; }
 		
-		//'['
-		public Keyword getLeftSquareBracketKeyword_2() { return cLeftSquareBracketKeyword_2; }
+		//referenceEvent=Event
+		public Assignment getReferenceEventAssignment_1() { return cReferenceEventAssignment_1; }
 		
-		//name=STRING
-		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
-		
-		//STRING
-		public RuleCall getNameSTRINGTerminalRuleCall_3_0() { return cNameSTRINGTerminalRuleCall_3_0; }
-		
-		//']'
-		public Keyword getRightSquareBracketKeyword_4() { return cRightSquareBracketKeyword_4; }
-		
-		//'received'
-		public Keyword getReceivedKeyword_5() { return cReceivedKeyword_5; }
+		//Event
+		public RuleCall getReferenceEventEventParserRuleCall_1_0() { return cReferenceEventEventParserRuleCall_1_0; }
 		
 		//BEGIN
-		public RuleCall getBEGINTerminalRuleCall_6() { return cBEGINTerminalRuleCall_6; }
+		public RuleCall getBEGINTerminalRuleCall_2() { return cBEGINTerminalRuleCall_2; }
 		
 		//statements+=Statement*
-		public Assignment getStatementsAssignment_7() { return cStatementsAssignment_7; }
+		public Assignment getStatementsAssignment_3() { return cStatementsAssignment_3; }
 		
 		//Statement
-		public RuleCall getStatementsStatementParserRuleCall_7_0() { return cStatementsStatementParserRuleCall_7_0; }
+		public RuleCall getStatementsStatementParserRuleCall_3_0() { return cStatementsStatementParserRuleCall_3_0; }
 		
 		//END
-		public RuleCall getENDTerminalRuleCall_8() { return cENDTerminalRuleCall_8; }
+		public RuleCall getENDTerminalRuleCall_4() { return cENDTerminalRuleCall_4; }
+	}
+	public class EventElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.Event");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cCollisionEventParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cKeyPressedEventParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cMessageReceivedEventParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cGameStartEventParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cClickEventParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		
+		//Event:
+		//	CollisionEvent | KeyPressedEvent | MessageReceivedEvent | GameStartEvent | ClickEvent;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//CollisionEvent | KeyPressedEvent | MessageReceivedEvent | GameStartEvent | ClickEvent
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//CollisionEvent
+		public RuleCall getCollisionEventParserRuleCall_0() { return cCollisionEventParserRuleCall_0; }
+		
+		//KeyPressedEvent
+		public RuleCall getKeyPressedEventParserRuleCall_1() { return cKeyPressedEventParserRuleCall_1; }
+		
+		//MessageReceivedEvent
+		public RuleCall getMessageReceivedEventParserRuleCall_2() { return cMessageReceivedEventParserRuleCall_2; }
+		
+		//GameStartEvent
+		public RuleCall getGameStartEventParserRuleCall_3() { return cGameStartEventParserRuleCall_3; }
+		
+		//ClickEvent
+		public RuleCall getClickEventParserRuleCall_4() { return cClickEventParserRuleCall_4; }
+	}
+	public class MessageReceivedEventElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.MessageReceivedEvent");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cMessageReceivedEventAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cReceivedKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//MessageReceivedEvent Event:
+		//	{MessageReceivedEvent} name=STRING 'received'
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{MessageReceivedEvent} name=STRING 'received'
+		public Group getGroup() { return cGroup; }
+		
+		//{MessageReceivedEvent}
+		public Action getMessageReceivedEventAction_0() { return cMessageReceivedEventAction_0; }
+		
+		//name=STRING
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_1_0() { return cNameSTRINGTerminalRuleCall_1_0; }
+		
+		//'received'
+		public Keyword getReceivedKeyword_2() { return cReceivedKeyword_2; }
+	}
+	public class GameStartEventElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.GameStartEvent");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cGameStartEventAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cGameKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cStartsKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//GameStartEvent Event:
+		//	{GameStartEvent}
+		//	'game' 'starts'
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{GameStartEvent} 'game' 'starts'
+		public Group getGroup() { return cGroup; }
+		
+		//{GameStartEvent}
+		public Action getGameStartEventAction_0() { return cGameStartEventAction_0; }
+		
+		//'game'
+		public Keyword getGameKeyword_1() { return cGameKeyword_1; }
+		
+		//'starts'
+		public Keyword getStartsKeyword_2() { return cStartsKeyword_2; }
+	}
+	public class ClickEventElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.ClickEvent");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cClickEventAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cClickedKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//ClickEvent Event:
+		//	{ClickEvent}
+		//	'clicked'
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{ClickEvent} 'clicked'
+		public Group getGroup() { return cGroup; }
+		
+		//{ClickEvent}
+		public Action getClickEventAction_0() { return cClickEventAction_0; }
+		
+		//'clicked'
+		public Keyword getClickedKeyword_1() { return cClickedKeyword_1; }
+	}
+	public class KeyPressedEventElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.KeyPressedEvent");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cKeyPressEventAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cKeyAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cKeyKeysEnumRuleCall_1_0 = (RuleCall)cKeyAssignment_1.eContents().get(0);
+		private final Keyword cPressedKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//KeyPressedEvent Event:
+		//	{KeyPressEvent} key=Keys 'pressed'
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{KeyPressEvent} key=Keys 'pressed'
+		public Group getGroup() { return cGroup; }
+		
+		//{KeyPressEvent}
+		public Action getKeyPressEventAction_0() { return cKeyPressEventAction_0; }
+		
+		//key=Keys
+		public Assignment getKeyAssignment_1() { return cKeyAssignment_1; }
+		
+		//Keys
+		public RuleCall getKeyKeysEnumRuleCall_1_0() { return cKeyKeysEnumRuleCall_1_0; }
+		
+		//'pressed'
+		public Keyword getPressedKeyword_2() { return cPressedKeyword_2; }
+	}
+	public class CollisionEventElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.CollisionEvent");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cCollisionEventAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cCollidesKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cWithKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cTargetAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cTargetSpriteActorCrossReference_3_0 = (CrossReference)cTargetAssignment_3.eContents().get(0);
+		private final RuleCall cTargetSpriteActorIDTerminalRuleCall_3_0_1 = (RuleCall)cTargetSpriteActorCrossReference_3_0.eContents().get(1);
+		
+		//CollisionEvent Event:
+		//	{CollisionEvent}
+		//	'collides' 'with' target=[SpriteActor]
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{CollisionEvent} 'collides' 'with' target=[SpriteActor]
+		public Group getGroup() { return cGroup; }
+		
+		//{CollisionEvent}
+		public Action getCollisionEventAction_0() { return cCollisionEventAction_0; }
+		
+		//'collides'
+		public Keyword getCollidesKeyword_1() { return cCollidesKeyword_1; }
+		
+		//'with'
+		public Keyword getWithKeyword_2() { return cWithKeyword_2; }
+		
+		//target=[SpriteActor]
+		public Assignment getTargetAssignment_3() { return cTargetAssignment_3; }
+		
+		//[SpriteActor]
+		public CrossReference getTargetSpriteActorCrossReference_3_0() { return cTargetSpriteActorCrossReference_3_0; }
+		
+		//ID
+		public RuleCall getTargetSpriteActorIDTerminalRuleCall_3_0_1() { return cTargetSpriteActorIDTerminalRuleCall_3_0_1; }
 	}
 	public class StatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.Statement");
@@ -337,213 +454,6 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
-	}
-	public class GameStartElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.GameStart");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cGameStartAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cWhenKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cGameKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cStartsKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final RuleCall cBEGINTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
-		private final Assignment cStatementsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cStatementsStatementParserRuleCall_5_0 = (RuleCall)cStatementsAssignment_5.eContents().get(0);
-		private final RuleCall cENDTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
-		
-		//GameStart EventHandler:
-		//	{GameStart}
-		//	'when' 'game' 'starts'
-		//	BEGIN
-		//	statements+=Statement*
-		//	END
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{GameStart} 'when' 'game' 'starts' BEGIN statements+=Statement* END
-		public Group getGroup() { return cGroup; }
-		
-		//{GameStart}
-		public Action getGameStartAction_0() { return cGameStartAction_0; }
-		
-		//'when'
-		public Keyword getWhenKeyword_1() { return cWhenKeyword_1; }
-		
-		//'game'
-		public Keyword getGameKeyword_2() { return cGameKeyword_2; }
-		
-		//'starts'
-		public Keyword getStartsKeyword_3() { return cStartsKeyword_3; }
-		
-		//BEGIN
-		public RuleCall getBEGINTerminalRuleCall_4() { return cBEGINTerminalRuleCall_4; }
-		
-		//statements+=Statement*
-		public Assignment getStatementsAssignment_5() { return cStatementsAssignment_5; }
-		
-		//Statement
-		public RuleCall getStatementsStatementParserRuleCall_5_0() { return cStatementsStatementParserRuleCall_5_0; }
-		
-		//END
-		public RuleCall getENDTerminalRuleCall_6() { return cENDTerminalRuleCall_6; }
-	}
-	public class SpriteClickedElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.SpriteClicked");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cSpriteClickedAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cWhenKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cClickedKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final RuleCall cBEGINTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
-		private final Assignment cStatementsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cStatementsStatementParserRuleCall_4_0 = (RuleCall)cStatementsAssignment_4.eContents().get(0);
-		private final RuleCall cENDTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
-		
-		//SpriteClicked EventHandler:
-		//	{SpriteClicked}
-		//	'when' 'clicked'
-		//	BEGIN
-		//	statements+=Statement*
-		//	END
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{SpriteClicked} 'when' 'clicked' BEGIN statements+=Statement* END
-		public Group getGroup() { return cGroup; }
-		
-		//{SpriteClicked}
-		public Action getSpriteClickedAction_0() { return cSpriteClickedAction_0; }
-		
-		//'when'
-		public Keyword getWhenKeyword_1() { return cWhenKeyword_1; }
-		
-		//'clicked'
-		public Keyword getClickedKeyword_2() { return cClickedKeyword_2; }
-		
-		//BEGIN
-		public RuleCall getBEGINTerminalRuleCall_3() { return cBEGINTerminalRuleCall_3; }
-		
-		//statements+=Statement*
-		public Assignment getStatementsAssignment_4() { return cStatementsAssignment_4; }
-		
-		//Statement
-		public RuleCall getStatementsStatementParserRuleCall_4_0() { return cStatementsStatementParserRuleCall_4_0; }
-		
-		//END
-		public RuleCall getENDTerminalRuleCall_5() { return cENDTerminalRuleCall_5; }
-	}
-	public class KeyPressedElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.KeyPressed");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cKeyPressedAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cWhenKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftSquareBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cKeyAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cKeyKeysEnumRuleCall_3_0 = (RuleCall)cKeyAssignment_3.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Keyword cPressedKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final RuleCall cBEGINTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
-		private final Assignment cStatementsAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cStatementsStatementParserRuleCall_7_0 = (RuleCall)cStatementsAssignment_7.eContents().get(0);
-		private final RuleCall cENDTerminalRuleCall_8 = (RuleCall)cGroup.eContents().get(8);
-		
-		//KeyPressed EventHandler:
-		//	{KeyPressed}
-		//	'when' '[' key=Keys ']' 'pressed'
-		//	BEGIN
-		//	statements+=Statement*
-		//	END
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{KeyPressed} 'when' '[' key=Keys ']' 'pressed' BEGIN statements+=Statement* END
-		public Group getGroup() { return cGroup; }
-		
-		//{KeyPressed}
-		public Action getKeyPressedAction_0() { return cKeyPressedAction_0; }
-		
-		//'when'
-		public Keyword getWhenKeyword_1() { return cWhenKeyword_1; }
-		
-		//'['
-		public Keyword getLeftSquareBracketKeyword_2() { return cLeftSquareBracketKeyword_2; }
-		
-		//key=Keys
-		public Assignment getKeyAssignment_3() { return cKeyAssignment_3; }
-		
-		//Keys
-		public RuleCall getKeyKeysEnumRuleCall_3_0() { return cKeyKeysEnumRuleCall_3_0; }
-		
-		//']'
-		public Keyword getRightSquareBracketKeyword_4() { return cRightSquareBracketKeyword_4; }
-		
-		//'pressed'
-		public Keyword getPressedKeyword_5() { return cPressedKeyword_5; }
-		
-		//BEGIN
-		public RuleCall getBEGINTerminalRuleCall_6() { return cBEGINTerminalRuleCall_6; }
-		
-		//statements+=Statement*
-		public Assignment getStatementsAssignment_7() { return cStatementsAssignment_7; }
-		
-		//Statement
-		public RuleCall getStatementsStatementParserRuleCall_7_0() { return cStatementsStatementParserRuleCall_7_0; }
-		
-		//END
-		public RuleCall getENDTerminalRuleCall_8() { return cENDTerminalRuleCall_8; }
-	}
-	public class CollidesWithElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.CollidesWith");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cCollidesWithAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cWhenKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cCollidesKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cWithKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cTargetAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final CrossReference cTargetSpriteActorCrossReference_4_0 = (CrossReference)cTargetAssignment_4.eContents().get(0);
-		private final RuleCall cTargetSpriteActorIDTerminalRuleCall_4_0_1 = (RuleCall)cTargetSpriteActorCrossReference_4_0.eContents().get(1);
-		private final RuleCall cBEGINTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
-		private final Assignment cStatementsAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cStatementsStatementParserRuleCall_6_0 = (RuleCall)cStatementsAssignment_6.eContents().get(0);
-		private final RuleCall cENDTerminalRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
-		
-		//CollidesWith EventHandler:
-		//	{CollidesWith}
-		//	'when' 'collides' 'with' target=[SpriteActor] BEGIN
-		//	statements+=Statement*
-		//	END
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{CollidesWith} 'when' 'collides' 'with' target=[SpriteActor] BEGIN statements+=Statement* END
-		public Group getGroup() { return cGroup; }
-		
-		//{CollidesWith}
-		public Action getCollidesWithAction_0() { return cCollidesWithAction_0; }
-		
-		//'when'
-		public Keyword getWhenKeyword_1() { return cWhenKeyword_1; }
-		
-		//'collides'
-		public Keyword getCollidesKeyword_2() { return cCollidesKeyword_2; }
-		
-		//'with'
-		public Keyword getWithKeyword_3() { return cWithKeyword_3; }
-		
-		//target=[SpriteActor]
-		public Assignment getTargetAssignment_4() { return cTargetAssignment_4; }
-		
-		//[SpriteActor]
-		public CrossReference getTargetSpriteActorCrossReference_4_0() { return cTargetSpriteActorCrossReference_4_0; }
-		
-		//ID
-		public RuleCall getTargetSpriteActorIDTerminalRuleCall_4_0_1() { return cTargetSpriteActorIDTerminalRuleCall_4_0_1; }
-		
-		//BEGIN
-		public RuleCall getBEGINTerminalRuleCall_5() { return cBEGINTerminalRuleCall_5; }
-		
-		//statements+=Statement*
-		public Assignment getStatementsAssignment_6() { return cStatementsAssignment_6; }
-		
-		//Statement
-		public RuleCall getStatementsStatementParserRuleCall_6_0() { return cStatementsStatementParserRuleCall_6_0; }
-		
-		//END
-		public RuleCall getENDTerminalRuleCall_7() { return cENDTerminalRuleCall_7; }
 	}
 	public class WhileLoopElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.kaurel.klang.xtext.Klang.WhileLoop");
@@ -1043,23 +953,36 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_1_0_2 = (Group)cAlternatives_1_0.eContents().get(2);
 		private final Keyword cGreaterThanSignKeyword_1_0_2_0 = (Keyword)cGroup_1_0_2.eContents().get(0);
 		private final Action cGreaterThanLeftAction_1_0_2_1 = (Action)cGroup_1_0_2.eContents().get(1);
+		private final Group cGroup_1_0_3 = (Group)cAlternatives_1_0.eContents().get(3);
+		private final Keyword cLessThanSignEqualsSignKeyword_1_0_3_0 = (Keyword)cGroup_1_0_3.eContents().get(0);
+		private final Action cLessThanOrEqualLeftAction_1_0_3_1 = (Action)cGroup_1_0_3.eContents().get(1);
+		private final Group cGroup_1_0_4 = (Group)cAlternatives_1_0.eContents().get(4);
+		private final Keyword cGreaterThanSignEqualsSignKeyword_1_0_4_0 = (Keyword)cGroup_1_0_4.eContents().get(0);
+		private final Action cGreaterThanOrEqualLeftAction_1_0_4_1 = (Action)cGroup_1_0_4.eContents().get(1);
 		private final Assignment cRightAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cRightPlusParserRuleCall_1_1_0 = (RuleCall)cRightAssignment_1_1.eContents().get(0);
 		
 		//Comparison Expression:
-		//	Plus (('<' {LessThan.left=current} | '==' {Equal.left=current} | '>' {GreaterThan.left=current}) right=Plus)*
+		//	Plus (('<' {LessThan.left=current} |
+		//	'==' {Equal.left=current} |
+		//	'>' {GreaterThan.left=current} |
+		//	'<=' {LessThanOrEqual.left=current} |
+		//	'>=' {GreaterThanOrEqual.left=current}) right=Plus)*
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Plus (('<' {LessThan.left=current} | '==' {Equal.left=current} | '>' {GreaterThan.left=current}) right=Plus)*
+		//Plus (('<' {LessThan.left=current} | '==' {Equal.left=current} | '>' {GreaterThan.left=current} | '<='
+		//{LessThanOrEqual.left=current} | '>=' {GreaterThanOrEqual.left=current}) right=Plus)*
 		public Group getGroup() { return cGroup; }
 		
 		//Plus
 		public RuleCall getPlusParserRuleCall_0() { return cPlusParserRuleCall_0; }
 		
-		//(('<' {LessThan.left=current} | '==' {Equal.left=current} | '>' {GreaterThan.left=current}) right=Plus)*
+		//(('<' {LessThan.left=current} | '==' {Equal.left=current} | '>' {GreaterThan.left=current} | '<='
+		//{LessThanOrEqual.left=current} | '>=' {GreaterThanOrEqual.left=current}) right=Plus)*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//('<' {LessThan.left=current} | '==' {Equal.left=current} | '>' {GreaterThan.left=current})
+		//('<' {LessThan.left=current} | '==' {Equal.left=current} | '>' {GreaterThan.left=current} | '<='
+		//{LessThanOrEqual.left=current} | '>=' {GreaterThanOrEqual.left=current})
 		public Alternatives getAlternatives_1_0() { return cAlternatives_1_0; }
 		
 		//'<' {LessThan.left=current}
@@ -1088,6 +1011,24 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//{GreaterThan.left=current}
 		public Action getGreaterThanLeftAction_1_0_2_1() { return cGreaterThanLeftAction_1_0_2_1; }
+		
+		//'<=' {LessThanOrEqual.left=current}
+		public Group getGroup_1_0_3() { return cGroup_1_0_3; }
+		
+		//'<='
+		public Keyword getLessThanSignEqualsSignKeyword_1_0_3_0() { return cLessThanSignEqualsSignKeyword_1_0_3_0; }
+		
+		//{LessThanOrEqual.left=current}
+		public Action getLessThanOrEqualLeftAction_1_0_3_1() { return cLessThanOrEqualLeftAction_1_0_3_1; }
+		
+		//'>=' {GreaterThanOrEqual.left=current}
+		public Group getGroup_1_0_4() { return cGroup_1_0_4; }
+		
+		//'>='
+		public Keyword getGreaterThanSignEqualsSignKeyword_1_0_4_0() { return cGreaterThanSignEqualsSignKeyword_1_0_4_0; }
+		
+		//{GreaterThanOrEqual.left=current}
+		public Action getGreaterThanOrEqualLeftAction_1_0_4_1() { return cGreaterThanOrEqualLeftAction_1_0_4_1; }
 		
 		//right=Plus
 		public Assignment getRightAssignment_1_1() { return cRightAssignment_1_1; }
@@ -1169,29 +1110,29 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExpressionPrimaryExpressionParserRuleCall_2_2_0 = (RuleCall)cExpressionAssignment_2_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
 		private final Action cToDoubleAction_3_0 = (Action)cGroup_3.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Keyword cDoubleKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
-		private final Keyword cRightParenthesisKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
-		private final Assignment cExpressionAssignment_3_4 = (Assignment)cGroup_3.eContents().get(4);
-		private final RuleCall cExpressionPrimaryExpressionParserRuleCall_3_4_0 = (RuleCall)cExpressionAssignment_3_4.eContents().get(0);
+		private final Keyword cDoubleKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final Assignment cExpressionAssignment_3_3 = (Assignment)cGroup_3.eContents().get(3);
+		private final RuleCall cExpressionPrimaryExpressionParserRuleCall_3_3_0 = (RuleCall)cExpressionAssignment_3_3.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3_4 = (Keyword)cGroup_3.eContents().get(4);
 		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
 		private final Action cToIntAction_4_0 = (Action)cGroup_4.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
-		private final Keyword cIntKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
-		private final Keyword cRightParenthesisKeyword_4_3 = (Keyword)cGroup_4.eContents().get(3);
-		private final Assignment cExpressionAssignment_4_4 = (Assignment)cGroup_4.eContents().get(4);
-		private final RuleCall cExpressionPrimaryExpressionParserRuleCall_4_4_0 = (RuleCall)cExpressionAssignment_4_4.eContents().get(0);
+		private final Keyword cIntKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
+		private final Assignment cExpressionAssignment_4_3 = (Assignment)cGroup_4.eContents().get(3);
+		private final RuleCall cExpressionPrimaryExpressionParserRuleCall_4_3_0 = (RuleCall)cExpressionAssignment_4_3.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_4_4 = (Keyword)cGroup_4.eContents().get(4);
 		private final RuleCall cFunctionCallParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		private final RuleCall cAtomicExpressionParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		
 		//PrimaryExpression Expression:
 		//	'(' Expression ')' | {Not} 'not' expression=PrimaryExpression | {UnaryMinus} '-' expression=PrimaryExpression |
-		//	{ToDouble} '(' 'double' ')' expression=PrimaryExpression | {ToInt} '(' 'int' ')' expression=PrimaryExpression |
+		//	{ToDouble} 'double' '(' expression=PrimaryExpression ')' | {ToInt} 'int' '(' expression=PrimaryExpression ')' |
 		//	FunctionCall | AtomicExpression
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'(' Expression ')' | {Not} 'not' expression=PrimaryExpression | {UnaryMinus} '-' expression=PrimaryExpression |
-		//{ToDouble} '(' 'double' ')' expression=PrimaryExpression | {ToInt} '(' 'int' ')' expression=PrimaryExpression |
+		//{ToDouble} 'double' '(' expression=PrimaryExpression ')' | {ToInt} 'int' '(' expression=PrimaryExpression ')' |
 		//FunctionCall | AtomicExpression
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
@@ -1237,47 +1178,47 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		//PrimaryExpression
 		public RuleCall getExpressionPrimaryExpressionParserRuleCall_2_2_0() { return cExpressionPrimaryExpressionParserRuleCall_2_2_0; }
 		
-		//{ToDouble} '(' 'double' ')' expression=PrimaryExpression
+		//{ToDouble} 'double' '(' expression=PrimaryExpression ')'
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//{ToDouble}
 		public Action getToDoubleAction_3_0() { return cToDoubleAction_3_0; }
 		
-		//'('
-		public Keyword getLeftParenthesisKeyword_3_1() { return cLeftParenthesisKeyword_3_1; }
-		
 		//'double'
-		public Keyword getDoubleKeyword_3_2() { return cDoubleKeyword_3_2; }
+		public Keyword getDoubleKeyword_3_1() { return cDoubleKeyword_3_1; }
 		
-		//')'
-		public Keyword getRightParenthesisKeyword_3_3() { return cRightParenthesisKeyword_3_3; }
+		//'('
+		public Keyword getLeftParenthesisKeyword_3_2() { return cLeftParenthesisKeyword_3_2; }
 		
 		//expression=PrimaryExpression
-		public Assignment getExpressionAssignment_3_4() { return cExpressionAssignment_3_4; }
+		public Assignment getExpressionAssignment_3_3() { return cExpressionAssignment_3_3; }
 		
 		//PrimaryExpression
-		public RuleCall getExpressionPrimaryExpressionParserRuleCall_3_4_0() { return cExpressionPrimaryExpressionParserRuleCall_3_4_0; }
+		public RuleCall getExpressionPrimaryExpressionParserRuleCall_3_3_0() { return cExpressionPrimaryExpressionParserRuleCall_3_3_0; }
 		
-		//{ToInt} '(' 'int' ')' expression=PrimaryExpression
+		//')'
+		public Keyword getRightParenthesisKeyword_3_4() { return cRightParenthesisKeyword_3_4; }
+		
+		//{ToInt} 'int' '(' expression=PrimaryExpression ')'
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//{ToInt}
 		public Action getToIntAction_4_0() { return cToIntAction_4_0; }
 		
-		//'('
-		public Keyword getLeftParenthesisKeyword_4_1() { return cLeftParenthesisKeyword_4_1; }
-		
 		//'int'
-		public Keyword getIntKeyword_4_2() { return cIntKeyword_4_2; }
+		public Keyword getIntKeyword_4_1() { return cIntKeyword_4_1; }
 		
-		//')'
-		public Keyword getRightParenthesisKeyword_4_3() { return cRightParenthesisKeyword_4_3; }
+		//'('
+		public Keyword getLeftParenthesisKeyword_4_2() { return cLeftParenthesisKeyword_4_2; }
 		
 		//expression=PrimaryExpression
-		public Assignment getExpressionAssignment_4_4() { return cExpressionAssignment_4_4; }
+		public Assignment getExpressionAssignment_4_3() { return cExpressionAssignment_4_3; }
 		
 		//PrimaryExpression
-		public RuleCall getExpressionPrimaryExpressionParserRuleCall_4_4_0() { return cExpressionPrimaryExpressionParserRuleCall_4_4_0; }
+		public RuleCall getExpressionPrimaryExpressionParserRuleCall_4_3_0() { return cExpressionPrimaryExpressionParserRuleCall_4_3_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_4_4() { return cRightParenthesisKeyword_4_4; }
 		
 		//FunctionCall
 		public RuleCall getFunctionCallParserRuleCall_5() { return cFunctionCallParserRuleCall_5; }
@@ -1650,14 +1591,15 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 	private final SceneActorElements pSceneActor;
 	private final SpriteActorElements pSpriteActor;
 	private final EventHandlerElements pEventHandler;
-	private final MessageReceivedElements pMessageReceived;
+	private final EventElements pEvent;
+	private final MessageReceivedEventElements pMessageReceivedEvent;
+	private final GameStartEventElements pGameStartEvent;
+	private final ClickEventElements pClickEvent;
+	private final KeyPressedEventElements pKeyPressedEvent;
+	private final CollisionEventElements pCollisionEvent;
 	private final StatementElements pStatement;
 	private final SendMessageElements pSendMessage;
-	private final GameStartElements pGameStart;
-	private final SpriteClickedElements pSpriteClicked;
-	private final KeyPressedElements pKeyPressed;
 	private final KeysElements eKeys;
-	private final CollidesWithElements pCollidesWith;
 	private final WhileLoopElements pWhileLoop;
 	private final IfElements pIf;
 	private final ForeverLoopElements pForeverLoop;
@@ -1692,14 +1634,15 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		this.pSceneActor = new SceneActorElements();
 		this.pSpriteActor = new SpriteActorElements();
 		this.pEventHandler = new EventHandlerElements();
-		this.pMessageReceived = new MessageReceivedElements();
+		this.pEvent = new EventElements();
+		this.pMessageReceivedEvent = new MessageReceivedEventElements();
+		this.pGameStartEvent = new GameStartEventElements();
+		this.pClickEvent = new ClickEventElements();
+		this.pKeyPressedEvent = new KeyPressedEventElements();
+		this.pCollisionEvent = new CollisionEventElements();
 		this.pStatement = new StatementElements();
 		this.pSendMessage = new SendMessageElements();
-		this.pGameStart = new GameStartElements();
-		this.pSpriteClicked = new SpriteClickedElements();
-		this.pKeyPressed = new KeyPressedElements();
 		this.eKeys = new KeysElements();
-		this.pCollidesWith = new CollidesWithElements();
 		this.pWhileLoop = new WhileLoopElements();
 		this.pIf = new IfElements();
 		this.pForeverLoop = new ForeverLoopElements();
@@ -1789,7 +1732,10 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//EventHandler:
-	//	GameStart | SpriteClicked | KeyPressed | CollidesWith | MessageReceived;
+	//	'when' referenceEvent=Event
+	//	BEGIN
+	//	statements+=Statement*
+	//	END;
 	public EventHandlerElements getEventHandlerAccess() {
 		return pEventHandler;
 	}
@@ -1798,18 +1744,67 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		return getEventHandlerAccess().getRule();
 	}
 	
-	//MessageReceived EventHandler:
-	//	{MessageReceived}
-	//	'when' '[' name=STRING ']' 'received'
-	//	BEGIN
-	//	statements+=Statement*
-	//	END
-	public MessageReceivedElements getMessageReceivedAccess() {
-		return pMessageReceived;
+	//Event:
+	//	CollisionEvent | KeyPressedEvent | MessageReceivedEvent | GameStartEvent | ClickEvent;
+	public EventElements getEventAccess() {
+		return pEvent;
 	}
 	
-	public ParserRule getMessageReceivedRule() {
-		return getMessageReceivedAccess().getRule();
+	public ParserRule getEventRule() {
+		return getEventAccess().getRule();
+	}
+	
+	//MessageReceivedEvent Event:
+	//	{MessageReceivedEvent} name=STRING 'received'
+	public MessageReceivedEventElements getMessageReceivedEventAccess() {
+		return pMessageReceivedEvent;
+	}
+	
+	public ParserRule getMessageReceivedEventRule() {
+		return getMessageReceivedEventAccess().getRule();
+	}
+	
+	//GameStartEvent Event:
+	//	{GameStartEvent}
+	//	'game' 'starts'
+	public GameStartEventElements getGameStartEventAccess() {
+		return pGameStartEvent;
+	}
+	
+	public ParserRule getGameStartEventRule() {
+		return getGameStartEventAccess().getRule();
+	}
+	
+	//ClickEvent Event:
+	//	{ClickEvent}
+	//	'clicked'
+	public ClickEventElements getClickEventAccess() {
+		return pClickEvent;
+	}
+	
+	public ParserRule getClickEventRule() {
+		return getClickEventAccess().getRule();
+	}
+	
+	//KeyPressedEvent Event:
+	//	{KeyPressEvent} key=Keys 'pressed'
+	public KeyPressedEventElements getKeyPressedEventAccess() {
+		return pKeyPressedEvent;
+	}
+	
+	public ParserRule getKeyPressedEventRule() {
+		return getKeyPressedEventAccess().getRule();
+	}
+	
+	//CollisionEvent Event:
+	//	{CollisionEvent}
+	//	'collides' 'with' target=[SpriteActor]
+	public CollisionEventElements getCollisionEventAccess() {
+		return pCollisionEvent;
+	}
+	
+	public ParserRule getCollisionEventRule() {
+		return getCollisionEventAccess().getRule();
 	}
 	
 	//Statement:
@@ -1833,48 +1828,6 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 		return getSendMessageAccess().getRule();
 	}
 	
-	//GameStart EventHandler:
-	//	{GameStart}
-	//	'when' 'game' 'starts'
-	//	BEGIN
-	//	statements+=Statement*
-	//	END
-	public GameStartElements getGameStartAccess() {
-		return pGameStart;
-	}
-	
-	public ParserRule getGameStartRule() {
-		return getGameStartAccess().getRule();
-	}
-	
-	//SpriteClicked EventHandler:
-	//	{SpriteClicked}
-	//	'when' 'clicked'
-	//	BEGIN
-	//	statements+=Statement*
-	//	END
-	public SpriteClickedElements getSpriteClickedAccess() {
-		return pSpriteClicked;
-	}
-	
-	public ParserRule getSpriteClickedRule() {
-		return getSpriteClickedAccess().getRule();
-	}
-	
-	//KeyPressed EventHandler:
-	//	{KeyPressed}
-	//	'when' '[' key=Keys ']' 'pressed'
-	//	BEGIN
-	//	statements+=Statement*
-	//	END
-	public KeyPressedElements getKeyPressedAccess() {
-		return pKeyPressed;
-	}
-	
-	public ParserRule getKeyPressedRule() {
-		return getKeyPressedAccess().getRule();
-	}
-	
 	//enum Keys:
 	//	A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | SPACE | ENTER;
 	public KeysElements getKeysAccess() {
@@ -1883,19 +1836,6 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public EnumRule getKeysRule() {
 		return getKeysAccess().getRule();
-	}
-	
-	//CollidesWith EventHandler:
-	//	{CollidesWith}
-	//	'when' 'collides' 'with' target=[SpriteActor] BEGIN
-	//	statements+=Statement*
-	//	END
-	public CollidesWithElements getCollidesWithAccess() {
-		return pCollidesWith;
-	}
-	
-	public ParserRule getCollidesWithRule() {
-		return getCollidesWithAccess().getRule();
 	}
 	
 	//WhileLoop Statement:
@@ -2045,7 +1985,11 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Comparison Expression:
-	//	Plus (('<' {LessThan.left=current} | '==' {Equal.left=current} | '>' {GreaterThan.left=current}) right=Plus)*
+	//	Plus (('<' {LessThan.left=current} |
+	//	'==' {Equal.left=current} |
+	//	'>' {GreaterThan.left=current} |
+	//	'<=' {LessThanOrEqual.left=current} |
+	//	'>=' {GreaterThanOrEqual.left=current}) right=Plus)*
 	public ComparisonElements getComparisonAccess() {
 		return pComparison;
 	}
@@ -2066,7 +2010,7 @@ public class KlangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//PrimaryExpression Expression:
 	//	'(' Expression ')' | {Not} 'not' expression=PrimaryExpression | {UnaryMinus} '-' expression=PrimaryExpression |
-	//	{ToDouble} '(' 'double' ')' expression=PrimaryExpression | {ToInt} '(' 'int' ')' expression=PrimaryExpression |
+	//	{ToDouble} 'double' '(' expression=PrimaryExpression ')' | {ToInt} 'int' '(' expression=PrimaryExpression ')' |
 	//	FunctionCall | AtomicExpression
 	public PrimaryExpressionElements getPrimaryExpressionAccess() {
 		return pPrimaryExpression;

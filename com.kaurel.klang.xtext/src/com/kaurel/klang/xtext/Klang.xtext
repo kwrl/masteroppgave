@@ -32,17 +32,40 @@ SpriteActor returns SpriteActor:
 	;
 
 EventHandler:
-	GameStart | SpriteClicked | KeyPressed | CollidesWith | MessageReceived
-;
-
-MessageReceived returns EventHandler:
-	{MessageReceived}	
-	'when' '[' name=STRING']' 'received'
+	'when' referenceEvent=Event
 	BEGIN
-	(statements+=Statement)*
+		(statements+=Statement)*
 	END
 ;
 
+Event returns Event:
+	CollisionEvent | KeyPressedEvent | MessageReceivedEvent | GameStartEvent | ClickEvent
+;
+
+MessageReceivedEvent returns Event:
+	{MessageReceivedEvent}	
+	 name=STRING 'received'
+;
+
+GameStartEvent returns Event:
+	{GameStartEvent}
+	'game' 'starts'
+;
+
+ClickEvent returns Event:
+	{ClickEvent}
+	'clicked'
+;
+
+KeyPressedEvent returns Event:
+	{KeyPressEvent}	
+	 key=Keys 'pressed'
+;
+
+CollisionEvent returns Event: 
+	{CollisionEvent}
+	'collides' 'with' target=[SpriteActor]
+;
 
 Statement returns Statement:
 	WhileLoop | If | VariableAssignment	| ForeverLoop | FunctionCall | Sleep | SendMessage
@@ -53,41 +76,8 @@ SendMessage returns Statement:
 	'sendMessage' '(' name=STRING ')'
 ;
 
-GameStart returns EventHandler:
-	{GameStart}
-	'when' 'game' 'starts'
-	BEGIN
-	(statements+=Statement)*
-	END
-;
-
-SpriteClicked returns EventHandler:
-	{SpriteClicked}
-	'when' 'clicked'
-	BEGIN
-	(statements+=Statement)*
-	END
-;
-
-KeyPressed returns EventHandler:
-	{KeyPressed}	
-	'when' '[' key=Keys ']' 'pressed'
-	BEGIN
-	(statements+=Statement)*
-	END
-
-;
-
 enum Keys returns Keys:
 	A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T| U | V | W | X | Y | Z | SPACE | ENTER
-;
-
-CollidesWith returns EventHandler: 
-	{CollidesWith}
-	'when' 'collides' 'with' target=[SpriteActor]
-	BEGIN
-	(statements+=Statement)*
-	END
 ;
 
 
@@ -154,7 +144,13 @@ Divide returns Expression:
 	PrimaryExpression ({Divide.left=current} '/' right=PrimaryExpression)*;
 
 Comparison returns Expression:
-	Plus (('<' {LessThan.left=current} | '==' {Equal.left=current} | '>' {GreaterThan.left=current}) right=Plus)*;
+	Plus ((
+		'<' {LessThan.left=current} | 
+		'==' {Equal.left=current} | 
+		'>' {GreaterThan.left=current} |
+		'<=' {LessThanOrEqual.left=current} |
+		'>=' {GreaterThanOrEqual.left=current}) right=Plus 
+	)*;
 
 FunctionCall returns FunctionCall:
 	name=ID '(' (parameters+=Expression(',' parameters+=Expression)*)? ')';
@@ -163,8 +159,8 @@ PrimaryExpression returns Expression:
 	'(' Expression ')' |
 	{Not} 'not' expression=PrimaryExpression |
 	{UnaryMinus} '-' expression=PrimaryExpression |
-	{ToDouble} '(' 'double' ')' expression=PrimaryExpression |
-	{ToInt} '(' 'int' ')' expression=PrimaryExpression |
+	{ToDouble}  'double' '(' expression=PrimaryExpression ')' |
+	{ToInt} 'int' '(' expression=PrimaryExpression ')' |
 	FunctionCall |
 	AtomicExpression;
 

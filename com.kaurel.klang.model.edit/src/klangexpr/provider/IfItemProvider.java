@@ -249,6 +249,16 @@ public class IfItemProvider extends StatementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(KlangexprPackage.Literals.IF__PREDICATE,
+				 KlangexprFactory.eINSTANCE.createLessThanOrEqual()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangexprPackage.Literals.IF__PREDICATE,
+				 KlangexprFactory.eINSTANCE.createGreaterThanOrEqual()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(KlangexprPackage.Literals.IF__IF_BLOCK,
 				 KlangexprFactory.eINSTANCE.createStatement()));
 

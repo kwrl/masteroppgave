@@ -2,6 +2,8 @@
  */
 package klang;
 
+import klang.entities.SpriteEntity;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -16,10 +18,10 @@ package klang;
  * </ul>
  *
  * @see klang.KlangPackage#getSpriteActor()
- * @model
+ * @model superTypes="klang.AbstractActor<klang.SpriteEntity>"
  * @generated
  */
-public interface SpriteActor extends AbstractActor {
+public interface SpriteActor extends AbstractActor<SpriteEntity> {
 
 	/**
 	 * Returns the value of the '<em><b>Program</b></em>' container reference.
@@ -48,20 +50,4 @@ public interface SpriteActor extends AbstractActor {
 	 * @generated
 	 */
 	void setProgram(Program value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model messageRequired="true"
-	 * @generated
-	 */
-	void print(String message);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void setColor(Double red, Double green, Double blue);
 } // SpriteActor

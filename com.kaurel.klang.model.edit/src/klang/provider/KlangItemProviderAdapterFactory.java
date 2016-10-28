@@ -118,6 +118,29 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link klang.EventHandler} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EventHandlerItemProvider eventHandlerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link klang.EventHandler}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEventHandlerAdapter() {
+		if (eventHandlerItemProvider == null) {
+			eventHandlerItemProvider = new EventHandlerItemProvider(this);
+		}
+
+		return eventHandlerItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link klang.VariableDeclaration} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -141,95 +164,95 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link klang.GameStart} instances.
+	 * This keeps track of the one adapter used for all {@link klang.GameStartEvent} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GameStartItemProvider gameStartItemProvider;
+	protected GameStartEventItemProvider gameStartEventItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link klang.GameStart}.
+	 * This creates an adapter for a {@link klang.GameStartEvent}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createGameStartAdapter() {
-		if (gameStartItemProvider == null) {
-			gameStartItemProvider = new GameStartItemProvider(this);
+	public Adapter createGameStartEventAdapter() {
+		if (gameStartEventItemProvider == null) {
+			gameStartEventItemProvider = new GameStartEventItemProvider(this);
 		}
 
-		return gameStartItemProvider;
+		return gameStartEventItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link klang.SpriteClicked} instances.
+	 * This keeps track of the one adapter used for all {@link klang.ClickEvent} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SpriteClickedItemProvider spriteClickedItemProvider;
+	protected ClickEventItemProvider clickEventItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link klang.SpriteClicked}.
+	 * This creates an adapter for a {@link klang.ClickEvent}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createSpriteClickedAdapter() {
-		if (spriteClickedItemProvider == null) {
-			spriteClickedItemProvider = new SpriteClickedItemProvider(this);
+	public Adapter createClickEventAdapter() {
+		if (clickEventItemProvider == null) {
+			clickEventItemProvider = new ClickEventItemProvider(this);
 		}
 
-		return spriteClickedItemProvider;
+		return clickEventItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link klang.KeyPressed} instances.
+	 * This keeps track of the one adapter used for all {@link klang.KeyPressEvent} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected KeyPressedItemProvider keyPressedItemProvider;
+	protected KeyPressEventItemProvider keyPressEventItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link klang.KeyPressed}.
+	 * This creates an adapter for a {@link klang.KeyPressEvent}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createKeyPressedAdapter() {
-		if (keyPressedItemProvider == null) {
-			keyPressedItemProvider = new KeyPressedItemProvider(this);
+	public Adapter createKeyPressEventAdapter() {
+		if (keyPressEventItemProvider == null) {
+			keyPressEventItemProvider = new KeyPressEventItemProvider(this);
 		}
 
-		return keyPressedItemProvider;
+		return keyPressEventItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link klang.CollidesWith} instances.
+	 * This keeps track of the one adapter used for all {@link klang.CollisionEvent} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CollidesWithItemProvider collidesWithItemProvider;
+	protected CollisionEventItemProvider collisionEventItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link klang.CollidesWith}.
+	 * This creates an adapter for a {@link klang.CollisionEvent}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createCollidesWithAdapter() {
-		if (collidesWithItemProvider == null) {
-			collidesWithItemProvider = new CollidesWithItemProvider(this);
+	public Adapter createCollisionEventAdapter() {
+		if (collisionEventItemProvider == null) {
+			collisionEventItemProvider = new CollisionEventItemProvider(this);
 		}
 
-		return collidesWithItemProvider;
+		return collisionEventItemProvider;
 	}
 
 	/**
@@ -256,49 +279,26 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link klang.TreeTraversal} instances.
+	 * This keeps track of the one adapter used for all {@link klang.MessageReceivedEvent} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TreeTraversalItemProvider treeTraversalItemProvider;
+	protected MessageReceivedEventItemProvider messageReceivedEventItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link klang.TreeTraversal}.
+	 * This creates an adapter for a {@link klang.MessageReceivedEvent}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createTreeTraversalAdapter() {
-		if (treeTraversalItemProvider == null) {
-			treeTraversalItemProvider = new TreeTraversalItemProvider(this);
+	public Adapter createMessageReceivedEventAdapter() {
+		if (messageReceivedEventItemProvider == null) {
+			messageReceivedEventItemProvider = new MessageReceivedEventItemProvider(this);
 		}
 
-		return treeTraversalItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link klang.MessageReceived} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected MessageReceivedItemProvider messageReceivedItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link klang.MessageReceived}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createMessageReceivedAdapter() {
-		if (messageReceivedItemProvider == null) {
-			messageReceivedItemProvider = new MessageReceivedItemProvider(this);
-		}
-
-		return messageReceivedItemProvider;
+		return messageReceivedEventItemProvider;
 	}
 
 	/**
@@ -402,14 +402,14 @@ public class KlangItemProviderAdapterFactory extends KlangAdapterFactory impleme
 	public void dispose() {
 		if (sceneActorItemProvider != null) sceneActorItemProvider.dispose();
 		if (spriteActorItemProvider != null) spriteActorItemProvider.dispose();
+		if (eventHandlerItemProvider != null) eventHandlerItemProvider.dispose();
 		if (variableDeclarationItemProvider != null) variableDeclarationItemProvider.dispose();
-		if (gameStartItemProvider != null) gameStartItemProvider.dispose();
-		if (spriteClickedItemProvider != null) spriteClickedItemProvider.dispose();
-		if (keyPressedItemProvider != null) keyPressedItemProvider.dispose();
-		if (collidesWithItemProvider != null) collidesWithItemProvider.dispose();
+		if (gameStartEventItemProvider != null) gameStartEventItemProvider.dispose();
+		if (clickEventItemProvider != null) clickEventItemProvider.dispose();
+		if (keyPressEventItemProvider != null) keyPressEventItemProvider.dispose();
+		if (collisionEventItemProvider != null) collisionEventItemProvider.dispose();
 		if (programItemProvider != null) programItemProvider.dispose();
-		if (treeTraversalItemProvider != null) treeTraversalItemProvider.dispose();
-		if (messageReceivedItemProvider != null) messageReceivedItemProvider.dispose();
+		if (messageReceivedEventItemProvider != null) messageReceivedEventItemProvider.dispose();
 	}
 
 }

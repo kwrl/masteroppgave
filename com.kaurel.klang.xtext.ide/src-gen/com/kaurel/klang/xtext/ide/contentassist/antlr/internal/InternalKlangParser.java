@@ -24,77 +24,77 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalKlangParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "SendMessage", "Collides", "Received", "Clicked", "Forever", "Pressed", "Double", "Sprite", "Starts", "ENTER", "SPACE", "False", "Scene", "Sleep", "While", "Else", "Game", "True", "When", "With", "And", "Int", "Not", "Var", "EqualsSignEqualsSign", "If", "Or", "LeftParenthesis", "RightParenthesis", "Asterisk", "PlusSign", "Comma", "HyphenMinus", "FullStop", "Solidus", "LessThanSign", "EqualsSign", "GreaterThanSign", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "LeftSquareBracket", "RightSquareBracket", "RULE_BEGIN", "RULE_END", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "SendMessage", "Collides", "Received", "Clicked", "Forever", "Pressed", "Double", "Sprite", "Starts", "ENTER", "SPACE", "False", "Scene", "Sleep", "While", "Else", "Game", "True", "When", "With", "And", "Int", "Not", "Var", "LessThanSignEqualsSign", "EqualsSignEqualsSign", "GreaterThanSignEqualsSign", "If", "Or", "LeftParenthesis", "RightParenthesis", "Asterisk", "PlusSign", "Comma", "HyphenMinus", "FullStop", "Solidus", "LessThanSign", "EqualsSign", "GreaterThanSign", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "RULE_BEGIN", "RULE_END", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER"
     };
-    public static final int Or=30;
+    public static final int Or=32;
     public static final int RULE_BEGIN=70;
     public static final int Clicked=7;
     public static final int Var=27;
     public static final int True=21;
     public static final int False=15;
-    public static final int LessThanSign=39;
+    public static final int LessThanSign=41;
     public static final int Forever=8;
-    public static final int LeftParenthesis=31;
-    public static final int RightSquareBracket=69;
+    public static final int LeftParenthesis=33;
     public static final int SendMessage=4;
-    public static final int GreaterThanSign=41;
+    public static final int GreaterThanSign=43;
     public static final int RULE_ID=72;
     public static final int Collides=5;
     public static final int Received=6;
-    public static final int RightParenthesis=32;
+    public static final int RightParenthesis=34;
     public static final int Scene=16;
     public static final int Double=10;
-    public static final int EqualsSignEqualsSign=28;
+    public static final int GreaterThanSignEqualsSign=30;
+    public static final int EqualsSignEqualsSign=29;
     public static final int Not=26;
     public static final int Game=20;
     public static final int And=24;
-    public static final int PlusSign=34;
+    public static final int PlusSign=36;
     public static final int RULE_INT=73;
     public static final int RULE_ML_COMMENT=75;
-    public static final int LeftSquareBracket=68;
-    public static final int If=29;
-    public static final int A=42;
+    public static final int If=31;
+    public static final int A=44;
     public static final int Pressed=9;
-    public static final int B=43;
+    public static final int B=45;
     public static final int RULE_END=71;
     public static final int Starts=12;
-    public static final int C=44;
-    public static final int D=45;
-    public static final int E=46;
-    public static final int F=47;
-    public static final int G=48;
-    public static final int H=49;
+    public static final int C=46;
+    public static final int D=47;
+    public static final int E=48;
+    public static final int F=49;
+    public static final int G=50;
+    public static final int H=51;
     public static final int ENTER=13;
-    public static final int I=50;
-    public static final int J=51;
+    public static final int I=52;
+    public static final int J=53;
     public static final int RULE_STRING=74;
-    public static final int K=52;
-    public static final int L=53;
-    public static final int M=54;
+    public static final int K=54;
+    public static final int L=55;
+    public static final int M=56;
     public static final int Int=25;
-    public static final int N=55;
+    public static final int N=57;
     public static final int With=23;
-    public static final int O=56;
+    public static final int O=58;
     public static final int RULE_SL_COMMENT=76;
     public static final int SPACE=14;
-    public static final int P=57;
-    public static final int Comma=35;
-    public static final int EqualsSign=40;
-    public static final int Q=58;
-    public static final int HyphenMinus=36;
-    public static final int R=59;
-    public static final int S=60;
-    public static final int T=61;
-    public static final int U=62;
-    public static final int V=63;
-    public static final int W=64;
-    public static final int X=65;
-    public static final int Y=66;
-    public static final int Z=67;
-    public static final int Solidus=38;
+    public static final int P=59;
+    public static final int Comma=37;
+    public static final int EqualsSign=42;
+    public static final int Q=60;
+    public static final int HyphenMinus=38;
+    public static final int R=61;
+    public static final int S=62;
+    public static final int T=63;
+    public static final int U=64;
+    public static final int V=65;
+    public static final int W=66;
+    public static final int X=67;
+    public static final int Y=68;
+    public static final int Z=69;
+    public static final int LessThanSignEqualsSign=28;
+    public static final int Solidus=40;
     public static final int EOF=-1;
-    public static final int Asterisk=33;
-    public static final int FullStop=37;
+    public static final int Asterisk=35;
+    public static final int FullStop=39;
     public static final int Sprite=11;
     public static final int RULE_WS=77;
     public static final int While=18;
@@ -161,9 +161,9 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
     		tokenNameToValue.put("X", "'X'");
     		tokenNameToValue.put("Y", "'Y'");
     		tokenNameToValue.put("Z", "'Z'");
-    		tokenNameToValue.put("LeftSquareBracket", "'['");
-    		tokenNameToValue.put("RightSquareBracket", "']'");
+    		tokenNameToValue.put("LessThanSignEqualsSign", "'<='");
     		tokenNameToValue.put("EqualsSignEqualsSign", "'=='");
+    		tokenNameToValue.put("GreaterThanSignEqualsSign", "'>='");
     		tokenNameToValue.put("If", "'if'");
     		tokenNameToValue.put("Or", "'or'");
     		tokenNameToValue.put("And", "'and'");
@@ -473,31 +473,31 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleEventHandler"
-    // InternalKlangParser.g:205:1: ruleEventHandler : ( ( rule__EventHandler__Alternatives ) ) ;
+    // InternalKlangParser.g:205:1: ruleEventHandler : ( ( rule__EventHandler__Group__0 ) ) ;
     public final void ruleEventHandler() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:209:2: ( ( ( rule__EventHandler__Alternatives ) ) )
-            // InternalKlangParser.g:210:2: ( ( rule__EventHandler__Alternatives ) )
+            // InternalKlangParser.g:209:2: ( ( ( rule__EventHandler__Group__0 ) ) )
+            // InternalKlangParser.g:210:2: ( ( rule__EventHandler__Group__0 ) )
             {
-            // InternalKlangParser.g:210:2: ( ( rule__EventHandler__Alternatives ) )
-            // InternalKlangParser.g:211:3: ( rule__EventHandler__Alternatives )
+            // InternalKlangParser.g:210:2: ( ( rule__EventHandler__Group__0 ) )
+            // InternalKlangParser.g:211:3: ( rule__EventHandler__Group__0 )
             {
-             before(grammarAccess.getEventHandlerAccess().getAlternatives()); 
-            // InternalKlangParser.g:212:3: ( rule__EventHandler__Alternatives )
-            // InternalKlangParser.g:212:4: rule__EventHandler__Alternatives
+             before(grammarAccess.getEventHandlerAccess().getGroup()); 
+            // InternalKlangParser.g:212:3: ( rule__EventHandler__Group__0 )
+            // InternalKlangParser.g:212:4: rule__EventHandler__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__EventHandler__Alternatives();
+            rule__EventHandler__Group__0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getEventHandlerAccess().getAlternatives()); 
+             after(grammarAccess.getEventHandlerAccess().getGroup()); 
 
             }
 
@@ -519,20 +519,20 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleEventHandler"
 
 
-    // $ANTLR start "entryRuleMessageReceived"
-    // InternalKlangParser.g:221:1: entryRuleMessageReceived : ruleMessageReceived EOF ;
-    public final void entryRuleMessageReceived() throws RecognitionException {
+    // $ANTLR start "entryRuleEvent"
+    // InternalKlangParser.g:221:1: entryRuleEvent : ruleEvent EOF ;
+    public final void entryRuleEvent() throws RecognitionException {
         try {
-            // InternalKlangParser.g:222:1: ( ruleMessageReceived EOF )
-            // InternalKlangParser.g:223:1: ruleMessageReceived EOF
+            // InternalKlangParser.g:222:1: ( ruleEvent EOF )
+            // InternalKlangParser.g:223:1: ruleEvent EOF
             {
-             before(grammarAccess.getMessageReceivedRule()); 
+             before(grammarAccess.getEventRule()); 
             pushFollow(FOLLOW_1);
-            ruleMessageReceived();
+            ruleEvent();
 
             state._fsp--;
 
-             after(grammarAccess.getMessageReceivedRule()); 
+             after(grammarAccess.getEventRule()); 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -546,35 +546,35 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRuleMessageReceived"
+    // $ANTLR end "entryRuleEvent"
 
 
-    // $ANTLR start "ruleMessageReceived"
-    // InternalKlangParser.g:230:1: ruleMessageReceived : ( ( rule__MessageReceived__Group__0 ) ) ;
-    public final void ruleMessageReceived() throws RecognitionException {
+    // $ANTLR start "ruleEvent"
+    // InternalKlangParser.g:230:1: ruleEvent : ( ( rule__Event__Alternatives ) ) ;
+    public final void ruleEvent() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:234:2: ( ( ( rule__MessageReceived__Group__0 ) ) )
-            // InternalKlangParser.g:235:2: ( ( rule__MessageReceived__Group__0 ) )
+            // InternalKlangParser.g:234:2: ( ( ( rule__Event__Alternatives ) ) )
+            // InternalKlangParser.g:235:2: ( ( rule__Event__Alternatives ) )
             {
-            // InternalKlangParser.g:235:2: ( ( rule__MessageReceived__Group__0 ) )
-            // InternalKlangParser.g:236:3: ( rule__MessageReceived__Group__0 )
+            // InternalKlangParser.g:235:2: ( ( rule__Event__Alternatives ) )
+            // InternalKlangParser.g:236:3: ( rule__Event__Alternatives )
             {
-             before(grammarAccess.getMessageReceivedAccess().getGroup()); 
-            // InternalKlangParser.g:237:3: ( rule__MessageReceived__Group__0 )
-            // InternalKlangParser.g:237:4: rule__MessageReceived__Group__0
+             before(grammarAccess.getEventAccess().getAlternatives()); 
+            // InternalKlangParser.g:237:3: ( rule__Event__Alternatives )
+            // InternalKlangParser.g:237:4: rule__Event__Alternatives
             {
             pushFollow(FOLLOW_2);
-            rule__MessageReceived__Group__0();
+            rule__Event__Alternatives();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getMessageReceivedAccess().getGroup()); 
+             after(grammarAccess.getEventAccess().getAlternatives()); 
 
             }
 
@@ -593,15 +593,400 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleMessageReceived"
+    // $ANTLR end "ruleEvent"
+
+
+    // $ANTLR start "entryRuleMessageReceivedEvent"
+    // InternalKlangParser.g:246:1: entryRuleMessageReceivedEvent : ruleMessageReceivedEvent EOF ;
+    public final void entryRuleMessageReceivedEvent() throws RecognitionException {
+        try {
+            // InternalKlangParser.g:247:1: ( ruleMessageReceivedEvent EOF )
+            // InternalKlangParser.g:248:1: ruleMessageReceivedEvent EOF
+            {
+             before(grammarAccess.getMessageReceivedEventRule()); 
+            pushFollow(FOLLOW_1);
+            ruleMessageReceivedEvent();
+
+            state._fsp--;
+
+             after(grammarAccess.getMessageReceivedEventRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleMessageReceivedEvent"
+
+
+    // $ANTLR start "ruleMessageReceivedEvent"
+    // InternalKlangParser.g:255:1: ruleMessageReceivedEvent : ( ( rule__MessageReceivedEvent__Group__0 ) ) ;
+    public final void ruleMessageReceivedEvent() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:259:2: ( ( ( rule__MessageReceivedEvent__Group__0 ) ) )
+            // InternalKlangParser.g:260:2: ( ( rule__MessageReceivedEvent__Group__0 ) )
+            {
+            // InternalKlangParser.g:260:2: ( ( rule__MessageReceivedEvent__Group__0 ) )
+            // InternalKlangParser.g:261:3: ( rule__MessageReceivedEvent__Group__0 )
+            {
+             before(grammarAccess.getMessageReceivedEventAccess().getGroup()); 
+            // InternalKlangParser.g:262:3: ( rule__MessageReceivedEvent__Group__0 )
+            // InternalKlangParser.g:262:4: rule__MessageReceivedEvent__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__MessageReceivedEvent__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getMessageReceivedEventAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleMessageReceivedEvent"
+
+
+    // $ANTLR start "entryRuleGameStartEvent"
+    // InternalKlangParser.g:271:1: entryRuleGameStartEvent : ruleGameStartEvent EOF ;
+    public final void entryRuleGameStartEvent() throws RecognitionException {
+        try {
+            // InternalKlangParser.g:272:1: ( ruleGameStartEvent EOF )
+            // InternalKlangParser.g:273:1: ruleGameStartEvent EOF
+            {
+             before(grammarAccess.getGameStartEventRule()); 
+            pushFollow(FOLLOW_1);
+            ruleGameStartEvent();
+
+            state._fsp--;
+
+             after(grammarAccess.getGameStartEventRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleGameStartEvent"
+
+
+    // $ANTLR start "ruleGameStartEvent"
+    // InternalKlangParser.g:280:1: ruleGameStartEvent : ( ( rule__GameStartEvent__Group__0 ) ) ;
+    public final void ruleGameStartEvent() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:284:2: ( ( ( rule__GameStartEvent__Group__0 ) ) )
+            // InternalKlangParser.g:285:2: ( ( rule__GameStartEvent__Group__0 ) )
+            {
+            // InternalKlangParser.g:285:2: ( ( rule__GameStartEvent__Group__0 ) )
+            // InternalKlangParser.g:286:3: ( rule__GameStartEvent__Group__0 )
+            {
+             before(grammarAccess.getGameStartEventAccess().getGroup()); 
+            // InternalKlangParser.g:287:3: ( rule__GameStartEvent__Group__0 )
+            // InternalKlangParser.g:287:4: rule__GameStartEvent__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__GameStartEvent__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getGameStartEventAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleGameStartEvent"
+
+
+    // $ANTLR start "entryRuleClickEvent"
+    // InternalKlangParser.g:296:1: entryRuleClickEvent : ruleClickEvent EOF ;
+    public final void entryRuleClickEvent() throws RecognitionException {
+        try {
+            // InternalKlangParser.g:297:1: ( ruleClickEvent EOF )
+            // InternalKlangParser.g:298:1: ruleClickEvent EOF
+            {
+             before(grammarAccess.getClickEventRule()); 
+            pushFollow(FOLLOW_1);
+            ruleClickEvent();
+
+            state._fsp--;
+
+             after(grammarAccess.getClickEventRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleClickEvent"
+
+
+    // $ANTLR start "ruleClickEvent"
+    // InternalKlangParser.g:305:1: ruleClickEvent : ( ( rule__ClickEvent__Group__0 ) ) ;
+    public final void ruleClickEvent() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:309:2: ( ( ( rule__ClickEvent__Group__0 ) ) )
+            // InternalKlangParser.g:310:2: ( ( rule__ClickEvent__Group__0 ) )
+            {
+            // InternalKlangParser.g:310:2: ( ( rule__ClickEvent__Group__0 ) )
+            // InternalKlangParser.g:311:3: ( rule__ClickEvent__Group__0 )
+            {
+             before(grammarAccess.getClickEventAccess().getGroup()); 
+            // InternalKlangParser.g:312:3: ( rule__ClickEvent__Group__0 )
+            // InternalKlangParser.g:312:4: rule__ClickEvent__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__ClickEvent__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getClickEventAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleClickEvent"
+
+
+    // $ANTLR start "entryRuleKeyPressedEvent"
+    // InternalKlangParser.g:321:1: entryRuleKeyPressedEvent : ruleKeyPressedEvent EOF ;
+    public final void entryRuleKeyPressedEvent() throws RecognitionException {
+        try {
+            // InternalKlangParser.g:322:1: ( ruleKeyPressedEvent EOF )
+            // InternalKlangParser.g:323:1: ruleKeyPressedEvent EOF
+            {
+             before(grammarAccess.getKeyPressedEventRule()); 
+            pushFollow(FOLLOW_1);
+            ruleKeyPressedEvent();
+
+            state._fsp--;
+
+             after(grammarAccess.getKeyPressedEventRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleKeyPressedEvent"
+
+
+    // $ANTLR start "ruleKeyPressedEvent"
+    // InternalKlangParser.g:330:1: ruleKeyPressedEvent : ( ( rule__KeyPressedEvent__Group__0 ) ) ;
+    public final void ruleKeyPressedEvent() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:334:2: ( ( ( rule__KeyPressedEvent__Group__0 ) ) )
+            // InternalKlangParser.g:335:2: ( ( rule__KeyPressedEvent__Group__0 ) )
+            {
+            // InternalKlangParser.g:335:2: ( ( rule__KeyPressedEvent__Group__0 ) )
+            // InternalKlangParser.g:336:3: ( rule__KeyPressedEvent__Group__0 )
+            {
+             before(grammarAccess.getKeyPressedEventAccess().getGroup()); 
+            // InternalKlangParser.g:337:3: ( rule__KeyPressedEvent__Group__0 )
+            // InternalKlangParser.g:337:4: rule__KeyPressedEvent__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__KeyPressedEvent__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getKeyPressedEventAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleKeyPressedEvent"
+
+
+    // $ANTLR start "entryRuleCollisionEvent"
+    // InternalKlangParser.g:346:1: entryRuleCollisionEvent : ruleCollisionEvent EOF ;
+    public final void entryRuleCollisionEvent() throws RecognitionException {
+        try {
+            // InternalKlangParser.g:347:1: ( ruleCollisionEvent EOF )
+            // InternalKlangParser.g:348:1: ruleCollisionEvent EOF
+            {
+             before(grammarAccess.getCollisionEventRule()); 
+            pushFollow(FOLLOW_1);
+            ruleCollisionEvent();
+
+            state._fsp--;
+
+             after(grammarAccess.getCollisionEventRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleCollisionEvent"
+
+
+    // $ANTLR start "ruleCollisionEvent"
+    // InternalKlangParser.g:355:1: ruleCollisionEvent : ( ( rule__CollisionEvent__Group__0 ) ) ;
+    public final void ruleCollisionEvent() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:359:2: ( ( ( rule__CollisionEvent__Group__0 ) ) )
+            // InternalKlangParser.g:360:2: ( ( rule__CollisionEvent__Group__0 ) )
+            {
+            // InternalKlangParser.g:360:2: ( ( rule__CollisionEvent__Group__0 ) )
+            // InternalKlangParser.g:361:3: ( rule__CollisionEvent__Group__0 )
+            {
+             before(grammarAccess.getCollisionEventAccess().getGroup()); 
+            // InternalKlangParser.g:362:3: ( rule__CollisionEvent__Group__0 )
+            // InternalKlangParser.g:362:4: rule__CollisionEvent__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__CollisionEvent__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getCollisionEventAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleCollisionEvent"
 
 
     // $ANTLR start "entryRuleStatement"
-    // InternalKlangParser.g:246:1: entryRuleStatement : ruleStatement EOF ;
+    // InternalKlangParser.g:371:1: entryRuleStatement : ruleStatement EOF ;
     public final void entryRuleStatement() throws RecognitionException {
         try {
-            // InternalKlangParser.g:247:1: ( ruleStatement EOF )
-            // InternalKlangParser.g:248:1: ruleStatement EOF
+            // InternalKlangParser.g:372:1: ( ruleStatement EOF )
+            // InternalKlangParser.g:373:1: ruleStatement EOF
             {
              before(grammarAccess.getStatementRule()); 
             pushFollow(FOLLOW_1);
@@ -627,21 +1012,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleStatement"
-    // InternalKlangParser.g:255:1: ruleStatement : ( ( rule__Statement__Alternatives ) ) ;
+    // InternalKlangParser.g:380:1: ruleStatement : ( ( rule__Statement__Alternatives ) ) ;
     public final void ruleStatement() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:259:2: ( ( ( rule__Statement__Alternatives ) ) )
-            // InternalKlangParser.g:260:2: ( ( rule__Statement__Alternatives ) )
+            // InternalKlangParser.g:384:2: ( ( ( rule__Statement__Alternatives ) ) )
+            // InternalKlangParser.g:385:2: ( ( rule__Statement__Alternatives ) )
             {
-            // InternalKlangParser.g:260:2: ( ( rule__Statement__Alternatives ) )
-            // InternalKlangParser.g:261:3: ( rule__Statement__Alternatives )
+            // InternalKlangParser.g:385:2: ( ( rule__Statement__Alternatives ) )
+            // InternalKlangParser.g:386:3: ( rule__Statement__Alternatives )
             {
              before(grammarAccess.getStatementAccess().getAlternatives()); 
-            // InternalKlangParser.g:262:3: ( rule__Statement__Alternatives )
-            // InternalKlangParser.g:262:4: rule__Statement__Alternatives
+            // InternalKlangParser.g:387:3: ( rule__Statement__Alternatives )
+            // InternalKlangParser.g:387:4: rule__Statement__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__Statement__Alternatives();
@@ -674,11 +1059,11 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleSendMessage"
-    // InternalKlangParser.g:271:1: entryRuleSendMessage : ruleSendMessage EOF ;
+    // InternalKlangParser.g:396:1: entryRuleSendMessage : ruleSendMessage EOF ;
     public final void entryRuleSendMessage() throws RecognitionException {
         try {
-            // InternalKlangParser.g:272:1: ( ruleSendMessage EOF )
-            // InternalKlangParser.g:273:1: ruleSendMessage EOF
+            // InternalKlangParser.g:397:1: ( ruleSendMessage EOF )
+            // InternalKlangParser.g:398:1: ruleSendMessage EOF
             {
              before(grammarAccess.getSendMessageRule()); 
             pushFollow(FOLLOW_1);
@@ -704,21 +1089,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleSendMessage"
-    // InternalKlangParser.g:280:1: ruleSendMessage : ( ( rule__SendMessage__Group__0 ) ) ;
+    // InternalKlangParser.g:405:1: ruleSendMessage : ( ( rule__SendMessage__Group__0 ) ) ;
     public final void ruleSendMessage() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:284:2: ( ( ( rule__SendMessage__Group__0 ) ) )
-            // InternalKlangParser.g:285:2: ( ( rule__SendMessage__Group__0 ) )
+            // InternalKlangParser.g:409:2: ( ( ( rule__SendMessage__Group__0 ) ) )
+            // InternalKlangParser.g:410:2: ( ( rule__SendMessage__Group__0 ) )
             {
-            // InternalKlangParser.g:285:2: ( ( rule__SendMessage__Group__0 ) )
-            // InternalKlangParser.g:286:3: ( rule__SendMessage__Group__0 )
+            // InternalKlangParser.g:410:2: ( ( rule__SendMessage__Group__0 ) )
+            // InternalKlangParser.g:411:3: ( rule__SendMessage__Group__0 )
             {
              before(grammarAccess.getSendMessageAccess().getGroup()); 
-            // InternalKlangParser.g:287:3: ( rule__SendMessage__Group__0 )
-            // InternalKlangParser.g:287:4: rule__SendMessage__Group__0
+            // InternalKlangParser.g:412:3: ( rule__SendMessage__Group__0 )
+            // InternalKlangParser.g:412:4: rule__SendMessage__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__SendMessage__Group__0();
@@ -750,320 +1135,12 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleSendMessage"
 
 
-    // $ANTLR start "entryRuleGameStart"
-    // InternalKlangParser.g:296:1: entryRuleGameStart : ruleGameStart EOF ;
-    public final void entryRuleGameStart() throws RecognitionException {
-        try {
-            // InternalKlangParser.g:297:1: ( ruleGameStart EOF )
-            // InternalKlangParser.g:298:1: ruleGameStart EOF
-            {
-             before(grammarAccess.getGameStartRule()); 
-            pushFollow(FOLLOW_1);
-            ruleGameStart();
-
-            state._fsp--;
-
-             after(grammarAccess.getGameStartRule()); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return ;
-    }
-    // $ANTLR end "entryRuleGameStart"
-
-
-    // $ANTLR start "ruleGameStart"
-    // InternalKlangParser.g:305:1: ruleGameStart : ( ( rule__GameStart__Group__0 ) ) ;
-    public final void ruleGameStart() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:309:2: ( ( ( rule__GameStart__Group__0 ) ) )
-            // InternalKlangParser.g:310:2: ( ( rule__GameStart__Group__0 ) )
-            {
-            // InternalKlangParser.g:310:2: ( ( rule__GameStart__Group__0 ) )
-            // InternalKlangParser.g:311:3: ( rule__GameStart__Group__0 )
-            {
-             before(grammarAccess.getGameStartAccess().getGroup()); 
-            // InternalKlangParser.g:312:3: ( rule__GameStart__Group__0 )
-            // InternalKlangParser.g:312:4: rule__GameStart__Group__0
-            {
-            pushFollow(FOLLOW_2);
-            rule__GameStart__Group__0();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getGameStartAccess().getGroup()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "ruleGameStart"
-
-
-    // $ANTLR start "entryRuleSpriteClicked"
-    // InternalKlangParser.g:321:1: entryRuleSpriteClicked : ruleSpriteClicked EOF ;
-    public final void entryRuleSpriteClicked() throws RecognitionException {
-        try {
-            // InternalKlangParser.g:322:1: ( ruleSpriteClicked EOF )
-            // InternalKlangParser.g:323:1: ruleSpriteClicked EOF
-            {
-             before(grammarAccess.getSpriteClickedRule()); 
-            pushFollow(FOLLOW_1);
-            ruleSpriteClicked();
-
-            state._fsp--;
-
-             after(grammarAccess.getSpriteClickedRule()); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return ;
-    }
-    // $ANTLR end "entryRuleSpriteClicked"
-
-
-    // $ANTLR start "ruleSpriteClicked"
-    // InternalKlangParser.g:330:1: ruleSpriteClicked : ( ( rule__SpriteClicked__Group__0 ) ) ;
-    public final void ruleSpriteClicked() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:334:2: ( ( ( rule__SpriteClicked__Group__0 ) ) )
-            // InternalKlangParser.g:335:2: ( ( rule__SpriteClicked__Group__0 ) )
-            {
-            // InternalKlangParser.g:335:2: ( ( rule__SpriteClicked__Group__0 ) )
-            // InternalKlangParser.g:336:3: ( rule__SpriteClicked__Group__0 )
-            {
-             before(grammarAccess.getSpriteClickedAccess().getGroup()); 
-            // InternalKlangParser.g:337:3: ( rule__SpriteClicked__Group__0 )
-            // InternalKlangParser.g:337:4: rule__SpriteClicked__Group__0
-            {
-            pushFollow(FOLLOW_2);
-            rule__SpriteClicked__Group__0();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getSpriteClickedAccess().getGroup()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "ruleSpriteClicked"
-
-
-    // $ANTLR start "entryRuleKeyPressed"
-    // InternalKlangParser.g:346:1: entryRuleKeyPressed : ruleKeyPressed EOF ;
-    public final void entryRuleKeyPressed() throws RecognitionException {
-        try {
-            // InternalKlangParser.g:347:1: ( ruleKeyPressed EOF )
-            // InternalKlangParser.g:348:1: ruleKeyPressed EOF
-            {
-             before(grammarAccess.getKeyPressedRule()); 
-            pushFollow(FOLLOW_1);
-            ruleKeyPressed();
-
-            state._fsp--;
-
-             after(grammarAccess.getKeyPressedRule()); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return ;
-    }
-    // $ANTLR end "entryRuleKeyPressed"
-
-
-    // $ANTLR start "ruleKeyPressed"
-    // InternalKlangParser.g:355:1: ruleKeyPressed : ( ( rule__KeyPressed__Group__0 ) ) ;
-    public final void ruleKeyPressed() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:359:2: ( ( ( rule__KeyPressed__Group__0 ) ) )
-            // InternalKlangParser.g:360:2: ( ( rule__KeyPressed__Group__0 ) )
-            {
-            // InternalKlangParser.g:360:2: ( ( rule__KeyPressed__Group__0 ) )
-            // InternalKlangParser.g:361:3: ( rule__KeyPressed__Group__0 )
-            {
-             before(grammarAccess.getKeyPressedAccess().getGroup()); 
-            // InternalKlangParser.g:362:3: ( rule__KeyPressed__Group__0 )
-            // InternalKlangParser.g:362:4: rule__KeyPressed__Group__0
-            {
-            pushFollow(FOLLOW_2);
-            rule__KeyPressed__Group__0();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getKeyPressedAccess().getGroup()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "ruleKeyPressed"
-
-
-    // $ANTLR start "entryRuleCollidesWith"
-    // InternalKlangParser.g:371:1: entryRuleCollidesWith : ruleCollidesWith EOF ;
-    public final void entryRuleCollidesWith() throws RecognitionException {
-        try {
-            // InternalKlangParser.g:372:1: ( ruleCollidesWith EOF )
-            // InternalKlangParser.g:373:1: ruleCollidesWith EOF
-            {
-             before(grammarAccess.getCollidesWithRule()); 
-            pushFollow(FOLLOW_1);
-            ruleCollidesWith();
-
-            state._fsp--;
-
-             after(grammarAccess.getCollidesWithRule()); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return ;
-    }
-    // $ANTLR end "entryRuleCollidesWith"
-
-
-    // $ANTLR start "ruleCollidesWith"
-    // InternalKlangParser.g:380:1: ruleCollidesWith : ( ( rule__CollidesWith__Group__0 ) ) ;
-    public final void ruleCollidesWith() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:384:2: ( ( ( rule__CollidesWith__Group__0 ) ) )
-            // InternalKlangParser.g:385:2: ( ( rule__CollidesWith__Group__0 ) )
-            {
-            // InternalKlangParser.g:385:2: ( ( rule__CollidesWith__Group__0 ) )
-            // InternalKlangParser.g:386:3: ( rule__CollidesWith__Group__0 )
-            {
-             before(grammarAccess.getCollidesWithAccess().getGroup()); 
-            // InternalKlangParser.g:387:3: ( rule__CollidesWith__Group__0 )
-            // InternalKlangParser.g:387:4: rule__CollidesWith__Group__0
-            {
-            pushFollow(FOLLOW_2);
-            rule__CollidesWith__Group__0();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getCollidesWithAccess().getGroup()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "ruleCollidesWith"
-
-
     // $ANTLR start "entryRuleWhileLoop"
-    // InternalKlangParser.g:396:1: entryRuleWhileLoop : ruleWhileLoop EOF ;
+    // InternalKlangParser.g:421:1: entryRuleWhileLoop : ruleWhileLoop EOF ;
     public final void entryRuleWhileLoop() throws RecognitionException {
         try {
-            // InternalKlangParser.g:397:1: ( ruleWhileLoop EOF )
-            // InternalKlangParser.g:398:1: ruleWhileLoop EOF
+            // InternalKlangParser.g:422:1: ( ruleWhileLoop EOF )
+            // InternalKlangParser.g:423:1: ruleWhileLoop EOF
             {
              before(grammarAccess.getWhileLoopRule()); 
             pushFollow(FOLLOW_1);
@@ -1089,21 +1166,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleWhileLoop"
-    // InternalKlangParser.g:405:1: ruleWhileLoop : ( ( rule__WhileLoop__Group__0 ) ) ;
+    // InternalKlangParser.g:430:1: ruleWhileLoop : ( ( rule__WhileLoop__Group__0 ) ) ;
     public final void ruleWhileLoop() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:409:2: ( ( ( rule__WhileLoop__Group__0 ) ) )
-            // InternalKlangParser.g:410:2: ( ( rule__WhileLoop__Group__0 ) )
+            // InternalKlangParser.g:434:2: ( ( ( rule__WhileLoop__Group__0 ) ) )
+            // InternalKlangParser.g:435:2: ( ( rule__WhileLoop__Group__0 ) )
             {
-            // InternalKlangParser.g:410:2: ( ( rule__WhileLoop__Group__0 ) )
-            // InternalKlangParser.g:411:3: ( rule__WhileLoop__Group__0 )
+            // InternalKlangParser.g:435:2: ( ( rule__WhileLoop__Group__0 ) )
+            // InternalKlangParser.g:436:3: ( rule__WhileLoop__Group__0 )
             {
              before(grammarAccess.getWhileLoopAccess().getGroup()); 
-            // InternalKlangParser.g:412:3: ( rule__WhileLoop__Group__0 )
-            // InternalKlangParser.g:412:4: rule__WhileLoop__Group__0
+            // InternalKlangParser.g:437:3: ( rule__WhileLoop__Group__0 )
+            // InternalKlangParser.g:437:4: rule__WhileLoop__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__WhileLoop__Group__0();
@@ -1136,11 +1213,11 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleIf"
-    // InternalKlangParser.g:421:1: entryRuleIf : ruleIf EOF ;
+    // InternalKlangParser.g:446:1: entryRuleIf : ruleIf EOF ;
     public final void entryRuleIf() throws RecognitionException {
         try {
-            // InternalKlangParser.g:422:1: ( ruleIf EOF )
-            // InternalKlangParser.g:423:1: ruleIf EOF
+            // InternalKlangParser.g:447:1: ( ruleIf EOF )
+            // InternalKlangParser.g:448:1: ruleIf EOF
             {
              before(grammarAccess.getIfRule()); 
             pushFollow(FOLLOW_1);
@@ -1166,21 +1243,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleIf"
-    // InternalKlangParser.g:430:1: ruleIf : ( ( rule__If__Group__0 ) ) ;
+    // InternalKlangParser.g:455:1: ruleIf : ( ( rule__If__Group__0 ) ) ;
     public final void ruleIf() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:434:2: ( ( ( rule__If__Group__0 ) ) )
-            // InternalKlangParser.g:435:2: ( ( rule__If__Group__0 ) )
+            // InternalKlangParser.g:459:2: ( ( ( rule__If__Group__0 ) ) )
+            // InternalKlangParser.g:460:2: ( ( rule__If__Group__0 ) )
             {
-            // InternalKlangParser.g:435:2: ( ( rule__If__Group__0 ) )
-            // InternalKlangParser.g:436:3: ( rule__If__Group__0 )
+            // InternalKlangParser.g:460:2: ( ( rule__If__Group__0 ) )
+            // InternalKlangParser.g:461:3: ( rule__If__Group__0 )
             {
              before(grammarAccess.getIfAccess().getGroup()); 
-            // InternalKlangParser.g:437:3: ( rule__If__Group__0 )
-            // InternalKlangParser.g:437:4: rule__If__Group__0
+            // InternalKlangParser.g:462:3: ( rule__If__Group__0 )
+            // InternalKlangParser.g:462:4: rule__If__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__If__Group__0();
@@ -1213,11 +1290,11 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleForeverLoop"
-    // InternalKlangParser.g:446:1: entryRuleForeverLoop : ruleForeverLoop EOF ;
+    // InternalKlangParser.g:471:1: entryRuleForeverLoop : ruleForeverLoop EOF ;
     public final void entryRuleForeverLoop() throws RecognitionException {
         try {
-            // InternalKlangParser.g:447:1: ( ruleForeverLoop EOF )
-            // InternalKlangParser.g:448:1: ruleForeverLoop EOF
+            // InternalKlangParser.g:472:1: ( ruleForeverLoop EOF )
+            // InternalKlangParser.g:473:1: ruleForeverLoop EOF
             {
              before(grammarAccess.getForeverLoopRule()); 
             pushFollow(FOLLOW_1);
@@ -1243,21 +1320,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleForeverLoop"
-    // InternalKlangParser.g:455:1: ruleForeverLoop : ( ( rule__ForeverLoop__Group__0 ) ) ;
+    // InternalKlangParser.g:480:1: ruleForeverLoop : ( ( rule__ForeverLoop__Group__0 ) ) ;
     public final void ruleForeverLoop() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:459:2: ( ( ( rule__ForeverLoop__Group__0 ) ) )
-            // InternalKlangParser.g:460:2: ( ( rule__ForeverLoop__Group__0 ) )
+            // InternalKlangParser.g:484:2: ( ( ( rule__ForeverLoop__Group__0 ) ) )
+            // InternalKlangParser.g:485:2: ( ( rule__ForeverLoop__Group__0 ) )
             {
-            // InternalKlangParser.g:460:2: ( ( rule__ForeverLoop__Group__0 ) )
-            // InternalKlangParser.g:461:3: ( rule__ForeverLoop__Group__0 )
+            // InternalKlangParser.g:485:2: ( ( rule__ForeverLoop__Group__0 ) )
+            // InternalKlangParser.g:486:3: ( rule__ForeverLoop__Group__0 )
             {
              before(grammarAccess.getForeverLoopAccess().getGroup()); 
-            // InternalKlangParser.g:462:3: ( rule__ForeverLoop__Group__0 )
-            // InternalKlangParser.g:462:4: rule__ForeverLoop__Group__0
+            // InternalKlangParser.g:487:3: ( rule__ForeverLoop__Group__0 )
+            // InternalKlangParser.g:487:4: rule__ForeverLoop__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__ForeverLoop__Group__0();
@@ -1290,11 +1367,11 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleVariableDeclaration"
-    // InternalKlangParser.g:471:1: entryRuleVariableDeclaration : ruleVariableDeclaration EOF ;
+    // InternalKlangParser.g:496:1: entryRuleVariableDeclaration : ruleVariableDeclaration EOF ;
     public final void entryRuleVariableDeclaration() throws RecognitionException {
         try {
-            // InternalKlangParser.g:472:1: ( ruleVariableDeclaration EOF )
-            // InternalKlangParser.g:473:1: ruleVariableDeclaration EOF
+            // InternalKlangParser.g:497:1: ( ruleVariableDeclaration EOF )
+            // InternalKlangParser.g:498:1: ruleVariableDeclaration EOF
             {
              before(grammarAccess.getVariableDeclarationRule()); 
             pushFollow(FOLLOW_1);
@@ -1320,21 +1397,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleVariableDeclaration"
-    // InternalKlangParser.g:480:1: ruleVariableDeclaration : ( ( rule__VariableDeclaration__Group__0 ) ) ;
+    // InternalKlangParser.g:505:1: ruleVariableDeclaration : ( ( rule__VariableDeclaration__Group__0 ) ) ;
     public final void ruleVariableDeclaration() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:484:2: ( ( ( rule__VariableDeclaration__Group__0 ) ) )
-            // InternalKlangParser.g:485:2: ( ( rule__VariableDeclaration__Group__0 ) )
+            // InternalKlangParser.g:509:2: ( ( ( rule__VariableDeclaration__Group__0 ) ) )
+            // InternalKlangParser.g:510:2: ( ( rule__VariableDeclaration__Group__0 ) )
             {
-            // InternalKlangParser.g:485:2: ( ( rule__VariableDeclaration__Group__0 ) )
-            // InternalKlangParser.g:486:3: ( rule__VariableDeclaration__Group__0 )
+            // InternalKlangParser.g:510:2: ( ( rule__VariableDeclaration__Group__0 ) )
+            // InternalKlangParser.g:511:3: ( rule__VariableDeclaration__Group__0 )
             {
              before(grammarAccess.getVariableDeclarationAccess().getGroup()); 
-            // InternalKlangParser.g:487:3: ( rule__VariableDeclaration__Group__0 )
-            // InternalKlangParser.g:487:4: rule__VariableDeclaration__Group__0
+            // InternalKlangParser.g:512:3: ( rule__VariableDeclaration__Group__0 )
+            // InternalKlangParser.g:512:4: rule__VariableDeclaration__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__VariableDeclaration__Group__0();
@@ -1367,11 +1444,11 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleVariableAssignment"
-    // InternalKlangParser.g:496:1: entryRuleVariableAssignment : ruleVariableAssignment EOF ;
+    // InternalKlangParser.g:521:1: entryRuleVariableAssignment : ruleVariableAssignment EOF ;
     public final void entryRuleVariableAssignment() throws RecognitionException {
         try {
-            // InternalKlangParser.g:497:1: ( ruleVariableAssignment EOF )
-            // InternalKlangParser.g:498:1: ruleVariableAssignment EOF
+            // InternalKlangParser.g:522:1: ( ruleVariableAssignment EOF )
+            // InternalKlangParser.g:523:1: ruleVariableAssignment EOF
             {
              before(grammarAccess.getVariableAssignmentRule()); 
             pushFollow(FOLLOW_1);
@@ -1397,21 +1474,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleVariableAssignment"
-    // InternalKlangParser.g:505:1: ruleVariableAssignment : ( ( rule__VariableAssignment__Group__0 ) ) ;
+    // InternalKlangParser.g:530:1: ruleVariableAssignment : ( ( rule__VariableAssignment__Group__0 ) ) ;
     public final void ruleVariableAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:509:2: ( ( ( rule__VariableAssignment__Group__0 ) ) )
-            // InternalKlangParser.g:510:2: ( ( rule__VariableAssignment__Group__0 ) )
+            // InternalKlangParser.g:534:2: ( ( ( rule__VariableAssignment__Group__0 ) ) )
+            // InternalKlangParser.g:535:2: ( ( rule__VariableAssignment__Group__0 ) )
             {
-            // InternalKlangParser.g:510:2: ( ( rule__VariableAssignment__Group__0 ) )
-            // InternalKlangParser.g:511:3: ( rule__VariableAssignment__Group__0 )
+            // InternalKlangParser.g:535:2: ( ( rule__VariableAssignment__Group__0 ) )
+            // InternalKlangParser.g:536:3: ( rule__VariableAssignment__Group__0 )
             {
              before(grammarAccess.getVariableAssignmentAccess().getGroup()); 
-            // InternalKlangParser.g:512:3: ( rule__VariableAssignment__Group__0 )
-            // InternalKlangParser.g:512:4: rule__VariableAssignment__Group__0
+            // InternalKlangParser.g:537:3: ( rule__VariableAssignment__Group__0 )
+            // InternalKlangParser.g:537:4: rule__VariableAssignment__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__VariableAssignment__Group__0();
@@ -1444,11 +1521,11 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleSleep"
-    // InternalKlangParser.g:521:1: entryRuleSleep : ruleSleep EOF ;
+    // InternalKlangParser.g:546:1: entryRuleSleep : ruleSleep EOF ;
     public final void entryRuleSleep() throws RecognitionException {
         try {
-            // InternalKlangParser.g:522:1: ( ruleSleep EOF )
-            // InternalKlangParser.g:523:1: ruleSleep EOF
+            // InternalKlangParser.g:547:1: ( ruleSleep EOF )
+            // InternalKlangParser.g:548:1: ruleSleep EOF
             {
              before(grammarAccess.getSleepRule()); 
             pushFollow(FOLLOW_1);
@@ -1474,21 +1551,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleSleep"
-    // InternalKlangParser.g:530:1: ruleSleep : ( ( rule__Sleep__Group__0 ) ) ;
+    // InternalKlangParser.g:555:1: ruleSleep : ( ( rule__Sleep__Group__0 ) ) ;
     public final void ruleSleep() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:534:2: ( ( ( rule__Sleep__Group__0 ) ) )
-            // InternalKlangParser.g:535:2: ( ( rule__Sleep__Group__0 ) )
+            // InternalKlangParser.g:559:2: ( ( ( rule__Sleep__Group__0 ) ) )
+            // InternalKlangParser.g:560:2: ( ( rule__Sleep__Group__0 ) )
             {
-            // InternalKlangParser.g:535:2: ( ( rule__Sleep__Group__0 ) )
-            // InternalKlangParser.g:536:3: ( rule__Sleep__Group__0 )
+            // InternalKlangParser.g:560:2: ( ( rule__Sleep__Group__0 ) )
+            // InternalKlangParser.g:561:3: ( rule__Sleep__Group__0 )
             {
              before(grammarAccess.getSleepAccess().getGroup()); 
-            // InternalKlangParser.g:537:3: ( rule__Sleep__Group__0 )
-            // InternalKlangParser.g:537:4: rule__Sleep__Group__0
+            // InternalKlangParser.g:562:3: ( rule__Sleep__Group__0 )
+            // InternalKlangParser.g:562:4: rule__Sleep__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__Sleep__Group__0();
@@ -1521,11 +1598,11 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleExpression"
-    // InternalKlangParser.g:546:1: entryRuleExpression : ruleExpression EOF ;
+    // InternalKlangParser.g:571:1: entryRuleExpression : ruleExpression EOF ;
     public final void entryRuleExpression() throws RecognitionException {
         try {
-            // InternalKlangParser.g:547:1: ( ruleExpression EOF )
-            // InternalKlangParser.g:548:1: ruleExpression EOF
+            // InternalKlangParser.g:572:1: ( ruleExpression EOF )
+            // InternalKlangParser.g:573:1: ruleExpression EOF
             {
              before(grammarAccess.getExpressionRule()); 
             pushFollow(FOLLOW_1);
@@ -1551,17 +1628,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleExpression"
-    // InternalKlangParser.g:555:1: ruleExpression : ( ruleOr ) ;
+    // InternalKlangParser.g:580:1: ruleExpression : ( ruleOr ) ;
     public final void ruleExpression() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:559:2: ( ( ruleOr ) )
-            // InternalKlangParser.g:560:2: ( ruleOr )
+            // InternalKlangParser.g:584:2: ( ( ruleOr ) )
+            // InternalKlangParser.g:585:2: ( ruleOr )
             {
-            // InternalKlangParser.g:560:2: ( ruleOr )
-            // InternalKlangParser.g:561:3: ruleOr
+            // InternalKlangParser.g:585:2: ( ruleOr )
+            // InternalKlangParser.g:586:3: ruleOr
             {
              before(grammarAccess.getExpressionAccess().getOrParserRuleCall()); 
             pushFollow(FOLLOW_2);
@@ -1592,11 +1669,11 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleOr"
-    // InternalKlangParser.g:571:1: entryRuleOr : ruleOr EOF ;
+    // InternalKlangParser.g:596:1: entryRuleOr : ruleOr EOF ;
     public final void entryRuleOr() throws RecognitionException {
         try {
-            // InternalKlangParser.g:572:1: ( ruleOr EOF )
-            // InternalKlangParser.g:573:1: ruleOr EOF
+            // InternalKlangParser.g:597:1: ( ruleOr EOF )
+            // InternalKlangParser.g:598:1: ruleOr EOF
             {
              before(grammarAccess.getOrRule()); 
             pushFollow(FOLLOW_1);
@@ -1622,21 +1699,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleOr"
-    // InternalKlangParser.g:580:1: ruleOr : ( ( rule__Or__Group__0 ) ) ;
+    // InternalKlangParser.g:605:1: ruleOr : ( ( rule__Or__Group__0 ) ) ;
     public final void ruleOr() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:584:2: ( ( ( rule__Or__Group__0 ) ) )
-            // InternalKlangParser.g:585:2: ( ( rule__Or__Group__0 ) )
+            // InternalKlangParser.g:609:2: ( ( ( rule__Or__Group__0 ) ) )
+            // InternalKlangParser.g:610:2: ( ( rule__Or__Group__0 ) )
             {
-            // InternalKlangParser.g:585:2: ( ( rule__Or__Group__0 ) )
-            // InternalKlangParser.g:586:3: ( rule__Or__Group__0 )
+            // InternalKlangParser.g:610:2: ( ( rule__Or__Group__0 ) )
+            // InternalKlangParser.g:611:3: ( rule__Or__Group__0 )
             {
              before(grammarAccess.getOrAccess().getGroup()); 
-            // InternalKlangParser.g:587:3: ( rule__Or__Group__0 )
-            // InternalKlangParser.g:587:4: rule__Or__Group__0
+            // InternalKlangParser.g:612:3: ( rule__Or__Group__0 )
+            // InternalKlangParser.g:612:4: rule__Or__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__Or__Group__0();
@@ -1669,11 +1746,11 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleAnd"
-    // InternalKlangParser.g:596:1: entryRuleAnd : ruleAnd EOF ;
+    // InternalKlangParser.g:621:1: entryRuleAnd : ruleAnd EOF ;
     public final void entryRuleAnd() throws RecognitionException {
         try {
-            // InternalKlangParser.g:597:1: ( ruleAnd EOF )
-            // InternalKlangParser.g:598:1: ruleAnd EOF
+            // InternalKlangParser.g:622:1: ( ruleAnd EOF )
+            // InternalKlangParser.g:623:1: ruleAnd EOF
             {
              before(grammarAccess.getAndRule()); 
             pushFollow(FOLLOW_1);
@@ -1699,21 +1776,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleAnd"
-    // InternalKlangParser.g:605:1: ruleAnd : ( ( rule__And__Group__0 ) ) ;
+    // InternalKlangParser.g:630:1: ruleAnd : ( ( rule__And__Group__0 ) ) ;
     public final void ruleAnd() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:609:2: ( ( ( rule__And__Group__0 ) ) )
-            // InternalKlangParser.g:610:2: ( ( rule__And__Group__0 ) )
+            // InternalKlangParser.g:634:2: ( ( ( rule__And__Group__0 ) ) )
+            // InternalKlangParser.g:635:2: ( ( rule__And__Group__0 ) )
             {
-            // InternalKlangParser.g:610:2: ( ( rule__And__Group__0 ) )
-            // InternalKlangParser.g:611:3: ( rule__And__Group__0 )
+            // InternalKlangParser.g:635:2: ( ( rule__And__Group__0 ) )
+            // InternalKlangParser.g:636:3: ( rule__And__Group__0 )
             {
              before(grammarAccess.getAndAccess().getGroup()); 
-            // InternalKlangParser.g:612:3: ( rule__And__Group__0 )
-            // InternalKlangParser.g:612:4: rule__And__Group__0
+            // InternalKlangParser.g:637:3: ( rule__And__Group__0 )
+            // InternalKlangParser.g:637:4: rule__And__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__And__Group__0();
@@ -1746,11 +1823,11 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRulePlus"
-    // InternalKlangParser.g:621:1: entryRulePlus : rulePlus EOF ;
+    // InternalKlangParser.g:646:1: entryRulePlus : rulePlus EOF ;
     public final void entryRulePlus() throws RecognitionException {
         try {
-            // InternalKlangParser.g:622:1: ( rulePlus EOF )
-            // InternalKlangParser.g:623:1: rulePlus EOF
+            // InternalKlangParser.g:647:1: ( rulePlus EOF )
+            // InternalKlangParser.g:648:1: rulePlus EOF
             {
              before(grammarAccess.getPlusRule()); 
             pushFollow(FOLLOW_1);
@@ -1776,21 +1853,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rulePlus"
-    // InternalKlangParser.g:630:1: rulePlus : ( ( rule__Plus__Group__0 ) ) ;
+    // InternalKlangParser.g:655:1: rulePlus : ( ( rule__Plus__Group__0 ) ) ;
     public final void rulePlus() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:634:2: ( ( ( rule__Plus__Group__0 ) ) )
-            // InternalKlangParser.g:635:2: ( ( rule__Plus__Group__0 ) )
+            // InternalKlangParser.g:659:2: ( ( ( rule__Plus__Group__0 ) ) )
+            // InternalKlangParser.g:660:2: ( ( rule__Plus__Group__0 ) )
             {
-            // InternalKlangParser.g:635:2: ( ( rule__Plus__Group__0 ) )
-            // InternalKlangParser.g:636:3: ( rule__Plus__Group__0 )
+            // InternalKlangParser.g:660:2: ( ( rule__Plus__Group__0 ) )
+            // InternalKlangParser.g:661:3: ( rule__Plus__Group__0 )
             {
              before(grammarAccess.getPlusAccess().getGroup()); 
-            // InternalKlangParser.g:637:3: ( rule__Plus__Group__0 )
-            // InternalKlangParser.g:637:4: rule__Plus__Group__0
+            // InternalKlangParser.g:662:3: ( rule__Plus__Group__0 )
+            // InternalKlangParser.g:662:4: rule__Plus__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__Plus__Group__0();
@@ -1823,11 +1900,11 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleMinus"
-    // InternalKlangParser.g:646:1: entryRuleMinus : ruleMinus EOF ;
+    // InternalKlangParser.g:671:1: entryRuleMinus : ruleMinus EOF ;
     public final void entryRuleMinus() throws RecognitionException {
         try {
-            // InternalKlangParser.g:647:1: ( ruleMinus EOF )
-            // InternalKlangParser.g:648:1: ruleMinus EOF
+            // InternalKlangParser.g:672:1: ( ruleMinus EOF )
+            // InternalKlangParser.g:673:1: ruleMinus EOF
             {
              before(grammarAccess.getMinusRule()); 
             pushFollow(FOLLOW_1);
@@ -1853,21 +1930,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleMinus"
-    // InternalKlangParser.g:655:1: ruleMinus : ( ( rule__Minus__Group__0 ) ) ;
+    // InternalKlangParser.g:680:1: ruleMinus : ( ( rule__Minus__Group__0 ) ) ;
     public final void ruleMinus() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:659:2: ( ( ( rule__Minus__Group__0 ) ) )
-            // InternalKlangParser.g:660:2: ( ( rule__Minus__Group__0 ) )
+            // InternalKlangParser.g:684:2: ( ( ( rule__Minus__Group__0 ) ) )
+            // InternalKlangParser.g:685:2: ( ( rule__Minus__Group__0 ) )
             {
-            // InternalKlangParser.g:660:2: ( ( rule__Minus__Group__0 ) )
-            // InternalKlangParser.g:661:3: ( rule__Minus__Group__0 )
+            // InternalKlangParser.g:685:2: ( ( rule__Minus__Group__0 ) )
+            // InternalKlangParser.g:686:3: ( rule__Minus__Group__0 )
             {
              before(grammarAccess.getMinusAccess().getGroup()); 
-            // InternalKlangParser.g:662:3: ( rule__Minus__Group__0 )
-            // InternalKlangParser.g:662:4: rule__Minus__Group__0
+            // InternalKlangParser.g:687:3: ( rule__Minus__Group__0 )
+            // InternalKlangParser.g:687:4: rule__Minus__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__Minus__Group__0();
@@ -1900,11 +1977,11 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleMultiply"
-    // InternalKlangParser.g:671:1: entryRuleMultiply : ruleMultiply EOF ;
+    // InternalKlangParser.g:696:1: entryRuleMultiply : ruleMultiply EOF ;
     public final void entryRuleMultiply() throws RecognitionException {
         try {
-            // InternalKlangParser.g:672:1: ( ruleMultiply EOF )
-            // InternalKlangParser.g:673:1: ruleMultiply EOF
+            // InternalKlangParser.g:697:1: ( ruleMultiply EOF )
+            // InternalKlangParser.g:698:1: ruleMultiply EOF
             {
              before(grammarAccess.getMultiplyRule()); 
             pushFollow(FOLLOW_1);
@@ -1930,21 +2007,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleMultiply"
-    // InternalKlangParser.g:680:1: ruleMultiply : ( ( rule__Multiply__Group__0 ) ) ;
+    // InternalKlangParser.g:705:1: ruleMultiply : ( ( rule__Multiply__Group__0 ) ) ;
     public final void ruleMultiply() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:684:2: ( ( ( rule__Multiply__Group__0 ) ) )
-            // InternalKlangParser.g:685:2: ( ( rule__Multiply__Group__0 ) )
+            // InternalKlangParser.g:709:2: ( ( ( rule__Multiply__Group__0 ) ) )
+            // InternalKlangParser.g:710:2: ( ( rule__Multiply__Group__0 ) )
             {
-            // InternalKlangParser.g:685:2: ( ( rule__Multiply__Group__0 ) )
-            // InternalKlangParser.g:686:3: ( rule__Multiply__Group__0 )
+            // InternalKlangParser.g:710:2: ( ( rule__Multiply__Group__0 ) )
+            // InternalKlangParser.g:711:3: ( rule__Multiply__Group__0 )
             {
              before(grammarAccess.getMultiplyAccess().getGroup()); 
-            // InternalKlangParser.g:687:3: ( rule__Multiply__Group__0 )
-            // InternalKlangParser.g:687:4: rule__Multiply__Group__0
+            // InternalKlangParser.g:712:3: ( rule__Multiply__Group__0 )
+            // InternalKlangParser.g:712:4: rule__Multiply__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__Multiply__Group__0();
@@ -1977,11 +2054,11 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleDivide"
-    // InternalKlangParser.g:696:1: entryRuleDivide : ruleDivide EOF ;
+    // InternalKlangParser.g:721:1: entryRuleDivide : ruleDivide EOF ;
     public final void entryRuleDivide() throws RecognitionException {
         try {
-            // InternalKlangParser.g:697:1: ( ruleDivide EOF )
-            // InternalKlangParser.g:698:1: ruleDivide EOF
+            // InternalKlangParser.g:722:1: ( ruleDivide EOF )
+            // InternalKlangParser.g:723:1: ruleDivide EOF
             {
              before(grammarAccess.getDivideRule()); 
             pushFollow(FOLLOW_1);
@@ -2007,21 +2084,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleDivide"
-    // InternalKlangParser.g:705:1: ruleDivide : ( ( rule__Divide__Group__0 ) ) ;
+    // InternalKlangParser.g:730:1: ruleDivide : ( ( rule__Divide__Group__0 ) ) ;
     public final void ruleDivide() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:709:2: ( ( ( rule__Divide__Group__0 ) ) )
-            // InternalKlangParser.g:710:2: ( ( rule__Divide__Group__0 ) )
+            // InternalKlangParser.g:734:2: ( ( ( rule__Divide__Group__0 ) ) )
+            // InternalKlangParser.g:735:2: ( ( rule__Divide__Group__0 ) )
             {
-            // InternalKlangParser.g:710:2: ( ( rule__Divide__Group__0 ) )
-            // InternalKlangParser.g:711:3: ( rule__Divide__Group__0 )
+            // InternalKlangParser.g:735:2: ( ( rule__Divide__Group__0 ) )
+            // InternalKlangParser.g:736:3: ( rule__Divide__Group__0 )
             {
              before(grammarAccess.getDivideAccess().getGroup()); 
-            // InternalKlangParser.g:712:3: ( rule__Divide__Group__0 )
-            // InternalKlangParser.g:712:4: rule__Divide__Group__0
+            // InternalKlangParser.g:737:3: ( rule__Divide__Group__0 )
+            // InternalKlangParser.g:737:4: rule__Divide__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__Divide__Group__0();
@@ -2054,11 +2131,11 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleComparison"
-    // InternalKlangParser.g:721:1: entryRuleComparison : ruleComparison EOF ;
+    // InternalKlangParser.g:746:1: entryRuleComparison : ruleComparison EOF ;
     public final void entryRuleComparison() throws RecognitionException {
         try {
-            // InternalKlangParser.g:722:1: ( ruleComparison EOF )
-            // InternalKlangParser.g:723:1: ruleComparison EOF
+            // InternalKlangParser.g:747:1: ( ruleComparison EOF )
+            // InternalKlangParser.g:748:1: ruleComparison EOF
             {
              before(grammarAccess.getComparisonRule()); 
             pushFollow(FOLLOW_1);
@@ -2084,21 +2161,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleComparison"
-    // InternalKlangParser.g:730:1: ruleComparison : ( ( rule__Comparison__Group__0 ) ) ;
+    // InternalKlangParser.g:755:1: ruleComparison : ( ( rule__Comparison__Group__0 ) ) ;
     public final void ruleComparison() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:734:2: ( ( ( rule__Comparison__Group__0 ) ) )
-            // InternalKlangParser.g:735:2: ( ( rule__Comparison__Group__0 ) )
+            // InternalKlangParser.g:759:2: ( ( ( rule__Comparison__Group__0 ) ) )
+            // InternalKlangParser.g:760:2: ( ( rule__Comparison__Group__0 ) )
             {
-            // InternalKlangParser.g:735:2: ( ( rule__Comparison__Group__0 ) )
-            // InternalKlangParser.g:736:3: ( rule__Comparison__Group__0 )
+            // InternalKlangParser.g:760:2: ( ( rule__Comparison__Group__0 ) )
+            // InternalKlangParser.g:761:3: ( rule__Comparison__Group__0 )
             {
              before(grammarAccess.getComparisonAccess().getGroup()); 
-            // InternalKlangParser.g:737:3: ( rule__Comparison__Group__0 )
-            // InternalKlangParser.g:737:4: rule__Comparison__Group__0
+            // InternalKlangParser.g:762:3: ( rule__Comparison__Group__0 )
+            // InternalKlangParser.g:762:4: rule__Comparison__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__Comparison__Group__0();
@@ -2131,11 +2208,11 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleFunctionCall"
-    // InternalKlangParser.g:746:1: entryRuleFunctionCall : ruleFunctionCall EOF ;
+    // InternalKlangParser.g:771:1: entryRuleFunctionCall : ruleFunctionCall EOF ;
     public final void entryRuleFunctionCall() throws RecognitionException {
         try {
-            // InternalKlangParser.g:747:1: ( ruleFunctionCall EOF )
-            // InternalKlangParser.g:748:1: ruleFunctionCall EOF
+            // InternalKlangParser.g:772:1: ( ruleFunctionCall EOF )
+            // InternalKlangParser.g:773:1: ruleFunctionCall EOF
             {
              before(grammarAccess.getFunctionCallRule()); 
             pushFollow(FOLLOW_1);
@@ -2161,21 +2238,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleFunctionCall"
-    // InternalKlangParser.g:755:1: ruleFunctionCall : ( ( rule__FunctionCall__Group__0 ) ) ;
+    // InternalKlangParser.g:780:1: ruleFunctionCall : ( ( rule__FunctionCall__Group__0 ) ) ;
     public final void ruleFunctionCall() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:759:2: ( ( ( rule__FunctionCall__Group__0 ) ) )
-            // InternalKlangParser.g:760:2: ( ( rule__FunctionCall__Group__0 ) )
+            // InternalKlangParser.g:784:2: ( ( ( rule__FunctionCall__Group__0 ) ) )
+            // InternalKlangParser.g:785:2: ( ( rule__FunctionCall__Group__0 ) )
             {
-            // InternalKlangParser.g:760:2: ( ( rule__FunctionCall__Group__0 ) )
-            // InternalKlangParser.g:761:3: ( rule__FunctionCall__Group__0 )
+            // InternalKlangParser.g:785:2: ( ( rule__FunctionCall__Group__0 ) )
+            // InternalKlangParser.g:786:3: ( rule__FunctionCall__Group__0 )
             {
              before(grammarAccess.getFunctionCallAccess().getGroup()); 
-            // InternalKlangParser.g:762:3: ( rule__FunctionCall__Group__0 )
-            // InternalKlangParser.g:762:4: rule__FunctionCall__Group__0
+            // InternalKlangParser.g:787:3: ( rule__FunctionCall__Group__0 )
+            // InternalKlangParser.g:787:4: rule__FunctionCall__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__FunctionCall__Group__0();
@@ -2208,11 +2285,11 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRulePrimaryExpression"
-    // InternalKlangParser.g:771:1: entryRulePrimaryExpression : rulePrimaryExpression EOF ;
+    // InternalKlangParser.g:796:1: entryRulePrimaryExpression : rulePrimaryExpression EOF ;
     public final void entryRulePrimaryExpression() throws RecognitionException {
         try {
-            // InternalKlangParser.g:772:1: ( rulePrimaryExpression EOF )
-            // InternalKlangParser.g:773:1: rulePrimaryExpression EOF
+            // InternalKlangParser.g:797:1: ( rulePrimaryExpression EOF )
+            // InternalKlangParser.g:798:1: rulePrimaryExpression EOF
             {
              before(grammarAccess.getPrimaryExpressionRule()); 
             pushFollow(FOLLOW_1);
@@ -2238,21 +2315,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rulePrimaryExpression"
-    // InternalKlangParser.g:780:1: rulePrimaryExpression : ( ( rule__PrimaryExpression__Alternatives ) ) ;
+    // InternalKlangParser.g:805:1: rulePrimaryExpression : ( ( rule__PrimaryExpression__Alternatives ) ) ;
     public final void rulePrimaryExpression() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:784:2: ( ( ( rule__PrimaryExpression__Alternatives ) ) )
-            // InternalKlangParser.g:785:2: ( ( rule__PrimaryExpression__Alternatives ) )
+            // InternalKlangParser.g:809:2: ( ( ( rule__PrimaryExpression__Alternatives ) ) )
+            // InternalKlangParser.g:810:2: ( ( rule__PrimaryExpression__Alternatives ) )
             {
-            // InternalKlangParser.g:785:2: ( ( rule__PrimaryExpression__Alternatives ) )
-            // InternalKlangParser.g:786:3: ( rule__PrimaryExpression__Alternatives )
+            // InternalKlangParser.g:810:2: ( ( rule__PrimaryExpression__Alternatives ) )
+            // InternalKlangParser.g:811:3: ( rule__PrimaryExpression__Alternatives )
             {
              before(grammarAccess.getPrimaryExpressionAccess().getAlternatives()); 
-            // InternalKlangParser.g:787:3: ( rule__PrimaryExpression__Alternatives )
-            // InternalKlangParser.g:787:4: rule__PrimaryExpression__Alternatives
+            // InternalKlangParser.g:812:3: ( rule__PrimaryExpression__Alternatives )
+            // InternalKlangParser.g:812:4: rule__PrimaryExpression__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__PrimaryExpression__Alternatives();
@@ -2285,11 +2362,11 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleAtomicExpression"
-    // InternalKlangParser.g:796:1: entryRuleAtomicExpression : ruleAtomicExpression EOF ;
+    // InternalKlangParser.g:821:1: entryRuleAtomicExpression : ruleAtomicExpression EOF ;
     public final void entryRuleAtomicExpression() throws RecognitionException {
         try {
-            // InternalKlangParser.g:797:1: ( ruleAtomicExpression EOF )
-            // InternalKlangParser.g:798:1: ruleAtomicExpression EOF
+            // InternalKlangParser.g:822:1: ( ruleAtomicExpression EOF )
+            // InternalKlangParser.g:823:1: ruleAtomicExpression EOF
             {
              before(grammarAccess.getAtomicExpressionRule()); 
             pushFollow(FOLLOW_1);
@@ -2315,21 +2392,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleAtomicExpression"
-    // InternalKlangParser.g:805:1: ruleAtomicExpression : ( ( rule__AtomicExpression__Alternatives ) ) ;
+    // InternalKlangParser.g:830:1: ruleAtomicExpression : ( ( rule__AtomicExpression__Alternatives ) ) ;
     public final void ruleAtomicExpression() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:809:2: ( ( ( rule__AtomicExpression__Alternatives ) ) )
-            // InternalKlangParser.g:810:2: ( ( rule__AtomicExpression__Alternatives ) )
+            // InternalKlangParser.g:834:2: ( ( ( rule__AtomicExpression__Alternatives ) ) )
+            // InternalKlangParser.g:835:2: ( ( rule__AtomicExpression__Alternatives ) )
             {
-            // InternalKlangParser.g:810:2: ( ( rule__AtomicExpression__Alternatives ) )
-            // InternalKlangParser.g:811:3: ( rule__AtomicExpression__Alternatives )
+            // InternalKlangParser.g:835:2: ( ( rule__AtomicExpression__Alternatives ) )
+            // InternalKlangParser.g:836:3: ( rule__AtomicExpression__Alternatives )
             {
              before(grammarAccess.getAtomicExpressionAccess().getAlternatives()); 
-            // InternalKlangParser.g:812:3: ( rule__AtomicExpression__Alternatives )
-            // InternalKlangParser.g:812:4: rule__AtomicExpression__Alternatives
+            // InternalKlangParser.g:837:3: ( rule__AtomicExpression__Alternatives )
+            // InternalKlangParser.g:837:4: rule__AtomicExpression__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__AtomicExpression__Alternatives();
@@ -2362,11 +2439,11 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleDECIMAL"
-    // InternalKlangParser.g:821:1: entryRuleDECIMAL : ruleDECIMAL EOF ;
+    // InternalKlangParser.g:846:1: entryRuleDECIMAL : ruleDECIMAL EOF ;
     public final void entryRuleDECIMAL() throws RecognitionException {
         try {
-            // InternalKlangParser.g:822:1: ( ruleDECIMAL EOF )
-            // InternalKlangParser.g:823:1: ruleDECIMAL EOF
+            // InternalKlangParser.g:847:1: ( ruleDECIMAL EOF )
+            // InternalKlangParser.g:848:1: ruleDECIMAL EOF
             {
              before(grammarAccess.getDECIMALRule()); 
             pushFollow(FOLLOW_1);
@@ -2392,21 +2469,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleDECIMAL"
-    // InternalKlangParser.g:830:1: ruleDECIMAL : ( ( rule__DECIMAL__Group__0 ) ) ;
+    // InternalKlangParser.g:855:1: ruleDECIMAL : ( ( rule__DECIMAL__Group__0 ) ) ;
     public final void ruleDECIMAL() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:834:2: ( ( ( rule__DECIMAL__Group__0 ) ) )
-            // InternalKlangParser.g:835:2: ( ( rule__DECIMAL__Group__0 ) )
+            // InternalKlangParser.g:859:2: ( ( ( rule__DECIMAL__Group__0 ) ) )
+            // InternalKlangParser.g:860:2: ( ( rule__DECIMAL__Group__0 ) )
             {
-            // InternalKlangParser.g:835:2: ( ( rule__DECIMAL__Group__0 ) )
-            // InternalKlangParser.g:836:3: ( rule__DECIMAL__Group__0 )
+            // InternalKlangParser.g:860:2: ( ( rule__DECIMAL__Group__0 ) )
+            // InternalKlangParser.g:861:3: ( rule__DECIMAL__Group__0 )
             {
              before(grammarAccess.getDECIMALAccess().getGroup()); 
-            // InternalKlangParser.g:837:3: ( rule__DECIMAL__Group__0 )
-            // InternalKlangParser.g:837:4: rule__DECIMAL__Group__0
+            // InternalKlangParser.g:862:3: ( rule__DECIMAL__Group__0 )
+            // InternalKlangParser.g:862:4: rule__DECIMAL__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__DECIMAL__Group__0();
@@ -2439,21 +2516,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleKeys"
-    // InternalKlangParser.g:846:1: ruleKeys : ( ( rule__Keys__Alternatives ) ) ;
+    // InternalKlangParser.g:871:1: ruleKeys : ( ( rule__Keys__Alternatives ) ) ;
     public final void ruleKeys() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:850:1: ( ( ( rule__Keys__Alternatives ) ) )
-            // InternalKlangParser.g:851:2: ( ( rule__Keys__Alternatives ) )
+            // InternalKlangParser.g:875:1: ( ( ( rule__Keys__Alternatives ) ) )
+            // InternalKlangParser.g:876:2: ( ( rule__Keys__Alternatives ) )
             {
-            // InternalKlangParser.g:851:2: ( ( rule__Keys__Alternatives ) )
-            // InternalKlangParser.g:852:3: ( rule__Keys__Alternatives )
+            // InternalKlangParser.g:876:2: ( ( rule__Keys__Alternatives ) )
+            // InternalKlangParser.g:877:3: ( rule__Keys__Alternatives )
             {
              before(grammarAccess.getKeysAccess().getAlternatives()); 
-            // InternalKlangParser.g:853:3: ( rule__Keys__Alternatives )
-            // InternalKlangParser.g:853:4: rule__Keys__Alternatives
+            // InternalKlangParser.g:878:3: ( rule__Keys__Alternatives )
+            // InternalKlangParser.g:878:4: rule__Keys__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__Keys__Alternatives();
@@ -2485,80 +2562,89 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleKeys"
 
 
-    // $ANTLR start "rule__EventHandler__Alternatives"
-    // InternalKlangParser.g:861:1: rule__EventHandler__Alternatives : ( ( ruleGameStart ) | ( ruleSpriteClicked ) | ( ruleKeyPressed ) | ( ruleCollidesWith ) | ( ruleMessageReceived ) );
-    public final void rule__EventHandler__Alternatives() throws RecognitionException {
+    // $ANTLR start "rule__Event__Alternatives"
+    // InternalKlangParser.g:886:1: rule__Event__Alternatives : ( ( ruleCollisionEvent ) | ( ruleKeyPressedEvent ) | ( ruleMessageReceivedEvent ) | ( ruleGameStartEvent ) | ( ruleClickEvent ) );
+    public final void rule__Event__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:865:1: ( ( ruleGameStart ) | ( ruleSpriteClicked ) | ( ruleKeyPressed ) | ( ruleCollidesWith ) | ( ruleMessageReceived ) )
+            // InternalKlangParser.g:890:1: ( ( ruleCollisionEvent ) | ( ruleKeyPressedEvent ) | ( ruleMessageReceivedEvent ) | ( ruleGameStartEvent ) | ( ruleClickEvent ) )
             int alt1=5;
-            int LA1_0 = input.LA(1);
-
-            if ( (LA1_0==When) ) {
-                switch ( input.LA(2) ) {
-                case Game:
-                    {
-                    alt1=1;
-                    }
-                    break;
-                case LeftSquareBracket:
-                    {
-                    int LA1_3 = input.LA(3);
-
-                    if ( ((LA1_3>=ENTER && LA1_3<=SPACE)||(LA1_3>=A && LA1_3<=Z)) ) {
-                        alt1=3;
-                    }
-                    else if ( (LA1_3==RULE_STRING) ) {
-                        alt1=5;
-                    }
-                    else {
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 1, 3, input);
-
-                        throw nvae;
-                    }
-                    }
-                    break;
-                case Clicked:
-                    {
-                    alt1=2;
-                    }
-                    break;
-                case Collides:
-                    {
-                    alt1=4;
-                    }
-                    break;
-                default:
-                    NoViableAltException nvae =
-                        new NoViableAltException("", 1, 1, input);
-
-                    throw nvae;
+            switch ( input.LA(1) ) {
+            case Collides:
+                {
+                alt1=1;
                 }
-
-            }
-            else {
+                break;
+            case ENTER:
+            case SPACE:
+            case A:
+            case B:
+            case C:
+            case D:
+            case E:
+            case F:
+            case G:
+            case H:
+            case I:
+            case J:
+            case K:
+            case L:
+            case M:
+            case N:
+            case O:
+            case P:
+            case Q:
+            case R:
+            case S:
+            case T:
+            case U:
+            case V:
+            case W:
+            case X:
+            case Y:
+            case Z:
+                {
+                alt1=2;
+                }
+                break;
+            case RULE_STRING:
+                {
+                alt1=3;
+                }
+                break;
+            case Game:
+                {
+                alt1=4;
+                }
+                break;
+            case Clicked:
+                {
+                alt1=5;
+                }
+                break;
+            default:
                 NoViableAltException nvae =
                     new NoViableAltException("", 1, 0, input);
 
                 throw nvae;
             }
+
             switch (alt1) {
                 case 1 :
-                    // InternalKlangParser.g:866:2: ( ruleGameStart )
+                    // InternalKlangParser.g:891:2: ( ruleCollisionEvent )
                     {
-                    // InternalKlangParser.g:866:2: ( ruleGameStart )
-                    // InternalKlangParser.g:867:3: ruleGameStart
+                    // InternalKlangParser.g:891:2: ( ruleCollisionEvent )
+                    // InternalKlangParser.g:892:3: ruleCollisionEvent
                     {
-                     before(grammarAccess.getEventHandlerAccess().getGameStartParserRuleCall_0()); 
+                     before(grammarAccess.getEventAccess().getCollisionEventParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
-                    ruleGameStart();
+                    ruleCollisionEvent();
 
                     state._fsp--;
 
-                     after(grammarAccess.getEventHandlerAccess().getGameStartParserRuleCall_0()); 
+                     after(grammarAccess.getEventAccess().getCollisionEventParserRuleCall_0()); 
 
                     }
 
@@ -2566,18 +2652,18 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalKlangParser.g:872:2: ( ruleSpriteClicked )
+                    // InternalKlangParser.g:897:2: ( ruleKeyPressedEvent )
                     {
-                    // InternalKlangParser.g:872:2: ( ruleSpriteClicked )
-                    // InternalKlangParser.g:873:3: ruleSpriteClicked
+                    // InternalKlangParser.g:897:2: ( ruleKeyPressedEvent )
+                    // InternalKlangParser.g:898:3: ruleKeyPressedEvent
                     {
-                     before(grammarAccess.getEventHandlerAccess().getSpriteClickedParserRuleCall_1()); 
+                     before(grammarAccess.getEventAccess().getKeyPressedEventParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
-                    ruleSpriteClicked();
+                    ruleKeyPressedEvent();
 
                     state._fsp--;
 
-                     after(grammarAccess.getEventHandlerAccess().getSpriteClickedParserRuleCall_1()); 
+                     after(grammarAccess.getEventAccess().getKeyPressedEventParserRuleCall_1()); 
 
                     }
 
@@ -2585,18 +2671,18 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalKlangParser.g:878:2: ( ruleKeyPressed )
+                    // InternalKlangParser.g:903:2: ( ruleMessageReceivedEvent )
                     {
-                    // InternalKlangParser.g:878:2: ( ruleKeyPressed )
-                    // InternalKlangParser.g:879:3: ruleKeyPressed
+                    // InternalKlangParser.g:903:2: ( ruleMessageReceivedEvent )
+                    // InternalKlangParser.g:904:3: ruleMessageReceivedEvent
                     {
-                     before(grammarAccess.getEventHandlerAccess().getKeyPressedParserRuleCall_2()); 
+                     before(grammarAccess.getEventAccess().getMessageReceivedEventParserRuleCall_2()); 
                     pushFollow(FOLLOW_2);
-                    ruleKeyPressed();
+                    ruleMessageReceivedEvent();
 
                     state._fsp--;
 
-                     after(grammarAccess.getEventHandlerAccess().getKeyPressedParserRuleCall_2()); 
+                     after(grammarAccess.getEventAccess().getMessageReceivedEventParserRuleCall_2()); 
 
                     }
 
@@ -2604,18 +2690,18 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // InternalKlangParser.g:884:2: ( ruleCollidesWith )
+                    // InternalKlangParser.g:909:2: ( ruleGameStartEvent )
                     {
-                    // InternalKlangParser.g:884:2: ( ruleCollidesWith )
-                    // InternalKlangParser.g:885:3: ruleCollidesWith
+                    // InternalKlangParser.g:909:2: ( ruleGameStartEvent )
+                    // InternalKlangParser.g:910:3: ruleGameStartEvent
                     {
-                     before(grammarAccess.getEventHandlerAccess().getCollidesWithParserRuleCall_3()); 
+                     before(grammarAccess.getEventAccess().getGameStartEventParserRuleCall_3()); 
                     pushFollow(FOLLOW_2);
-                    ruleCollidesWith();
+                    ruleGameStartEvent();
 
                     state._fsp--;
 
-                     after(grammarAccess.getEventHandlerAccess().getCollidesWithParserRuleCall_3()); 
+                     after(grammarAccess.getEventAccess().getGameStartEventParserRuleCall_3()); 
 
                     }
 
@@ -2623,18 +2709,18 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 5 :
-                    // InternalKlangParser.g:890:2: ( ruleMessageReceived )
+                    // InternalKlangParser.g:915:2: ( ruleClickEvent )
                     {
-                    // InternalKlangParser.g:890:2: ( ruleMessageReceived )
-                    // InternalKlangParser.g:891:3: ruleMessageReceived
+                    // InternalKlangParser.g:915:2: ( ruleClickEvent )
+                    // InternalKlangParser.g:916:3: ruleClickEvent
                     {
-                     before(grammarAccess.getEventHandlerAccess().getMessageReceivedParserRuleCall_4()); 
+                     before(grammarAccess.getEventAccess().getClickEventParserRuleCall_4()); 
                     pushFollow(FOLLOW_2);
-                    ruleMessageReceived();
+                    ruleClickEvent();
 
                     state._fsp--;
 
-                     after(grammarAccess.getEventHandlerAccess().getMessageReceivedParserRuleCall_4()); 
+                     after(grammarAccess.getEventAccess().getClickEventParserRuleCall_4()); 
 
                     }
 
@@ -2655,17 +2741,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__EventHandler__Alternatives"
+    // $ANTLR end "rule__Event__Alternatives"
 
 
     // $ANTLR start "rule__Statement__Alternatives"
-    // InternalKlangParser.g:900:1: rule__Statement__Alternatives : ( ( ruleWhileLoop ) | ( ruleIf ) | ( ruleVariableAssignment ) | ( ruleForeverLoop ) | ( ruleFunctionCall ) | ( ruleSleep ) | ( ruleSendMessage ) );
+    // InternalKlangParser.g:925:1: rule__Statement__Alternatives : ( ( ruleWhileLoop ) | ( ruleIf ) | ( ruleVariableAssignment ) | ( ruleForeverLoop ) | ( ruleFunctionCall ) | ( ruleSleep ) | ( ruleSendMessage ) );
     public final void rule__Statement__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:904:1: ( ( ruleWhileLoop ) | ( ruleIf ) | ( ruleVariableAssignment ) | ( ruleForeverLoop ) | ( ruleFunctionCall ) | ( ruleSleep ) | ( ruleSendMessage ) )
+            // InternalKlangParser.g:929:1: ( ( ruleWhileLoop ) | ( ruleIf ) | ( ruleVariableAssignment ) | ( ruleForeverLoop ) | ( ruleFunctionCall ) | ( ruleSleep ) | ( ruleSendMessage ) )
             int alt2=7;
             switch ( input.LA(1) ) {
             case While:
@@ -2682,11 +2768,11 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                 {
                 int LA2_3 = input.LA(2);
 
-                if ( (LA2_3==EqualsSign) ) {
-                    alt2=3;
-                }
-                else if ( (LA2_3==LeftParenthesis) ) {
+                if ( (LA2_3==LeftParenthesis) ) {
                     alt2=5;
+                }
+                else if ( (LA2_3==EqualsSign) ) {
+                    alt2=3;
                 }
                 else {
                     NoViableAltException nvae =
@@ -2720,10 +2806,10 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
             switch (alt2) {
                 case 1 :
-                    // InternalKlangParser.g:905:2: ( ruleWhileLoop )
+                    // InternalKlangParser.g:930:2: ( ruleWhileLoop )
                     {
-                    // InternalKlangParser.g:905:2: ( ruleWhileLoop )
-                    // InternalKlangParser.g:906:3: ruleWhileLoop
+                    // InternalKlangParser.g:930:2: ( ruleWhileLoop )
+                    // InternalKlangParser.g:931:3: ruleWhileLoop
                     {
                      before(grammarAccess.getStatementAccess().getWhileLoopParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -2739,10 +2825,10 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalKlangParser.g:911:2: ( ruleIf )
+                    // InternalKlangParser.g:936:2: ( ruleIf )
                     {
-                    // InternalKlangParser.g:911:2: ( ruleIf )
-                    // InternalKlangParser.g:912:3: ruleIf
+                    // InternalKlangParser.g:936:2: ( ruleIf )
+                    // InternalKlangParser.g:937:3: ruleIf
                     {
                      before(grammarAccess.getStatementAccess().getIfParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -2758,10 +2844,10 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalKlangParser.g:917:2: ( ruleVariableAssignment )
+                    // InternalKlangParser.g:942:2: ( ruleVariableAssignment )
                     {
-                    // InternalKlangParser.g:917:2: ( ruleVariableAssignment )
-                    // InternalKlangParser.g:918:3: ruleVariableAssignment
+                    // InternalKlangParser.g:942:2: ( ruleVariableAssignment )
+                    // InternalKlangParser.g:943:3: ruleVariableAssignment
                     {
                      before(grammarAccess.getStatementAccess().getVariableAssignmentParserRuleCall_2()); 
                     pushFollow(FOLLOW_2);
@@ -2777,10 +2863,10 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // InternalKlangParser.g:923:2: ( ruleForeverLoop )
+                    // InternalKlangParser.g:948:2: ( ruleForeverLoop )
                     {
-                    // InternalKlangParser.g:923:2: ( ruleForeverLoop )
-                    // InternalKlangParser.g:924:3: ruleForeverLoop
+                    // InternalKlangParser.g:948:2: ( ruleForeverLoop )
+                    // InternalKlangParser.g:949:3: ruleForeverLoop
                     {
                      before(grammarAccess.getStatementAccess().getForeverLoopParserRuleCall_3()); 
                     pushFollow(FOLLOW_2);
@@ -2796,10 +2882,10 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 5 :
-                    // InternalKlangParser.g:929:2: ( ruleFunctionCall )
+                    // InternalKlangParser.g:954:2: ( ruleFunctionCall )
                     {
-                    // InternalKlangParser.g:929:2: ( ruleFunctionCall )
-                    // InternalKlangParser.g:930:3: ruleFunctionCall
+                    // InternalKlangParser.g:954:2: ( ruleFunctionCall )
+                    // InternalKlangParser.g:955:3: ruleFunctionCall
                     {
                      before(grammarAccess.getStatementAccess().getFunctionCallParserRuleCall_4()); 
                     pushFollow(FOLLOW_2);
@@ -2815,10 +2901,10 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 6 :
-                    // InternalKlangParser.g:935:2: ( ruleSleep )
+                    // InternalKlangParser.g:960:2: ( ruleSleep )
                     {
-                    // InternalKlangParser.g:935:2: ( ruleSleep )
-                    // InternalKlangParser.g:936:3: ruleSleep
+                    // InternalKlangParser.g:960:2: ( ruleSleep )
+                    // InternalKlangParser.g:961:3: ruleSleep
                     {
                      before(grammarAccess.getStatementAccess().getSleepParserRuleCall_5()); 
                     pushFollow(FOLLOW_2);
@@ -2834,10 +2920,10 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 7 :
-                    // InternalKlangParser.g:941:2: ( ruleSendMessage )
+                    // InternalKlangParser.g:966:2: ( ruleSendMessage )
                     {
-                    // InternalKlangParser.g:941:2: ( ruleSendMessage )
-                    // InternalKlangParser.g:942:3: ruleSendMessage
+                    // InternalKlangParser.g:966:2: ( ruleSendMessage )
+                    // InternalKlangParser.g:967:3: ruleSendMessage
                     {
                      before(grammarAccess.getStatementAccess().getSendMessageParserRuleCall_6()); 
                     pushFollow(FOLLOW_2);
@@ -2870,14 +2956,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comparison__Alternatives_1_0"
-    // InternalKlangParser.g:951:1: rule__Comparison__Alternatives_1_0 : ( ( ( rule__Comparison__Group_1_0_0__0 ) ) | ( ( rule__Comparison__Group_1_0_1__0 ) ) | ( ( rule__Comparison__Group_1_0_2__0 ) ) );
+    // InternalKlangParser.g:976:1: rule__Comparison__Alternatives_1_0 : ( ( ( rule__Comparison__Group_1_0_0__0 ) ) | ( ( rule__Comparison__Group_1_0_1__0 ) ) | ( ( rule__Comparison__Group_1_0_2__0 ) ) | ( ( rule__Comparison__Group_1_0_3__0 ) ) | ( ( rule__Comparison__Group_1_0_4__0 ) ) );
     public final void rule__Comparison__Alternatives_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:955:1: ( ( ( rule__Comparison__Group_1_0_0__0 ) ) | ( ( rule__Comparison__Group_1_0_1__0 ) ) | ( ( rule__Comparison__Group_1_0_2__0 ) ) )
-            int alt3=3;
+            // InternalKlangParser.g:980:1: ( ( ( rule__Comparison__Group_1_0_0__0 ) ) | ( ( rule__Comparison__Group_1_0_1__0 ) ) | ( ( rule__Comparison__Group_1_0_2__0 ) ) | ( ( rule__Comparison__Group_1_0_3__0 ) ) | ( ( rule__Comparison__Group_1_0_4__0 ) ) )
+            int alt3=5;
             switch ( input.LA(1) ) {
             case LessThanSign:
                 {
@@ -2894,6 +2980,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                 alt3=3;
                 }
                 break;
+            case LessThanSignEqualsSign:
+                {
+                alt3=4;
+                }
+                break;
+            case GreaterThanSignEqualsSign:
+                {
+                alt3=5;
+                }
+                break;
             default:
                 NoViableAltException nvae =
                     new NoViableAltException("", 3, 0, input);
@@ -2903,14 +2999,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
             switch (alt3) {
                 case 1 :
-                    // InternalKlangParser.g:956:2: ( ( rule__Comparison__Group_1_0_0__0 ) )
+                    // InternalKlangParser.g:981:2: ( ( rule__Comparison__Group_1_0_0__0 ) )
                     {
-                    // InternalKlangParser.g:956:2: ( ( rule__Comparison__Group_1_0_0__0 ) )
-                    // InternalKlangParser.g:957:3: ( rule__Comparison__Group_1_0_0__0 )
+                    // InternalKlangParser.g:981:2: ( ( rule__Comparison__Group_1_0_0__0 ) )
+                    // InternalKlangParser.g:982:3: ( rule__Comparison__Group_1_0_0__0 )
                     {
                      before(grammarAccess.getComparisonAccess().getGroup_1_0_0()); 
-                    // InternalKlangParser.g:958:3: ( rule__Comparison__Group_1_0_0__0 )
-                    // InternalKlangParser.g:958:4: rule__Comparison__Group_1_0_0__0
+                    // InternalKlangParser.g:983:3: ( rule__Comparison__Group_1_0_0__0 )
+                    // InternalKlangParser.g:983:4: rule__Comparison__Group_1_0_0__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Comparison__Group_1_0_0__0();
@@ -2928,14 +3024,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalKlangParser.g:962:2: ( ( rule__Comparison__Group_1_0_1__0 ) )
+                    // InternalKlangParser.g:987:2: ( ( rule__Comparison__Group_1_0_1__0 ) )
                     {
-                    // InternalKlangParser.g:962:2: ( ( rule__Comparison__Group_1_0_1__0 ) )
-                    // InternalKlangParser.g:963:3: ( rule__Comparison__Group_1_0_1__0 )
+                    // InternalKlangParser.g:987:2: ( ( rule__Comparison__Group_1_0_1__0 ) )
+                    // InternalKlangParser.g:988:3: ( rule__Comparison__Group_1_0_1__0 )
                     {
                      before(grammarAccess.getComparisonAccess().getGroup_1_0_1()); 
-                    // InternalKlangParser.g:964:3: ( rule__Comparison__Group_1_0_1__0 )
-                    // InternalKlangParser.g:964:4: rule__Comparison__Group_1_0_1__0
+                    // InternalKlangParser.g:989:3: ( rule__Comparison__Group_1_0_1__0 )
+                    // InternalKlangParser.g:989:4: rule__Comparison__Group_1_0_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Comparison__Group_1_0_1__0();
@@ -2953,14 +3049,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalKlangParser.g:968:2: ( ( rule__Comparison__Group_1_0_2__0 ) )
+                    // InternalKlangParser.g:993:2: ( ( rule__Comparison__Group_1_0_2__0 ) )
                     {
-                    // InternalKlangParser.g:968:2: ( ( rule__Comparison__Group_1_0_2__0 ) )
-                    // InternalKlangParser.g:969:3: ( rule__Comparison__Group_1_0_2__0 )
+                    // InternalKlangParser.g:993:2: ( ( rule__Comparison__Group_1_0_2__0 ) )
+                    // InternalKlangParser.g:994:3: ( rule__Comparison__Group_1_0_2__0 )
                     {
                      before(grammarAccess.getComparisonAccess().getGroup_1_0_2()); 
-                    // InternalKlangParser.g:970:3: ( rule__Comparison__Group_1_0_2__0 )
-                    // InternalKlangParser.g:970:4: rule__Comparison__Group_1_0_2__0
+                    // InternalKlangParser.g:995:3: ( rule__Comparison__Group_1_0_2__0 )
+                    // InternalKlangParser.g:995:4: rule__Comparison__Group_1_0_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Comparison__Group_1_0_2__0();
@@ -2971,6 +3067,56 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
 
                      after(grammarAccess.getComparisonAccess().getGroup_1_0_2()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 4 :
+                    // InternalKlangParser.g:999:2: ( ( rule__Comparison__Group_1_0_3__0 ) )
+                    {
+                    // InternalKlangParser.g:999:2: ( ( rule__Comparison__Group_1_0_3__0 ) )
+                    // InternalKlangParser.g:1000:3: ( rule__Comparison__Group_1_0_3__0 )
+                    {
+                     before(grammarAccess.getComparisonAccess().getGroup_1_0_3()); 
+                    // InternalKlangParser.g:1001:3: ( rule__Comparison__Group_1_0_3__0 )
+                    // InternalKlangParser.g:1001:4: rule__Comparison__Group_1_0_3__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Comparison__Group_1_0_3__0();
+
+                    state._fsp--;
+
+
+                    }
+
+                     after(grammarAccess.getComparisonAccess().getGroup_1_0_3()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 5 :
+                    // InternalKlangParser.g:1005:2: ( ( rule__Comparison__Group_1_0_4__0 ) )
+                    {
+                    // InternalKlangParser.g:1005:2: ( ( rule__Comparison__Group_1_0_4__0 ) )
+                    // InternalKlangParser.g:1006:3: ( rule__Comparison__Group_1_0_4__0 )
+                    {
+                     before(grammarAccess.getComparisonAccess().getGroup_1_0_4()); 
+                    // InternalKlangParser.g:1007:3: ( rule__Comparison__Group_1_0_4__0 )
+                    // InternalKlangParser.g:1007:4: rule__Comparison__Group_1_0_4__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Comparison__Group_1_0_4__0();
+
+                    state._fsp--;
+
+
+                    }
+
+                     after(grammarAccess.getComparisonAccess().getGroup_1_0_4()); 
 
                     }
 
@@ -2995,25 +3141,83 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Alternatives"
-    // InternalKlangParser.g:978:1: rule__PrimaryExpression__Alternatives : ( ( ( rule__PrimaryExpression__Group_0__0 ) ) | ( ( rule__PrimaryExpression__Group_1__0 ) ) | ( ( rule__PrimaryExpression__Group_2__0 ) ) | ( ( rule__PrimaryExpression__Group_3__0 ) ) | ( ( rule__PrimaryExpression__Group_4__0 ) ) | ( ruleFunctionCall ) | ( ruleAtomicExpression ) );
+    // InternalKlangParser.g:1015:1: rule__PrimaryExpression__Alternatives : ( ( ( rule__PrimaryExpression__Group_0__0 ) ) | ( ( rule__PrimaryExpression__Group_1__0 ) ) | ( ( rule__PrimaryExpression__Group_2__0 ) ) | ( ( rule__PrimaryExpression__Group_3__0 ) ) | ( ( rule__PrimaryExpression__Group_4__0 ) ) | ( ruleFunctionCall ) | ( ruleAtomicExpression ) );
     public final void rule__PrimaryExpression__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:982:1: ( ( ( rule__PrimaryExpression__Group_0__0 ) ) | ( ( rule__PrimaryExpression__Group_1__0 ) ) | ( ( rule__PrimaryExpression__Group_2__0 ) ) | ( ( rule__PrimaryExpression__Group_3__0 ) ) | ( ( rule__PrimaryExpression__Group_4__0 ) ) | ( ruleFunctionCall ) | ( ruleAtomicExpression ) )
+            // InternalKlangParser.g:1019:1: ( ( ( rule__PrimaryExpression__Group_0__0 ) ) | ( ( rule__PrimaryExpression__Group_1__0 ) ) | ( ( rule__PrimaryExpression__Group_2__0 ) ) | ( ( rule__PrimaryExpression__Group_3__0 ) ) | ( ( rule__PrimaryExpression__Group_4__0 ) ) | ( ruleFunctionCall ) | ( ruleAtomicExpression ) )
             int alt4=7;
-            alt4 = dfa4.predict(input);
+            switch ( input.LA(1) ) {
+            case LeftParenthesis:
+                {
+                alt4=1;
+                }
+                break;
+            case Not:
+                {
+                alt4=2;
+                }
+                break;
+            case HyphenMinus:
+                {
+                alt4=3;
+                }
+                break;
+            case Double:
+                {
+                alt4=4;
+                }
+                break;
+            case Int:
+                {
+                alt4=5;
+                }
+                break;
+            case RULE_ID:
+                {
+                int LA4_6 = input.LA(2);
+
+                if ( (LA4_6==EOF||LA4_6==SendMessage||LA4_6==Forever||(LA4_6>=Sleep && LA4_6<=While)||LA4_6==When||LA4_6==And||(LA4_6>=Var && LA4_6<=Or)||(LA4_6>=RightParenthesis && LA4_6<=HyphenMinus)||(LA4_6>=Solidus && LA4_6<=LessThanSign)||LA4_6==GreaterThanSign||(LA4_6>=RULE_BEGIN && LA4_6<=RULE_ID)) ) {
+                    alt4=7;
+                }
+                else if ( (LA4_6==LeftParenthesis) ) {
+                    alt4=6;
+                }
+                else {
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 4, 6, input);
+
+                    throw nvae;
+                }
+                }
+                break;
+            case False:
+            case True:
+            case RULE_INT:
+            case RULE_STRING:
+                {
+                alt4=7;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 4, 0, input);
+
+                throw nvae;
+            }
+
             switch (alt4) {
                 case 1 :
-                    // InternalKlangParser.g:983:2: ( ( rule__PrimaryExpression__Group_0__0 ) )
+                    // InternalKlangParser.g:1020:2: ( ( rule__PrimaryExpression__Group_0__0 ) )
                     {
-                    // InternalKlangParser.g:983:2: ( ( rule__PrimaryExpression__Group_0__0 ) )
-                    // InternalKlangParser.g:984:3: ( rule__PrimaryExpression__Group_0__0 )
+                    // InternalKlangParser.g:1020:2: ( ( rule__PrimaryExpression__Group_0__0 ) )
+                    // InternalKlangParser.g:1021:3: ( rule__PrimaryExpression__Group_0__0 )
                     {
                      before(grammarAccess.getPrimaryExpressionAccess().getGroup_0()); 
-                    // InternalKlangParser.g:985:3: ( rule__PrimaryExpression__Group_0__0 )
-                    // InternalKlangParser.g:985:4: rule__PrimaryExpression__Group_0__0
+                    // InternalKlangParser.g:1022:3: ( rule__PrimaryExpression__Group_0__0 )
+                    // InternalKlangParser.g:1022:4: rule__PrimaryExpression__Group_0__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__PrimaryExpression__Group_0__0();
@@ -3031,14 +3235,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalKlangParser.g:989:2: ( ( rule__PrimaryExpression__Group_1__0 ) )
+                    // InternalKlangParser.g:1026:2: ( ( rule__PrimaryExpression__Group_1__0 ) )
                     {
-                    // InternalKlangParser.g:989:2: ( ( rule__PrimaryExpression__Group_1__0 ) )
-                    // InternalKlangParser.g:990:3: ( rule__PrimaryExpression__Group_1__0 )
+                    // InternalKlangParser.g:1026:2: ( ( rule__PrimaryExpression__Group_1__0 ) )
+                    // InternalKlangParser.g:1027:3: ( rule__PrimaryExpression__Group_1__0 )
                     {
                      before(grammarAccess.getPrimaryExpressionAccess().getGroup_1()); 
-                    // InternalKlangParser.g:991:3: ( rule__PrimaryExpression__Group_1__0 )
-                    // InternalKlangParser.g:991:4: rule__PrimaryExpression__Group_1__0
+                    // InternalKlangParser.g:1028:3: ( rule__PrimaryExpression__Group_1__0 )
+                    // InternalKlangParser.g:1028:4: rule__PrimaryExpression__Group_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__PrimaryExpression__Group_1__0();
@@ -3056,14 +3260,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalKlangParser.g:995:2: ( ( rule__PrimaryExpression__Group_2__0 ) )
+                    // InternalKlangParser.g:1032:2: ( ( rule__PrimaryExpression__Group_2__0 ) )
                     {
-                    // InternalKlangParser.g:995:2: ( ( rule__PrimaryExpression__Group_2__0 ) )
-                    // InternalKlangParser.g:996:3: ( rule__PrimaryExpression__Group_2__0 )
+                    // InternalKlangParser.g:1032:2: ( ( rule__PrimaryExpression__Group_2__0 ) )
+                    // InternalKlangParser.g:1033:3: ( rule__PrimaryExpression__Group_2__0 )
                     {
                      before(grammarAccess.getPrimaryExpressionAccess().getGroup_2()); 
-                    // InternalKlangParser.g:997:3: ( rule__PrimaryExpression__Group_2__0 )
-                    // InternalKlangParser.g:997:4: rule__PrimaryExpression__Group_2__0
+                    // InternalKlangParser.g:1034:3: ( rule__PrimaryExpression__Group_2__0 )
+                    // InternalKlangParser.g:1034:4: rule__PrimaryExpression__Group_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__PrimaryExpression__Group_2__0();
@@ -3081,14 +3285,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // InternalKlangParser.g:1001:2: ( ( rule__PrimaryExpression__Group_3__0 ) )
+                    // InternalKlangParser.g:1038:2: ( ( rule__PrimaryExpression__Group_3__0 ) )
                     {
-                    // InternalKlangParser.g:1001:2: ( ( rule__PrimaryExpression__Group_3__0 ) )
-                    // InternalKlangParser.g:1002:3: ( rule__PrimaryExpression__Group_3__0 )
+                    // InternalKlangParser.g:1038:2: ( ( rule__PrimaryExpression__Group_3__0 ) )
+                    // InternalKlangParser.g:1039:3: ( rule__PrimaryExpression__Group_3__0 )
                     {
                      before(grammarAccess.getPrimaryExpressionAccess().getGroup_3()); 
-                    // InternalKlangParser.g:1003:3: ( rule__PrimaryExpression__Group_3__0 )
-                    // InternalKlangParser.g:1003:4: rule__PrimaryExpression__Group_3__0
+                    // InternalKlangParser.g:1040:3: ( rule__PrimaryExpression__Group_3__0 )
+                    // InternalKlangParser.g:1040:4: rule__PrimaryExpression__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__PrimaryExpression__Group_3__0();
@@ -3106,14 +3310,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 5 :
-                    // InternalKlangParser.g:1007:2: ( ( rule__PrimaryExpression__Group_4__0 ) )
+                    // InternalKlangParser.g:1044:2: ( ( rule__PrimaryExpression__Group_4__0 ) )
                     {
-                    // InternalKlangParser.g:1007:2: ( ( rule__PrimaryExpression__Group_4__0 ) )
-                    // InternalKlangParser.g:1008:3: ( rule__PrimaryExpression__Group_4__0 )
+                    // InternalKlangParser.g:1044:2: ( ( rule__PrimaryExpression__Group_4__0 ) )
+                    // InternalKlangParser.g:1045:3: ( rule__PrimaryExpression__Group_4__0 )
                     {
                      before(grammarAccess.getPrimaryExpressionAccess().getGroup_4()); 
-                    // InternalKlangParser.g:1009:3: ( rule__PrimaryExpression__Group_4__0 )
-                    // InternalKlangParser.g:1009:4: rule__PrimaryExpression__Group_4__0
+                    // InternalKlangParser.g:1046:3: ( rule__PrimaryExpression__Group_4__0 )
+                    // InternalKlangParser.g:1046:4: rule__PrimaryExpression__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__PrimaryExpression__Group_4__0();
@@ -3131,10 +3335,10 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 6 :
-                    // InternalKlangParser.g:1013:2: ( ruleFunctionCall )
+                    // InternalKlangParser.g:1050:2: ( ruleFunctionCall )
                     {
-                    // InternalKlangParser.g:1013:2: ( ruleFunctionCall )
-                    // InternalKlangParser.g:1014:3: ruleFunctionCall
+                    // InternalKlangParser.g:1050:2: ( ruleFunctionCall )
+                    // InternalKlangParser.g:1051:3: ruleFunctionCall
                     {
                      before(grammarAccess.getPrimaryExpressionAccess().getFunctionCallParserRuleCall_5()); 
                     pushFollow(FOLLOW_2);
@@ -3150,10 +3354,10 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 7 :
-                    // InternalKlangParser.g:1019:2: ( ruleAtomicExpression )
+                    // InternalKlangParser.g:1056:2: ( ruleAtomicExpression )
                     {
-                    // InternalKlangParser.g:1019:2: ( ruleAtomicExpression )
-                    // InternalKlangParser.g:1020:3: ruleAtomicExpression
+                    // InternalKlangParser.g:1056:2: ( ruleAtomicExpression )
+                    // InternalKlangParser.g:1057:3: ruleAtomicExpression
                     {
                      before(grammarAccess.getPrimaryExpressionAccess().getAtomicExpressionParserRuleCall_6()); 
                     pushFollow(FOLLOW_2);
@@ -3186,13 +3390,13 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpression__Alternatives"
-    // InternalKlangParser.g:1029:1: rule__AtomicExpression__Alternatives : ( ( ( rule__AtomicExpression__Group_0__0 ) ) | ( ( rule__AtomicExpression__Group_1__0 ) ) | ( ( rule__AtomicExpression__Group_2__0 ) ) | ( ( rule__AtomicExpression__Group_3__0 ) ) | ( ( rule__AtomicExpression__Group_4__0 ) ) );
+    // InternalKlangParser.g:1066:1: rule__AtomicExpression__Alternatives : ( ( ( rule__AtomicExpression__Group_0__0 ) ) | ( ( rule__AtomicExpression__Group_1__0 ) ) | ( ( rule__AtomicExpression__Group_2__0 ) ) | ( ( rule__AtomicExpression__Group_3__0 ) ) | ( ( rule__AtomicExpression__Group_4__0 ) ) );
     public final void rule__AtomicExpression__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1033:1: ( ( ( rule__AtomicExpression__Group_0__0 ) ) | ( ( rule__AtomicExpression__Group_1__0 ) ) | ( ( rule__AtomicExpression__Group_2__0 ) ) | ( ( rule__AtomicExpression__Group_3__0 ) ) | ( ( rule__AtomicExpression__Group_4__0 ) ) )
+            // InternalKlangParser.g:1070:1: ( ( ( rule__AtomicExpression__Group_0__0 ) ) | ( ( rule__AtomicExpression__Group_1__0 ) ) | ( ( rule__AtomicExpression__Group_2__0 ) ) | ( ( rule__AtomicExpression__Group_3__0 ) ) | ( ( rule__AtomicExpression__Group_4__0 ) ) )
             int alt5=5;
             switch ( input.LA(1) ) {
             case False:
@@ -3205,11 +3409,11 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                 {
                 int LA5_2 = input.LA(2);
 
-                if ( (LA5_2==EOF||LA5_2==SendMessage||LA5_2==Forever||(LA5_2>=Sleep && LA5_2<=While)||LA5_2==When||LA5_2==And||(LA5_2>=Var && LA5_2<=Or)||(LA5_2>=RightParenthesis && LA5_2<=HyphenMinus)||(LA5_2>=Solidus && LA5_2<=LessThanSign)||LA5_2==GreaterThanSign||(LA5_2>=RULE_BEGIN && LA5_2<=RULE_ID)) ) {
-                    alt5=3;
-                }
-                else if ( (LA5_2==FullStop) ) {
+                if ( (LA5_2==FullStop) ) {
                     alt5=2;
+                }
+                else if ( (LA5_2==EOF||LA5_2==SendMessage||LA5_2==Forever||(LA5_2>=Sleep && LA5_2<=While)||LA5_2==When||LA5_2==And||(LA5_2>=Var && LA5_2<=Or)||(LA5_2>=RightParenthesis && LA5_2<=HyphenMinus)||(LA5_2>=Solidus && LA5_2<=LessThanSign)||LA5_2==GreaterThanSign||(LA5_2>=RULE_BEGIN && LA5_2<=RULE_ID)) ) {
+                    alt5=3;
                 }
                 else {
                     NoViableAltException nvae =
@@ -3238,14 +3442,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
             switch (alt5) {
                 case 1 :
-                    // InternalKlangParser.g:1034:2: ( ( rule__AtomicExpression__Group_0__0 ) )
+                    // InternalKlangParser.g:1071:2: ( ( rule__AtomicExpression__Group_0__0 ) )
                     {
-                    // InternalKlangParser.g:1034:2: ( ( rule__AtomicExpression__Group_0__0 ) )
-                    // InternalKlangParser.g:1035:3: ( rule__AtomicExpression__Group_0__0 )
+                    // InternalKlangParser.g:1071:2: ( ( rule__AtomicExpression__Group_0__0 ) )
+                    // InternalKlangParser.g:1072:3: ( rule__AtomicExpression__Group_0__0 )
                     {
                      before(grammarAccess.getAtomicExpressionAccess().getGroup_0()); 
-                    // InternalKlangParser.g:1036:3: ( rule__AtomicExpression__Group_0__0 )
-                    // InternalKlangParser.g:1036:4: rule__AtomicExpression__Group_0__0
+                    // InternalKlangParser.g:1073:3: ( rule__AtomicExpression__Group_0__0 )
+                    // InternalKlangParser.g:1073:4: rule__AtomicExpression__Group_0__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__AtomicExpression__Group_0__0();
@@ -3263,14 +3467,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalKlangParser.g:1040:2: ( ( rule__AtomicExpression__Group_1__0 ) )
+                    // InternalKlangParser.g:1077:2: ( ( rule__AtomicExpression__Group_1__0 ) )
                     {
-                    // InternalKlangParser.g:1040:2: ( ( rule__AtomicExpression__Group_1__0 ) )
-                    // InternalKlangParser.g:1041:3: ( rule__AtomicExpression__Group_1__0 )
+                    // InternalKlangParser.g:1077:2: ( ( rule__AtomicExpression__Group_1__0 ) )
+                    // InternalKlangParser.g:1078:3: ( rule__AtomicExpression__Group_1__0 )
                     {
                      before(grammarAccess.getAtomicExpressionAccess().getGroup_1()); 
-                    // InternalKlangParser.g:1042:3: ( rule__AtomicExpression__Group_1__0 )
-                    // InternalKlangParser.g:1042:4: rule__AtomicExpression__Group_1__0
+                    // InternalKlangParser.g:1079:3: ( rule__AtomicExpression__Group_1__0 )
+                    // InternalKlangParser.g:1079:4: rule__AtomicExpression__Group_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__AtomicExpression__Group_1__0();
@@ -3288,14 +3492,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalKlangParser.g:1046:2: ( ( rule__AtomicExpression__Group_2__0 ) )
+                    // InternalKlangParser.g:1083:2: ( ( rule__AtomicExpression__Group_2__0 ) )
                     {
-                    // InternalKlangParser.g:1046:2: ( ( rule__AtomicExpression__Group_2__0 ) )
-                    // InternalKlangParser.g:1047:3: ( rule__AtomicExpression__Group_2__0 )
+                    // InternalKlangParser.g:1083:2: ( ( rule__AtomicExpression__Group_2__0 ) )
+                    // InternalKlangParser.g:1084:3: ( rule__AtomicExpression__Group_2__0 )
                     {
                      before(grammarAccess.getAtomicExpressionAccess().getGroup_2()); 
-                    // InternalKlangParser.g:1048:3: ( rule__AtomicExpression__Group_2__0 )
-                    // InternalKlangParser.g:1048:4: rule__AtomicExpression__Group_2__0
+                    // InternalKlangParser.g:1085:3: ( rule__AtomicExpression__Group_2__0 )
+                    // InternalKlangParser.g:1085:4: rule__AtomicExpression__Group_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__AtomicExpression__Group_2__0();
@@ -3313,14 +3517,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // InternalKlangParser.g:1052:2: ( ( rule__AtomicExpression__Group_3__0 ) )
+                    // InternalKlangParser.g:1089:2: ( ( rule__AtomicExpression__Group_3__0 ) )
                     {
-                    // InternalKlangParser.g:1052:2: ( ( rule__AtomicExpression__Group_3__0 ) )
-                    // InternalKlangParser.g:1053:3: ( rule__AtomicExpression__Group_3__0 )
+                    // InternalKlangParser.g:1089:2: ( ( rule__AtomicExpression__Group_3__0 ) )
+                    // InternalKlangParser.g:1090:3: ( rule__AtomicExpression__Group_3__0 )
                     {
                      before(grammarAccess.getAtomicExpressionAccess().getGroup_3()); 
-                    // InternalKlangParser.g:1054:3: ( rule__AtomicExpression__Group_3__0 )
-                    // InternalKlangParser.g:1054:4: rule__AtomicExpression__Group_3__0
+                    // InternalKlangParser.g:1091:3: ( rule__AtomicExpression__Group_3__0 )
+                    // InternalKlangParser.g:1091:4: rule__AtomicExpression__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__AtomicExpression__Group_3__0();
@@ -3338,14 +3542,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 5 :
-                    // InternalKlangParser.g:1058:2: ( ( rule__AtomicExpression__Group_4__0 ) )
+                    // InternalKlangParser.g:1095:2: ( ( rule__AtomicExpression__Group_4__0 ) )
                     {
-                    // InternalKlangParser.g:1058:2: ( ( rule__AtomicExpression__Group_4__0 ) )
-                    // InternalKlangParser.g:1059:3: ( rule__AtomicExpression__Group_4__0 )
+                    // InternalKlangParser.g:1095:2: ( ( rule__AtomicExpression__Group_4__0 ) )
+                    // InternalKlangParser.g:1096:3: ( rule__AtomicExpression__Group_4__0 )
                     {
                      before(grammarAccess.getAtomicExpressionAccess().getGroup_4()); 
-                    // InternalKlangParser.g:1060:3: ( rule__AtomicExpression__Group_4__0 )
-                    // InternalKlangParser.g:1060:4: rule__AtomicExpression__Group_4__0
+                    // InternalKlangParser.g:1097:3: ( rule__AtomicExpression__Group_4__0 )
+                    // InternalKlangParser.g:1097:4: rule__AtomicExpression__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__AtomicExpression__Group_4__0();
@@ -3380,13 +3584,13 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpression__Alternatives_0_1"
-    // InternalKlangParser.g:1068:1: rule__AtomicExpression__Alternatives_0_1 : ( ( ( rule__AtomicExpression__ValueAssignment_0_1_0 ) ) | ( False ) );
+    // InternalKlangParser.g:1105:1: rule__AtomicExpression__Alternatives_0_1 : ( ( ( rule__AtomicExpression__ValueAssignment_0_1_0 ) ) | ( False ) );
     public final void rule__AtomicExpression__Alternatives_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1072:1: ( ( ( rule__AtomicExpression__ValueAssignment_0_1_0 ) ) | ( False ) )
+            // InternalKlangParser.g:1109:1: ( ( ( rule__AtomicExpression__ValueAssignment_0_1_0 ) ) | ( False ) )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -3404,14 +3608,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalKlangParser.g:1073:2: ( ( rule__AtomicExpression__ValueAssignment_0_1_0 ) )
+                    // InternalKlangParser.g:1110:2: ( ( rule__AtomicExpression__ValueAssignment_0_1_0 ) )
                     {
-                    // InternalKlangParser.g:1073:2: ( ( rule__AtomicExpression__ValueAssignment_0_1_0 ) )
-                    // InternalKlangParser.g:1074:3: ( rule__AtomicExpression__ValueAssignment_0_1_0 )
+                    // InternalKlangParser.g:1110:2: ( ( rule__AtomicExpression__ValueAssignment_0_1_0 ) )
+                    // InternalKlangParser.g:1111:3: ( rule__AtomicExpression__ValueAssignment_0_1_0 )
                     {
                      before(grammarAccess.getAtomicExpressionAccess().getValueAssignment_0_1_0()); 
-                    // InternalKlangParser.g:1075:3: ( rule__AtomicExpression__ValueAssignment_0_1_0 )
-                    // InternalKlangParser.g:1075:4: rule__AtomicExpression__ValueAssignment_0_1_0
+                    // InternalKlangParser.g:1112:3: ( rule__AtomicExpression__ValueAssignment_0_1_0 )
+                    // InternalKlangParser.g:1112:4: rule__AtomicExpression__ValueAssignment_0_1_0
                     {
                     pushFollow(FOLLOW_2);
                     rule__AtomicExpression__ValueAssignment_0_1_0();
@@ -3429,10 +3633,10 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalKlangParser.g:1079:2: ( False )
+                    // InternalKlangParser.g:1116:2: ( False )
                     {
-                    // InternalKlangParser.g:1079:2: ( False )
-                    // InternalKlangParser.g:1080:3: False
+                    // InternalKlangParser.g:1116:2: ( False )
+                    // InternalKlangParser.g:1117:3: False
                     {
                      before(grammarAccess.getAtomicExpressionAccess().getFalseKeyword_0_1_1()); 
                     match(input,False,FOLLOW_2); 
@@ -3461,13 +3665,13 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Keys__Alternatives"
-    // InternalKlangParser.g:1089:1: rule__Keys__Alternatives : ( ( ( A ) ) | ( ( B ) ) | ( ( C ) ) | ( ( D ) ) | ( ( E ) ) | ( ( F ) ) | ( ( G ) ) | ( ( H ) ) | ( ( I ) ) | ( ( J ) ) | ( ( K ) ) | ( ( L ) ) | ( ( M ) ) | ( ( N ) ) | ( ( O ) ) | ( ( P ) ) | ( ( Q ) ) | ( ( R ) ) | ( ( S ) ) | ( ( T ) ) | ( ( U ) ) | ( ( V ) ) | ( ( W ) ) | ( ( X ) ) | ( ( Y ) ) | ( ( Z ) ) | ( ( SPACE ) ) | ( ( ENTER ) ) );
+    // InternalKlangParser.g:1126:1: rule__Keys__Alternatives : ( ( ( A ) ) | ( ( B ) ) | ( ( C ) ) | ( ( D ) ) | ( ( E ) ) | ( ( F ) ) | ( ( G ) ) | ( ( H ) ) | ( ( I ) ) | ( ( J ) ) | ( ( K ) ) | ( ( L ) ) | ( ( M ) ) | ( ( N ) ) | ( ( O ) ) | ( ( P ) ) | ( ( Q ) ) | ( ( R ) ) | ( ( S ) ) | ( ( T ) ) | ( ( U ) ) | ( ( V ) ) | ( ( W ) ) | ( ( X ) ) | ( ( Y ) ) | ( ( Z ) ) | ( ( SPACE ) ) | ( ( ENTER ) ) );
     public final void rule__Keys__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1093:1: ( ( ( A ) ) | ( ( B ) ) | ( ( C ) ) | ( ( D ) ) | ( ( E ) ) | ( ( F ) ) | ( ( G ) ) | ( ( H ) ) | ( ( I ) ) | ( ( J ) ) | ( ( K ) ) | ( ( L ) ) | ( ( M ) ) | ( ( N ) ) | ( ( O ) ) | ( ( P ) ) | ( ( Q ) ) | ( ( R ) ) | ( ( S ) ) | ( ( T ) ) | ( ( U ) ) | ( ( V ) ) | ( ( W ) ) | ( ( X ) ) | ( ( Y ) ) | ( ( Z ) ) | ( ( SPACE ) ) | ( ( ENTER ) ) )
+            // InternalKlangParser.g:1130:1: ( ( ( A ) ) | ( ( B ) ) | ( ( C ) ) | ( ( D ) ) | ( ( E ) ) | ( ( F ) ) | ( ( G ) ) | ( ( H ) ) | ( ( I ) ) | ( ( J ) ) | ( ( K ) ) | ( ( L ) ) | ( ( M ) ) | ( ( N ) ) | ( ( O ) ) | ( ( P ) ) | ( ( Q ) ) | ( ( R ) ) | ( ( S ) ) | ( ( T ) ) | ( ( U ) ) | ( ( V ) ) | ( ( W ) ) | ( ( X ) ) | ( ( Y ) ) | ( ( Z ) ) | ( ( SPACE ) ) | ( ( ENTER ) ) )
             int alt7=28;
             switch ( input.LA(1) ) {
             case A:
@@ -3619,14 +3823,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
             switch (alt7) {
                 case 1 :
-                    // InternalKlangParser.g:1094:2: ( ( A ) )
+                    // InternalKlangParser.g:1131:2: ( ( A ) )
                     {
-                    // InternalKlangParser.g:1094:2: ( ( A ) )
-                    // InternalKlangParser.g:1095:3: ( A )
+                    // InternalKlangParser.g:1131:2: ( ( A ) )
+                    // InternalKlangParser.g:1132:3: ( A )
                     {
                      before(grammarAccess.getKeysAccess().getAEnumLiteralDeclaration_0()); 
-                    // InternalKlangParser.g:1096:3: ( A )
-                    // InternalKlangParser.g:1096:4: A
+                    // InternalKlangParser.g:1133:3: ( A )
+                    // InternalKlangParser.g:1133:4: A
                     {
                     match(input,A,FOLLOW_2); 
 
@@ -3640,14 +3844,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalKlangParser.g:1100:2: ( ( B ) )
+                    // InternalKlangParser.g:1137:2: ( ( B ) )
                     {
-                    // InternalKlangParser.g:1100:2: ( ( B ) )
-                    // InternalKlangParser.g:1101:3: ( B )
+                    // InternalKlangParser.g:1137:2: ( ( B ) )
+                    // InternalKlangParser.g:1138:3: ( B )
                     {
                      before(grammarAccess.getKeysAccess().getBEnumLiteralDeclaration_1()); 
-                    // InternalKlangParser.g:1102:3: ( B )
-                    // InternalKlangParser.g:1102:4: B
+                    // InternalKlangParser.g:1139:3: ( B )
+                    // InternalKlangParser.g:1139:4: B
                     {
                     match(input,B,FOLLOW_2); 
 
@@ -3661,14 +3865,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalKlangParser.g:1106:2: ( ( C ) )
+                    // InternalKlangParser.g:1143:2: ( ( C ) )
                     {
-                    // InternalKlangParser.g:1106:2: ( ( C ) )
-                    // InternalKlangParser.g:1107:3: ( C )
+                    // InternalKlangParser.g:1143:2: ( ( C ) )
+                    // InternalKlangParser.g:1144:3: ( C )
                     {
                      before(grammarAccess.getKeysAccess().getCEnumLiteralDeclaration_2()); 
-                    // InternalKlangParser.g:1108:3: ( C )
-                    // InternalKlangParser.g:1108:4: C
+                    // InternalKlangParser.g:1145:3: ( C )
+                    // InternalKlangParser.g:1145:4: C
                     {
                     match(input,C,FOLLOW_2); 
 
@@ -3682,14 +3886,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // InternalKlangParser.g:1112:2: ( ( D ) )
+                    // InternalKlangParser.g:1149:2: ( ( D ) )
                     {
-                    // InternalKlangParser.g:1112:2: ( ( D ) )
-                    // InternalKlangParser.g:1113:3: ( D )
+                    // InternalKlangParser.g:1149:2: ( ( D ) )
+                    // InternalKlangParser.g:1150:3: ( D )
                     {
                      before(grammarAccess.getKeysAccess().getDEnumLiteralDeclaration_3()); 
-                    // InternalKlangParser.g:1114:3: ( D )
-                    // InternalKlangParser.g:1114:4: D
+                    // InternalKlangParser.g:1151:3: ( D )
+                    // InternalKlangParser.g:1151:4: D
                     {
                     match(input,D,FOLLOW_2); 
 
@@ -3703,14 +3907,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 5 :
-                    // InternalKlangParser.g:1118:2: ( ( E ) )
+                    // InternalKlangParser.g:1155:2: ( ( E ) )
                     {
-                    // InternalKlangParser.g:1118:2: ( ( E ) )
-                    // InternalKlangParser.g:1119:3: ( E )
+                    // InternalKlangParser.g:1155:2: ( ( E ) )
+                    // InternalKlangParser.g:1156:3: ( E )
                     {
                      before(grammarAccess.getKeysAccess().getEEnumLiteralDeclaration_4()); 
-                    // InternalKlangParser.g:1120:3: ( E )
-                    // InternalKlangParser.g:1120:4: E
+                    // InternalKlangParser.g:1157:3: ( E )
+                    // InternalKlangParser.g:1157:4: E
                     {
                     match(input,E,FOLLOW_2); 
 
@@ -3724,14 +3928,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 6 :
-                    // InternalKlangParser.g:1124:2: ( ( F ) )
+                    // InternalKlangParser.g:1161:2: ( ( F ) )
                     {
-                    // InternalKlangParser.g:1124:2: ( ( F ) )
-                    // InternalKlangParser.g:1125:3: ( F )
+                    // InternalKlangParser.g:1161:2: ( ( F ) )
+                    // InternalKlangParser.g:1162:3: ( F )
                     {
                      before(grammarAccess.getKeysAccess().getFEnumLiteralDeclaration_5()); 
-                    // InternalKlangParser.g:1126:3: ( F )
-                    // InternalKlangParser.g:1126:4: F
+                    // InternalKlangParser.g:1163:3: ( F )
+                    // InternalKlangParser.g:1163:4: F
                     {
                     match(input,F,FOLLOW_2); 
 
@@ -3745,14 +3949,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 7 :
-                    // InternalKlangParser.g:1130:2: ( ( G ) )
+                    // InternalKlangParser.g:1167:2: ( ( G ) )
                     {
-                    // InternalKlangParser.g:1130:2: ( ( G ) )
-                    // InternalKlangParser.g:1131:3: ( G )
+                    // InternalKlangParser.g:1167:2: ( ( G ) )
+                    // InternalKlangParser.g:1168:3: ( G )
                     {
                      before(grammarAccess.getKeysAccess().getGEnumLiteralDeclaration_6()); 
-                    // InternalKlangParser.g:1132:3: ( G )
-                    // InternalKlangParser.g:1132:4: G
+                    // InternalKlangParser.g:1169:3: ( G )
+                    // InternalKlangParser.g:1169:4: G
                     {
                     match(input,G,FOLLOW_2); 
 
@@ -3766,14 +3970,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 8 :
-                    // InternalKlangParser.g:1136:2: ( ( H ) )
+                    // InternalKlangParser.g:1173:2: ( ( H ) )
                     {
-                    // InternalKlangParser.g:1136:2: ( ( H ) )
-                    // InternalKlangParser.g:1137:3: ( H )
+                    // InternalKlangParser.g:1173:2: ( ( H ) )
+                    // InternalKlangParser.g:1174:3: ( H )
                     {
                      before(grammarAccess.getKeysAccess().getHEnumLiteralDeclaration_7()); 
-                    // InternalKlangParser.g:1138:3: ( H )
-                    // InternalKlangParser.g:1138:4: H
+                    // InternalKlangParser.g:1175:3: ( H )
+                    // InternalKlangParser.g:1175:4: H
                     {
                     match(input,H,FOLLOW_2); 
 
@@ -3787,14 +3991,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 9 :
-                    // InternalKlangParser.g:1142:2: ( ( I ) )
+                    // InternalKlangParser.g:1179:2: ( ( I ) )
                     {
-                    // InternalKlangParser.g:1142:2: ( ( I ) )
-                    // InternalKlangParser.g:1143:3: ( I )
+                    // InternalKlangParser.g:1179:2: ( ( I ) )
+                    // InternalKlangParser.g:1180:3: ( I )
                     {
                      before(grammarAccess.getKeysAccess().getIEnumLiteralDeclaration_8()); 
-                    // InternalKlangParser.g:1144:3: ( I )
-                    // InternalKlangParser.g:1144:4: I
+                    // InternalKlangParser.g:1181:3: ( I )
+                    // InternalKlangParser.g:1181:4: I
                     {
                     match(input,I,FOLLOW_2); 
 
@@ -3808,14 +4012,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 10 :
-                    // InternalKlangParser.g:1148:2: ( ( J ) )
+                    // InternalKlangParser.g:1185:2: ( ( J ) )
                     {
-                    // InternalKlangParser.g:1148:2: ( ( J ) )
-                    // InternalKlangParser.g:1149:3: ( J )
+                    // InternalKlangParser.g:1185:2: ( ( J ) )
+                    // InternalKlangParser.g:1186:3: ( J )
                     {
                      before(grammarAccess.getKeysAccess().getJEnumLiteralDeclaration_9()); 
-                    // InternalKlangParser.g:1150:3: ( J )
-                    // InternalKlangParser.g:1150:4: J
+                    // InternalKlangParser.g:1187:3: ( J )
+                    // InternalKlangParser.g:1187:4: J
                     {
                     match(input,J,FOLLOW_2); 
 
@@ -3829,14 +4033,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 11 :
-                    // InternalKlangParser.g:1154:2: ( ( K ) )
+                    // InternalKlangParser.g:1191:2: ( ( K ) )
                     {
-                    // InternalKlangParser.g:1154:2: ( ( K ) )
-                    // InternalKlangParser.g:1155:3: ( K )
+                    // InternalKlangParser.g:1191:2: ( ( K ) )
+                    // InternalKlangParser.g:1192:3: ( K )
                     {
                      before(grammarAccess.getKeysAccess().getKEnumLiteralDeclaration_10()); 
-                    // InternalKlangParser.g:1156:3: ( K )
-                    // InternalKlangParser.g:1156:4: K
+                    // InternalKlangParser.g:1193:3: ( K )
+                    // InternalKlangParser.g:1193:4: K
                     {
                     match(input,K,FOLLOW_2); 
 
@@ -3850,14 +4054,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 12 :
-                    // InternalKlangParser.g:1160:2: ( ( L ) )
+                    // InternalKlangParser.g:1197:2: ( ( L ) )
                     {
-                    // InternalKlangParser.g:1160:2: ( ( L ) )
-                    // InternalKlangParser.g:1161:3: ( L )
+                    // InternalKlangParser.g:1197:2: ( ( L ) )
+                    // InternalKlangParser.g:1198:3: ( L )
                     {
                      before(grammarAccess.getKeysAccess().getLEnumLiteralDeclaration_11()); 
-                    // InternalKlangParser.g:1162:3: ( L )
-                    // InternalKlangParser.g:1162:4: L
+                    // InternalKlangParser.g:1199:3: ( L )
+                    // InternalKlangParser.g:1199:4: L
                     {
                     match(input,L,FOLLOW_2); 
 
@@ -3871,14 +4075,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 13 :
-                    // InternalKlangParser.g:1166:2: ( ( M ) )
+                    // InternalKlangParser.g:1203:2: ( ( M ) )
                     {
-                    // InternalKlangParser.g:1166:2: ( ( M ) )
-                    // InternalKlangParser.g:1167:3: ( M )
+                    // InternalKlangParser.g:1203:2: ( ( M ) )
+                    // InternalKlangParser.g:1204:3: ( M )
                     {
                      before(grammarAccess.getKeysAccess().getMEnumLiteralDeclaration_12()); 
-                    // InternalKlangParser.g:1168:3: ( M )
-                    // InternalKlangParser.g:1168:4: M
+                    // InternalKlangParser.g:1205:3: ( M )
+                    // InternalKlangParser.g:1205:4: M
                     {
                     match(input,M,FOLLOW_2); 
 
@@ -3892,14 +4096,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 14 :
-                    // InternalKlangParser.g:1172:2: ( ( N ) )
+                    // InternalKlangParser.g:1209:2: ( ( N ) )
                     {
-                    // InternalKlangParser.g:1172:2: ( ( N ) )
-                    // InternalKlangParser.g:1173:3: ( N )
+                    // InternalKlangParser.g:1209:2: ( ( N ) )
+                    // InternalKlangParser.g:1210:3: ( N )
                     {
                      before(grammarAccess.getKeysAccess().getNEnumLiteralDeclaration_13()); 
-                    // InternalKlangParser.g:1174:3: ( N )
-                    // InternalKlangParser.g:1174:4: N
+                    // InternalKlangParser.g:1211:3: ( N )
+                    // InternalKlangParser.g:1211:4: N
                     {
                     match(input,N,FOLLOW_2); 
 
@@ -3913,14 +4117,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 15 :
-                    // InternalKlangParser.g:1178:2: ( ( O ) )
+                    // InternalKlangParser.g:1215:2: ( ( O ) )
                     {
-                    // InternalKlangParser.g:1178:2: ( ( O ) )
-                    // InternalKlangParser.g:1179:3: ( O )
+                    // InternalKlangParser.g:1215:2: ( ( O ) )
+                    // InternalKlangParser.g:1216:3: ( O )
                     {
                      before(grammarAccess.getKeysAccess().getOEnumLiteralDeclaration_14()); 
-                    // InternalKlangParser.g:1180:3: ( O )
-                    // InternalKlangParser.g:1180:4: O
+                    // InternalKlangParser.g:1217:3: ( O )
+                    // InternalKlangParser.g:1217:4: O
                     {
                     match(input,O,FOLLOW_2); 
 
@@ -3934,14 +4138,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 16 :
-                    // InternalKlangParser.g:1184:2: ( ( P ) )
+                    // InternalKlangParser.g:1221:2: ( ( P ) )
                     {
-                    // InternalKlangParser.g:1184:2: ( ( P ) )
-                    // InternalKlangParser.g:1185:3: ( P )
+                    // InternalKlangParser.g:1221:2: ( ( P ) )
+                    // InternalKlangParser.g:1222:3: ( P )
                     {
                      before(grammarAccess.getKeysAccess().getPEnumLiteralDeclaration_15()); 
-                    // InternalKlangParser.g:1186:3: ( P )
-                    // InternalKlangParser.g:1186:4: P
+                    // InternalKlangParser.g:1223:3: ( P )
+                    // InternalKlangParser.g:1223:4: P
                     {
                     match(input,P,FOLLOW_2); 
 
@@ -3955,14 +4159,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 17 :
-                    // InternalKlangParser.g:1190:2: ( ( Q ) )
+                    // InternalKlangParser.g:1227:2: ( ( Q ) )
                     {
-                    // InternalKlangParser.g:1190:2: ( ( Q ) )
-                    // InternalKlangParser.g:1191:3: ( Q )
+                    // InternalKlangParser.g:1227:2: ( ( Q ) )
+                    // InternalKlangParser.g:1228:3: ( Q )
                     {
                      before(grammarAccess.getKeysAccess().getQEnumLiteralDeclaration_16()); 
-                    // InternalKlangParser.g:1192:3: ( Q )
-                    // InternalKlangParser.g:1192:4: Q
+                    // InternalKlangParser.g:1229:3: ( Q )
+                    // InternalKlangParser.g:1229:4: Q
                     {
                     match(input,Q,FOLLOW_2); 
 
@@ -3976,14 +4180,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 18 :
-                    // InternalKlangParser.g:1196:2: ( ( R ) )
+                    // InternalKlangParser.g:1233:2: ( ( R ) )
                     {
-                    // InternalKlangParser.g:1196:2: ( ( R ) )
-                    // InternalKlangParser.g:1197:3: ( R )
+                    // InternalKlangParser.g:1233:2: ( ( R ) )
+                    // InternalKlangParser.g:1234:3: ( R )
                     {
                      before(grammarAccess.getKeysAccess().getREnumLiteralDeclaration_17()); 
-                    // InternalKlangParser.g:1198:3: ( R )
-                    // InternalKlangParser.g:1198:4: R
+                    // InternalKlangParser.g:1235:3: ( R )
+                    // InternalKlangParser.g:1235:4: R
                     {
                     match(input,R,FOLLOW_2); 
 
@@ -3997,14 +4201,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 19 :
-                    // InternalKlangParser.g:1202:2: ( ( S ) )
+                    // InternalKlangParser.g:1239:2: ( ( S ) )
                     {
-                    // InternalKlangParser.g:1202:2: ( ( S ) )
-                    // InternalKlangParser.g:1203:3: ( S )
+                    // InternalKlangParser.g:1239:2: ( ( S ) )
+                    // InternalKlangParser.g:1240:3: ( S )
                     {
                      before(grammarAccess.getKeysAccess().getSEnumLiteralDeclaration_18()); 
-                    // InternalKlangParser.g:1204:3: ( S )
-                    // InternalKlangParser.g:1204:4: S
+                    // InternalKlangParser.g:1241:3: ( S )
+                    // InternalKlangParser.g:1241:4: S
                     {
                     match(input,S,FOLLOW_2); 
 
@@ -4018,14 +4222,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 20 :
-                    // InternalKlangParser.g:1208:2: ( ( T ) )
+                    // InternalKlangParser.g:1245:2: ( ( T ) )
                     {
-                    // InternalKlangParser.g:1208:2: ( ( T ) )
-                    // InternalKlangParser.g:1209:3: ( T )
+                    // InternalKlangParser.g:1245:2: ( ( T ) )
+                    // InternalKlangParser.g:1246:3: ( T )
                     {
                      before(grammarAccess.getKeysAccess().getTEnumLiteralDeclaration_19()); 
-                    // InternalKlangParser.g:1210:3: ( T )
-                    // InternalKlangParser.g:1210:4: T
+                    // InternalKlangParser.g:1247:3: ( T )
+                    // InternalKlangParser.g:1247:4: T
                     {
                     match(input,T,FOLLOW_2); 
 
@@ -4039,14 +4243,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 21 :
-                    // InternalKlangParser.g:1214:2: ( ( U ) )
+                    // InternalKlangParser.g:1251:2: ( ( U ) )
                     {
-                    // InternalKlangParser.g:1214:2: ( ( U ) )
-                    // InternalKlangParser.g:1215:3: ( U )
+                    // InternalKlangParser.g:1251:2: ( ( U ) )
+                    // InternalKlangParser.g:1252:3: ( U )
                     {
                      before(grammarAccess.getKeysAccess().getUEnumLiteralDeclaration_20()); 
-                    // InternalKlangParser.g:1216:3: ( U )
-                    // InternalKlangParser.g:1216:4: U
+                    // InternalKlangParser.g:1253:3: ( U )
+                    // InternalKlangParser.g:1253:4: U
                     {
                     match(input,U,FOLLOW_2); 
 
@@ -4060,14 +4264,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 22 :
-                    // InternalKlangParser.g:1220:2: ( ( V ) )
+                    // InternalKlangParser.g:1257:2: ( ( V ) )
                     {
-                    // InternalKlangParser.g:1220:2: ( ( V ) )
-                    // InternalKlangParser.g:1221:3: ( V )
+                    // InternalKlangParser.g:1257:2: ( ( V ) )
+                    // InternalKlangParser.g:1258:3: ( V )
                     {
                      before(grammarAccess.getKeysAccess().getVEnumLiteralDeclaration_21()); 
-                    // InternalKlangParser.g:1222:3: ( V )
-                    // InternalKlangParser.g:1222:4: V
+                    // InternalKlangParser.g:1259:3: ( V )
+                    // InternalKlangParser.g:1259:4: V
                     {
                     match(input,V,FOLLOW_2); 
 
@@ -4081,14 +4285,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 23 :
-                    // InternalKlangParser.g:1226:2: ( ( W ) )
+                    // InternalKlangParser.g:1263:2: ( ( W ) )
                     {
-                    // InternalKlangParser.g:1226:2: ( ( W ) )
-                    // InternalKlangParser.g:1227:3: ( W )
+                    // InternalKlangParser.g:1263:2: ( ( W ) )
+                    // InternalKlangParser.g:1264:3: ( W )
                     {
                      before(grammarAccess.getKeysAccess().getWEnumLiteralDeclaration_22()); 
-                    // InternalKlangParser.g:1228:3: ( W )
-                    // InternalKlangParser.g:1228:4: W
+                    // InternalKlangParser.g:1265:3: ( W )
+                    // InternalKlangParser.g:1265:4: W
                     {
                     match(input,W,FOLLOW_2); 
 
@@ -4102,14 +4306,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 24 :
-                    // InternalKlangParser.g:1232:2: ( ( X ) )
+                    // InternalKlangParser.g:1269:2: ( ( X ) )
                     {
-                    // InternalKlangParser.g:1232:2: ( ( X ) )
-                    // InternalKlangParser.g:1233:3: ( X )
+                    // InternalKlangParser.g:1269:2: ( ( X ) )
+                    // InternalKlangParser.g:1270:3: ( X )
                     {
                      before(grammarAccess.getKeysAccess().getXEnumLiteralDeclaration_23()); 
-                    // InternalKlangParser.g:1234:3: ( X )
-                    // InternalKlangParser.g:1234:4: X
+                    // InternalKlangParser.g:1271:3: ( X )
+                    // InternalKlangParser.g:1271:4: X
                     {
                     match(input,X,FOLLOW_2); 
 
@@ -4123,14 +4327,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 25 :
-                    // InternalKlangParser.g:1238:2: ( ( Y ) )
+                    // InternalKlangParser.g:1275:2: ( ( Y ) )
                     {
-                    // InternalKlangParser.g:1238:2: ( ( Y ) )
-                    // InternalKlangParser.g:1239:3: ( Y )
+                    // InternalKlangParser.g:1275:2: ( ( Y ) )
+                    // InternalKlangParser.g:1276:3: ( Y )
                     {
                      before(grammarAccess.getKeysAccess().getYEnumLiteralDeclaration_24()); 
-                    // InternalKlangParser.g:1240:3: ( Y )
-                    // InternalKlangParser.g:1240:4: Y
+                    // InternalKlangParser.g:1277:3: ( Y )
+                    // InternalKlangParser.g:1277:4: Y
                     {
                     match(input,Y,FOLLOW_2); 
 
@@ -4144,14 +4348,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 26 :
-                    // InternalKlangParser.g:1244:2: ( ( Z ) )
+                    // InternalKlangParser.g:1281:2: ( ( Z ) )
                     {
-                    // InternalKlangParser.g:1244:2: ( ( Z ) )
-                    // InternalKlangParser.g:1245:3: ( Z )
+                    // InternalKlangParser.g:1281:2: ( ( Z ) )
+                    // InternalKlangParser.g:1282:3: ( Z )
                     {
                      before(grammarAccess.getKeysAccess().getZEnumLiteralDeclaration_25()); 
-                    // InternalKlangParser.g:1246:3: ( Z )
-                    // InternalKlangParser.g:1246:4: Z
+                    // InternalKlangParser.g:1283:3: ( Z )
+                    // InternalKlangParser.g:1283:4: Z
                     {
                     match(input,Z,FOLLOW_2); 
 
@@ -4165,14 +4369,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 27 :
-                    // InternalKlangParser.g:1250:2: ( ( SPACE ) )
+                    // InternalKlangParser.g:1287:2: ( ( SPACE ) )
                     {
-                    // InternalKlangParser.g:1250:2: ( ( SPACE ) )
-                    // InternalKlangParser.g:1251:3: ( SPACE )
+                    // InternalKlangParser.g:1287:2: ( ( SPACE ) )
+                    // InternalKlangParser.g:1288:3: ( SPACE )
                     {
                      before(grammarAccess.getKeysAccess().getSPACEEnumLiteralDeclaration_26()); 
-                    // InternalKlangParser.g:1252:3: ( SPACE )
-                    // InternalKlangParser.g:1252:4: SPACE
+                    // InternalKlangParser.g:1289:3: ( SPACE )
+                    // InternalKlangParser.g:1289:4: SPACE
                     {
                     match(input,SPACE,FOLLOW_2); 
 
@@ -4186,14 +4390,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 28 :
-                    // InternalKlangParser.g:1256:2: ( ( ENTER ) )
+                    // InternalKlangParser.g:1293:2: ( ( ENTER ) )
                     {
-                    // InternalKlangParser.g:1256:2: ( ( ENTER ) )
-                    // InternalKlangParser.g:1257:3: ( ENTER )
+                    // InternalKlangParser.g:1293:2: ( ( ENTER ) )
+                    // InternalKlangParser.g:1294:3: ( ENTER )
                     {
                      before(grammarAccess.getKeysAccess().getENTEREnumLiteralDeclaration_27()); 
-                    // InternalKlangParser.g:1258:3: ( ENTER )
-                    // InternalKlangParser.g:1258:4: ENTER
+                    // InternalKlangParser.g:1295:3: ( ENTER )
+                    // InternalKlangParser.g:1295:4: ENTER
                     {
                     match(input,ENTER,FOLLOW_2); 
 
@@ -4224,14 +4428,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Program__Group__0"
-    // InternalKlangParser.g:1266:1: rule__Program__Group__0 : rule__Program__Group__0__Impl rule__Program__Group__1 ;
+    // InternalKlangParser.g:1303:1: rule__Program__Group__0 : rule__Program__Group__0__Impl rule__Program__Group__1 ;
     public final void rule__Program__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1270:1: ( rule__Program__Group__0__Impl rule__Program__Group__1 )
-            // InternalKlangParser.g:1271:2: rule__Program__Group__0__Impl rule__Program__Group__1
+            // InternalKlangParser.g:1307:1: ( rule__Program__Group__0__Impl rule__Program__Group__1 )
+            // InternalKlangParser.g:1308:2: rule__Program__Group__0__Impl rule__Program__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__Program__Group__0__Impl();
@@ -4262,21 +4466,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Program__Group__0__Impl"
-    // InternalKlangParser.g:1278:1: rule__Program__Group__0__Impl : ( ( rule__Program__SceneActorAssignment_0 ) ) ;
+    // InternalKlangParser.g:1315:1: rule__Program__Group__0__Impl : ( ( rule__Program__SceneActorAssignment_0 ) ) ;
     public final void rule__Program__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1282:1: ( ( ( rule__Program__SceneActorAssignment_0 ) ) )
-            // InternalKlangParser.g:1283:1: ( ( rule__Program__SceneActorAssignment_0 ) )
+            // InternalKlangParser.g:1319:1: ( ( ( rule__Program__SceneActorAssignment_0 ) ) )
+            // InternalKlangParser.g:1320:1: ( ( rule__Program__SceneActorAssignment_0 ) )
             {
-            // InternalKlangParser.g:1283:1: ( ( rule__Program__SceneActorAssignment_0 ) )
-            // InternalKlangParser.g:1284:2: ( rule__Program__SceneActorAssignment_0 )
+            // InternalKlangParser.g:1320:1: ( ( rule__Program__SceneActorAssignment_0 ) )
+            // InternalKlangParser.g:1321:2: ( rule__Program__SceneActorAssignment_0 )
             {
              before(grammarAccess.getProgramAccess().getSceneActorAssignment_0()); 
-            // InternalKlangParser.g:1285:2: ( rule__Program__SceneActorAssignment_0 )
-            // InternalKlangParser.g:1285:3: rule__Program__SceneActorAssignment_0
+            // InternalKlangParser.g:1322:2: ( rule__Program__SceneActorAssignment_0 )
+            // InternalKlangParser.g:1322:3: rule__Program__SceneActorAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__Program__SceneActorAssignment_0();
@@ -4309,14 +4513,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Program__Group__1"
-    // InternalKlangParser.g:1293:1: rule__Program__Group__1 : rule__Program__Group__1__Impl ;
+    // InternalKlangParser.g:1330:1: rule__Program__Group__1 : rule__Program__Group__1__Impl ;
     public final void rule__Program__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1297:1: ( rule__Program__Group__1__Impl )
-            // InternalKlangParser.g:1298:2: rule__Program__Group__1__Impl
+            // InternalKlangParser.g:1334:1: ( rule__Program__Group__1__Impl )
+            // InternalKlangParser.g:1335:2: rule__Program__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Program__Group__1__Impl();
@@ -4342,20 +4546,20 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Program__Group__1__Impl"
-    // InternalKlangParser.g:1304:1: rule__Program__Group__1__Impl : ( ( rule__Program__SpriteActorsAssignment_1 )* ) ;
+    // InternalKlangParser.g:1341:1: rule__Program__Group__1__Impl : ( ( rule__Program__SpriteActorsAssignment_1 )* ) ;
     public final void rule__Program__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1308:1: ( ( ( rule__Program__SpriteActorsAssignment_1 )* ) )
-            // InternalKlangParser.g:1309:1: ( ( rule__Program__SpriteActorsAssignment_1 )* )
+            // InternalKlangParser.g:1345:1: ( ( ( rule__Program__SpriteActorsAssignment_1 )* ) )
+            // InternalKlangParser.g:1346:1: ( ( rule__Program__SpriteActorsAssignment_1 )* )
             {
-            // InternalKlangParser.g:1309:1: ( ( rule__Program__SpriteActorsAssignment_1 )* )
-            // InternalKlangParser.g:1310:2: ( rule__Program__SpriteActorsAssignment_1 )*
+            // InternalKlangParser.g:1346:1: ( ( rule__Program__SpriteActorsAssignment_1 )* )
+            // InternalKlangParser.g:1347:2: ( rule__Program__SpriteActorsAssignment_1 )*
             {
              before(grammarAccess.getProgramAccess().getSpriteActorsAssignment_1()); 
-            // InternalKlangParser.g:1311:2: ( rule__Program__SpriteActorsAssignment_1 )*
+            // InternalKlangParser.g:1348:2: ( rule__Program__SpriteActorsAssignment_1 )*
             loop8:
             do {
                 int alt8=2;
@@ -4368,7 +4572,7 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalKlangParser.g:1311:3: rule__Program__SpriteActorsAssignment_1
+            	    // InternalKlangParser.g:1348:3: rule__Program__SpriteActorsAssignment_1
             	    {
             	    pushFollow(FOLLOW_4);
             	    rule__Program__SpriteActorsAssignment_1();
@@ -4407,14 +4611,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SceneActor__Group__0"
-    // InternalKlangParser.g:1320:1: rule__SceneActor__Group__0 : rule__SceneActor__Group__0__Impl rule__SceneActor__Group__1 ;
+    // InternalKlangParser.g:1357:1: rule__SceneActor__Group__0 : rule__SceneActor__Group__0__Impl rule__SceneActor__Group__1 ;
     public final void rule__SceneActor__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1324:1: ( rule__SceneActor__Group__0__Impl rule__SceneActor__Group__1 )
-            // InternalKlangParser.g:1325:2: rule__SceneActor__Group__0__Impl rule__SceneActor__Group__1
+            // InternalKlangParser.g:1361:1: ( rule__SceneActor__Group__0__Impl rule__SceneActor__Group__1 )
+            // InternalKlangParser.g:1362:2: rule__SceneActor__Group__0__Impl rule__SceneActor__Group__1
             {
             pushFollow(FOLLOW_5);
             rule__SceneActor__Group__0__Impl();
@@ -4445,21 +4649,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SceneActor__Group__0__Impl"
-    // InternalKlangParser.g:1332:1: rule__SceneActor__Group__0__Impl : ( () ) ;
+    // InternalKlangParser.g:1369:1: rule__SceneActor__Group__0__Impl : ( () ) ;
     public final void rule__SceneActor__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1336:1: ( ( () ) )
-            // InternalKlangParser.g:1337:1: ( () )
+            // InternalKlangParser.g:1373:1: ( ( () ) )
+            // InternalKlangParser.g:1374:1: ( () )
             {
-            // InternalKlangParser.g:1337:1: ( () )
-            // InternalKlangParser.g:1338:2: ()
+            // InternalKlangParser.g:1374:1: ( () )
+            // InternalKlangParser.g:1375:2: ()
             {
              before(grammarAccess.getSceneActorAccess().getSceneActorAction_0()); 
-            // InternalKlangParser.g:1339:2: ()
-            // InternalKlangParser.g:1339:3: 
+            // InternalKlangParser.g:1376:2: ()
+            // InternalKlangParser.g:1376:3: 
             {
             }
 
@@ -4482,14 +4686,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SceneActor__Group__1"
-    // InternalKlangParser.g:1347:1: rule__SceneActor__Group__1 : rule__SceneActor__Group__1__Impl rule__SceneActor__Group__2 ;
+    // InternalKlangParser.g:1384:1: rule__SceneActor__Group__1 : rule__SceneActor__Group__1__Impl rule__SceneActor__Group__2 ;
     public final void rule__SceneActor__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1351:1: ( rule__SceneActor__Group__1__Impl rule__SceneActor__Group__2 )
-            // InternalKlangParser.g:1352:2: rule__SceneActor__Group__1__Impl rule__SceneActor__Group__2
+            // InternalKlangParser.g:1388:1: ( rule__SceneActor__Group__1__Impl rule__SceneActor__Group__2 )
+            // InternalKlangParser.g:1389:2: rule__SceneActor__Group__1__Impl rule__SceneActor__Group__2
             {
             pushFollow(FOLLOW_6);
             rule__SceneActor__Group__1__Impl();
@@ -4520,17 +4724,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SceneActor__Group__1__Impl"
-    // InternalKlangParser.g:1359:1: rule__SceneActor__Group__1__Impl : ( Scene ) ;
+    // InternalKlangParser.g:1396:1: rule__SceneActor__Group__1__Impl : ( Scene ) ;
     public final void rule__SceneActor__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1363:1: ( ( Scene ) )
-            // InternalKlangParser.g:1364:1: ( Scene )
+            // InternalKlangParser.g:1400:1: ( ( Scene ) )
+            // InternalKlangParser.g:1401:1: ( Scene )
             {
-            // InternalKlangParser.g:1364:1: ( Scene )
-            // InternalKlangParser.g:1365:2: Scene
+            // InternalKlangParser.g:1401:1: ( Scene )
+            // InternalKlangParser.g:1402:2: Scene
             {
              before(grammarAccess.getSceneActorAccess().getSceneKeyword_1()); 
             match(input,Scene,FOLLOW_2); 
@@ -4557,14 +4761,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SceneActor__Group__2"
-    // InternalKlangParser.g:1374:1: rule__SceneActor__Group__2 : rule__SceneActor__Group__2__Impl rule__SceneActor__Group__3 ;
+    // InternalKlangParser.g:1411:1: rule__SceneActor__Group__2 : rule__SceneActor__Group__2__Impl rule__SceneActor__Group__3 ;
     public final void rule__SceneActor__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1378:1: ( rule__SceneActor__Group__2__Impl rule__SceneActor__Group__3 )
-            // InternalKlangParser.g:1379:2: rule__SceneActor__Group__2__Impl rule__SceneActor__Group__3
+            // InternalKlangParser.g:1415:1: ( rule__SceneActor__Group__2__Impl rule__SceneActor__Group__3 )
+            // InternalKlangParser.g:1416:2: rule__SceneActor__Group__2__Impl rule__SceneActor__Group__3
             {
             pushFollow(FOLLOW_7);
             rule__SceneActor__Group__2__Impl();
@@ -4595,21 +4799,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SceneActor__Group__2__Impl"
-    // InternalKlangParser.g:1386:1: rule__SceneActor__Group__2__Impl : ( ( rule__SceneActor__NameAssignment_2 ) ) ;
+    // InternalKlangParser.g:1423:1: rule__SceneActor__Group__2__Impl : ( ( rule__SceneActor__NameAssignment_2 ) ) ;
     public final void rule__SceneActor__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1390:1: ( ( ( rule__SceneActor__NameAssignment_2 ) ) )
-            // InternalKlangParser.g:1391:1: ( ( rule__SceneActor__NameAssignment_2 ) )
+            // InternalKlangParser.g:1427:1: ( ( ( rule__SceneActor__NameAssignment_2 ) ) )
+            // InternalKlangParser.g:1428:1: ( ( rule__SceneActor__NameAssignment_2 ) )
             {
-            // InternalKlangParser.g:1391:1: ( ( rule__SceneActor__NameAssignment_2 ) )
-            // InternalKlangParser.g:1392:2: ( rule__SceneActor__NameAssignment_2 )
+            // InternalKlangParser.g:1428:1: ( ( rule__SceneActor__NameAssignment_2 ) )
+            // InternalKlangParser.g:1429:2: ( rule__SceneActor__NameAssignment_2 )
             {
              before(grammarAccess.getSceneActorAccess().getNameAssignment_2()); 
-            // InternalKlangParser.g:1393:2: ( rule__SceneActor__NameAssignment_2 )
-            // InternalKlangParser.g:1393:3: rule__SceneActor__NameAssignment_2
+            // InternalKlangParser.g:1430:2: ( rule__SceneActor__NameAssignment_2 )
+            // InternalKlangParser.g:1430:3: rule__SceneActor__NameAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__SceneActor__NameAssignment_2();
@@ -4642,14 +4846,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SceneActor__Group__3"
-    // InternalKlangParser.g:1401:1: rule__SceneActor__Group__3 : rule__SceneActor__Group__3__Impl ;
+    // InternalKlangParser.g:1438:1: rule__SceneActor__Group__3 : rule__SceneActor__Group__3__Impl ;
     public final void rule__SceneActor__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1405:1: ( rule__SceneActor__Group__3__Impl )
-            // InternalKlangParser.g:1406:2: rule__SceneActor__Group__3__Impl
+            // InternalKlangParser.g:1442:1: ( rule__SceneActor__Group__3__Impl )
+            // InternalKlangParser.g:1443:2: rule__SceneActor__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__SceneActor__Group__3__Impl();
@@ -4675,20 +4879,20 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SceneActor__Group__3__Impl"
-    // InternalKlangParser.g:1412:1: rule__SceneActor__Group__3__Impl : ( ( rule__SceneActor__Group_3__0 )? ) ;
+    // InternalKlangParser.g:1449:1: rule__SceneActor__Group__3__Impl : ( ( rule__SceneActor__Group_3__0 )? ) ;
     public final void rule__SceneActor__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1416:1: ( ( ( rule__SceneActor__Group_3__0 )? ) )
-            // InternalKlangParser.g:1417:1: ( ( rule__SceneActor__Group_3__0 )? )
+            // InternalKlangParser.g:1453:1: ( ( ( rule__SceneActor__Group_3__0 )? ) )
+            // InternalKlangParser.g:1454:1: ( ( rule__SceneActor__Group_3__0 )? )
             {
-            // InternalKlangParser.g:1417:1: ( ( rule__SceneActor__Group_3__0 )? )
-            // InternalKlangParser.g:1418:2: ( rule__SceneActor__Group_3__0 )?
+            // InternalKlangParser.g:1454:1: ( ( rule__SceneActor__Group_3__0 )? )
+            // InternalKlangParser.g:1455:2: ( rule__SceneActor__Group_3__0 )?
             {
              before(grammarAccess.getSceneActorAccess().getGroup_3()); 
-            // InternalKlangParser.g:1419:2: ( rule__SceneActor__Group_3__0 )?
+            // InternalKlangParser.g:1456:2: ( rule__SceneActor__Group_3__0 )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -4697,7 +4901,7 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
             }
             switch (alt9) {
                 case 1 :
-                    // InternalKlangParser.g:1419:3: rule__SceneActor__Group_3__0
+                    // InternalKlangParser.g:1456:3: rule__SceneActor__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__SceneActor__Group_3__0();
@@ -4733,14 +4937,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SceneActor__Group_3__0"
-    // InternalKlangParser.g:1428:1: rule__SceneActor__Group_3__0 : rule__SceneActor__Group_3__0__Impl rule__SceneActor__Group_3__1 ;
+    // InternalKlangParser.g:1465:1: rule__SceneActor__Group_3__0 : rule__SceneActor__Group_3__0__Impl rule__SceneActor__Group_3__1 ;
     public final void rule__SceneActor__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1432:1: ( rule__SceneActor__Group_3__0__Impl rule__SceneActor__Group_3__1 )
-            // InternalKlangParser.g:1433:2: rule__SceneActor__Group_3__0__Impl rule__SceneActor__Group_3__1
+            // InternalKlangParser.g:1469:1: ( rule__SceneActor__Group_3__0__Impl rule__SceneActor__Group_3__1 )
+            // InternalKlangParser.g:1470:2: rule__SceneActor__Group_3__0__Impl rule__SceneActor__Group_3__1
             {
             pushFollow(FOLLOW_8);
             rule__SceneActor__Group_3__0__Impl();
@@ -4771,17 +4975,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SceneActor__Group_3__0__Impl"
-    // InternalKlangParser.g:1440:1: rule__SceneActor__Group_3__0__Impl : ( RULE_BEGIN ) ;
+    // InternalKlangParser.g:1477:1: rule__SceneActor__Group_3__0__Impl : ( RULE_BEGIN ) ;
     public final void rule__SceneActor__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1444:1: ( ( RULE_BEGIN ) )
-            // InternalKlangParser.g:1445:1: ( RULE_BEGIN )
+            // InternalKlangParser.g:1481:1: ( ( RULE_BEGIN ) )
+            // InternalKlangParser.g:1482:1: ( RULE_BEGIN )
             {
-            // InternalKlangParser.g:1445:1: ( RULE_BEGIN )
-            // InternalKlangParser.g:1446:2: RULE_BEGIN
+            // InternalKlangParser.g:1482:1: ( RULE_BEGIN )
+            // InternalKlangParser.g:1483:2: RULE_BEGIN
             {
              before(grammarAccess.getSceneActorAccess().getBEGINTerminalRuleCall_3_0()); 
             match(input,RULE_BEGIN,FOLLOW_2); 
@@ -4808,14 +5012,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SceneActor__Group_3__1"
-    // InternalKlangParser.g:1455:1: rule__SceneActor__Group_3__1 : rule__SceneActor__Group_3__1__Impl rule__SceneActor__Group_3__2 ;
+    // InternalKlangParser.g:1492:1: rule__SceneActor__Group_3__1 : rule__SceneActor__Group_3__1__Impl rule__SceneActor__Group_3__2 ;
     public final void rule__SceneActor__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1459:1: ( rule__SceneActor__Group_3__1__Impl rule__SceneActor__Group_3__2 )
-            // InternalKlangParser.g:1460:2: rule__SceneActor__Group_3__1__Impl rule__SceneActor__Group_3__2
+            // InternalKlangParser.g:1496:1: ( rule__SceneActor__Group_3__1__Impl rule__SceneActor__Group_3__2 )
+            // InternalKlangParser.g:1497:2: rule__SceneActor__Group_3__1__Impl rule__SceneActor__Group_3__2
             {
             pushFollow(FOLLOW_8);
             rule__SceneActor__Group_3__1__Impl();
@@ -4846,20 +5050,20 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SceneActor__Group_3__1__Impl"
-    // InternalKlangParser.g:1467:1: rule__SceneActor__Group_3__1__Impl : ( ( rule__SceneActor__LocalVariablesAssignment_3_1 )* ) ;
+    // InternalKlangParser.g:1504:1: rule__SceneActor__Group_3__1__Impl : ( ( rule__SceneActor__LocalVariablesAssignment_3_1 )* ) ;
     public final void rule__SceneActor__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1471:1: ( ( ( rule__SceneActor__LocalVariablesAssignment_3_1 )* ) )
-            // InternalKlangParser.g:1472:1: ( ( rule__SceneActor__LocalVariablesAssignment_3_1 )* )
+            // InternalKlangParser.g:1508:1: ( ( ( rule__SceneActor__LocalVariablesAssignment_3_1 )* ) )
+            // InternalKlangParser.g:1509:1: ( ( rule__SceneActor__LocalVariablesAssignment_3_1 )* )
             {
-            // InternalKlangParser.g:1472:1: ( ( rule__SceneActor__LocalVariablesAssignment_3_1 )* )
-            // InternalKlangParser.g:1473:2: ( rule__SceneActor__LocalVariablesAssignment_3_1 )*
+            // InternalKlangParser.g:1509:1: ( ( rule__SceneActor__LocalVariablesAssignment_3_1 )* )
+            // InternalKlangParser.g:1510:2: ( rule__SceneActor__LocalVariablesAssignment_3_1 )*
             {
              before(grammarAccess.getSceneActorAccess().getLocalVariablesAssignment_3_1()); 
-            // InternalKlangParser.g:1474:2: ( rule__SceneActor__LocalVariablesAssignment_3_1 )*
+            // InternalKlangParser.g:1511:2: ( rule__SceneActor__LocalVariablesAssignment_3_1 )*
             loop10:
             do {
                 int alt10=2;
@@ -4872,7 +5076,7 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalKlangParser.g:1474:3: rule__SceneActor__LocalVariablesAssignment_3_1
+            	    // InternalKlangParser.g:1511:3: rule__SceneActor__LocalVariablesAssignment_3_1
             	    {
             	    pushFollow(FOLLOW_9);
             	    rule__SceneActor__LocalVariablesAssignment_3_1();
@@ -4911,14 +5115,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SceneActor__Group_3__2"
-    // InternalKlangParser.g:1482:1: rule__SceneActor__Group_3__2 : rule__SceneActor__Group_3__2__Impl rule__SceneActor__Group_3__3 ;
+    // InternalKlangParser.g:1519:1: rule__SceneActor__Group_3__2 : rule__SceneActor__Group_3__2__Impl rule__SceneActor__Group_3__3 ;
     public final void rule__SceneActor__Group_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1486:1: ( rule__SceneActor__Group_3__2__Impl rule__SceneActor__Group_3__3 )
-            // InternalKlangParser.g:1487:2: rule__SceneActor__Group_3__2__Impl rule__SceneActor__Group_3__3
+            // InternalKlangParser.g:1523:1: ( rule__SceneActor__Group_3__2__Impl rule__SceneActor__Group_3__3 )
+            // InternalKlangParser.g:1524:2: rule__SceneActor__Group_3__2__Impl rule__SceneActor__Group_3__3
             {
             pushFollow(FOLLOW_8);
             rule__SceneActor__Group_3__2__Impl();
@@ -4949,20 +5153,20 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SceneActor__Group_3__2__Impl"
-    // InternalKlangParser.g:1494:1: rule__SceneActor__Group_3__2__Impl : ( ( rule__SceneActor__EventHandlersAssignment_3_2 )* ) ;
+    // InternalKlangParser.g:1531:1: rule__SceneActor__Group_3__2__Impl : ( ( rule__SceneActor__EventHandlersAssignment_3_2 )* ) ;
     public final void rule__SceneActor__Group_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1498:1: ( ( ( rule__SceneActor__EventHandlersAssignment_3_2 )* ) )
-            // InternalKlangParser.g:1499:1: ( ( rule__SceneActor__EventHandlersAssignment_3_2 )* )
+            // InternalKlangParser.g:1535:1: ( ( ( rule__SceneActor__EventHandlersAssignment_3_2 )* ) )
+            // InternalKlangParser.g:1536:1: ( ( rule__SceneActor__EventHandlersAssignment_3_2 )* )
             {
-            // InternalKlangParser.g:1499:1: ( ( rule__SceneActor__EventHandlersAssignment_3_2 )* )
-            // InternalKlangParser.g:1500:2: ( rule__SceneActor__EventHandlersAssignment_3_2 )*
+            // InternalKlangParser.g:1536:1: ( ( rule__SceneActor__EventHandlersAssignment_3_2 )* )
+            // InternalKlangParser.g:1537:2: ( rule__SceneActor__EventHandlersAssignment_3_2 )*
             {
              before(grammarAccess.getSceneActorAccess().getEventHandlersAssignment_3_2()); 
-            // InternalKlangParser.g:1501:2: ( rule__SceneActor__EventHandlersAssignment_3_2 )*
+            // InternalKlangParser.g:1538:2: ( rule__SceneActor__EventHandlersAssignment_3_2 )*
             loop11:
             do {
                 int alt11=2;
@@ -4975,7 +5179,7 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
                 switch (alt11) {
             	case 1 :
-            	    // InternalKlangParser.g:1501:3: rule__SceneActor__EventHandlersAssignment_3_2
+            	    // InternalKlangParser.g:1538:3: rule__SceneActor__EventHandlersAssignment_3_2
             	    {
             	    pushFollow(FOLLOW_10);
             	    rule__SceneActor__EventHandlersAssignment_3_2();
@@ -5014,14 +5218,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SceneActor__Group_3__3"
-    // InternalKlangParser.g:1509:1: rule__SceneActor__Group_3__3 : rule__SceneActor__Group_3__3__Impl ;
+    // InternalKlangParser.g:1546:1: rule__SceneActor__Group_3__3 : rule__SceneActor__Group_3__3__Impl ;
     public final void rule__SceneActor__Group_3__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1513:1: ( rule__SceneActor__Group_3__3__Impl )
-            // InternalKlangParser.g:1514:2: rule__SceneActor__Group_3__3__Impl
+            // InternalKlangParser.g:1550:1: ( rule__SceneActor__Group_3__3__Impl )
+            // InternalKlangParser.g:1551:2: rule__SceneActor__Group_3__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__SceneActor__Group_3__3__Impl();
@@ -5047,17 +5251,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SceneActor__Group_3__3__Impl"
-    // InternalKlangParser.g:1520:1: rule__SceneActor__Group_3__3__Impl : ( RULE_END ) ;
+    // InternalKlangParser.g:1557:1: rule__SceneActor__Group_3__3__Impl : ( RULE_END ) ;
     public final void rule__SceneActor__Group_3__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1524:1: ( ( RULE_END ) )
-            // InternalKlangParser.g:1525:1: ( RULE_END )
+            // InternalKlangParser.g:1561:1: ( ( RULE_END ) )
+            // InternalKlangParser.g:1562:1: ( RULE_END )
             {
-            // InternalKlangParser.g:1525:1: ( RULE_END )
-            // InternalKlangParser.g:1526:2: RULE_END
+            // InternalKlangParser.g:1562:1: ( RULE_END )
+            // InternalKlangParser.g:1563:2: RULE_END
             {
              before(grammarAccess.getSceneActorAccess().getENDTerminalRuleCall_3_3()); 
             match(input,RULE_END,FOLLOW_2); 
@@ -5084,14 +5288,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SpriteActor__Group__0"
-    // InternalKlangParser.g:1536:1: rule__SpriteActor__Group__0 : rule__SpriteActor__Group__0__Impl rule__SpriteActor__Group__1 ;
+    // InternalKlangParser.g:1573:1: rule__SpriteActor__Group__0 : rule__SpriteActor__Group__0__Impl rule__SpriteActor__Group__1 ;
     public final void rule__SpriteActor__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1540:1: ( rule__SpriteActor__Group__0__Impl rule__SpriteActor__Group__1 )
-            // InternalKlangParser.g:1541:2: rule__SpriteActor__Group__0__Impl rule__SpriteActor__Group__1
+            // InternalKlangParser.g:1577:1: ( rule__SpriteActor__Group__0__Impl rule__SpriteActor__Group__1 )
+            // InternalKlangParser.g:1578:2: rule__SpriteActor__Group__0__Impl rule__SpriteActor__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__SpriteActor__Group__0__Impl();
@@ -5122,21 +5326,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SpriteActor__Group__0__Impl"
-    // InternalKlangParser.g:1548:1: rule__SpriteActor__Group__0__Impl : ( () ) ;
+    // InternalKlangParser.g:1585:1: rule__SpriteActor__Group__0__Impl : ( () ) ;
     public final void rule__SpriteActor__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1552:1: ( ( () ) )
-            // InternalKlangParser.g:1553:1: ( () )
+            // InternalKlangParser.g:1589:1: ( ( () ) )
+            // InternalKlangParser.g:1590:1: ( () )
             {
-            // InternalKlangParser.g:1553:1: ( () )
-            // InternalKlangParser.g:1554:2: ()
+            // InternalKlangParser.g:1590:1: ( () )
+            // InternalKlangParser.g:1591:2: ()
             {
              before(grammarAccess.getSpriteActorAccess().getSpriteActorAction_0()); 
-            // InternalKlangParser.g:1555:2: ()
-            // InternalKlangParser.g:1555:3: 
+            // InternalKlangParser.g:1592:2: ()
+            // InternalKlangParser.g:1592:3: 
             {
             }
 
@@ -5159,14 +5363,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SpriteActor__Group__1"
-    // InternalKlangParser.g:1563:1: rule__SpriteActor__Group__1 : rule__SpriteActor__Group__1__Impl rule__SpriteActor__Group__2 ;
+    // InternalKlangParser.g:1600:1: rule__SpriteActor__Group__1 : rule__SpriteActor__Group__1__Impl rule__SpriteActor__Group__2 ;
     public final void rule__SpriteActor__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1567:1: ( rule__SpriteActor__Group__1__Impl rule__SpriteActor__Group__2 )
-            // InternalKlangParser.g:1568:2: rule__SpriteActor__Group__1__Impl rule__SpriteActor__Group__2
+            // InternalKlangParser.g:1604:1: ( rule__SpriteActor__Group__1__Impl rule__SpriteActor__Group__2 )
+            // InternalKlangParser.g:1605:2: rule__SpriteActor__Group__1__Impl rule__SpriteActor__Group__2
             {
             pushFollow(FOLLOW_6);
             rule__SpriteActor__Group__1__Impl();
@@ -5197,17 +5401,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SpriteActor__Group__1__Impl"
-    // InternalKlangParser.g:1575:1: rule__SpriteActor__Group__1__Impl : ( Sprite ) ;
+    // InternalKlangParser.g:1612:1: rule__SpriteActor__Group__1__Impl : ( Sprite ) ;
     public final void rule__SpriteActor__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1579:1: ( ( Sprite ) )
-            // InternalKlangParser.g:1580:1: ( Sprite )
+            // InternalKlangParser.g:1616:1: ( ( Sprite ) )
+            // InternalKlangParser.g:1617:1: ( Sprite )
             {
-            // InternalKlangParser.g:1580:1: ( Sprite )
-            // InternalKlangParser.g:1581:2: Sprite
+            // InternalKlangParser.g:1617:1: ( Sprite )
+            // InternalKlangParser.g:1618:2: Sprite
             {
              before(grammarAccess.getSpriteActorAccess().getSpriteKeyword_1()); 
             match(input,Sprite,FOLLOW_2); 
@@ -5234,14 +5438,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SpriteActor__Group__2"
-    // InternalKlangParser.g:1590:1: rule__SpriteActor__Group__2 : rule__SpriteActor__Group__2__Impl rule__SpriteActor__Group__3 ;
+    // InternalKlangParser.g:1627:1: rule__SpriteActor__Group__2 : rule__SpriteActor__Group__2__Impl rule__SpriteActor__Group__3 ;
     public final void rule__SpriteActor__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1594:1: ( rule__SpriteActor__Group__2__Impl rule__SpriteActor__Group__3 )
-            // InternalKlangParser.g:1595:2: rule__SpriteActor__Group__2__Impl rule__SpriteActor__Group__3
+            // InternalKlangParser.g:1631:1: ( rule__SpriteActor__Group__2__Impl rule__SpriteActor__Group__3 )
+            // InternalKlangParser.g:1632:2: rule__SpriteActor__Group__2__Impl rule__SpriteActor__Group__3
             {
             pushFollow(FOLLOW_7);
             rule__SpriteActor__Group__2__Impl();
@@ -5272,21 +5476,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SpriteActor__Group__2__Impl"
-    // InternalKlangParser.g:1602:1: rule__SpriteActor__Group__2__Impl : ( ( rule__SpriteActor__NameAssignment_2 ) ) ;
+    // InternalKlangParser.g:1639:1: rule__SpriteActor__Group__2__Impl : ( ( rule__SpriteActor__NameAssignment_2 ) ) ;
     public final void rule__SpriteActor__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1606:1: ( ( ( rule__SpriteActor__NameAssignment_2 ) ) )
-            // InternalKlangParser.g:1607:1: ( ( rule__SpriteActor__NameAssignment_2 ) )
+            // InternalKlangParser.g:1643:1: ( ( ( rule__SpriteActor__NameAssignment_2 ) ) )
+            // InternalKlangParser.g:1644:1: ( ( rule__SpriteActor__NameAssignment_2 ) )
             {
-            // InternalKlangParser.g:1607:1: ( ( rule__SpriteActor__NameAssignment_2 ) )
-            // InternalKlangParser.g:1608:2: ( rule__SpriteActor__NameAssignment_2 )
+            // InternalKlangParser.g:1644:1: ( ( rule__SpriteActor__NameAssignment_2 ) )
+            // InternalKlangParser.g:1645:2: ( rule__SpriteActor__NameAssignment_2 )
             {
              before(grammarAccess.getSpriteActorAccess().getNameAssignment_2()); 
-            // InternalKlangParser.g:1609:2: ( rule__SpriteActor__NameAssignment_2 )
-            // InternalKlangParser.g:1609:3: rule__SpriteActor__NameAssignment_2
+            // InternalKlangParser.g:1646:2: ( rule__SpriteActor__NameAssignment_2 )
+            // InternalKlangParser.g:1646:3: rule__SpriteActor__NameAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__SpriteActor__NameAssignment_2();
@@ -5319,14 +5523,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SpriteActor__Group__3"
-    // InternalKlangParser.g:1617:1: rule__SpriteActor__Group__3 : rule__SpriteActor__Group__3__Impl ;
+    // InternalKlangParser.g:1654:1: rule__SpriteActor__Group__3 : rule__SpriteActor__Group__3__Impl ;
     public final void rule__SpriteActor__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1621:1: ( rule__SpriteActor__Group__3__Impl )
-            // InternalKlangParser.g:1622:2: rule__SpriteActor__Group__3__Impl
+            // InternalKlangParser.g:1658:1: ( rule__SpriteActor__Group__3__Impl )
+            // InternalKlangParser.g:1659:2: rule__SpriteActor__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__SpriteActor__Group__3__Impl();
@@ -5352,20 +5556,20 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SpriteActor__Group__3__Impl"
-    // InternalKlangParser.g:1628:1: rule__SpriteActor__Group__3__Impl : ( ( rule__SpriteActor__Group_3__0 )? ) ;
+    // InternalKlangParser.g:1665:1: rule__SpriteActor__Group__3__Impl : ( ( rule__SpriteActor__Group_3__0 )? ) ;
     public final void rule__SpriteActor__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1632:1: ( ( ( rule__SpriteActor__Group_3__0 )? ) )
-            // InternalKlangParser.g:1633:1: ( ( rule__SpriteActor__Group_3__0 )? )
+            // InternalKlangParser.g:1669:1: ( ( ( rule__SpriteActor__Group_3__0 )? ) )
+            // InternalKlangParser.g:1670:1: ( ( rule__SpriteActor__Group_3__0 )? )
             {
-            // InternalKlangParser.g:1633:1: ( ( rule__SpriteActor__Group_3__0 )? )
-            // InternalKlangParser.g:1634:2: ( rule__SpriteActor__Group_3__0 )?
+            // InternalKlangParser.g:1670:1: ( ( rule__SpriteActor__Group_3__0 )? )
+            // InternalKlangParser.g:1671:2: ( rule__SpriteActor__Group_3__0 )?
             {
              before(grammarAccess.getSpriteActorAccess().getGroup_3()); 
-            // InternalKlangParser.g:1635:2: ( rule__SpriteActor__Group_3__0 )?
+            // InternalKlangParser.g:1672:2: ( rule__SpriteActor__Group_3__0 )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -5374,7 +5578,7 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
             }
             switch (alt12) {
                 case 1 :
-                    // InternalKlangParser.g:1635:3: rule__SpriteActor__Group_3__0
+                    // InternalKlangParser.g:1672:3: rule__SpriteActor__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__SpriteActor__Group_3__0();
@@ -5410,14 +5614,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SpriteActor__Group_3__0"
-    // InternalKlangParser.g:1644:1: rule__SpriteActor__Group_3__0 : rule__SpriteActor__Group_3__0__Impl rule__SpriteActor__Group_3__1 ;
+    // InternalKlangParser.g:1681:1: rule__SpriteActor__Group_3__0 : rule__SpriteActor__Group_3__0__Impl rule__SpriteActor__Group_3__1 ;
     public final void rule__SpriteActor__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1648:1: ( rule__SpriteActor__Group_3__0__Impl rule__SpriteActor__Group_3__1 )
-            // InternalKlangParser.g:1649:2: rule__SpriteActor__Group_3__0__Impl rule__SpriteActor__Group_3__1
+            // InternalKlangParser.g:1685:1: ( rule__SpriteActor__Group_3__0__Impl rule__SpriteActor__Group_3__1 )
+            // InternalKlangParser.g:1686:2: rule__SpriteActor__Group_3__0__Impl rule__SpriteActor__Group_3__1
             {
             pushFollow(FOLLOW_8);
             rule__SpriteActor__Group_3__0__Impl();
@@ -5448,17 +5652,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SpriteActor__Group_3__0__Impl"
-    // InternalKlangParser.g:1656:1: rule__SpriteActor__Group_3__0__Impl : ( RULE_BEGIN ) ;
+    // InternalKlangParser.g:1693:1: rule__SpriteActor__Group_3__0__Impl : ( RULE_BEGIN ) ;
     public final void rule__SpriteActor__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1660:1: ( ( RULE_BEGIN ) )
-            // InternalKlangParser.g:1661:1: ( RULE_BEGIN )
+            // InternalKlangParser.g:1697:1: ( ( RULE_BEGIN ) )
+            // InternalKlangParser.g:1698:1: ( RULE_BEGIN )
             {
-            // InternalKlangParser.g:1661:1: ( RULE_BEGIN )
-            // InternalKlangParser.g:1662:2: RULE_BEGIN
+            // InternalKlangParser.g:1698:1: ( RULE_BEGIN )
+            // InternalKlangParser.g:1699:2: RULE_BEGIN
             {
              before(grammarAccess.getSpriteActorAccess().getBEGINTerminalRuleCall_3_0()); 
             match(input,RULE_BEGIN,FOLLOW_2); 
@@ -5485,14 +5689,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SpriteActor__Group_3__1"
-    // InternalKlangParser.g:1671:1: rule__SpriteActor__Group_3__1 : rule__SpriteActor__Group_3__1__Impl rule__SpriteActor__Group_3__2 ;
+    // InternalKlangParser.g:1708:1: rule__SpriteActor__Group_3__1 : rule__SpriteActor__Group_3__1__Impl rule__SpriteActor__Group_3__2 ;
     public final void rule__SpriteActor__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1675:1: ( rule__SpriteActor__Group_3__1__Impl rule__SpriteActor__Group_3__2 )
-            // InternalKlangParser.g:1676:2: rule__SpriteActor__Group_3__1__Impl rule__SpriteActor__Group_3__2
+            // InternalKlangParser.g:1712:1: ( rule__SpriteActor__Group_3__1__Impl rule__SpriteActor__Group_3__2 )
+            // InternalKlangParser.g:1713:2: rule__SpriteActor__Group_3__1__Impl rule__SpriteActor__Group_3__2
             {
             pushFollow(FOLLOW_8);
             rule__SpriteActor__Group_3__1__Impl();
@@ -5523,20 +5727,20 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SpriteActor__Group_3__1__Impl"
-    // InternalKlangParser.g:1683:1: rule__SpriteActor__Group_3__1__Impl : ( ( rule__SpriteActor__LocalVariablesAssignment_3_1 )* ) ;
+    // InternalKlangParser.g:1720:1: rule__SpriteActor__Group_3__1__Impl : ( ( rule__SpriteActor__LocalVariablesAssignment_3_1 )* ) ;
     public final void rule__SpriteActor__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1687:1: ( ( ( rule__SpriteActor__LocalVariablesAssignment_3_1 )* ) )
-            // InternalKlangParser.g:1688:1: ( ( rule__SpriteActor__LocalVariablesAssignment_3_1 )* )
+            // InternalKlangParser.g:1724:1: ( ( ( rule__SpriteActor__LocalVariablesAssignment_3_1 )* ) )
+            // InternalKlangParser.g:1725:1: ( ( rule__SpriteActor__LocalVariablesAssignment_3_1 )* )
             {
-            // InternalKlangParser.g:1688:1: ( ( rule__SpriteActor__LocalVariablesAssignment_3_1 )* )
-            // InternalKlangParser.g:1689:2: ( rule__SpriteActor__LocalVariablesAssignment_3_1 )*
+            // InternalKlangParser.g:1725:1: ( ( rule__SpriteActor__LocalVariablesAssignment_3_1 )* )
+            // InternalKlangParser.g:1726:2: ( rule__SpriteActor__LocalVariablesAssignment_3_1 )*
             {
              before(grammarAccess.getSpriteActorAccess().getLocalVariablesAssignment_3_1()); 
-            // InternalKlangParser.g:1690:2: ( rule__SpriteActor__LocalVariablesAssignment_3_1 )*
+            // InternalKlangParser.g:1727:2: ( rule__SpriteActor__LocalVariablesAssignment_3_1 )*
             loop13:
             do {
                 int alt13=2;
@@ -5549,7 +5753,7 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
                 switch (alt13) {
             	case 1 :
-            	    // InternalKlangParser.g:1690:3: rule__SpriteActor__LocalVariablesAssignment_3_1
+            	    // InternalKlangParser.g:1727:3: rule__SpriteActor__LocalVariablesAssignment_3_1
             	    {
             	    pushFollow(FOLLOW_9);
             	    rule__SpriteActor__LocalVariablesAssignment_3_1();
@@ -5588,14 +5792,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SpriteActor__Group_3__2"
-    // InternalKlangParser.g:1698:1: rule__SpriteActor__Group_3__2 : rule__SpriteActor__Group_3__2__Impl rule__SpriteActor__Group_3__3 ;
+    // InternalKlangParser.g:1735:1: rule__SpriteActor__Group_3__2 : rule__SpriteActor__Group_3__2__Impl rule__SpriteActor__Group_3__3 ;
     public final void rule__SpriteActor__Group_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1702:1: ( rule__SpriteActor__Group_3__2__Impl rule__SpriteActor__Group_3__3 )
-            // InternalKlangParser.g:1703:2: rule__SpriteActor__Group_3__2__Impl rule__SpriteActor__Group_3__3
+            // InternalKlangParser.g:1739:1: ( rule__SpriteActor__Group_3__2__Impl rule__SpriteActor__Group_3__3 )
+            // InternalKlangParser.g:1740:2: rule__SpriteActor__Group_3__2__Impl rule__SpriteActor__Group_3__3
             {
             pushFollow(FOLLOW_8);
             rule__SpriteActor__Group_3__2__Impl();
@@ -5626,20 +5830,20 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SpriteActor__Group_3__2__Impl"
-    // InternalKlangParser.g:1710:1: rule__SpriteActor__Group_3__2__Impl : ( ( rule__SpriteActor__EventHandlersAssignment_3_2 )* ) ;
+    // InternalKlangParser.g:1747:1: rule__SpriteActor__Group_3__2__Impl : ( ( rule__SpriteActor__EventHandlersAssignment_3_2 )* ) ;
     public final void rule__SpriteActor__Group_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1714:1: ( ( ( rule__SpriteActor__EventHandlersAssignment_3_2 )* ) )
-            // InternalKlangParser.g:1715:1: ( ( rule__SpriteActor__EventHandlersAssignment_3_2 )* )
+            // InternalKlangParser.g:1751:1: ( ( ( rule__SpriteActor__EventHandlersAssignment_3_2 )* ) )
+            // InternalKlangParser.g:1752:1: ( ( rule__SpriteActor__EventHandlersAssignment_3_2 )* )
             {
-            // InternalKlangParser.g:1715:1: ( ( rule__SpriteActor__EventHandlersAssignment_3_2 )* )
-            // InternalKlangParser.g:1716:2: ( rule__SpriteActor__EventHandlersAssignment_3_2 )*
+            // InternalKlangParser.g:1752:1: ( ( rule__SpriteActor__EventHandlersAssignment_3_2 )* )
+            // InternalKlangParser.g:1753:2: ( rule__SpriteActor__EventHandlersAssignment_3_2 )*
             {
              before(grammarAccess.getSpriteActorAccess().getEventHandlersAssignment_3_2()); 
-            // InternalKlangParser.g:1717:2: ( rule__SpriteActor__EventHandlersAssignment_3_2 )*
+            // InternalKlangParser.g:1754:2: ( rule__SpriteActor__EventHandlersAssignment_3_2 )*
             loop14:
             do {
                 int alt14=2;
@@ -5652,7 +5856,7 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
                 switch (alt14) {
             	case 1 :
-            	    // InternalKlangParser.g:1717:3: rule__SpriteActor__EventHandlersAssignment_3_2
+            	    // InternalKlangParser.g:1754:3: rule__SpriteActor__EventHandlersAssignment_3_2
             	    {
             	    pushFollow(FOLLOW_10);
             	    rule__SpriteActor__EventHandlersAssignment_3_2();
@@ -5691,14 +5895,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SpriteActor__Group_3__3"
-    // InternalKlangParser.g:1725:1: rule__SpriteActor__Group_3__3 : rule__SpriteActor__Group_3__3__Impl ;
+    // InternalKlangParser.g:1762:1: rule__SpriteActor__Group_3__3 : rule__SpriteActor__Group_3__3__Impl ;
     public final void rule__SpriteActor__Group_3__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1729:1: ( rule__SpriteActor__Group_3__3__Impl )
-            // InternalKlangParser.g:1730:2: rule__SpriteActor__Group_3__3__Impl
+            // InternalKlangParser.g:1766:1: ( rule__SpriteActor__Group_3__3__Impl )
+            // InternalKlangParser.g:1767:2: rule__SpriteActor__Group_3__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__SpriteActor__Group_3__3__Impl();
@@ -5724,17 +5928,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SpriteActor__Group_3__3__Impl"
-    // InternalKlangParser.g:1736:1: rule__SpriteActor__Group_3__3__Impl : ( RULE_END ) ;
+    // InternalKlangParser.g:1773:1: rule__SpriteActor__Group_3__3__Impl : ( RULE_END ) ;
     public final void rule__SpriteActor__Group_3__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1740:1: ( ( RULE_END ) )
-            // InternalKlangParser.g:1741:1: ( RULE_END )
+            // InternalKlangParser.g:1777:1: ( ( RULE_END ) )
+            // InternalKlangParser.g:1778:1: ( RULE_END )
             {
-            // InternalKlangParser.g:1741:1: ( RULE_END )
-            // InternalKlangParser.g:1742:2: RULE_END
+            // InternalKlangParser.g:1778:1: ( RULE_END )
+            // InternalKlangParser.g:1779:2: RULE_END
             {
              before(grammarAccess.getSpriteActorAccess().getENDTerminalRuleCall_3_3()); 
             match(input,RULE_END,FOLLOW_2); 
@@ -5760,23 +5964,23 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__SpriteActor__Group_3__3__Impl"
 
 
-    // $ANTLR start "rule__MessageReceived__Group__0"
-    // InternalKlangParser.g:1752:1: rule__MessageReceived__Group__0 : rule__MessageReceived__Group__0__Impl rule__MessageReceived__Group__1 ;
-    public final void rule__MessageReceived__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__EventHandler__Group__0"
+    // InternalKlangParser.g:1789:1: rule__EventHandler__Group__0 : rule__EventHandler__Group__0__Impl rule__EventHandler__Group__1 ;
+    public final void rule__EventHandler__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1756:1: ( rule__MessageReceived__Group__0__Impl rule__MessageReceived__Group__1 )
-            // InternalKlangParser.g:1757:2: rule__MessageReceived__Group__0__Impl rule__MessageReceived__Group__1
+            // InternalKlangParser.g:1793:1: ( rule__EventHandler__Group__0__Impl rule__EventHandler__Group__1 )
+            // InternalKlangParser.g:1794:2: rule__EventHandler__Group__0__Impl rule__EventHandler__Group__1
             {
             pushFollow(FOLLOW_11);
-            rule__MessageReceived__Group__0__Impl();
+            rule__EventHandler__Group__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__MessageReceived__Group__1();
+            rule__EventHandler__Group__1();
 
             state._fsp--;
 
@@ -5795,100 +5999,25 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MessageReceived__Group__0"
+    // $ANTLR end "rule__EventHandler__Group__0"
 
 
-    // $ANTLR start "rule__MessageReceived__Group__0__Impl"
-    // InternalKlangParser.g:1764:1: rule__MessageReceived__Group__0__Impl : ( () ) ;
-    public final void rule__MessageReceived__Group__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:1768:1: ( ( () ) )
-            // InternalKlangParser.g:1769:1: ( () )
-            {
-            // InternalKlangParser.g:1769:1: ( () )
-            // InternalKlangParser.g:1770:2: ()
-            {
-             before(grammarAccess.getMessageReceivedAccess().getMessageReceivedAction_0()); 
-            // InternalKlangParser.g:1771:2: ()
-            // InternalKlangParser.g:1771:3: 
-            {
-            }
-
-             after(grammarAccess.getMessageReceivedAccess().getMessageReceivedAction_0()); 
-
-            }
-
-
-            }
-
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__MessageReceived__Group__0__Impl"
-
-
-    // $ANTLR start "rule__MessageReceived__Group__1"
-    // InternalKlangParser.g:1779:1: rule__MessageReceived__Group__1 : rule__MessageReceived__Group__1__Impl rule__MessageReceived__Group__2 ;
-    public final void rule__MessageReceived__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__EventHandler__Group__0__Impl"
+    // InternalKlangParser.g:1801:1: rule__EventHandler__Group__0__Impl : ( When ) ;
+    public final void rule__EventHandler__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1783:1: ( rule__MessageReceived__Group__1__Impl rule__MessageReceived__Group__2 )
-            // InternalKlangParser.g:1784:2: rule__MessageReceived__Group__1__Impl rule__MessageReceived__Group__2
+            // InternalKlangParser.g:1805:1: ( ( When ) )
+            // InternalKlangParser.g:1806:1: ( When )
             {
-            pushFollow(FOLLOW_12);
-            rule__MessageReceived__Group__1__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__MessageReceived__Group__2();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__MessageReceived__Group__1"
-
-
-    // $ANTLR start "rule__MessageReceived__Group__1__Impl"
-    // InternalKlangParser.g:1791:1: rule__MessageReceived__Group__1__Impl : ( When ) ;
-    public final void rule__MessageReceived__Group__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:1795:1: ( ( When ) )
-            // InternalKlangParser.g:1796:1: ( When )
+            // InternalKlangParser.g:1806:1: ( When )
+            // InternalKlangParser.g:1807:2: When
             {
-            // InternalKlangParser.g:1796:1: ( When )
-            // InternalKlangParser.g:1797:2: When
-            {
-             before(grammarAccess.getMessageReceivedAccess().getWhenKeyword_1()); 
+             before(grammarAccess.getEventHandlerAccess().getWhenKeyword_0()); 
             match(input,When,FOLLOW_2); 
-             after(grammarAccess.getMessageReceivedAccess().getWhenKeyword_1()); 
+             after(grammarAccess.getEventHandlerAccess().getWhenKeyword_0()); 
 
             }
 
@@ -5907,261 +6036,26 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MessageReceived__Group__1__Impl"
+    // $ANTLR end "rule__EventHandler__Group__0__Impl"
 
 
-    // $ANTLR start "rule__MessageReceived__Group__2"
-    // InternalKlangParser.g:1806:1: rule__MessageReceived__Group__2 : rule__MessageReceived__Group__2__Impl rule__MessageReceived__Group__3 ;
-    public final void rule__MessageReceived__Group__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:1810:1: ( rule__MessageReceived__Group__2__Impl rule__MessageReceived__Group__3 )
-            // InternalKlangParser.g:1811:2: rule__MessageReceived__Group__2__Impl rule__MessageReceived__Group__3
-            {
-            pushFollow(FOLLOW_13);
-            rule__MessageReceived__Group__2__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__MessageReceived__Group__3();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__MessageReceived__Group__2"
-
-
-    // $ANTLR start "rule__MessageReceived__Group__2__Impl"
-    // InternalKlangParser.g:1818:1: rule__MessageReceived__Group__2__Impl : ( LeftSquareBracket ) ;
-    public final void rule__MessageReceived__Group__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__EventHandler__Group__1"
+    // InternalKlangParser.g:1816:1: rule__EventHandler__Group__1 : rule__EventHandler__Group__1__Impl rule__EventHandler__Group__2 ;
+    public final void rule__EventHandler__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1822:1: ( ( LeftSquareBracket ) )
-            // InternalKlangParser.g:1823:1: ( LeftSquareBracket )
-            {
-            // InternalKlangParser.g:1823:1: ( LeftSquareBracket )
-            // InternalKlangParser.g:1824:2: LeftSquareBracket
-            {
-             before(grammarAccess.getMessageReceivedAccess().getLeftSquareBracketKeyword_2()); 
-            match(input,LeftSquareBracket,FOLLOW_2); 
-             after(grammarAccess.getMessageReceivedAccess().getLeftSquareBracketKeyword_2()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__MessageReceived__Group__2__Impl"
-
-
-    // $ANTLR start "rule__MessageReceived__Group__3"
-    // InternalKlangParser.g:1833:1: rule__MessageReceived__Group__3 : rule__MessageReceived__Group__3__Impl rule__MessageReceived__Group__4 ;
-    public final void rule__MessageReceived__Group__3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:1837:1: ( rule__MessageReceived__Group__3__Impl rule__MessageReceived__Group__4 )
-            // InternalKlangParser.g:1838:2: rule__MessageReceived__Group__3__Impl rule__MessageReceived__Group__4
-            {
-            pushFollow(FOLLOW_14);
-            rule__MessageReceived__Group__3__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__MessageReceived__Group__4();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__MessageReceived__Group__3"
-
-
-    // $ANTLR start "rule__MessageReceived__Group__3__Impl"
-    // InternalKlangParser.g:1845:1: rule__MessageReceived__Group__3__Impl : ( ( rule__MessageReceived__NameAssignment_3 ) ) ;
-    public final void rule__MessageReceived__Group__3__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:1849:1: ( ( ( rule__MessageReceived__NameAssignment_3 ) ) )
-            // InternalKlangParser.g:1850:1: ( ( rule__MessageReceived__NameAssignment_3 ) )
-            {
-            // InternalKlangParser.g:1850:1: ( ( rule__MessageReceived__NameAssignment_3 ) )
-            // InternalKlangParser.g:1851:2: ( rule__MessageReceived__NameAssignment_3 )
-            {
-             before(grammarAccess.getMessageReceivedAccess().getNameAssignment_3()); 
-            // InternalKlangParser.g:1852:2: ( rule__MessageReceived__NameAssignment_3 )
-            // InternalKlangParser.g:1852:3: rule__MessageReceived__NameAssignment_3
-            {
-            pushFollow(FOLLOW_2);
-            rule__MessageReceived__NameAssignment_3();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getMessageReceivedAccess().getNameAssignment_3()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__MessageReceived__Group__3__Impl"
-
-
-    // $ANTLR start "rule__MessageReceived__Group__4"
-    // InternalKlangParser.g:1860:1: rule__MessageReceived__Group__4 : rule__MessageReceived__Group__4__Impl rule__MessageReceived__Group__5 ;
-    public final void rule__MessageReceived__Group__4() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:1864:1: ( rule__MessageReceived__Group__4__Impl rule__MessageReceived__Group__5 )
-            // InternalKlangParser.g:1865:2: rule__MessageReceived__Group__4__Impl rule__MessageReceived__Group__5
-            {
-            pushFollow(FOLLOW_15);
-            rule__MessageReceived__Group__4__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__MessageReceived__Group__5();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__MessageReceived__Group__4"
-
-
-    // $ANTLR start "rule__MessageReceived__Group__4__Impl"
-    // InternalKlangParser.g:1872:1: rule__MessageReceived__Group__4__Impl : ( RightSquareBracket ) ;
-    public final void rule__MessageReceived__Group__4__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:1876:1: ( ( RightSquareBracket ) )
-            // InternalKlangParser.g:1877:1: ( RightSquareBracket )
-            {
-            // InternalKlangParser.g:1877:1: ( RightSquareBracket )
-            // InternalKlangParser.g:1878:2: RightSquareBracket
-            {
-             before(grammarAccess.getMessageReceivedAccess().getRightSquareBracketKeyword_4()); 
-            match(input,RightSquareBracket,FOLLOW_2); 
-             after(grammarAccess.getMessageReceivedAccess().getRightSquareBracketKeyword_4()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__MessageReceived__Group__4__Impl"
-
-
-    // $ANTLR start "rule__MessageReceived__Group__5"
-    // InternalKlangParser.g:1887:1: rule__MessageReceived__Group__5 : rule__MessageReceived__Group__5__Impl rule__MessageReceived__Group__6 ;
-    public final void rule__MessageReceived__Group__5() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:1891:1: ( rule__MessageReceived__Group__5__Impl rule__MessageReceived__Group__6 )
-            // InternalKlangParser.g:1892:2: rule__MessageReceived__Group__5__Impl rule__MessageReceived__Group__6
+            // InternalKlangParser.g:1820:1: ( rule__EventHandler__Group__1__Impl rule__EventHandler__Group__2 )
+            // InternalKlangParser.g:1821:2: rule__EventHandler__Group__1__Impl rule__EventHandler__Group__2
             {
             pushFollow(FOLLOW_7);
-            rule__MessageReceived__Group__5__Impl();
+            rule__EventHandler__Group__1__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__MessageReceived__Group__6();
+            rule__EventHandler__Group__2();
 
             state._fsp--;
 
@@ -6180,25 +6074,35 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MessageReceived__Group__5"
+    // $ANTLR end "rule__EventHandler__Group__1"
 
 
-    // $ANTLR start "rule__MessageReceived__Group__5__Impl"
-    // InternalKlangParser.g:1899:1: rule__MessageReceived__Group__5__Impl : ( Received ) ;
-    public final void rule__MessageReceived__Group__5__Impl() throws RecognitionException {
+    // $ANTLR start "rule__EventHandler__Group__1__Impl"
+    // InternalKlangParser.g:1828:1: rule__EventHandler__Group__1__Impl : ( ( rule__EventHandler__ReferenceEventAssignment_1 ) ) ;
+    public final void rule__EventHandler__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1903:1: ( ( Received ) )
-            // InternalKlangParser.g:1904:1: ( Received )
+            // InternalKlangParser.g:1832:1: ( ( ( rule__EventHandler__ReferenceEventAssignment_1 ) ) )
+            // InternalKlangParser.g:1833:1: ( ( rule__EventHandler__ReferenceEventAssignment_1 ) )
             {
-            // InternalKlangParser.g:1904:1: ( Received )
-            // InternalKlangParser.g:1905:2: Received
+            // InternalKlangParser.g:1833:1: ( ( rule__EventHandler__ReferenceEventAssignment_1 ) )
+            // InternalKlangParser.g:1834:2: ( rule__EventHandler__ReferenceEventAssignment_1 )
             {
-             before(grammarAccess.getMessageReceivedAccess().getReceivedKeyword_5()); 
-            match(input,Received,FOLLOW_2); 
-             after(grammarAccess.getMessageReceivedAccess().getReceivedKeyword_5()); 
+             before(grammarAccess.getEventHandlerAccess().getReferenceEventAssignment_1()); 
+            // InternalKlangParser.g:1835:2: ( rule__EventHandler__ReferenceEventAssignment_1 )
+            // InternalKlangParser.g:1835:3: rule__EventHandler__ReferenceEventAssignment_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__EventHandler__ReferenceEventAssignment_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getEventHandlerAccess().getReferenceEventAssignment_1()); 
 
             }
 
@@ -6217,26 +6121,26 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MessageReceived__Group__5__Impl"
+    // $ANTLR end "rule__EventHandler__Group__1__Impl"
 
 
-    // $ANTLR start "rule__MessageReceived__Group__6"
-    // InternalKlangParser.g:1914:1: rule__MessageReceived__Group__6 : rule__MessageReceived__Group__6__Impl rule__MessageReceived__Group__7 ;
-    public final void rule__MessageReceived__Group__6() throws RecognitionException {
+    // $ANTLR start "rule__EventHandler__Group__2"
+    // InternalKlangParser.g:1843:1: rule__EventHandler__Group__2 : rule__EventHandler__Group__2__Impl rule__EventHandler__Group__3 ;
+    public final void rule__EventHandler__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1918:1: ( rule__MessageReceived__Group__6__Impl rule__MessageReceived__Group__7 )
-            // InternalKlangParser.g:1919:2: rule__MessageReceived__Group__6__Impl rule__MessageReceived__Group__7
+            // InternalKlangParser.g:1847:1: ( rule__EventHandler__Group__2__Impl rule__EventHandler__Group__3 )
+            // InternalKlangParser.g:1848:2: rule__EventHandler__Group__2__Impl rule__EventHandler__Group__3
             {
-            pushFollow(FOLLOW_16);
-            rule__MessageReceived__Group__6__Impl();
+            pushFollow(FOLLOW_12);
+            rule__EventHandler__Group__2__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__MessageReceived__Group__7();
+            rule__EventHandler__Group__3();
 
             state._fsp--;
 
@@ -6255,25 +6159,25 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MessageReceived__Group__6"
+    // $ANTLR end "rule__EventHandler__Group__2"
 
 
-    // $ANTLR start "rule__MessageReceived__Group__6__Impl"
-    // InternalKlangParser.g:1926:1: rule__MessageReceived__Group__6__Impl : ( RULE_BEGIN ) ;
-    public final void rule__MessageReceived__Group__6__Impl() throws RecognitionException {
+    // $ANTLR start "rule__EventHandler__Group__2__Impl"
+    // InternalKlangParser.g:1855:1: rule__EventHandler__Group__2__Impl : ( RULE_BEGIN ) ;
+    public final void rule__EventHandler__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1930:1: ( ( RULE_BEGIN ) )
-            // InternalKlangParser.g:1931:1: ( RULE_BEGIN )
+            // InternalKlangParser.g:1859:1: ( ( RULE_BEGIN ) )
+            // InternalKlangParser.g:1860:1: ( RULE_BEGIN )
             {
-            // InternalKlangParser.g:1931:1: ( RULE_BEGIN )
-            // InternalKlangParser.g:1932:2: RULE_BEGIN
+            // InternalKlangParser.g:1860:1: ( RULE_BEGIN )
+            // InternalKlangParser.g:1861:2: RULE_BEGIN
             {
-             before(grammarAccess.getMessageReceivedAccess().getBEGINTerminalRuleCall_6()); 
+             before(grammarAccess.getEventHandlerAccess().getBEGINTerminalRuleCall_2()); 
             match(input,RULE_BEGIN,FOLLOW_2); 
-             after(grammarAccess.getMessageReceivedAccess().getBEGINTerminalRuleCall_6()); 
+             after(grammarAccess.getEventHandlerAccess().getBEGINTerminalRuleCall_2()); 
 
             }
 
@@ -6292,26 +6196,26 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MessageReceived__Group__6__Impl"
+    // $ANTLR end "rule__EventHandler__Group__2__Impl"
 
 
-    // $ANTLR start "rule__MessageReceived__Group__7"
-    // InternalKlangParser.g:1941:1: rule__MessageReceived__Group__7 : rule__MessageReceived__Group__7__Impl rule__MessageReceived__Group__8 ;
-    public final void rule__MessageReceived__Group__7() throws RecognitionException {
+    // $ANTLR start "rule__EventHandler__Group__3"
+    // InternalKlangParser.g:1870:1: rule__EventHandler__Group__3 : rule__EventHandler__Group__3__Impl rule__EventHandler__Group__4 ;
+    public final void rule__EventHandler__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1945:1: ( rule__MessageReceived__Group__7__Impl rule__MessageReceived__Group__8 )
-            // InternalKlangParser.g:1946:2: rule__MessageReceived__Group__7__Impl rule__MessageReceived__Group__8
+            // InternalKlangParser.g:1874:1: ( rule__EventHandler__Group__3__Impl rule__EventHandler__Group__4 )
+            // InternalKlangParser.g:1875:2: rule__EventHandler__Group__3__Impl rule__EventHandler__Group__4
             {
-            pushFollow(FOLLOW_16);
-            rule__MessageReceived__Group__7__Impl();
+            pushFollow(FOLLOW_12);
+            rule__EventHandler__Group__3__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__MessageReceived__Group__8();
+            rule__EventHandler__Group__4();
 
             state._fsp--;
 
@@ -6330,24 +6234,24 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MessageReceived__Group__7"
+    // $ANTLR end "rule__EventHandler__Group__3"
 
 
-    // $ANTLR start "rule__MessageReceived__Group__7__Impl"
-    // InternalKlangParser.g:1953:1: rule__MessageReceived__Group__7__Impl : ( ( rule__MessageReceived__StatementsAssignment_7 )* ) ;
-    public final void rule__MessageReceived__Group__7__Impl() throws RecognitionException {
+    // $ANTLR start "rule__EventHandler__Group__3__Impl"
+    // InternalKlangParser.g:1882:1: rule__EventHandler__Group__3__Impl : ( ( rule__EventHandler__StatementsAssignment_3 )* ) ;
+    public final void rule__EventHandler__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1957:1: ( ( ( rule__MessageReceived__StatementsAssignment_7 )* ) )
-            // InternalKlangParser.g:1958:1: ( ( rule__MessageReceived__StatementsAssignment_7 )* )
+            // InternalKlangParser.g:1886:1: ( ( ( rule__EventHandler__StatementsAssignment_3 )* ) )
+            // InternalKlangParser.g:1887:1: ( ( rule__EventHandler__StatementsAssignment_3 )* )
             {
-            // InternalKlangParser.g:1958:1: ( ( rule__MessageReceived__StatementsAssignment_7 )* )
-            // InternalKlangParser.g:1959:2: ( rule__MessageReceived__StatementsAssignment_7 )*
+            // InternalKlangParser.g:1887:1: ( ( rule__EventHandler__StatementsAssignment_3 )* )
+            // InternalKlangParser.g:1888:2: ( rule__EventHandler__StatementsAssignment_3 )*
             {
-             before(grammarAccess.getMessageReceivedAccess().getStatementsAssignment_7()); 
-            // InternalKlangParser.g:1960:2: ( rule__MessageReceived__StatementsAssignment_7 )*
+             before(grammarAccess.getEventHandlerAccess().getStatementsAssignment_3()); 
+            // InternalKlangParser.g:1889:2: ( rule__EventHandler__StatementsAssignment_3 )*
             loop15:
             do {
                 int alt15=2;
@@ -6360,10 +6264,10 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
                 switch (alt15) {
             	case 1 :
-            	    // InternalKlangParser.g:1960:3: rule__MessageReceived__StatementsAssignment_7
+            	    // InternalKlangParser.g:1889:3: rule__EventHandler__StatementsAssignment_3
             	    {
-            	    pushFollow(FOLLOW_17);
-            	    rule__MessageReceived__StatementsAssignment_7();
+            	    pushFollow(FOLLOW_13);
+            	    rule__EventHandler__StatementsAssignment_3();
 
             	    state._fsp--;
 
@@ -6376,7 +6280,7 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
                 }
             } while (true);
 
-             after(grammarAccess.getMessageReceivedAccess().getStatementsAssignment_7()); 
+             after(grammarAccess.getEventHandlerAccess().getStatementsAssignment_3()); 
 
             }
 
@@ -6395,21 +6299,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MessageReceived__Group__7__Impl"
+    // $ANTLR end "rule__EventHandler__Group__3__Impl"
 
 
-    // $ANTLR start "rule__MessageReceived__Group__8"
-    // InternalKlangParser.g:1968:1: rule__MessageReceived__Group__8 : rule__MessageReceived__Group__8__Impl ;
-    public final void rule__MessageReceived__Group__8() throws RecognitionException {
+    // $ANTLR start "rule__EventHandler__Group__4"
+    // InternalKlangParser.g:1897:1: rule__EventHandler__Group__4 : rule__EventHandler__Group__4__Impl ;
+    public final void rule__EventHandler__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1972:1: ( rule__MessageReceived__Group__8__Impl )
-            // InternalKlangParser.g:1973:2: rule__MessageReceived__Group__8__Impl
+            // InternalKlangParser.g:1901:1: ( rule__EventHandler__Group__4__Impl )
+            // InternalKlangParser.g:1902:2: rule__EventHandler__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__MessageReceived__Group__8__Impl();
+            rule__EventHandler__Group__4__Impl();
 
             state._fsp--;
 
@@ -6428,25 +6332,25 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MessageReceived__Group__8"
+    // $ANTLR end "rule__EventHandler__Group__4"
 
 
-    // $ANTLR start "rule__MessageReceived__Group__8__Impl"
-    // InternalKlangParser.g:1979:1: rule__MessageReceived__Group__8__Impl : ( RULE_END ) ;
-    public final void rule__MessageReceived__Group__8__Impl() throws RecognitionException {
+    // $ANTLR start "rule__EventHandler__Group__4__Impl"
+    // InternalKlangParser.g:1908:1: rule__EventHandler__Group__4__Impl : ( RULE_END ) ;
+    public final void rule__EventHandler__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1983:1: ( ( RULE_END ) )
-            // InternalKlangParser.g:1984:1: ( RULE_END )
+            // InternalKlangParser.g:1912:1: ( ( RULE_END ) )
+            // InternalKlangParser.g:1913:1: ( RULE_END )
             {
-            // InternalKlangParser.g:1984:1: ( RULE_END )
-            // InternalKlangParser.g:1985:2: RULE_END
+            // InternalKlangParser.g:1913:1: ( RULE_END )
+            // InternalKlangParser.g:1914:2: RULE_END
             {
-             before(grammarAccess.getMessageReceivedAccess().getENDTerminalRuleCall_8()); 
+             before(grammarAccess.getEventHandlerAccess().getENDTerminalRuleCall_4()); 
             match(input,RULE_END,FOLLOW_2); 
-             after(grammarAccess.getMessageReceivedAccess().getENDTerminalRuleCall_8()); 
+             after(grammarAccess.getEventHandlerAccess().getENDTerminalRuleCall_4()); 
 
             }
 
@@ -6465,20 +6369,1150 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MessageReceived__Group__8__Impl"
+    // $ANTLR end "rule__EventHandler__Group__4__Impl"
+
+
+    // $ANTLR start "rule__MessageReceivedEvent__Group__0"
+    // InternalKlangParser.g:1924:1: rule__MessageReceivedEvent__Group__0 : rule__MessageReceivedEvent__Group__0__Impl rule__MessageReceivedEvent__Group__1 ;
+    public final void rule__MessageReceivedEvent__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:1928:1: ( rule__MessageReceivedEvent__Group__0__Impl rule__MessageReceivedEvent__Group__1 )
+            // InternalKlangParser.g:1929:2: rule__MessageReceivedEvent__Group__0__Impl rule__MessageReceivedEvent__Group__1
+            {
+            pushFollow(FOLLOW_14);
+            rule__MessageReceivedEvent__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__MessageReceivedEvent__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__MessageReceivedEvent__Group__0"
+
+
+    // $ANTLR start "rule__MessageReceivedEvent__Group__0__Impl"
+    // InternalKlangParser.g:1936:1: rule__MessageReceivedEvent__Group__0__Impl : ( () ) ;
+    public final void rule__MessageReceivedEvent__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:1940:1: ( ( () ) )
+            // InternalKlangParser.g:1941:1: ( () )
+            {
+            // InternalKlangParser.g:1941:1: ( () )
+            // InternalKlangParser.g:1942:2: ()
+            {
+             before(grammarAccess.getMessageReceivedEventAccess().getMessageReceivedEventAction_0()); 
+            // InternalKlangParser.g:1943:2: ()
+            // InternalKlangParser.g:1943:3: 
+            {
+            }
+
+             after(grammarAccess.getMessageReceivedEventAccess().getMessageReceivedEventAction_0()); 
+
+            }
+
+
+            }
+
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__MessageReceivedEvent__Group__0__Impl"
+
+
+    // $ANTLR start "rule__MessageReceivedEvent__Group__1"
+    // InternalKlangParser.g:1951:1: rule__MessageReceivedEvent__Group__1 : rule__MessageReceivedEvent__Group__1__Impl rule__MessageReceivedEvent__Group__2 ;
+    public final void rule__MessageReceivedEvent__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:1955:1: ( rule__MessageReceivedEvent__Group__1__Impl rule__MessageReceivedEvent__Group__2 )
+            // InternalKlangParser.g:1956:2: rule__MessageReceivedEvent__Group__1__Impl rule__MessageReceivedEvent__Group__2
+            {
+            pushFollow(FOLLOW_15);
+            rule__MessageReceivedEvent__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__MessageReceivedEvent__Group__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__MessageReceivedEvent__Group__1"
+
+
+    // $ANTLR start "rule__MessageReceivedEvent__Group__1__Impl"
+    // InternalKlangParser.g:1963:1: rule__MessageReceivedEvent__Group__1__Impl : ( ( rule__MessageReceivedEvent__NameAssignment_1 ) ) ;
+    public final void rule__MessageReceivedEvent__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:1967:1: ( ( ( rule__MessageReceivedEvent__NameAssignment_1 ) ) )
+            // InternalKlangParser.g:1968:1: ( ( rule__MessageReceivedEvent__NameAssignment_1 ) )
+            {
+            // InternalKlangParser.g:1968:1: ( ( rule__MessageReceivedEvent__NameAssignment_1 ) )
+            // InternalKlangParser.g:1969:2: ( rule__MessageReceivedEvent__NameAssignment_1 )
+            {
+             before(grammarAccess.getMessageReceivedEventAccess().getNameAssignment_1()); 
+            // InternalKlangParser.g:1970:2: ( rule__MessageReceivedEvent__NameAssignment_1 )
+            // InternalKlangParser.g:1970:3: rule__MessageReceivedEvent__NameAssignment_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__MessageReceivedEvent__NameAssignment_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getMessageReceivedEventAccess().getNameAssignment_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__MessageReceivedEvent__Group__1__Impl"
+
+
+    // $ANTLR start "rule__MessageReceivedEvent__Group__2"
+    // InternalKlangParser.g:1978:1: rule__MessageReceivedEvent__Group__2 : rule__MessageReceivedEvent__Group__2__Impl ;
+    public final void rule__MessageReceivedEvent__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:1982:1: ( rule__MessageReceivedEvent__Group__2__Impl )
+            // InternalKlangParser.g:1983:2: rule__MessageReceivedEvent__Group__2__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__MessageReceivedEvent__Group__2__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__MessageReceivedEvent__Group__2"
+
+
+    // $ANTLR start "rule__MessageReceivedEvent__Group__2__Impl"
+    // InternalKlangParser.g:1989:1: rule__MessageReceivedEvent__Group__2__Impl : ( Received ) ;
+    public final void rule__MessageReceivedEvent__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:1993:1: ( ( Received ) )
+            // InternalKlangParser.g:1994:1: ( Received )
+            {
+            // InternalKlangParser.g:1994:1: ( Received )
+            // InternalKlangParser.g:1995:2: Received
+            {
+             before(grammarAccess.getMessageReceivedEventAccess().getReceivedKeyword_2()); 
+            match(input,Received,FOLLOW_2); 
+             after(grammarAccess.getMessageReceivedEventAccess().getReceivedKeyword_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__MessageReceivedEvent__Group__2__Impl"
+
+
+    // $ANTLR start "rule__GameStartEvent__Group__0"
+    // InternalKlangParser.g:2005:1: rule__GameStartEvent__Group__0 : rule__GameStartEvent__Group__0__Impl rule__GameStartEvent__Group__1 ;
+    public final void rule__GameStartEvent__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:2009:1: ( rule__GameStartEvent__Group__0__Impl rule__GameStartEvent__Group__1 )
+            // InternalKlangParser.g:2010:2: rule__GameStartEvent__Group__0__Impl rule__GameStartEvent__Group__1
+            {
+            pushFollow(FOLLOW_16);
+            rule__GameStartEvent__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__GameStartEvent__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__GameStartEvent__Group__0"
+
+
+    // $ANTLR start "rule__GameStartEvent__Group__0__Impl"
+    // InternalKlangParser.g:2017:1: rule__GameStartEvent__Group__0__Impl : ( () ) ;
+    public final void rule__GameStartEvent__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:2021:1: ( ( () ) )
+            // InternalKlangParser.g:2022:1: ( () )
+            {
+            // InternalKlangParser.g:2022:1: ( () )
+            // InternalKlangParser.g:2023:2: ()
+            {
+             before(grammarAccess.getGameStartEventAccess().getGameStartEventAction_0()); 
+            // InternalKlangParser.g:2024:2: ()
+            // InternalKlangParser.g:2024:3: 
+            {
+            }
+
+             after(grammarAccess.getGameStartEventAccess().getGameStartEventAction_0()); 
+
+            }
+
+
+            }
+
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__GameStartEvent__Group__0__Impl"
+
+
+    // $ANTLR start "rule__GameStartEvent__Group__1"
+    // InternalKlangParser.g:2032:1: rule__GameStartEvent__Group__1 : rule__GameStartEvent__Group__1__Impl rule__GameStartEvent__Group__2 ;
+    public final void rule__GameStartEvent__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:2036:1: ( rule__GameStartEvent__Group__1__Impl rule__GameStartEvent__Group__2 )
+            // InternalKlangParser.g:2037:2: rule__GameStartEvent__Group__1__Impl rule__GameStartEvent__Group__2
+            {
+            pushFollow(FOLLOW_17);
+            rule__GameStartEvent__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__GameStartEvent__Group__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__GameStartEvent__Group__1"
+
+
+    // $ANTLR start "rule__GameStartEvent__Group__1__Impl"
+    // InternalKlangParser.g:2044:1: rule__GameStartEvent__Group__1__Impl : ( Game ) ;
+    public final void rule__GameStartEvent__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:2048:1: ( ( Game ) )
+            // InternalKlangParser.g:2049:1: ( Game )
+            {
+            // InternalKlangParser.g:2049:1: ( Game )
+            // InternalKlangParser.g:2050:2: Game
+            {
+             before(grammarAccess.getGameStartEventAccess().getGameKeyword_1()); 
+            match(input,Game,FOLLOW_2); 
+             after(grammarAccess.getGameStartEventAccess().getGameKeyword_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__GameStartEvent__Group__1__Impl"
+
+
+    // $ANTLR start "rule__GameStartEvent__Group__2"
+    // InternalKlangParser.g:2059:1: rule__GameStartEvent__Group__2 : rule__GameStartEvent__Group__2__Impl ;
+    public final void rule__GameStartEvent__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:2063:1: ( rule__GameStartEvent__Group__2__Impl )
+            // InternalKlangParser.g:2064:2: rule__GameStartEvent__Group__2__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__GameStartEvent__Group__2__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__GameStartEvent__Group__2"
+
+
+    // $ANTLR start "rule__GameStartEvent__Group__2__Impl"
+    // InternalKlangParser.g:2070:1: rule__GameStartEvent__Group__2__Impl : ( Starts ) ;
+    public final void rule__GameStartEvent__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:2074:1: ( ( Starts ) )
+            // InternalKlangParser.g:2075:1: ( Starts )
+            {
+            // InternalKlangParser.g:2075:1: ( Starts )
+            // InternalKlangParser.g:2076:2: Starts
+            {
+             before(grammarAccess.getGameStartEventAccess().getStartsKeyword_2()); 
+            match(input,Starts,FOLLOW_2); 
+             after(grammarAccess.getGameStartEventAccess().getStartsKeyword_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__GameStartEvent__Group__2__Impl"
+
+
+    // $ANTLR start "rule__ClickEvent__Group__0"
+    // InternalKlangParser.g:2086:1: rule__ClickEvent__Group__0 : rule__ClickEvent__Group__0__Impl rule__ClickEvent__Group__1 ;
+    public final void rule__ClickEvent__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:2090:1: ( rule__ClickEvent__Group__0__Impl rule__ClickEvent__Group__1 )
+            // InternalKlangParser.g:2091:2: rule__ClickEvent__Group__0__Impl rule__ClickEvent__Group__1
+            {
+            pushFollow(FOLLOW_11);
+            rule__ClickEvent__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__ClickEvent__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ClickEvent__Group__0"
+
+
+    // $ANTLR start "rule__ClickEvent__Group__0__Impl"
+    // InternalKlangParser.g:2098:1: rule__ClickEvent__Group__0__Impl : ( () ) ;
+    public final void rule__ClickEvent__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:2102:1: ( ( () ) )
+            // InternalKlangParser.g:2103:1: ( () )
+            {
+            // InternalKlangParser.g:2103:1: ( () )
+            // InternalKlangParser.g:2104:2: ()
+            {
+             before(grammarAccess.getClickEventAccess().getClickEventAction_0()); 
+            // InternalKlangParser.g:2105:2: ()
+            // InternalKlangParser.g:2105:3: 
+            {
+            }
+
+             after(grammarAccess.getClickEventAccess().getClickEventAction_0()); 
+
+            }
+
+
+            }
+
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ClickEvent__Group__0__Impl"
+
+
+    // $ANTLR start "rule__ClickEvent__Group__1"
+    // InternalKlangParser.g:2113:1: rule__ClickEvent__Group__1 : rule__ClickEvent__Group__1__Impl ;
+    public final void rule__ClickEvent__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:2117:1: ( rule__ClickEvent__Group__1__Impl )
+            // InternalKlangParser.g:2118:2: rule__ClickEvent__Group__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__ClickEvent__Group__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ClickEvent__Group__1"
+
+
+    // $ANTLR start "rule__ClickEvent__Group__1__Impl"
+    // InternalKlangParser.g:2124:1: rule__ClickEvent__Group__1__Impl : ( Clicked ) ;
+    public final void rule__ClickEvent__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:2128:1: ( ( Clicked ) )
+            // InternalKlangParser.g:2129:1: ( Clicked )
+            {
+            // InternalKlangParser.g:2129:1: ( Clicked )
+            // InternalKlangParser.g:2130:2: Clicked
+            {
+             before(grammarAccess.getClickEventAccess().getClickedKeyword_1()); 
+            match(input,Clicked,FOLLOW_2); 
+             after(grammarAccess.getClickEventAccess().getClickedKeyword_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ClickEvent__Group__1__Impl"
+
+
+    // $ANTLR start "rule__KeyPressedEvent__Group__0"
+    // InternalKlangParser.g:2140:1: rule__KeyPressedEvent__Group__0 : rule__KeyPressedEvent__Group__0__Impl rule__KeyPressedEvent__Group__1 ;
+    public final void rule__KeyPressedEvent__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:2144:1: ( rule__KeyPressedEvent__Group__0__Impl rule__KeyPressedEvent__Group__1 )
+            // InternalKlangParser.g:2145:2: rule__KeyPressedEvent__Group__0__Impl rule__KeyPressedEvent__Group__1
+            {
+            pushFollow(FOLLOW_18);
+            rule__KeyPressedEvent__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__KeyPressedEvent__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__KeyPressedEvent__Group__0"
+
+
+    // $ANTLR start "rule__KeyPressedEvent__Group__0__Impl"
+    // InternalKlangParser.g:2152:1: rule__KeyPressedEvent__Group__0__Impl : ( () ) ;
+    public final void rule__KeyPressedEvent__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:2156:1: ( ( () ) )
+            // InternalKlangParser.g:2157:1: ( () )
+            {
+            // InternalKlangParser.g:2157:1: ( () )
+            // InternalKlangParser.g:2158:2: ()
+            {
+             before(grammarAccess.getKeyPressedEventAccess().getKeyPressEventAction_0()); 
+            // InternalKlangParser.g:2159:2: ()
+            // InternalKlangParser.g:2159:3: 
+            {
+            }
+
+             after(grammarAccess.getKeyPressedEventAccess().getKeyPressEventAction_0()); 
+
+            }
+
+
+            }
+
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__KeyPressedEvent__Group__0__Impl"
+
+
+    // $ANTLR start "rule__KeyPressedEvent__Group__1"
+    // InternalKlangParser.g:2167:1: rule__KeyPressedEvent__Group__1 : rule__KeyPressedEvent__Group__1__Impl rule__KeyPressedEvent__Group__2 ;
+    public final void rule__KeyPressedEvent__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:2171:1: ( rule__KeyPressedEvent__Group__1__Impl rule__KeyPressedEvent__Group__2 )
+            // InternalKlangParser.g:2172:2: rule__KeyPressedEvent__Group__1__Impl rule__KeyPressedEvent__Group__2
+            {
+            pushFollow(FOLLOW_19);
+            rule__KeyPressedEvent__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__KeyPressedEvent__Group__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__KeyPressedEvent__Group__1"
+
+
+    // $ANTLR start "rule__KeyPressedEvent__Group__1__Impl"
+    // InternalKlangParser.g:2179:1: rule__KeyPressedEvent__Group__1__Impl : ( ( rule__KeyPressedEvent__KeyAssignment_1 ) ) ;
+    public final void rule__KeyPressedEvent__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:2183:1: ( ( ( rule__KeyPressedEvent__KeyAssignment_1 ) ) )
+            // InternalKlangParser.g:2184:1: ( ( rule__KeyPressedEvent__KeyAssignment_1 ) )
+            {
+            // InternalKlangParser.g:2184:1: ( ( rule__KeyPressedEvent__KeyAssignment_1 ) )
+            // InternalKlangParser.g:2185:2: ( rule__KeyPressedEvent__KeyAssignment_1 )
+            {
+             before(grammarAccess.getKeyPressedEventAccess().getKeyAssignment_1()); 
+            // InternalKlangParser.g:2186:2: ( rule__KeyPressedEvent__KeyAssignment_1 )
+            // InternalKlangParser.g:2186:3: rule__KeyPressedEvent__KeyAssignment_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__KeyPressedEvent__KeyAssignment_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getKeyPressedEventAccess().getKeyAssignment_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__KeyPressedEvent__Group__1__Impl"
+
+
+    // $ANTLR start "rule__KeyPressedEvent__Group__2"
+    // InternalKlangParser.g:2194:1: rule__KeyPressedEvent__Group__2 : rule__KeyPressedEvent__Group__2__Impl ;
+    public final void rule__KeyPressedEvent__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:2198:1: ( rule__KeyPressedEvent__Group__2__Impl )
+            // InternalKlangParser.g:2199:2: rule__KeyPressedEvent__Group__2__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__KeyPressedEvent__Group__2__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__KeyPressedEvent__Group__2"
+
+
+    // $ANTLR start "rule__KeyPressedEvent__Group__2__Impl"
+    // InternalKlangParser.g:2205:1: rule__KeyPressedEvent__Group__2__Impl : ( Pressed ) ;
+    public final void rule__KeyPressedEvent__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:2209:1: ( ( Pressed ) )
+            // InternalKlangParser.g:2210:1: ( Pressed )
+            {
+            // InternalKlangParser.g:2210:1: ( Pressed )
+            // InternalKlangParser.g:2211:2: Pressed
+            {
+             before(grammarAccess.getKeyPressedEventAccess().getPressedKeyword_2()); 
+            match(input,Pressed,FOLLOW_2); 
+             after(grammarAccess.getKeyPressedEventAccess().getPressedKeyword_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__KeyPressedEvent__Group__2__Impl"
+
+
+    // $ANTLR start "rule__CollisionEvent__Group__0"
+    // InternalKlangParser.g:2221:1: rule__CollisionEvent__Group__0 : rule__CollisionEvent__Group__0__Impl rule__CollisionEvent__Group__1 ;
+    public final void rule__CollisionEvent__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:2225:1: ( rule__CollisionEvent__Group__0__Impl rule__CollisionEvent__Group__1 )
+            // InternalKlangParser.g:2226:2: rule__CollisionEvent__Group__0__Impl rule__CollisionEvent__Group__1
+            {
+            pushFollow(FOLLOW_20);
+            rule__CollisionEvent__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__CollisionEvent__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__CollisionEvent__Group__0"
+
+
+    // $ANTLR start "rule__CollisionEvent__Group__0__Impl"
+    // InternalKlangParser.g:2233:1: rule__CollisionEvent__Group__0__Impl : ( () ) ;
+    public final void rule__CollisionEvent__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:2237:1: ( ( () ) )
+            // InternalKlangParser.g:2238:1: ( () )
+            {
+            // InternalKlangParser.g:2238:1: ( () )
+            // InternalKlangParser.g:2239:2: ()
+            {
+             before(grammarAccess.getCollisionEventAccess().getCollisionEventAction_0()); 
+            // InternalKlangParser.g:2240:2: ()
+            // InternalKlangParser.g:2240:3: 
+            {
+            }
+
+             after(grammarAccess.getCollisionEventAccess().getCollisionEventAction_0()); 
+
+            }
+
+
+            }
+
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__CollisionEvent__Group__0__Impl"
+
+
+    // $ANTLR start "rule__CollisionEvent__Group__1"
+    // InternalKlangParser.g:2248:1: rule__CollisionEvent__Group__1 : rule__CollisionEvent__Group__1__Impl rule__CollisionEvent__Group__2 ;
+    public final void rule__CollisionEvent__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:2252:1: ( rule__CollisionEvent__Group__1__Impl rule__CollisionEvent__Group__2 )
+            // InternalKlangParser.g:2253:2: rule__CollisionEvent__Group__1__Impl rule__CollisionEvent__Group__2
+            {
+            pushFollow(FOLLOW_21);
+            rule__CollisionEvent__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__CollisionEvent__Group__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__CollisionEvent__Group__1"
+
+
+    // $ANTLR start "rule__CollisionEvent__Group__1__Impl"
+    // InternalKlangParser.g:2260:1: rule__CollisionEvent__Group__1__Impl : ( Collides ) ;
+    public final void rule__CollisionEvent__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:2264:1: ( ( Collides ) )
+            // InternalKlangParser.g:2265:1: ( Collides )
+            {
+            // InternalKlangParser.g:2265:1: ( Collides )
+            // InternalKlangParser.g:2266:2: Collides
+            {
+             before(grammarAccess.getCollisionEventAccess().getCollidesKeyword_1()); 
+            match(input,Collides,FOLLOW_2); 
+             after(grammarAccess.getCollisionEventAccess().getCollidesKeyword_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__CollisionEvent__Group__1__Impl"
+
+
+    // $ANTLR start "rule__CollisionEvent__Group__2"
+    // InternalKlangParser.g:2275:1: rule__CollisionEvent__Group__2 : rule__CollisionEvent__Group__2__Impl rule__CollisionEvent__Group__3 ;
+    public final void rule__CollisionEvent__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:2279:1: ( rule__CollisionEvent__Group__2__Impl rule__CollisionEvent__Group__3 )
+            // InternalKlangParser.g:2280:2: rule__CollisionEvent__Group__2__Impl rule__CollisionEvent__Group__3
+            {
+            pushFollow(FOLLOW_6);
+            rule__CollisionEvent__Group__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__CollisionEvent__Group__3();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__CollisionEvent__Group__2"
+
+
+    // $ANTLR start "rule__CollisionEvent__Group__2__Impl"
+    // InternalKlangParser.g:2287:1: rule__CollisionEvent__Group__2__Impl : ( With ) ;
+    public final void rule__CollisionEvent__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:2291:1: ( ( With ) )
+            // InternalKlangParser.g:2292:1: ( With )
+            {
+            // InternalKlangParser.g:2292:1: ( With )
+            // InternalKlangParser.g:2293:2: With
+            {
+             before(grammarAccess.getCollisionEventAccess().getWithKeyword_2()); 
+            match(input,With,FOLLOW_2); 
+             after(grammarAccess.getCollisionEventAccess().getWithKeyword_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__CollisionEvent__Group__2__Impl"
+
+
+    // $ANTLR start "rule__CollisionEvent__Group__3"
+    // InternalKlangParser.g:2302:1: rule__CollisionEvent__Group__3 : rule__CollisionEvent__Group__3__Impl ;
+    public final void rule__CollisionEvent__Group__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:2306:1: ( rule__CollisionEvent__Group__3__Impl )
+            // InternalKlangParser.g:2307:2: rule__CollisionEvent__Group__3__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__CollisionEvent__Group__3__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__CollisionEvent__Group__3"
+
+
+    // $ANTLR start "rule__CollisionEvent__Group__3__Impl"
+    // InternalKlangParser.g:2313:1: rule__CollisionEvent__Group__3__Impl : ( ( rule__CollisionEvent__TargetAssignment_3 ) ) ;
+    public final void rule__CollisionEvent__Group__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:2317:1: ( ( ( rule__CollisionEvent__TargetAssignment_3 ) ) )
+            // InternalKlangParser.g:2318:1: ( ( rule__CollisionEvent__TargetAssignment_3 ) )
+            {
+            // InternalKlangParser.g:2318:1: ( ( rule__CollisionEvent__TargetAssignment_3 ) )
+            // InternalKlangParser.g:2319:2: ( rule__CollisionEvent__TargetAssignment_3 )
+            {
+             before(grammarAccess.getCollisionEventAccess().getTargetAssignment_3()); 
+            // InternalKlangParser.g:2320:2: ( rule__CollisionEvent__TargetAssignment_3 )
+            // InternalKlangParser.g:2320:3: rule__CollisionEvent__TargetAssignment_3
+            {
+            pushFollow(FOLLOW_2);
+            rule__CollisionEvent__TargetAssignment_3();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getCollisionEventAccess().getTargetAssignment_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__CollisionEvent__Group__3__Impl"
 
 
     // $ANTLR start "rule__SendMessage__Group__0"
-    // InternalKlangParser.g:1995:1: rule__SendMessage__Group__0 : rule__SendMessage__Group__0__Impl rule__SendMessage__Group__1 ;
+    // InternalKlangParser.g:2329:1: rule__SendMessage__Group__0 : rule__SendMessage__Group__0__Impl rule__SendMessage__Group__1 ;
     public final void rule__SendMessage__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:1999:1: ( rule__SendMessage__Group__0__Impl rule__SendMessage__Group__1 )
-            // InternalKlangParser.g:2000:2: rule__SendMessage__Group__0__Impl rule__SendMessage__Group__1
+            // InternalKlangParser.g:2333:1: ( rule__SendMessage__Group__0__Impl rule__SendMessage__Group__1 )
+            // InternalKlangParser.g:2334:2: rule__SendMessage__Group__0__Impl rule__SendMessage__Group__1
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_22);
             rule__SendMessage__Group__0__Impl();
 
             state._fsp--;
@@ -6507,21 +7541,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SendMessage__Group__0__Impl"
-    // InternalKlangParser.g:2007:1: rule__SendMessage__Group__0__Impl : ( () ) ;
+    // InternalKlangParser.g:2341:1: rule__SendMessage__Group__0__Impl : ( () ) ;
     public final void rule__SendMessage__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:2011:1: ( ( () ) )
-            // InternalKlangParser.g:2012:1: ( () )
+            // InternalKlangParser.g:2345:1: ( ( () ) )
+            // InternalKlangParser.g:2346:1: ( () )
             {
-            // InternalKlangParser.g:2012:1: ( () )
-            // InternalKlangParser.g:2013:2: ()
+            // InternalKlangParser.g:2346:1: ( () )
+            // InternalKlangParser.g:2347:2: ()
             {
              before(grammarAccess.getSendMessageAccess().getSendMessageAction_0()); 
-            // InternalKlangParser.g:2014:2: ()
-            // InternalKlangParser.g:2014:3: 
+            // InternalKlangParser.g:2348:2: ()
+            // InternalKlangParser.g:2348:3: 
             {
             }
 
@@ -6544,16 +7578,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SendMessage__Group__1"
-    // InternalKlangParser.g:2022:1: rule__SendMessage__Group__1 : rule__SendMessage__Group__1__Impl rule__SendMessage__Group__2 ;
+    // InternalKlangParser.g:2356:1: rule__SendMessage__Group__1 : rule__SendMessage__Group__1__Impl rule__SendMessage__Group__2 ;
     public final void rule__SendMessage__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:2026:1: ( rule__SendMessage__Group__1__Impl rule__SendMessage__Group__2 )
-            // InternalKlangParser.g:2027:2: rule__SendMessage__Group__1__Impl rule__SendMessage__Group__2
+            // InternalKlangParser.g:2360:1: ( rule__SendMessage__Group__1__Impl rule__SendMessage__Group__2 )
+            // InternalKlangParser.g:2361:2: rule__SendMessage__Group__1__Impl rule__SendMessage__Group__2
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_23);
             rule__SendMessage__Group__1__Impl();
 
             state._fsp--;
@@ -6582,17 +7616,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SendMessage__Group__1__Impl"
-    // InternalKlangParser.g:2034:1: rule__SendMessage__Group__1__Impl : ( SendMessage ) ;
+    // InternalKlangParser.g:2368:1: rule__SendMessage__Group__1__Impl : ( SendMessage ) ;
     public final void rule__SendMessage__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:2038:1: ( ( SendMessage ) )
-            // InternalKlangParser.g:2039:1: ( SendMessage )
+            // InternalKlangParser.g:2372:1: ( ( SendMessage ) )
+            // InternalKlangParser.g:2373:1: ( SendMessage )
             {
-            // InternalKlangParser.g:2039:1: ( SendMessage )
-            // InternalKlangParser.g:2040:2: SendMessage
+            // InternalKlangParser.g:2373:1: ( SendMessage )
+            // InternalKlangParser.g:2374:2: SendMessage
             {
              before(grammarAccess.getSendMessageAccess().getSendMessageKeyword_1()); 
             match(input,SendMessage,FOLLOW_2); 
@@ -6619,16 +7653,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SendMessage__Group__2"
-    // InternalKlangParser.g:2049:1: rule__SendMessage__Group__2 : rule__SendMessage__Group__2__Impl rule__SendMessage__Group__3 ;
+    // InternalKlangParser.g:2383:1: rule__SendMessage__Group__2 : rule__SendMessage__Group__2__Impl rule__SendMessage__Group__3 ;
     public final void rule__SendMessage__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:2053:1: ( rule__SendMessage__Group__2__Impl rule__SendMessage__Group__3 )
-            // InternalKlangParser.g:2054:2: rule__SendMessage__Group__2__Impl rule__SendMessage__Group__3
+            // InternalKlangParser.g:2387:1: ( rule__SendMessage__Group__2__Impl rule__SendMessage__Group__3 )
+            // InternalKlangParser.g:2388:2: rule__SendMessage__Group__2__Impl rule__SendMessage__Group__3
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_14);
             rule__SendMessage__Group__2__Impl();
 
             state._fsp--;
@@ -6657,17 +7691,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SendMessage__Group__2__Impl"
-    // InternalKlangParser.g:2061:1: rule__SendMessage__Group__2__Impl : ( LeftParenthesis ) ;
+    // InternalKlangParser.g:2395:1: rule__SendMessage__Group__2__Impl : ( LeftParenthesis ) ;
     public final void rule__SendMessage__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:2065:1: ( ( LeftParenthesis ) )
-            // InternalKlangParser.g:2066:1: ( LeftParenthesis )
+            // InternalKlangParser.g:2399:1: ( ( LeftParenthesis ) )
+            // InternalKlangParser.g:2400:1: ( LeftParenthesis )
             {
-            // InternalKlangParser.g:2066:1: ( LeftParenthesis )
-            // InternalKlangParser.g:2067:2: LeftParenthesis
+            // InternalKlangParser.g:2400:1: ( LeftParenthesis )
+            // InternalKlangParser.g:2401:2: LeftParenthesis
             {
              before(grammarAccess.getSendMessageAccess().getLeftParenthesisKeyword_2()); 
             match(input,LeftParenthesis,FOLLOW_2); 
@@ -6694,16 +7728,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SendMessage__Group__3"
-    // InternalKlangParser.g:2076:1: rule__SendMessage__Group__3 : rule__SendMessage__Group__3__Impl rule__SendMessage__Group__4 ;
+    // InternalKlangParser.g:2410:1: rule__SendMessage__Group__3 : rule__SendMessage__Group__3__Impl rule__SendMessage__Group__4 ;
     public final void rule__SendMessage__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:2080:1: ( rule__SendMessage__Group__3__Impl rule__SendMessage__Group__4 )
-            // InternalKlangParser.g:2081:2: rule__SendMessage__Group__3__Impl rule__SendMessage__Group__4
+            // InternalKlangParser.g:2414:1: ( rule__SendMessage__Group__3__Impl rule__SendMessage__Group__4 )
+            // InternalKlangParser.g:2415:2: rule__SendMessage__Group__3__Impl rule__SendMessage__Group__4
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_24);
             rule__SendMessage__Group__3__Impl();
 
             state._fsp--;
@@ -6732,21 +7766,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SendMessage__Group__3__Impl"
-    // InternalKlangParser.g:2088:1: rule__SendMessage__Group__3__Impl : ( ( rule__SendMessage__NameAssignment_3 ) ) ;
+    // InternalKlangParser.g:2422:1: rule__SendMessage__Group__3__Impl : ( ( rule__SendMessage__NameAssignment_3 ) ) ;
     public final void rule__SendMessage__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:2092:1: ( ( ( rule__SendMessage__NameAssignment_3 ) ) )
-            // InternalKlangParser.g:2093:1: ( ( rule__SendMessage__NameAssignment_3 ) )
+            // InternalKlangParser.g:2426:1: ( ( ( rule__SendMessage__NameAssignment_3 ) ) )
+            // InternalKlangParser.g:2427:1: ( ( rule__SendMessage__NameAssignment_3 ) )
             {
-            // InternalKlangParser.g:2093:1: ( ( rule__SendMessage__NameAssignment_3 ) )
-            // InternalKlangParser.g:2094:2: ( rule__SendMessage__NameAssignment_3 )
+            // InternalKlangParser.g:2427:1: ( ( rule__SendMessage__NameAssignment_3 ) )
+            // InternalKlangParser.g:2428:2: ( rule__SendMessage__NameAssignment_3 )
             {
              before(grammarAccess.getSendMessageAccess().getNameAssignment_3()); 
-            // InternalKlangParser.g:2095:2: ( rule__SendMessage__NameAssignment_3 )
-            // InternalKlangParser.g:2095:3: rule__SendMessage__NameAssignment_3
+            // InternalKlangParser.g:2429:2: ( rule__SendMessage__NameAssignment_3 )
+            // InternalKlangParser.g:2429:3: rule__SendMessage__NameAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__SendMessage__NameAssignment_3();
@@ -6779,14 +7813,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SendMessage__Group__4"
-    // InternalKlangParser.g:2103:1: rule__SendMessage__Group__4 : rule__SendMessage__Group__4__Impl ;
+    // InternalKlangParser.g:2437:1: rule__SendMessage__Group__4 : rule__SendMessage__Group__4__Impl ;
     public final void rule__SendMessage__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:2107:1: ( rule__SendMessage__Group__4__Impl )
-            // InternalKlangParser.g:2108:2: rule__SendMessage__Group__4__Impl
+            // InternalKlangParser.g:2441:1: ( rule__SendMessage__Group__4__Impl )
+            // InternalKlangParser.g:2442:2: rule__SendMessage__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__SendMessage__Group__4__Impl();
@@ -6812,17 +7846,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SendMessage__Group__4__Impl"
-    // InternalKlangParser.g:2114:1: rule__SendMessage__Group__4__Impl : ( RightParenthesis ) ;
+    // InternalKlangParser.g:2448:1: rule__SendMessage__Group__4__Impl : ( RightParenthesis ) ;
     public final void rule__SendMessage__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:2118:1: ( ( RightParenthesis ) )
-            // InternalKlangParser.g:2119:1: ( RightParenthesis )
+            // InternalKlangParser.g:2452:1: ( ( RightParenthesis ) )
+            // InternalKlangParser.g:2453:1: ( RightParenthesis )
             {
-            // InternalKlangParser.g:2119:1: ( RightParenthesis )
-            // InternalKlangParser.g:2120:2: RightParenthesis
+            // InternalKlangParser.g:2453:1: ( RightParenthesis )
+            // InternalKlangParser.g:2454:2: RightParenthesis
             {
              before(grammarAccess.getSendMessageAccess().getRightParenthesisKeyword_4()); 
             match(input,RightParenthesis,FOLLOW_2); 
@@ -6848,2379 +7882,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__SendMessage__Group__4__Impl"
 
 
-    // $ANTLR start "rule__GameStart__Group__0"
-    // InternalKlangParser.g:2130:1: rule__GameStart__Group__0 : rule__GameStart__Group__0__Impl rule__GameStart__Group__1 ;
-    public final void rule__GameStart__Group__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2134:1: ( rule__GameStart__Group__0__Impl rule__GameStart__Group__1 )
-            // InternalKlangParser.g:2135:2: rule__GameStart__Group__0__Impl rule__GameStart__Group__1
-            {
-            pushFollow(FOLLOW_11);
-            rule__GameStart__Group__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__GameStart__Group__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__GameStart__Group__0"
-
-
-    // $ANTLR start "rule__GameStart__Group__0__Impl"
-    // InternalKlangParser.g:2142:1: rule__GameStart__Group__0__Impl : ( () ) ;
-    public final void rule__GameStart__Group__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2146:1: ( ( () ) )
-            // InternalKlangParser.g:2147:1: ( () )
-            {
-            // InternalKlangParser.g:2147:1: ( () )
-            // InternalKlangParser.g:2148:2: ()
-            {
-             before(grammarAccess.getGameStartAccess().getGameStartAction_0()); 
-            // InternalKlangParser.g:2149:2: ()
-            // InternalKlangParser.g:2149:3: 
-            {
-            }
-
-             after(grammarAccess.getGameStartAccess().getGameStartAction_0()); 
-
-            }
-
-
-            }
-
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__GameStart__Group__0__Impl"
-
-
-    // $ANTLR start "rule__GameStart__Group__1"
-    // InternalKlangParser.g:2157:1: rule__GameStart__Group__1 : rule__GameStart__Group__1__Impl rule__GameStart__Group__2 ;
-    public final void rule__GameStart__Group__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2161:1: ( rule__GameStart__Group__1__Impl rule__GameStart__Group__2 )
-            // InternalKlangParser.g:2162:2: rule__GameStart__Group__1__Impl rule__GameStart__Group__2
-            {
-            pushFollow(FOLLOW_21);
-            rule__GameStart__Group__1__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__GameStart__Group__2();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__GameStart__Group__1"
-
-
-    // $ANTLR start "rule__GameStart__Group__1__Impl"
-    // InternalKlangParser.g:2169:1: rule__GameStart__Group__1__Impl : ( When ) ;
-    public final void rule__GameStart__Group__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2173:1: ( ( When ) )
-            // InternalKlangParser.g:2174:1: ( When )
-            {
-            // InternalKlangParser.g:2174:1: ( When )
-            // InternalKlangParser.g:2175:2: When
-            {
-             before(grammarAccess.getGameStartAccess().getWhenKeyword_1()); 
-            match(input,When,FOLLOW_2); 
-             after(grammarAccess.getGameStartAccess().getWhenKeyword_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__GameStart__Group__1__Impl"
-
-
-    // $ANTLR start "rule__GameStart__Group__2"
-    // InternalKlangParser.g:2184:1: rule__GameStart__Group__2 : rule__GameStart__Group__2__Impl rule__GameStart__Group__3 ;
-    public final void rule__GameStart__Group__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2188:1: ( rule__GameStart__Group__2__Impl rule__GameStart__Group__3 )
-            // InternalKlangParser.g:2189:2: rule__GameStart__Group__2__Impl rule__GameStart__Group__3
-            {
-            pushFollow(FOLLOW_22);
-            rule__GameStart__Group__2__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__GameStart__Group__3();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__GameStart__Group__2"
-
-
-    // $ANTLR start "rule__GameStart__Group__2__Impl"
-    // InternalKlangParser.g:2196:1: rule__GameStart__Group__2__Impl : ( Game ) ;
-    public final void rule__GameStart__Group__2__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2200:1: ( ( Game ) )
-            // InternalKlangParser.g:2201:1: ( Game )
-            {
-            // InternalKlangParser.g:2201:1: ( Game )
-            // InternalKlangParser.g:2202:2: Game
-            {
-             before(grammarAccess.getGameStartAccess().getGameKeyword_2()); 
-            match(input,Game,FOLLOW_2); 
-             after(grammarAccess.getGameStartAccess().getGameKeyword_2()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__GameStart__Group__2__Impl"
-
-
-    // $ANTLR start "rule__GameStart__Group__3"
-    // InternalKlangParser.g:2211:1: rule__GameStart__Group__3 : rule__GameStart__Group__3__Impl rule__GameStart__Group__4 ;
-    public final void rule__GameStart__Group__3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2215:1: ( rule__GameStart__Group__3__Impl rule__GameStart__Group__4 )
-            // InternalKlangParser.g:2216:2: rule__GameStart__Group__3__Impl rule__GameStart__Group__4
-            {
-            pushFollow(FOLLOW_7);
-            rule__GameStart__Group__3__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__GameStart__Group__4();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__GameStart__Group__3"
-
-
-    // $ANTLR start "rule__GameStart__Group__3__Impl"
-    // InternalKlangParser.g:2223:1: rule__GameStart__Group__3__Impl : ( Starts ) ;
-    public final void rule__GameStart__Group__3__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2227:1: ( ( Starts ) )
-            // InternalKlangParser.g:2228:1: ( Starts )
-            {
-            // InternalKlangParser.g:2228:1: ( Starts )
-            // InternalKlangParser.g:2229:2: Starts
-            {
-             before(grammarAccess.getGameStartAccess().getStartsKeyword_3()); 
-            match(input,Starts,FOLLOW_2); 
-             after(grammarAccess.getGameStartAccess().getStartsKeyword_3()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__GameStart__Group__3__Impl"
-
-
-    // $ANTLR start "rule__GameStart__Group__4"
-    // InternalKlangParser.g:2238:1: rule__GameStart__Group__4 : rule__GameStart__Group__4__Impl rule__GameStart__Group__5 ;
-    public final void rule__GameStart__Group__4() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2242:1: ( rule__GameStart__Group__4__Impl rule__GameStart__Group__5 )
-            // InternalKlangParser.g:2243:2: rule__GameStart__Group__4__Impl rule__GameStart__Group__5
-            {
-            pushFollow(FOLLOW_16);
-            rule__GameStart__Group__4__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__GameStart__Group__5();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__GameStart__Group__4"
-
-
-    // $ANTLR start "rule__GameStart__Group__4__Impl"
-    // InternalKlangParser.g:2250:1: rule__GameStart__Group__4__Impl : ( RULE_BEGIN ) ;
-    public final void rule__GameStart__Group__4__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2254:1: ( ( RULE_BEGIN ) )
-            // InternalKlangParser.g:2255:1: ( RULE_BEGIN )
-            {
-            // InternalKlangParser.g:2255:1: ( RULE_BEGIN )
-            // InternalKlangParser.g:2256:2: RULE_BEGIN
-            {
-             before(grammarAccess.getGameStartAccess().getBEGINTerminalRuleCall_4()); 
-            match(input,RULE_BEGIN,FOLLOW_2); 
-             after(grammarAccess.getGameStartAccess().getBEGINTerminalRuleCall_4()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__GameStart__Group__4__Impl"
-
-
-    // $ANTLR start "rule__GameStart__Group__5"
-    // InternalKlangParser.g:2265:1: rule__GameStart__Group__5 : rule__GameStart__Group__5__Impl rule__GameStart__Group__6 ;
-    public final void rule__GameStart__Group__5() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2269:1: ( rule__GameStart__Group__5__Impl rule__GameStart__Group__6 )
-            // InternalKlangParser.g:2270:2: rule__GameStart__Group__5__Impl rule__GameStart__Group__6
-            {
-            pushFollow(FOLLOW_16);
-            rule__GameStart__Group__5__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__GameStart__Group__6();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__GameStart__Group__5"
-
-
-    // $ANTLR start "rule__GameStart__Group__5__Impl"
-    // InternalKlangParser.g:2277:1: rule__GameStart__Group__5__Impl : ( ( rule__GameStart__StatementsAssignment_5 )* ) ;
-    public final void rule__GameStart__Group__5__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2281:1: ( ( ( rule__GameStart__StatementsAssignment_5 )* ) )
-            // InternalKlangParser.g:2282:1: ( ( rule__GameStart__StatementsAssignment_5 )* )
-            {
-            // InternalKlangParser.g:2282:1: ( ( rule__GameStart__StatementsAssignment_5 )* )
-            // InternalKlangParser.g:2283:2: ( rule__GameStart__StatementsAssignment_5 )*
-            {
-             before(grammarAccess.getGameStartAccess().getStatementsAssignment_5()); 
-            // InternalKlangParser.g:2284:2: ( rule__GameStart__StatementsAssignment_5 )*
-            loop16:
-            do {
-                int alt16=2;
-                int LA16_0 = input.LA(1);
-
-                if ( (LA16_0==SendMessage||LA16_0==Forever||(LA16_0>=Sleep && LA16_0<=While)||LA16_0==If||LA16_0==RULE_ID) ) {
-                    alt16=1;
-                }
-
-
-                switch (alt16) {
-            	case 1 :
-            	    // InternalKlangParser.g:2284:3: rule__GameStart__StatementsAssignment_5
-            	    {
-            	    pushFollow(FOLLOW_17);
-            	    rule__GameStart__StatementsAssignment_5();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop16;
-                }
-            } while (true);
-
-             after(grammarAccess.getGameStartAccess().getStatementsAssignment_5()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__GameStart__Group__5__Impl"
-
-
-    // $ANTLR start "rule__GameStart__Group__6"
-    // InternalKlangParser.g:2292:1: rule__GameStart__Group__6 : rule__GameStart__Group__6__Impl ;
-    public final void rule__GameStart__Group__6() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2296:1: ( rule__GameStart__Group__6__Impl )
-            // InternalKlangParser.g:2297:2: rule__GameStart__Group__6__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__GameStart__Group__6__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__GameStart__Group__6"
-
-
-    // $ANTLR start "rule__GameStart__Group__6__Impl"
-    // InternalKlangParser.g:2303:1: rule__GameStart__Group__6__Impl : ( RULE_END ) ;
-    public final void rule__GameStart__Group__6__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2307:1: ( ( RULE_END ) )
-            // InternalKlangParser.g:2308:1: ( RULE_END )
-            {
-            // InternalKlangParser.g:2308:1: ( RULE_END )
-            // InternalKlangParser.g:2309:2: RULE_END
-            {
-             before(grammarAccess.getGameStartAccess().getENDTerminalRuleCall_6()); 
-            match(input,RULE_END,FOLLOW_2); 
-             after(grammarAccess.getGameStartAccess().getENDTerminalRuleCall_6()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__GameStart__Group__6__Impl"
-
-
-    // $ANTLR start "rule__SpriteClicked__Group__0"
-    // InternalKlangParser.g:2319:1: rule__SpriteClicked__Group__0 : rule__SpriteClicked__Group__0__Impl rule__SpriteClicked__Group__1 ;
-    public final void rule__SpriteClicked__Group__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2323:1: ( rule__SpriteClicked__Group__0__Impl rule__SpriteClicked__Group__1 )
-            // InternalKlangParser.g:2324:2: rule__SpriteClicked__Group__0__Impl rule__SpriteClicked__Group__1
-            {
-            pushFollow(FOLLOW_11);
-            rule__SpriteClicked__Group__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__SpriteClicked__Group__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SpriteClicked__Group__0"
-
-
-    // $ANTLR start "rule__SpriteClicked__Group__0__Impl"
-    // InternalKlangParser.g:2331:1: rule__SpriteClicked__Group__0__Impl : ( () ) ;
-    public final void rule__SpriteClicked__Group__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2335:1: ( ( () ) )
-            // InternalKlangParser.g:2336:1: ( () )
-            {
-            // InternalKlangParser.g:2336:1: ( () )
-            // InternalKlangParser.g:2337:2: ()
-            {
-             before(grammarAccess.getSpriteClickedAccess().getSpriteClickedAction_0()); 
-            // InternalKlangParser.g:2338:2: ()
-            // InternalKlangParser.g:2338:3: 
-            {
-            }
-
-             after(grammarAccess.getSpriteClickedAccess().getSpriteClickedAction_0()); 
-
-            }
-
-
-            }
-
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SpriteClicked__Group__0__Impl"
-
-
-    // $ANTLR start "rule__SpriteClicked__Group__1"
-    // InternalKlangParser.g:2346:1: rule__SpriteClicked__Group__1 : rule__SpriteClicked__Group__1__Impl rule__SpriteClicked__Group__2 ;
-    public final void rule__SpriteClicked__Group__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2350:1: ( rule__SpriteClicked__Group__1__Impl rule__SpriteClicked__Group__2 )
-            // InternalKlangParser.g:2351:2: rule__SpriteClicked__Group__1__Impl rule__SpriteClicked__Group__2
-            {
-            pushFollow(FOLLOW_23);
-            rule__SpriteClicked__Group__1__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__SpriteClicked__Group__2();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SpriteClicked__Group__1"
-
-
-    // $ANTLR start "rule__SpriteClicked__Group__1__Impl"
-    // InternalKlangParser.g:2358:1: rule__SpriteClicked__Group__1__Impl : ( When ) ;
-    public final void rule__SpriteClicked__Group__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2362:1: ( ( When ) )
-            // InternalKlangParser.g:2363:1: ( When )
-            {
-            // InternalKlangParser.g:2363:1: ( When )
-            // InternalKlangParser.g:2364:2: When
-            {
-             before(grammarAccess.getSpriteClickedAccess().getWhenKeyword_1()); 
-            match(input,When,FOLLOW_2); 
-             after(grammarAccess.getSpriteClickedAccess().getWhenKeyword_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SpriteClicked__Group__1__Impl"
-
-
-    // $ANTLR start "rule__SpriteClicked__Group__2"
-    // InternalKlangParser.g:2373:1: rule__SpriteClicked__Group__2 : rule__SpriteClicked__Group__2__Impl rule__SpriteClicked__Group__3 ;
-    public final void rule__SpriteClicked__Group__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2377:1: ( rule__SpriteClicked__Group__2__Impl rule__SpriteClicked__Group__3 )
-            // InternalKlangParser.g:2378:2: rule__SpriteClicked__Group__2__Impl rule__SpriteClicked__Group__3
-            {
-            pushFollow(FOLLOW_7);
-            rule__SpriteClicked__Group__2__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__SpriteClicked__Group__3();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SpriteClicked__Group__2"
-
-
-    // $ANTLR start "rule__SpriteClicked__Group__2__Impl"
-    // InternalKlangParser.g:2385:1: rule__SpriteClicked__Group__2__Impl : ( Clicked ) ;
-    public final void rule__SpriteClicked__Group__2__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2389:1: ( ( Clicked ) )
-            // InternalKlangParser.g:2390:1: ( Clicked )
-            {
-            // InternalKlangParser.g:2390:1: ( Clicked )
-            // InternalKlangParser.g:2391:2: Clicked
-            {
-             before(grammarAccess.getSpriteClickedAccess().getClickedKeyword_2()); 
-            match(input,Clicked,FOLLOW_2); 
-             after(grammarAccess.getSpriteClickedAccess().getClickedKeyword_2()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SpriteClicked__Group__2__Impl"
-
-
-    // $ANTLR start "rule__SpriteClicked__Group__3"
-    // InternalKlangParser.g:2400:1: rule__SpriteClicked__Group__3 : rule__SpriteClicked__Group__3__Impl rule__SpriteClicked__Group__4 ;
-    public final void rule__SpriteClicked__Group__3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2404:1: ( rule__SpriteClicked__Group__3__Impl rule__SpriteClicked__Group__4 )
-            // InternalKlangParser.g:2405:2: rule__SpriteClicked__Group__3__Impl rule__SpriteClicked__Group__4
-            {
-            pushFollow(FOLLOW_16);
-            rule__SpriteClicked__Group__3__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__SpriteClicked__Group__4();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SpriteClicked__Group__3"
-
-
-    // $ANTLR start "rule__SpriteClicked__Group__3__Impl"
-    // InternalKlangParser.g:2412:1: rule__SpriteClicked__Group__3__Impl : ( RULE_BEGIN ) ;
-    public final void rule__SpriteClicked__Group__3__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2416:1: ( ( RULE_BEGIN ) )
-            // InternalKlangParser.g:2417:1: ( RULE_BEGIN )
-            {
-            // InternalKlangParser.g:2417:1: ( RULE_BEGIN )
-            // InternalKlangParser.g:2418:2: RULE_BEGIN
-            {
-             before(grammarAccess.getSpriteClickedAccess().getBEGINTerminalRuleCall_3()); 
-            match(input,RULE_BEGIN,FOLLOW_2); 
-             after(grammarAccess.getSpriteClickedAccess().getBEGINTerminalRuleCall_3()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SpriteClicked__Group__3__Impl"
-
-
-    // $ANTLR start "rule__SpriteClicked__Group__4"
-    // InternalKlangParser.g:2427:1: rule__SpriteClicked__Group__4 : rule__SpriteClicked__Group__4__Impl rule__SpriteClicked__Group__5 ;
-    public final void rule__SpriteClicked__Group__4() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2431:1: ( rule__SpriteClicked__Group__4__Impl rule__SpriteClicked__Group__5 )
-            // InternalKlangParser.g:2432:2: rule__SpriteClicked__Group__4__Impl rule__SpriteClicked__Group__5
-            {
-            pushFollow(FOLLOW_16);
-            rule__SpriteClicked__Group__4__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__SpriteClicked__Group__5();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SpriteClicked__Group__4"
-
-
-    // $ANTLR start "rule__SpriteClicked__Group__4__Impl"
-    // InternalKlangParser.g:2439:1: rule__SpriteClicked__Group__4__Impl : ( ( rule__SpriteClicked__StatementsAssignment_4 )* ) ;
-    public final void rule__SpriteClicked__Group__4__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2443:1: ( ( ( rule__SpriteClicked__StatementsAssignment_4 )* ) )
-            // InternalKlangParser.g:2444:1: ( ( rule__SpriteClicked__StatementsAssignment_4 )* )
-            {
-            // InternalKlangParser.g:2444:1: ( ( rule__SpriteClicked__StatementsAssignment_4 )* )
-            // InternalKlangParser.g:2445:2: ( rule__SpriteClicked__StatementsAssignment_4 )*
-            {
-             before(grammarAccess.getSpriteClickedAccess().getStatementsAssignment_4()); 
-            // InternalKlangParser.g:2446:2: ( rule__SpriteClicked__StatementsAssignment_4 )*
-            loop17:
-            do {
-                int alt17=2;
-                int LA17_0 = input.LA(1);
-
-                if ( (LA17_0==SendMessage||LA17_0==Forever||(LA17_0>=Sleep && LA17_0<=While)||LA17_0==If||LA17_0==RULE_ID) ) {
-                    alt17=1;
-                }
-
-
-                switch (alt17) {
-            	case 1 :
-            	    // InternalKlangParser.g:2446:3: rule__SpriteClicked__StatementsAssignment_4
-            	    {
-            	    pushFollow(FOLLOW_17);
-            	    rule__SpriteClicked__StatementsAssignment_4();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop17;
-                }
-            } while (true);
-
-             after(grammarAccess.getSpriteClickedAccess().getStatementsAssignment_4()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SpriteClicked__Group__4__Impl"
-
-
-    // $ANTLR start "rule__SpriteClicked__Group__5"
-    // InternalKlangParser.g:2454:1: rule__SpriteClicked__Group__5 : rule__SpriteClicked__Group__5__Impl ;
-    public final void rule__SpriteClicked__Group__5() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2458:1: ( rule__SpriteClicked__Group__5__Impl )
-            // InternalKlangParser.g:2459:2: rule__SpriteClicked__Group__5__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__SpriteClicked__Group__5__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SpriteClicked__Group__5"
-
-
-    // $ANTLR start "rule__SpriteClicked__Group__5__Impl"
-    // InternalKlangParser.g:2465:1: rule__SpriteClicked__Group__5__Impl : ( RULE_END ) ;
-    public final void rule__SpriteClicked__Group__5__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2469:1: ( ( RULE_END ) )
-            // InternalKlangParser.g:2470:1: ( RULE_END )
-            {
-            // InternalKlangParser.g:2470:1: ( RULE_END )
-            // InternalKlangParser.g:2471:2: RULE_END
-            {
-             before(grammarAccess.getSpriteClickedAccess().getENDTerminalRuleCall_5()); 
-            match(input,RULE_END,FOLLOW_2); 
-             after(grammarAccess.getSpriteClickedAccess().getENDTerminalRuleCall_5()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SpriteClicked__Group__5__Impl"
-
-
-    // $ANTLR start "rule__KeyPressed__Group__0"
-    // InternalKlangParser.g:2481:1: rule__KeyPressed__Group__0 : rule__KeyPressed__Group__0__Impl rule__KeyPressed__Group__1 ;
-    public final void rule__KeyPressed__Group__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2485:1: ( rule__KeyPressed__Group__0__Impl rule__KeyPressed__Group__1 )
-            // InternalKlangParser.g:2486:2: rule__KeyPressed__Group__0__Impl rule__KeyPressed__Group__1
-            {
-            pushFollow(FOLLOW_11);
-            rule__KeyPressed__Group__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__KeyPressed__Group__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__KeyPressed__Group__0"
-
-
-    // $ANTLR start "rule__KeyPressed__Group__0__Impl"
-    // InternalKlangParser.g:2493:1: rule__KeyPressed__Group__0__Impl : ( () ) ;
-    public final void rule__KeyPressed__Group__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2497:1: ( ( () ) )
-            // InternalKlangParser.g:2498:1: ( () )
-            {
-            // InternalKlangParser.g:2498:1: ( () )
-            // InternalKlangParser.g:2499:2: ()
-            {
-             before(grammarAccess.getKeyPressedAccess().getKeyPressedAction_0()); 
-            // InternalKlangParser.g:2500:2: ()
-            // InternalKlangParser.g:2500:3: 
-            {
-            }
-
-             after(grammarAccess.getKeyPressedAccess().getKeyPressedAction_0()); 
-
-            }
-
-
-            }
-
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__KeyPressed__Group__0__Impl"
-
-
-    // $ANTLR start "rule__KeyPressed__Group__1"
-    // InternalKlangParser.g:2508:1: rule__KeyPressed__Group__1 : rule__KeyPressed__Group__1__Impl rule__KeyPressed__Group__2 ;
-    public final void rule__KeyPressed__Group__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2512:1: ( rule__KeyPressed__Group__1__Impl rule__KeyPressed__Group__2 )
-            // InternalKlangParser.g:2513:2: rule__KeyPressed__Group__1__Impl rule__KeyPressed__Group__2
-            {
-            pushFollow(FOLLOW_12);
-            rule__KeyPressed__Group__1__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__KeyPressed__Group__2();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__KeyPressed__Group__1"
-
-
-    // $ANTLR start "rule__KeyPressed__Group__1__Impl"
-    // InternalKlangParser.g:2520:1: rule__KeyPressed__Group__1__Impl : ( When ) ;
-    public final void rule__KeyPressed__Group__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2524:1: ( ( When ) )
-            // InternalKlangParser.g:2525:1: ( When )
-            {
-            // InternalKlangParser.g:2525:1: ( When )
-            // InternalKlangParser.g:2526:2: When
-            {
-             before(grammarAccess.getKeyPressedAccess().getWhenKeyword_1()); 
-            match(input,When,FOLLOW_2); 
-             after(grammarAccess.getKeyPressedAccess().getWhenKeyword_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__KeyPressed__Group__1__Impl"
-
-
-    // $ANTLR start "rule__KeyPressed__Group__2"
-    // InternalKlangParser.g:2535:1: rule__KeyPressed__Group__2 : rule__KeyPressed__Group__2__Impl rule__KeyPressed__Group__3 ;
-    public final void rule__KeyPressed__Group__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2539:1: ( rule__KeyPressed__Group__2__Impl rule__KeyPressed__Group__3 )
-            // InternalKlangParser.g:2540:2: rule__KeyPressed__Group__2__Impl rule__KeyPressed__Group__3
-            {
-            pushFollow(FOLLOW_24);
-            rule__KeyPressed__Group__2__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__KeyPressed__Group__3();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__KeyPressed__Group__2"
-
-
-    // $ANTLR start "rule__KeyPressed__Group__2__Impl"
-    // InternalKlangParser.g:2547:1: rule__KeyPressed__Group__2__Impl : ( LeftSquareBracket ) ;
-    public final void rule__KeyPressed__Group__2__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2551:1: ( ( LeftSquareBracket ) )
-            // InternalKlangParser.g:2552:1: ( LeftSquareBracket )
-            {
-            // InternalKlangParser.g:2552:1: ( LeftSquareBracket )
-            // InternalKlangParser.g:2553:2: LeftSquareBracket
-            {
-             before(grammarAccess.getKeyPressedAccess().getLeftSquareBracketKeyword_2()); 
-            match(input,LeftSquareBracket,FOLLOW_2); 
-             after(grammarAccess.getKeyPressedAccess().getLeftSquareBracketKeyword_2()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__KeyPressed__Group__2__Impl"
-
-
-    // $ANTLR start "rule__KeyPressed__Group__3"
-    // InternalKlangParser.g:2562:1: rule__KeyPressed__Group__3 : rule__KeyPressed__Group__3__Impl rule__KeyPressed__Group__4 ;
-    public final void rule__KeyPressed__Group__3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2566:1: ( rule__KeyPressed__Group__3__Impl rule__KeyPressed__Group__4 )
-            // InternalKlangParser.g:2567:2: rule__KeyPressed__Group__3__Impl rule__KeyPressed__Group__4
-            {
-            pushFollow(FOLLOW_14);
-            rule__KeyPressed__Group__3__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__KeyPressed__Group__4();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__KeyPressed__Group__3"
-
-
-    // $ANTLR start "rule__KeyPressed__Group__3__Impl"
-    // InternalKlangParser.g:2574:1: rule__KeyPressed__Group__3__Impl : ( ( rule__KeyPressed__KeyAssignment_3 ) ) ;
-    public final void rule__KeyPressed__Group__3__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2578:1: ( ( ( rule__KeyPressed__KeyAssignment_3 ) ) )
-            // InternalKlangParser.g:2579:1: ( ( rule__KeyPressed__KeyAssignment_3 ) )
-            {
-            // InternalKlangParser.g:2579:1: ( ( rule__KeyPressed__KeyAssignment_3 ) )
-            // InternalKlangParser.g:2580:2: ( rule__KeyPressed__KeyAssignment_3 )
-            {
-             before(grammarAccess.getKeyPressedAccess().getKeyAssignment_3()); 
-            // InternalKlangParser.g:2581:2: ( rule__KeyPressed__KeyAssignment_3 )
-            // InternalKlangParser.g:2581:3: rule__KeyPressed__KeyAssignment_3
-            {
-            pushFollow(FOLLOW_2);
-            rule__KeyPressed__KeyAssignment_3();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getKeyPressedAccess().getKeyAssignment_3()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__KeyPressed__Group__3__Impl"
-
-
-    // $ANTLR start "rule__KeyPressed__Group__4"
-    // InternalKlangParser.g:2589:1: rule__KeyPressed__Group__4 : rule__KeyPressed__Group__4__Impl rule__KeyPressed__Group__5 ;
-    public final void rule__KeyPressed__Group__4() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2593:1: ( rule__KeyPressed__Group__4__Impl rule__KeyPressed__Group__5 )
-            // InternalKlangParser.g:2594:2: rule__KeyPressed__Group__4__Impl rule__KeyPressed__Group__5
-            {
-            pushFollow(FOLLOW_25);
-            rule__KeyPressed__Group__4__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__KeyPressed__Group__5();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__KeyPressed__Group__4"
-
-
-    // $ANTLR start "rule__KeyPressed__Group__4__Impl"
-    // InternalKlangParser.g:2601:1: rule__KeyPressed__Group__4__Impl : ( RightSquareBracket ) ;
-    public final void rule__KeyPressed__Group__4__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2605:1: ( ( RightSquareBracket ) )
-            // InternalKlangParser.g:2606:1: ( RightSquareBracket )
-            {
-            // InternalKlangParser.g:2606:1: ( RightSquareBracket )
-            // InternalKlangParser.g:2607:2: RightSquareBracket
-            {
-             before(grammarAccess.getKeyPressedAccess().getRightSquareBracketKeyword_4()); 
-            match(input,RightSquareBracket,FOLLOW_2); 
-             after(grammarAccess.getKeyPressedAccess().getRightSquareBracketKeyword_4()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__KeyPressed__Group__4__Impl"
-
-
-    // $ANTLR start "rule__KeyPressed__Group__5"
-    // InternalKlangParser.g:2616:1: rule__KeyPressed__Group__5 : rule__KeyPressed__Group__5__Impl rule__KeyPressed__Group__6 ;
-    public final void rule__KeyPressed__Group__5() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2620:1: ( rule__KeyPressed__Group__5__Impl rule__KeyPressed__Group__6 )
-            // InternalKlangParser.g:2621:2: rule__KeyPressed__Group__5__Impl rule__KeyPressed__Group__6
-            {
-            pushFollow(FOLLOW_7);
-            rule__KeyPressed__Group__5__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__KeyPressed__Group__6();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__KeyPressed__Group__5"
-
-
-    // $ANTLR start "rule__KeyPressed__Group__5__Impl"
-    // InternalKlangParser.g:2628:1: rule__KeyPressed__Group__5__Impl : ( Pressed ) ;
-    public final void rule__KeyPressed__Group__5__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2632:1: ( ( Pressed ) )
-            // InternalKlangParser.g:2633:1: ( Pressed )
-            {
-            // InternalKlangParser.g:2633:1: ( Pressed )
-            // InternalKlangParser.g:2634:2: Pressed
-            {
-             before(grammarAccess.getKeyPressedAccess().getPressedKeyword_5()); 
-            match(input,Pressed,FOLLOW_2); 
-             after(grammarAccess.getKeyPressedAccess().getPressedKeyword_5()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__KeyPressed__Group__5__Impl"
-
-
-    // $ANTLR start "rule__KeyPressed__Group__6"
-    // InternalKlangParser.g:2643:1: rule__KeyPressed__Group__6 : rule__KeyPressed__Group__6__Impl rule__KeyPressed__Group__7 ;
-    public final void rule__KeyPressed__Group__6() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2647:1: ( rule__KeyPressed__Group__6__Impl rule__KeyPressed__Group__7 )
-            // InternalKlangParser.g:2648:2: rule__KeyPressed__Group__6__Impl rule__KeyPressed__Group__7
-            {
-            pushFollow(FOLLOW_16);
-            rule__KeyPressed__Group__6__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__KeyPressed__Group__7();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__KeyPressed__Group__6"
-
-
-    // $ANTLR start "rule__KeyPressed__Group__6__Impl"
-    // InternalKlangParser.g:2655:1: rule__KeyPressed__Group__6__Impl : ( RULE_BEGIN ) ;
-    public final void rule__KeyPressed__Group__6__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2659:1: ( ( RULE_BEGIN ) )
-            // InternalKlangParser.g:2660:1: ( RULE_BEGIN )
-            {
-            // InternalKlangParser.g:2660:1: ( RULE_BEGIN )
-            // InternalKlangParser.g:2661:2: RULE_BEGIN
-            {
-             before(grammarAccess.getKeyPressedAccess().getBEGINTerminalRuleCall_6()); 
-            match(input,RULE_BEGIN,FOLLOW_2); 
-             after(grammarAccess.getKeyPressedAccess().getBEGINTerminalRuleCall_6()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__KeyPressed__Group__6__Impl"
-
-
-    // $ANTLR start "rule__KeyPressed__Group__7"
-    // InternalKlangParser.g:2670:1: rule__KeyPressed__Group__7 : rule__KeyPressed__Group__7__Impl rule__KeyPressed__Group__8 ;
-    public final void rule__KeyPressed__Group__7() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2674:1: ( rule__KeyPressed__Group__7__Impl rule__KeyPressed__Group__8 )
-            // InternalKlangParser.g:2675:2: rule__KeyPressed__Group__7__Impl rule__KeyPressed__Group__8
-            {
-            pushFollow(FOLLOW_16);
-            rule__KeyPressed__Group__7__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__KeyPressed__Group__8();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__KeyPressed__Group__7"
-
-
-    // $ANTLR start "rule__KeyPressed__Group__7__Impl"
-    // InternalKlangParser.g:2682:1: rule__KeyPressed__Group__7__Impl : ( ( rule__KeyPressed__StatementsAssignment_7 )* ) ;
-    public final void rule__KeyPressed__Group__7__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2686:1: ( ( ( rule__KeyPressed__StatementsAssignment_7 )* ) )
-            // InternalKlangParser.g:2687:1: ( ( rule__KeyPressed__StatementsAssignment_7 )* )
-            {
-            // InternalKlangParser.g:2687:1: ( ( rule__KeyPressed__StatementsAssignment_7 )* )
-            // InternalKlangParser.g:2688:2: ( rule__KeyPressed__StatementsAssignment_7 )*
-            {
-             before(grammarAccess.getKeyPressedAccess().getStatementsAssignment_7()); 
-            // InternalKlangParser.g:2689:2: ( rule__KeyPressed__StatementsAssignment_7 )*
-            loop18:
-            do {
-                int alt18=2;
-                int LA18_0 = input.LA(1);
-
-                if ( (LA18_0==SendMessage||LA18_0==Forever||(LA18_0>=Sleep && LA18_0<=While)||LA18_0==If||LA18_0==RULE_ID) ) {
-                    alt18=1;
-                }
-
-
-                switch (alt18) {
-            	case 1 :
-            	    // InternalKlangParser.g:2689:3: rule__KeyPressed__StatementsAssignment_7
-            	    {
-            	    pushFollow(FOLLOW_17);
-            	    rule__KeyPressed__StatementsAssignment_7();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop18;
-                }
-            } while (true);
-
-             after(grammarAccess.getKeyPressedAccess().getStatementsAssignment_7()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__KeyPressed__Group__7__Impl"
-
-
-    // $ANTLR start "rule__KeyPressed__Group__8"
-    // InternalKlangParser.g:2697:1: rule__KeyPressed__Group__8 : rule__KeyPressed__Group__8__Impl ;
-    public final void rule__KeyPressed__Group__8() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2701:1: ( rule__KeyPressed__Group__8__Impl )
-            // InternalKlangParser.g:2702:2: rule__KeyPressed__Group__8__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__KeyPressed__Group__8__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__KeyPressed__Group__8"
-
-
-    // $ANTLR start "rule__KeyPressed__Group__8__Impl"
-    // InternalKlangParser.g:2708:1: rule__KeyPressed__Group__8__Impl : ( RULE_END ) ;
-    public final void rule__KeyPressed__Group__8__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2712:1: ( ( RULE_END ) )
-            // InternalKlangParser.g:2713:1: ( RULE_END )
-            {
-            // InternalKlangParser.g:2713:1: ( RULE_END )
-            // InternalKlangParser.g:2714:2: RULE_END
-            {
-             before(grammarAccess.getKeyPressedAccess().getENDTerminalRuleCall_8()); 
-            match(input,RULE_END,FOLLOW_2); 
-             after(grammarAccess.getKeyPressedAccess().getENDTerminalRuleCall_8()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__KeyPressed__Group__8__Impl"
-
-
-    // $ANTLR start "rule__CollidesWith__Group__0"
-    // InternalKlangParser.g:2724:1: rule__CollidesWith__Group__0 : rule__CollidesWith__Group__0__Impl rule__CollidesWith__Group__1 ;
-    public final void rule__CollidesWith__Group__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2728:1: ( rule__CollidesWith__Group__0__Impl rule__CollidesWith__Group__1 )
-            // InternalKlangParser.g:2729:2: rule__CollidesWith__Group__0__Impl rule__CollidesWith__Group__1
-            {
-            pushFollow(FOLLOW_11);
-            rule__CollidesWith__Group__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__CollidesWith__Group__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__CollidesWith__Group__0"
-
-
-    // $ANTLR start "rule__CollidesWith__Group__0__Impl"
-    // InternalKlangParser.g:2736:1: rule__CollidesWith__Group__0__Impl : ( () ) ;
-    public final void rule__CollidesWith__Group__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2740:1: ( ( () ) )
-            // InternalKlangParser.g:2741:1: ( () )
-            {
-            // InternalKlangParser.g:2741:1: ( () )
-            // InternalKlangParser.g:2742:2: ()
-            {
-             before(grammarAccess.getCollidesWithAccess().getCollidesWithAction_0()); 
-            // InternalKlangParser.g:2743:2: ()
-            // InternalKlangParser.g:2743:3: 
-            {
-            }
-
-             after(grammarAccess.getCollidesWithAccess().getCollidesWithAction_0()); 
-
-            }
-
-
-            }
-
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__CollidesWith__Group__0__Impl"
-
-
-    // $ANTLR start "rule__CollidesWith__Group__1"
-    // InternalKlangParser.g:2751:1: rule__CollidesWith__Group__1 : rule__CollidesWith__Group__1__Impl rule__CollidesWith__Group__2 ;
-    public final void rule__CollidesWith__Group__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2755:1: ( rule__CollidesWith__Group__1__Impl rule__CollidesWith__Group__2 )
-            // InternalKlangParser.g:2756:2: rule__CollidesWith__Group__1__Impl rule__CollidesWith__Group__2
-            {
-            pushFollow(FOLLOW_26);
-            rule__CollidesWith__Group__1__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__CollidesWith__Group__2();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__CollidesWith__Group__1"
-
-
-    // $ANTLR start "rule__CollidesWith__Group__1__Impl"
-    // InternalKlangParser.g:2763:1: rule__CollidesWith__Group__1__Impl : ( When ) ;
-    public final void rule__CollidesWith__Group__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2767:1: ( ( When ) )
-            // InternalKlangParser.g:2768:1: ( When )
-            {
-            // InternalKlangParser.g:2768:1: ( When )
-            // InternalKlangParser.g:2769:2: When
-            {
-             before(grammarAccess.getCollidesWithAccess().getWhenKeyword_1()); 
-            match(input,When,FOLLOW_2); 
-             after(grammarAccess.getCollidesWithAccess().getWhenKeyword_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__CollidesWith__Group__1__Impl"
-
-
-    // $ANTLR start "rule__CollidesWith__Group__2"
-    // InternalKlangParser.g:2778:1: rule__CollidesWith__Group__2 : rule__CollidesWith__Group__2__Impl rule__CollidesWith__Group__3 ;
-    public final void rule__CollidesWith__Group__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2782:1: ( rule__CollidesWith__Group__2__Impl rule__CollidesWith__Group__3 )
-            // InternalKlangParser.g:2783:2: rule__CollidesWith__Group__2__Impl rule__CollidesWith__Group__3
-            {
-            pushFollow(FOLLOW_27);
-            rule__CollidesWith__Group__2__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__CollidesWith__Group__3();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__CollidesWith__Group__2"
-
-
-    // $ANTLR start "rule__CollidesWith__Group__2__Impl"
-    // InternalKlangParser.g:2790:1: rule__CollidesWith__Group__2__Impl : ( Collides ) ;
-    public final void rule__CollidesWith__Group__2__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2794:1: ( ( Collides ) )
-            // InternalKlangParser.g:2795:1: ( Collides )
-            {
-            // InternalKlangParser.g:2795:1: ( Collides )
-            // InternalKlangParser.g:2796:2: Collides
-            {
-             before(grammarAccess.getCollidesWithAccess().getCollidesKeyword_2()); 
-            match(input,Collides,FOLLOW_2); 
-             after(grammarAccess.getCollidesWithAccess().getCollidesKeyword_2()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__CollidesWith__Group__2__Impl"
-
-
-    // $ANTLR start "rule__CollidesWith__Group__3"
-    // InternalKlangParser.g:2805:1: rule__CollidesWith__Group__3 : rule__CollidesWith__Group__3__Impl rule__CollidesWith__Group__4 ;
-    public final void rule__CollidesWith__Group__3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2809:1: ( rule__CollidesWith__Group__3__Impl rule__CollidesWith__Group__4 )
-            // InternalKlangParser.g:2810:2: rule__CollidesWith__Group__3__Impl rule__CollidesWith__Group__4
-            {
-            pushFollow(FOLLOW_6);
-            rule__CollidesWith__Group__3__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__CollidesWith__Group__4();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__CollidesWith__Group__3"
-
-
-    // $ANTLR start "rule__CollidesWith__Group__3__Impl"
-    // InternalKlangParser.g:2817:1: rule__CollidesWith__Group__3__Impl : ( With ) ;
-    public final void rule__CollidesWith__Group__3__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2821:1: ( ( With ) )
-            // InternalKlangParser.g:2822:1: ( With )
-            {
-            // InternalKlangParser.g:2822:1: ( With )
-            // InternalKlangParser.g:2823:2: With
-            {
-             before(grammarAccess.getCollidesWithAccess().getWithKeyword_3()); 
-            match(input,With,FOLLOW_2); 
-             after(grammarAccess.getCollidesWithAccess().getWithKeyword_3()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__CollidesWith__Group__3__Impl"
-
-
-    // $ANTLR start "rule__CollidesWith__Group__4"
-    // InternalKlangParser.g:2832:1: rule__CollidesWith__Group__4 : rule__CollidesWith__Group__4__Impl rule__CollidesWith__Group__5 ;
-    public final void rule__CollidesWith__Group__4() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2836:1: ( rule__CollidesWith__Group__4__Impl rule__CollidesWith__Group__5 )
-            // InternalKlangParser.g:2837:2: rule__CollidesWith__Group__4__Impl rule__CollidesWith__Group__5
-            {
-            pushFollow(FOLLOW_7);
-            rule__CollidesWith__Group__4__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__CollidesWith__Group__5();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__CollidesWith__Group__4"
-
-
-    // $ANTLR start "rule__CollidesWith__Group__4__Impl"
-    // InternalKlangParser.g:2844:1: rule__CollidesWith__Group__4__Impl : ( ( rule__CollidesWith__TargetAssignment_4 ) ) ;
-    public final void rule__CollidesWith__Group__4__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2848:1: ( ( ( rule__CollidesWith__TargetAssignment_4 ) ) )
-            // InternalKlangParser.g:2849:1: ( ( rule__CollidesWith__TargetAssignment_4 ) )
-            {
-            // InternalKlangParser.g:2849:1: ( ( rule__CollidesWith__TargetAssignment_4 ) )
-            // InternalKlangParser.g:2850:2: ( rule__CollidesWith__TargetAssignment_4 )
-            {
-             before(grammarAccess.getCollidesWithAccess().getTargetAssignment_4()); 
-            // InternalKlangParser.g:2851:2: ( rule__CollidesWith__TargetAssignment_4 )
-            // InternalKlangParser.g:2851:3: rule__CollidesWith__TargetAssignment_4
-            {
-            pushFollow(FOLLOW_2);
-            rule__CollidesWith__TargetAssignment_4();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getCollidesWithAccess().getTargetAssignment_4()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__CollidesWith__Group__4__Impl"
-
-
-    // $ANTLR start "rule__CollidesWith__Group__5"
-    // InternalKlangParser.g:2859:1: rule__CollidesWith__Group__5 : rule__CollidesWith__Group__5__Impl rule__CollidesWith__Group__6 ;
-    public final void rule__CollidesWith__Group__5() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2863:1: ( rule__CollidesWith__Group__5__Impl rule__CollidesWith__Group__6 )
-            // InternalKlangParser.g:2864:2: rule__CollidesWith__Group__5__Impl rule__CollidesWith__Group__6
-            {
-            pushFollow(FOLLOW_16);
-            rule__CollidesWith__Group__5__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__CollidesWith__Group__6();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__CollidesWith__Group__5"
-
-
-    // $ANTLR start "rule__CollidesWith__Group__5__Impl"
-    // InternalKlangParser.g:2871:1: rule__CollidesWith__Group__5__Impl : ( RULE_BEGIN ) ;
-    public final void rule__CollidesWith__Group__5__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2875:1: ( ( RULE_BEGIN ) )
-            // InternalKlangParser.g:2876:1: ( RULE_BEGIN )
-            {
-            // InternalKlangParser.g:2876:1: ( RULE_BEGIN )
-            // InternalKlangParser.g:2877:2: RULE_BEGIN
-            {
-             before(grammarAccess.getCollidesWithAccess().getBEGINTerminalRuleCall_5()); 
-            match(input,RULE_BEGIN,FOLLOW_2); 
-             after(grammarAccess.getCollidesWithAccess().getBEGINTerminalRuleCall_5()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__CollidesWith__Group__5__Impl"
-
-
-    // $ANTLR start "rule__CollidesWith__Group__6"
-    // InternalKlangParser.g:2886:1: rule__CollidesWith__Group__6 : rule__CollidesWith__Group__6__Impl rule__CollidesWith__Group__7 ;
-    public final void rule__CollidesWith__Group__6() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2890:1: ( rule__CollidesWith__Group__6__Impl rule__CollidesWith__Group__7 )
-            // InternalKlangParser.g:2891:2: rule__CollidesWith__Group__6__Impl rule__CollidesWith__Group__7
-            {
-            pushFollow(FOLLOW_16);
-            rule__CollidesWith__Group__6__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__CollidesWith__Group__7();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__CollidesWith__Group__6"
-
-
-    // $ANTLR start "rule__CollidesWith__Group__6__Impl"
-    // InternalKlangParser.g:2898:1: rule__CollidesWith__Group__6__Impl : ( ( rule__CollidesWith__StatementsAssignment_6 )* ) ;
-    public final void rule__CollidesWith__Group__6__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2902:1: ( ( ( rule__CollidesWith__StatementsAssignment_6 )* ) )
-            // InternalKlangParser.g:2903:1: ( ( rule__CollidesWith__StatementsAssignment_6 )* )
-            {
-            // InternalKlangParser.g:2903:1: ( ( rule__CollidesWith__StatementsAssignment_6 )* )
-            // InternalKlangParser.g:2904:2: ( rule__CollidesWith__StatementsAssignment_6 )*
-            {
-             before(grammarAccess.getCollidesWithAccess().getStatementsAssignment_6()); 
-            // InternalKlangParser.g:2905:2: ( rule__CollidesWith__StatementsAssignment_6 )*
-            loop19:
-            do {
-                int alt19=2;
-                int LA19_0 = input.LA(1);
-
-                if ( (LA19_0==SendMessage||LA19_0==Forever||(LA19_0>=Sleep && LA19_0<=While)||LA19_0==If||LA19_0==RULE_ID) ) {
-                    alt19=1;
-                }
-
-
-                switch (alt19) {
-            	case 1 :
-            	    // InternalKlangParser.g:2905:3: rule__CollidesWith__StatementsAssignment_6
-            	    {
-            	    pushFollow(FOLLOW_17);
-            	    rule__CollidesWith__StatementsAssignment_6();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop19;
-                }
-            } while (true);
-
-             after(grammarAccess.getCollidesWithAccess().getStatementsAssignment_6()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__CollidesWith__Group__6__Impl"
-
-
-    // $ANTLR start "rule__CollidesWith__Group__7"
-    // InternalKlangParser.g:2913:1: rule__CollidesWith__Group__7 : rule__CollidesWith__Group__7__Impl ;
-    public final void rule__CollidesWith__Group__7() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2917:1: ( rule__CollidesWith__Group__7__Impl )
-            // InternalKlangParser.g:2918:2: rule__CollidesWith__Group__7__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__CollidesWith__Group__7__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__CollidesWith__Group__7"
-
-
-    // $ANTLR start "rule__CollidesWith__Group__7__Impl"
-    // InternalKlangParser.g:2924:1: rule__CollidesWith__Group__7__Impl : ( RULE_END ) ;
-    public final void rule__CollidesWith__Group__7__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:2928:1: ( ( RULE_END ) )
-            // InternalKlangParser.g:2929:1: ( RULE_END )
-            {
-            // InternalKlangParser.g:2929:1: ( RULE_END )
-            // InternalKlangParser.g:2930:2: RULE_END
-            {
-             before(grammarAccess.getCollidesWithAccess().getENDTerminalRuleCall_7()); 
-            match(input,RULE_END,FOLLOW_2); 
-             after(grammarAccess.getCollidesWithAccess().getENDTerminalRuleCall_7()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__CollidesWith__Group__7__Impl"
-
-
     // $ANTLR start "rule__WhileLoop__Group__0"
-    // InternalKlangParser.g:2940:1: rule__WhileLoop__Group__0 : rule__WhileLoop__Group__0__Impl rule__WhileLoop__Group__1 ;
+    // InternalKlangParser.g:2464:1: rule__WhileLoop__Group__0 : rule__WhileLoop__Group__0__Impl rule__WhileLoop__Group__1 ;
     public final void rule__WhileLoop__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:2944:1: ( rule__WhileLoop__Group__0__Impl rule__WhileLoop__Group__1 )
-            // InternalKlangParser.g:2945:2: rule__WhileLoop__Group__0__Impl rule__WhileLoop__Group__1
+            // InternalKlangParser.g:2468:1: ( rule__WhileLoop__Group__0__Impl rule__WhileLoop__Group__1 )
+            // InternalKlangParser.g:2469:2: rule__WhileLoop__Group__0__Impl rule__WhileLoop__Group__1
             {
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_25);
             rule__WhileLoop__Group__0__Impl();
 
             state._fsp--;
@@ -9249,21 +7921,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__WhileLoop__Group__0__Impl"
-    // InternalKlangParser.g:2952:1: rule__WhileLoop__Group__0__Impl : ( () ) ;
+    // InternalKlangParser.g:2476:1: rule__WhileLoop__Group__0__Impl : ( () ) ;
     public final void rule__WhileLoop__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:2956:1: ( ( () ) )
-            // InternalKlangParser.g:2957:1: ( () )
+            // InternalKlangParser.g:2480:1: ( ( () ) )
+            // InternalKlangParser.g:2481:1: ( () )
             {
-            // InternalKlangParser.g:2957:1: ( () )
-            // InternalKlangParser.g:2958:2: ()
+            // InternalKlangParser.g:2481:1: ( () )
+            // InternalKlangParser.g:2482:2: ()
             {
              before(grammarAccess.getWhileLoopAccess().getWhileLoopAction_0()); 
-            // InternalKlangParser.g:2959:2: ()
-            // InternalKlangParser.g:2959:3: 
+            // InternalKlangParser.g:2483:2: ()
+            // InternalKlangParser.g:2483:3: 
             {
             }
 
@@ -9286,16 +7958,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__WhileLoop__Group__1"
-    // InternalKlangParser.g:2967:1: rule__WhileLoop__Group__1 : rule__WhileLoop__Group__1__Impl rule__WhileLoop__Group__2 ;
+    // InternalKlangParser.g:2491:1: rule__WhileLoop__Group__1 : rule__WhileLoop__Group__1__Impl rule__WhileLoop__Group__2 ;
     public final void rule__WhileLoop__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:2971:1: ( rule__WhileLoop__Group__1__Impl rule__WhileLoop__Group__2 )
-            // InternalKlangParser.g:2972:2: rule__WhileLoop__Group__1__Impl rule__WhileLoop__Group__2
+            // InternalKlangParser.g:2495:1: ( rule__WhileLoop__Group__1__Impl rule__WhileLoop__Group__2 )
+            // InternalKlangParser.g:2496:2: rule__WhileLoop__Group__1__Impl rule__WhileLoop__Group__2
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_26);
             rule__WhileLoop__Group__1__Impl();
 
             state._fsp--;
@@ -9324,17 +7996,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__WhileLoop__Group__1__Impl"
-    // InternalKlangParser.g:2979:1: rule__WhileLoop__Group__1__Impl : ( While ) ;
+    // InternalKlangParser.g:2503:1: rule__WhileLoop__Group__1__Impl : ( While ) ;
     public final void rule__WhileLoop__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:2983:1: ( ( While ) )
-            // InternalKlangParser.g:2984:1: ( While )
+            // InternalKlangParser.g:2507:1: ( ( While ) )
+            // InternalKlangParser.g:2508:1: ( While )
             {
-            // InternalKlangParser.g:2984:1: ( While )
-            // InternalKlangParser.g:2985:2: While
+            // InternalKlangParser.g:2508:1: ( While )
+            // InternalKlangParser.g:2509:2: While
             {
              before(grammarAccess.getWhileLoopAccess().getWhileKeyword_1()); 
             match(input,While,FOLLOW_2); 
@@ -9361,14 +8033,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__WhileLoop__Group__2"
-    // InternalKlangParser.g:2994:1: rule__WhileLoop__Group__2 : rule__WhileLoop__Group__2__Impl rule__WhileLoop__Group__3 ;
+    // InternalKlangParser.g:2518:1: rule__WhileLoop__Group__2 : rule__WhileLoop__Group__2__Impl rule__WhileLoop__Group__3 ;
     public final void rule__WhileLoop__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:2998:1: ( rule__WhileLoop__Group__2__Impl rule__WhileLoop__Group__3 )
-            // InternalKlangParser.g:2999:2: rule__WhileLoop__Group__2__Impl rule__WhileLoop__Group__3
+            // InternalKlangParser.g:2522:1: ( rule__WhileLoop__Group__2__Impl rule__WhileLoop__Group__3 )
+            // InternalKlangParser.g:2523:2: rule__WhileLoop__Group__2__Impl rule__WhileLoop__Group__3
             {
             pushFollow(FOLLOW_7);
             rule__WhileLoop__Group__2__Impl();
@@ -9399,21 +8071,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__WhileLoop__Group__2__Impl"
-    // InternalKlangParser.g:3006:1: rule__WhileLoop__Group__2__Impl : ( ( rule__WhileLoop__PredicateAssignment_2 ) ) ;
+    // InternalKlangParser.g:2530:1: rule__WhileLoop__Group__2__Impl : ( ( rule__WhileLoop__PredicateAssignment_2 ) ) ;
     public final void rule__WhileLoop__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3010:1: ( ( ( rule__WhileLoop__PredicateAssignment_2 ) ) )
-            // InternalKlangParser.g:3011:1: ( ( rule__WhileLoop__PredicateAssignment_2 ) )
+            // InternalKlangParser.g:2534:1: ( ( ( rule__WhileLoop__PredicateAssignment_2 ) ) )
+            // InternalKlangParser.g:2535:1: ( ( rule__WhileLoop__PredicateAssignment_2 ) )
             {
-            // InternalKlangParser.g:3011:1: ( ( rule__WhileLoop__PredicateAssignment_2 ) )
-            // InternalKlangParser.g:3012:2: ( rule__WhileLoop__PredicateAssignment_2 )
+            // InternalKlangParser.g:2535:1: ( ( rule__WhileLoop__PredicateAssignment_2 ) )
+            // InternalKlangParser.g:2536:2: ( rule__WhileLoop__PredicateAssignment_2 )
             {
              before(grammarAccess.getWhileLoopAccess().getPredicateAssignment_2()); 
-            // InternalKlangParser.g:3013:2: ( rule__WhileLoop__PredicateAssignment_2 )
-            // InternalKlangParser.g:3013:3: rule__WhileLoop__PredicateAssignment_2
+            // InternalKlangParser.g:2537:2: ( rule__WhileLoop__PredicateAssignment_2 )
+            // InternalKlangParser.g:2537:3: rule__WhileLoop__PredicateAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__WhileLoop__PredicateAssignment_2();
@@ -9446,16 +8118,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__WhileLoop__Group__3"
-    // InternalKlangParser.g:3021:1: rule__WhileLoop__Group__3 : rule__WhileLoop__Group__3__Impl rule__WhileLoop__Group__4 ;
+    // InternalKlangParser.g:2545:1: rule__WhileLoop__Group__3 : rule__WhileLoop__Group__3__Impl rule__WhileLoop__Group__4 ;
     public final void rule__WhileLoop__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3025:1: ( rule__WhileLoop__Group__3__Impl rule__WhileLoop__Group__4 )
-            // InternalKlangParser.g:3026:2: rule__WhileLoop__Group__3__Impl rule__WhileLoop__Group__4
+            // InternalKlangParser.g:2549:1: ( rule__WhileLoop__Group__3__Impl rule__WhileLoop__Group__4 )
+            // InternalKlangParser.g:2550:2: rule__WhileLoop__Group__3__Impl rule__WhileLoop__Group__4
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_12);
             rule__WhileLoop__Group__3__Impl();
 
             state._fsp--;
@@ -9484,17 +8156,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__WhileLoop__Group__3__Impl"
-    // InternalKlangParser.g:3033:1: rule__WhileLoop__Group__3__Impl : ( RULE_BEGIN ) ;
+    // InternalKlangParser.g:2557:1: rule__WhileLoop__Group__3__Impl : ( RULE_BEGIN ) ;
     public final void rule__WhileLoop__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3037:1: ( ( RULE_BEGIN ) )
-            // InternalKlangParser.g:3038:1: ( RULE_BEGIN )
+            // InternalKlangParser.g:2561:1: ( ( RULE_BEGIN ) )
+            // InternalKlangParser.g:2562:1: ( RULE_BEGIN )
             {
-            // InternalKlangParser.g:3038:1: ( RULE_BEGIN )
-            // InternalKlangParser.g:3039:2: RULE_BEGIN
+            // InternalKlangParser.g:2562:1: ( RULE_BEGIN )
+            // InternalKlangParser.g:2563:2: RULE_BEGIN
             {
              before(grammarAccess.getWhileLoopAccess().getBEGINTerminalRuleCall_3()); 
             match(input,RULE_BEGIN,FOLLOW_2); 
@@ -9521,16 +8193,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__WhileLoop__Group__4"
-    // InternalKlangParser.g:3048:1: rule__WhileLoop__Group__4 : rule__WhileLoop__Group__4__Impl rule__WhileLoop__Group__5 ;
+    // InternalKlangParser.g:2572:1: rule__WhileLoop__Group__4 : rule__WhileLoop__Group__4__Impl rule__WhileLoop__Group__5 ;
     public final void rule__WhileLoop__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3052:1: ( rule__WhileLoop__Group__4__Impl rule__WhileLoop__Group__5 )
-            // InternalKlangParser.g:3053:2: rule__WhileLoop__Group__4__Impl rule__WhileLoop__Group__5
+            // InternalKlangParser.g:2576:1: ( rule__WhileLoop__Group__4__Impl rule__WhileLoop__Group__5 )
+            // InternalKlangParser.g:2577:2: rule__WhileLoop__Group__4__Impl rule__WhileLoop__Group__5
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_12);
             rule__WhileLoop__Group__4__Impl();
 
             state._fsp--;
@@ -9559,35 +8231,35 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__WhileLoop__Group__4__Impl"
-    // InternalKlangParser.g:3060:1: rule__WhileLoop__Group__4__Impl : ( ( rule__WhileLoop__StatementsAssignment_4 )* ) ;
+    // InternalKlangParser.g:2584:1: rule__WhileLoop__Group__4__Impl : ( ( rule__WhileLoop__StatementsAssignment_4 )* ) ;
     public final void rule__WhileLoop__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3064:1: ( ( ( rule__WhileLoop__StatementsAssignment_4 )* ) )
-            // InternalKlangParser.g:3065:1: ( ( rule__WhileLoop__StatementsAssignment_4 )* )
+            // InternalKlangParser.g:2588:1: ( ( ( rule__WhileLoop__StatementsAssignment_4 )* ) )
+            // InternalKlangParser.g:2589:1: ( ( rule__WhileLoop__StatementsAssignment_4 )* )
             {
-            // InternalKlangParser.g:3065:1: ( ( rule__WhileLoop__StatementsAssignment_4 )* )
-            // InternalKlangParser.g:3066:2: ( rule__WhileLoop__StatementsAssignment_4 )*
+            // InternalKlangParser.g:2589:1: ( ( rule__WhileLoop__StatementsAssignment_4 )* )
+            // InternalKlangParser.g:2590:2: ( rule__WhileLoop__StatementsAssignment_4 )*
             {
              before(grammarAccess.getWhileLoopAccess().getStatementsAssignment_4()); 
-            // InternalKlangParser.g:3067:2: ( rule__WhileLoop__StatementsAssignment_4 )*
-            loop20:
+            // InternalKlangParser.g:2591:2: ( rule__WhileLoop__StatementsAssignment_4 )*
+            loop16:
             do {
-                int alt20=2;
-                int LA20_0 = input.LA(1);
+                int alt16=2;
+                int LA16_0 = input.LA(1);
 
-                if ( (LA20_0==SendMessage||LA20_0==Forever||(LA20_0>=Sleep && LA20_0<=While)||LA20_0==If||LA20_0==RULE_ID) ) {
-                    alt20=1;
+                if ( (LA16_0==SendMessage||LA16_0==Forever||(LA16_0>=Sleep && LA16_0<=While)||LA16_0==If||LA16_0==RULE_ID) ) {
+                    alt16=1;
                 }
 
 
-                switch (alt20) {
+                switch (alt16) {
             	case 1 :
-            	    // InternalKlangParser.g:3067:3: rule__WhileLoop__StatementsAssignment_4
+            	    // InternalKlangParser.g:2591:3: rule__WhileLoop__StatementsAssignment_4
             	    {
-            	    pushFollow(FOLLOW_17);
+            	    pushFollow(FOLLOW_13);
             	    rule__WhileLoop__StatementsAssignment_4();
 
             	    state._fsp--;
@@ -9597,7 +8269,7 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop20;
+            	    break loop16;
                 }
             } while (true);
 
@@ -9624,14 +8296,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__WhileLoop__Group__5"
-    // InternalKlangParser.g:3075:1: rule__WhileLoop__Group__5 : rule__WhileLoop__Group__5__Impl ;
+    // InternalKlangParser.g:2599:1: rule__WhileLoop__Group__5 : rule__WhileLoop__Group__5__Impl ;
     public final void rule__WhileLoop__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3079:1: ( rule__WhileLoop__Group__5__Impl )
-            // InternalKlangParser.g:3080:2: rule__WhileLoop__Group__5__Impl
+            // InternalKlangParser.g:2603:1: ( rule__WhileLoop__Group__5__Impl )
+            // InternalKlangParser.g:2604:2: rule__WhileLoop__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__WhileLoop__Group__5__Impl();
@@ -9657,17 +8329,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__WhileLoop__Group__5__Impl"
-    // InternalKlangParser.g:3086:1: rule__WhileLoop__Group__5__Impl : ( RULE_END ) ;
+    // InternalKlangParser.g:2610:1: rule__WhileLoop__Group__5__Impl : ( RULE_END ) ;
     public final void rule__WhileLoop__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3090:1: ( ( RULE_END ) )
-            // InternalKlangParser.g:3091:1: ( RULE_END )
+            // InternalKlangParser.g:2614:1: ( ( RULE_END ) )
+            // InternalKlangParser.g:2615:1: ( RULE_END )
             {
-            // InternalKlangParser.g:3091:1: ( RULE_END )
-            // InternalKlangParser.g:3092:2: RULE_END
+            // InternalKlangParser.g:2615:1: ( RULE_END )
+            // InternalKlangParser.g:2616:2: RULE_END
             {
              before(grammarAccess.getWhileLoopAccess().getENDTerminalRuleCall_5()); 
             match(input,RULE_END,FOLLOW_2); 
@@ -9694,16 +8366,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__If__Group__0"
-    // InternalKlangParser.g:3102:1: rule__If__Group__0 : rule__If__Group__0__Impl rule__If__Group__1 ;
+    // InternalKlangParser.g:2626:1: rule__If__Group__0 : rule__If__Group__0__Impl rule__If__Group__1 ;
     public final void rule__If__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3106:1: ( rule__If__Group__0__Impl rule__If__Group__1 )
-            // InternalKlangParser.g:3107:2: rule__If__Group__0__Impl rule__If__Group__1
+            // InternalKlangParser.g:2630:1: ( rule__If__Group__0__Impl rule__If__Group__1 )
+            // InternalKlangParser.g:2631:2: rule__If__Group__0__Impl rule__If__Group__1
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_27);
             rule__If__Group__0__Impl();
 
             state._fsp--;
@@ -9732,21 +8404,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__If__Group__0__Impl"
-    // InternalKlangParser.g:3114:1: rule__If__Group__0__Impl : ( () ) ;
+    // InternalKlangParser.g:2638:1: rule__If__Group__0__Impl : ( () ) ;
     public final void rule__If__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3118:1: ( ( () ) )
-            // InternalKlangParser.g:3119:1: ( () )
+            // InternalKlangParser.g:2642:1: ( ( () ) )
+            // InternalKlangParser.g:2643:1: ( () )
             {
-            // InternalKlangParser.g:3119:1: ( () )
-            // InternalKlangParser.g:3120:2: ()
+            // InternalKlangParser.g:2643:1: ( () )
+            // InternalKlangParser.g:2644:2: ()
             {
              before(grammarAccess.getIfAccess().getIfAction_0()); 
-            // InternalKlangParser.g:3121:2: ()
-            // InternalKlangParser.g:3121:3: 
+            // InternalKlangParser.g:2645:2: ()
+            // InternalKlangParser.g:2645:3: 
             {
             }
 
@@ -9769,16 +8441,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__If__Group__1"
-    // InternalKlangParser.g:3129:1: rule__If__Group__1 : rule__If__Group__1__Impl rule__If__Group__2 ;
+    // InternalKlangParser.g:2653:1: rule__If__Group__1 : rule__If__Group__1__Impl rule__If__Group__2 ;
     public final void rule__If__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3133:1: ( rule__If__Group__1__Impl rule__If__Group__2 )
-            // InternalKlangParser.g:3134:2: rule__If__Group__1__Impl rule__If__Group__2
+            // InternalKlangParser.g:2657:1: ( rule__If__Group__1__Impl rule__If__Group__2 )
+            // InternalKlangParser.g:2658:2: rule__If__Group__1__Impl rule__If__Group__2
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_26);
             rule__If__Group__1__Impl();
 
             state._fsp--;
@@ -9807,17 +8479,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__If__Group__1__Impl"
-    // InternalKlangParser.g:3141:1: rule__If__Group__1__Impl : ( If ) ;
+    // InternalKlangParser.g:2665:1: rule__If__Group__1__Impl : ( If ) ;
     public final void rule__If__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3145:1: ( ( If ) )
-            // InternalKlangParser.g:3146:1: ( If )
+            // InternalKlangParser.g:2669:1: ( ( If ) )
+            // InternalKlangParser.g:2670:1: ( If )
             {
-            // InternalKlangParser.g:3146:1: ( If )
-            // InternalKlangParser.g:3147:2: If
+            // InternalKlangParser.g:2670:1: ( If )
+            // InternalKlangParser.g:2671:2: If
             {
              before(grammarAccess.getIfAccess().getIfKeyword_1()); 
             match(input,If,FOLLOW_2); 
@@ -9844,14 +8516,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__If__Group__2"
-    // InternalKlangParser.g:3156:1: rule__If__Group__2 : rule__If__Group__2__Impl rule__If__Group__3 ;
+    // InternalKlangParser.g:2680:1: rule__If__Group__2 : rule__If__Group__2__Impl rule__If__Group__3 ;
     public final void rule__If__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3160:1: ( rule__If__Group__2__Impl rule__If__Group__3 )
-            // InternalKlangParser.g:3161:2: rule__If__Group__2__Impl rule__If__Group__3
+            // InternalKlangParser.g:2684:1: ( rule__If__Group__2__Impl rule__If__Group__3 )
+            // InternalKlangParser.g:2685:2: rule__If__Group__2__Impl rule__If__Group__3
             {
             pushFollow(FOLLOW_7);
             rule__If__Group__2__Impl();
@@ -9882,21 +8554,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__If__Group__2__Impl"
-    // InternalKlangParser.g:3168:1: rule__If__Group__2__Impl : ( ( rule__If__PredicateAssignment_2 ) ) ;
+    // InternalKlangParser.g:2692:1: rule__If__Group__2__Impl : ( ( rule__If__PredicateAssignment_2 ) ) ;
     public final void rule__If__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3172:1: ( ( ( rule__If__PredicateAssignment_2 ) ) )
-            // InternalKlangParser.g:3173:1: ( ( rule__If__PredicateAssignment_2 ) )
+            // InternalKlangParser.g:2696:1: ( ( ( rule__If__PredicateAssignment_2 ) ) )
+            // InternalKlangParser.g:2697:1: ( ( rule__If__PredicateAssignment_2 ) )
             {
-            // InternalKlangParser.g:3173:1: ( ( rule__If__PredicateAssignment_2 ) )
-            // InternalKlangParser.g:3174:2: ( rule__If__PredicateAssignment_2 )
+            // InternalKlangParser.g:2697:1: ( ( rule__If__PredicateAssignment_2 ) )
+            // InternalKlangParser.g:2698:2: ( rule__If__PredicateAssignment_2 )
             {
              before(grammarAccess.getIfAccess().getPredicateAssignment_2()); 
-            // InternalKlangParser.g:3175:2: ( rule__If__PredicateAssignment_2 )
-            // InternalKlangParser.g:3175:3: rule__If__PredicateAssignment_2
+            // InternalKlangParser.g:2699:2: ( rule__If__PredicateAssignment_2 )
+            // InternalKlangParser.g:2699:3: rule__If__PredicateAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__If__PredicateAssignment_2();
@@ -9929,16 +8601,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__If__Group__3"
-    // InternalKlangParser.g:3183:1: rule__If__Group__3 : rule__If__Group__3__Impl rule__If__Group__4 ;
+    // InternalKlangParser.g:2707:1: rule__If__Group__3 : rule__If__Group__3__Impl rule__If__Group__4 ;
     public final void rule__If__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3187:1: ( rule__If__Group__3__Impl rule__If__Group__4 )
-            // InternalKlangParser.g:3188:2: rule__If__Group__3__Impl rule__If__Group__4
+            // InternalKlangParser.g:2711:1: ( rule__If__Group__3__Impl rule__If__Group__4 )
+            // InternalKlangParser.g:2712:2: rule__If__Group__3__Impl rule__If__Group__4
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_12);
             rule__If__Group__3__Impl();
 
             state._fsp--;
@@ -9967,17 +8639,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__If__Group__3__Impl"
-    // InternalKlangParser.g:3195:1: rule__If__Group__3__Impl : ( RULE_BEGIN ) ;
+    // InternalKlangParser.g:2719:1: rule__If__Group__3__Impl : ( RULE_BEGIN ) ;
     public final void rule__If__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3199:1: ( ( RULE_BEGIN ) )
-            // InternalKlangParser.g:3200:1: ( RULE_BEGIN )
+            // InternalKlangParser.g:2723:1: ( ( RULE_BEGIN ) )
+            // InternalKlangParser.g:2724:1: ( RULE_BEGIN )
             {
-            // InternalKlangParser.g:3200:1: ( RULE_BEGIN )
-            // InternalKlangParser.g:3201:2: RULE_BEGIN
+            // InternalKlangParser.g:2724:1: ( RULE_BEGIN )
+            // InternalKlangParser.g:2725:2: RULE_BEGIN
             {
              before(grammarAccess.getIfAccess().getBEGINTerminalRuleCall_3()); 
             match(input,RULE_BEGIN,FOLLOW_2); 
@@ -10004,16 +8676,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__If__Group__4"
-    // InternalKlangParser.g:3210:1: rule__If__Group__4 : rule__If__Group__4__Impl rule__If__Group__5 ;
+    // InternalKlangParser.g:2734:1: rule__If__Group__4 : rule__If__Group__4__Impl rule__If__Group__5 ;
     public final void rule__If__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3214:1: ( rule__If__Group__4__Impl rule__If__Group__5 )
-            // InternalKlangParser.g:3215:2: rule__If__Group__4__Impl rule__If__Group__5
+            // InternalKlangParser.g:2738:1: ( rule__If__Group__4__Impl rule__If__Group__5 )
+            // InternalKlangParser.g:2739:2: rule__If__Group__4__Impl rule__If__Group__5
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_12);
             rule__If__Group__4__Impl();
 
             state._fsp--;
@@ -10042,35 +8714,35 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__If__Group__4__Impl"
-    // InternalKlangParser.g:3222:1: rule__If__Group__4__Impl : ( ( rule__If__IfBlockAssignment_4 )* ) ;
+    // InternalKlangParser.g:2746:1: rule__If__Group__4__Impl : ( ( rule__If__IfBlockAssignment_4 )* ) ;
     public final void rule__If__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3226:1: ( ( ( rule__If__IfBlockAssignment_4 )* ) )
-            // InternalKlangParser.g:3227:1: ( ( rule__If__IfBlockAssignment_4 )* )
+            // InternalKlangParser.g:2750:1: ( ( ( rule__If__IfBlockAssignment_4 )* ) )
+            // InternalKlangParser.g:2751:1: ( ( rule__If__IfBlockAssignment_4 )* )
             {
-            // InternalKlangParser.g:3227:1: ( ( rule__If__IfBlockAssignment_4 )* )
-            // InternalKlangParser.g:3228:2: ( rule__If__IfBlockAssignment_4 )*
+            // InternalKlangParser.g:2751:1: ( ( rule__If__IfBlockAssignment_4 )* )
+            // InternalKlangParser.g:2752:2: ( rule__If__IfBlockAssignment_4 )*
             {
              before(grammarAccess.getIfAccess().getIfBlockAssignment_4()); 
-            // InternalKlangParser.g:3229:2: ( rule__If__IfBlockAssignment_4 )*
-            loop21:
+            // InternalKlangParser.g:2753:2: ( rule__If__IfBlockAssignment_4 )*
+            loop17:
             do {
-                int alt21=2;
-                int LA21_0 = input.LA(1);
+                int alt17=2;
+                int LA17_0 = input.LA(1);
 
-                if ( (LA21_0==SendMessage||LA21_0==Forever||(LA21_0>=Sleep && LA21_0<=While)||LA21_0==If||LA21_0==RULE_ID) ) {
-                    alt21=1;
+                if ( (LA17_0==SendMessage||LA17_0==Forever||(LA17_0>=Sleep && LA17_0<=While)||LA17_0==If||LA17_0==RULE_ID) ) {
+                    alt17=1;
                 }
 
 
-                switch (alt21) {
+                switch (alt17) {
             	case 1 :
-            	    // InternalKlangParser.g:3229:3: rule__If__IfBlockAssignment_4
+            	    // InternalKlangParser.g:2753:3: rule__If__IfBlockAssignment_4
             	    {
-            	    pushFollow(FOLLOW_17);
+            	    pushFollow(FOLLOW_13);
             	    rule__If__IfBlockAssignment_4();
 
             	    state._fsp--;
@@ -10080,7 +8752,7 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop21;
+            	    break loop17;
                 }
             } while (true);
 
@@ -10107,16 +8779,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__If__Group__5"
-    // InternalKlangParser.g:3237:1: rule__If__Group__5 : rule__If__Group__5__Impl rule__If__Group__6 ;
+    // InternalKlangParser.g:2761:1: rule__If__Group__5 : rule__If__Group__5__Impl rule__If__Group__6 ;
     public final void rule__If__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3241:1: ( rule__If__Group__5__Impl rule__If__Group__6 )
-            // InternalKlangParser.g:3242:2: rule__If__Group__5__Impl rule__If__Group__6
+            // InternalKlangParser.g:2765:1: ( rule__If__Group__5__Impl rule__If__Group__6 )
+            // InternalKlangParser.g:2766:2: rule__If__Group__5__Impl rule__If__Group__6
             {
-            pushFollow(FOLLOW_31);
+            pushFollow(FOLLOW_28);
             rule__If__Group__5__Impl();
 
             state._fsp--;
@@ -10145,17 +8817,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__If__Group__5__Impl"
-    // InternalKlangParser.g:3249:1: rule__If__Group__5__Impl : ( RULE_END ) ;
+    // InternalKlangParser.g:2773:1: rule__If__Group__5__Impl : ( RULE_END ) ;
     public final void rule__If__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3253:1: ( ( RULE_END ) )
-            // InternalKlangParser.g:3254:1: ( RULE_END )
+            // InternalKlangParser.g:2777:1: ( ( RULE_END ) )
+            // InternalKlangParser.g:2778:1: ( RULE_END )
             {
-            // InternalKlangParser.g:3254:1: ( RULE_END )
-            // InternalKlangParser.g:3255:2: RULE_END
+            // InternalKlangParser.g:2778:1: ( RULE_END )
+            // InternalKlangParser.g:2779:2: RULE_END
             {
              before(grammarAccess.getIfAccess().getENDTerminalRuleCall_5()); 
             match(input,RULE_END,FOLLOW_2); 
@@ -10182,14 +8854,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__If__Group__6"
-    // InternalKlangParser.g:3264:1: rule__If__Group__6 : rule__If__Group__6__Impl ;
+    // InternalKlangParser.g:2788:1: rule__If__Group__6 : rule__If__Group__6__Impl ;
     public final void rule__If__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3268:1: ( rule__If__Group__6__Impl )
-            // InternalKlangParser.g:3269:2: rule__If__Group__6__Impl
+            // InternalKlangParser.g:2792:1: ( rule__If__Group__6__Impl )
+            // InternalKlangParser.g:2793:2: rule__If__Group__6__Impl
             {
             pushFollow(FOLLOW_2);
             rule__If__Group__6__Impl();
@@ -10215,29 +8887,29 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__If__Group__6__Impl"
-    // InternalKlangParser.g:3275:1: rule__If__Group__6__Impl : ( ( rule__If__Group_6__0 )? ) ;
+    // InternalKlangParser.g:2799:1: rule__If__Group__6__Impl : ( ( rule__If__Group_6__0 )? ) ;
     public final void rule__If__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3279:1: ( ( ( rule__If__Group_6__0 )? ) )
-            // InternalKlangParser.g:3280:1: ( ( rule__If__Group_6__0 )? )
+            // InternalKlangParser.g:2803:1: ( ( ( rule__If__Group_6__0 )? ) )
+            // InternalKlangParser.g:2804:1: ( ( rule__If__Group_6__0 )? )
             {
-            // InternalKlangParser.g:3280:1: ( ( rule__If__Group_6__0 )? )
-            // InternalKlangParser.g:3281:2: ( rule__If__Group_6__0 )?
+            // InternalKlangParser.g:2804:1: ( ( rule__If__Group_6__0 )? )
+            // InternalKlangParser.g:2805:2: ( rule__If__Group_6__0 )?
             {
              before(grammarAccess.getIfAccess().getGroup_6()); 
-            // InternalKlangParser.g:3282:2: ( rule__If__Group_6__0 )?
-            int alt22=2;
-            int LA22_0 = input.LA(1);
+            // InternalKlangParser.g:2806:2: ( rule__If__Group_6__0 )?
+            int alt18=2;
+            int LA18_0 = input.LA(1);
 
-            if ( (LA22_0==Else) ) {
-                alt22=1;
+            if ( (LA18_0==Else) ) {
+                alt18=1;
             }
-            switch (alt22) {
+            switch (alt18) {
                 case 1 :
-                    // InternalKlangParser.g:3282:3: rule__If__Group_6__0
+                    // InternalKlangParser.g:2806:3: rule__If__Group_6__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__If__Group_6__0();
@@ -10273,14 +8945,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__If__Group_6__0"
-    // InternalKlangParser.g:3291:1: rule__If__Group_6__0 : rule__If__Group_6__0__Impl rule__If__Group_6__1 ;
+    // InternalKlangParser.g:2815:1: rule__If__Group_6__0 : rule__If__Group_6__0__Impl rule__If__Group_6__1 ;
     public final void rule__If__Group_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3295:1: ( rule__If__Group_6__0__Impl rule__If__Group_6__1 )
-            // InternalKlangParser.g:3296:2: rule__If__Group_6__0__Impl rule__If__Group_6__1
+            // InternalKlangParser.g:2819:1: ( rule__If__Group_6__0__Impl rule__If__Group_6__1 )
+            // InternalKlangParser.g:2820:2: rule__If__Group_6__0__Impl rule__If__Group_6__1
             {
             pushFollow(FOLLOW_7);
             rule__If__Group_6__0__Impl();
@@ -10311,17 +8983,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__If__Group_6__0__Impl"
-    // InternalKlangParser.g:3303:1: rule__If__Group_6__0__Impl : ( Else ) ;
+    // InternalKlangParser.g:2827:1: rule__If__Group_6__0__Impl : ( Else ) ;
     public final void rule__If__Group_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3307:1: ( ( Else ) )
-            // InternalKlangParser.g:3308:1: ( Else )
+            // InternalKlangParser.g:2831:1: ( ( Else ) )
+            // InternalKlangParser.g:2832:1: ( Else )
             {
-            // InternalKlangParser.g:3308:1: ( Else )
-            // InternalKlangParser.g:3309:2: Else
+            // InternalKlangParser.g:2832:1: ( Else )
+            // InternalKlangParser.g:2833:2: Else
             {
              before(grammarAccess.getIfAccess().getElseKeyword_6_0()); 
             match(input,Else,FOLLOW_2); 
@@ -10348,16 +9020,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__If__Group_6__1"
-    // InternalKlangParser.g:3318:1: rule__If__Group_6__1 : rule__If__Group_6__1__Impl rule__If__Group_6__2 ;
+    // InternalKlangParser.g:2842:1: rule__If__Group_6__1 : rule__If__Group_6__1__Impl rule__If__Group_6__2 ;
     public final void rule__If__Group_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3322:1: ( rule__If__Group_6__1__Impl rule__If__Group_6__2 )
-            // InternalKlangParser.g:3323:2: rule__If__Group_6__1__Impl rule__If__Group_6__2
+            // InternalKlangParser.g:2846:1: ( rule__If__Group_6__1__Impl rule__If__Group_6__2 )
+            // InternalKlangParser.g:2847:2: rule__If__Group_6__1__Impl rule__If__Group_6__2
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_12);
             rule__If__Group_6__1__Impl();
 
             state._fsp--;
@@ -10386,17 +9058,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__If__Group_6__1__Impl"
-    // InternalKlangParser.g:3330:1: rule__If__Group_6__1__Impl : ( RULE_BEGIN ) ;
+    // InternalKlangParser.g:2854:1: rule__If__Group_6__1__Impl : ( RULE_BEGIN ) ;
     public final void rule__If__Group_6__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3334:1: ( ( RULE_BEGIN ) )
-            // InternalKlangParser.g:3335:1: ( RULE_BEGIN )
+            // InternalKlangParser.g:2858:1: ( ( RULE_BEGIN ) )
+            // InternalKlangParser.g:2859:1: ( RULE_BEGIN )
             {
-            // InternalKlangParser.g:3335:1: ( RULE_BEGIN )
-            // InternalKlangParser.g:3336:2: RULE_BEGIN
+            // InternalKlangParser.g:2859:1: ( RULE_BEGIN )
+            // InternalKlangParser.g:2860:2: RULE_BEGIN
             {
              before(grammarAccess.getIfAccess().getBEGINTerminalRuleCall_6_1()); 
             match(input,RULE_BEGIN,FOLLOW_2); 
@@ -10423,16 +9095,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__If__Group_6__2"
-    // InternalKlangParser.g:3345:1: rule__If__Group_6__2 : rule__If__Group_6__2__Impl rule__If__Group_6__3 ;
+    // InternalKlangParser.g:2869:1: rule__If__Group_6__2 : rule__If__Group_6__2__Impl rule__If__Group_6__3 ;
     public final void rule__If__Group_6__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3349:1: ( rule__If__Group_6__2__Impl rule__If__Group_6__3 )
-            // InternalKlangParser.g:3350:2: rule__If__Group_6__2__Impl rule__If__Group_6__3
+            // InternalKlangParser.g:2873:1: ( rule__If__Group_6__2__Impl rule__If__Group_6__3 )
+            // InternalKlangParser.g:2874:2: rule__If__Group_6__2__Impl rule__If__Group_6__3
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_12);
             rule__If__Group_6__2__Impl();
 
             state._fsp--;
@@ -10461,35 +9133,35 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__If__Group_6__2__Impl"
-    // InternalKlangParser.g:3357:1: rule__If__Group_6__2__Impl : ( ( rule__If__ElseBlockAssignment_6_2 )* ) ;
+    // InternalKlangParser.g:2881:1: rule__If__Group_6__2__Impl : ( ( rule__If__ElseBlockAssignment_6_2 )* ) ;
     public final void rule__If__Group_6__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3361:1: ( ( ( rule__If__ElseBlockAssignment_6_2 )* ) )
-            // InternalKlangParser.g:3362:1: ( ( rule__If__ElseBlockAssignment_6_2 )* )
+            // InternalKlangParser.g:2885:1: ( ( ( rule__If__ElseBlockAssignment_6_2 )* ) )
+            // InternalKlangParser.g:2886:1: ( ( rule__If__ElseBlockAssignment_6_2 )* )
             {
-            // InternalKlangParser.g:3362:1: ( ( rule__If__ElseBlockAssignment_6_2 )* )
-            // InternalKlangParser.g:3363:2: ( rule__If__ElseBlockAssignment_6_2 )*
+            // InternalKlangParser.g:2886:1: ( ( rule__If__ElseBlockAssignment_6_2 )* )
+            // InternalKlangParser.g:2887:2: ( rule__If__ElseBlockAssignment_6_2 )*
             {
              before(grammarAccess.getIfAccess().getElseBlockAssignment_6_2()); 
-            // InternalKlangParser.g:3364:2: ( rule__If__ElseBlockAssignment_6_2 )*
-            loop23:
+            // InternalKlangParser.g:2888:2: ( rule__If__ElseBlockAssignment_6_2 )*
+            loop19:
             do {
-                int alt23=2;
-                int LA23_0 = input.LA(1);
+                int alt19=2;
+                int LA19_0 = input.LA(1);
 
-                if ( (LA23_0==SendMessage||LA23_0==Forever||(LA23_0>=Sleep && LA23_0<=While)||LA23_0==If||LA23_0==RULE_ID) ) {
-                    alt23=1;
+                if ( (LA19_0==SendMessage||LA19_0==Forever||(LA19_0>=Sleep && LA19_0<=While)||LA19_0==If||LA19_0==RULE_ID) ) {
+                    alt19=1;
                 }
 
 
-                switch (alt23) {
+                switch (alt19) {
             	case 1 :
-            	    // InternalKlangParser.g:3364:3: rule__If__ElseBlockAssignment_6_2
+            	    // InternalKlangParser.g:2888:3: rule__If__ElseBlockAssignment_6_2
             	    {
-            	    pushFollow(FOLLOW_17);
+            	    pushFollow(FOLLOW_13);
             	    rule__If__ElseBlockAssignment_6_2();
 
             	    state._fsp--;
@@ -10499,7 +9171,7 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop23;
+            	    break loop19;
                 }
             } while (true);
 
@@ -10526,14 +9198,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__If__Group_6__3"
-    // InternalKlangParser.g:3372:1: rule__If__Group_6__3 : rule__If__Group_6__3__Impl ;
+    // InternalKlangParser.g:2896:1: rule__If__Group_6__3 : rule__If__Group_6__3__Impl ;
     public final void rule__If__Group_6__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3376:1: ( rule__If__Group_6__3__Impl )
-            // InternalKlangParser.g:3377:2: rule__If__Group_6__3__Impl
+            // InternalKlangParser.g:2900:1: ( rule__If__Group_6__3__Impl )
+            // InternalKlangParser.g:2901:2: rule__If__Group_6__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__If__Group_6__3__Impl();
@@ -10559,17 +9231,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__If__Group_6__3__Impl"
-    // InternalKlangParser.g:3383:1: rule__If__Group_6__3__Impl : ( RULE_END ) ;
+    // InternalKlangParser.g:2907:1: rule__If__Group_6__3__Impl : ( RULE_END ) ;
     public final void rule__If__Group_6__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3387:1: ( ( RULE_END ) )
-            // InternalKlangParser.g:3388:1: ( RULE_END )
+            // InternalKlangParser.g:2911:1: ( ( RULE_END ) )
+            // InternalKlangParser.g:2912:1: ( RULE_END )
             {
-            // InternalKlangParser.g:3388:1: ( RULE_END )
-            // InternalKlangParser.g:3389:2: RULE_END
+            // InternalKlangParser.g:2912:1: ( RULE_END )
+            // InternalKlangParser.g:2913:2: RULE_END
             {
              before(grammarAccess.getIfAccess().getENDTerminalRuleCall_6_3()); 
             match(input,RULE_END,FOLLOW_2); 
@@ -10596,16 +9268,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ForeverLoop__Group__0"
-    // InternalKlangParser.g:3399:1: rule__ForeverLoop__Group__0 : rule__ForeverLoop__Group__0__Impl rule__ForeverLoop__Group__1 ;
+    // InternalKlangParser.g:2923:1: rule__ForeverLoop__Group__0 : rule__ForeverLoop__Group__0__Impl rule__ForeverLoop__Group__1 ;
     public final void rule__ForeverLoop__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3403:1: ( rule__ForeverLoop__Group__0__Impl rule__ForeverLoop__Group__1 )
-            // InternalKlangParser.g:3404:2: rule__ForeverLoop__Group__0__Impl rule__ForeverLoop__Group__1
+            // InternalKlangParser.g:2927:1: ( rule__ForeverLoop__Group__0__Impl rule__ForeverLoop__Group__1 )
+            // InternalKlangParser.g:2928:2: rule__ForeverLoop__Group__0__Impl rule__ForeverLoop__Group__1
             {
-            pushFollow(FOLLOW_32);
+            pushFollow(FOLLOW_29);
             rule__ForeverLoop__Group__0__Impl();
 
             state._fsp--;
@@ -10634,21 +9306,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ForeverLoop__Group__0__Impl"
-    // InternalKlangParser.g:3411:1: rule__ForeverLoop__Group__0__Impl : ( () ) ;
+    // InternalKlangParser.g:2935:1: rule__ForeverLoop__Group__0__Impl : ( () ) ;
     public final void rule__ForeverLoop__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3415:1: ( ( () ) )
-            // InternalKlangParser.g:3416:1: ( () )
+            // InternalKlangParser.g:2939:1: ( ( () ) )
+            // InternalKlangParser.g:2940:1: ( () )
             {
-            // InternalKlangParser.g:3416:1: ( () )
-            // InternalKlangParser.g:3417:2: ()
+            // InternalKlangParser.g:2940:1: ( () )
+            // InternalKlangParser.g:2941:2: ()
             {
              before(grammarAccess.getForeverLoopAccess().getForeverLoopAction_0()); 
-            // InternalKlangParser.g:3418:2: ()
-            // InternalKlangParser.g:3418:3: 
+            // InternalKlangParser.g:2942:2: ()
+            // InternalKlangParser.g:2942:3: 
             {
             }
 
@@ -10671,14 +9343,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ForeverLoop__Group__1"
-    // InternalKlangParser.g:3426:1: rule__ForeverLoop__Group__1 : rule__ForeverLoop__Group__1__Impl rule__ForeverLoop__Group__2 ;
+    // InternalKlangParser.g:2950:1: rule__ForeverLoop__Group__1 : rule__ForeverLoop__Group__1__Impl rule__ForeverLoop__Group__2 ;
     public final void rule__ForeverLoop__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3430:1: ( rule__ForeverLoop__Group__1__Impl rule__ForeverLoop__Group__2 )
-            // InternalKlangParser.g:3431:2: rule__ForeverLoop__Group__1__Impl rule__ForeverLoop__Group__2
+            // InternalKlangParser.g:2954:1: ( rule__ForeverLoop__Group__1__Impl rule__ForeverLoop__Group__2 )
+            // InternalKlangParser.g:2955:2: rule__ForeverLoop__Group__1__Impl rule__ForeverLoop__Group__2
             {
             pushFollow(FOLLOW_7);
             rule__ForeverLoop__Group__1__Impl();
@@ -10709,17 +9381,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ForeverLoop__Group__1__Impl"
-    // InternalKlangParser.g:3438:1: rule__ForeverLoop__Group__1__Impl : ( Forever ) ;
+    // InternalKlangParser.g:2962:1: rule__ForeverLoop__Group__1__Impl : ( Forever ) ;
     public final void rule__ForeverLoop__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3442:1: ( ( Forever ) )
-            // InternalKlangParser.g:3443:1: ( Forever )
+            // InternalKlangParser.g:2966:1: ( ( Forever ) )
+            // InternalKlangParser.g:2967:1: ( Forever )
             {
-            // InternalKlangParser.g:3443:1: ( Forever )
-            // InternalKlangParser.g:3444:2: Forever
+            // InternalKlangParser.g:2967:1: ( Forever )
+            // InternalKlangParser.g:2968:2: Forever
             {
              before(grammarAccess.getForeverLoopAccess().getForeverKeyword_1()); 
             match(input,Forever,FOLLOW_2); 
@@ -10746,16 +9418,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ForeverLoop__Group__2"
-    // InternalKlangParser.g:3453:1: rule__ForeverLoop__Group__2 : rule__ForeverLoop__Group__2__Impl rule__ForeverLoop__Group__3 ;
+    // InternalKlangParser.g:2977:1: rule__ForeverLoop__Group__2 : rule__ForeverLoop__Group__2__Impl rule__ForeverLoop__Group__3 ;
     public final void rule__ForeverLoop__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3457:1: ( rule__ForeverLoop__Group__2__Impl rule__ForeverLoop__Group__3 )
-            // InternalKlangParser.g:3458:2: rule__ForeverLoop__Group__2__Impl rule__ForeverLoop__Group__3
+            // InternalKlangParser.g:2981:1: ( rule__ForeverLoop__Group__2__Impl rule__ForeverLoop__Group__3 )
+            // InternalKlangParser.g:2982:2: rule__ForeverLoop__Group__2__Impl rule__ForeverLoop__Group__3
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_12);
             rule__ForeverLoop__Group__2__Impl();
 
             state._fsp--;
@@ -10784,17 +9456,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ForeverLoop__Group__2__Impl"
-    // InternalKlangParser.g:3465:1: rule__ForeverLoop__Group__2__Impl : ( RULE_BEGIN ) ;
+    // InternalKlangParser.g:2989:1: rule__ForeverLoop__Group__2__Impl : ( RULE_BEGIN ) ;
     public final void rule__ForeverLoop__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3469:1: ( ( RULE_BEGIN ) )
-            // InternalKlangParser.g:3470:1: ( RULE_BEGIN )
+            // InternalKlangParser.g:2993:1: ( ( RULE_BEGIN ) )
+            // InternalKlangParser.g:2994:1: ( RULE_BEGIN )
             {
-            // InternalKlangParser.g:3470:1: ( RULE_BEGIN )
-            // InternalKlangParser.g:3471:2: RULE_BEGIN
+            // InternalKlangParser.g:2994:1: ( RULE_BEGIN )
+            // InternalKlangParser.g:2995:2: RULE_BEGIN
             {
              before(grammarAccess.getForeverLoopAccess().getBEGINTerminalRuleCall_2()); 
             match(input,RULE_BEGIN,FOLLOW_2); 
@@ -10821,16 +9493,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ForeverLoop__Group__3"
-    // InternalKlangParser.g:3480:1: rule__ForeverLoop__Group__3 : rule__ForeverLoop__Group__3__Impl rule__ForeverLoop__Group__4 ;
+    // InternalKlangParser.g:3004:1: rule__ForeverLoop__Group__3 : rule__ForeverLoop__Group__3__Impl rule__ForeverLoop__Group__4 ;
     public final void rule__ForeverLoop__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3484:1: ( rule__ForeverLoop__Group__3__Impl rule__ForeverLoop__Group__4 )
-            // InternalKlangParser.g:3485:2: rule__ForeverLoop__Group__3__Impl rule__ForeverLoop__Group__4
+            // InternalKlangParser.g:3008:1: ( rule__ForeverLoop__Group__3__Impl rule__ForeverLoop__Group__4 )
+            // InternalKlangParser.g:3009:2: rule__ForeverLoop__Group__3__Impl rule__ForeverLoop__Group__4
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_12);
             rule__ForeverLoop__Group__3__Impl();
 
             state._fsp--;
@@ -10859,35 +9531,35 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ForeverLoop__Group__3__Impl"
-    // InternalKlangParser.g:3492:1: rule__ForeverLoop__Group__3__Impl : ( ( rule__ForeverLoop__StatementsAssignment_3 )* ) ;
+    // InternalKlangParser.g:3016:1: rule__ForeverLoop__Group__3__Impl : ( ( rule__ForeverLoop__StatementsAssignment_3 )* ) ;
     public final void rule__ForeverLoop__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3496:1: ( ( ( rule__ForeverLoop__StatementsAssignment_3 )* ) )
-            // InternalKlangParser.g:3497:1: ( ( rule__ForeverLoop__StatementsAssignment_3 )* )
+            // InternalKlangParser.g:3020:1: ( ( ( rule__ForeverLoop__StatementsAssignment_3 )* ) )
+            // InternalKlangParser.g:3021:1: ( ( rule__ForeverLoop__StatementsAssignment_3 )* )
             {
-            // InternalKlangParser.g:3497:1: ( ( rule__ForeverLoop__StatementsAssignment_3 )* )
-            // InternalKlangParser.g:3498:2: ( rule__ForeverLoop__StatementsAssignment_3 )*
+            // InternalKlangParser.g:3021:1: ( ( rule__ForeverLoop__StatementsAssignment_3 )* )
+            // InternalKlangParser.g:3022:2: ( rule__ForeverLoop__StatementsAssignment_3 )*
             {
              before(grammarAccess.getForeverLoopAccess().getStatementsAssignment_3()); 
-            // InternalKlangParser.g:3499:2: ( rule__ForeverLoop__StatementsAssignment_3 )*
-            loop24:
+            // InternalKlangParser.g:3023:2: ( rule__ForeverLoop__StatementsAssignment_3 )*
+            loop20:
             do {
-                int alt24=2;
-                int LA24_0 = input.LA(1);
+                int alt20=2;
+                int LA20_0 = input.LA(1);
 
-                if ( (LA24_0==SendMessage||LA24_0==Forever||(LA24_0>=Sleep && LA24_0<=While)||LA24_0==If||LA24_0==RULE_ID) ) {
-                    alt24=1;
+                if ( (LA20_0==SendMessage||LA20_0==Forever||(LA20_0>=Sleep && LA20_0<=While)||LA20_0==If||LA20_0==RULE_ID) ) {
+                    alt20=1;
                 }
 
 
-                switch (alt24) {
+                switch (alt20) {
             	case 1 :
-            	    // InternalKlangParser.g:3499:3: rule__ForeverLoop__StatementsAssignment_3
+            	    // InternalKlangParser.g:3023:3: rule__ForeverLoop__StatementsAssignment_3
             	    {
-            	    pushFollow(FOLLOW_17);
+            	    pushFollow(FOLLOW_13);
             	    rule__ForeverLoop__StatementsAssignment_3();
 
             	    state._fsp--;
@@ -10897,7 +9569,7 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop24;
+            	    break loop20;
                 }
             } while (true);
 
@@ -10924,14 +9596,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ForeverLoop__Group__4"
-    // InternalKlangParser.g:3507:1: rule__ForeverLoop__Group__4 : rule__ForeverLoop__Group__4__Impl ;
+    // InternalKlangParser.g:3031:1: rule__ForeverLoop__Group__4 : rule__ForeverLoop__Group__4__Impl ;
     public final void rule__ForeverLoop__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3511:1: ( rule__ForeverLoop__Group__4__Impl )
-            // InternalKlangParser.g:3512:2: rule__ForeverLoop__Group__4__Impl
+            // InternalKlangParser.g:3035:1: ( rule__ForeverLoop__Group__4__Impl )
+            // InternalKlangParser.g:3036:2: rule__ForeverLoop__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ForeverLoop__Group__4__Impl();
@@ -10957,17 +9629,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ForeverLoop__Group__4__Impl"
-    // InternalKlangParser.g:3518:1: rule__ForeverLoop__Group__4__Impl : ( RULE_END ) ;
+    // InternalKlangParser.g:3042:1: rule__ForeverLoop__Group__4__Impl : ( RULE_END ) ;
     public final void rule__ForeverLoop__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3522:1: ( ( RULE_END ) )
-            // InternalKlangParser.g:3523:1: ( RULE_END )
+            // InternalKlangParser.g:3046:1: ( ( RULE_END ) )
+            // InternalKlangParser.g:3047:1: ( RULE_END )
             {
-            // InternalKlangParser.g:3523:1: ( RULE_END )
-            // InternalKlangParser.g:3524:2: RULE_END
+            // InternalKlangParser.g:3047:1: ( RULE_END )
+            // InternalKlangParser.g:3048:2: RULE_END
             {
              before(grammarAccess.getForeverLoopAccess().getENDTerminalRuleCall_4()); 
             match(input,RULE_END,FOLLOW_2); 
@@ -10994,14 +9666,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VariableDeclaration__Group__0"
-    // InternalKlangParser.g:3534:1: rule__VariableDeclaration__Group__0 : rule__VariableDeclaration__Group__0__Impl rule__VariableDeclaration__Group__1 ;
+    // InternalKlangParser.g:3058:1: rule__VariableDeclaration__Group__0 : rule__VariableDeclaration__Group__0__Impl rule__VariableDeclaration__Group__1 ;
     public final void rule__VariableDeclaration__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3538:1: ( rule__VariableDeclaration__Group__0__Impl rule__VariableDeclaration__Group__1 )
-            // InternalKlangParser.g:3539:2: rule__VariableDeclaration__Group__0__Impl rule__VariableDeclaration__Group__1
+            // InternalKlangParser.g:3062:1: ( rule__VariableDeclaration__Group__0__Impl rule__VariableDeclaration__Group__1 )
+            // InternalKlangParser.g:3063:2: rule__VariableDeclaration__Group__0__Impl rule__VariableDeclaration__Group__1
             {
             pushFollow(FOLLOW_6);
             rule__VariableDeclaration__Group__0__Impl();
@@ -11032,17 +9704,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VariableDeclaration__Group__0__Impl"
-    // InternalKlangParser.g:3546:1: rule__VariableDeclaration__Group__0__Impl : ( Var ) ;
+    // InternalKlangParser.g:3070:1: rule__VariableDeclaration__Group__0__Impl : ( Var ) ;
     public final void rule__VariableDeclaration__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3550:1: ( ( Var ) )
-            // InternalKlangParser.g:3551:1: ( Var )
+            // InternalKlangParser.g:3074:1: ( ( Var ) )
+            // InternalKlangParser.g:3075:1: ( Var )
             {
-            // InternalKlangParser.g:3551:1: ( Var )
-            // InternalKlangParser.g:3552:2: Var
+            // InternalKlangParser.g:3075:1: ( Var )
+            // InternalKlangParser.g:3076:2: Var
             {
              before(grammarAccess.getVariableDeclarationAccess().getVarKeyword_0()); 
             match(input,Var,FOLLOW_2); 
@@ -11069,16 +9741,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VariableDeclaration__Group__1"
-    // InternalKlangParser.g:3561:1: rule__VariableDeclaration__Group__1 : rule__VariableDeclaration__Group__1__Impl rule__VariableDeclaration__Group__2 ;
+    // InternalKlangParser.g:3085:1: rule__VariableDeclaration__Group__1 : rule__VariableDeclaration__Group__1__Impl rule__VariableDeclaration__Group__2 ;
     public final void rule__VariableDeclaration__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3565:1: ( rule__VariableDeclaration__Group__1__Impl rule__VariableDeclaration__Group__2 )
-            // InternalKlangParser.g:3566:2: rule__VariableDeclaration__Group__1__Impl rule__VariableDeclaration__Group__2
+            // InternalKlangParser.g:3089:1: ( rule__VariableDeclaration__Group__1__Impl rule__VariableDeclaration__Group__2 )
+            // InternalKlangParser.g:3090:2: rule__VariableDeclaration__Group__1__Impl rule__VariableDeclaration__Group__2
             {
-            pushFollow(FOLLOW_33);
+            pushFollow(FOLLOW_30);
             rule__VariableDeclaration__Group__1__Impl();
 
             state._fsp--;
@@ -11107,21 +9779,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VariableDeclaration__Group__1__Impl"
-    // InternalKlangParser.g:3573:1: rule__VariableDeclaration__Group__1__Impl : ( ( rule__VariableDeclaration__NameAssignment_1 ) ) ;
+    // InternalKlangParser.g:3097:1: rule__VariableDeclaration__Group__1__Impl : ( ( rule__VariableDeclaration__NameAssignment_1 ) ) ;
     public final void rule__VariableDeclaration__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3577:1: ( ( ( rule__VariableDeclaration__NameAssignment_1 ) ) )
-            // InternalKlangParser.g:3578:1: ( ( rule__VariableDeclaration__NameAssignment_1 ) )
+            // InternalKlangParser.g:3101:1: ( ( ( rule__VariableDeclaration__NameAssignment_1 ) ) )
+            // InternalKlangParser.g:3102:1: ( ( rule__VariableDeclaration__NameAssignment_1 ) )
             {
-            // InternalKlangParser.g:3578:1: ( ( rule__VariableDeclaration__NameAssignment_1 ) )
-            // InternalKlangParser.g:3579:2: ( rule__VariableDeclaration__NameAssignment_1 )
+            // InternalKlangParser.g:3102:1: ( ( rule__VariableDeclaration__NameAssignment_1 ) )
+            // InternalKlangParser.g:3103:2: ( rule__VariableDeclaration__NameAssignment_1 )
             {
              before(grammarAccess.getVariableDeclarationAccess().getNameAssignment_1()); 
-            // InternalKlangParser.g:3580:2: ( rule__VariableDeclaration__NameAssignment_1 )
-            // InternalKlangParser.g:3580:3: rule__VariableDeclaration__NameAssignment_1
+            // InternalKlangParser.g:3104:2: ( rule__VariableDeclaration__NameAssignment_1 )
+            // InternalKlangParser.g:3104:3: rule__VariableDeclaration__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__VariableDeclaration__NameAssignment_1();
@@ -11154,16 +9826,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VariableDeclaration__Group__2"
-    // InternalKlangParser.g:3588:1: rule__VariableDeclaration__Group__2 : rule__VariableDeclaration__Group__2__Impl rule__VariableDeclaration__Group__3 ;
+    // InternalKlangParser.g:3112:1: rule__VariableDeclaration__Group__2 : rule__VariableDeclaration__Group__2__Impl rule__VariableDeclaration__Group__3 ;
     public final void rule__VariableDeclaration__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3592:1: ( rule__VariableDeclaration__Group__2__Impl rule__VariableDeclaration__Group__3 )
-            // InternalKlangParser.g:3593:2: rule__VariableDeclaration__Group__2__Impl rule__VariableDeclaration__Group__3
+            // InternalKlangParser.g:3116:1: ( rule__VariableDeclaration__Group__2__Impl rule__VariableDeclaration__Group__3 )
+            // InternalKlangParser.g:3117:2: rule__VariableDeclaration__Group__2__Impl rule__VariableDeclaration__Group__3
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_26);
             rule__VariableDeclaration__Group__2__Impl();
 
             state._fsp--;
@@ -11192,17 +9864,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VariableDeclaration__Group__2__Impl"
-    // InternalKlangParser.g:3600:1: rule__VariableDeclaration__Group__2__Impl : ( EqualsSign ) ;
+    // InternalKlangParser.g:3124:1: rule__VariableDeclaration__Group__2__Impl : ( EqualsSign ) ;
     public final void rule__VariableDeclaration__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3604:1: ( ( EqualsSign ) )
-            // InternalKlangParser.g:3605:1: ( EqualsSign )
+            // InternalKlangParser.g:3128:1: ( ( EqualsSign ) )
+            // InternalKlangParser.g:3129:1: ( EqualsSign )
             {
-            // InternalKlangParser.g:3605:1: ( EqualsSign )
-            // InternalKlangParser.g:3606:2: EqualsSign
+            // InternalKlangParser.g:3129:1: ( EqualsSign )
+            // InternalKlangParser.g:3130:2: EqualsSign
             {
              before(grammarAccess.getVariableDeclarationAccess().getEqualsSignKeyword_2()); 
             match(input,EqualsSign,FOLLOW_2); 
@@ -11229,14 +9901,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VariableDeclaration__Group__3"
-    // InternalKlangParser.g:3615:1: rule__VariableDeclaration__Group__3 : rule__VariableDeclaration__Group__3__Impl ;
+    // InternalKlangParser.g:3139:1: rule__VariableDeclaration__Group__3 : rule__VariableDeclaration__Group__3__Impl ;
     public final void rule__VariableDeclaration__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3619:1: ( rule__VariableDeclaration__Group__3__Impl )
-            // InternalKlangParser.g:3620:2: rule__VariableDeclaration__Group__3__Impl
+            // InternalKlangParser.g:3143:1: ( rule__VariableDeclaration__Group__3__Impl )
+            // InternalKlangParser.g:3144:2: rule__VariableDeclaration__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__VariableDeclaration__Group__3__Impl();
@@ -11262,21 +9934,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VariableDeclaration__Group__3__Impl"
-    // InternalKlangParser.g:3626:1: rule__VariableDeclaration__Group__3__Impl : ( ( rule__VariableDeclaration__ExpressionAssignment_3 ) ) ;
+    // InternalKlangParser.g:3150:1: rule__VariableDeclaration__Group__3__Impl : ( ( rule__VariableDeclaration__ExpressionAssignment_3 ) ) ;
     public final void rule__VariableDeclaration__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3630:1: ( ( ( rule__VariableDeclaration__ExpressionAssignment_3 ) ) )
-            // InternalKlangParser.g:3631:1: ( ( rule__VariableDeclaration__ExpressionAssignment_3 ) )
+            // InternalKlangParser.g:3154:1: ( ( ( rule__VariableDeclaration__ExpressionAssignment_3 ) ) )
+            // InternalKlangParser.g:3155:1: ( ( rule__VariableDeclaration__ExpressionAssignment_3 ) )
             {
-            // InternalKlangParser.g:3631:1: ( ( rule__VariableDeclaration__ExpressionAssignment_3 ) )
-            // InternalKlangParser.g:3632:2: ( rule__VariableDeclaration__ExpressionAssignment_3 )
+            // InternalKlangParser.g:3155:1: ( ( rule__VariableDeclaration__ExpressionAssignment_3 ) )
+            // InternalKlangParser.g:3156:2: ( rule__VariableDeclaration__ExpressionAssignment_3 )
             {
              before(grammarAccess.getVariableDeclarationAccess().getExpressionAssignment_3()); 
-            // InternalKlangParser.g:3633:2: ( rule__VariableDeclaration__ExpressionAssignment_3 )
-            // InternalKlangParser.g:3633:3: rule__VariableDeclaration__ExpressionAssignment_3
+            // InternalKlangParser.g:3157:2: ( rule__VariableDeclaration__ExpressionAssignment_3 )
+            // InternalKlangParser.g:3157:3: rule__VariableDeclaration__ExpressionAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__VariableDeclaration__ExpressionAssignment_3();
@@ -11309,16 +9981,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VariableAssignment__Group__0"
-    // InternalKlangParser.g:3642:1: rule__VariableAssignment__Group__0 : rule__VariableAssignment__Group__0__Impl rule__VariableAssignment__Group__1 ;
+    // InternalKlangParser.g:3166:1: rule__VariableAssignment__Group__0 : rule__VariableAssignment__Group__0__Impl rule__VariableAssignment__Group__1 ;
     public final void rule__VariableAssignment__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3646:1: ( rule__VariableAssignment__Group__0__Impl rule__VariableAssignment__Group__1 )
-            // InternalKlangParser.g:3647:2: rule__VariableAssignment__Group__0__Impl rule__VariableAssignment__Group__1
+            // InternalKlangParser.g:3170:1: ( rule__VariableAssignment__Group__0__Impl rule__VariableAssignment__Group__1 )
+            // InternalKlangParser.g:3171:2: rule__VariableAssignment__Group__0__Impl rule__VariableAssignment__Group__1
             {
-            pushFollow(FOLLOW_33);
+            pushFollow(FOLLOW_30);
             rule__VariableAssignment__Group__0__Impl();
 
             state._fsp--;
@@ -11347,21 +10019,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VariableAssignment__Group__0__Impl"
-    // InternalKlangParser.g:3654:1: rule__VariableAssignment__Group__0__Impl : ( ( rule__VariableAssignment__VariableNameAssignment_0 ) ) ;
+    // InternalKlangParser.g:3178:1: rule__VariableAssignment__Group__0__Impl : ( ( rule__VariableAssignment__VariableNameAssignment_0 ) ) ;
     public final void rule__VariableAssignment__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3658:1: ( ( ( rule__VariableAssignment__VariableNameAssignment_0 ) ) )
-            // InternalKlangParser.g:3659:1: ( ( rule__VariableAssignment__VariableNameAssignment_0 ) )
+            // InternalKlangParser.g:3182:1: ( ( ( rule__VariableAssignment__VariableNameAssignment_0 ) ) )
+            // InternalKlangParser.g:3183:1: ( ( rule__VariableAssignment__VariableNameAssignment_0 ) )
             {
-            // InternalKlangParser.g:3659:1: ( ( rule__VariableAssignment__VariableNameAssignment_0 ) )
-            // InternalKlangParser.g:3660:2: ( rule__VariableAssignment__VariableNameAssignment_0 )
+            // InternalKlangParser.g:3183:1: ( ( rule__VariableAssignment__VariableNameAssignment_0 ) )
+            // InternalKlangParser.g:3184:2: ( rule__VariableAssignment__VariableNameAssignment_0 )
             {
              before(grammarAccess.getVariableAssignmentAccess().getVariableNameAssignment_0()); 
-            // InternalKlangParser.g:3661:2: ( rule__VariableAssignment__VariableNameAssignment_0 )
-            // InternalKlangParser.g:3661:3: rule__VariableAssignment__VariableNameAssignment_0
+            // InternalKlangParser.g:3185:2: ( rule__VariableAssignment__VariableNameAssignment_0 )
+            // InternalKlangParser.g:3185:3: rule__VariableAssignment__VariableNameAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__VariableAssignment__VariableNameAssignment_0();
@@ -11394,16 +10066,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VariableAssignment__Group__1"
-    // InternalKlangParser.g:3669:1: rule__VariableAssignment__Group__1 : rule__VariableAssignment__Group__1__Impl rule__VariableAssignment__Group__2 ;
+    // InternalKlangParser.g:3193:1: rule__VariableAssignment__Group__1 : rule__VariableAssignment__Group__1__Impl rule__VariableAssignment__Group__2 ;
     public final void rule__VariableAssignment__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3673:1: ( rule__VariableAssignment__Group__1__Impl rule__VariableAssignment__Group__2 )
-            // InternalKlangParser.g:3674:2: rule__VariableAssignment__Group__1__Impl rule__VariableAssignment__Group__2
+            // InternalKlangParser.g:3197:1: ( rule__VariableAssignment__Group__1__Impl rule__VariableAssignment__Group__2 )
+            // InternalKlangParser.g:3198:2: rule__VariableAssignment__Group__1__Impl rule__VariableAssignment__Group__2
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_26);
             rule__VariableAssignment__Group__1__Impl();
 
             state._fsp--;
@@ -11432,17 +10104,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VariableAssignment__Group__1__Impl"
-    // InternalKlangParser.g:3681:1: rule__VariableAssignment__Group__1__Impl : ( EqualsSign ) ;
+    // InternalKlangParser.g:3205:1: rule__VariableAssignment__Group__1__Impl : ( EqualsSign ) ;
     public final void rule__VariableAssignment__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3685:1: ( ( EqualsSign ) )
-            // InternalKlangParser.g:3686:1: ( EqualsSign )
+            // InternalKlangParser.g:3209:1: ( ( EqualsSign ) )
+            // InternalKlangParser.g:3210:1: ( EqualsSign )
             {
-            // InternalKlangParser.g:3686:1: ( EqualsSign )
-            // InternalKlangParser.g:3687:2: EqualsSign
+            // InternalKlangParser.g:3210:1: ( EqualsSign )
+            // InternalKlangParser.g:3211:2: EqualsSign
             {
              before(grammarAccess.getVariableAssignmentAccess().getEqualsSignKeyword_1()); 
             match(input,EqualsSign,FOLLOW_2); 
@@ -11469,14 +10141,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VariableAssignment__Group__2"
-    // InternalKlangParser.g:3696:1: rule__VariableAssignment__Group__2 : rule__VariableAssignment__Group__2__Impl ;
+    // InternalKlangParser.g:3220:1: rule__VariableAssignment__Group__2 : rule__VariableAssignment__Group__2__Impl ;
     public final void rule__VariableAssignment__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3700:1: ( rule__VariableAssignment__Group__2__Impl )
-            // InternalKlangParser.g:3701:2: rule__VariableAssignment__Group__2__Impl
+            // InternalKlangParser.g:3224:1: ( rule__VariableAssignment__Group__2__Impl )
+            // InternalKlangParser.g:3225:2: rule__VariableAssignment__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__VariableAssignment__Group__2__Impl();
@@ -11502,21 +10174,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VariableAssignment__Group__2__Impl"
-    // InternalKlangParser.g:3707:1: rule__VariableAssignment__Group__2__Impl : ( ( rule__VariableAssignment__ExpressionAssignment_2 ) ) ;
+    // InternalKlangParser.g:3231:1: rule__VariableAssignment__Group__2__Impl : ( ( rule__VariableAssignment__ExpressionAssignment_2 ) ) ;
     public final void rule__VariableAssignment__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3711:1: ( ( ( rule__VariableAssignment__ExpressionAssignment_2 ) ) )
-            // InternalKlangParser.g:3712:1: ( ( rule__VariableAssignment__ExpressionAssignment_2 ) )
+            // InternalKlangParser.g:3235:1: ( ( ( rule__VariableAssignment__ExpressionAssignment_2 ) ) )
+            // InternalKlangParser.g:3236:1: ( ( rule__VariableAssignment__ExpressionAssignment_2 ) )
             {
-            // InternalKlangParser.g:3712:1: ( ( rule__VariableAssignment__ExpressionAssignment_2 ) )
-            // InternalKlangParser.g:3713:2: ( rule__VariableAssignment__ExpressionAssignment_2 )
+            // InternalKlangParser.g:3236:1: ( ( rule__VariableAssignment__ExpressionAssignment_2 ) )
+            // InternalKlangParser.g:3237:2: ( rule__VariableAssignment__ExpressionAssignment_2 )
             {
              before(grammarAccess.getVariableAssignmentAccess().getExpressionAssignment_2()); 
-            // InternalKlangParser.g:3714:2: ( rule__VariableAssignment__ExpressionAssignment_2 )
-            // InternalKlangParser.g:3714:3: rule__VariableAssignment__ExpressionAssignment_2
+            // InternalKlangParser.g:3238:2: ( rule__VariableAssignment__ExpressionAssignment_2 )
+            // InternalKlangParser.g:3238:3: rule__VariableAssignment__ExpressionAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__VariableAssignment__ExpressionAssignment_2();
@@ -11549,16 +10221,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sleep__Group__0"
-    // InternalKlangParser.g:3723:1: rule__Sleep__Group__0 : rule__Sleep__Group__0__Impl rule__Sleep__Group__1 ;
+    // InternalKlangParser.g:3247:1: rule__Sleep__Group__0 : rule__Sleep__Group__0__Impl rule__Sleep__Group__1 ;
     public final void rule__Sleep__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3727:1: ( rule__Sleep__Group__0__Impl rule__Sleep__Group__1 )
-            // InternalKlangParser.g:3728:2: rule__Sleep__Group__0__Impl rule__Sleep__Group__1
+            // InternalKlangParser.g:3251:1: ( rule__Sleep__Group__0__Impl rule__Sleep__Group__1 )
+            // InternalKlangParser.g:3252:2: rule__Sleep__Group__0__Impl rule__Sleep__Group__1
             {
-            pushFollow(FOLLOW_34);
+            pushFollow(FOLLOW_31);
             rule__Sleep__Group__0__Impl();
 
             state._fsp--;
@@ -11587,21 +10259,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sleep__Group__0__Impl"
-    // InternalKlangParser.g:3735:1: rule__Sleep__Group__0__Impl : ( () ) ;
+    // InternalKlangParser.g:3259:1: rule__Sleep__Group__0__Impl : ( () ) ;
     public final void rule__Sleep__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3739:1: ( ( () ) )
-            // InternalKlangParser.g:3740:1: ( () )
+            // InternalKlangParser.g:3263:1: ( ( () ) )
+            // InternalKlangParser.g:3264:1: ( () )
             {
-            // InternalKlangParser.g:3740:1: ( () )
-            // InternalKlangParser.g:3741:2: ()
+            // InternalKlangParser.g:3264:1: ( () )
+            // InternalKlangParser.g:3265:2: ()
             {
              before(grammarAccess.getSleepAccess().getSleepAction_0()); 
-            // InternalKlangParser.g:3742:2: ()
-            // InternalKlangParser.g:3742:3: 
+            // InternalKlangParser.g:3266:2: ()
+            // InternalKlangParser.g:3266:3: 
             {
             }
 
@@ -11624,16 +10296,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sleep__Group__1"
-    // InternalKlangParser.g:3750:1: rule__Sleep__Group__1 : rule__Sleep__Group__1__Impl rule__Sleep__Group__2 ;
+    // InternalKlangParser.g:3274:1: rule__Sleep__Group__1 : rule__Sleep__Group__1__Impl rule__Sleep__Group__2 ;
     public final void rule__Sleep__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3754:1: ( rule__Sleep__Group__1__Impl rule__Sleep__Group__2 )
-            // InternalKlangParser.g:3755:2: rule__Sleep__Group__1__Impl rule__Sleep__Group__2
+            // InternalKlangParser.g:3278:1: ( rule__Sleep__Group__1__Impl rule__Sleep__Group__2 )
+            // InternalKlangParser.g:3279:2: rule__Sleep__Group__1__Impl rule__Sleep__Group__2
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_23);
             rule__Sleep__Group__1__Impl();
 
             state._fsp--;
@@ -11662,17 +10334,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sleep__Group__1__Impl"
-    // InternalKlangParser.g:3762:1: rule__Sleep__Group__1__Impl : ( Sleep ) ;
+    // InternalKlangParser.g:3286:1: rule__Sleep__Group__1__Impl : ( Sleep ) ;
     public final void rule__Sleep__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3766:1: ( ( Sleep ) )
-            // InternalKlangParser.g:3767:1: ( Sleep )
+            // InternalKlangParser.g:3290:1: ( ( Sleep ) )
+            // InternalKlangParser.g:3291:1: ( Sleep )
             {
-            // InternalKlangParser.g:3767:1: ( Sleep )
-            // InternalKlangParser.g:3768:2: Sleep
+            // InternalKlangParser.g:3291:1: ( Sleep )
+            // InternalKlangParser.g:3292:2: Sleep
             {
              before(grammarAccess.getSleepAccess().getSleepKeyword_1()); 
             match(input,Sleep,FOLLOW_2); 
@@ -11699,16 +10371,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sleep__Group__2"
-    // InternalKlangParser.g:3777:1: rule__Sleep__Group__2 : rule__Sleep__Group__2__Impl rule__Sleep__Group__3 ;
+    // InternalKlangParser.g:3301:1: rule__Sleep__Group__2 : rule__Sleep__Group__2__Impl rule__Sleep__Group__3 ;
     public final void rule__Sleep__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3781:1: ( rule__Sleep__Group__2__Impl rule__Sleep__Group__3 )
-            // InternalKlangParser.g:3782:2: rule__Sleep__Group__2__Impl rule__Sleep__Group__3
+            // InternalKlangParser.g:3305:1: ( rule__Sleep__Group__2__Impl rule__Sleep__Group__3 )
+            // InternalKlangParser.g:3306:2: rule__Sleep__Group__2__Impl rule__Sleep__Group__3
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_26);
             rule__Sleep__Group__2__Impl();
 
             state._fsp--;
@@ -11737,17 +10409,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sleep__Group__2__Impl"
-    // InternalKlangParser.g:3789:1: rule__Sleep__Group__2__Impl : ( LeftParenthesis ) ;
+    // InternalKlangParser.g:3313:1: rule__Sleep__Group__2__Impl : ( LeftParenthesis ) ;
     public final void rule__Sleep__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3793:1: ( ( LeftParenthesis ) )
-            // InternalKlangParser.g:3794:1: ( LeftParenthesis )
+            // InternalKlangParser.g:3317:1: ( ( LeftParenthesis ) )
+            // InternalKlangParser.g:3318:1: ( LeftParenthesis )
             {
-            // InternalKlangParser.g:3794:1: ( LeftParenthesis )
-            // InternalKlangParser.g:3795:2: LeftParenthesis
+            // InternalKlangParser.g:3318:1: ( LeftParenthesis )
+            // InternalKlangParser.g:3319:2: LeftParenthesis
             {
              before(grammarAccess.getSleepAccess().getLeftParenthesisKeyword_2()); 
             match(input,LeftParenthesis,FOLLOW_2); 
@@ -11774,16 +10446,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sleep__Group__3"
-    // InternalKlangParser.g:3804:1: rule__Sleep__Group__3 : rule__Sleep__Group__3__Impl rule__Sleep__Group__4 ;
+    // InternalKlangParser.g:3328:1: rule__Sleep__Group__3 : rule__Sleep__Group__3__Impl rule__Sleep__Group__4 ;
     public final void rule__Sleep__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3808:1: ( rule__Sleep__Group__3__Impl rule__Sleep__Group__4 )
-            // InternalKlangParser.g:3809:2: rule__Sleep__Group__3__Impl rule__Sleep__Group__4
+            // InternalKlangParser.g:3332:1: ( rule__Sleep__Group__3__Impl rule__Sleep__Group__4 )
+            // InternalKlangParser.g:3333:2: rule__Sleep__Group__3__Impl rule__Sleep__Group__4
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_24);
             rule__Sleep__Group__3__Impl();
 
             state._fsp--;
@@ -11812,21 +10484,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sleep__Group__3__Impl"
-    // InternalKlangParser.g:3816:1: rule__Sleep__Group__3__Impl : ( ( rule__Sleep__DurationAssignment_3 ) ) ;
+    // InternalKlangParser.g:3340:1: rule__Sleep__Group__3__Impl : ( ( rule__Sleep__DurationAssignment_3 ) ) ;
     public final void rule__Sleep__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3820:1: ( ( ( rule__Sleep__DurationAssignment_3 ) ) )
-            // InternalKlangParser.g:3821:1: ( ( rule__Sleep__DurationAssignment_3 ) )
+            // InternalKlangParser.g:3344:1: ( ( ( rule__Sleep__DurationAssignment_3 ) ) )
+            // InternalKlangParser.g:3345:1: ( ( rule__Sleep__DurationAssignment_3 ) )
             {
-            // InternalKlangParser.g:3821:1: ( ( rule__Sleep__DurationAssignment_3 ) )
-            // InternalKlangParser.g:3822:2: ( rule__Sleep__DurationAssignment_3 )
+            // InternalKlangParser.g:3345:1: ( ( rule__Sleep__DurationAssignment_3 ) )
+            // InternalKlangParser.g:3346:2: ( rule__Sleep__DurationAssignment_3 )
             {
              before(grammarAccess.getSleepAccess().getDurationAssignment_3()); 
-            // InternalKlangParser.g:3823:2: ( rule__Sleep__DurationAssignment_3 )
-            // InternalKlangParser.g:3823:3: rule__Sleep__DurationAssignment_3
+            // InternalKlangParser.g:3347:2: ( rule__Sleep__DurationAssignment_3 )
+            // InternalKlangParser.g:3347:3: rule__Sleep__DurationAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__Sleep__DurationAssignment_3();
@@ -11859,14 +10531,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sleep__Group__4"
-    // InternalKlangParser.g:3831:1: rule__Sleep__Group__4 : rule__Sleep__Group__4__Impl ;
+    // InternalKlangParser.g:3355:1: rule__Sleep__Group__4 : rule__Sleep__Group__4__Impl ;
     public final void rule__Sleep__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3835:1: ( rule__Sleep__Group__4__Impl )
-            // InternalKlangParser.g:3836:2: rule__Sleep__Group__4__Impl
+            // InternalKlangParser.g:3359:1: ( rule__Sleep__Group__4__Impl )
+            // InternalKlangParser.g:3360:2: rule__Sleep__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Sleep__Group__4__Impl();
@@ -11892,17 +10564,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sleep__Group__4__Impl"
-    // InternalKlangParser.g:3842:1: rule__Sleep__Group__4__Impl : ( RightParenthesis ) ;
+    // InternalKlangParser.g:3366:1: rule__Sleep__Group__4__Impl : ( RightParenthesis ) ;
     public final void rule__Sleep__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3846:1: ( ( RightParenthesis ) )
-            // InternalKlangParser.g:3847:1: ( RightParenthesis )
+            // InternalKlangParser.g:3370:1: ( ( RightParenthesis ) )
+            // InternalKlangParser.g:3371:1: ( RightParenthesis )
             {
-            // InternalKlangParser.g:3847:1: ( RightParenthesis )
-            // InternalKlangParser.g:3848:2: RightParenthesis
+            // InternalKlangParser.g:3371:1: ( RightParenthesis )
+            // InternalKlangParser.g:3372:2: RightParenthesis
             {
              before(grammarAccess.getSleepAccess().getRightParenthesisKeyword_4()); 
             match(input,RightParenthesis,FOLLOW_2); 
@@ -11929,16 +10601,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Or__Group__0"
-    // InternalKlangParser.g:3858:1: rule__Or__Group__0 : rule__Or__Group__0__Impl rule__Or__Group__1 ;
+    // InternalKlangParser.g:3382:1: rule__Or__Group__0 : rule__Or__Group__0__Impl rule__Or__Group__1 ;
     public final void rule__Or__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3862:1: ( rule__Or__Group__0__Impl rule__Or__Group__1 )
-            // InternalKlangParser.g:3863:2: rule__Or__Group__0__Impl rule__Or__Group__1
+            // InternalKlangParser.g:3386:1: ( rule__Or__Group__0__Impl rule__Or__Group__1 )
+            // InternalKlangParser.g:3387:2: rule__Or__Group__0__Impl rule__Or__Group__1
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_32);
             rule__Or__Group__0__Impl();
 
             state._fsp--;
@@ -11967,17 +10639,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Or__Group__0__Impl"
-    // InternalKlangParser.g:3870:1: rule__Or__Group__0__Impl : ( ruleAnd ) ;
+    // InternalKlangParser.g:3394:1: rule__Or__Group__0__Impl : ( ruleAnd ) ;
     public final void rule__Or__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3874:1: ( ( ruleAnd ) )
-            // InternalKlangParser.g:3875:1: ( ruleAnd )
+            // InternalKlangParser.g:3398:1: ( ( ruleAnd ) )
+            // InternalKlangParser.g:3399:1: ( ruleAnd )
             {
-            // InternalKlangParser.g:3875:1: ( ruleAnd )
-            // InternalKlangParser.g:3876:2: ruleAnd
+            // InternalKlangParser.g:3399:1: ( ruleAnd )
+            // InternalKlangParser.g:3400:2: ruleAnd
             {
              before(grammarAccess.getOrAccess().getAndParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -12008,14 +10680,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Or__Group__1"
-    // InternalKlangParser.g:3885:1: rule__Or__Group__1 : rule__Or__Group__1__Impl ;
+    // InternalKlangParser.g:3409:1: rule__Or__Group__1 : rule__Or__Group__1__Impl ;
     public final void rule__Or__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3889:1: ( rule__Or__Group__1__Impl )
-            // InternalKlangParser.g:3890:2: rule__Or__Group__1__Impl
+            // InternalKlangParser.g:3413:1: ( rule__Or__Group__1__Impl )
+            // InternalKlangParser.g:3414:2: rule__Or__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Or__Group__1__Impl();
@@ -12041,35 +10713,35 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Or__Group__1__Impl"
-    // InternalKlangParser.g:3896:1: rule__Or__Group__1__Impl : ( ( rule__Or__Group_1__0 )* ) ;
+    // InternalKlangParser.g:3420:1: rule__Or__Group__1__Impl : ( ( rule__Or__Group_1__0 )* ) ;
     public final void rule__Or__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3900:1: ( ( ( rule__Or__Group_1__0 )* ) )
-            // InternalKlangParser.g:3901:1: ( ( rule__Or__Group_1__0 )* )
+            // InternalKlangParser.g:3424:1: ( ( ( rule__Or__Group_1__0 )* ) )
+            // InternalKlangParser.g:3425:1: ( ( rule__Or__Group_1__0 )* )
             {
-            // InternalKlangParser.g:3901:1: ( ( rule__Or__Group_1__0 )* )
-            // InternalKlangParser.g:3902:2: ( rule__Or__Group_1__0 )*
+            // InternalKlangParser.g:3425:1: ( ( rule__Or__Group_1__0 )* )
+            // InternalKlangParser.g:3426:2: ( rule__Or__Group_1__0 )*
             {
              before(grammarAccess.getOrAccess().getGroup_1()); 
-            // InternalKlangParser.g:3903:2: ( rule__Or__Group_1__0 )*
-            loop25:
+            // InternalKlangParser.g:3427:2: ( rule__Or__Group_1__0 )*
+            loop21:
             do {
-                int alt25=2;
-                int LA25_0 = input.LA(1);
+                int alt21=2;
+                int LA21_0 = input.LA(1);
 
-                if ( (LA25_0==Or) ) {
-                    alt25=1;
+                if ( (LA21_0==Or) ) {
+                    alt21=1;
                 }
 
 
-                switch (alt25) {
+                switch (alt21) {
             	case 1 :
-            	    // InternalKlangParser.g:3903:3: rule__Or__Group_1__0
+            	    // InternalKlangParser.g:3427:3: rule__Or__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_36);
+            	    pushFollow(FOLLOW_33);
             	    rule__Or__Group_1__0();
 
             	    state._fsp--;
@@ -12079,7 +10751,7 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop25;
+            	    break loop21;
                 }
             } while (true);
 
@@ -12106,16 +10778,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Or__Group_1__0"
-    // InternalKlangParser.g:3912:1: rule__Or__Group_1__0 : rule__Or__Group_1__0__Impl rule__Or__Group_1__1 ;
+    // InternalKlangParser.g:3436:1: rule__Or__Group_1__0 : rule__Or__Group_1__0__Impl rule__Or__Group_1__1 ;
     public final void rule__Or__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3916:1: ( rule__Or__Group_1__0__Impl rule__Or__Group_1__1 )
-            // InternalKlangParser.g:3917:2: rule__Or__Group_1__0__Impl rule__Or__Group_1__1
+            // InternalKlangParser.g:3440:1: ( rule__Or__Group_1__0__Impl rule__Or__Group_1__1 )
+            // InternalKlangParser.g:3441:2: rule__Or__Group_1__0__Impl rule__Or__Group_1__1
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_32);
             rule__Or__Group_1__0__Impl();
 
             state._fsp--;
@@ -12144,21 +10816,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Or__Group_1__0__Impl"
-    // InternalKlangParser.g:3924:1: rule__Or__Group_1__0__Impl : ( () ) ;
+    // InternalKlangParser.g:3448:1: rule__Or__Group_1__0__Impl : ( () ) ;
     public final void rule__Or__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3928:1: ( ( () ) )
-            // InternalKlangParser.g:3929:1: ( () )
+            // InternalKlangParser.g:3452:1: ( ( () ) )
+            // InternalKlangParser.g:3453:1: ( () )
             {
-            // InternalKlangParser.g:3929:1: ( () )
-            // InternalKlangParser.g:3930:2: ()
+            // InternalKlangParser.g:3453:1: ( () )
+            // InternalKlangParser.g:3454:2: ()
             {
              before(grammarAccess.getOrAccess().getOrLeftAction_1_0()); 
-            // InternalKlangParser.g:3931:2: ()
-            // InternalKlangParser.g:3931:3: 
+            // InternalKlangParser.g:3455:2: ()
+            // InternalKlangParser.g:3455:3: 
             {
             }
 
@@ -12181,16 +10853,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Or__Group_1__1"
-    // InternalKlangParser.g:3939:1: rule__Or__Group_1__1 : rule__Or__Group_1__1__Impl rule__Or__Group_1__2 ;
+    // InternalKlangParser.g:3463:1: rule__Or__Group_1__1 : rule__Or__Group_1__1__Impl rule__Or__Group_1__2 ;
     public final void rule__Or__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3943:1: ( rule__Or__Group_1__1__Impl rule__Or__Group_1__2 )
-            // InternalKlangParser.g:3944:2: rule__Or__Group_1__1__Impl rule__Or__Group_1__2
+            // InternalKlangParser.g:3467:1: ( rule__Or__Group_1__1__Impl rule__Or__Group_1__2 )
+            // InternalKlangParser.g:3468:2: rule__Or__Group_1__1__Impl rule__Or__Group_1__2
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_26);
             rule__Or__Group_1__1__Impl();
 
             state._fsp--;
@@ -12219,17 +10891,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Or__Group_1__1__Impl"
-    // InternalKlangParser.g:3951:1: rule__Or__Group_1__1__Impl : ( Or ) ;
+    // InternalKlangParser.g:3475:1: rule__Or__Group_1__1__Impl : ( Or ) ;
     public final void rule__Or__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3955:1: ( ( Or ) )
-            // InternalKlangParser.g:3956:1: ( Or )
+            // InternalKlangParser.g:3479:1: ( ( Or ) )
+            // InternalKlangParser.g:3480:1: ( Or )
             {
-            // InternalKlangParser.g:3956:1: ( Or )
-            // InternalKlangParser.g:3957:2: Or
+            // InternalKlangParser.g:3480:1: ( Or )
+            // InternalKlangParser.g:3481:2: Or
             {
              before(grammarAccess.getOrAccess().getOrKeyword_1_1()); 
             match(input,Or,FOLLOW_2); 
@@ -12256,14 +10928,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Or__Group_1__2"
-    // InternalKlangParser.g:3966:1: rule__Or__Group_1__2 : rule__Or__Group_1__2__Impl ;
+    // InternalKlangParser.g:3490:1: rule__Or__Group_1__2 : rule__Or__Group_1__2__Impl ;
     public final void rule__Or__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3970:1: ( rule__Or__Group_1__2__Impl )
-            // InternalKlangParser.g:3971:2: rule__Or__Group_1__2__Impl
+            // InternalKlangParser.g:3494:1: ( rule__Or__Group_1__2__Impl )
+            // InternalKlangParser.g:3495:2: rule__Or__Group_1__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Or__Group_1__2__Impl();
@@ -12289,21 +10961,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Or__Group_1__2__Impl"
-    // InternalKlangParser.g:3977:1: rule__Or__Group_1__2__Impl : ( ( rule__Or__RightAssignment_1_2 ) ) ;
+    // InternalKlangParser.g:3501:1: rule__Or__Group_1__2__Impl : ( ( rule__Or__RightAssignment_1_2 ) ) ;
     public final void rule__Or__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3981:1: ( ( ( rule__Or__RightAssignment_1_2 ) ) )
-            // InternalKlangParser.g:3982:1: ( ( rule__Or__RightAssignment_1_2 ) )
+            // InternalKlangParser.g:3505:1: ( ( ( rule__Or__RightAssignment_1_2 ) ) )
+            // InternalKlangParser.g:3506:1: ( ( rule__Or__RightAssignment_1_2 ) )
             {
-            // InternalKlangParser.g:3982:1: ( ( rule__Or__RightAssignment_1_2 ) )
-            // InternalKlangParser.g:3983:2: ( rule__Or__RightAssignment_1_2 )
+            // InternalKlangParser.g:3506:1: ( ( rule__Or__RightAssignment_1_2 ) )
+            // InternalKlangParser.g:3507:2: ( rule__Or__RightAssignment_1_2 )
             {
              before(grammarAccess.getOrAccess().getRightAssignment_1_2()); 
-            // InternalKlangParser.g:3984:2: ( rule__Or__RightAssignment_1_2 )
-            // InternalKlangParser.g:3984:3: rule__Or__RightAssignment_1_2
+            // InternalKlangParser.g:3508:2: ( rule__Or__RightAssignment_1_2 )
+            // InternalKlangParser.g:3508:3: rule__Or__RightAssignment_1_2
             {
             pushFollow(FOLLOW_2);
             rule__Or__RightAssignment_1_2();
@@ -12336,16 +11008,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__And__Group__0"
-    // InternalKlangParser.g:3993:1: rule__And__Group__0 : rule__And__Group__0__Impl rule__And__Group__1 ;
+    // InternalKlangParser.g:3517:1: rule__And__Group__0 : rule__And__Group__0__Impl rule__And__Group__1 ;
     public final void rule__And__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:3997:1: ( rule__And__Group__0__Impl rule__And__Group__1 )
-            // InternalKlangParser.g:3998:2: rule__And__Group__0__Impl rule__And__Group__1
+            // InternalKlangParser.g:3521:1: ( rule__And__Group__0__Impl rule__And__Group__1 )
+            // InternalKlangParser.g:3522:2: rule__And__Group__0__Impl rule__And__Group__1
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_34);
             rule__And__Group__0__Impl();
 
             state._fsp--;
@@ -12374,17 +11046,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__And__Group__0__Impl"
-    // InternalKlangParser.g:4005:1: rule__And__Group__0__Impl : ( ruleComparison ) ;
+    // InternalKlangParser.g:3529:1: rule__And__Group__0__Impl : ( ruleComparison ) ;
     public final void rule__And__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4009:1: ( ( ruleComparison ) )
-            // InternalKlangParser.g:4010:1: ( ruleComparison )
+            // InternalKlangParser.g:3533:1: ( ( ruleComparison ) )
+            // InternalKlangParser.g:3534:1: ( ruleComparison )
             {
-            // InternalKlangParser.g:4010:1: ( ruleComparison )
-            // InternalKlangParser.g:4011:2: ruleComparison
+            // InternalKlangParser.g:3534:1: ( ruleComparison )
+            // InternalKlangParser.g:3535:2: ruleComparison
             {
              before(grammarAccess.getAndAccess().getComparisonParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -12415,14 +11087,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__And__Group__1"
-    // InternalKlangParser.g:4020:1: rule__And__Group__1 : rule__And__Group__1__Impl ;
+    // InternalKlangParser.g:3544:1: rule__And__Group__1 : rule__And__Group__1__Impl ;
     public final void rule__And__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4024:1: ( rule__And__Group__1__Impl )
-            // InternalKlangParser.g:4025:2: rule__And__Group__1__Impl
+            // InternalKlangParser.g:3548:1: ( rule__And__Group__1__Impl )
+            // InternalKlangParser.g:3549:2: rule__And__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__And__Group__1__Impl();
@@ -12448,35 +11120,35 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__And__Group__1__Impl"
-    // InternalKlangParser.g:4031:1: rule__And__Group__1__Impl : ( ( rule__And__Group_1__0 )* ) ;
+    // InternalKlangParser.g:3555:1: rule__And__Group__1__Impl : ( ( rule__And__Group_1__0 )* ) ;
     public final void rule__And__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4035:1: ( ( ( rule__And__Group_1__0 )* ) )
-            // InternalKlangParser.g:4036:1: ( ( rule__And__Group_1__0 )* )
+            // InternalKlangParser.g:3559:1: ( ( ( rule__And__Group_1__0 )* ) )
+            // InternalKlangParser.g:3560:1: ( ( rule__And__Group_1__0 )* )
             {
-            // InternalKlangParser.g:4036:1: ( ( rule__And__Group_1__0 )* )
-            // InternalKlangParser.g:4037:2: ( rule__And__Group_1__0 )*
+            // InternalKlangParser.g:3560:1: ( ( rule__And__Group_1__0 )* )
+            // InternalKlangParser.g:3561:2: ( rule__And__Group_1__0 )*
             {
              before(grammarAccess.getAndAccess().getGroup_1()); 
-            // InternalKlangParser.g:4038:2: ( rule__And__Group_1__0 )*
-            loop26:
+            // InternalKlangParser.g:3562:2: ( rule__And__Group_1__0 )*
+            loop22:
             do {
-                int alt26=2;
-                int LA26_0 = input.LA(1);
+                int alt22=2;
+                int LA22_0 = input.LA(1);
 
-                if ( (LA26_0==And) ) {
-                    alt26=1;
+                if ( (LA22_0==And) ) {
+                    alt22=1;
                 }
 
 
-                switch (alt26) {
+                switch (alt22) {
             	case 1 :
-            	    // InternalKlangParser.g:4038:3: rule__And__Group_1__0
+            	    // InternalKlangParser.g:3562:3: rule__And__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_38);
+            	    pushFollow(FOLLOW_35);
             	    rule__And__Group_1__0();
 
             	    state._fsp--;
@@ -12486,7 +11158,7 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop26;
+            	    break loop22;
                 }
             } while (true);
 
@@ -12513,16 +11185,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__And__Group_1__0"
-    // InternalKlangParser.g:4047:1: rule__And__Group_1__0 : rule__And__Group_1__0__Impl rule__And__Group_1__1 ;
+    // InternalKlangParser.g:3571:1: rule__And__Group_1__0 : rule__And__Group_1__0__Impl rule__And__Group_1__1 ;
     public final void rule__And__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4051:1: ( rule__And__Group_1__0__Impl rule__And__Group_1__1 )
-            // InternalKlangParser.g:4052:2: rule__And__Group_1__0__Impl rule__And__Group_1__1
+            // InternalKlangParser.g:3575:1: ( rule__And__Group_1__0__Impl rule__And__Group_1__1 )
+            // InternalKlangParser.g:3576:2: rule__And__Group_1__0__Impl rule__And__Group_1__1
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_34);
             rule__And__Group_1__0__Impl();
 
             state._fsp--;
@@ -12551,21 +11223,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__And__Group_1__0__Impl"
-    // InternalKlangParser.g:4059:1: rule__And__Group_1__0__Impl : ( () ) ;
+    // InternalKlangParser.g:3583:1: rule__And__Group_1__0__Impl : ( () ) ;
     public final void rule__And__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4063:1: ( ( () ) )
-            // InternalKlangParser.g:4064:1: ( () )
+            // InternalKlangParser.g:3587:1: ( ( () ) )
+            // InternalKlangParser.g:3588:1: ( () )
             {
-            // InternalKlangParser.g:4064:1: ( () )
-            // InternalKlangParser.g:4065:2: ()
+            // InternalKlangParser.g:3588:1: ( () )
+            // InternalKlangParser.g:3589:2: ()
             {
              before(grammarAccess.getAndAccess().getAndLeftAction_1_0()); 
-            // InternalKlangParser.g:4066:2: ()
-            // InternalKlangParser.g:4066:3: 
+            // InternalKlangParser.g:3590:2: ()
+            // InternalKlangParser.g:3590:3: 
             {
             }
 
@@ -12588,16 +11260,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__And__Group_1__1"
-    // InternalKlangParser.g:4074:1: rule__And__Group_1__1 : rule__And__Group_1__1__Impl rule__And__Group_1__2 ;
+    // InternalKlangParser.g:3598:1: rule__And__Group_1__1 : rule__And__Group_1__1__Impl rule__And__Group_1__2 ;
     public final void rule__And__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4078:1: ( rule__And__Group_1__1__Impl rule__And__Group_1__2 )
-            // InternalKlangParser.g:4079:2: rule__And__Group_1__1__Impl rule__And__Group_1__2
+            // InternalKlangParser.g:3602:1: ( rule__And__Group_1__1__Impl rule__And__Group_1__2 )
+            // InternalKlangParser.g:3603:2: rule__And__Group_1__1__Impl rule__And__Group_1__2
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_26);
             rule__And__Group_1__1__Impl();
 
             state._fsp--;
@@ -12626,17 +11298,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__And__Group_1__1__Impl"
-    // InternalKlangParser.g:4086:1: rule__And__Group_1__1__Impl : ( And ) ;
+    // InternalKlangParser.g:3610:1: rule__And__Group_1__1__Impl : ( And ) ;
     public final void rule__And__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4090:1: ( ( And ) )
-            // InternalKlangParser.g:4091:1: ( And )
+            // InternalKlangParser.g:3614:1: ( ( And ) )
+            // InternalKlangParser.g:3615:1: ( And )
             {
-            // InternalKlangParser.g:4091:1: ( And )
-            // InternalKlangParser.g:4092:2: And
+            // InternalKlangParser.g:3615:1: ( And )
+            // InternalKlangParser.g:3616:2: And
             {
              before(grammarAccess.getAndAccess().getAndKeyword_1_1()); 
             match(input,And,FOLLOW_2); 
@@ -12663,14 +11335,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__And__Group_1__2"
-    // InternalKlangParser.g:4101:1: rule__And__Group_1__2 : rule__And__Group_1__2__Impl ;
+    // InternalKlangParser.g:3625:1: rule__And__Group_1__2 : rule__And__Group_1__2__Impl ;
     public final void rule__And__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4105:1: ( rule__And__Group_1__2__Impl )
-            // InternalKlangParser.g:4106:2: rule__And__Group_1__2__Impl
+            // InternalKlangParser.g:3629:1: ( rule__And__Group_1__2__Impl )
+            // InternalKlangParser.g:3630:2: rule__And__Group_1__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__And__Group_1__2__Impl();
@@ -12696,21 +11368,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__And__Group_1__2__Impl"
-    // InternalKlangParser.g:4112:1: rule__And__Group_1__2__Impl : ( ( rule__And__RightAssignment_1_2 ) ) ;
+    // InternalKlangParser.g:3636:1: rule__And__Group_1__2__Impl : ( ( rule__And__RightAssignment_1_2 ) ) ;
     public final void rule__And__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4116:1: ( ( ( rule__And__RightAssignment_1_2 ) ) )
-            // InternalKlangParser.g:4117:1: ( ( rule__And__RightAssignment_1_2 ) )
+            // InternalKlangParser.g:3640:1: ( ( ( rule__And__RightAssignment_1_2 ) ) )
+            // InternalKlangParser.g:3641:1: ( ( rule__And__RightAssignment_1_2 ) )
             {
-            // InternalKlangParser.g:4117:1: ( ( rule__And__RightAssignment_1_2 ) )
-            // InternalKlangParser.g:4118:2: ( rule__And__RightAssignment_1_2 )
+            // InternalKlangParser.g:3641:1: ( ( rule__And__RightAssignment_1_2 ) )
+            // InternalKlangParser.g:3642:2: ( rule__And__RightAssignment_1_2 )
             {
              before(grammarAccess.getAndAccess().getRightAssignment_1_2()); 
-            // InternalKlangParser.g:4119:2: ( rule__And__RightAssignment_1_2 )
-            // InternalKlangParser.g:4119:3: rule__And__RightAssignment_1_2
+            // InternalKlangParser.g:3643:2: ( rule__And__RightAssignment_1_2 )
+            // InternalKlangParser.g:3643:3: rule__And__RightAssignment_1_2
             {
             pushFollow(FOLLOW_2);
             rule__And__RightAssignment_1_2();
@@ -12743,16 +11415,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Plus__Group__0"
-    // InternalKlangParser.g:4128:1: rule__Plus__Group__0 : rule__Plus__Group__0__Impl rule__Plus__Group__1 ;
+    // InternalKlangParser.g:3652:1: rule__Plus__Group__0 : rule__Plus__Group__0__Impl rule__Plus__Group__1 ;
     public final void rule__Plus__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4132:1: ( rule__Plus__Group__0__Impl rule__Plus__Group__1 )
-            // InternalKlangParser.g:4133:2: rule__Plus__Group__0__Impl rule__Plus__Group__1
+            // InternalKlangParser.g:3656:1: ( rule__Plus__Group__0__Impl rule__Plus__Group__1 )
+            // InternalKlangParser.g:3657:2: rule__Plus__Group__0__Impl rule__Plus__Group__1
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_36);
             rule__Plus__Group__0__Impl();
 
             state._fsp--;
@@ -12781,17 +11453,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Plus__Group__0__Impl"
-    // InternalKlangParser.g:4140:1: rule__Plus__Group__0__Impl : ( ruleMinus ) ;
+    // InternalKlangParser.g:3664:1: rule__Plus__Group__0__Impl : ( ruleMinus ) ;
     public final void rule__Plus__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4144:1: ( ( ruleMinus ) )
-            // InternalKlangParser.g:4145:1: ( ruleMinus )
+            // InternalKlangParser.g:3668:1: ( ( ruleMinus ) )
+            // InternalKlangParser.g:3669:1: ( ruleMinus )
             {
-            // InternalKlangParser.g:4145:1: ( ruleMinus )
-            // InternalKlangParser.g:4146:2: ruleMinus
+            // InternalKlangParser.g:3669:1: ( ruleMinus )
+            // InternalKlangParser.g:3670:2: ruleMinus
             {
              before(grammarAccess.getPlusAccess().getMinusParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -12822,14 +11494,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Plus__Group__1"
-    // InternalKlangParser.g:4155:1: rule__Plus__Group__1 : rule__Plus__Group__1__Impl ;
+    // InternalKlangParser.g:3679:1: rule__Plus__Group__1 : rule__Plus__Group__1__Impl ;
     public final void rule__Plus__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4159:1: ( rule__Plus__Group__1__Impl )
-            // InternalKlangParser.g:4160:2: rule__Plus__Group__1__Impl
+            // InternalKlangParser.g:3683:1: ( rule__Plus__Group__1__Impl )
+            // InternalKlangParser.g:3684:2: rule__Plus__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Plus__Group__1__Impl();
@@ -12855,35 +11527,35 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Plus__Group__1__Impl"
-    // InternalKlangParser.g:4166:1: rule__Plus__Group__1__Impl : ( ( rule__Plus__Group_1__0 )* ) ;
+    // InternalKlangParser.g:3690:1: rule__Plus__Group__1__Impl : ( ( rule__Plus__Group_1__0 )* ) ;
     public final void rule__Plus__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4170:1: ( ( ( rule__Plus__Group_1__0 )* ) )
-            // InternalKlangParser.g:4171:1: ( ( rule__Plus__Group_1__0 )* )
+            // InternalKlangParser.g:3694:1: ( ( ( rule__Plus__Group_1__0 )* ) )
+            // InternalKlangParser.g:3695:1: ( ( rule__Plus__Group_1__0 )* )
             {
-            // InternalKlangParser.g:4171:1: ( ( rule__Plus__Group_1__0 )* )
-            // InternalKlangParser.g:4172:2: ( rule__Plus__Group_1__0 )*
+            // InternalKlangParser.g:3695:1: ( ( rule__Plus__Group_1__0 )* )
+            // InternalKlangParser.g:3696:2: ( rule__Plus__Group_1__0 )*
             {
              before(grammarAccess.getPlusAccess().getGroup_1()); 
-            // InternalKlangParser.g:4173:2: ( rule__Plus__Group_1__0 )*
-            loop27:
+            // InternalKlangParser.g:3697:2: ( rule__Plus__Group_1__0 )*
+            loop23:
             do {
-                int alt27=2;
-                int LA27_0 = input.LA(1);
+                int alt23=2;
+                int LA23_0 = input.LA(1);
 
-                if ( (LA27_0==PlusSign) ) {
-                    alt27=1;
+                if ( (LA23_0==PlusSign) ) {
+                    alt23=1;
                 }
 
 
-                switch (alt27) {
+                switch (alt23) {
             	case 1 :
-            	    // InternalKlangParser.g:4173:3: rule__Plus__Group_1__0
+            	    // InternalKlangParser.g:3697:3: rule__Plus__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_40);
+            	    pushFollow(FOLLOW_37);
             	    rule__Plus__Group_1__0();
 
             	    state._fsp--;
@@ -12893,7 +11565,7 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop27;
+            	    break loop23;
                 }
             } while (true);
 
@@ -12920,16 +11592,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Plus__Group_1__0"
-    // InternalKlangParser.g:4182:1: rule__Plus__Group_1__0 : rule__Plus__Group_1__0__Impl rule__Plus__Group_1__1 ;
+    // InternalKlangParser.g:3706:1: rule__Plus__Group_1__0 : rule__Plus__Group_1__0__Impl rule__Plus__Group_1__1 ;
     public final void rule__Plus__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4186:1: ( rule__Plus__Group_1__0__Impl rule__Plus__Group_1__1 )
-            // InternalKlangParser.g:4187:2: rule__Plus__Group_1__0__Impl rule__Plus__Group_1__1
+            // InternalKlangParser.g:3710:1: ( rule__Plus__Group_1__0__Impl rule__Plus__Group_1__1 )
+            // InternalKlangParser.g:3711:2: rule__Plus__Group_1__0__Impl rule__Plus__Group_1__1
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_36);
             rule__Plus__Group_1__0__Impl();
 
             state._fsp--;
@@ -12958,21 +11630,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Plus__Group_1__0__Impl"
-    // InternalKlangParser.g:4194:1: rule__Plus__Group_1__0__Impl : ( () ) ;
+    // InternalKlangParser.g:3718:1: rule__Plus__Group_1__0__Impl : ( () ) ;
     public final void rule__Plus__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4198:1: ( ( () ) )
-            // InternalKlangParser.g:4199:1: ( () )
+            // InternalKlangParser.g:3722:1: ( ( () ) )
+            // InternalKlangParser.g:3723:1: ( () )
             {
-            // InternalKlangParser.g:4199:1: ( () )
-            // InternalKlangParser.g:4200:2: ()
+            // InternalKlangParser.g:3723:1: ( () )
+            // InternalKlangParser.g:3724:2: ()
             {
              before(grammarAccess.getPlusAccess().getPlusLeftAction_1_0()); 
-            // InternalKlangParser.g:4201:2: ()
-            // InternalKlangParser.g:4201:3: 
+            // InternalKlangParser.g:3725:2: ()
+            // InternalKlangParser.g:3725:3: 
             {
             }
 
@@ -12995,16 +11667,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Plus__Group_1__1"
-    // InternalKlangParser.g:4209:1: rule__Plus__Group_1__1 : rule__Plus__Group_1__1__Impl rule__Plus__Group_1__2 ;
+    // InternalKlangParser.g:3733:1: rule__Plus__Group_1__1 : rule__Plus__Group_1__1__Impl rule__Plus__Group_1__2 ;
     public final void rule__Plus__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4213:1: ( rule__Plus__Group_1__1__Impl rule__Plus__Group_1__2 )
-            // InternalKlangParser.g:4214:2: rule__Plus__Group_1__1__Impl rule__Plus__Group_1__2
+            // InternalKlangParser.g:3737:1: ( rule__Plus__Group_1__1__Impl rule__Plus__Group_1__2 )
+            // InternalKlangParser.g:3738:2: rule__Plus__Group_1__1__Impl rule__Plus__Group_1__2
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_26);
             rule__Plus__Group_1__1__Impl();
 
             state._fsp--;
@@ -13033,17 +11705,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Plus__Group_1__1__Impl"
-    // InternalKlangParser.g:4221:1: rule__Plus__Group_1__1__Impl : ( PlusSign ) ;
+    // InternalKlangParser.g:3745:1: rule__Plus__Group_1__1__Impl : ( PlusSign ) ;
     public final void rule__Plus__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4225:1: ( ( PlusSign ) )
-            // InternalKlangParser.g:4226:1: ( PlusSign )
+            // InternalKlangParser.g:3749:1: ( ( PlusSign ) )
+            // InternalKlangParser.g:3750:1: ( PlusSign )
             {
-            // InternalKlangParser.g:4226:1: ( PlusSign )
-            // InternalKlangParser.g:4227:2: PlusSign
+            // InternalKlangParser.g:3750:1: ( PlusSign )
+            // InternalKlangParser.g:3751:2: PlusSign
             {
              before(grammarAccess.getPlusAccess().getPlusSignKeyword_1_1()); 
             match(input,PlusSign,FOLLOW_2); 
@@ -13070,14 +11742,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Plus__Group_1__2"
-    // InternalKlangParser.g:4236:1: rule__Plus__Group_1__2 : rule__Plus__Group_1__2__Impl ;
+    // InternalKlangParser.g:3760:1: rule__Plus__Group_1__2 : rule__Plus__Group_1__2__Impl ;
     public final void rule__Plus__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4240:1: ( rule__Plus__Group_1__2__Impl )
-            // InternalKlangParser.g:4241:2: rule__Plus__Group_1__2__Impl
+            // InternalKlangParser.g:3764:1: ( rule__Plus__Group_1__2__Impl )
+            // InternalKlangParser.g:3765:2: rule__Plus__Group_1__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Plus__Group_1__2__Impl();
@@ -13103,21 +11775,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Plus__Group_1__2__Impl"
-    // InternalKlangParser.g:4247:1: rule__Plus__Group_1__2__Impl : ( ( rule__Plus__RightAssignment_1_2 ) ) ;
+    // InternalKlangParser.g:3771:1: rule__Plus__Group_1__2__Impl : ( ( rule__Plus__RightAssignment_1_2 ) ) ;
     public final void rule__Plus__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4251:1: ( ( ( rule__Plus__RightAssignment_1_2 ) ) )
-            // InternalKlangParser.g:4252:1: ( ( rule__Plus__RightAssignment_1_2 ) )
+            // InternalKlangParser.g:3775:1: ( ( ( rule__Plus__RightAssignment_1_2 ) ) )
+            // InternalKlangParser.g:3776:1: ( ( rule__Plus__RightAssignment_1_2 ) )
             {
-            // InternalKlangParser.g:4252:1: ( ( rule__Plus__RightAssignment_1_2 ) )
-            // InternalKlangParser.g:4253:2: ( rule__Plus__RightAssignment_1_2 )
+            // InternalKlangParser.g:3776:1: ( ( rule__Plus__RightAssignment_1_2 ) )
+            // InternalKlangParser.g:3777:2: ( rule__Plus__RightAssignment_1_2 )
             {
              before(grammarAccess.getPlusAccess().getRightAssignment_1_2()); 
-            // InternalKlangParser.g:4254:2: ( rule__Plus__RightAssignment_1_2 )
-            // InternalKlangParser.g:4254:3: rule__Plus__RightAssignment_1_2
+            // InternalKlangParser.g:3778:2: ( rule__Plus__RightAssignment_1_2 )
+            // InternalKlangParser.g:3778:3: rule__Plus__RightAssignment_1_2
             {
             pushFollow(FOLLOW_2);
             rule__Plus__RightAssignment_1_2();
@@ -13150,16 +11822,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Minus__Group__0"
-    // InternalKlangParser.g:4263:1: rule__Minus__Group__0 : rule__Minus__Group__0__Impl rule__Minus__Group__1 ;
+    // InternalKlangParser.g:3787:1: rule__Minus__Group__0 : rule__Minus__Group__0__Impl rule__Minus__Group__1 ;
     public final void rule__Minus__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4267:1: ( rule__Minus__Group__0__Impl rule__Minus__Group__1 )
-            // InternalKlangParser.g:4268:2: rule__Minus__Group__0__Impl rule__Minus__Group__1
+            // InternalKlangParser.g:3791:1: ( rule__Minus__Group__0__Impl rule__Minus__Group__1 )
+            // InternalKlangParser.g:3792:2: rule__Minus__Group__0__Impl rule__Minus__Group__1
             {
-            pushFollow(FOLLOW_41);
+            pushFollow(FOLLOW_38);
             rule__Minus__Group__0__Impl();
 
             state._fsp--;
@@ -13188,17 +11860,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Minus__Group__0__Impl"
-    // InternalKlangParser.g:4275:1: rule__Minus__Group__0__Impl : ( ruleMultiply ) ;
+    // InternalKlangParser.g:3799:1: rule__Minus__Group__0__Impl : ( ruleMultiply ) ;
     public final void rule__Minus__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4279:1: ( ( ruleMultiply ) )
-            // InternalKlangParser.g:4280:1: ( ruleMultiply )
+            // InternalKlangParser.g:3803:1: ( ( ruleMultiply ) )
+            // InternalKlangParser.g:3804:1: ( ruleMultiply )
             {
-            // InternalKlangParser.g:4280:1: ( ruleMultiply )
-            // InternalKlangParser.g:4281:2: ruleMultiply
+            // InternalKlangParser.g:3804:1: ( ruleMultiply )
+            // InternalKlangParser.g:3805:2: ruleMultiply
             {
              before(grammarAccess.getMinusAccess().getMultiplyParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -13229,14 +11901,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Minus__Group__1"
-    // InternalKlangParser.g:4290:1: rule__Minus__Group__1 : rule__Minus__Group__1__Impl ;
+    // InternalKlangParser.g:3814:1: rule__Minus__Group__1 : rule__Minus__Group__1__Impl ;
     public final void rule__Minus__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4294:1: ( rule__Minus__Group__1__Impl )
-            // InternalKlangParser.g:4295:2: rule__Minus__Group__1__Impl
+            // InternalKlangParser.g:3818:1: ( rule__Minus__Group__1__Impl )
+            // InternalKlangParser.g:3819:2: rule__Minus__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Minus__Group__1__Impl();
@@ -13262,35 +11934,35 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Minus__Group__1__Impl"
-    // InternalKlangParser.g:4301:1: rule__Minus__Group__1__Impl : ( ( rule__Minus__Group_1__0 )* ) ;
+    // InternalKlangParser.g:3825:1: rule__Minus__Group__1__Impl : ( ( rule__Minus__Group_1__0 )* ) ;
     public final void rule__Minus__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4305:1: ( ( ( rule__Minus__Group_1__0 )* ) )
-            // InternalKlangParser.g:4306:1: ( ( rule__Minus__Group_1__0 )* )
+            // InternalKlangParser.g:3829:1: ( ( ( rule__Minus__Group_1__0 )* ) )
+            // InternalKlangParser.g:3830:1: ( ( rule__Minus__Group_1__0 )* )
             {
-            // InternalKlangParser.g:4306:1: ( ( rule__Minus__Group_1__0 )* )
-            // InternalKlangParser.g:4307:2: ( rule__Minus__Group_1__0 )*
+            // InternalKlangParser.g:3830:1: ( ( rule__Minus__Group_1__0 )* )
+            // InternalKlangParser.g:3831:2: ( rule__Minus__Group_1__0 )*
             {
              before(grammarAccess.getMinusAccess().getGroup_1()); 
-            // InternalKlangParser.g:4308:2: ( rule__Minus__Group_1__0 )*
-            loop28:
+            // InternalKlangParser.g:3832:2: ( rule__Minus__Group_1__0 )*
+            loop24:
             do {
-                int alt28=2;
-                int LA28_0 = input.LA(1);
+                int alt24=2;
+                int LA24_0 = input.LA(1);
 
-                if ( (LA28_0==HyphenMinus) ) {
-                    alt28=1;
+                if ( (LA24_0==HyphenMinus) ) {
+                    alt24=1;
                 }
 
 
-                switch (alt28) {
+                switch (alt24) {
             	case 1 :
-            	    // InternalKlangParser.g:4308:3: rule__Minus__Group_1__0
+            	    // InternalKlangParser.g:3832:3: rule__Minus__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_42);
+            	    pushFollow(FOLLOW_39);
             	    rule__Minus__Group_1__0();
 
             	    state._fsp--;
@@ -13300,7 +11972,7 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop28;
+            	    break loop24;
                 }
             } while (true);
 
@@ -13327,16 +11999,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Minus__Group_1__0"
-    // InternalKlangParser.g:4317:1: rule__Minus__Group_1__0 : rule__Minus__Group_1__0__Impl rule__Minus__Group_1__1 ;
+    // InternalKlangParser.g:3841:1: rule__Minus__Group_1__0 : rule__Minus__Group_1__0__Impl rule__Minus__Group_1__1 ;
     public final void rule__Minus__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4321:1: ( rule__Minus__Group_1__0__Impl rule__Minus__Group_1__1 )
-            // InternalKlangParser.g:4322:2: rule__Minus__Group_1__0__Impl rule__Minus__Group_1__1
+            // InternalKlangParser.g:3845:1: ( rule__Minus__Group_1__0__Impl rule__Minus__Group_1__1 )
+            // InternalKlangParser.g:3846:2: rule__Minus__Group_1__0__Impl rule__Minus__Group_1__1
             {
-            pushFollow(FOLLOW_41);
+            pushFollow(FOLLOW_38);
             rule__Minus__Group_1__0__Impl();
 
             state._fsp--;
@@ -13365,21 +12037,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Minus__Group_1__0__Impl"
-    // InternalKlangParser.g:4329:1: rule__Minus__Group_1__0__Impl : ( () ) ;
+    // InternalKlangParser.g:3853:1: rule__Minus__Group_1__0__Impl : ( () ) ;
     public final void rule__Minus__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4333:1: ( ( () ) )
-            // InternalKlangParser.g:4334:1: ( () )
+            // InternalKlangParser.g:3857:1: ( ( () ) )
+            // InternalKlangParser.g:3858:1: ( () )
             {
-            // InternalKlangParser.g:4334:1: ( () )
-            // InternalKlangParser.g:4335:2: ()
+            // InternalKlangParser.g:3858:1: ( () )
+            // InternalKlangParser.g:3859:2: ()
             {
              before(grammarAccess.getMinusAccess().getMinusLeftAction_1_0()); 
-            // InternalKlangParser.g:4336:2: ()
-            // InternalKlangParser.g:4336:3: 
+            // InternalKlangParser.g:3860:2: ()
+            // InternalKlangParser.g:3860:3: 
             {
             }
 
@@ -13402,16 +12074,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Minus__Group_1__1"
-    // InternalKlangParser.g:4344:1: rule__Minus__Group_1__1 : rule__Minus__Group_1__1__Impl rule__Minus__Group_1__2 ;
+    // InternalKlangParser.g:3868:1: rule__Minus__Group_1__1 : rule__Minus__Group_1__1__Impl rule__Minus__Group_1__2 ;
     public final void rule__Minus__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4348:1: ( rule__Minus__Group_1__1__Impl rule__Minus__Group_1__2 )
-            // InternalKlangParser.g:4349:2: rule__Minus__Group_1__1__Impl rule__Minus__Group_1__2
+            // InternalKlangParser.g:3872:1: ( rule__Minus__Group_1__1__Impl rule__Minus__Group_1__2 )
+            // InternalKlangParser.g:3873:2: rule__Minus__Group_1__1__Impl rule__Minus__Group_1__2
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_26);
             rule__Minus__Group_1__1__Impl();
 
             state._fsp--;
@@ -13440,17 +12112,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Minus__Group_1__1__Impl"
-    // InternalKlangParser.g:4356:1: rule__Minus__Group_1__1__Impl : ( HyphenMinus ) ;
+    // InternalKlangParser.g:3880:1: rule__Minus__Group_1__1__Impl : ( HyphenMinus ) ;
     public final void rule__Minus__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4360:1: ( ( HyphenMinus ) )
-            // InternalKlangParser.g:4361:1: ( HyphenMinus )
+            // InternalKlangParser.g:3884:1: ( ( HyphenMinus ) )
+            // InternalKlangParser.g:3885:1: ( HyphenMinus )
             {
-            // InternalKlangParser.g:4361:1: ( HyphenMinus )
-            // InternalKlangParser.g:4362:2: HyphenMinus
+            // InternalKlangParser.g:3885:1: ( HyphenMinus )
+            // InternalKlangParser.g:3886:2: HyphenMinus
             {
              before(grammarAccess.getMinusAccess().getHyphenMinusKeyword_1_1()); 
             match(input,HyphenMinus,FOLLOW_2); 
@@ -13477,14 +12149,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Minus__Group_1__2"
-    // InternalKlangParser.g:4371:1: rule__Minus__Group_1__2 : rule__Minus__Group_1__2__Impl ;
+    // InternalKlangParser.g:3895:1: rule__Minus__Group_1__2 : rule__Minus__Group_1__2__Impl ;
     public final void rule__Minus__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4375:1: ( rule__Minus__Group_1__2__Impl )
-            // InternalKlangParser.g:4376:2: rule__Minus__Group_1__2__Impl
+            // InternalKlangParser.g:3899:1: ( rule__Minus__Group_1__2__Impl )
+            // InternalKlangParser.g:3900:2: rule__Minus__Group_1__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Minus__Group_1__2__Impl();
@@ -13510,21 +12182,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Minus__Group_1__2__Impl"
-    // InternalKlangParser.g:4382:1: rule__Minus__Group_1__2__Impl : ( ( rule__Minus__RightAssignment_1_2 ) ) ;
+    // InternalKlangParser.g:3906:1: rule__Minus__Group_1__2__Impl : ( ( rule__Minus__RightAssignment_1_2 ) ) ;
     public final void rule__Minus__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4386:1: ( ( ( rule__Minus__RightAssignment_1_2 ) ) )
-            // InternalKlangParser.g:4387:1: ( ( rule__Minus__RightAssignment_1_2 ) )
+            // InternalKlangParser.g:3910:1: ( ( ( rule__Minus__RightAssignment_1_2 ) ) )
+            // InternalKlangParser.g:3911:1: ( ( rule__Minus__RightAssignment_1_2 ) )
             {
-            // InternalKlangParser.g:4387:1: ( ( rule__Minus__RightAssignment_1_2 ) )
-            // InternalKlangParser.g:4388:2: ( rule__Minus__RightAssignment_1_2 )
+            // InternalKlangParser.g:3911:1: ( ( rule__Minus__RightAssignment_1_2 ) )
+            // InternalKlangParser.g:3912:2: ( rule__Minus__RightAssignment_1_2 )
             {
              before(grammarAccess.getMinusAccess().getRightAssignment_1_2()); 
-            // InternalKlangParser.g:4389:2: ( rule__Minus__RightAssignment_1_2 )
-            // InternalKlangParser.g:4389:3: rule__Minus__RightAssignment_1_2
+            // InternalKlangParser.g:3913:2: ( rule__Minus__RightAssignment_1_2 )
+            // InternalKlangParser.g:3913:3: rule__Minus__RightAssignment_1_2
             {
             pushFollow(FOLLOW_2);
             rule__Minus__RightAssignment_1_2();
@@ -13557,16 +12229,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Multiply__Group__0"
-    // InternalKlangParser.g:4398:1: rule__Multiply__Group__0 : rule__Multiply__Group__0__Impl rule__Multiply__Group__1 ;
+    // InternalKlangParser.g:3922:1: rule__Multiply__Group__0 : rule__Multiply__Group__0__Impl rule__Multiply__Group__1 ;
     public final void rule__Multiply__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4402:1: ( rule__Multiply__Group__0__Impl rule__Multiply__Group__1 )
-            // InternalKlangParser.g:4403:2: rule__Multiply__Group__0__Impl rule__Multiply__Group__1
+            // InternalKlangParser.g:3926:1: ( rule__Multiply__Group__0__Impl rule__Multiply__Group__1 )
+            // InternalKlangParser.g:3927:2: rule__Multiply__Group__0__Impl rule__Multiply__Group__1
             {
-            pushFollow(FOLLOW_43);
+            pushFollow(FOLLOW_40);
             rule__Multiply__Group__0__Impl();
 
             state._fsp--;
@@ -13595,17 +12267,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Multiply__Group__0__Impl"
-    // InternalKlangParser.g:4410:1: rule__Multiply__Group__0__Impl : ( ruleDivide ) ;
+    // InternalKlangParser.g:3934:1: rule__Multiply__Group__0__Impl : ( ruleDivide ) ;
     public final void rule__Multiply__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4414:1: ( ( ruleDivide ) )
-            // InternalKlangParser.g:4415:1: ( ruleDivide )
+            // InternalKlangParser.g:3938:1: ( ( ruleDivide ) )
+            // InternalKlangParser.g:3939:1: ( ruleDivide )
             {
-            // InternalKlangParser.g:4415:1: ( ruleDivide )
-            // InternalKlangParser.g:4416:2: ruleDivide
+            // InternalKlangParser.g:3939:1: ( ruleDivide )
+            // InternalKlangParser.g:3940:2: ruleDivide
             {
              before(grammarAccess.getMultiplyAccess().getDivideParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -13636,14 +12308,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Multiply__Group__1"
-    // InternalKlangParser.g:4425:1: rule__Multiply__Group__1 : rule__Multiply__Group__1__Impl ;
+    // InternalKlangParser.g:3949:1: rule__Multiply__Group__1 : rule__Multiply__Group__1__Impl ;
     public final void rule__Multiply__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4429:1: ( rule__Multiply__Group__1__Impl )
-            // InternalKlangParser.g:4430:2: rule__Multiply__Group__1__Impl
+            // InternalKlangParser.g:3953:1: ( rule__Multiply__Group__1__Impl )
+            // InternalKlangParser.g:3954:2: rule__Multiply__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Multiply__Group__1__Impl();
@@ -13669,35 +12341,35 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Multiply__Group__1__Impl"
-    // InternalKlangParser.g:4436:1: rule__Multiply__Group__1__Impl : ( ( rule__Multiply__Group_1__0 )* ) ;
+    // InternalKlangParser.g:3960:1: rule__Multiply__Group__1__Impl : ( ( rule__Multiply__Group_1__0 )* ) ;
     public final void rule__Multiply__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4440:1: ( ( ( rule__Multiply__Group_1__0 )* ) )
-            // InternalKlangParser.g:4441:1: ( ( rule__Multiply__Group_1__0 )* )
+            // InternalKlangParser.g:3964:1: ( ( ( rule__Multiply__Group_1__0 )* ) )
+            // InternalKlangParser.g:3965:1: ( ( rule__Multiply__Group_1__0 )* )
             {
-            // InternalKlangParser.g:4441:1: ( ( rule__Multiply__Group_1__0 )* )
-            // InternalKlangParser.g:4442:2: ( rule__Multiply__Group_1__0 )*
+            // InternalKlangParser.g:3965:1: ( ( rule__Multiply__Group_1__0 )* )
+            // InternalKlangParser.g:3966:2: ( rule__Multiply__Group_1__0 )*
             {
              before(grammarAccess.getMultiplyAccess().getGroup_1()); 
-            // InternalKlangParser.g:4443:2: ( rule__Multiply__Group_1__0 )*
-            loop29:
+            // InternalKlangParser.g:3967:2: ( rule__Multiply__Group_1__0 )*
+            loop25:
             do {
-                int alt29=2;
-                int LA29_0 = input.LA(1);
+                int alt25=2;
+                int LA25_0 = input.LA(1);
 
-                if ( (LA29_0==Asterisk) ) {
-                    alt29=1;
+                if ( (LA25_0==Asterisk) ) {
+                    alt25=1;
                 }
 
 
-                switch (alt29) {
+                switch (alt25) {
             	case 1 :
-            	    // InternalKlangParser.g:4443:3: rule__Multiply__Group_1__0
+            	    // InternalKlangParser.g:3967:3: rule__Multiply__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_44);
+            	    pushFollow(FOLLOW_41);
             	    rule__Multiply__Group_1__0();
 
             	    state._fsp--;
@@ -13707,7 +12379,7 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop29;
+            	    break loop25;
                 }
             } while (true);
 
@@ -13734,16 +12406,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Multiply__Group_1__0"
-    // InternalKlangParser.g:4452:1: rule__Multiply__Group_1__0 : rule__Multiply__Group_1__0__Impl rule__Multiply__Group_1__1 ;
+    // InternalKlangParser.g:3976:1: rule__Multiply__Group_1__0 : rule__Multiply__Group_1__0__Impl rule__Multiply__Group_1__1 ;
     public final void rule__Multiply__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4456:1: ( rule__Multiply__Group_1__0__Impl rule__Multiply__Group_1__1 )
-            // InternalKlangParser.g:4457:2: rule__Multiply__Group_1__0__Impl rule__Multiply__Group_1__1
+            // InternalKlangParser.g:3980:1: ( rule__Multiply__Group_1__0__Impl rule__Multiply__Group_1__1 )
+            // InternalKlangParser.g:3981:2: rule__Multiply__Group_1__0__Impl rule__Multiply__Group_1__1
             {
-            pushFollow(FOLLOW_43);
+            pushFollow(FOLLOW_40);
             rule__Multiply__Group_1__0__Impl();
 
             state._fsp--;
@@ -13772,21 +12444,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Multiply__Group_1__0__Impl"
-    // InternalKlangParser.g:4464:1: rule__Multiply__Group_1__0__Impl : ( () ) ;
+    // InternalKlangParser.g:3988:1: rule__Multiply__Group_1__0__Impl : ( () ) ;
     public final void rule__Multiply__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4468:1: ( ( () ) )
-            // InternalKlangParser.g:4469:1: ( () )
+            // InternalKlangParser.g:3992:1: ( ( () ) )
+            // InternalKlangParser.g:3993:1: ( () )
             {
-            // InternalKlangParser.g:4469:1: ( () )
-            // InternalKlangParser.g:4470:2: ()
+            // InternalKlangParser.g:3993:1: ( () )
+            // InternalKlangParser.g:3994:2: ()
             {
              before(grammarAccess.getMultiplyAccess().getMultiplyLeftAction_1_0()); 
-            // InternalKlangParser.g:4471:2: ()
-            // InternalKlangParser.g:4471:3: 
+            // InternalKlangParser.g:3995:2: ()
+            // InternalKlangParser.g:3995:3: 
             {
             }
 
@@ -13809,16 +12481,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Multiply__Group_1__1"
-    // InternalKlangParser.g:4479:1: rule__Multiply__Group_1__1 : rule__Multiply__Group_1__1__Impl rule__Multiply__Group_1__2 ;
+    // InternalKlangParser.g:4003:1: rule__Multiply__Group_1__1 : rule__Multiply__Group_1__1__Impl rule__Multiply__Group_1__2 ;
     public final void rule__Multiply__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4483:1: ( rule__Multiply__Group_1__1__Impl rule__Multiply__Group_1__2 )
-            // InternalKlangParser.g:4484:2: rule__Multiply__Group_1__1__Impl rule__Multiply__Group_1__2
+            // InternalKlangParser.g:4007:1: ( rule__Multiply__Group_1__1__Impl rule__Multiply__Group_1__2 )
+            // InternalKlangParser.g:4008:2: rule__Multiply__Group_1__1__Impl rule__Multiply__Group_1__2
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_26);
             rule__Multiply__Group_1__1__Impl();
 
             state._fsp--;
@@ -13847,17 +12519,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Multiply__Group_1__1__Impl"
-    // InternalKlangParser.g:4491:1: rule__Multiply__Group_1__1__Impl : ( Asterisk ) ;
+    // InternalKlangParser.g:4015:1: rule__Multiply__Group_1__1__Impl : ( Asterisk ) ;
     public final void rule__Multiply__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4495:1: ( ( Asterisk ) )
-            // InternalKlangParser.g:4496:1: ( Asterisk )
+            // InternalKlangParser.g:4019:1: ( ( Asterisk ) )
+            // InternalKlangParser.g:4020:1: ( Asterisk )
             {
-            // InternalKlangParser.g:4496:1: ( Asterisk )
-            // InternalKlangParser.g:4497:2: Asterisk
+            // InternalKlangParser.g:4020:1: ( Asterisk )
+            // InternalKlangParser.g:4021:2: Asterisk
             {
              before(grammarAccess.getMultiplyAccess().getAsteriskKeyword_1_1()); 
             match(input,Asterisk,FOLLOW_2); 
@@ -13884,14 +12556,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Multiply__Group_1__2"
-    // InternalKlangParser.g:4506:1: rule__Multiply__Group_1__2 : rule__Multiply__Group_1__2__Impl ;
+    // InternalKlangParser.g:4030:1: rule__Multiply__Group_1__2 : rule__Multiply__Group_1__2__Impl ;
     public final void rule__Multiply__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4510:1: ( rule__Multiply__Group_1__2__Impl )
-            // InternalKlangParser.g:4511:2: rule__Multiply__Group_1__2__Impl
+            // InternalKlangParser.g:4034:1: ( rule__Multiply__Group_1__2__Impl )
+            // InternalKlangParser.g:4035:2: rule__Multiply__Group_1__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Multiply__Group_1__2__Impl();
@@ -13917,21 +12589,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Multiply__Group_1__2__Impl"
-    // InternalKlangParser.g:4517:1: rule__Multiply__Group_1__2__Impl : ( ( rule__Multiply__RightAssignment_1_2 ) ) ;
+    // InternalKlangParser.g:4041:1: rule__Multiply__Group_1__2__Impl : ( ( rule__Multiply__RightAssignment_1_2 ) ) ;
     public final void rule__Multiply__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4521:1: ( ( ( rule__Multiply__RightAssignment_1_2 ) ) )
-            // InternalKlangParser.g:4522:1: ( ( rule__Multiply__RightAssignment_1_2 ) )
+            // InternalKlangParser.g:4045:1: ( ( ( rule__Multiply__RightAssignment_1_2 ) ) )
+            // InternalKlangParser.g:4046:1: ( ( rule__Multiply__RightAssignment_1_2 ) )
             {
-            // InternalKlangParser.g:4522:1: ( ( rule__Multiply__RightAssignment_1_2 ) )
-            // InternalKlangParser.g:4523:2: ( rule__Multiply__RightAssignment_1_2 )
+            // InternalKlangParser.g:4046:1: ( ( rule__Multiply__RightAssignment_1_2 ) )
+            // InternalKlangParser.g:4047:2: ( rule__Multiply__RightAssignment_1_2 )
             {
              before(grammarAccess.getMultiplyAccess().getRightAssignment_1_2()); 
-            // InternalKlangParser.g:4524:2: ( rule__Multiply__RightAssignment_1_2 )
-            // InternalKlangParser.g:4524:3: rule__Multiply__RightAssignment_1_2
+            // InternalKlangParser.g:4048:2: ( rule__Multiply__RightAssignment_1_2 )
+            // InternalKlangParser.g:4048:3: rule__Multiply__RightAssignment_1_2
             {
             pushFollow(FOLLOW_2);
             rule__Multiply__RightAssignment_1_2();
@@ -13964,16 +12636,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Divide__Group__0"
-    // InternalKlangParser.g:4533:1: rule__Divide__Group__0 : rule__Divide__Group__0__Impl rule__Divide__Group__1 ;
+    // InternalKlangParser.g:4057:1: rule__Divide__Group__0 : rule__Divide__Group__0__Impl rule__Divide__Group__1 ;
     public final void rule__Divide__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4537:1: ( rule__Divide__Group__0__Impl rule__Divide__Group__1 )
-            // InternalKlangParser.g:4538:2: rule__Divide__Group__0__Impl rule__Divide__Group__1
+            // InternalKlangParser.g:4061:1: ( rule__Divide__Group__0__Impl rule__Divide__Group__1 )
+            // InternalKlangParser.g:4062:2: rule__Divide__Group__0__Impl rule__Divide__Group__1
             {
-            pushFollow(FOLLOW_45);
+            pushFollow(FOLLOW_42);
             rule__Divide__Group__0__Impl();
 
             state._fsp--;
@@ -14002,17 +12674,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Divide__Group__0__Impl"
-    // InternalKlangParser.g:4545:1: rule__Divide__Group__0__Impl : ( rulePrimaryExpression ) ;
+    // InternalKlangParser.g:4069:1: rule__Divide__Group__0__Impl : ( rulePrimaryExpression ) ;
     public final void rule__Divide__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4549:1: ( ( rulePrimaryExpression ) )
-            // InternalKlangParser.g:4550:1: ( rulePrimaryExpression )
+            // InternalKlangParser.g:4073:1: ( ( rulePrimaryExpression ) )
+            // InternalKlangParser.g:4074:1: ( rulePrimaryExpression )
             {
-            // InternalKlangParser.g:4550:1: ( rulePrimaryExpression )
-            // InternalKlangParser.g:4551:2: rulePrimaryExpression
+            // InternalKlangParser.g:4074:1: ( rulePrimaryExpression )
+            // InternalKlangParser.g:4075:2: rulePrimaryExpression
             {
              before(grammarAccess.getDivideAccess().getPrimaryExpressionParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -14043,14 +12715,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Divide__Group__1"
-    // InternalKlangParser.g:4560:1: rule__Divide__Group__1 : rule__Divide__Group__1__Impl ;
+    // InternalKlangParser.g:4084:1: rule__Divide__Group__1 : rule__Divide__Group__1__Impl ;
     public final void rule__Divide__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4564:1: ( rule__Divide__Group__1__Impl )
-            // InternalKlangParser.g:4565:2: rule__Divide__Group__1__Impl
+            // InternalKlangParser.g:4088:1: ( rule__Divide__Group__1__Impl )
+            // InternalKlangParser.g:4089:2: rule__Divide__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Divide__Group__1__Impl();
@@ -14076,35 +12748,35 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Divide__Group__1__Impl"
-    // InternalKlangParser.g:4571:1: rule__Divide__Group__1__Impl : ( ( rule__Divide__Group_1__0 )* ) ;
+    // InternalKlangParser.g:4095:1: rule__Divide__Group__1__Impl : ( ( rule__Divide__Group_1__0 )* ) ;
     public final void rule__Divide__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4575:1: ( ( ( rule__Divide__Group_1__0 )* ) )
-            // InternalKlangParser.g:4576:1: ( ( rule__Divide__Group_1__0 )* )
+            // InternalKlangParser.g:4099:1: ( ( ( rule__Divide__Group_1__0 )* ) )
+            // InternalKlangParser.g:4100:1: ( ( rule__Divide__Group_1__0 )* )
             {
-            // InternalKlangParser.g:4576:1: ( ( rule__Divide__Group_1__0 )* )
-            // InternalKlangParser.g:4577:2: ( rule__Divide__Group_1__0 )*
+            // InternalKlangParser.g:4100:1: ( ( rule__Divide__Group_1__0 )* )
+            // InternalKlangParser.g:4101:2: ( rule__Divide__Group_1__0 )*
             {
              before(grammarAccess.getDivideAccess().getGroup_1()); 
-            // InternalKlangParser.g:4578:2: ( rule__Divide__Group_1__0 )*
-            loop30:
+            // InternalKlangParser.g:4102:2: ( rule__Divide__Group_1__0 )*
+            loop26:
             do {
-                int alt30=2;
-                int LA30_0 = input.LA(1);
+                int alt26=2;
+                int LA26_0 = input.LA(1);
 
-                if ( (LA30_0==Solidus) ) {
-                    alt30=1;
+                if ( (LA26_0==Solidus) ) {
+                    alt26=1;
                 }
 
 
-                switch (alt30) {
+                switch (alt26) {
             	case 1 :
-            	    // InternalKlangParser.g:4578:3: rule__Divide__Group_1__0
+            	    // InternalKlangParser.g:4102:3: rule__Divide__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_46);
+            	    pushFollow(FOLLOW_43);
             	    rule__Divide__Group_1__0();
 
             	    state._fsp--;
@@ -14114,7 +12786,7 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop30;
+            	    break loop26;
                 }
             } while (true);
 
@@ -14141,16 +12813,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Divide__Group_1__0"
-    // InternalKlangParser.g:4587:1: rule__Divide__Group_1__0 : rule__Divide__Group_1__0__Impl rule__Divide__Group_1__1 ;
+    // InternalKlangParser.g:4111:1: rule__Divide__Group_1__0 : rule__Divide__Group_1__0__Impl rule__Divide__Group_1__1 ;
     public final void rule__Divide__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4591:1: ( rule__Divide__Group_1__0__Impl rule__Divide__Group_1__1 )
-            // InternalKlangParser.g:4592:2: rule__Divide__Group_1__0__Impl rule__Divide__Group_1__1
+            // InternalKlangParser.g:4115:1: ( rule__Divide__Group_1__0__Impl rule__Divide__Group_1__1 )
+            // InternalKlangParser.g:4116:2: rule__Divide__Group_1__0__Impl rule__Divide__Group_1__1
             {
-            pushFollow(FOLLOW_45);
+            pushFollow(FOLLOW_42);
             rule__Divide__Group_1__0__Impl();
 
             state._fsp--;
@@ -14179,21 +12851,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Divide__Group_1__0__Impl"
-    // InternalKlangParser.g:4599:1: rule__Divide__Group_1__0__Impl : ( () ) ;
+    // InternalKlangParser.g:4123:1: rule__Divide__Group_1__0__Impl : ( () ) ;
     public final void rule__Divide__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4603:1: ( ( () ) )
-            // InternalKlangParser.g:4604:1: ( () )
+            // InternalKlangParser.g:4127:1: ( ( () ) )
+            // InternalKlangParser.g:4128:1: ( () )
             {
-            // InternalKlangParser.g:4604:1: ( () )
-            // InternalKlangParser.g:4605:2: ()
+            // InternalKlangParser.g:4128:1: ( () )
+            // InternalKlangParser.g:4129:2: ()
             {
              before(grammarAccess.getDivideAccess().getDivideLeftAction_1_0()); 
-            // InternalKlangParser.g:4606:2: ()
-            // InternalKlangParser.g:4606:3: 
+            // InternalKlangParser.g:4130:2: ()
+            // InternalKlangParser.g:4130:3: 
             {
             }
 
@@ -14216,16 +12888,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Divide__Group_1__1"
-    // InternalKlangParser.g:4614:1: rule__Divide__Group_1__1 : rule__Divide__Group_1__1__Impl rule__Divide__Group_1__2 ;
+    // InternalKlangParser.g:4138:1: rule__Divide__Group_1__1 : rule__Divide__Group_1__1__Impl rule__Divide__Group_1__2 ;
     public final void rule__Divide__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4618:1: ( rule__Divide__Group_1__1__Impl rule__Divide__Group_1__2 )
-            // InternalKlangParser.g:4619:2: rule__Divide__Group_1__1__Impl rule__Divide__Group_1__2
+            // InternalKlangParser.g:4142:1: ( rule__Divide__Group_1__1__Impl rule__Divide__Group_1__2 )
+            // InternalKlangParser.g:4143:2: rule__Divide__Group_1__1__Impl rule__Divide__Group_1__2
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_26);
             rule__Divide__Group_1__1__Impl();
 
             state._fsp--;
@@ -14254,17 +12926,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Divide__Group_1__1__Impl"
-    // InternalKlangParser.g:4626:1: rule__Divide__Group_1__1__Impl : ( Solidus ) ;
+    // InternalKlangParser.g:4150:1: rule__Divide__Group_1__1__Impl : ( Solidus ) ;
     public final void rule__Divide__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4630:1: ( ( Solidus ) )
-            // InternalKlangParser.g:4631:1: ( Solidus )
+            // InternalKlangParser.g:4154:1: ( ( Solidus ) )
+            // InternalKlangParser.g:4155:1: ( Solidus )
             {
-            // InternalKlangParser.g:4631:1: ( Solidus )
-            // InternalKlangParser.g:4632:2: Solidus
+            // InternalKlangParser.g:4155:1: ( Solidus )
+            // InternalKlangParser.g:4156:2: Solidus
             {
              before(grammarAccess.getDivideAccess().getSolidusKeyword_1_1()); 
             match(input,Solidus,FOLLOW_2); 
@@ -14291,14 +12963,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Divide__Group_1__2"
-    // InternalKlangParser.g:4641:1: rule__Divide__Group_1__2 : rule__Divide__Group_1__2__Impl ;
+    // InternalKlangParser.g:4165:1: rule__Divide__Group_1__2 : rule__Divide__Group_1__2__Impl ;
     public final void rule__Divide__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4645:1: ( rule__Divide__Group_1__2__Impl )
-            // InternalKlangParser.g:4646:2: rule__Divide__Group_1__2__Impl
+            // InternalKlangParser.g:4169:1: ( rule__Divide__Group_1__2__Impl )
+            // InternalKlangParser.g:4170:2: rule__Divide__Group_1__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Divide__Group_1__2__Impl();
@@ -14324,21 +12996,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Divide__Group_1__2__Impl"
-    // InternalKlangParser.g:4652:1: rule__Divide__Group_1__2__Impl : ( ( rule__Divide__RightAssignment_1_2 ) ) ;
+    // InternalKlangParser.g:4176:1: rule__Divide__Group_1__2__Impl : ( ( rule__Divide__RightAssignment_1_2 ) ) ;
     public final void rule__Divide__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4656:1: ( ( ( rule__Divide__RightAssignment_1_2 ) ) )
-            // InternalKlangParser.g:4657:1: ( ( rule__Divide__RightAssignment_1_2 ) )
+            // InternalKlangParser.g:4180:1: ( ( ( rule__Divide__RightAssignment_1_2 ) ) )
+            // InternalKlangParser.g:4181:1: ( ( rule__Divide__RightAssignment_1_2 ) )
             {
-            // InternalKlangParser.g:4657:1: ( ( rule__Divide__RightAssignment_1_2 ) )
-            // InternalKlangParser.g:4658:2: ( rule__Divide__RightAssignment_1_2 )
+            // InternalKlangParser.g:4181:1: ( ( rule__Divide__RightAssignment_1_2 ) )
+            // InternalKlangParser.g:4182:2: ( rule__Divide__RightAssignment_1_2 )
             {
              before(grammarAccess.getDivideAccess().getRightAssignment_1_2()); 
-            // InternalKlangParser.g:4659:2: ( rule__Divide__RightAssignment_1_2 )
-            // InternalKlangParser.g:4659:3: rule__Divide__RightAssignment_1_2
+            // InternalKlangParser.g:4183:2: ( rule__Divide__RightAssignment_1_2 )
+            // InternalKlangParser.g:4183:3: rule__Divide__RightAssignment_1_2
             {
             pushFollow(FOLLOW_2);
             rule__Divide__RightAssignment_1_2();
@@ -14371,16 +13043,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comparison__Group__0"
-    // InternalKlangParser.g:4668:1: rule__Comparison__Group__0 : rule__Comparison__Group__0__Impl rule__Comparison__Group__1 ;
+    // InternalKlangParser.g:4192:1: rule__Comparison__Group__0 : rule__Comparison__Group__0__Impl rule__Comparison__Group__1 ;
     public final void rule__Comparison__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4672:1: ( rule__Comparison__Group__0__Impl rule__Comparison__Group__1 )
-            // InternalKlangParser.g:4673:2: rule__Comparison__Group__0__Impl rule__Comparison__Group__1
+            // InternalKlangParser.g:4196:1: ( rule__Comparison__Group__0__Impl rule__Comparison__Group__1 )
+            // InternalKlangParser.g:4197:2: rule__Comparison__Group__0__Impl rule__Comparison__Group__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_44);
             rule__Comparison__Group__0__Impl();
 
             state._fsp--;
@@ -14409,17 +13081,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comparison__Group__0__Impl"
-    // InternalKlangParser.g:4680:1: rule__Comparison__Group__0__Impl : ( rulePlus ) ;
+    // InternalKlangParser.g:4204:1: rule__Comparison__Group__0__Impl : ( rulePlus ) ;
     public final void rule__Comparison__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4684:1: ( ( rulePlus ) )
-            // InternalKlangParser.g:4685:1: ( rulePlus )
+            // InternalKlangParser.g:4208:1: ( ( rulePlus ) )
+            // InternalKlangParser.g:4209:1: ( rulePlus )
             {
-            // InternalKlangParser.g:4685:1: ( rulePlus )
-            // InternalKlangParser.g:4686:2: rulePlus
+            // InternalKlangParser.g:4209:1: ( rulePlus )
+            // InternalKlangParser.g:4210:2: rulePlus
             {
              before(grammarAccess.getComparisonAccess().getPlusParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -14450,14 +13122,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comparison__Group__1"
-    // InternalKlangParser.g:4695:1: rule__Comparison__Group__1 : rule__Comparison__Group__1__Impl ;
+    // InternalKlangParser.g:4219:1: rule__Comparison__Group__1 : rule__Comparison__Group__1__Impl ;
     public final void rule__Comparison__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4699:1: ( rule__Comparison__Group__1__Impl )
-            // InternalKlangParser.g:4700:2: rule__Comparison__Group__1__Impl
+            // InternalKlangParser.g:4223:1: ( rule__Comparison__Group__1__Impl )
+            // InternalKlangParser.g:4224:2: rule__Comparison__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Comparison__Group__1__Impl();
@@ -14483,35 +13155,35 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comparison__Group__1__Impl"
-    // InternalKlangParser.g:4706:1: rule__Comparison__Group__1__Impl : ( ( rule__Comparison__Group_1__0 )* ) ;
+    // InternalKlangParser.g:4230:1: rule__Comparison__Group__1__Impl : ( ( rule__Comparison__Group_1__0 )* ) ;
     public final void rule__Comparison__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4710:1: ( ( ( rule__Comparison__Group_1__0 )* ) )
-            // InternalKlangParser.g:4711:1: ( ( rule__Comparison__Group_1__0 )* )
+            // InternalKlangParser.g:4234:1: ( ( ( rule__Comparison__Group_1__0 )* ) )
+            // InternalKlangParser.g:4235:1: ( ( rule__Comparison__Group_1__0 )* )
             {
-            // InternalKlangParser.g:4711:1: ( ( rule__Comparison__Group_1__0 )* )
-            // InternalKlangParser.g:4712:2: ( rule__Comparison__Group_1__0 )*
+            // InternalKlangParser.g:4235:1: ( ( rule__Comparison__Group_1__0 )* )
+            // InternalKlangParser.g:4236:2: ( rule__Comparison__Group_1__0 )*
             {
              before(grammarAccess.getComparisonAccess().getGroup_1()); 
-            // InternalKlangParser.g:4713:2: ( rule__Comparison__Group_1__0 )*
-            loop31:
+            // InternalKlangParser.g:4237:2: ( rule__Comparison__Group_1__0 )*
+            loop27:
             do {
-                int alt31=2;
-                int LA31_0 = input.LA(1);
+                int alt27=2;
+                int LA27_0 = input.LA(1);
 
-                if ( (LA31_0==EqualsSignEqualsSign||LA31_0==LessThanSign||LA31_0==GreaterThanSign) ) {
-                    alt31=1;
+                if ( ((LA27_0>=LessThanSignEqualsSign && LA27_0<=GreaterThanSignEqualsSign)||LA27_0==LessThanSign||LA27_0==GreaterThanSign) ) {
+                    alt27=1;
                 }
 
 
-                switch (alt31) {
+                switch (alt27) {
             	case 1 :
-            	    // InternalKlangParser.g:4713:3: rule__Comparison__Group_1__0
+            	    // InternalKlangParser.g:4237:3: rule__Comparison__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_48);
+            	    pushFollow(FOLLOW_45);
             	    rule__Comparison__Group_1__0();
 
             	    state._fsp--;
@@ -14521,7 +13193,7 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop31;
+            	    break loop27;
                 }
             } while (true);
 
@@ -14548,16 +13220,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comparison__Group_1__0"
-    // InternalKlangParser.g:4722:1: rule__Comparison__Group_1__0 : rule__Comparison__Group_1__0__Impl rule__Comparison__Group_1__1 ;
+    // InternalKlangParser.g:4246:1: rule__Comparison__Group_1__0 : rule__Comparison__Group_1__0__Impl rule__Comparison__Group_1__1 ;
     public final void rule__Comparison__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4726:1: ( rule__Comparison__Group_1__0__Impl rule__Comparison__Group_1__1 )
-            // InternalKlangParser.g:4727:2: rule__Comparison__Group_1__0__Impl rule__Comparison__Group_1__1
+            // InternalKlangParser.g:4250:1: ( rule__Comparison__Group_1__0__Impl rule__Comparison__Group_1__1 )
+            // InternalKlangParser.g:4251:2: rule__Comparison__Group_1__0__Impl rule__Comparison__Group_1__1
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_26);
             rule__Comparison__Group_1__0__Impl();
 
             state._fsp--;
@@ -14586,21 +13258,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comparison__Group_1__0__Impl"
-    // InternalKlangParser.g:4734:1: rule__Comparison__Group_1__0__Impl : ( ( rule__Comparison__Alternatives_1_0 ) ) ;
+    // InternalKlangParser.g:4258:1: rule__Comparison__Group_1__0__Impl : ( ( rule__Comparison__Alternatives_1_0 ) ) ;
     public final void rule__Comparison__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4738:1: ( ( ( rule__Comparison__Alternatives_1_0 ) ) )
-            // InternalKlangParser.g:4739:1: ( ( rule__Comparison__Alternatives_1_0 ) )
+            // InternalKlangParser.g:4262:1: ( ( ( rule__Comparison__Alternatives_1_0 ) ) )
+            // InternalKlangParser.g:4263:1: ( ( rule__Comparison__Alternatives_1_0 ) )
             {
-            // InternalKlangParser.g:4739:1: ( ( rule__Comparison__Alternatives_1_0 ) )
-            // InternalKlangParser.g:4740:2: ( rule__Comparison__Alternatives_1_0 )
+            // InternalKlangParser.g:4263:1: ( ( rule__Comparison__Alternatives_1_0 ) )
+            // InternalKlangParser.g:4264:2: ( rule__Comparison__Alternatives_1_0 )
             {
              before(grammarAccess.getComparisonAccess().getAlternatives_1_0()); 
-            // InternalKlangParser.g:4741:2: ( rule__Comparison__Alternatives_1_0 )
-            // InternalKlangParser.g:4741:3: rule__Comparison__Alternatives_1_0
+            // InternalKlangParser.g:4265:2: ( rule__Comparison__Alternatives_1_0 )
+            // InternalKlangParser.g:4265:3: rule__Comparison__Alternatives_1_0
             {
             pushFollow(FOLLOW_2);
             rule__Comparison__Alternatives_1_0();
@@ -14633,14 +13305,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comparison__Group_1__1"
-    // InternalKlangParser.g:4749:1: rule__Comparison__Group_1__1 : rule__Comparison__Group_1__1__Impl ;
+    // InternalKlangParser.g:4273:1: rule__Comparison__Group_1__1 : rule__Comparison__Group_1__1__Impl ;
     public final void rule__Comparison__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4753:1: ( rule__Comparison__Group_1__1__Impl )
-            // InternalKlangParser.g:4754:2: rule__Comparison__Group_1__1__Impl
+            // InternalKlangParser.g:4277:1: ( rule__Comparison__Group_1__1__Impl )
+            // InternalKlangParser.g:4278:2: rule__Comparison__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Comparison__Group_1__1__Impl();
@@ -14666,21 +13338,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comparison__Group_1__1__Impl"
-    // InternalKlangParser.g:4760:1: rule__Comparison__Group_1__1__Impl : ( ( rule__Comparison__RightAssignment_1_1 ) ) ;
+    // InternalKlangParser.g:4284:1: rule__Comparison__Group_1__1__Impl : ( ( rule__Comparison__RightAssignment_1_1 ) ) ;
     public final void rule__Comparison__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4764:1: ( ( ( rule__Comparison__RightAssignment_1_1 ) ) )
-            // InternalKlangParser.g:4765:1: ( ( rule__Comparison__RightAssignment_1_1 ) )
+            // InternalKlangParser.g:4288:1: ( ( ( rule__Comparison__RightAssignment_1_1 ) ) )
+            // InternalKlangParser.g:4289:1: ( ( rule__Comparison__RightAssignment_1_1 ) )
             {
-            // InternalKlangParser.g:4765:1: ( ( rule__Comparison__RightAssignment_1_1 ) )
-            // InternalKlangParser.g:4766:2: ( rule__Comparison__RightAssignment_1_1 )
+            // InternalKlangParser.g:4289:1: ( ( rule__Comparison__RightAssignment_1_1 ) )
+            // InternalKlangParser.g:4290:2: ( rule__Comparison__RightAssignment_1_1 )
             {
              before(grammarAccess.getComparisonAccess().getRightAssignment_1_1()); 
-            // InternalKlangParser.g:4767:2: ( rule__Comparison__RightAssignment_1_1 )
-            // InternalKlangParser.g:4767:3: rule__Comparison__RightAssignment_1_1
+            // InternalKlangParser.g:4291:2: ( rule__Comparison__RightAssignment_1_1 )
+            // InternalKlangParser.g:4291:3: rule__Comparison__RightAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__Comparison__RightAssignment_1_1();
@@ -14713,14 +13385,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comparison__Group_1_0_0__0"
-    // InternalKlangParser.g:4776:1: rule__Comparison__Group_1_0_0__0 : rule__Comparison__Group_1_0_0__0__Impl rule__Comparison__Group_1_0_0__1 ;
+    // InternalKlangParser.g:4300:1: rule__Comparison__Group_1_0_0__0 : rule__Comparison__Group_1_0_0__0__Impl rule__Comparison__Group_1_0_0__1 ;
     public final void rule__Comparison__Group_1_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4780:1: ( rule__Comparison__Group_1_0_0__0__Impl rule__Comparison__Group_1_0_0__1 )
-            // InternalKlangParser.g:4781:2: rule__Comparison__Group_1_0_0__0__Impl rule__Comparison__Group_1_0_0__1
+            // InternalKlangParser.g:4304:1: ( rule__Comparison__Group_1_0_0__0__Impl rule__Comparison__Group_1_0_0__1 )
+            // InternalKlangParser.g:4305:2: rule__Comparison__Group_1_0_0__0__Impl rule__Comparison__Group_1_0_0__1
             {
             pushFollow(FOLLOW_1);
             rule__Comparison__Group_1_0_0__0__Impl();
@@ -14751,17 +13423,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comparison__Group_1_0_0__0__Impl"
-    // InternalKlangParser.g:4788:1: rule__Comparison__Group_1_0_0__0__Impl : ( LessThanSign ) ;
+    // InternalKlangParser.g:4312:1: rule__Comparison__Group_1_0_0__0__Impl : ( LessThanSign ) ;
     public final void rule__Comparison__Group_1_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4792:1: ( ( LessThanSign ) )
-            // InternalKlangParser.g:4793:1: ( LessThanSign )
+            // InternalKlangParser.g:4316:1: ( ( LessThanSign ) )
+            // InternalKlangParser.g:4317:1: ( LessThanSign )
             {
-            // InternalKlangParser.g:4793:1: ( LessThanSign )
-            // InternalKlangParser.g:4794:2: LessThanSign
+            // InternalKlangParser.g:4317:1: ( LessThanSign )
+            // InternalKlangParser.g:4318:2: LessThanSign
             {
              before(grammarAccess.getComparisonAccess().getLessThanSignKeyword_1_0_0_0()); 
             match(input,LessThanSign,FOLLOW_2); 
@@ -14788,14 +13460,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comparison__Group_1_0_0__1"
-    // InternalKlangParser.g:4803:1: rule__Comparison__Group_1_0_0__1 : rule__Comparison__Group_1_0_0__1__Impl ;
+    // InternalKlangParser.g:4327:1: rule__Comparison__Group_1_0_0__1 : rule__Comparison__Group_1_0_0__1__Impl ;
     public final void rule__Comparison__Group_1_0_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4807:1: ( rule__Comparison__Group_1_0_0__1__Impl )
-            // InternalKlangParser.g:4808:2: rule__Comparison__Group_1_0_0__1__Impl
+            // InternalKlangParser.g:4331:1: ( rule__Comparison__Group_1_0_0__1__Impl )
+            // InternalKlangParser.g:4332:2: rule__Comparison__Group_1_0_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Comparison__Group_1_0_0__1__Impl();
@@ -14821,21 +13493,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comparison__Group_1_0_0__1__Impl"
-    // InternalKlangParser.g:4814:1: rule__Comparison__Group_1_0_0__1__Impl : ( () ) ;
+    // InternalKlangParser.g:4338:1: rule__Comparison__Group_1_0_0__1__Impl : ( () ) ;
     public final void rule__Comparison__Group_1_0_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4818:1: ( ( () ) )
-            // InternalKlangParser.g:4819:1: ( () )
+            // InternalKlangParser.g:4342:1: ( ( () ) )
+            // InternalKlangParser.g:4343:1: ( () )
             {
-            // InternalKlangParser.g:4819:1: ( () )
-            // InternalKlangParser.g:4820:2: ()
+            // InternalKlangParser.g:4343:1: ( () )
+            // InternalKlangParser.g:4344:2: ()
             {
              before(grammarAccess.getComparisonAccess().getLessThanLeftAction_1_0_0_1()); 
-            // InternalKlangParser.g:4821:2: ()
-            // InternalKlangParser.g:4821:3: 
+            // InternalKlangParser.g:4345:2: ()
+            // InternalKlangParser.g:4345:3: 
             {
             }
 
@@ -14858,14 +13530,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comparison__Group_1_0_1__0"
-    // InternalKlangParser.g:4830:1: rule__Comparison__Group_1_0_1__0 : rule__Comparison__Group_1_0_1__0__Impl rule__Comparison__Group_1_0_1__1 ;
+    // InternalKlangParser.g:4354:1: rule__Comparison__Group_1_0_1__0 : rule__Comparison__Group_1_0_1__0__Impl rule__Comparison__Group_1_0_1__1 ;
     public final void rule__Comparison__Group_1_0_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4834:1: ( rule__Comparison__Group_1_0_1__0__Impl rule__Comparison__Group_1_0_1__1 )
-            // InternalKlangParser.g:4835:2: rule__Comparison__Group_1_0_1__0__Impl rule__Comparison__Group_1_0_1__1
+            // InternalKlangParser.g:4358:1: ( rule__Comparison__Group_1_0_1__0__Impl rule__Comparison__Group_1_0_1__1 )
+            // InternalKlangParser.g:4359:2: rule__Comparison__Group_1_0_1__0__Impl rule__Comparison__Group_1_0_1__1
             {
             pushFollow(FOLLOW_1);
             rule__Comparison__Group_1_0_1__0__Impl();
@@ -14896,17 +13568,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comparison__Group_1_0_1__0__Impl"
-    // InternalKlangParser.g:4842:1: rule__Comparison__Group_1_0_1__0__Impl : ( EqualsSignEqualsSign ) ;
+    // InternalKlangParser.g:4366:1: rule__Comparison__Group_1_0_1__0__Impl : ( EqualsSignEqualsSign ) ;
     public final void rule__Comparison__Group_1_0_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4846:1: ( ( EqualsSignEqualsSign ) )
-            // InternalKlangParser.g:4847:1: ( EqualsSignEqualsSign )
+            // InternalKlangParser.g:4370:1: ( ( EqualsSignEqualsSign ) )
+            // InternalKlangParser.g:4371:1: ( EqualsSignEqualsSign )
             {
-            // InternalKlangParser.g:4847:1: ( EqualsSignEqualsSign )
-            // InternalKlangParser.g:4848:2: EqualsSignEqualsSign
+            // InternalKlangParser.g:4371:1: ( EqualsSignEqualsSign )
+            // InternalKlangParser.g:4372:2: EqualsSignEqualsSign
             {
              before(grammarAccess.getComparisonAccess().getEqualsSignEqualsSignKeyword_1_0_1_0()); 
             match(input,EqualsSignEqualsSign,FOLLOW_2); 
@@ -14933,14 +13605,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comparison__Group_1_0_1__1"
-    // InternalKlangParser.g:4857:1: rule__Comparison__Group_1_0_1__1 : rule__Comparison__Group_1_0_1__1__Impl ;
+    // InternalKlangParser.g:4381:1: rule__Comparison__Group_1_0_1__1 : rule__Comparison__Group_1_0_1__1__Impl ;
     public final void rule__Comparison__Group_1_0_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4861:1: ( rule__Comparison__Group_1_0_1__1__Impl )
-            // InternalKlangParser.g:4862:2: rule__Comparison__Group_1_0_1__1__Impl
+            // InternalKlangParser.g:4385:1: ( rule__Comparison__Group_1_0_1__1__Impl )
+            // InternalKlangParser.g:4386:2: rule__Comparison__Group_1_0_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Comparison__Group_1_0_1__1__Impl();
@@ -14966,21 +13638,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comparison__Group_1_0_1__1__Impl"
-    // InternalKlangParser.g:4868:1: rule__Comparison__Group_1_0_1__1__Impl : ( () ) ;
+    // InternalKlangParser.g:4392:1: rule__Comparison__Group_1_0_1__1__Impl : ( () ) ;
     public final void rule__Comparison__Group_1_0_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4872:1: ( ( () ) )
-            // InternalKlangParser.g:4873:1: ( () )
+            // InternalKlangParser.g:4396:1: ( ( () ) )
+            // InternalKlangParser.g:4397:1: ( () )
             {
-            // InternalKlangParser.g:4873:1: ( () )
-            // InternalKlangParser.g:4874:2: ()
+            // InternalKlangParser.g:4397:1: ( () )
+            // InternalKlangParser.g:4398:2: ()
             {
              before(grammarAccess.getComparisonAccess().getEqualLeftAction_1_0_1_1()); 
-            // InternalKlangParser.g:4875:2: ()
-            // InternalKlangParser.g:4875:3: 
+            // InternalKlangParser.g:4399:2: ()
+            // InternalKlangParser.g:4399:3: 
             {
             }
 
@@ -15003,14 +13675,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comparison__Group_1_0_2__0"
-    // InternalKlangParser.g:4884:1: rule__Comparison__Group_1_0_2__0 : rule__Comparison__Group_1_0_2__0__Impl rule__Comparison__Group_1_0_2__1 ;
+    // InternalKlangParser.g:4408:1: rule__Comparison__Group_1_0_2__0 : rule__Comparison__Group_1_0_2__0__Impl rule__Comparison__Group_1_0_2__1 ;
     public final void rule__Comparison__Group_1_0_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4888:1: ( rule__Comparison__Group_1_0_2__0__Impl rule__Comparison__Group_1_0_2__1 )
-            // InternalKlangParser.g:4889:2: rule__Comparison__Group_1_0_2__0__Impl rule__Comparison__Group_1_0_2__1
+            // InternalKlangParser.g:4412:1: ( rule__Comparison__Group_1_0_2__0__Impl rule__Comparison__Group_1_0_2__1 )
+            // InternalKlangParser.g:4413:2: rule__Comparison__Group_1_0_2__0__Impl rule__Comparison__Group_1_0_2__1
             {
             pushFollow(FOLLOW_1);
             rule__Comparison__Group_1_0_2__0__Impl();
@@ -15041,17 +13713,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comparison__Group_1_0_2__0__Impl"
-    // InternalKlangParser.g:4896:1: rule__Comparison__Group_1_0_2__0__Impl : ( GreaterThanSign ) ;
+    // InternalKlangParser.g:4420:1: rule__Comparison__Group_1_0_2__0__Impl : ( GreaterThanSign ) ;
     public final void rule__Comparison__Group_1_0_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4900:1: ( ( GreaterThanSign ) )
-            // InternalKlangParser.g:4901:1: ( GreaterThanSign )
+            // InternalKlangParser.g:4424:1: ( ( GreaterThanSign ) )
+            // InternalKlangParser.g:4425:1: ( GreaterThanSign )
             {
-            // InternalKlangParser.g:4901:1: ( GreaterThanSign )
-            // InternalKlangParser.g:4902:2: GreaterThanSign
+            // InternalKlangParser.g:4425:1: ( GreaterThanSign )
+            // InternalKlangParser.g:4426:2: GreaterThanSign
             {
              before(grammarAccess.getComparisonAccess().getGreaterThanSignKeyword_1_0_2_0()); 
             match(input,GreaterThanSign,FOLLOW_2); 
@@ -15078,14 +13750,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comparison__Group_1_0_2__1"
-    // InternalKlangParser.g:4911:1: rule__Comparison__Group_1_0_2__1 : rule__Comparison__Group_1_0_2__1__Impl ;
+    // InternalKlangParser.g:4435:1: rule__Comparison__Group_1_0_2__1 : rule__Comparison__Group_1_0_2__1__Impl ;
     public final void rule__Comparison__Group_1_0_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4915:1: ( rule__Comparison__Group_1_0_2__1__Impl )
-            // InternalKlangParser.g:4916:2: rule__Comparison__Group_1_0_2__1__Impl
+            // InternalKlangParser.g:4439:1: ( rule__Comparison__Group_1_0_2__1__Impl )
+            // InternalKlangParser.g:4440:2: rule__Comparison__Group_1_0_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Comparison__Group_1_0_2__1__Impl();
@@ -15111,21 +13783,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comparison__Group_1_0_2__1__Impl"
-    // InternalKlangParser.g:4922:1: rule__Comparison__Group_1_0_2__1__Impl : ( () ) ;
+    // InternalKlangParser.g:4446:1: rule__Comparison__Group_1_0_2__1__Impl : ( () ) ;
     public final void rule__Comparison__Group_1_0_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4926:1: ( ( () ) )
-            // InternalKlangParser.g:4927:1: ( () )
+            // InternalKlangParser.g:4450:1: ( ( () ) )
+            // InternalKlangParser.g:4451:1: ( () )
             {
-            // InternalKlangParser.g:4927:1: ( () )
-            // InternalKlangParser.g:4928:2: ()
+            // InternalKlangParser.g:4451:1: ( () )
+            // InternalKlangParser.g:4452:2: ()
             {
              before(grammarAccess.getComparisonAccess().getGreaterThanLeftAction_1_0_2_1()); 
-            // InternalKlangParser.g:4929:2: ()
-            // InternalKlangParser.g:4929:3: 
+            // InternalKlangParser.g:4453:2: ()
+            // InternalKlangParser.g:4453:3: 
             {
             }
 
@@ -15147,17 +13819,307 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Comparison__Group_1_0_2__1__Impl"
 
 
+    // $ANTLR start "rule__Comparison__Group_1_0_3__0"
+    // InternalKlangParser.g:4462:1: rule__Comparison__Group_1_0_3__0 : rule__Comparison__Group_1_0_3__0__Impl rule__Comparison__Group_1_0_3__1 ;
+    public final void rule__Comparison__Group_1_0_3__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:4466:1: ( rule__Comparison__Group_1_0_3__0__Impl rule__Comparison__Group_1_0_3__1 )
+            // InternalKlangParser.g:4467:2: rule__Comparison__Group_1_0_3__0__Impl rule__Comparison__Group_1_0_3__1
+            {
+            pushFollow(FOLLOW_1);
+            rule__Comparison__Group_1_0_3__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Comparison__Group_1_0_3__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Comparison__Group_1_0_3__0"
+
+
+    // $ANTLR start "rule__Comparison__Group_1_0_3__0__Impl"
+    // InternalKlangParser.g:4474:1: rule__Comparison__Group_1_0_3__0__Impl : ( LessThanSignEqualsSign ) ;
+    public final void rule__Comparison__Group_1_0_3__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:4478:1: ( ( LessThanSignEqualsSign ) )
+            // InternalKlangParser.g:4479:1: ( LessThanSignEqualsSign )
+            {
+            // InternalKlangParser.g:4479:1: ( LessThanSignEqualsSign )
+            // InternalKlangParser.g:4480:2: LessThanSignEqualsSign
+            {
+             before(grammarAccess.getComparisonAccess().getLessThanSignEqualsSignKeyword_1_0_3_0()); 
+            match(input,LessThanSignEqualsSign,FOLLOW_2); 
+             after(grammarAccess.getComparisonAccess().getLessThanSignEqualsSignKeyword_1_0_3_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Comparison__Group_1_0_3__0__Impl"
+
+
+    // $ANTLR start "rule__Comparison__Group_1_0_3__1"
+    // InternalKlangParser.g:4489:1: rule__Comparison__Group_1_0_3__1 : rule__Comparison__Group_1_0_3__1__Impl ;
+    public final void rule__Comparison__Group_1_0_3__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:4493:1: ( rule__Comparison__Group_1_0_3__1__Impl )
+            // InternalKlangParser.g:4494:2: rule__Comparison__Group_1_0_3__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Comparison__Group_1_0_3__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Comparison__Group_1_0_3__1"
+
+
+    // $ANTLR start "rule__Comparison__Group_1_0_3__1__Impl"
+    // InternalKlangParser.g:4500:1: rule__Comparison__Group_1_0_3__1__Impl : ( () ) ;
+    public final void rule__Comparison__Group_1_0_3__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:4504:1: ( ( () ) )
+            // InternalKlangParser.g:4505:1: ( () )
+            {
+            // InternalKlangParser.g:4505:1: ( () )
+            // InternalKlangParser.g:4506:2: ()
+            {
+             before(grammarAccess.getComparisonAccess().getLessThanOrEqualLeftAction_1_0_3_1()); 
+            // InternalKlangParser.g:4507:2: ()
+            // InternalKlangParser.g:4507:3: 
+            {
+            }
+
+             after(grammarAccess.getComparisonAccess().getLessThanOrEqualLeftAction_1_0_3_1()); 
+
+            }
+
+
+            }
+
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Comparison__Group_1_0_3__1__Impl"
+
+
+    // $ANTLR start "rule__Comparison__Group_1_0_4__0"
+    // InternalKlangParser.g:4516:1: rule__Comparison__Group_1_0_4__0 : rule__Comparison__Group_1_0_4__0__Impl rule__Comparison__Group_1_0_4__1 ;
+    public final void rule__Comparison__Group_1_0_4__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:4520:1: ( rule__Comparison__Group_1_0_4__0__Impl rule__Comparison__Group_1_0_4__1 )
+            // InternalKlangParser.g:4521:2: rule__Comparison__Group_1_0_4__0__Impl rule__Comparison__Group_1_0_4__1
+            {
+            pushFollow(FOLLOW_1);
+            rule__Comparison__Group_1_0_4__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Comparison__Group_1_0_4__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Comparison__Group_1_0_4__0"
+
+
+    // $ANTLR start "rule__Comparison__Group_1_0_4__0__Impl"
+    // InternalKlangParser.g:4528:1: rule__Comparison__Group_1_0_4__0__Impl : ( GreaterThanSignEqualsSign ) ;
+    public final void rule__Comparison__Group_1_0_4__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:4532:1: ( ( GreaterThanSignEqualsSign ) )
+            // InternalKlangParser.g:4533:1: ( GreaterThanSignEqualsSign )
+            {
+            // InternalKlangParser.g:4533:1: ( GreaterThanSignEqualsSign )
+            // InternalKlangParser.g:4534:2: GreaterThanSignEqualsSign
+            {
+             before(grammarAccess.getComparisonAccess().getGreaterThanSignEqualsSignKeyword_1_0_4_0()); 
+            match(input,GreaterThanSignEqualsSign,FOLLOW_2); 
+             after(grammarAccess.getComparisonAccess().getGreaterThanSignEqualsSignKeyword_1_0_4_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Comparison__Group_1_0_4__0__Impl"
+
+
+    // $ANTLR start "rule__Comparison__Group_1_0_4__1"
+    // InternalKlangParser.g:4543:1: rule__Comparison__Group_1_0_4__1 : rule__Comparison__Group_1_0_4__1__Impl ;
+    public final void rule__Comparison__Group_1_0_4__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:4547:1: ( rule__Comparison__Group_1_0_4__1__Impl )
+            // InternalKlangParser.g:4548:2: rule__Comparison__Group_1_0_4__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Comparison__Group_1_0_4__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Comparison__Group_1_0_4__1"
+
+
+    // $ANTLR start "rule__Comparison__Group_1_0_4__1__Impl"
+    // InternalKlangParser.g:4554:1: rule__Comparison__Group_1_0_4__1__Impl : ( () ) ;
+    public final void rule__Comparison__Group_1_0_4__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:4558:1: ( ( () ) )
+            // InternalKlangParser.g:4559:1: ( () )
+            {
+            // InternalKlangParser.g:4559:1: ( () )
+            // InternalKlangParser.g:4560:2: ()
+            {
+             before(grammarAccess.getComparisonAccess().getGreaterThanOrEqualLeftAction_1_0_4_1()); 
+            // InternalKlangParser.g:4561:2: ()
+            // InternalKlangParser.g:4561:3: 
+            {
+            }
+
+             after(grammarAccess.getComparisonAccess().getGreaterThanOrEqualLeftAction_1_0_4_1()); 
+
+            }
+
+
+            }
+
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Comparison__Group_1_0_4__1__Impl"
+
+
     // $ANTLR start "rule__FunctionCall__Group__0"
-    // InternalKlangParser.g:4938:1: rule__FunctionCall__Group__0 : rule__FunctionCall__Group__0__Impl rule__FunctionCall__Group__1 ;
+    // InternalKlangParser.g:4570:1: rule__FunctionCall__Group__0 : rule__FunctionCall__Group__0__Impl rule__FunctionCall__Group__1 ;
     public final void rule__FunctionCall__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4942:1: ( rule__FunctionCall__Group__0__Impl rule__FunctionCall__Group__1 )
-            // InternalKlangParser.g:4943:2: rule__FunctionCall__Group__0__Impl rule__FunctionCall__Group__1
+            // InternalKlangParser.g:4574:1: ( rule__FunctionCall__Group__0__Impl rule__FunctionCall__Group__1 )
+            // InternalKlangParser.g:4575:2: rule__FunctionCall__Group__0__Impl rule__FunctionCall__Group__1
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_23);
             rule__FunctionCall__Group__0__Impl();
 
             state._fsp--;
@@ -15186,21 +14148,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FunctionCall__Group__0__Impl"
-    // InternalKlangParser.g:4950:1: rule__FunctionCall__Group__0__Impl : ( ( rule__FunctionCall__NameAssignment_0 ) ) ;
+    // InternalKlangParser.g:4582:1: rule__FunctionCall__Group__0__Impl : ( ( rule__FunctionCall__NameAssignment_0 ) ) ;
     public final void rule__FunctionCall__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4954:1: ( ( ( rule__FunctionCall__NameAssignment_0 ) ) )
-            // InternalKlangParser.g:4955:1: ( ( rule__FunctionCall__NameAssignment_0 ) )
+            // InternalKlangParser.g:4586:1: ( ( ( rule__FunctionCall__NameAssignment_0 ) ) )
+            // InternalKlangParser.g:4587:1: ( ( rule__FunctionCall__NameAssignment_0 ) )
             {
-            // InternalKlangParser.g:4955:1: ( ( rule__FunctionCall__NameAssignment_0 ) )
-            // InternalKlangParser.g:4956:2: ( rule__FunctionCall__NameAssignment_0 )
+            // InternalKlangParser.g:4587:1: ( ( rule__FunctionCall__NameAssignment_0 ) )
+            // InternalKlangParser.g:4588:2: ( rule__FunctionCall__NameAssignment_0 )
             {
              before(grammarAccess.getFunctionCallAccess().getNameAssignment_0()); 
-            // InternalKlangParser.g:4957:2: ( rule__FunctionCall__NameAssignment_0 )
-            // InternalKlangParser.g:4957:3: rule__FunctionCall__NameAssignment_0
+            // InternalKlangParser.g:4589:2: ( rule__FunctionCall__NameAssignment_0 )
+            // InternalKlangParser.g:4589:3: rule__FunctionCall__NameAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__FunctionCall__NameAssignment_0();
@@ -15233,16 +14195,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FunctionCall__Group__1"
-    // InternalKlangParser.g:4965:1: rule__FunctionCall__Group__1 : rule__FunctionCall__Group__1__Impl rule__FunctionCall__Group__2 ;
+    // InternalKlangParser.g:4597:1: rule__FunctionCall__Group__1 : rule__FunctionCall__Group__1__Impl rule__FunctionCall__Group__2 ;
     public final void rule__FunctionCall__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4969:1: ( rule__FunctionCall__Group__1__Impl rule__FunctionCall__Group__2 )
-            // InternalKlangParser.g:4970:2: rule__FunctionCall__Group__1__Impl rule__FunctionCall__Group__2
+            // InternalKlangParser.g:4601:1: ( rule__FunctionCall__Group__1__Impl rule__FunctionCall__Group__2 )
+            // InternalKlangParser.g:4602:2: rule__FunctionCall__Group__1__Impl rule__FunctionCall__Group__2
             {
-            pushFollow(FOLLOW_49);
+            pushFollow(FOLLOW_46);
             rule__FunctionCall__Group__1__Impl();
 
             state._fsp--;
@@ -15271,17 +14233,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FunctionCall__Group__1__Impl"
-    // InternalKlangParser.g:4977:1: rule__FunctionCall__Group__1__Impl : ( LeftParenthesis ) ;
+    // InternalKlangParser.g:4609:1: rule__FunctionCall__Group__1__Impl : ( LeftParenthesis ) ;
     public final void rule__FunctionCall__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4981:1: ( ( LeftParenthesis ) )
-            // InternalKlangParser.g:4982:1: ( LeftParenthesis )
+            // InternalKlangParser.g:4613:1: ( ( LeftParenthesis ) )
+            // InternalKlangParser.g:4614:1: ( LeftParenthesis )
             {
-            // InternalKlangParser.g:4982:1: ( LeftParenthesis )
-            // InternalKlangParser.g:4983:2: LeftParenthesis
+            // InternalKlangParser.g:4614:1: ( LeftParenthesis )
+            // InternalKlangParser.g:4615:2: LeftParenthesis
             {
              before(grammarAccess.getFunctionCallAccess().getLeftParenthesisKeyword_1()); 
             match(input,LeftParenthesis,FOLLOW_2); 
@@ -15308,16 +14270,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FunctionCall__Group__2"
-    // InternalKlangParser.g:4992:1: rule__FunctionCall__Group__2 : rule__FunctionCall__Group__2__Impl rule__FunctionCall__Group__3 ;
+    // InternalKlangParser.g:4624:1: rule__FunctionCall__Group__2 : rule__FunctionCall__Group__2__Impl rule__FunctionCall__Group__3 ;
     public final void rule__FunctionCall__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:4996:1: ( rule__FunctionCall__Group__2__Impl rule__FunctionCall__Group__3 )
-            // InternalKlangParser.g:4997:2: rule__FunctionCall__Group__2__Impl rule__FunctionCall__Group__3
+            // InternalKlangParser.g:4628:1: ( rule__FunctionCall__Group__2__Impl rule__FunctionCall__Group__3 )
+            // InternalKlangParser.g:4629:2: rule__FunctionCall__Group__2__Impl rule__FunctionCall__Group__3
             {
-            pushFollow(FOLLOW_49);
+            pushFollow(FOLLOW_46);
             rule__FunctionCall__Group__2__Impl();
 
             state._fsp--;
@@ -15346,29 +14308,29 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FunctionCall__Group__2__Impl"
-    // InternalKlangParser.g:5004:1: rule__FunctionCall__Group__2__Impl : ( ( rule__FunctionCall__Group_2__0 )? ) ;
+    // InternalKlangParser.g:4636:1: rule__FunctionCall__Group__2__Impl : ( ( rule__FunctionCall__Group_2__0 )? ) ;
     public final void rule__FunctionCall__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5008:1: ( ( ( rule__FunctionCall__Group_2__0 )? ) )
-            // InternalKlangParser.g:5009:1: ( ( rule__FunctionCall__Group_2__0 )? )
+            // InternalKlangParser.g:4640:1: ( ( ( rule__FunctionCall__Group_2__0 )? ) )
+            // InternalKlangParser.g:4641:1: ( ( rule__FunctionCall__Group_2__0 )? )
             {
-            // InternalKlangParser.g:5009:1: ( ( rule__FunctionCall__Group_2__0 )? )
-            // InternalKlangParser.g:5010:2: ( rule__FunctionCall__Group_2__0 )?
+            // InternalKlangParser.g:4641:1: ( ( rule__FunctionCall__Group_2__0 )? )
+            // InternalKlangParser.g:4642:2: ( rule__FunctionCall__Group_2__0 )?
             {
              before(grammarAccess.getFunctionCallAccess().getGroup_2()); 
-            // InternalKlangParser.g:5011:2: ( rule__FunctionCall__Group_2__0 )?
-            int alt32=2;
-            int LA32_0 = input.LA(1);
+            // InternalKlangParser.g:4643:2: ( rule__FunctionCall__Group_2__0 )?
+            int alt28=2;
+            int LA28_0 = input.LA(1);
 
-            if ( (LA32_0==False||LA32_0==True||LA32_0==Not||LA32_0==LeftParenthesis||LA32_0==HyphenMinus||(LA32_0>=RULE_ID && LA32_0<=RULE_STRING)) ) {
-                alt32=1;
+            if ( (LA28_0==Double||LA28_0==False||LA28_0==True||(LA28_0>=Int && LA28_0<=Not)||LA28_0==LeftParenthesis||LA28_0==HyphenMinus||(LA28_0>=RULE_ID && LA28_0<=RULE_STRING)) ) {
+                alt28=1;
             }
-            switch (alt32) {
+            switch (alt28) {
                 case 1 :
-                    // InternalKlangParser.g:5011:3: rule__FunctionCall__Group_2__0
+                    // InternalKlangParser.g:4643:3: rule__FunctionCall__Group_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__FunctionCall__Group_2__0();
@@ -15404,14 +14366,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FunctionCall__Group__3"
-    // InternalKlangParser.g:5019:1: rule__FunctionCall__Group__3 : rule__FunctionCall__Group__3__Impl ;
+    // InternalKlangParser.g:4651:1: rule__FunctionCall__Group__3 : rule__FunctionCall__Group__3__Impl ;
     public final void rule__FunctionCall__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5023:1: ( rule__FunctionCall__Group__3__Impl )
-            // InternalKlangParser.g:5024:2: rule__FunctionCall__Group__3__Impl
+            // InternalKlangParser.g:4655:1: ( rule__FunctionCall__Group__3__Impl )
+            // InternalKlangParser.g:4656:2: rule__FunctionCall__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__FunctionCall__Group__3__Impl();
@@ -15437,17 +14399,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FunctionCall__Group__3__Impl"
-    // InternalKlangParser.g:5030:1: rule__FunctionCall__Group__3__Impl : ( RightParenthesis ) ;
+    // InternalKlangParser.g:4662:1: rule__FunctionCall__Group__3__Impl : ( RightParenthesis ) ;
     public final void rule__FunctionCall__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5034:1: ( ( RightParenthesis ) )
-            // InternalKlangParser.g:5035:1: ( RightParenthesis )
+            // InternalKlangParser.g:4666:1: ( ( RightParenthesis ) )
+            // InternalKlangParser.g:4667:1: ( RightParenthesis )
             {
-            // InternalKlangParser.g:5035:1: ( RightParenthesis )
-            // InternalKlangParser.g:5036:2: RightParenthesis
+            // InternalKlangParser.g:4667:1: ( RightParenthesis )
+            // InternalKlangParser.g:4668:2: RightParenthesis
             {
              before(grammarAccess.getFunctionCallAccess().getRightParenthesisKeyword_3()); 
             match(input,RightParenthesis,FOLLOW_2); 
@@ -15474,16 +14436,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FunctionCall__Group_2__0"
-    // InternalKlangParser.g:5046:1: rule__FunctionCall__Group_2__0 : rule__FunctionCall__Group_2__0__Impl rule__FunctionCall__Group_2__1 ;
+    // InternalKlangParser.g:4678:1: rule__FunctionCall__Group_2__0 : rule__FunctionCall__Group_2__0__Impl rule__FunctionCall__Group_2__1 ;
     public final void rule__FunctionCall__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5050:1: ( rule__FunctionCall__Group_2__0__Impl rule__FunctionCall__Group_2__1 )
-            // InternalKlangParser.g:5051:2: rule__FunctionCall__Group_2__0__Impl rule__FunctionCall__Group_2__1
+            // InternalKlangParser.g:4682:1: ( rule__FunctionCall__Group_2__0__Impl rule__FunctionCall__Group_2__1 )
+            // InternalKlangParser.g:4683:2: rule__FunctionCall__Group_2__0__Impl rule__FunctionCall__Group_2__1
             {
-            pushFollow(FOLLOW_50);
+            pushFollow(FOLLOW_47);
             rule__FunctionCall__Group_2__0__Impl();
 
             state._fsp--;
@@ -15512,21 +14474,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FunctionCall__Group_2__0__Impl"
-    // InternalKlangParser.g:5058:1: rule__FunctionCall__Group_2__0__Impl : ( ( rule__FunctionCall__ParametersAssignment_2_0 ) ) ;
+    // InternalKlangParser.g:4690:1: rule__FunctionCall__Group_2__0__Impl : ( ( rule__FunctionCall__ParametersAssignment_2_0 ) ) ;
     public final void rule__FunctionCall__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5062:1: ( ( ( rule__FunctionCall__ParametersAssignment_2_0 ) ) )
-            // InternalKlangParser.g:5063:1: ( ( rule__FunctionCall__ParametersAssignment_2_0 ) )
+            // InternalKlangParser.g:4694:1: ( ( ( rule__FunctionCall__ParametersAssignment_2_0 ) ) )
+            // InternalKlangParser.g:4695:1: ( ( rule__FunctionCall__ParametersAssignment_2_0 ) )
             {
-            // InternalKlangParser.g:5063:1: ( ( rule__FunctionCall__ParametersAssignment_2_0 ) )
-            // InternalKlangParser.g:5064:2: ( rule__FunctionCall__ParametersAssignment_2_0 )
+            // InternalKlangParser.g:4695:1: ( ( rule__FunctionCall__ParametersAssignment_2_0 ) )
+            // InternalKlangParser.g:4696:2: ( rule__FunctionCall__ParametersAssignment_2_0 )
             {
              before(grammarAccess.getFunctionCallAccess().getParametersAssignment_2_0()); 
-            // InternalKlangParser.g:5065:2: ( rule__FunctionCall__ParametersAssignment_2_0 )
-            // InternalKlangParser.g:5065:3: rule__FunctionCall__ParametersAssignment_2_0
+            // InternalKlangParser.g:4697:2: ( rule__FunctionCall__ParametersAssignment_2_0 )
+            // InternalKlangParser.g:4697:3: rule__FunctionCall__ParametersAssignment_2_0
             {
             pushFollow(FOLLOW_2);
             rule__FunctionCall__ParametersAssignment_2_0();
@@ -15559,14 +14521,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FunctionCall__Group_2__1"
-    // InternalKlangParser.g:5073:1: rule__FunctionCall__Group_2__1 : rule__FunctionCall__Group_2__1__Impl ;
+    // InternalKlangParser.g:4705:1: rule__FunctionCall__Group_2__1 : rule__FunctionCall__Group_2__1__Impl ;
     public final void rule__FunctionCall__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5077:1: ( rule__FunctionCall__Group_2__1__Impl )
-            // InternalKlangParser.g:5078:2: rule__FunctionCall__Group_2__1__Impl
+            // InternalKlangParser.g:4709:1: ( rule__FunctionCall__Group_2__1__Impl )
+            // InternalKlangParser.g:4710:2: rule__FunctionCall__Group_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__FunctionCall__Group_2__1__Impl();
@@ -15592,35 +14554,35 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FunctionCall__Group_2__1__Impl"
-    // InternalKlangParser.g:5084:1: rule__FunctionCall__Group_2__1__Impl : ( ( rule__FunctionCall__Group_2_1__0 )* ) ;
+    // InternalKlangParser.g:4716:1: rule__FunctionCall__Group_2__1__Impl : ( ( rule__FunctionCall__Group_2_1__0 )* ) ;
     public final void rule__FunctionCall__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5088:1: ( ( ( rule__FunctionCall__Group_2_1__0 )* ) )
-            // InternalKlangParser.g:5089:1: ( ( rule__FunctionCall__Group_2_1__0 )* )
+            // InternalKlangParser.g:4720:1: ( ( ( rule__FunctionCall__Group_2_1__0 )* ) )
+            // InternalKlangParser.g:4721:1: ( ( rule__FunctionCall__Group_2_1__0 )* )
             {
-            // InternalKlangParser.g:5089:1: ( ( rule__FunctionCall__Group_2_1__0 )* )
-            // InternalKlangParser.g:5090:2: ( rule__FunctionCall__Group_2_1__0 )*
+            // InternalKlangParser.g:4721:1: ( ( rule__FunctionCall__Group_2_1__0 )* )
+            // InternalKlangParser.g:4722:2: ( rule__FunctionCall__Group_2_1__0 )*
             {
              before(grammarAccess.getFunctionCallAccess().getGroup_2_1()); 
-            // InternalKlangParser.g:5091:2: ( rule__FunctionCall__Group_2_1__0 )*
-            loop33:
+            // InternalKlangParser.g:4723:2: ( rule__FunctionCall__Group_2_1__0 )*
+            loop29:
             do {
-                int alt33=2;
-                int LA33_0 = input.LA(1);
+                int alt29=2;
+                int LA29_0 = input.LA(1);
 
-                if ( (LA33_0==Comma) ) {
-                    alt33=1;
+                if ( (LA29_0==Comma) ) {
+                    alt29=1;
                 }
 
 
-                switch (alt33) {
+                switch (alt29) {
             	case 1 :
-            	    // InternalKlangParser.g:5091:3: rule__FunctionCall__Group_2_1__0
+            	    // InternalKlangParser.g:4723:3: rule__FunctionCall__Group_2_1__0
             	    {
-            	    pushFollow(FOLLOW_51);
+            	    pushFollow(FOLLOW_48);
             	    rule__FunctionCall__Group_2_1__0();
 
             	    state._fsp--;
@@ -15630,7 +14592,7 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop33;
+            	    break loop29;
                 }
             } while (true);
 
@@ -15657,16 +14619,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FunctionCall__Group_2_1__0"
-    // InternalKlangParser.g:5100:1: rule__FunctionCall__Group_2_1__0 : rule__FunctionCall__Group_2_1__0__Impl rule__FunctionCall__Group_2_1__1 ;
+    // InternalKlangParser.g:4732:1: rule__FunctionCall__Group_2_1__0 : rule__FunctionCall__Group_2_1__0__Impl rule__FunctionCall__Group_2_1__1 ;
     public final void rule__FunctionCall__Group_2_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5104:1: ( rule__FunctionCall__Group_2_1__0__Impl rule__FunctionCall__Group_2_1__1 )
-            // InternalKlangParser.g:5105:2: rule__FunctionCall__Group_2_1__0__Impl rule__FunctionCall__Group_2_1__1
+            // InternalKlangParser.g:4736:1: ( rule__FunctionCall__Group_2_1__0__Impl rule__FunctionCall__Group_2_1__1 )
+            // InternalKlangParser.g:4737:2: rule__FunctionCall__Group_2_1__0__Impl rule__FunctionCall__Group_2_1__1
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_26);
             rule__FunctionCall__Group_2_1__0__Impl();
 
             state._fsp--;
@@ -15695,17 +14657,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FunctionCall__Group_2_1__0__Impl"
-    // InternalKlangParser.g:5112:1: rule__FunctionCall__Group_2_1__0__Impl : ( Comma ) ;
+    // InternalKlangParser.g:4744:1: rule__FunctionCall__Group_2_1__0__Impl : ( Comma ) ;
     public final void rule__FunctionCall__Group_2_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5116:1: ( ( Comma ) )
-            // InternalKlangParser.g:5117:1: ( Comma )
+            // InternalKlangParser.g:4748:1: ( ( Comma ) )
+            // InternalKlangParser.g:4749:1: ( Comma )
             {
-            // InternalKlangParser.g:5117:1: ( Comma )
-            // InternalKlangParser.g:5118:2: Comma
+            // InternalKlangParser.g:4749:1: ( Comma )
+            // InternalKlangParser.g:4750:2: Comma
             {
              before(grammarAccess.getFunctionCallAccess().getCommaKeyword_2_1_0()); 
             match(input,Comma,FOLLOW_2); 
@@ -15732,14 +14694,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FunctionCall__Group_2_1__1"
-    // InternalKlangParser.g:5127:1: rule__FunctionCall__Group_2_1__1 : rule__FunctionCall__Group_2_1__1__Impl ;
+    // InternalKlangParser.g:4759:1: rule__FunctionCall__Group_2_1__1 : rule__FunctionCall__Group_2_1__1__Impl ;
     public final void rule__FunctionCall__Group_2_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5131:1: ( rule__FunctionCall__Group_2_1__1__Impl )
-            // InternalKlangParser.g:5132:2: rule__FunctionCall__Group_2_1__1__Impl
+            // InternalKlangParser.g:4763:1: ( rule__FunctionCall__Group_2_1__1__Impl )
+            // InternalKlangParser.g:4764:2: rule__FunctionCall__Group_2_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__FunctionCall__Group_2_1__1__Impl();
@@ -15765,21 +14727,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FunctionCall__Group_2_1__1__Impl"
-    // InternalKlangParser.g:5138:1: rule__FunctionCall__Group_2_1__1__Impl : ( ( rule__FunctionCall__ParametersAssignment_2_1_1 ) ) ;
+    // InternalKlangParser.g:4770:1: rule__FunctionCall__Group_2_1__1__Impl : ( ( rule__FunctionCall__ParametersAssignment_2_1_1 ) ) ;
     public final void rule__FunctionCall__Group_2_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5142:1: ( ( ( rule__FunctionCall__ParametersAssignment_2_1_1 ) ) )
-            // InternalKlangParser.g:5143:1: ( ( rule__FunctionCall__ParametersAssignment_2_1_1 ) )
+            // InternalKlangParser.g:4774:1: ( ( ( rule__FunctionCall__ParametersAssignment_2_1_1 ) ) )
+            // InternalKlangParser.g:4775:1: ( ( rule__FunctionCall__ParametersAssignment_2_1_1 ) )
             {
-            // InternalKlangParser.g:5143:1: ( ( rule__FunctionCall__ParametersAssignment_2_1_1 ) )
-            // InternalKlangParser.g:5144:2: ( rule__FunctionCall__ParametersAssignment_2_1_1 )
+            // InternalKlangParser.g:4775:1: ( ( rule__FunctionCall__ParametersAssignment_2_1_1 ) )
+            // InternalKlangParser.g:4776:2: ( rule__FunctionCall__ParametersAssignment_2_1_1 )
             {
              before(grammarAccess.getFunctionCallAccess().getParametersAssignment_2_1_1()); 
-            // InternalKlangParser.g:5145:2: ( rule__FunctionCall__ParametersAssignment_2_1_1 )
-            // InternalKlangParser.g:5145:3: rule__FunctionCall__ParametersAssignment_2_1_1
+            // InternalKlangParser.g:4777:2: ( rule__FunctionCall__ParametersAssignment_2_1_1 )
+            // InternalKlangParser.g:4777:3: rule__FunctionCall__ParametersAssignment_2_1_1
             {
             pushFollow(FOLLOW_2);
             rule__FunctionCall__ParametersAssignment_2_1_1();
@@ -15812,16 +14774,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_0__0"
-    // InternalKlangParser.g:5154:1: rule__PrimaryExpression__Group_0__0 : rule__PrimaryExpression__Group_0__0__Impl rule__PrimaryExpression__Group_0__1 ;
+    // InternalKlangParser.g:4786:1: rule__PrimaryExpression__Group_0__0 : rule__PrimaryExpression__Group_0__0__Impl rule__PrimaryExpression__Group_0__1 ;
     public final void rule__PrimaryExpression__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5158:1: ( rule__PrimaryExpression__Group_0__0__Impl rule__PrimaryExpression__Group_0__1 )
-            // InternalKlangParser.g:5159:2: rule__PrimaryExpression__Group_0__0__Impl rule__PrimaryExpression__Group_0__1
+            // InternalKlangParser.g:4790:1: ( rule__PrimaryExpression__Group_0__0__Impl rule__PrimaryExpression__Group_0__1 )
+            // InternalKlangParser.g:4791:2: rule__PrimaryExpression__Group_0__0__Impl rule__PrimaryExpression__Group_0__1
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_26);
             rule__PrimaryExpression__Group_0__0__Impl();
 
             state._fsp--;
@@ -15850,17 +14812,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_0__0__Impl"
-    // InternalKlangParser.g:5166:1: rule__PrimaryExpression__Group_0__0__Impl : ( LeftParenthesis ) ;
+    // InternalKlangParser.g:4798:1: rule__PrimaryExpression__Group_0__0__Impl : ( LeftParenthesis ) ;
     public final void rule__PrimaryExpression__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5170:1: ( ( LeftParenthesis ) )
-            // InternalKlangParser.g:5171:1: ( LeftParenthesis )
+            // InternalKlangParser.g:4802:1: ( ( LeftParenthesis ) )
+            // InternalKlangParser.g:4803:1: ( LeftParenthesis )
             {
-            // InternalKlangParser.g:5171:1: ( LeftParenthesis )
-            // InternalKlangParser.g:5172:2: LeftParenthesis
+            // InternalKlangParser.g:4803:1: ( LeftParenthesis )
+            // InternalKlangParser.g:4804:2: LeftParenthesis
             {
              before(grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_0_0()); 
             match(input,LeftParenthesis,FOLLOW_2); 
@@ -15887,16 +14849,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_0__1"
-    // InternalKlangParser.g:5181:1: rule__PrimaryExpression__Group_0__1 : rule__PrimaryExpression__Group_0__1__Impl rule__PrimaryExpression__Group_0__2 ;
+    // InternalKlangParser.g:4813:1: rule__PrimaryExpression__Group_0__1 : rule__PrimaryExpression__Group_0__1__Impl rule__PrimaryExpression__Group_0__2 ;
     public final void rule__PrimaryExpression__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5185:1: ( rule__PrimaryExpression__Group_0__1__Impl rule__PrimaryExpression__Group_0__2 )
-            // InternalKlangParser.g:5186:2: rule__PrimaryExpression__Group_0__1__Impl rule__PrimaryExpression__Group_0__2
+            // InternalKlangParser.g:4817:1: ( rule__PrimaryExpression__Group_0__1__Impl rule__PrimaryExpression__Group_0__2 )
+            // InternalKlangParser.g:4818:2: rule__PrimaryExpression__Group_0__1__Impl rule__PrimaryExpression__Group_0__2
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_24);
             rule__PrimaryExpression__Group_0__1__Impl();
 
             state._fsp--;
@@ -15925,17 +14887,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_0__1__Impl"
-    // InternalKlangParser.g:5193:1: rule__PrimaryExpression__Group_0__1__Impl : ( ruleExpression ) ;
+    // InternalKlangParser.g:4825:1: rule__PrimaryExpression__Group_0__1__Impl : ( ruleExpression ) ;
     public final void rule__PrimaryExpression__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5197:1: ( ( ruleExpression ) )
-            // InternalKlangParser.g:5198:1: ( ruleExpression )
+            // InternalKlangParser.g:4829:1: ( ( ruleExpression ) )
+            // InternalKlangParser.g:4830:1: ( ruleExpression )
             {
-            // InternalKlangParser.g:5198:1: ( ruleExpression )
-            // InternalKlangParser.g:5199:2: ruleExpression
+            // InternalKlangParser.g:4830:1: ( ruleExpression )
+            // InternalKlangParser.g:4831:2: ruleExpression
             {
              before(grammarAccess.getPrimaryExpressionAccess().getExpressionParserRuleCall_0_1()); 
             pushFollow(FOLLOW_2);
@@ -15966,14 +14928,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_0__2"
-    // InternalKlangParser.g:5208:1: rule__PrimaryExpression__Group_0__2 : rule__PrimaryExpression__Group_0__2__Impl ;
+    // InternalKlangParser.g:4840:1: rule__PrimaryExpression__Group_0__2 : rule__PrimaryExpression__Group_0__2__Impl ;
     public final void rule__PrimaryExpression__Group_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5212:1: ( rule__PrimaryExpression__Group_0__2__Impl )
-            // InternalKlangParser.g:5213:2: rule__PrimaryExpression__Group_0__2__Impl
+            // InternalKlangParser.g:4844:1: ( rule__PrimaryExpression__Group_0__2__Impl )
+            // InternalKlangParser.g:4845:2: rule__PrimaryExpression__Group_0__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PrimaryExpression__Group_0__2__Impl();
@@ -15999,17 +14961,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_0__2__Impl"
-    // InternalKlangParser.g:5219:1: rule__PrimaryExpression__Group_0__2__Impl : ( RightParenthesis ) ;
+    // InternalKlangParser.g:4851:1: rule__PrimaryExpression__Group_0__2__Impl : ( RightParenthesis ) ;
     public final void rule__PrimaryExpression__Group_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5223:1: ( ( RightParenthesis ) )
-            // InternalKlangParser.g:5224:1: ( RightParenthesis )
+            // InternalKlangParser.g:4855:1: ( ( RightParenthesis ) )
+            // InternalKlangParser.g:4856:1: ( RightParenthesis )
             {
-            // InternalKlangParser.g:5224:1: ( RightParenthesis )
-            // InternalKlangParser.g:5225:2: RightParenthesis
+            // InternalKlangParser.g:4856:1: ( RightParenthesis )
+            // InternalKlangParser.g:4857:2: RightParenthesis
             {
              before(grammarAccess.getPrimaryExpressionAccess().getRightParenthesisKeyword_0_2()); 
             match(input,RightParenthesis,FOLLOW_2); 
@@ -16036,16 +14998,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_1__0"
-    // InternalKlangParser.g:5235:1: rule__PrimaryExpression__Group_1__0 : rule__PrimaryExpression__Group_1__0__Impl rule__PrimaryExpression__Group_1__1 ;
+    // InternalKlangParser.g:4867:1: rule__PrimaryExpression__Group_1__0 : rule__PrimaryExpression__Group_1__0__Impl rule__PrimaryExpression__Group_1__1 ;
     public final void rule__PrimaryExpression__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5239:1: ( rule__PrimaryExpression__Group_1__0__Impl rule__PrimaryExpression__Group_1__1 )
-            // InternalKlangParser.g:5240:2: rule__PrimaryExpression__Group_1__0__Impl rule__PrimaryExpression__Group_1__1
+            // InternalKlangParser.g:4871:1: ( rule__PrimaryExpression__Group_1__0__Impl rule__PrimaryExpression__Group_1__1 )
+            // InternalKlangParser.g:4872:2: rule__PrimaryExpression__Group_1__0__Impl rule__PrimaryExpression__Group_1__1
             {
-            pushFollow(FOLLOW_52);
+            pushFollow(FOLLOW_49);
             rule__PrimaryExpression__Group_1__0__Impl();
 
             state._fsp--;
@@ -16074,21 +15036,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_1__0__Impl"
-    // InternalKlangParser.g:5247:1: rule__PrimaryExpression__Group_1__0__Impl : ( () ) ;
+    // InternalKlangParser.g:4879:1: rule__PrimaryExpression__Group_1__0__Impl : ( () ) ;
     public final void rule__PrimaryExpression__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5251:1: ( ( () ) )
-            // InternalKlangParser.g:5252:1: ( () )
+            // InternalKlangParser.g:4883:1: ( ( () ) )
+            // InternalKlangParser.g:4884:1: ( () )
             {
-            // InternalKlangParser.g:5252:1: ( () )
-            // InternalKlangParser.g:5253:2: ()
+            // InternalKlangParser.g:4884:1: ( () )
+            // InternalKlangParser.g:4885:2: ()
             {
              before(grammarAccess.getPrimaryExpressionAccess().getNotAction_1_0()); 
-            // InternalKlangParser.g:5254:2: ()
-            // InternalKlangParser.g:5254:3: 
+            // InternalKlangParser.g:4886:2: ()
+            // InternalKlangParser.g:4886:3: 
             {
             }
 
@@ -16111,16 +15073,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_1__1"
-    // InternalKlangParser.g:5262:1: rule__PrimaryExpression__Group_1__1 : rule__PrimaryExpression__Group_1__1__Impl rule__PrimaryExpression__Group_1__2 ;
+    // InternalKlangParser.g:4894:1: rule__PrimaryExpression__Group_1__1 : rule__PrimaryExpression__Group_1__1__Impl rule__PrimaryExpression__Group_1__2 ;
     public final void rule__PrimaryExpression__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5266:1: ( rule__PrimaryExpression__Group_1__1__Impl rule__PrimaryExpression__Group_1__2 )
-            // InternalKlangParser.g:5267:2: rule__PrimaryExpression__Group_1__1__Impl rule__PrimaryExpression__Group_1__2
+            // InternalKlangParser.g:4898:1: ( rule__PrimaryExpression__Group_1__1__Impl rule__PrimaryExpression__Group_1__2 )
+            // InternalKlangParser.g:4899:2: rule__PrimaryExpression__Group_1__1__Impl rule__PrimaryExpression__Group_1__2
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_26);
             rule__PrimaryExpression__Group_1__1__Impl();
 
             state._fsp--;
@@ -16149,17 +15111,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_1__1__Impl"
-    // InternalKlangParser.g:5274:1: rule__PrimaryExpression__Group_1__1__Impl : ( Not ) ;
+    // InternalKlangParser.g:4906:1: rule__PrimaryExpression__Group_1__1__Impl : ( Not ) ;
     public final void rule__PrimaryExpression__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5278:1: ( ( Not ) )
-            // InternalKlangParser.g:5279:1: ( Not )
+            // InternalKlangParser.g:4910:1: ( ( Not ) )
+            // InternalKlangParser.g:4911:1: ( Not )
             {
-            // InternalKlangParser.g:5279:1: ( Not )
-            // InternalKlangParser.g:5280:2: Not
+            // InternalKlangParser.g:4911:1: ( Not )
+            // InternalKlangParser.g:4912:2: Not
             {
              before(grammarAccess.getPrimaryExpressionAccess().getNotKeyword_1_1()); 
             match(input,Not,FOLLOW_2); 
@@ -16186,14 +15148,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_1__2"
-    // InternalKlangParser.g:5289:1: rule__PrimaryExpression__Group_1__2 : rule__PrimaryExpression__Group_1__2__Impl ;
+    // InternalKlangParser.g:4921:1: rule__PrimaryExpression__Group_1__2 : rule__PrimaryExpression__Group_1__2__Impl ;
     public final void rule__PrimaryExpression__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5293:1: ( rule__PrimaryExpression__Group_1__2__Impl )
-            // InternalKlangParser.g:5294:2: rule__PrimaryExpression__Group_1__2__Impl
+            // InternalKlangParser.g:4925:1: ( rule__PrimaryExpression__Group_1__2__Impl )
+            // InternalKlangParser.g:4926:2: rule__PrimaryExpression__Group_1__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PrimaryExpression__Group_1__2__Impl();
@@ -16219,21 +15181,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_1__2__Impl"
-    // InternalKlangParser.g:5300:1: rule__PrimaryExpression__Group_1__2__Impl : ( ( rule__PrimaryExpression__ExpressionAssignment_1_2 ) ) ;
+    // InternalKlangParser.g:4932:1: rule__PrimaryExpression__Group_1__2__Impl : ( ( rule__PrimaryExpression__ExpressionAssignment_1_2 ) ) ;
     public final void rule__PrimaryExpression__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5304:1: ( ( ( rule__PrimaryExpression__ExpressionAssignment_1_2 ) ) )
-            // InternalKlangParser.g:5305:1: ( ( rule__PrimaryExpression__ExpressionAssignment_1_2 ) )
+            // InternalKlangParser.g:4936:1: ( ( ( rule__PrimaryExpression__ExpressionAssignment_1_2 ) ) )
+            // InternalKlangParser.g:4937:1: ( ( rule__PrimaryExpression__ExpressionAssignment_1_2 ) )
             {
-            // InternalKlangParser.g:5305:1: ( ( rule__PrimaryExpression__ExpressionAssignment_1_2 ) )
-            // InternalKlangParser.g:5306:2: ( rule__PrimaryExpression__ExpressionAssignment_1_2 )
+            // InternalKlangParser.g:4937:1: ( ( rule__PrimaryExpression__ExpressionAssignment_1_2 ) )
+            // InternalKlangParser.g:4938:2: ( rule__PrimaryExpression__ExpressionAssignment_1_2 )
             {
              before(grammarAccess.getPrimaryExpressionAccess().getExpressionAssignment_1_2()); 
-            // InternalKlangParser.g:5307:2: ( rule__PrimaryExpression__ExpressionAssignment_1_2 )
-            // InternalKlangParser.g:5307:3: rule__PrimaryExpression__ExpressionAssignment_1_2
+            // InternalKlangParser.g:4939:2: ( rule__PrimaryExpression__ExpressionAssignment_1_2 )
+            // InternalKlangParser.g:4939:3: rule__PrimaryExpression__ExpressionAssignment_1_2
             {
             pushFollow(FOLLOW_2);
             rule__PrimaryExpression__ExpressionAssignment_1_2();
@@ -16266,16 +15228,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_2__0"
-    // InternalKlangParser.g:5316:1: rule__PrimaryExpression__Group_2__0 : rule__PrimaryExpression__Group_2__0__Impl rule__PrimaryExpression__Group_2__1 ;
+    // InternalKlangParser.g:4948:1: rule__PrimaryExpression__Group_2__0 : rule__PrimaryExpression__Group_2__0__Impl rule__PrimaryExpression__Group_2__1 ;
     public final void rule__PrimaryExpression__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5320:1: ( rule__PrimaryExpression__Group_2__0__Impl rule__PrimaryExpression__Group_2__1 )
-            // InternalKlangParser.g:5321:2: rule__PrimaryExpression__Group_2__0__Impl rule__PrimaryExpression__Group_2__1
+            // InternalKlangParser.g:4952:1: ( rule__PrimaryExpression__Group_2__0__Impl rule__PrimaryExpression__Group_2__1 )
+            // InternalKlangParser.g:4953:2: rule__PrimaryExpression__Group_2__0__Impl rule__PrimaryExpression__Group_2__1
             {
-            pushFollow(FOLLOW_41);
+            pushFollow(FOLLOW_38);
             rule__PrimaryExpression__Group_2__0__Impl();
 
             state._fsp--;
@@ -16304,21 +15266,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_2__0__Impl"
-    // InternalKlangParser.g:5328:1: rule__PrimaryExpression__Group_2__0__Impl : ( () ) ;
+    // InternalKlangParser.g:4960:1: rule__PrimaryExpression__Group_2__0__Impl : ( () ) ;
     public final void rule__PrimaryExpression__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5332:1: ( ( () ) )
-            // InternalKlangParser.g:5333:1: ( () )
+            // InternalKlangParser.g:4964:1: ( ( () ) )
+            // InternalKlangParser.g:4965:1: ( () )
             {
-            // InternalKlangParser.g:5333:1: ( () )
-            // InternalKlangParser.g:5334:2: ()
+            // InternalKlangParser.g:4965:1: ( () )
+            // InternalKlangParser.g:4966:2: ()
             {
              before(grammarAccess.getPrimaryExpressionAccess().getUnaryMinusAction_2_0()); 
-            // InternalKlangParser.g:5335:2: ()
-            // InternalKlangParser.g:5335:3: 
+            // InternalKlangParser.g:4967:2: ()
+            // InternalKlangParser.g:4967:3: 
             {
             }
 
@@ -16341,16 +15303,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_2__1"
-    // InternalKlangParser.g:5343:1: rule__PrimaryExpression__Group_2__1 : rule__PrimaryExpression__Group_2__1__Impl rule__PrimaryExpression__Group_2__2 ;
+    // InternalKlangParser.g:4975:1: rule__PrimaryExpression__Group_2__1 : rule__PrimaryExpression__Group_2__1__Impl rule__PrimaryExpression__Group_2__2 ;
     public final void rule__PrimaryExpression__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5347:1: ( rule__PrimaryExpression__Group_2__1__Impl rule__PrimaryExpression__Group_2__2 )
-            // InternalKlangParser.g:5348:2: rule__PrimaryExpression__Group_2__1__Impl rule__PrimaryExpression__Group_2__2
+            // InternalKlangParser.g:4979:1: ( rule__PrimaryExpression__Group_2__1__Impl rule__PrimaryExpression__Group_2__2 )
+            // InternalKlangParser.g:4980:2: rule__PrimaryExpression__Group_2__1__Impl rule__PrimaryExpression__Group_2__2
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_26);
             rule__PrimaryExpression__Group_2__1__Impl();
 
             state._fsp--;
@@ -16379,17 +15341,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_2__1__Impl"
-    // InternalKlangParser.g:5355:1: rule__PrimaryExpression__Group_2__1__Impl : ( HyphenMinus ) ;
+    // InternalKlangParser.g:4987:1: rule__PrimaryExpression__Group_2__1__Impl : ( HyphenMinus ) ;
     public final void rule__PrimaryExpression__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5359:1: ( ( HyphenMinus ) )
-            // InternalKlangParser.g:5360:1: ( HyphenMinus )
+            // InternalKlangParser.g:4991:1: ( ( HyphenMinus ) )
+            // InternalKlangParser.g:4992:1: ( HyphenMinus )
             {
-            // InternalKlangParser.g:5360:1: ( HyphenMinus )
-            // InternalKlangParser.g:5361:2: HyphenMinus
+            // InternalKlangParser.g:4992:1: ( HyphenMinus )
+            // InternalKlangParser.g:4993:2: HyphenMinus
             {
              before(grammarAccess.getPrimaryExpressionAccess().getHyphenMinusKeyword_2_1()); 
             match(input,HyphenMinus,FOLLOW_2); 
@@ -16416,14 +15378,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_2__2"
-    // InternalKlangParser.g:5370:1: rule__PrimaryExpression__Group_2__2 : rule__PrimaryExpression__Group_2__2__Impl ;
+    // InternalKlangParser.g:5002:1: rule__PrimaryExpression__Group_2__2 : rule__PrimaryExpression__Group_2__2__Impl ;
     public final void rule__PrimaryExpression__Group_2__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5374:1: ( rule__PrimaryExpression__Group_2__2__Impl )
-            // InternalKlangParser.g:5375:2: rule__PrimaryExpression__Group_2__2__Impl
+            // InternalKlangParser.g:5006:1: ( rule__PrimaryExpression__Group_2__2__Impl )
+            // InternalKlangParser.g:5007:2: rule__PrimaryExpression__Group_2__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PrimaryExpression__Group_2__2__Impl();
@@ -16449,21 +15411,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_2__2__Impl"
-    // InternalKlangParser.g:5381:1: rule__PrimaryExpression__Group_2__2__Impl : ( ( rule__PrimaryExpression__ExpressionAssignment_2_2 ) ) ;
+    // InternalKlangParser.g:5013:1: rule__PrimaryExpression__Group_2__2__Impl : ( ( rule__PrimaryExpression__ExpressionAssignment_2_2 ) ) ;
     public final void rule__PrimaryExpression__Group_2__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5385:1: ( ( ( rule__PrimaryExpression__ExpressionAssignment_2_2 ) ) )
-            // InternalKlangParser.g:5386:1: ( ( rule__PrimaryExpression__ExpressionAssignment_2_2 ) )
+            // InternalKlangParser.g:5017:1: ( ( ( rule__PrimaryExpression__ExpressionAssignment_2_2 ) ) )
+            // InternalKlangParser.g:5018:1: ( ( rule__PrimaryExpression__ExpressionAssignment_2_2 ) )
             {
-            // InternalKlangParser.g:5386:1: ( ( rule__PrimaryExpression__ExpressionAssignment_2_2 ) )
-            // InternalKlangParser.g:5387:2: ( rule__PrimaryExpression__ExpressionAssignment_2_2 )
+            // InternalKlangParser.g:5018:1: ( ( rule__PrimaryExpression__ExpressionAssignment_2_2 ) )
+            // InternalKlangParser.g:5019:2: ( rule__PrimaryExpression__ExpressionAssignment_2_2 )
             {
              before(grammarAccess.getPrimaryExpressionAccess().getExpressionAssignment_2_2()); 
-            // InternalKlangParser.g:5388:2: ( rule__PrimaryExpression__ExpressionAssignment_2_2 )
-            // InternalKlangParser.g:5388:3: rule__PrimaryExpression__ExpressionAssignment_2_2
+            // InternalKlangParser.g:5020:2: ( rule__PrimaryExpression__ExpressionAssignment_2_2 )
+            // InternalKlangParser.g:5020:3: rule__PrimaryExpression__ExpressionAssignment_2_2
             {
             pushFollow(FOLLOW_2);
             rule__PrimaryExpression__ExpressionAssignment_2_2();
@@ -16496,16 +15458,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_3__0"
-    // InternalKlangParser.g:5397:1: rule__PrimaryExpression__Group_3__0 : rule__PrimaryExpression__Group_3__0__Impl rule__PrimaryExpression__Group_3__1 ;
+    // InternalKlangParser.g:5029:1: rule__PrimaryExpression__Group_3__0 : rule__PrimaryExpression__Group_3__0__Impl rule__PrimaryExpression__Group_3__1 ;
     public final void rule__PrimaryExpression__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5401:1: ( rule__PrimaryExpression__Group_3__0__Impl rule__PrimaryExpression__Group_3__1 )
-            // InternalKlangParser.g:5402:2: rule__PrimaryExpression__Group_3__0__Impl rule__PrimaryExpression__Group_3__1
+            // InternalKlangParser.g:5033:1: ( rule__PrimaryExpression__Group_3__0__Impl rule__PrimaryExpression__Group_3__1 )
+            // InternalKlangParser.g:5034:2: rule__PrimaryExpression__Group_3__0__Impl rule__PrimaryExpression__Group_3__1
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_50);
             rule__PrimaryExpression__Group_3__0__Impl();
 
             state._fsp--;
@@ -16534,21 +15496,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_3__0__Impl"
-    // InternalKlangParser.g:5409:1: rule__PrimaryExpression__Group_3__0__Impl : ( () ) ;
+    // InternalKlangParser.g:5041:1: rule__PrimaryExpression__Group_3__0__Impl : ( () ) ;
     public final void rule__PrimaryExpression__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5413:1: ( ( () ) )
-            // InternalKlangParser.g:5414:1: ( () )
+            // InternalKlangParser.g:5045:1: ( ( () ) )
+            // InternalKlangParser.g:5046:1: ( () )
             {
-            // InternalKlangParser.g:5414:1: ( () )
-            // InternalKlangParser.g:5415:2: ()
+            // InternalKlangParser.g:5046:1: ( () )
+            // InternalKlangParser.g:5047:2: ()
             {
              before(grammarAccess.getPrimaryExpressionAccess().getToDoubleAction_3_0()); 
-            // InternalKlangParser.g:5416:2: ()
-            // InternalKlangParser.g:5416:3: 
+            // InternalKlangParser.g:5048:2: ()
+            // InternalKlangParser.g:5048:3: 
             {
             }
 
@@ -16571,16 +15533,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_3__1"
-    // InternalKlangParser.g:5424:1: rule__PrimaryExpression__Group_3__1 : rule__PrimaryExpression__Group_3__1__Impl rule__PrimaryExpression__Group_3__2 ;
+    // InternalKlangParser.g:5056:1: rule__PrimaryExpression__Group_3__1 : rule__PrimaryExpression__Group_3__1__Impl rule__PrimaryExpression__Group_3__2 ;
     public final void rule__PrimaryExpression__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5428:1: ( rule__PrimaryExpression__Group_3__1__Impl rule__PrimaryExpression__Group_3__2 )
-            // InternalKlangParser.g:5429:2: rule__PrimaryExpression__Group_3__1__Impl rule__PrimaryExpression__Group_3__2
+            // InternalKlangParser.g:5060:1: ( rule__PrimaryExpression__Group_3__1__Impl rule__PrimaryExpression__Group_3__2 )
+            // InternalKlangParser.g:5061:2: rule__PrimaryExpression__Group_3__1__Impl rule__PrimaryExpression__Group_3__2
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_23);
             rule__PrimaryExpression__Group_3__1__Impl();
 
             state._fsp--;
@@ -16609,21 +15571,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_3__1__Impl"
-    // InternalKlangParser.g:5436:1: rule__PrimaryExpression__Group_3__1__Impl : ( LeftParenthesis ) ;
+    // InternalKlangParser.g:5068:1: rule__PrimaryExpression__Group_3__1__Impl : ( Double ) ;
     public final void rule__PrimaryExpression__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5440:1: ( ( LeftParenthesis ) )
-            // InternalKlangParser.g:5441:1: ( LeftParenthesis )
+            // InternalKlangParser.g:5072:1: ( ( Double ) )
+            // InternalKlangParser.g:5073:1: ( Double )
             {
-            // InternalKlangParser.g:5441:1: ( LeftParenthesis )
-            // InternalKlangParser.g:5442:2: LeftParenthesis
+            // InternalKlangParser.g:5073:1: ( Double )
+            // InternalKlangParser.g:5074:2: Double
             {
-             before(grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_3_1()); 
-            match(input,LeftParenthesis,FOLLOW_2); 
-             after(grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_3_1()); 
+             before(grammarAccess.getPrimaryExpressionAccess().getDoubleKeyword_3_1()); 
+            match(input,Double,FOLLOW_2); 
+             after(grammarAccess.getPrimaryExpressionAccess().getDoubleKeyword_3_1()); 
 
             }
 
@@ -16646,16 +15608,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_3__2"
-    // InternalKlangParser.g:5451:1: rule__PrimaryExpression__Group_3__2 : rule__PrimaryExpression__Group_3__2__Impl rule__PrimaryExpression__Group_3__3 ;
+    // InternalKlangParser.g:5083:1: rule__PrimaryExpression__Group_3__2 : rule__PrimaryExpression__Group_3__2__Impl rule__PrimaryExpression__Group_3__3 ;
     public final void rule__PrimaryExpression__Group_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5455:1: ( rule__PrimaryExpression__Group_3__2__Impl rule__PrimaryExpression__Group_3__3 )
-            // InternalKlangParser.g:5456:2: rule__PrimaryExpression__Group_3__2__Impl rule__PrimaryExpression__Group_3__3
+            // InternalKlangParser.g:5087:1: ( rule__PrimaryExpression__Group_3__2__Impl rule__PrimaryExpression__Group_3__3 )
+            // InternalKlangParser.g:5088:2: rule__PrimaryExpression__Group_3__2__Impl rule__PrimaryExpression__Group_3__3
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_26);
             rule__PrimaryExpression__Group_3__2__Impl();
 
             state._fsp--;
@@ -16684,21 +15646,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_3__2__Impl"
-    // InternalKlangParser.g:5463:1: rule__PrimaryExpression__Group_3__2__Impl : ( Double ) ;
+    // InternalKlangParser.g:5095:1: rule__PrimaryExpression__Group_3__2__Impl : ( LeftParenthesis ) ;
     public final void rule__PrimaryExpression__Group_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5467:1: ( ( Double ) )
-            // InternalKlangParser.g:5468:1: ( Double )
+            // InternalKlangParser.g:5099:1: ( ( LeftParenthesis ) )
+            // InternalKlangParser.g:5100:1: ( LeftParenthesis )
             {
-            // InternalKlangParser.g:5468:1: ( Double )
-            // InternalKlangParser.g:5469:2: Double
+            // InternalKlangParser.g:5100:1: ( LeftParenthesis )
+            // InternalKlangParser.g:5101:2: LeftParenthesis
             {
-             before(grammarAccess.getPrimaryExpressionAccess().getDoubleKeyword_3_2()); 
-            match(input,Double,FOLLOW_2); 
-             after(grammarAccess.getPrimaryExpressionAccess().getDoubleKeyword_3_2()); 
+             before(grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_3_2()); 
+            match(input,LeftParenthesis,FOLLOW_2); 
+             after(grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_3_2()); 
 
             }
 
@@ -16721,16 +15683,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_3__3"
-    // InternalKlangParser.g:5478:1: rule__PrimaryExpression__Group_3__3 : rule__PrimaryExpression__Group_3__3__Impl rule__PrimaryExpression__Group_3__4 ;
+    // InternalKlangParser.g:5110:1: rule__PrimaryExpression__Group_3__3 : rule__PrimaryExpression__Group_3__3__Impl rule__PrimaryExpression__Group_3__4 ;
     public final void rule__PrimaryExpression__Group_3__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5482:1: ( rule__PrimaryExpression__Group_3__3__Impl rule__PrimaryExpression__Group_3__4 )
-            // InternalKlangParser.g:5483:2: rule__PrimaryExpression__Group_3__3__Impl rule__PrimaryExpression__Group_3__4
+            // InternalKlangParser.g:5114:1: ( rule__PrimaryExpression__Group_3__3__Impl rule__PrimaryExpression__Group_3__4 )
+            // InternalKlangParser.g:5115:2: rule__PrimaryExpression__Group_3__3__Impl rule__PrimaryExpression__Group_3__4
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_24);
             rule__PrimaryExpression__Group_3__3__Impl();
 
             state._fsp--;
@@ -16759,21 +15721,31 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_3__3__Impl"
-    // InternalKlangParser.g:5490:1: rule__PrimaryExpression__Group_3__3__Impl : ( RightParenthesis ) ;
+    // InternalKlangParser.g:5122:1: rule__PrimaryExpression__Group_3__3__Impl : ( ( rule__PrimaryExpression__ExpressionAssignment_3_3 ) ) ;
     public final void rule__PrimaryExpression__Group_3__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5494:1: ( ( RightParenthesis ) )
-            // InternalKlangParser.g:5495:1: ( RightParenthesis )
+            // InternalKlangParser.g:5126:1: ( ( ( rule__PrimaryExpression__ExpressionAssignment_3_3 ) ) )
+            // InternalKlangParser.g:5127:1: ( ( rule__PrimaryExpression__ExpressionAssignment_3_3 ) )
             {
-            // InternalKlangParser.g:5495:1: ( RightParenthesis )
-            // InternalKlangParser.g:5496:2: RightParenthesis
+            // InternalKlangParser.g:5127:1: ( ( rule__PrimaryExpression__ExpressionAssignment_3_3 ) )
+            // InternalKlangParser.g:5128:2: ( rule__PrimaryExpression__ExpressionAssignment_3_3 )
             {
-             before(grammarAccess.getPrimaryExpressionAccess().getRightParenthesisKeyword_3_3()); 
-            match(input,RightParenthesis,FOLLOW_2); 
-             after(grammarAccess.getPrimaryExpressionAccess().getRightParenthesisKeyword_3_3()); 
+             before(grammarAccess.getPrimaryExpressionAccess().getExpressionAssignment_3_3()); 
+            // InternalKlangParser.g:5129:2: ( rule__PrimaryExpression__ExpressionAssignment_3_3 )
+            // InternalKlangParser.g:5129:3: rule__PrimaryExpression__ExpressionAssignment_3_3
+            {
+            pushFollow(FOLLOW_2);
+            rule__PrimaryExpression__ExpressionAssignment_3_3();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getPrimaryExpressionAccess().getExpressionAssignment_3_3()); 
 
             }
 
@@ -16796,14 +15768,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_3__4"
-    // InternalKlangParser.g:5505:1: rule__PrimaryExpression__Group_3__4 : rule__PrimaryExpression__Group_3__4__Impl ;
+    // InternalKlangParser.g:5137:1: rule__PrimaryExpression__Group_3__4 : rule__PrimaryExpression__Group_3__4__Impl ;
     public final void rule__PrimaryExpression__Group_3__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5509:1: ( rule__PrimaryExpression__Group_3__4__Impl )
-            // InternalKlangParser.g:5510:2: rule__PrimaryExpression__Group_3__4__Impl
+            // InternalKlangParser.g:5141:1: ( rule__PrimaryExpression__Group_3__4__Impl )
+            // InternalKlangParser.g:5142:2: rule__PrimaryExpression__Group_3__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PrimaryExpression__Group_3__4__Impl();
@@ -16829,31 +15801,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_3__4__Impl"
-    // InternalKlangParser.g:5516:1: rule__PrimaryExpression__Group_3__4__Impl : ( ( rule__PrimaryExpression__ExpressionAssignment_3_4 ) ) ;
+    // InternalKlangParser.g:5148:1: rule__PrimaryExpression__Group_3__4__Impl : ( RightParenthesis ) ;
     public final void rule__PrimaryExpression__Group_3__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5520:1: ( ( ( rule__PrimaryExpression__ExpressionAssignment_3_4 ) ) )
-            // InternalKlangParser.g:5521:1: ( ( rule__PrimaryExpression__ExpressionAssignment_3_4 ) )
+            // InternalKlangParser.g:5152:1: ( ( RightParenthesis ) )
+            // InternalKlangParser.g:5153:1: ( RightParenthesis )
             {
-            // InternalKlangParser.g:5521:1: ( ( rule__PrimaryExpression__ExpressionAssignment_3_4 ) )
-            // InternalKlangParser.g:5522:2: ( rule__PrimaryExpression__ExpressionAssignment_3_4 )
+            // InternalKlangParser.g:5153:1: ( RightParenthesis )
+            // InternalKlangParser.g:5154:2: RightParenthesis
             {
-             before(grammarAccess.getPrimaryExpressionAccess().getExpressionAssignment_3_4()); 
-            // InternalKlangParser.g:5523:2: ( rule__PrimaryExpression__ExpressionAssignment_3_4 )
-            // InternalKlangParser.g:5523:3: rule__PrimaryExpression__ExpressionAssignment_3_4
-            {
-            pushFollow(FOLLOW_2);
-            rule__PrimaryExpression__ExpressionAssignment_3_4();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getPrimaryExpressionAccess().getExpressionAssignment_3_4()); 
+             before(grammarAccess.getPrimaryExpressionAccess().getRightParenthesisKeyword_3_4()); 
+            match(input,RightParenthesis,FOLLOW_2); 
+             after(grammarAccess.getPrimaryExpressionAccess().getRightParenthesisKeyword_3_4()); 
 
             }
 
@@ -16876,16 +15838,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_4__0"
-    // InternalKlangParser.g:5532:1: rule__PrimaryExpression__Group_4__0 : rule__PrimaryExpression__Group_4__0__Impl rule__PrimaryExpression__Group_4__1 ;
+    // InternalKlangParser.g:5164:1: rule__PrimaryExpression__Group_4__0 : rule__PrimaryExpression__Group_4__0__Impl rule__PrimaryExpression__Group_4__1 ;
     public final void rule__PrimaryExpression__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5536:1: ( rule__PrimaryExpression__Group_4__0__Impl rule__PrimaryExpression__Group_4__1 )
-            // InternalKlangParser.g:5537:2: rule__PrimaryExpression__Group_4__0__Impl rule__PrimaryExpression__Group_4__1
+            // InternalKlangParser.g:5168:1: ( rule__PrimaryExpression__Group_4__0__Impl rule__PrimaryExpression__Group_4__1 )
+            // InternalKlangParser.g:5169:2: rule__PrimaryExpression__Group_4__0__Impl rule__PrimaryExpression__Group_4__1
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_51);
             rule__PrimaryExpression__Group_4__0__Impl();
 
             state._fsp--;
@@ -16914,21 +15876,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_4__0__Impl"
-    // InternalKlangParser.g:5544:1: rule__PrimaryExpression__Group_4__0__Impl : ( () ) ;
+    // InternalKlangParser.g:5176:1: rule__PrimaryExpression__Group_4__0__Impl : ( () ) ;
     public final void rule__PrimaryExpression__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5548:1: ( ( () ) )
-            // InternalKlangParser.g:5549:1: ( () )
+            // InternalKlangParser.g:5180:1: ( ( () ) )
+            // InternalKlangParser.g:5181:1: ( () )
             {
-            // InternalKlangParser.g:5549:1: ( () )
-            // InternalKlangParser.g:5550:2: ()
+            // InternalKlangParser.g:5181:1: ( () )
+            // InternalKlangParser.g:5182:2: ()
             {
              before(grammarAccess.getPrimaryExpressionAccess().getToIntAction_4_0()); 
-            // InternalKlangParser.g:5551:2: ()
-            // InternalKlangParser.g:5551:3: 
+            // InternalKlangParser.g:5183:2: ()
+            // InternalKlangParser.g:5183:3: 
             {
             }
 
@@ -16951,16 +15913,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_4__1"
-    // InternalKlangParser.g:5559:1: rule__PrimaryExpression__Group_4__1 : rule__PrimaryExpression__Group_4__1__Impl rule__PrimaryExpression__Group_4__2 ;
+    // InternalKlangParser.g:5191:1: rule__PrimaryExpression__Group_4__1 : rule__PrimaryExpression__Group_4__1__Impl rule__PrimaryExpression__Group_4__2 ;
     public final void rule__PrimaryExpression__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5563:1: ( rule__PrimaryExpression__Group_4__1__Impl rule__PrimaryExpression__Group_4__2 )
-            // InternalKlangParser.g:5564:2: rule__PrimaryExpression__Group_4__1__Impl rule__PrimaryExpression__Group_4__2
+            // InternalKlangParser.g:5195:1: ( rule__PrimaryExpression__Group_4__1__Impl rule__PrimaryExpression__Group_4__2 )
+            // InternalKlangParser.g:5196:2: rule__PrimaryExpression__Group_4__1__Impl rule__PrimaryExpression__Group_4__2
             {
-            pushFollow(FOLLOW_54);
+            pushFollow(FOLLOW_23);
             rule__PrimaryExpression__Group_4__1__Impl();
 
             state._fsp--;
@@ -16989,21 +15951,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_4__1__Impl"
-    // InternalKlangParser.g:5571:1: rule__PrimaryExpression__Group_4__1__Impl : ( LeftParenthesis ) ;
+    // InternalKlangParser.g:5203:1: rule__PrimaryExpression__Group_4__1__Impl : ( Int ) ;
     public final void rule__PrimaryExpression__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5575:1: ( ( LeftParenthesis ) )
-            // InternalKlangParser.g:5576:1: ( LeftParenthesis )
+            // InternalKlangParser.g:5207:1: ( ( Int ) )
+            // InternalKlangParser.g:5208:1: ( Int )
             {
-            // InternalKlangParser.g:5576:1: ( LeftParenthesis )
-            // InternalKlangParser.g:5577:2: LeftParenthesis
+            // InternalKlangParser.g:5208:1: ( Int )
+            // InternalKlangParser.g:5209:2: Int
             {
-             before(grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_4_1()); 
-            match(input,LeftParenthesis,FOLLOW_2); 
-             after(grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_4_1()); 
+             before(grammarAccess.getPrimaryExpressionAccess().getIntKeyword_4_1()); 
+            match(input,Int,FOLLOW_2); 
+             after(grammarAccess.getPrimaryExpressionAccess().getIntKeyword_4_1()); 
 
             }
 
@@ -17026,16 +15988,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_4__2"
-    // InternalKlangParser.g:5586:1: rule__PrimaryExpression__Group_4__2 : rule__PrimaryExpression__Group_4__2__Impl rule__PrimaryExpression__Group_4__3 ;
+    // InternalKlangParser.g:5218:1: rule__PrimaryExpression__Group_4__2 : rule__PrimaryExpression__Group_4__2__Impl rule__PrimaryExpression__Group_4__3 ;
     public final void rule__PrimaryExpression__Group_4__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5590:1: ( rule__PrimaryExpression__Group_4__2__Impl rule__PrimaryExpression__Group_4__3 )
-            // InternalKlangParser.g:5591:2: rule__PrimaryExpression__Group_4__2__Impl rule__PrimaryExpression__Group_4__3
+            // InternalKlangParser.g:5222:1: ( rule__PrimaryExpression__Group_4__2__Impl rule__PrimaryExpression__Group_4__3 )
+            // InternalKlangParser.g:5223:2: rule__PrimaryExpression__Group_4__2__Impl rule__PrimaryExpression__Group_4__3
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_26);
             rule__PrimaryExpression__Group_4__2__Impl();
 
             state._fsp--;
@@ -17064,21 +16026,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_4__2__Impl"
-    // InternalKlangParser.g:5598:1: rule__PrimaryExpression__Group_4__2__Impl : ( Int ) ;
+    // InternalKlangParser.g:5230:1: rule__PrimaryExpression__Group_4__2__Impl : ( LeftParenthesis ) ;
     public final void rule__PrimaryExpression__Group_4__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5602:1: ( ( Int ) )
-            // InternalKlangParser.g:5603:1: ( Int )
+            // InternalKlangParser.g:5234:1: ( ( LeftParenthesis ) )
+            // InternalKlangParser.g:5235:1: ( LeftParenthesis )
             {
-            // InternalKlangParser.g:5603:1: ( Int )
-            // InternalKlangParser.g:5604:2: Int
+            // InternalKlangParser.g:5235:1: ( LeftParenthesis )
+            // InternalKlangParser.g:5236:2: LeftParenthesis
             {
-             before(grammarAccess.getPrimaryExpressionAccess().getIntKeyword_4_2()); 
-            match(input,Int,FOLLOW_2); 
-             after(grammarAccess.getPrimaryExpressionAccess().getIntKeyword_4_2()); 
+             before(grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_4_2()); 
+            match(input,LeftParenthesis,FOLLOW_2); 
+             after(grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_4_2()); 
 
             }
 
@@ -17101,16 +16063,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_4__3"
-    // InternalKlangParser.g:5613:1: rule__PrimaryExpression__Group_4__3 : rule__PrimaryExpression__Group_4__3__Impl rule__PrimaryExpression__Group_4__4 ;
+    // InternalKlangParser.g:5245:1: rule__PrimaryExpression__Group_4__3 : rule__PrimaryExpression__Group_4__3__Impl rule__PrimaryExpression__Group_4__4 ;
     public final void rule__PrimaryExpression__Group_4__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5617:1: ( rule__PrimaryExpression__Group_4__3__Impl rule__PrimaryExpression__Group_4__4 )
-            // InternalKlangParser.g:5618:2: rule__PrimaryExpression__Group_4__3__Impl rule__PrimaryExpression__Group_4__4
+            // InternalKlangParser.g:5249:1: ( rule__PrimaryExpression__Group_4__3__Impl rule__PrimaryExpression__Group_4__4 )
+            // InternalKlangParser.g:5250:2: rule__PrimaryExpression__Group_4__3__Impl rule__PrimaryExpression__Group_4__4
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_24);
             rule__PrimaryExpression__Group_4__3__Impl();
 
             state._fsp--;
@@ -17139,21 +16101,31 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_4__3__Impl"
-    // InternalKlangParser.g:5625:1: rule__PrimaryExpression__Group_4__3__Impl : ( RightParenthesis ) ;
+    // InternalKlangParser.g:5257:1: rule__PrimaryExpression__Group_4__3__Impl : ( ( rule__PrimaryExpression__ExpressionAssignment_4_3 ) ) ;
     public final void rule__PrimaryExpression__Group_4__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5629:1: ( ( RightParenthesis ) )
-            // InternalKlangParser.g:5630:1: ( RightParenthesis )
+            // InternalKlangParser.g:5261:1: ( ( ( rule__PrimaryExpression__ExpressionAssignment_4_3 ) ) )
+            // InternalKlangParser.g:5262:1: ( ( rule__PrimaryExpression__ExpressionAssignment_4_3 ) )
             {
-            // InternalKlangParser.g:5630:1: ( RightParenthesis )
-            // InternalKlangParser.g:5631:2: RightParenthesis
+            // InternalKlangParser.g:5262:1: ( ( rule__PrimaryExpression__ExpressionAssignment_4_3 ) )
+            // InternalKlangParser.g:5263:2: ( rule__PrimaryExpression__ExpressionAssignment_4_3 )
             {
-             before(grammarAccess.getPrimaryExpressionAccess().getRightParenthesisKeyword_4_3()); 
-            match(input,RightParenthesis,FOLLOW_2); 
-             after(grammarAccess.getPrimaryExpressionAccess().getRightParenthesisKeyword_4_3()); 
+             before(grammarAccess.getPrimaryExpressionAccess().getExpressionAssignment_4_3()); 
+            // InternalKlangParser.g:5264:2: ( rule__PrimaryExpression__ExpressionAssignment_4_3 )
+            // InternalKlangParser.g:5264:3: rule__PrimaryExpression__ExpressionAssignment_4_3
+            {
+            pushFollow(FOLLOW_2);
+            rule__PrimaryExpression__ExpressionAssignment_4_3();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getPrimaryExpressionAccess().getExpressionAssignment_4_3()); 
 
             }
 
@@ -17176,14 +16148,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_4__4"
-    // InternalKlangParser.g:5640:1: rule__PrimaryExpression__Group_4__4 : rule__PrimaryExpression__Group_4__4__Impl ;
+    // InternalKlangParser.g:5272:1: rule__PrimaryExpression__Group_4__4 : rule__PrimaryExpression__Group_4__4__Impl ;
     public final void rule__PrimaryExpression__Group_4__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5644:1: ( rule__PrimaryExpression__Group_4__4__Impl )
-            // InternalKlangParser.g:5645:2: rule__PrimaryExpression__Group_4__4__Impl
+            // InternalKlangParser.g:5276:1: ( rule__PrimaryExpression__Group_4__4__Impl )
+            // InternalKlangParser.g:5277:2: rule__PrimaryExpression__Group_4__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PrimaryExpression__Group_4__4__Impl();
@@ -17209,31 +16181,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__Group_4__4__Impl"
-    // InternalKlangParser.g:5651:1: rule__PrimaryExpression__Group_4__4__Impl : ( ( rule__PrimaryExpression__ExpressionAssignment_4_4 ) ) ;
+    // InternalKlangParser.g:5283:1: rule__PrimaryExpression__Group_4__4__Impl : ( RightParenthesis ) ;
     public final void rule__PrimaryExpression__Group_4__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5655:1: ( ( ( rule__PrimaryExpression__ExpressionAssignment_4_4 ) ) )
-            // InternalKlangParser.g:5656:1: ( ( rule__PrimaryExpression__ExpressionAssignment_4_4 ) )
+            // InternalKlangParser.g:5287:1: ( ( RightParenthesis ) )
+            // InternalKlangParser.g:5288:1: ( RightParenthesis )
             {
-            // InternalKlangParser.g:5656:1: ( ( rule__PrimaryExpression__ExpressionAssignment_4_4 ) )
-            // InternalKlangParser.g:5657:2: ( rule__PrimaryExpression__ExpressionAssignment_4_4 )
+            // InternalKlangParser.g:5288:1: ( RightParenthesis )
+            // InternalKlangParser.g:5289:2: RightParenthesis
             {
-             before(grammarAccess.getPrimaryExpressionAccess().getExpressionAssignment_4_4()); 
-            // InternalKlangParser.g:5658:2: ( rule__PrimaryExpression__ExpressionAssignment_4_4 )
-            // InternalKlangParser.g:5658:3: rule__PrimaryExpression__ExpressionAssignment_4_4
-            {
-            pushFollow(FOLLOW_2);
-            rule__PrimaryExpression__ExpressionAssignment_4_4();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getPrimaryExpressionAccess().getExpressionAssignment_4_4()); 
+             before(grammarAccess.getPrimaryExpressionAccess().getRightParenthesisKeyword_4_4()); 
+            match(input,RightParenthesis,FOLLOW_2); 
+             after(grammarAccess.getPrimaryExpressionAccess().getRightParenthesisKeyword_4_4()); 
 
             }
 
@@ -17256,16 +16218,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpression__Group_0__0"
-    // InternalKlangParser.g:5667:1: rule__AtomicExpression__Group_0__0 : rule__AtomicExpression__Group_0__0__Impl rule__AtomicExpression__Group_0__1 ;
+    // InternalKlangParser.g:5299:1: rule__AtomicExpression__Group_0__0 : rule__AtomicExpression__Group_0__0__Impl rule__AtomicExpression__Group_0__1 ;
     public final void rule__AtomicExpression__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5671:1: ( rule__AtomicExpression__Group_0__0__Impl rule__AtomicExpression__Group_0__1 )
-            // InternalKlangParser.g:5672:2: rule__AtomicExpression__Group_0__0__Impl rule__AtomicExpression__Group_0__1
+            // InternalKlangParser.g:5303:1: ( rule__AtomicExpression__Group_0__0__Impl rule__AtomicExpression__Group_0__1 )
+            // InternalKlangParser.g:5304:2: rule__AtomicExpression__Group_0__0__Impl rule__AtomicExpression__Group_0__1
             {
-            pushFollow(FOLLOW_55);
+            pushFollow(FOLLOW_52);
             rule__AtomicExpression__Group_0__0__Impl();
 
             state._fsp--;
@@ -17294,21 +16256,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpression__Group_0__0__Impl"
-    // InternalKlangParser.g:5679:1: rule__AtomicExpression__Group_0__0__Impl : ( () ) ;
+    // InternalKlangParser.g:5311:1: rule__AtomicExpression__Group_0__0__Impl : ( () ) ;
     public final void rule__AtomicExpression__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5683:1: ( ( () ) )
-            // InternalKlangParser.g:5684:1: ( () )
+            // InternalKlangParser.g:5315:1: ( ( () ) )
+            // InternalKlangParser.g:5316:1: ( () )
             {
-            // InternalKlangParser.g:5684:1: ( () )
-            // InternalKlangParser.g:5685:2: ()
+            // InternalKlangParser.g:5316:1: ( () )
+            // InternalKlangParser.g:5317:2: ()
             {
              before(grammarAccess.getAtomicExpressionAccess().getBooleanLiteralAction_0_0()); 
-            // InternalKlangParser.g:5686:2: ()
-            // InternalKlangParser.g:5686:3: 
+            // InternalKlangParser.g:5318:2: ()
+            // InternalKlangParser.g:5318:3: 
             {
             }
 
@@ -17331,14 +16293,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpression__Group_0__1"
-    // InternalKlangParser.g:5694:1: rule__AtomicExpression__Group_0__1 : rule__AtomicExpression__Group_0__1__Impl ;
+    // InternalKlangParser.g:5326:1: rule__AtomicExpression__Group_0__1 : rule__AtomicExpression__Group_0__1__Impl ;
     public final void rule__AtomicExpression__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5698:1: ( rule__AtomicExpression__Group_0__1__Impl )
-            // InternalKlangParser.g:5699:2: rule__AtomicExpression__Group_0__1__Impl
+            // InternalKlangParser.g:5330:1: ( rule__AtomicExpression__Group_0__1__Impl )
+            // InternalKlangParser.g:5331:2: rule__AtomicExpression__Group_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__AtomicExpression__Group_0__1__Impl();
@@ -17364,21 +16326,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpression__Group_0__1__Impl"
-    // InternalKlangParser.g:5705:1: rule__AtomicExpression__Group_0__1__Impl : ( ( rule__AtomicExpression__Alternatives_0_1 ) ) ;
+    // InternalKlangParser.g:5337:1: rule__AtomicExpression__Group_0__1__Impl : ( ( rule__AtomicExpression__Alternatives_0_1 ) ) ;
     public final void rule__AtomicExpression__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5709:1: ( ( ( rule__AtomicExpression__Alternatives_0_1 ) ) )
-            // InternalKlangParser.g:5710:1: ( ( rule__AtomicExpression__Alternatives_0_1 ) )
+            // InternalKlangParser.g:5341:1: ( ( ( rule__AtomicExpression__Alternatives_0_1 ) ) )
+            // InternalKlangParser.g:5342:1: ( ( rule__AtomicExpression__Alternatives_0_1 ) )
             {
-            // InternalKlangParser.g:5710:1: ( ( rule__AtomicExpression__Alternatives_0_1 ) )
-            // InternalKlangParser.g:5711:2: ( rule__AtomicExpression__Alternatives_0_1 )
+            // InternalKlangParser.g:5342:1: ( ( rule__AtomicExpression__Alternatives_0_1 ) )
+            // InternalKlangParser.g:5343:2: ( rule__AtomicExpression__Alternatives_0_1 )
             {
              before(grammarAccess.getAtomicExpressionAccess().getAlternatives_0_1()); 
-            // InternalKlangParser.g:5712:2: ( rule__AtomicExpression__Alternatives_0_1 )
-            // InternalKlangParser.g:5712:3: rule__AtomicExpression__Alternatives_0_1
+            // InternalKlangParser.g:5344:2: ( rule__AtomicExpression__Alternatives_0_1 )
+            // InternalKlangParser.g:5344:3: rule__AtomicExpression__Alternatives_0_1
             {
             pushFollow(FOLLOW_2);
             rule__AtomicExpression__Alternatives_0_1();
@@ -17411,16 +16373,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpression__Group_1__0"
-    // InternalKlangParser.g:5721:1: rule__AtomicExpression__Group_1__0 : rule__AtomicExpression__Group_1__0__Impl rule__AtomicExpression__Group_1__1 ;
+    // InternalKlangParser.g:5353:1: rule__AtomicExpression__Group_1__0 : rule__AtomicExpression__Group_1__0__Impl rule__AtomicExpression__Group_1__1 ;
     public final void rule__AtomicExpression__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5725:1: ( rule__AtomicExpression__Group_1__0__Impl rule__AtomicExpression__Group_1__1 )
-            // InternalKlangParser.g:5726:2: rule__AtomicExpression__Group_1__0__Impl rule__AtomicExpression__Group_1__1
+            // InternalKlangParser.g:5357:1: ( rule__AtomicExpression__Group_1__0__Impl rule__AtomicExpression__Group_1__1 )
+            // InternalKlangParser.g:5358:2: rule__AtomicExpression__Group_1__0__Impl rule__AtomicExpression__Group_1__1
             {
-            pushFollow(FOLLOW_56);
+            pushFollow(FOLLOW_53);
             rule__AtomicExpression__Group_1__0__Impl();
 
             state._fsp--;
@@ -17449,21 +16411,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpression__Group_1__0__Impl"
-    // InternalKlangParser.g:5733:1: rule__AtomicExpression__Group_1__0__Impl : ( () ) ;
+    // InternalKlangParser.g:5365:1: rule__AtomicExpression__Group_1__0__Impl : ( () ) ;
     public final void rule__AtomicExpression__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5737:1: ( ( () ) )
-            // InternalKlangParser.g:5738:1: ( () )
+            // InternalKlangParser.g:5369:1: ( ( () ) )
+            // InternalKlangParser.g:5370:1: ( () )
             {
-            // InternalKlangParser.g:5738:1: ( () )
-            // InternalKlangParser.g:5739:2: ()
+            // InternalKlangParser.g:5370:1: ( () )
+            // InternalKlangParser.g:5371:2: ()
             {
              before(grammarAccess.getAtomicExpressionAccess().getDoubleLiteralAction_1_0()); 
-            // InternalKlangParser.g:5740:2: ()
-            // InternalKlangParser.g:5740:3: 
+            // InternalKlangParser.g:5372:2: ()
+            // InternalKlangParser.g:5372:3: 
             {
             }
 
@@ -17486,14 +16448,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpression__Group_1__1"
-    // InternalKlangParser.g:5748:1: rule__AtomicExpression__Group_1__1 : rule__AtomicExpression__Group_1__1__Impl ;
+    // InternalKlangParser.g:5380:1: rule__AtomicExpression__Group_1__1 : rule__AtomicExpression__Group_1__1__Impl ;
     public final void rule__AtomicExpression__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5752:1: ( rule__AtomicExpression__Group_1__1__Impl )
-            // InternalKlangParser.g:5753:2: rule__AtomicExpression__Group_1__1__Impl
+            // InternalKlangParser.g:5384:1: ( rule__AtomicExpression__Group_1__1__Impl )
+            // InternalKlangParser.g:5385:2: rule__AtomicExpression__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__AtomicExpression__Group_1__1__Impl();
@@ -17519,21 +16481,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpression__Group_1__1__Impl"
-    // InternalKlangParser.g:5759:1: rule__AtomicExpression__Group_1__1__Impl : ( ( rule__AtomicExpression__ValueAssignment_1_1 ) ) ;
+    // InternalKlangParser.g:5391:1: rule__AtomicExpression__Group_1__1__Impl : ( ( rule__AtomicExpression__ValueAssignment_1_1 ) ) ;
     public final void rule__AtomicExpression__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5763:1: ( ( ( rule__AtomicExpression__ValueAssignment_1_1 ) ) )
-            // InternalKlangParser.g:5764:1: ( ( rule__AtomicExpression__ValueAssignment_1_1 ) )
+            // InternalKlangParser.g:5395:1: ( ( ( rule__AtomicExpression__ValueAssignment_1_1 ) ) )
+            // InternalKlangParser.g:5396:1: ( ( rule__AtomicExpression__ValueAssignment_1_1 ) )
             {
-            // InternalKlangParser.g:5764:1: ( ( rule__AtomicExpression__ValueAssignment_1_1 ) )
-            // InternalKlangParser.g:5765:2: ( rule__AtomicExpression__ValueAssignment_1_1 )
+            // InternalKlangParser.g:5396:1: ( ( rule__AtomicExpression__ValueAssignment_1_1 ) )
+            // InternalKlangParser.g:5397:2: ( rule__AtomicExpression__ValueAssignment_1_1 )
             {
              before(grammarAccess.getAtomicExpressionAccess().getValueAssignment_1_1()); 
-            // InternalKlangParser.g:5766:2: ( rule__AtomicExpression__ValueAssignment_1_1 )
-            // InternalKlangParser.g:5766:3: rule__AtomicExpression__ValueAssignment_1_1
+            // InternalKlangParser.g:5398:2: ( rule__AtomicExpression__ValueAssignment_1_1 )
+            // InternalKlangParser.g:5398:3: rule__AtomicExpression__ValueAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__AtomicExpression__ValueAssignment_1_1();
@@ -17566,16 +16528,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpression__Group_2__0"
-    // InternalKlangParser.g:5775:1: rule__AtomicExpression__Group_2__0 : rule__AtomicExpression__Group_2__0__Impl rule__AtomicExpression__Group_2__1 ;
+    // InternalKlangParser.g:5407:1: rule__AtomicExpression__Group_2__0 : rule__AtomicExpression__Group_2__0__Impl rule__AtomicExpression__Group_2__1 ;
     public final void rule__AtomicExpression__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5779:1: ( rule__AtomicExpression__Group_2__0__Impl rule__AtomicExpression__Group_2__1 )
-            // InternalKlangParser.g:5780:2: rule__AtomicExpression__Group_2__0__Impl rule__AtomicExpression__Group_2__1
+            // InternalKlangParser.g:5411:1: ( rule__AtomicExpression__Group_2__0__Impl rule__AtomicExpression__Group_2__1 )
+            // InternalKlangParser.g:5412:2: rule__AtomicExpression__Group_2__0__Impl rule__AtomicExpression__Group_2__1
             {
-            pushFollow(FOLLOW_56);
+            pushFollow(FOLLOW_53);
             rule__AtomicExpression__Group_2__0__Impl();
 
             state._fsp--;
@@ -17604,21 +16566,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpression__Group_2__0__Impl"
-    // InternalKlangParser.g:5787:1: rule__AtomicExpression__Group_2__0__Impl : ( () ) ;
+    // InternalKlangParser.g:5419:1: rule__AtomicExpression__Group_2__0__Impl : ( () ) ;
     public final void rule__AtomicExpression__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5791:1: ( ( () ) )
-            // InternalKlangParser.g:5792:1: ( () )
+            // InternalKlangParser.g:5423:1: ( ( () ) )
+            // InternalKlangParser.g:5424:1: ( () )
             {
-            // InternalKlangParser.g:5792:1: ( () )
-            // InternalKlangParser.g:5793:2: ()
+            // InternalKlangParser.g:5424:1: ( () )
+            // InternalKlangParser.g:5425:2: ()
             {
              before(grammarAccess.getAtomicExpressionAccess().getIntegerLiteralAction_2_0()); 
-            // InternalKlangParser.g:5794:2: ()
-            // InternalKlangParser.g:5794:3: 
+            // InternalKlangParser.g:5426:2: ()
+            // InternalKlangParser.g:5426:3: 
             {
             }
 
@@ -17641,14 +16603,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpression__Group_2__1"
-    // InternalKlangParser.g:5802:1: rule__AtomicExpression__Group_2__1 : rule__AtomicExpression__Group_2__1__Impl ;
+    // InternalKlangParser.g:5434:1: rule__AtomicExpression__Group_2__1 : rule__AtomicExpression__Group_2__1__Impl ;
     public final void rule__AtomicExpression__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5806:1: ( rule__AtomicExpression__Group_2__1__Impl )
-            // InternalKlangParser.g:5807:2: rule__AtomicExpression__Group_2__1__Impl
+            // InternalKlangParser.g:5438:1: ( rule__AtomicExpression__Group_2__1__Impl )
+            // InternalKlangParser.g:5439:2: rule__AtomicExpression__Group_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__AtomicExpression__Group_2__1__Impl();
@@ -17674,21 +16636,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpression__Group_2__1__Impl"
-    // InternalKlangParser.g:5813:1: rule__AtomicExpression__Group_2__1__Impl : ( ( rule__AtomicExpression__ValueAssignment_2_1 ) ) ;
+    // InternalKlangParser.g:5445:1: rule__AtomicExpression__Group_2__1__Impl : ( ( rule__AtomicExpression__ValueAssignment_2_1 ) ) ;
     public final void rule__AtomicExpression__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5817:1: ( ( ( rule__AtomicExpression__ValueAssignment_2_1 ) ) )
-            // InternalKlangParser.g:5818:1: ( ( rule__AtomicExpression__ValueAssignment_2_1 ) )
+            // InternalKlangParser.g:5449:1: ( ( ( rule__AtomicExpression__ValueAssignment_2_1 ) ) )
+            // InternalKlangParser.g:5450:1: ( ( rule__AtomicExpression__ValueAssignment_2_1 ) )
             {
-            // InternalKlangParser.g:5818:1: ( ( rule__AtomicExpression__ValueAssignment_2_1 ) )
-            // InternalKlangParser.g:5819:2: ( rule__AtomicExpression__ValueAssignment_2_1 )
+            // InternalKlangParser.g:5450:1: ( ( rule__AtomicExpression__ValueAssignment_2_1 ) )
+            // InternalKlangParser.g:5451:2: ( rule__AtomicExpression__ValueAssignment_2_1 )
             {
              before(grammarAccess.getAtomicExpressionAccess().getValueAssignment_2_1()); 
-            // InternalKlangParser.g:5820:2: ( rule__AtomicExpression__ValueAssignment_2_1 )
-            // InternalKlangParser.g:5820:3: rule__AtomicExpression__ValueAssignment_2_1
+            // InternalKlangParser.g:5452:2: ( rule__AtomicExpression__ValueAssignment_2_1 )
+            // InternalKlangParser.g:5452:3: rule__AtomicExpression__ValueAssignment_2_1
             {
             pushFollow(FOLLOW_2);
             rule__AtomicExpression__ValueAssignment_2_1();
@@ -17721,16 +16683,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpression__Group_3__0"
-    // InternalKlangParser.g:5829:1: rule__AtomicExpression__Group_3__0 : rule__AtomicExpression__Group_3__0__Impl rule__AtomicExpression__Group_3__1 ;
+    // InternalKlangParser.g:5461:1: rule__AtomicExpression__Group_3__0 : rule__AtomicExpression__Group_3__0__Impl rule__AtomicExpression__Group_3__1 ;
     public final void rule__AtomicExpression__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5833:1: ( rule__AtomicExpression__Group_3__0__Impl rule__AtomicExpression__Group_3__1 )
-            // InternalKlangParser.g:5834:2: rule__AtomicExpression__Group_3__0__Impl rule__AtomicExpression__Group_3__1
+            // InternalKlangParser.g:5465:1: ( rule__AtomicExpression__Group_3__0__Impl rule__AtomicExpression__Group_3__1 )
+            // InternalKlangParser.g:5466:2: rule__AtomicExpression__Group_3__0__Impl rule__AtomicExpression__Group_3__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_14);
             rule__AtomicExpression__Group_3__0__Impl();
 
             state._fsp--;
@@ -17759,21 +16721,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpression__Group_3__0__Impl"
-    // InternalKlangParser.g:5841:1: rule__AtomicExpression__Group_3__0__Impl : ( () ) ;
+    // InternalKlangParser.g:5473:1: rule__AtomicExpression__Group_3__0__Impl : ( () ) ;
     public final void rule__AtomicExpression__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5845:1: ( ( () ) )
-            // InternalKlangParser.g:5846:1: ( () )
+            // InternalKlangParser.g:5477:1: ( ( () ) )
+            // InternalKlangParser.g:5478:1: ( () )
             {
-            // InternalKlangParser.g:5846:1: ( () )
-            // InternalKlangParser.g:5847:2: ()
+            // InternalKlangParser.g:5478:1: ( () )
+            // InternalKlangParser.g:5479:2: ()
             {
              before(grammarAccess.getAtomicExpressionAccess().getStringLiteralAction_3_0()); 
-            // InternalKlangParser.g:5848:2: ()
-            // InternalKlangParser.g:5848:3: 
+            // InternalKlangParser.g:5480:2: ()
+            // InternalKlangParser.g:5480:3: 
             {
             }
 
@@ -17796,14 +16758,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpression__Group_3__1"
-    // InternalKlangParser.g:5856:1: rule__AtomicExpression__Group_3__1 : rule__AtomicExpression__Group_3__1__Impl ;
+    // InternalKlangParser.g:5488:1: rule__AtomicExpression__Group_3__1 : rule__AtomicExpression__Group_3__1__Impl ;
     public final void rule__AtomicExpression__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5860:1: ( rule__AtomicExpression__Group_3__1__Impl )
-            // InternalKlangParser.g:5861:2: rule__AtomicExpression__Group_3__1__Impl
+            // InternalKlangParser.g:5492:1: ( rule__AtomicExpression__Group_3__1__Impl )
+            // InternalKlangParser.g:5493:2: rule__AtomicExpression__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__AtomicExpression__Group_3__1__Impl();
@@ -17829,21 +16791,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpression__Group_3__1__Impl"
-    // InternalKlangParser.g:5867:1: rule__AtomicExpression__Group_3__1__Impl : ( ( rule__AtomicExpression__ValueAssignment_3_1 ) ) ;
+    // InternalKlangParser.g:5499:1: rule__AtomicExpression__Group_3__1__Impl : ( ( rule__AtomicExpression__ValueAssignment_3_1 ) ) ;
     public final void rule__AtomicExpression__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5871:1: ( ( ( rule__AtomicExpression__ValueAssignment_3_1 ) ) )
-            // InternalKlangParser.g:5872:1: ( ( rule__AtomicExpression__ValueAssignment_3_1 ) )
+            // InternalKlangParser.g:5503:1: ( ( ( rule__AtomicExpression__ValueAssignment_3_1 ) ) )
+            // InternalKlangParser.g:5504:1: ( ( rule__AtomicExpression__ValueAssignment_3_1 ) )
             {
-            // InternalKlangParser.g:5872:1: ( ( rule__AtomicExpression__ValueAssignment_3_1 ) )
-            // InternalKlangParser.g:5873:2: ( rule__AtomicExpression__ValueAssignment_3_1 )
+            // InternalKlangParser.g:5504:1: ( ( rule__AtomicExpression__ValueAssignment_3_1 ) )
+            // InternalKlangParser.g:5505:2: ( rule__AtomicExpression__ValueAssignment_3_1 )
             {
              before(grammarAccess.getAtomicExpressionAccess().getValueAssignment_3_1()); 
-            // InternalKlangParser.g:5874:2: ( rule__AtomicExpression__ValueAssignment_3_1 )
-            // InternalKlangParser.g:5874:3: rule__AtomicExpression__ValueAssignment_3_1
+            // InternalKlangParser.g:5506:2: ( rule__AtomicExpression__ValueAssignment_3_1 )
+            // InternalKlangParser.g:5506:3: rule__AtomicExpression__ValueAssignment_3_1
             {
             pushFollow(FOLLOW_2);
             rule__AtomicExpression__ValueAssignment_3_1();
@@ -17876,16 +16838,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpression__Group_4__0"
-    // InternalKlangParser.g:5883:1: rule__AtomicExpression__Group_4__0 : rule__AtomicExpression__Group_4__0__Impl rule__AtomicExpression__Group_4__1 ;
+    // InternalKlangParser.g:5515:1: rule__AtomicExpression__Group_4__0 : rule__AtomicExpression__Group_4__0__Impl rule__AtomicExpression__Group_4__1 ;
     public final void rule__AtomicExpression__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5887:1: ( rule__AtomicExpression__Group_4__0__Impl rule__AtomicExpression__Group_4__1 )
-            // InternalKlangParser.g:5888:2: rule__AtomicExpression__Group_4__0__Impl rule__AtomicExpression__Group_4__1
+            // InternalKlangParser.g:5519:1: ( rule__AtomicExpression__Group_4__0__Impl rule__AtomicExpression__Group_4__1 )
+            // InternalKlangParser.g:5520:2: rule__AtomicExpression__Group_4__0__Impl rule__AtomicExpression__Group_4__1
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_26);
             rule__AtomicExpression__Group_4__0__Impl();
 
             state._fsp--;
@@ -17914,21 +16876,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpression__Group_4__0__Impl"
-    // InternalKlangParser.g:5895:1: rule__AtomicExpression__Group_4__0__Impl : ( () ) ;
+    // InternalKlangParser.g:5527:1: rule__AtomicExpression__Group_4__0__Impl : ( () ) ;
     public final void rule__AtomicExpression__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5899:1: ( ( () ) )
-            // InternalKlangParser.g:5900:1: ( () )
+            // InternalKlangParser.g:5531:1: ( ( () ) )
+            // InternalKlangParser.g:5532:1: ( () )
             {
-            // InternalKlangParser.g:5900:1: ( () )
-            // InternalKlangParser.g:5901:2: ()
+            // InternalKlangParser.g:5532:1: ( () )
+            // InternalKlangParser.g:5533:2: ()
             {
              before(grammarAccess.getAtomicExpressionAccess().getVariableReferenceAction_4_0()); 
-            // InternalKlangParser.g:5902:2: ()
-            // InternalKlangParser.g:5902:3: 
+            // InternalKlangParser.g:5534:2: ()
+            // InternalKlangParser.g:5534:3: 
             {
             }
 
@@ -17951,14 +16913,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpression__Group_4__1"
-    // InternalKlangParser.g:5910:1: rule__AtomicExpression__Group_4__1 : rule__AtomicExpression__Group_4__1__Impl ;
+    // InternalKlangParser.g:5542:1: rule__AtomicExpression__Group_4__1 : rule__AtomicExpression__Group_4__1__Impl ;
     public final void rule__AtomicExpression__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5914:1: ( rule__AtomicExpression__Group_4__1__Impl )
-            // InternalKlangParser.g:5915:2: rule__AtomicExpression__Group_4__1__Impl
+            // InternalKlangParser.g:5546:1: ( rule__AtomicExpression__Group_4__1__Impl )
+            // InternalKlangParser.g:5547:2: rule__AtomicExpression__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__AtomicExpression__Group_4__1__Impl();
@@ -17984,21 +16946,21 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpression__Group_4__1__Impl"
-    // InternalKlangParser.g:5921:1: rule__AtomicExpression__Group_4__1__Impl : ( ( rule__AtomicExpression__VariableNameAssignment_4_1 ) ) ;
+    // InternalKlangParser.g:5553:1: rule__AtomicExpression__Group_4__1__Impl : ( ( rule__AtomicExpression__VariableNameAssignment_4_1 ) ) ;
     public final void rule__AtomicExpression__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5925:1: ( ( ( rule__AtomicExpression__VariableNameAssignment_4_1 ) ) )
-            // InternalKlangParser.g:5926:1: ( ( rule__AtomicExpression__VariableNameAssignment_4_1 ) )
+            // InternalKlangParser.g:5557:1: ( ( ( rule__AtomicExpression__VariableNameAssignment_4_1 ) ) )
+            // InternalKlangParser.g:5558:1: ( ( rule__AtomicExpression__VariableNameAssignment_4_1 ) )
             {
-            // InternalKlangParser.g:5926:1: ( ( rule__AtomicExpression__VariableNameAssignment_4_1 ) )
-            // InternalKlangParser.g:5927:2: ( rule__AtomicExpression__VariableNameAssignment_4_1 )
+            // InternalKlangParser.g:5558:1: ( ( rule__AtomicExpression__VariableNameAssignment_4_1 ) )
+            // InternalKlangParser.g:5559:2: ( rule__AtomicExpression__VariableNameAssignment_4_1 )
             {
              before(grammarAccess.getAtomicExpressionAccess().getVariableNameAssignment_4_1()); 
-            // InternalKlangParser.g:5928:2: ( rule__AtomicExpression__VariableNameAssignment_4_1 )
-            // InternalKlangParser.g:5928:3: rule__AtomicExpression__VariableNameAssignment_4_1
+            // InternalKlangParser.g:5560:2: ( rule__AtomicExpression__VariableNameAssignment_4_1 )
+            // InternalKlangParser.g:5560:3: rule__AtomicExpression__VariableNameAssignment_4_1
             {
             pushFollow(FOLLOW_2);
             rule__AtomicExpression__VariableNameAssignment_4_1();
@@ -18031,16 +16993,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group__0"
-    // InternalKlangParser.g:5937:1: rule__DECIMAL__Group__0 : rule__DECIMAL__Group__0__Impl rule__DECIMAL__Group__1 ;
+    // InternalKlangParser.g:5569:1: rule__DECIMAL__Group__0 : rule__DECIMAL__Group__0__Impl rule__DECIMAL__Group__1 ;
     public final void rule__DECIMAL__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5941:1: ( rule__DECIMAL__Group__0__Impl rule__DECIMAL__Group__1 )
-            // InternalKlangParser.g:5942:2: rule__DECIMAL__Group__0__Impl rule__DECIMAL__Group__1
+            // InternalKlangParser.g:5573:1: ( rule__DECIMAL__Group__0__Impl rule__DECIMAL__Group__1 )
+            // InternalKlangParser.g:5574:2: rule__DECIMAL__Group__0__Impl rule__DECIMAL__Group__1
             {
-            pushFollow(FOLLOW_57);
+            pushFollow(FOLLOW_54);
             rule__DECIMAL__Group__0__Impl();
 
             state._fsp--;
@@ -18069,17 +17031,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group__0__Impl"
-    // InternalKlangParser.g:5949:1: rule__DECIMAL__Group__0__Impl : ( RULE_INT ) ;
+    // InternalKlangParser.g:5581:1: rule__DECIMAL__Group__0__Impl : ( RULE_INT ) ;
     public final void rule__DECIMAL__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5953:1: ( ( RULE_INT ) )
-            // InternalKlangParser.g:5954:1: ( RULE_INT )
+            // InternalKlangParser.g:5585:1: ( ( RULE_INT ) )
+            // InternalKlangParser.g:5586:1: ( RULE_INT )
             {
-            // InternalKlangParser.g:5954:1: ( RULE_INT )
-            // InternalKlangParser.g:5955:2: RULE_INT
+            // InternalKlangParser.g:5586:1: ( RULE_INT )
+            // InternalKlangParser.g:5587:2: RULE_INT
             {
              before(grammarAccess.getDECIMALAccess().getINTTerminalRuleCall_0()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -18106,16 +17068,16 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group__1"
-    // InternalKlangParser.g:5964:1: rule__DECIMAL__Group__1 : rule__DECIMAL__Group__1__Impl rule__DECIMAL__Group__2 ;
+    // InternalKlangParser.g:5596:1: rule__DECIMAL__Group__1 : rule__DECIMAL__Group__1__Impl rule__DECIMAL__Group__2 ;
     public final void rule__DECIMAL__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5968:1: ( rule__DECIMAL__Group__1__Impl rule__DECIMAL__Group__2 )
-            // InternalKlangParser.g:5969:2: rule__DECIMAL__Group__1__Impl rule__DECIMAL__Group__2
+            // InternalKlangParser.g:5600:1: ( rule__DECIMAL__Group__1__Impl rule__DECIMAL__Group__2 )
+            // InternalKlangParser.g:5601:2: rule__DECIMAL__Group__1__Impl rule__DECIMAL__Group__2
             {
-            pushFollow(FOLLOW_56);
+            pushFollow(FOLLOW_53);
             rule__DECIMAL__Group__1__Impl();
 
             state._fsp--;
@@ -18144,17 +17106,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group__1__Impl"
-    // InternalKlangParser.g:5976:1: rule__DECIMAL__Group__1__Impl : ( FullStop ) ;
+    // InternalKlangParser.g:5608:1: rule__DECIMAL__Group__1__Impl : ( FullStop ) ;
     public final void rule__DECIMAL__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5980:1: ( ( FullStop ) )
-            // InternalKlangParser.g:5981:1: ( FullStop )
+            // InternalKlangParser.g:5612:1: ( ( FullStop ) )
+            // InternalKlangParser.g:5613:1: ( FullStop )
             {
-            // InternalKlangParser.g:5981:1: ( FullStop )
-            // InternalKlangParser.g:5982:2: FullStop
+            // InternalKlangParser.g:5613:1: ( FullStop )
+            // InternalKlangParser.g:5614:2: FullStop
             {
              before(grammarAccess.getDECIMALAccess().getFullStopKeyword_1()); 
             match(input,FullStop,FOLLOW_2); 
@@ -18181,14 +17143,14 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group__2"
-    // InternalKlangParser.g:5991:1: rule__DECIMAL__Group__2 : rule__DECIMAL__Group__2__Impl ;
+    // InternalKlangParser.g:5623:1: rule__DECIMAL__Group__2 : rule__DECIMAL__Group__2__Impl ;
     public final void rule__DECIMAL__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:5995:1: ( rule__DECIMAL__Group__2__Impl )
-            // InternalKlangParser.g:5996:2: rule__DECIMAL__Group__2__Impl
+            // InternalKlangParser.g:5627:1: ( rule__DECIMAL__Group__2__Impl )
+            // InternalKlangParser.g:5628:2: rule__DECIMAL__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DECIMAL__Group__2__Impl();
@@ -18214,17 +17176,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group__2__Impl"
-    // InternalKlangParser.g:6002:1: rule__DECIMAL__Group__2__Impl : ( RULE_INT ) ;
+    // InternalKlangParser.g:5634:1: rule__DECIMAL__Group__2__Impl : ( RULE_INT ) ;
     public final void rule__DECIMAL__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6006:1: ( ( RULE_INT ) )
-            // InternalKlangParser.g:6007:1: ( RULE_INT )
+            // InternalKlangParser.g:5638:1: ( ( RULE_INT ) )
+            // InternalKlangParser.g:5639:1: ( RULE_INT )
             {
-            // InternalKlangParser.g:6007:1: ( RULE_INT )
-            // InternalKlangParser.g:6008:2: RULE_INT
+            // InternalKlangParser.g:5639:1: ( RULE_INT )
+            // InternalKlangParser.g:5640:2: RULE_INT
             {
              before(grammarAccess.getDECIMALAccess().getINTTerminalRuleCall_2()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -18251,17 +17213,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Program__SceneActorAssignment_0"
-    // InternalKlangParser.g:6018:1: rule__Program__SceneActorAssignment_0 : ( ruleSceneActor ) ;
+    // InternalKlangParser.g:5650:1: rule__Program__SceneActorAssignment_0 : ( ruleSceneActor ) ;
     public final void rule__Program__SceneActorAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6022:1: ( ( ruleSceneActor ) )
-            // InternalKlangParser.g:6023:2: ( ruleSceneActor )
+            // InternalKlangParser.g:5654:1: ( ( ruleSceneActor ) )
+            // InternalKlangParser.g:5655:2: ( ruleSceneActor )
             {
-            // InternalKlangParser.g:6023:2: ( ruleSceneActor )
-            // InternalKlangParser.g:6024:3: ruleSceneActor
+            // InternalKlangParser.g:5655:2: ( ruleSceneActor )
+            // InternalKlangParser.g:5656:3: ruleSceneActor
             {
              before(grammarAccess.getProgramAccess().getSceneActorSceneActorParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -18292,17 +17254,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Program__SpriteActorsAssignment_1"
-    // InternalKlangParser.g:6033:1: rule__Program__SpriteActorsAssignment_1 : ( ruleSpriteActor ) ;
+    // InternalKlangParser.g:5665:1: rule__Program__SpriteActorsAssignment_1 : ( ruleSpriteActor ) ;
     public final void rule__Program__SpriteActorsAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6037:1: ( ( ruleSpriteActor ) )
-            // InternalKlangParser.g:6038:2: ( ruleSpriteActor )
+            // InternalKlangParser.g:5669:1: ( ( ruleSpriteActor ) )
+            // InternalKlangParser.g:5670:2: ( ruleSpriteActor )
             {
-            // InternalKlangParser.g:6038:2: ( ruleSpriteActor )
-            // InternalKlangParser.g:6039:3: ruleSpriteActor
+            // InternalKlangParser.g:5670:2: ( ruleSpriteActor )
+            // InternalKlangParser.g:5671:3: ruleSpriteActor
             {
              before(grammarAccess.getProgramAccess().getSpriteActorsSpriteActorParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -18333,17 +17295,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SceneActor__NameAssignment_2"
-    // InternalKlangParser.g:6048:1: rule__SceneActor__NameAssignment_2 : ( RULE_ID ) ;
+    // InternalKlangParser.g:5680:1: rule__SceneActor__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__SceneActor__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6052:1: ( ( RULE_ID ) )
-            // InternalKlangParser.g:6053:2: ( RULE_ID )
+            // InternalKlangParser.g:5684:1: ( ( RULE_ID ) )
+            // InternalKlangParser.g:5685:2: ( RULE_ID )
             {
-            // InternalKlangParser.g:6053:2: ( RULE_ID )
-            // InternalKlangParser.g:6054:3: RULE_ID
+            // InternalKlangParser.g:5685:2: ( RULE_ID )
+            // InternalKlangParser.g:5686:3: RULE_ID
             {
              before(grammarAccess.getSceneActorAccess().getNameIDTerminalRuleCall_2_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -18370,17 +17332,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SceneActor__LocalVariablesAssignment_3_1"
-    // InternalKlangParser.g:6063:1: rule__SceneActor__LocalVariablesAssignment_3_1 : ( ruleVariableDeclaration ) ;
+    // InternalKlangParser.g:5695:1: rule__SceneActor__LocalVariablesAssignment_3_1 : ( ruleVariableDeclaration ) ;
     public final void rule__SceneActor__LocalVariablesAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6067:1: ( ( ruleVariableDeclaration ) )
-            // InternalKlangParser.g:6068:2: ( ruleVariableDeclaration )
+            // InternalKlangParser.g:5699:1: ( ( ruleVariableDeclaration ) )
+            // InternalKlangParser.g:5700:2: ( ruleVariableDeclaration )
             {
-            // InternalKlangParser.g:6068:2: ( ruleVariableDeclaration )
-            // InternalKlangParser.g:6069:3: ruleVariableDeclaration
+            // InternalKlangParser.g:5700:2: ( ruleVariableDeclaration )
+            // InternalKlangParser.g:5701:3: ruleVariableDeclaration
             {
              before(grammarAccess.getSceneActorAccess().getLocalVariablesVariableDeclarationParserRuleCall_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -18411,17 +17373,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SceneActor__EventHandlersAssignment_3_2"
-    // InternalKlangParser.g:6078:1: rule__SceneActor__EventHandlersAssignment_3_2 : ( ruleEventHandler ) ;
+    // InternalKlangParser.g:5710:1: rule__SceneActor__EventHandlersAssignment_3_2 : ( ruleEventHandler ) ;
     public final void rule__SceneActor__EventHandlersAssignment_3_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6082:1: ( ( ruleEventHandler ) )
-            // InternalKlangParser.g:6083:2: ( ruleEventHandler )
+            // InternalKlangParser.g:5714:1: ( ( ruleEventHandler ) )
+            // InternalKlangParser.g:5715:2: ( ruleEventHandler )
             {
-            // InternalKlangParser.g:6083:2: ( ruleEventHandler )
-            // InternalKlangParser.g:6084:3: ruleEventHandler
+            // InternalKlangParser.g:5715:2: ( ruleEventHandler )
+            // InternalKlangParser.g:5716:3: ruleEventHandler
             {
              before(grammarAccess.getSceneActorAccess().getEventHandlersEventHandlerParserRuleCall_3_2_0()); 
             pushFollow(FOLLOW_2);
@@ -18452,17 +17414,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SpriteActor__NameAssignment_2"
-    // InternalKlangParser.g:6093:1: rule__SpriteActor__NameAssignment_2 : ( RULE_ID ) ;
+    // InternalKlangParser.g:5725:1: rule__SpriteActor__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__SpriteActor__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6097:1: ( ( RULE_ID ) )
-            // InternalKlangParser.g:6098:2: ( RULE_ID )
+            // InternalKlangParser.g:5729:1: ( ( RULE_ID ) )
+            // InternalKlangParser.g:5730:2: ( RULE_ID )
             {
-            // InternalKlangParser.g:6098:2: ( RULE_ID )
-            // InternalKlangParser.g:6099:3: RULE_ID
+            // InternalKlangParser.g:5730:2: ( RULE_ID )
+            // InternalKlangParser.g:5731:3: RULE_ID
             {
              before(grammarAccess.getSpriteActorAccess().getNameIDTerminalRuleCall_2_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -18489,17 +17451,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SpriteActor__LocalVariablesAssignment_3_1"
-    // InternalKlangParser.g:6108:1: rule__SpriteActor__LocalVariablesAssignment_3_1 : ( ruleVariableDeclaration ) ;
+    // InternalKlangParser.g:5740:1: rule__SpriteActor__LocalVariablesAssignment_3_1 : ( ruleVariableDeclaration ) ;
     public final void rule__SpriteActor__LocalVariablesAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6112:1: ( ( ruleVariableDeclaration ) )
-            // InternalKlangParser.g:6113:2: ( ruleVariableDeclaration )
+            // InternalKlangParser.g:5744:1: ( ( ruleVariableDeclaration ) )
+            // InternalKlangParser.g:5745:2: ( ruleVariableDeclaration )
             {
-            // InternalKlangParser.g:6113:2: ( ruleVariableDeclaration )
-            // InternalKlangParser.g:6114:3: ruleVariableDeclaration
+            // InternalKlangParser.g:5745:2: ( ruleVariableDeclaration )
+            // InternalKlangParser.g:5746:3: ruleVariableDeclaration
             {
              before(grammarAccess.getSpriteActorAccess().getLocalVariablesVariableDeclarationParserRuleCall_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -18530,17 +17492,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SpriteActor__EventHandlersAssignment_3_2"
-    // InternalKlangParser.g:6123:1: rule__SpriteActor__EventHandlersAssignment_3_2 : ( ruleEventHandler ) ;
+    // InternalKlangParser.g:5755:1: rule__SpriteActor__EventHandlersAssignment_3_2 : ( ruleEventHandler ) ;
     public final void rule__SpriteActor__EventHandlersAssignment_3_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6127:1: ( ( ruleEventHandler ) )
-            // InternalKlangParser.g:6128:2: ( ruleEventHandler )
+            // InternalKlangParser.g:5759:1: ( ( ruleEventHandler ) )
+            // InternalKlangParser.g:5760:2: ( ruleEventHandler )
             {
-            // InternalKlangParser.g:6128:2: ( ruleEventHandler )
-            // InternalKlangParser.g:6129:3: ruleEventHandler
+            // InternalKlangParser.g:5760:2: ( ruleEventHandler )
+            // InternalKlangParser.g:5761:3: ruleEventHandler
             {
              before(grammarAccess.getSpriteActorAccess().getEventHandlersEventHandlerParserRuleCall_3_2_0()); 
             pushFollow(FOLLOW_2);
@@ -18570,22 +17532,26 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__SpriteActor__EventHandlersAssignment_3_2"
 
 
-    // $ANTLR start "rule__MessageReceived__NameAssignment_3"
-    // InternalKlangParser.g:6138:1: rule__MessageReceived__NameAssignment_3 : ( RULE_STRING ) ;
-    public final void rule__MessageReceived__NameAssignment_3() throws RecognitionException {
+    // $ANTLR start "rule__EventHandler__ReferenceEventAssignment_1"
+    // InternalKlangParser.g:5770:1: rule__EventHandler__ReferenceEventAssignment_1 : ( ruleEvent ) ;
+    public final void rule__EventHandler__ReferenceEventAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6142:1: ( ( RULE_STRING ) )
-            // InternalKlangParser.g:6143:2: ( RULE_STRING )
+            // InternalKlangParser.g:5774:1: ( ( ruleEvent ) )
+            // InternalKlangParser.g:5775:2: ( ruleEvent )
             {
-            // InternalKlangParser.g:6143:2: ( RULE_STRING )
-            // InternalKlangParser.g:6144:3: RULE_STRING
+            // InternalKlangParser.g:5775:2: ( ruleEvent )
+            // InternalKlangParser.g:5776:3: ruleEvent
             {
-             before(grammarAccess.getMessageReceivedAccess().getNameSTRINGTerminalRuleCall_3_0()); 
-            match(input,RULE_STRING,FOLLOW_2); 
-             after(grammarAccess.getMessageReceivedAccess().getNameSTRINGTerminalRuleCall_3_0()); 
+             before(grammarAccess.getEventHandlerAccess().getReferenceEventEventParserRuleCall_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEvent();
+
+            state._fsp--;
+
+             after(grammarAccess.getEventHandlerAccess().getReferenceEventEventParserRuleCall_1_0()); 
 
             }
 
@@ -18604,29 +17570,29 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MessageReceived__NameAssignment_3"
+    // $ANTLR end "rule__EventHandler__ReferenceEventAssignment_1"
 
 
-    // $ANTLR start "rule__MessageReceived__StatementsAssignment_7"
-    // InternalKlangParser.g:6153:1: rule__MessageReceived__StatementsAssignment_7 : ( ruleStatement ) ;
-    public final void rule__MessageReceived__StatementsAssignment_7() throws RecognitionException {
+    // $ANTLR start "rule__EventHandler__StatementsAssignment_3"
+    // InternalKlangParser.g:5785:1: rule__EventHandler__StatementsAssignment_3 : ( ruleStatement ) ;
+    public final void rule__EventHandler__StatementsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6157:1: ( ( ruleStatement ) )
-            // InternalKlangParser.g:6158:2: ( ruleStatement )
+            // InternalKlangParser.g:5789:1: ( ( ruleStatement ) )
+            // InternalKlangParser.g:5790:2: ( ruleStatement )
             {
-            // InternalKlangParser.g:6158:2: ( ruleStatement )
-            // InternalKlangParser.g:6159:3: ruleStatement
+            // InternalKlangParser.g:5790:2: ( ruleStatement )
+            // InternalKlangParser.g:5791:3: ruleStatement
             {
-             before(grammarAccess.getMessageReceivedAccess().getStatementsStatementParserRuleCall_7_0()); 
+             before(grammarAccess.getEventHandlerAccess().getStatementsStatementParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
             ruleStatement();
 
             state._fsp--;
 
-             after(grammarAccess.getMessageReceivedAccess().getStatementsStatementParserRuleCall_7_0()); 
+             after(grammarAccess.getEventHandlerAccess().getStatementsStatementParserRuleCall_3_0()); 
 
             }
 
@@ -18645,21 +17611,144 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MessageReceived__StatementsAssignment_7"
+    // $ANTLR end "rule__EventHandler__StatementsAssignment_3"
+
+
+    // $ANTLR start "rule__MessageReceivedEvent__NameAssignment_1"
+    // InternalKlangParser.g:5800:1: rule__MessageReceivedEvent__NameAssignment_1 : ( RULE_STRING ) ;
+    public final void rule__MessageReceivedEvent__NameAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:5804:1: ( ( RULE_STRING ) )
+            // InternalKlangParser.g:5805:2: ( RULE_STRING )
+            {
+            // InternalKlangParser.g:5805:2: ( RULE_STRING )
+            // InternalKlangParser.g:5806:3: RULE_STRING
+            {
+             before(grammarAccess.getMessageReceivedEventAccess().getNameSTRINGTerminalRuleCall_1_0()); 
+            match(input,RULE_STRING,FOLLOW_2); 
+             after(grammarAccess.getMessageReceivedEventAccess().getNameSTRINGTerminalRuleCall_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__MessageReceivedEvent__NameAssignment_1"
+
+
+    // $ANTLR start "rule__KeyPressedEvent__KeyAssignment_1"
+    // InternalKlangParser.g:5815:1: rule__KeyPressedEvent__KeyAssignment_1 : ( ruleKeys ) ;
+    public final void rule__KeyPressedEvent__KeyAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:5819:1: ( ( ruleKeys ) )
+            // InternalKlangParser.g:5820:2: ( ruleKeys )
+            {
+            // InternalKlangParser.g:5820:2: ( ruleKeys )
+            // InternalKlangParser.g:5821:3: ruleKeys
+            {
+             before(grammarAccess.getKeyPressedEventAccess().getKeyKeysEnumRuleCall_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleKeys();
+
+            state._fsp--;
+
+             after(grammarAccess.getKeyPressedEventAccess().getKeyKeysEnumRuleCall_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__KeyPressedEvent__KeyAssignment_1"
+
+
+    // $ANTLR start "rule__CollisionEvent__TargetAssignment_3"
+    // InternalKlangParser.g:5830:1: rule__CollisionEvent__TargetAssignment_3 : ( ( RULE_ID ) ) ;
+    public final void rule__CollisionEvent__TargetAssignment_3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKlangParser.g:5834:1: ( ( ( RULE_ID ) ) )
+            // InternalKlangParser.g:5835:2: ( ( RULE_ID ) )
+            {
+            // InternalKlangParser.g:5835:2: ( ( RULE_ID ) )
+            // InternalKlangParser.g:5836:3: ( RULE_ID )
+            {
+             before(grammarAccess.getCollisionEventAccess().getTargetSpriteActorCrossReference_3_0()); 
+            // InternalKlangParser.g:5837:3: ( RULE_ID )
+            // InternalKlangParser.g:5838:4: RULE_ID
+            {
+             before(grammarAccess.getCollisionEventAccess().getTargetSpriteActorIDTerminalRuleCall_3_0_1()); 
+            match(input,RULE_ID,FOLLOW_2); 
+             after(grammarAccess.getCollisionEventAccess().getTargetSpriteActorIDTerminalRuleCall_3_0_1()); 
+
+            }
+
+             after(grammarAccess.getCollisionEventAccess().getTargetSpriteActorCrossReference_3_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__CollisionEvent__TargetAssignment_3"
 
 
     // $ANTLR start "rule__SendMessage__NameAssignment_3"
-    // InternalKlangParser.g:6168:1: rule__SendMessage__NameAssignment_3 : ( RULE_STRING ) ;
+    // InternalKlangParser.g:5849:1: rule__SendMessage__NameAssignment_3 : ( RULE_STRING ) ;
     public final void rule__SendMessage__NameAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6172:1: ( ( RULE_STRING ) )
-            // InternalKlangParser.g:6173:2: ( RULE_STRING )
+            // InternalKlangParser.g:5853:1: ( ( RULE_STRING ) )
+            // InternalKlangParser.g:5854:2: ( RULE_STRING )
             {
-            // InternalKlangParser.g:6173:2: ( RULE_STRING )
-            // InternalKlangParser.g:6174:3: RULE_STRING
+            // InternalKlangParser.g:5854:2: ( RULE_STRING )
+            // InternalKlangParser.g:5855:3: RULE_STRING
             {
              before(grammarAccess.getSendMessageAccess().getNameSTRINGTerminalRuleCall_3_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -18685,268 +17774,18 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__SendMessage__NameAssignment_3"
 
 
-    // $ANTLR start "rule__GameStart__StatementsAssignment_5"
-    // InternalKlangParser.g:6183:1: rule__GameStart__StatementsAssignment_5 : ( ruleStatement ) ;
-    public final void rule__GameStart__StatementsAssignment_5() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:6187:1: ( ( ruleStatement ) )
-            // InternalKlangParser.g:6188:2: ( ruleStatement )
-            {
-            // InternalKlangParser.g:6188:2: ( ruleStatement )
-            // InternalKlangParser.g:6189:3: ruleStatement
-            {
-             before(grammarAccess.getGameStartAccess().getStatementsStatementParserRuleCall_5_0()); 
-            pushFollow(FOLLOW_2);
-            ruleStatement();
-
-            state._fsp--;
-
-             after(grammarAccess.getGameStartAccess().getStatementsStatementParserRuleCall_5_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__GameStart__StatementsAssignment_5"
-
-
-    // $ANTLR start "rule__SpriteClicked__StatementsAssignment_4"
-    // InternalKlangParser.g:6198:1: rule__SpriteClicked__StatementsAssignment_4 : ( ruleStatement ) ;
-    public final void rule__SpriteClicked__StatementsAssignment_4() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:6202:1: ( ( ruleStatement ) )
-            // InternalKlangParser.g:6203:2: ( ruleStatement )
-            {
-            // InternalKlangParser.g:6203:2: ( ruleStatement )
-            // InternalKlangParser.g:6204:3: ruleStatement
-            {
-             before(grammarAccess.getSpriteClickedAccess().getStatementsStatementParserRuleCall_4_0()); 
-            pushFollow(FOLLOW_2);
-            ruleStatement();
-
-            state._fsp--;
-
-             after(grammarAccess.getSpriteClickedAccess().getStatementsStatementParserRuleCall_4_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SpriteClicked__StatementsAssignment_4"
-
-
-    // $ANTLR start "rule__KeyPressed__KeyAssignment_3"
-    // InternalKlangParser.g:6213:1: rule__KeyPressed__KeyAssignment_3 : ( ruleKeys ) ;
-    public final void rule__KeyPressed__KeyAssignment_3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:6217:1: ( ( ruleKeys ) )
-            // InternalKlangParser.g:6218:2: ( ruleKeys )
-            {
-            // InternalKlangParser.g:6218:2: ( ruleKeys )
-            // InternalKlangParser.g:6219:3: ruleKeys
-            {
-             before(grammarAccess.getKeyPressedAccess().getKeyKeysEnumRuleCall_3_0()); 
-            pushFollow(FOLLOW_2);
-            ruleKeys();
-
-            state._fsp--;
-
-             after(grammarAccess.getKeyPressedAccess().getKeyKeysEnumRuleCall_3_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__KeyPressed__KeyAssignment_3"
-
-
-    // $ANTLR start "rule__KeyPressed__StatementsAssignment_7"
-    // InternalKlangParser.g:6228:1: rule__KeyPressed__StatementsAssignment_7 : ( ruleStatement ) ;
-    public final void rule__KeyPressed__StatementsAssignment_7() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:6232:1: ( ( ruleStatement ) )
-            // InternalKlangParser.g:6233:2: ( ruleStatement )
-            {
-            // InternalKlangParser.g:6233:2: ( ruleStatement )
-            // InternalKlangParser.g:6234:3: ruleStatement
-            {
-             before(grammarAccess.getKeyPressedAccess().getStatementsStatementParserRuleCall_7_0()); 
-            pushFollow(FOLLOW_2);
-            ruleStatement();
-
-            state._fsp--;
-
-             after(grammarAccess.getKeyPressedAccess().getStatementsStatementParserRuleCall_7_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__KeyPressed__StatementsAssignment_7"
-
-
-    // $ANTLR start "rule__CollidesWith__TargetAssignment_4"
-    // InternalKlangParser.g:6243:1: rule__CollidesWith__TargetAssignment_4 : ( ( RULE_ID ) ) ;
-    public final void rule__CollidesWith__TargetAssignment_4() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:6247:1: ( ( ( RULE_ID ) ) )
-            // InternalKlangParser.g:6248:2: ( ( RULE_ID ) )
-            {
-            // InternalKlangParser.g:6248:2: ( ( RULE_ID ) )
-            // InternalKlangParser.g:6249:3: ( RULE_ID )
-            {
-             before(grammarAccess.getCollidesWithAccess().getTargetSpriteActorCrossReference_4_0()); 
-            // InternalKlangParser.g:6250:3: ( RULE_ID )
-            // InternalKlangParser.g:6251:4: RULE_ID
-            {
-             before(grammarAccess.getCollidesWithAccess().getTargetSpriteActorIDTerminalRuleCall_4_0_1()); 
-            match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getCollidesWithAccess().getTargetSpriteActorIDTerminalRuleCall_4_0_1()); 
-
-            }
-
-             after(grammarAccess.getCollidesWithAccess().getTargetSpriteActorCrossReference_4_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__CollidesWith__TargetAssignment_4"
-
-
-    // $ANTLR start "rule__CollidesWith__StatementsAssignment_6"
-    // InternalKlangParser.g:6262:1: rule__CollidesWith__StatementsAssignment_6 : ( ruleStatement ) ;
-    public final void rule__CollidesWith__StatementsAssignment_6() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalKlangParser.g:6266:1: ( ( ruleStatement ) )
-            // InternalKlangParser.g:6267:2: ( ruleStatement )
-            {
-            // InternalKlangParser.g:6267:2: ( ruleStatement )
-            // InternalKlangParser.g:6268:3: ruleStatement
-            {
-             before(grammarAccess.getCollidesWithAccess().getStatementsStatementParserRuleCall_6_0()); 
-            pushFollow(FOLLOW_2);
-            ruleStatement();
-
-            state._fsp--;
-
-             after(grammarAccess.getCollidesWithAccess().getStatementsStatementParserRuleCall_6_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__CollidesWith__StatementsAssignment_6"
-
-
     // $ANTLR start "rule__WhileLoop__PredicateAssignment_2"
-    // InternalKlangParser.g:6277:1: rule__WhileLoop__PredicateAssignment_2 : ( ruleExpression ) ;
+    // InternalKlangParser.g:5864:1: rule__WhileLoop__PredicateAssignment_2 : ( ruleExpression ) ;
     public final void rule__WhileLoop__PredicateAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6281:1: ( ( ruleExpression ) )
-            // InternalKlangParser.g:6282:2: ( ruleExpression )
+            // InternalKlangParser.g:5868:1: ( ( ruleExpression ) )
+            // InternalKlangParser.g:5869:2: ( ruleExpression )
             {
-            // InternalKlangParser.g:6282:2: ( ruleExpression )
-            // InternalKlangParser.g:6283:3: ruleExpression
+            // InternalKlangParser.g:5869:2: ( ruleExpression )
+            // InternalKlangParser.g:5870:3: ruleExpression
             {
              before(grammarAccess.getWhileLoopAccess().getPredicateExpressionParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -18977,17 +17816,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__WhileLoop__StatementsAssignment_4"
-    // InternalKlangParser.g:6292:1: rule__WhileLoop__StatementsAssignment_4 : ( ruleStatement ) ;
+    // InternalKlangParser.g:5879:1: rule__WhileLoop__StatementsAssignment_4 : ( ruleStatement ) ;
     public final void rule__WhileLoop__StatementsAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6296:1: ( ( ruleStatement ) )
-            // InternalKlangParser.g:6297:2: ( ruleStatement )
+            // InternalKlangParser.g:5883:1: ( ( ruleStatement ) )
+            // InternalKlangParser.g:5884:2: ( ruleStatement )
             {
-            // InternalKlangParser.g:6297:2: ( ruleStatement )
-            // InternalKlangParser.g:6298:3: ruleStatement
+            // InternalKlangParser.g:5884:2: ( ruleStatement )
+            // InternalKlangParser.g:5885:3: ruleStatement
             {
              before(grammarAccess.getWhileLoopAccess().getStatementsStatementParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -19018,17 +17857,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__If__PredicateAssignment_2"
-    // InternalKlangParser.g:6307:1: rule__If__PredicateAssignment_2 : ( ruleExpression ) ;
+    // InternalKlangParser.g:5894:1: rule__If__PredicateAssignment_2 : ( ruleExpression ) ;
     public final void rule__If__PredicateAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6311:1: ( ( ruleExpression ) )
-            // InternalKlangParser.g:6312:2: ( ruleExpression )
+            // InternalKlangParser.g:5898:1: ( ( ruleExpression ) )
+            // InternalKlangParser.g:5899:2: ( ruleExpression )
             {
-            // InternalKlangParser.g:6312:2: ( ruleExpression )
-            // InternalKlangParser.g:6313:3: ruleExpression
+            // InternalKlangParser.g:5899:2: ( ruleExpression )
+            // InternalKlangParser.g:5900:3: ruleExpression
             {
              before(grammarAccess.getIfAccess().getPredicateExpressionParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -19059,17 +17898,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__If__IfBlockAssignment_4"
-    // InternalKlangParser.g:6322:1: rule__If__IfBlockAssignment_4 : ( ruleStatement ) ;
+    // InternalKlangParser.g:5909:1: rule__If__IfBlockAssignment_4 : ( ruleStatement ) ;
     public final void rule__If__IfBlockAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6326:1: ( ( ruleStatement ) )
-            // InternalKlangParser.g:6327:2: ( ruleStatement )
+            // InternalKlangParser.g:5913:1: ( ( ruleStatement ) )
+            // InternalKlangParser.g:5914:2: ( ruleStatement )
             {
-            // InternalKlangParser.g:6327:2: ( ruleStatement )
-            // InternalKlangParser.g:6328:3: ruleStatement
+            // InternalKlangParser.g:5914:2: ( ruleStatement )
+            // InternalKlangParser.g:5915:3: ruleStatement
             {
              before(grammarAccess.getIfAccess().getIfBlockStatementParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -19100,17 +17939,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__If__ElseBlockAssignment_6_2"
-    // InternalKlangParser.g:6337:1: rule__If__ElseBlockAssignment_6_2 : ( ruleStatement ) ;
+    // InternalKlangParser.g:5924:1: rule__If__ElseBlockAssignment_6_2 : ( ruleStatement ) ;
     public final void rule__If__ElseBlockAssignment_6_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6341:1: ( ( ruleStatement ) )
-            // InternalKlangParser.g:6342:2: ( ruleStatement )
+            // InternalKlangParser.g:5928:1: ( ( ruleStatement ) )
+            // InternalKlangParser.g:5929:2: ( ruleStatement )
             {
-            // InternalKlangParser.g:6342:2: ( ruleStatement )
-            // InternalKlangParser.g:6343:3: ruleStatement
+            // InternalKlangParser.g:5929:2: ( ruleStatement )
+            // InternalKlangParser.g:5930:3: ruleStatement
             {
              before(grammarAccess.getIfAccess().getElseBlockStatementParserRuleCall_6_2_0()); 
             pushFollow(FOLLOW_2);
@@ -19141,17 +17980,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ForeverLoop__StatementsAssignment_3"
-    // InternalKlangParser.g:6352:1: rule__ForeverLoop__StatementsAssignment_3 : ( ruleStatement ) ;
+    // InternalKlangParser.g:5939:1: rule__ForeverLoop__StatementsAssignment_3 : ( ruleStatement ) ;
     public final void rule__ForeverLoop__StatementsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6356:1: ( ( ruleStatement ) )
-            // InternalKlangParser.g:6357:2: ( ruleStatement )
+            // InternalKlangParser.g:5943:1: ( ( ruleStatement ) )
+            // InternalKlangParser.g:5944:2: ( ruleStatement )
             {
-            // InternalKlangParser.g:6357:2: ( ruleStatement )
-            // InternalKlangParser.g:6358:3: ruleStatement
+            // InternalKlangParser.g:5944:2: ( ruleStatement )
+            // InternalKlangParser.g:5945:3: ruleStatement
             {
              before(grammarAccess.getForeverLoopAccess().getStatementsStatementParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -19182,17 +18021,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VariableDeclaration__NameAssignment_1"
-    // InternalKlangParser.g:6367:1: rule__VariableDeclaration__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalKlangParser.g:5954:1: rule__VariableDeclaration__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__VariableDeclaration__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6371:1: ( ( RULE_ID ) )
-            // InternalKlangParser.g:6372:2: ( RULE_ID )
+            // InternalKlangParser.g:5958:1: ( ( RULE_ID ) )
+            // InternalKlangParser.g:5959:2: ( RULE_ID )
             {
-            // InternalKlangParser.g:6372:2: ( RULE_ID )
-            // InternalKlangParser.g:6373:3: RULE_ID
+            // InternalKlangParser.g:5959:2: ( RULE_ID )
+            // InternalKlangParser.g:5960:3: RULE_ID
             {
              before(grammarAccess.getVariableDeclarationAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -19219,17 +18058,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VariableDeclaration__ExpressionAssignment_3"
-    // InternalKlangParser.g:6382:1: rule__VariableDeclaration__ExpressionAssignment_3 : ( ruleExpression ) ;
+    // InternalKlangParser.g:5969:1: rule__VariableDeclaration__ExpressionAssignment_3 : ( ruleExpression ) ;
     public final void rule__VariableDeclaration__ExpressionAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6386:1: ( ( ruleExpression ) )
-            // InternalKlangParser.g:6387:2: ( ruleExpression )
+            // InternalKlangParser.g:5973:1: ( ( ruleExpression ) )
+            // InternalKlangParser.g:5974:2: ( ruleExpression )
             {
-            // InternalKlangParser.g:6387:2: ( ruleExpression )
-            // InternalKlangParser.g:6388:3: ruleExpression
+            // InternalKlangParser.g:5974:2: ( ruleExpression )
+            // InternalKlangParser.g:5975:3: ruleExpression
             {
              before(grammarAccess.getVariableDeclarationAccess().getExpressionExpressionParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -19260,17 +18099,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VariableAssignment__VariableNameAssignment_0"
-    // InternalKlangParser.g:6397:1: rule__VariableAssignment__VariableNameAssignment_0 : ( RULE_ID ) ;
+    // InternalKlangParser.g:5984:1: rule__VariableAssignment__VariableNameAssignment_0 : ( RULE_ID ) ;
     public final void rule__VariableAssignment__VariableNameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6401:1: ( ( RULE_ID ) )
-            // InternalKlangParser.g:6402:2: ( RULE_ID )
+            // InternalKlangParser.g:5988:1: ( ( RULE_ID ) )
+            // InternalKlangParser.g:5989:2: ( RULE_ID )
             {
-            // InternalKlangParser.g:6402:2: ( RULE_ID )
-            // InternalKlangParser.g:6403:3: RULE_ID
+            // InternalKlangParser.g:5989:2: ( RULE_ID )
+            // InternalKlangParser.g:5990:3: RULE_ID
             {
              before(grammarAccess.getVariableAssignmentAccess().getVariableNameIDTerminalRuleCall_0_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -19297,17 +18136,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VariableAssignment__ExpressionAssignment_2"
-    // InternalKlangParser.g:6412:1: rule__VariableAssignment__ExpressionAssignment_2 : ( ruleExpression ) ;
+    // InternalKlangParser.g:5999:1: rule__VariableAssignment__ExpressionAssignment_2 : ( ruleExpression ) ;
     public final void rule__VariableAssignment__ExpressionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6416:1: ( ( ruleExpression ) )
-            // InternalKlangParser.g:6417:2: ( ruleExpression )
+            // InternalKlangParser.g:6003:1: ( ( ruleExpression ) )
+            // InternalKlangParser.g:6004:2: ( ruleExpression )
             {
-            // InternalKlangParser.g:6417:2: ( ruleExpression )
-            // InternalKlangParser.g:6418:3: ruleExpression
+            // InternalKlangParser.g:6004:2: ( ruleExpression )
+            // InternalKlangParser.g:6005:3: ruleExpression
             {
              before(grammarAccess.getVariableAssignmentAccess().getExpressionExpressionParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -19338,17 +18177,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Sleep__DurationAssignment_3"
-    // InternalKlangParser.g:6427:1: rule__Sleep__DurationAssignment_3 : ( ruleExpression ) ;
+    // InternalKlangParser.g:6014:1: rule__Sleep__DurationAssignment_3 : ( ruleExpression ) ;
     public final void rule__Sleep__DurationAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6431:1: ( ( ruleExpression ) )
-            // InternalKlangParser.g:6432:2: ( ruleExpression )
+            // InternalKlangParser.g:6018:1: ( ( ruleExpression ) )
+            // InternalKlangParser.g:6019:2: ( ruleExpression )
             {
-            // InternalKlangParser.g:6432:2: ( ruleExpression )
-            // InternalKlangParser.g:6433:3: ruleExpression
+            // InternalKlangParser.g:6019:2: ( ruleExpression )
+            // InternalKlangParser.g:6020:3: ruleExpression
             {
              before(grammarAccess.getSleepAccess().getDurationExpressionParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -19379,17 +18218,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Or__RightAssignment_1_2"
-    // InternalKlangParser.g:6442:1: rule__Or__RightAssignment_1_2 : ( ruleAnd ) ;
+    // InternalKlangParser.g:6029:1: rule__Or__RightAssignment_1_2 : ( ruleAnd ) ;
     public final void rule__Or__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6446:1: ( ( ruleAnd ) )
-            // InternalKlangParser.g:6447:2: ( ruleAnd )
+            // InternalKlangParser.g:6033:1: ( ( ruleAnd ) )
+            // InternalKlangParser.g:6034:2: ( ruleAnd )
             {
-            // InternalKlangParser.g:6447:2: ( ruleAnd )
-            // InternalKlangParser.g:6448:3: ruleAnd
+            // InternalKlangParser.g:6034:2: ( ruleAnd )
+            // InternalKlangParser.g:6035:3: ruleAnd
             {
              before(grammarAccess.getOrAccess().getRightAndParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -19420,17 +18259,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__And__RightAssignment_1_2"
-    // InternalKlangParser.g:6457:1: rule__And__RightAssignment_1_2 : ( ruleComparison ) ;
+    // InternalKlangParser.g:6044:1: rule__And__RightAssignment_1_2 : ( ruleComparison ) ;
     public final void rule__And__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6461:1: ( ( ruleComparison ) )
-            // InternalKlangParser.g:6462:2: ( ruleComparison )
+            // InternalKlangParser.g:6048:1: ( ( ruleComparison ) )
+            // InternalKlangParser.g:6049:2: ( ruleComparison )
             {
-            // InternalKlangParser.g:6462:2: ( ruleComparison )
-            // InternalKlangParser.g:6463:3: ruleComparison
+            // InternalKlangParser.g:6049:2: ( ruleComparison )
+            // InternalKlangParser.g:6050:3: ruleComparison
             {
              before(grammarAccess.getAndAccess().getRightComparisonParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -19461,17 +18300,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Plus__RightAssignment_1_2"
-    // InternalKlangParser.g:6472:1: rule__Plus__RightAssignment_1_2 : ( ruleMinus ) ;
+    // InternalKlangParser.g:6059:1: rule__Plus__RightAssignment_1_2 : ( ruleMinus ) ;
     public final void rule__Plus__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6476:1: ( ( ruleMinus ) )
-            // InternalKlangParser.g:6477:2: ( ruleMinus )
+            // InternalKlangParser.g:6063:1: ( ( ruleMinus ) )
+            // InternalKlangParser.g:6064:2: ( ruleMinus )
             {
-            // InternalKlangParser.g:6477:2: ( ruleMinus )
-            // InternalKlangParser.g:6478:3: ruleMinus
+            // InternalKlangParser.g:6064:2: ( ruleMinus )
+            // InternalKlangParser.g:6065:3: ruleMinus
             {
              before(grammarAccess.getPlusAccess().getRightMinusParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -19502,17 +18341,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Minus__RightAssignment_1_2"
-    // InternalKlangParser.g:6487:1: rule__Minus__RightAssignment_1_2 : ( ruleMultiply ) ;
+    // InternalKlangParser.g:6074:1: rule__Minus__RightAssignment_1_2 : ( ruleMultiply ) ;
     public final void rule__Minus__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6491:1: ( ( ruleMultiply ) )
-            // InternalKlangParser.g:6492:2: ( ruleMultiply )
+            // InternalKlangParser.g:6078:1: ( ( ruleMultiply ) )
+            // InternalKlangParser.g:6079:2: ( ruleMultiply )
             {
-            // InternalKlangParser.g:6492:2: ( ruleMultiply )
-            // InternalKlangParser.g:6493:3: ruleMultiply
+            // InternalKlangParser.g:6079:2: ( ruleMultiply )
+            // InternalKlangParser.g:6080:3: ruleMultiply
             {
              before(grammarAccess.getMinusAccess().getRightMultiplyParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -19543,17 +18382,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Multiply__RightAssignment_1_2"
-    // InternalKlangParser.g:6502:1: rule__Multiply__RightAssignment_1_2 : ( ruleDivide ) ;
+    // InternalKlangParser.g:6089:1: rule__Multiply__RightAssignment_1_2 : ( ruleDivide ) ;
     public final void rule__Multiply__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6506:1: ( ( ruleDivide ) )
-            // InternalKlangParser.g:6507:2: ( ruleDivide )
+            // InternalKlangParser.g:6093:1: ( ( ruleDivide ) )
+            // InternalKlangParser.g:6094:2: ( ruleDivide )
             {
-            // InternalKlangParser.g:6507:2: ( ruleDivide )
-            // InternalKlangParser.g:6508:3: ruleDivide
+            // InternalKlangParser.g:6094:2: ( ruleDivide )
+            // InternalKlangParser.g:6095:3: ruleDivide
             {
              before(grammarAccess.getMultiplyAccess().getRightDivideParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -19584,17 +18423,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Divide__RightAssignment_1_2"
-    // InternalKlangParser.g:6517:1: rule__Divide__RightAssignment_1_2 : ( rulePrimaryExpression ) ;
+    // InternalKlangParser.g:6104:1: rule__Divide__RightAssignment_1_2 : ( rulePrimaryExpression ) ;
     public final void rule__Divide__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6521:1: ( ( rulePrimaryExpression ) )
-            // InternalKlangParser.g:6522:2: ( rulePrimaryExpression )
+            // InternalKlangParser.g:6108:1: ( ( rulePrimaryExpression ) )
+            // InternalKlangParser.g:6109:2: ( rulePrimaryExpression )
             {
-            // InternalKlangParser.g:6522:2: ( rulePrimaryExpression )
-            // InternalKlangParser.g:6523:3: rulePrimaryExpression
+            // InternalKlangParser.g:6109:2: ( rulePrimaryExpression )
+            // InternalKlangParser.g:6110:3: rulePrimaryExpression
             {
              before(grammarAccess.getDivideAccess().getRightPrimaryExpressionParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -19625,17 +18464,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comparison__RightAssignment_1_1"
-    // InternalKlangParser.g:6532:1: rule__Comparison__RightAssignment_1_1 : ( rulePlus ) ;
+    // InternalKlangParser.g:6119:1: rule__Comparison__RightAssignment_1_1 : ( rulePlus ) ;
     public final void rule__Comparison__RightAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6536:1: ( ( rulePlus ) )
-            // InternalKlangParser.g:6537:2: ( rulePlus )
+            // InternalKlangParser.g:6123:1: ( ( rulePlus ) )
+            // InternalKlangParser.g:6124:2: ( rulePlus )
             {
-            // InternalKlangParser.g:6537:2: ( rulePlus )
-            // InternalKlangParser.g:6538:3: rulePlus
+            // InternalKlangParser.g:6124:2: ( rulePlus )
+            // InternalKlangParser.g:6125:3: rulePlus
             {
              before(grammarAccess.getComparisonAccess().getRightPlusParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -19666,17 +18505,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FunctionCall__NameAssignment_0"
-    // InternalKlangParser.g:6547:1: rule__FunctionCall__NameAssignment_0 : ( RULE_ID ) ;
+    // InternalKlangParser.g:6134:1: rule__FunctionCall__NameAssignment_0 : ( RULE_ID ) ;
     public final void rule__FunctionCall__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6551:1: ( ( RULE_ID ) )
-            // InternalKlangParser.g:6552:2: ( RULE_ID )
+            // InternalKlangParser.g:6138:1: ( ( RULE_ID ) )
+            // InternalKlangParser.g:6139:2: ( RULE_ID )
             {
-            // InternalKlangParser.g:6552:2: ( RULE_ID )
-            // InternalKlangParser.g:6553:3: RULE_ID
+            // InternalKlangParser.g:6139:2: ( RULE_ID )
+            // InternalKlangParser.g:6140:3: RULE_ID
             {
              before(grammarAccess.getFunctionCallAccess().getNameIDTerminalRuleCall_0_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -19703,17 +18542,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FunctionCall__ParametersAssignment_2_0"
-    // InternalKlangParser.g:6562:1: rule__FunctionCall__ParametersAssignment_2_0 : ( ruleExpression ) ;
+    // InternalKlangParser.g:6149:1: rule__FunctionCall__ParametersAssignment_2_0 : ( ruleExpression ) ;
     public final void rule__FunctionCall__ParametersAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6566:1: ( ( ruleExpression ) )
-            // InternalKlangParser.g:6567:2: ( ruleExpression )
+            // InternalKlangParser.g:6153:1: ( ( ruleExpression ) )
+            // InternalKlangParser.g:6154:2: ( ruleExpression )
             {
-            // InternalKlangParser.g:6567:2: ( ruleExpression )
-            // InternalKlangParser.g:6568:3: ruleExpression
+            // InternalKlangParser.g:6154:2: ( ruleExpression )
+            // InternalKlangParser.g:6155:3: ruleExpression
             {
              before(grammarAccess.getFunctionCallAccess().getParametersExpressionParserRuleCall_2_0_0()); 
             pushFollow(FOLLOW_2);
@@ -19744,17 +18583,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FunctionCall__ParametersAssignment_2_1_1"
-    // InternalKlangParser.g:6577:1: rule__FunctionCall__ParametersAssignment_2_1_1 : ( ruleExpression ) ;
+    // InternalKlangParser.g:6164:1: rule__FunctionCall__ParametersAssignment_2_1_1 : ( ruleExpression ) ;
     public final void rule__FunctionCall__ParametersAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6581:1: ( ( ruleExpression ) )
-            // InternalKlangParser.g:6582:2: ( ruleExpression )
+            // InternalKlangParser.g:6168:1: ( ( ruleExpression ) )
+            // InternalKlangParser.g:6169:2: ( ruleExpression )
             {
-            // InternalKlangParser.g:6582:2: ( ruleExpression )
-            // InternalKlangParser.g:6583:3: ruleExpression
+            // InternalKlangParser.g:6169:2: ( ruleExpression )
+            // InternalKlangParser.g:6170:3: ruleExpression
             {
              before(grammarAccess.getFunctionCallAccess().getParametersExpressionParserRuleCall_2_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -19785,17 +18624,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__ExpressionAssignment_1_2"
-    // InternalKlangParser.g:6592:1: rule__PrimaryExpression__ExpressionAssignment_1_2 : ( rulePrimaryExpression ) ;
+    // InternalKlangParser.g:6179:1: rule__PrimaryExpression__ExpressionAssignment_1_2 : ( rulePrimaryExpression ) ;
     public final void rule__PrimaryExpression__ExpressionAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6596:1: ( ( rulePrimaryExpression ) )
-            // InternalKlangParser.g:6597:2: ( rulePrimaryExpression )
+            // InternalKlangParser.g:6183:1: ( ( rulePrimaryExpression ) )
+            // InternalKlangParser.g:6184:2: ( rulePrimaryExpression )
             {
-            // InternalKlangParser.g:6597:2: ( rulePrimaryExpression )
-            // InternalKlangParser.g:6598:3: rulePrimaryExpression
+            // InternalKlangParser.g:6184:2: ( rulePrimaryExpression )
+            // InternalKlangParser.g:6185:3: rulePrimaryExpression
             {
              before(grammarAccess.getPrimaryExpressionAccess().getExpressionPrimaryExpressionParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -19826,17 +18665,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrimaryExpression__ExpressionAssignment_2_2"
-    // InternalKlangParser.g:6607:1: rule__PrimaryExpression__ExpressionAssignment_2_2 : ( rulePrimaryExpression ) ;
+    // InternalKlangParser.g:6194:1: rule__PrimaryExpression__ExpressionAssignment_2_2 : ( rulePrimaryExpression ) ;
     public final void rule__PrimaryExpression__ExpressionAssignment_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6611:1: ( ( rulePrimaryExpression ) )
-            // InternalKlangParser.g:6612:2: ( rulePrimaryExpression )
+            // InternalKlangParser.g:6198:1: ( ( rulePrimaryExpression ) )
+            // InternalKlangParser.g:6199:2: ( rulePrimaryExpression )
             {
-            // InternalKlangParser.g:6612:2: ( rulePrimaryExpression )
-            // InternalKlangParser.g:6613:3: rulePrimaryExpression
+            // InternalKlangParser.g:6199:2: ( rulePrimaryExpression )
+            // InternalKlangParser.g:6200:3: rulePrimaryExpression
             {
              before(grammarAccess.getPrimaryExpressionAccess().getExpressionPrimaryExpressionParserRuleCall_2_2_0()); 
             pushFollow(FOLLOW_2);
@@ -19866,26 +18705,26 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__PrimaryExpression__ExpressionAssignment_2_2"
 
 
-    // $ANTLR start "rule__PrimaryExpression__ExpressionAssignment_3_4"
-    // InternalKlangParser.g:6622:1: rule__PrimaryExpression__ExpressionAssignment_3_4 : ( rulePrimaryExpression ) ;
-    public final void rule__PrimaryExpression__ExpressionAssignment_3_4() throws RecognitionException {
+    // $ANTLR start "rule__PrimaryExpression__ExpressionAssignment_3_3"
+    // InternalKlangParser.g:6209:1: rule__PrimaryExpression__ExpressionAssignment_3_3 : ( rulePrimaryExpression ) ;
+    public final void rule__PrimaryExpression__ExpressionAssignment_3_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6626:1: ( ( rulePrimaryExpression ) )
-            // InternalKlangParser.g:6627:2: ( rulePrimaryExpression )
+            // InternalKlangParser.g:6213:1: ( ( rulePrimaryExpression ) )
+            // InternalKlangParser.g:6214:2: ( rulePrimaryExpression )
             {
-            // InternalKlangParser.g:6627:2: ( rulePrimaryExpression )
-            // InternalKlangParser.g:6628:3: rulePrimaryExpression
+            // InternalKlangParser.g:6214:2: ( rulePrimaryExpression )
+            // InternalKlangParser.g:6215:3: rulePrimaryExpression
             {
-             before(grammarAccess.getPrimaryExpressionAccess().getExpressionPrimaryExpressionParserRuleCall_3_4_0()); 
+             before(grammarAccess.getPrimaryExpressionAccess().getExpressionPrimaryExpressionParserRuleCall_3_3_0()); 
             pushFollow(FOLLOW_2);
             rulePrimaryExpression();
 
             state._fsp--;
 
-             after(grammarAccess.getPrimaryExpressionAccess().getExpressionPrimaryExpressionParserRuleCall_3_4_0()); 
+             after(grammarAccess.getPrimaryExpressionAccess().getExpressionPrimaryExpressionParserRuleCall_3_3_0()); 
 
             }
 
@@ -19904,29 +18743,29 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__PrimaryExpression__ExpressionAssignment_3_4"
+    // $ANTLR end "rule__PrimaryExpression__ExpressionAssignment_3_3"
 
 
-    // $ANTLR start "rule__PrimaryExpression__ExpressionAssignment_4_4"
-    // InternalKlangParser.g:6637:1: rule__PrimaryExpression__ExpressionAssignment_4_4 : ( rulePrimaryExpression ) ;
-    public final void rule__PrimaryExpression__ExpressionAssignment_4_4() throws RecognitionException {
+    // $ANTLR start "rule__PrimaryExpression__ExpressionAssignment_4_3"
+    // InternalKlangParser.g:6224:1: rule__PrimaryExpression__ExpressionAssignment_4_3 : ( rulePrimaryExpression ) ;
+    public final void rule__PrimaryExpression__ExpressionAssignment_4_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6641:1: ( ( rulePrimaryExpression ) )
-            // InternalKlangParser.g:6642:2: ( rulePrimaryExpression )
+            // InternalKlangParser.g:6228:1: ( ( rulePrimaryExpression ) )
+            // InternalKlangParser.g:6229:2: ( rulePrimaryExpression )
             {
-            // InternalKlangParser.g:6642:2: ( rulePrimaryExpression )
-            // InternalKlangParser.g:6643:3: rulePrimaryExpression
+            // InternalKlangParser.g:6229:2: ( rulePrimaryExpression )
+            // InternalKlangParser.g:6230:3: rulePrimaryExpression
             {
-             before(grammarAccess.getPrimaryExpressionAccess().getExpressionPrimaryExpressionParserRuleCall_4_4_0()); 
+             before(grammarAccess.getPrimaryExpressionAccess().getExpressionPrimaryExpressionParserRuleCall_4_3_0()); 
             pushFollow(FOLLOW_2);
             rulePrimaryExpression();
 
             state._fsp--;
 
-             after(grammarAccess.getPrimaryExpressionAccess().getExpressionPrimaryExpressionParserRuleCall_4_4_0()); 
+             after(grammarAccess.getPrimaryExpressionAccess().getExpressionPrimaryExpressionParserRuleCall_4_3_0()); 
 
             }
 
@@ -19945,25 +18784,25 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__PrimaryExpression__ExpressionAssignment_4_4"
+    // $ANTLR end "rule__PrimaryExpression__ExpressionAssignment_4_3"
 
 
     // $ANTLR start "rule__AtomicExpression__ValueAssignment_0_1_0"
-    // InternalKlangParser.g:6652:1: rule__AtomicExpression__ValueAssignment_0_1_0 : ( ( True ) ) ;
+    // InternalKlangParser.g:6239:1: rule__AtomicExpression__ValueAssignment_0_1_0 : ( ( True ) ) ;
     public final void rule__AtomicExpression__ValueAssignment_0_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6656:1: ( ( ( True ) ) )
-            // InternalKlangParser.g:6657:2: ( ( True ) )
+            // InternalKlangParser.g:6243:1: ( ( ( True ) ) )
+            // InternalKlangParser.g:6244:2: ( ( True ) )
             {
-            // InternalKlangParser.g:6657:2: ( ( True ) )
-            // InternalKlangParser.g:6658:3: ( True )
+            // InternalKlangParser.g:6244:2: ( ( True ) )
+            // InternalKlangParser.g:6245:3: ( True )
             {
              before(grammarAccess.getAtomicExpressionAccess().getValueTrueKeyword_0_1_0_0()); 
-            // InternalKlangParser.g:6659:3: ( True )
-            // InternalKlangParser.g:6660:4: True
+            // InternalKlangParser.g:6246:3: ( True )
+            // InternalKlangParser.g:6247:4: True
             {
              before(grammarAccess.getAtomicExpressionAccess().getValueTrueKeyword_0_1_0_0()); 
             match(input,True,FOLLOW_2); 
@@ -19994,17 +18833,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpression__ValueAssignment_1_1"
-    // InternalKlangParser.g:6671:1: rule__AtomicExpression__ValueAssignment_1_1 : ( ruleDECIMAL ) ;
+    // InternalKlangParser.g:6258:1: rule__AtomicExpression__ValueAssignment_1_1 : ( ruleDECIMAL ) ;
     public final void rule__AtomicExpression__ValueAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6675:1: ( ( ruleDECIMAL ) )
-            // InternalKlangParser.g:6676:2: ( ruleDECIMAL )
+            // InternalKlangParser.g:6262:1: ( ( ruleDECIMAL ) )
+            // InternalKlangParser.g:6263:2: ( ruleDECIMAL )
             {
-            // InternalKlangParser.g:6676:2: ( ruleDECIMAL )
-            // InternalKlangParser.g:6677:3: ruleDECIMAL
+            // InternalKlangParser.g:6263:2: ( ruleDECIMAL )
+            // InternalKlangParser.g:6264:3: ruleDECIMAL
             {
              before(grammarAccess.getAtomicExpressionAccess().getValueDECIMALParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -20035,17 +18874,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpression__ValueAssignment_2_1"
-    // InternalKlangParser.g:6686:1: rule__AtomicExpression__ValueAssignment_2_1 : ( RULE_INT ) ;
+    // InternalKlangParser.g:6273:1: rule__AtomicExpression__ValueAssignment_2_1 : ( RULE_INT ) ;
     public final void rule__AtomicExpression__ValueAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6690:1: ( ( RULE_INT ) )
-            // InternalKlangParser.g:6691:2: ( RULE_INT )
+            // InternalKlangParser.g:6277:1: ( ( RULE_INT ) )
+            // InternalKlangParser.g:6278:2: ( RULE_INT )
             {
-            // InternalKlangParser.g:6691:2: ( RULE_INT )
-            // InternalKlangParser.g:6692:3: RULE_INT
+            // InternalKlangParser.g:6278:2: ( RULE_INT )
+            // InternalKlangParser.g:6279:3: RULE_INT
             {
              before(grammarAccess.getAtomicExpressionAccess().getValueINTTerminalRuleCall_2_1_0()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -20072,17 +18911,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpression__ValueAssignment_3_1"
-    // InternalKlangParser.g:6701:1: rule__AtomicExpression__ValueAssignment_3_1 : ( RULE_STRING ) ;
+    // InternalKlangParser.g:6288:1: rule__AtomicExpression__ValueAssignment_3_1 : ( RULE_STRING ) ;
     public final void rule__AtomicExpression__ValueAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6705:1: ( ( RULE_STRING ) )
-            // InternalKlangParser.g:6706:2: ( RULE_STRING )
+            // InternalKlangParser.g:6292:1: ( ( RULE_STRING ) )
+            // InternalKlangParser.g:6293:2: ( RULE_STRING )
             {
-            // InternalKlangParser.g:6706:2: ( RULE_STRING )
-            // InternalKlangParser.g:6707:3: RULE_STRING
+            // InternalKlangParser.g:6293:2: ( RULE_STRING )
+            // InternalKlangParser.g:6294:3: RULE_STRING
             {
              before(grammarAccess.getAtomicExpressionAccess().getValueSTRINGTerminalRuleCall_3_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -20109,17 +18948,17 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpression__VariableNameAssignment_4_1"
-    // InternalKlangParser.g:6716:1: rule__AtomicExpression__VariableNameAssignment_4_1 : ( RULE_ID ) ;
+    // InternalKlangParser.g:6303:1: rule__AtomicExpression__VariableNameAssignment_4_1 : ( RULE_ID ) ;
     public final void rule__AtomicExpression__VariableNameAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKlangParser.g:6720:1: ( ( RULE_ID ) )
-            // InternalKlangParser.g:6721:2: ( RULE_ID )
+            // InternalKlangParser.g:6307:1: ( ( RULE_ID ) )
+            // InternalKlangParser.g:6308:2: ( RULE_ID )
             {
-            // InternalKlangParser.g:6721:2: ( RULE_ID )
-            // InternalKlangParser.g:6722:3: RULE_ID
+            // InternalKlangParser.g:6308:2: ( RULE_ID )
+            // InternalKlangParser.g:6309:3: RULE_ID
             {
              before(grammarAccess.getAtomicExpressionAccess().getVariableNameIDTerminalRuleCall_4_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -20147,51 +18986,6 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
     // Delegated rules
 
 
-    protected DFA4 dfa4 = new DFA4(this);
-    static final String dfa_1s = "\12\uffff";
-    static final String dfa_2s = "\4\uffff\1\5\5\uffff";
-    static final String dfa_3s = "\1\17\1\12\2\uffff\1\4\5\uffff";
-    static final String dfa_4s = "\2\112\2\uffff\1\110\5\uffff";
-    static final String dfa_5s = "\2\uffff\1\2\1\3\1\uffff\1\7\1\5\1\4\1\1\1\6";
-    static final String dfa_6s = "\12\uffff}>";
-    static final String[] dfa_7s = {
-            "\1\5\5\uffff\1\5\4\uffff\1\2\4\uffff\1\1\4\uffff\1\3\43\uffff\1\4\2\5",
-            "\1\7\4\uffff\1\10\5\uffff\1\10\3\uffff\1\6\1\10\4\uffff\1\10\4\uffff\1\10\43\uffff\3\10",
-            "",
-            "",
-            "\1\5\3\uffff\1\5\10\uffff\2\5\3\uffff\1\5\1\uffff\1\5\2\uffff\4\5\1\11\5\5\1\uffff\2\5\1\uffff\1\5\34\uffff\3\5",
-            "",
-            "",
-            "",
-            "",
-            ""
-    };
-
-    static final short[] dfa_1 = DFA.unpackEncodedString(dfa_1s);
-    static final short[] dfa_2 = DFA.unpackEncodedString(dfa_2s);
-    static final char[] dfa_3 = DFA.unpackEncodedStringToUnsignedChars(dfa_3s);
-    static final char[] dfa_4 = DFA.unpackEncodedStringToUnsignedChars(dfa_4s);
-    static final short[] dfa_5 = DFA.unpackEncodedString(dfa_5s);
-    static final short[] dfa_6 = DFA.unpackEncodedString(dfa_6s);
-    static final short[][] dfa_7 = unpackEncodedStringArray(dfa_7s);
-
-    class DFA4 extends DFA {
-
-        public DFA4(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 4;
-            this.eot = dfa_1;
-            this.eof = dfa_2;
-            this.min = dfa_3;
-            this.max = dfa_4;
-            this.accept = dfa_5;
-            this.special = dfa_6;
-            this.transition = dfa_7;
-        }
-        public String getDescription() {
-            return "978:1: rule__PrimaryExpression__Alternatives : ( ( ( rule__PrimaryExpression__Group_0__0 ) ) | ( ( rule__PrimaryExpression__Group_1__0 ) ) | ( ( rule__PrimaryExpression__Group_2__0 ) ) | ( ( rule__PrimaryExpression__Group_3__0 ) ) | ( ( rule__PrimaryExpression__Group_4__0 ) ) | ( ruleFunctionCall ) | ( ruleAtomicExpression ) );";
-        }
-    }
  
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
@@ -20204,52 +18998,49 @@ public class InternalKlangParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000008400000L,0x0000000000000080L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000008000002L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000400L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0xFFFFF000001060A0L,0x000000000000043FL});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000080060110L,0x0000000000000180L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000080060112L,0x0000000000000100L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000400L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000020060110L,0x0000000000000180L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000020060112L,0x0000000000000100L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000020060110L,0x0000000000000100L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0xFFFFFC0000006000L,0x000000000000000FL});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000001084208000L,0x0000000000000700L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000000040000002L});
-    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000000001000002L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000000400000002L});
-    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000001000000002L});
-    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000000200000002L});
-    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000004000000002L});
-    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000028010000000L});
-    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0000028010000002L});
-    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0000001184208000L,0x0000000000000700L});
-    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0000000800000002L});
-    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0000000000208000L});
-    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
-    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0xFFFFF00000006000L,0x000000000000003FL});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000080060110L,0x0000000000000100L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000004206208400L,0x0000000000000700L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000100000002L});
+    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000000001000002L});
+    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000001000000002L});
+    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000004000000002L});
+    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000000800000002L});
+    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000010000000002L});
+    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x00000A0070000000L});
+    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x00000A0070000002L});
+    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000004606208400L,0x0000000000000700L});
+    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0000002000000002L});
+    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0000000000208000L});
+    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0000008000000000L});
 
 }

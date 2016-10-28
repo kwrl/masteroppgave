@@ -57,7 +57,6 @@ public class VariableDeclarationItemProvider extends ItemProviderAdapter impleme
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -76,28 +75,6 @@ public class VariableDeclarationItemProvider extends ItemProviderAdapter impleme
 				 getString("_UI_VariableDeclaration_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_VariableDeclaration_name_feature", "_UI_VariableDeclaration_type"),
 				 KlangPackage.Literals.VARIABLE_DECLARATION__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Value feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_VariableDeclaration_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_VariableDeclaration_value_feature", "_UI_VariableDeclaration_type"),
-				 KlangPackage.Literals.VARIABLE_DECLARATION__VALUE,
 				 true,
 				 false,
 				 false,
@@ -175,7 +152,6 @@ public class VariableDeclarationItemProvider extends ItemProviderAdapter impleme
 
 		switch (notification.getFeatureID(VariableDeclaration.class)) {
 			case KlangPackage.VARIABLE_DECLARATION__NAME:
-			case KlangPackage.VARIABLE_DECLARATION__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case KlangPackage.VARIABLE_DECLARATION__EXPRESSION:
@@ -305,6 +281,16 @@ public class VariableDeclarationItemProvider extends ItemProviderAdapter impleme
 			(createChildParameter
 				(KlangPackage.Literals.VARIABLE_DECLARATION__EXPRESSION,
 				 KlangexprFactory.eINSTANCE.createToInt()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.VARIABLE_DECLARATION__EXPRESSION,
+				 KlangexprFactory.eINSTANCE.createLessThanOrEqual()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangPackage.Literals.VARIABLE_DECLARATION__EXPRESSION,
+				 KlangexprFactory.eINSTANCE.createGreaterThanOrEqual()));
 	}
 
 	/**

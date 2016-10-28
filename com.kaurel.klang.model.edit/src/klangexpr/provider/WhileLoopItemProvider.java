@@ -247,6 +247,16 @@ public class WhileLoopItemProvider extends StatementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(KlangexprPackage.Literals.WHILE_LOOP__PREDICATE,
+				 KlangexprFactory.eINSTANCE.createLessThanOrEqual()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangexprPackage.Literals.WHILE_LOOP__PREDICATE,
+				 KlangexprFactory.eINSTANCE.createGreaterThanOrEqual()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(KlangexprPackage.Literals.WHILE_LOOP__STATEMENTS,
 				 KlangexprFactory.eINSTANCE.createStatement()));
 

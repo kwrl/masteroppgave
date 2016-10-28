@@ -3,6 +3,7 @@
 package klang.util;
 
 import klang.*;
+import klang.entities.Entity;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -83,24 +84,24 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 				return createVariableDeclarationAdapter();
 			}
 			@Override
-			public Adapter caseAbstractActor(AbstractActor object) {
+			public <T extends Entity> Adapter caseAbstractActor(AbstractActor<T> object) {
 				return createAbstractActorAdapter();
 			}
 			@Override
-			public Adapter caseGameStart(GameStart object) {
-				return createGameStartAdapter();
+			public Adapter caseGameStartEvent(GameStartEvent object) {
+				return createGameStartEventAdapter();
 			}
 			@Override
-			public Adapter caseSpriteClicked(SpriteClicked object) {
-				return createSpriteClickedAdapter();
+			public Adapter caseClickEvent(ClickEvent object) {
+				return createClickEventAdapter();
 			}
 			@Override
-			public Adapter caseKeyPressed(KeyPressed object) {
-				return createKeyPressedAdapter();
+			public Adapter caseKeyPressEvent(KeyPressEvent object) {
+				return createKeyPressEventAdapter();
 			}
 			@Override
-			public Adapter caseCollidesWith(CollidesWith object) {
-				return createCollidesWithAdapter();
+			public Adapter caseCollisionEvent(CollisionEvent object) {
+				return createCollisionEventAdapter();
 			}
 			@Override
 			public Adapter caseProgram(Program object) {
@@ -111,12 +112,20 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 				return createTreeNodeAdapter();
 			}
 			@Override
-			public Adapter caseTreeTraversal(TreeTraversal object) {
-				return createTreeTraversalAdapter();
+			public Adapter caseMessageReceivedEvent(MessageReceivedEvent object) {
+				return createMessageReceivedEventAdapter();
 			}
 			@Override
-			public Adapter caseMessageReceived(MessageReceived object) {
-				return createMessageReceivedAdapter();
+			public Adapter caseEvent(Event object) {
+				return createEventAdapter();
+			}
+			@Override
+			public Adapter caseGlobalEvent(GlobalEvent object) {
+				return createGlobalEventAdapter();
+			}
+			@Override
+			public Adapter caseActorEvent(ActorEvent object) {
+				return createActorEventAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -195,62 +204,6 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link klang.GameStart <em>Game Start</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see klang.GameStart
-	 * @generated
-	 */
-	public Adapter createGameStartAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link klang.SpriteClicked <em>Sprite Clicked</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see klang.SpriteClicked
-	 * @generated
-	 */
-	public Adapter createSpriteClickedAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link klang.KeyPressed <em>Key Pressed</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see klang.KeyPressed
-	 * @generated
-	 */
-	public Adapter createKeyPressedAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link klang.CollidesWith <em>Collides With</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see klang.CollidesWith
-	 * @generated
-	 */
-	public Adapter createCollidesWithAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link klang.AbstractActor <em>Abstract Actor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -261,6 +214,62 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAbstractActorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link klang.GameStartEvent <em>Game Start Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klang.GameStartEvent
+	 * @generated
+	 */
+	public Adapter createGameStartEventAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link klang.ClickEvent <em>Click Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klang.ClickEvent
+	 * @generated
+	 */
+	public Adapter createClickEventAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link klang.KeyPressEvent <em>Key Press Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klang.KeyPressEvent
+	 * @generated
+	 */
+	public Adapter createKeyPressEventAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link klang.CollisionEvent <em>Collision Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klang.CollisionEvent
+	 * @generated
+	 */
+	public Adapter createCollisionEventAdapter() {
 		return null;
 	}
 
@@ -293,30 +302,58 @@ public class KlangAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link klang.TreeTraversal <em>Tree Traversal</em>}'.
+	 * Creates a new adapter for an object of class '{@link klang.MessageReceivedEvent <em>Message Received Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see klang.TreeTraversal
+	 * @see klang.MessageReceivedEvent
 	 * @generated
 	 */
-	public Adapter createTreeTraversalAdapter() {
+	public Adapter createMessageReceivedEventAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link klang.MessageReceived <em>Message Received</em>}'.
+	 * Creates a new adapter for an object of class '{@link klang.Event <em>Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see klang.MessageReceived
+	 * @see klang.Event
 	 * @generated
 	 */
-	public Adapter createMessageReceivedAdapter() {
+	public Adapter createEventAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link klang.GlobalEvent <em>Global Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klang.GlobalEvent
+	 * @generated
+	 */
+	public Adapter createGlobalEventAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link klang.ActorEvent <em>Actor Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klang.ActorEvent
+	 * @generated
+	 */
+	public Adapter createActorEventAdapter() {
 		return null;
 	}
 

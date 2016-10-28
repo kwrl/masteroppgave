@@ -68,7 +68,7 @@ public class TypeComputer extends KlangexprSwitch<Class<?>> {
 
 	@Override
 	public Class<?> caseVariableReference(VariableReference object) {
-		AbstractActor actor = KlangUtil.getActor(object);
+		AbstractActor<?> actor = KlangUtil.getActor(object);
 		if (actor.isInScope(object.getVariableName())) {
 			return computeType(actor.getVariableDeclaration(object.getVariableName()).getExpression());
 		}
@@ -78,9 +78,9 @@ public class TypeComputer extends KlangexprSwitch<Class<?>> {
 	@Override
 	public Class<?> caseFunctionCall(FunctionCall object) {
 		Method method = null;
-		AbstractActor actor = KlangUtil.getActor(object);
+		AbstractActor<?> actor = KlangUtil.getActor(object);
 		try {
-			method = actor.getClass().getMethod(object.getName(), computeTypes(object.getParameters()));
+			method = actor.getSubjectType().getMethod(object.getName(), computeTypes(object.getParameters()));
 			return method.getReturnType();
 		} catch (NoSuchMethodException | SecurityException | IllegalArgumentException e) {
 			e.printStackTrace();

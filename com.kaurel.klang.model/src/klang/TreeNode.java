@@ -53,14 +53,4 @@ public interface TreeNode<T extends TreeNode<T>> extends EObject {
 	 */
 	T getParent();
 	
-	default public EList<T> traverseBFS() {
-		TreeTraversal traversal = KlangFactory.eINSTANCE.createTreeTraversal();
-		return traversal.BreadthFirst((T)this);
-	}
-	
-	default public EList<T> traverseDFS() {
-		TreeTraversal traversal = KlangFactory.eINSTANCE.createTreeTraversal();
-		return traversal.DepthFirst((T)this);
-	}
-
 } // TreeNode

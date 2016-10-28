@@ -192,6 +192,14 @@ public class KlangexprAdapterFactory extends AdapterFactoryImpl {
 				return createSendMessageAdapter();
 			}
 			@Override
+			public Adapter caseLessThanOrEqual(LessThanOrEqual object) {
+				return createLessThanOrEqualAdapter();
+			}
+			@Override
+			public Adapter caseGreaterThanOrEqual(GreaterThanOrEqual object) {
+				return createGreaterThanOrEqualAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -642,6 +650,34 @@ public class KlangexprAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSendMessageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link klangexpr.LessThanOrEqual <em>Less Than Or Equal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klangexpr.LessThanOrEqual
+	 * @generated
+	 */
+	public Adapter createLessThanOrEqualAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link klangexpr.GreaterThanOrEqual <em>Greater Than Or Equal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see klangexpr.GreaterThanOrEqual
+	 * @generated
+	 */
+	public Adapter createGreaterThanOrEqualAdapter() {
 		return null;
 	}
 

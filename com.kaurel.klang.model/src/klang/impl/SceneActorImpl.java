@@ -2,8 +2,6 @@
  */
 package klang.impl;
 
-import java.lang.reflect.InvocationTargetException;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -17,6 +15,7 @@ import klang.AbstractActor;
 import klang.KlangPackage;
 import klang.Program;
 import klang.SceneActor;
+import klang.entities.SceneEntity;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +30,7 @@ import klang.SceneActor;
  *
  * @generated
  */
-public class SceneActorImpl extends AbstractActorImpl implements SceneActor {
+public class SceneActorImpl extends AbstractActorImpl<SceneEntity> implements SceneActor {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -49,6 +48,17 @@ public class SceneActorImpl extends AbstractActorImpl implements SceneActor {
 	@Override
 	protected EClass eStaticClass() {
 		return KlangPackage.Literals.SCENE_ACTOR;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * This is specialized for the more specific type known in this context.
+	 * @generated
+	 */
+	@Override
+	public void setSubject(SceneEntity newSubject) {
+		super.setSubject(newSubject);
 	}
 
 	/**
@@ -90,17 +100,6 @@ public class SceneActorImpl extends AbstractActorImpl implements SceneActor {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, KlangPackage.SCENE_ACTOR__PROGRAM, newProgram, newProgram));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void print(String message) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -205,32 +204,22 @@ public class SceneActorImpl extends AbstractActorImpl implements SceneActor {
 		return super.eIsSet(featureID);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case KlangPackage.SCENE_ACTOR___PRINT__STRING:
-				print((String)arguments.get(0));
-				return null;
-		}
-		return super.eInvoke(operationID, arguments);
-	}
-
-	@Override
-	public AbstractActor getParent() {
+	public AbstractActor<?> getParent() {
 		return null;
 	}
 
 	@Override
-	public EList<AbstractActor> getChildren() {
+	public EList<AbstractActor<?>> getChildren() {
 		if(getProgram()!=null) {
 			return new BasicEList<>(getProgram().getSpriteActors());
 		}
 		return new BasicEList<>();
+	}
+	
+	@Override
+	public Class<SceneEntity> getSubjectType() {
+		return SceneEntity.class;
 	}
 
 } //SceneActorImpl

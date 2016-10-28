@@ -17,7 +17,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SpriteClickedItemProvider extends EventHandlerItemProvider {
+public class SpriteClickedItemProvider extends ActorEventItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

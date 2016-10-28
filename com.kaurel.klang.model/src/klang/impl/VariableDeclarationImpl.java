@@ -27,7 +27,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link klang.impl.VariableDeclarationImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link klang.impl.VariableDeclarationImpl#getName <em>Name</em>}</li>
- *   <li>{@link klang.impl.VariableDeclarationImpl#getValue <em>Value</em>}</li>
  *   <li>{@link klang.impl.VariableDeclarationImpl#getActor <em>Actor</em>}</li>
  * </ul>
  *
@@ -63,26 +62,6 @@ public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implem
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Object VALUE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected Object value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -172,30 +151,9 @@ public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getValue() {
-		return value;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setValue(Object newValue) {
-		Object oldValue = value;
-		value = newValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, KlangPackage.VARIABLE_DECLARATION__VALUE, oldValue, value));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractActor getActor() {
+	public AbstractActor<?> getActor() {
 		if (eContainerFeatureID() != KlangPackage.VARIABLE_DECLARATION__ACTOR) return null;
-		return (AbstractActor)eInternalContainer();
+		return (AbstractActor<?>)eInternalContainer();
 	}
 
 	/**
@@ -203,7 +161,7 @@ public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetActor(AbstractActor newActor, NotificationChain msgs) {
+	public NotificationChain basicSetActor(AbstractActor<?> newActor, NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject)newActor, KlangPackage.VARIABLE_DECLARATION__ACTOR, msgs);
 		return msgs;
 	}
@@ -213,7 +171,7 @@ public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setActor(AbstractActor newActor) {
+	public void setActor(AbstractActor<?> newActor) {
 		if (newActor != eInternalContainer() || (eContainerFeatureID() != KlangPackage.VARIABLE_DECLARATION__ACTOR && newActor != null)) {
 			if (EcoreUtil.isAncestor(this, newActor))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -240,7 +198,7 @@ public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implem
 			case KlangPackage.VARIABLE_DECLARATION__ACTOR:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetActor((AbstractActor)otherEnd, msgs);
+				return basicSetActor((AbstractActor<?>)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -287,8 +245,6 @@ public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implem
 				return getExpression();
 			case KlangPackage.VARIABLE_DECLARATION__NAME:
 				return getName();
-			case KlangPackage.VARIABLE_DECLARATION__VALUE:
-				return getValue();
 			case KlangPackage.VARIABLE_DECLARATION__ACTOR:
 				return getActor();
 		}
@@ -309,11 +265,8 @@ public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implem
 			case KlangPackage.VARIABLE_DECLARATION__NAME:
 				setName((String)newValue);
 				return;
-			case KlangPackage.VARIABLE_DECLARATION__VALUE:
-				setValue(newValue);
-				return;
 			case KlangPackage.VARIABLE_DECLARATION__ACTOR:
-				setActor((AbstractActor)newValue);
+				setActor((AbstractActor<?>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -333,11 +286,8 @@ public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implem
 			case KlangPackage.VARIABLE_DECLARATION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case KlangPackage.VARIABLE_DECLARATION__VALUE:
-				setValue(VALUE_EDEFAULT);
-				return;
 			case KlangPackage.VARIABLE_DECLARATION__ACTOR:
-				setActor((AbstractActor)null);
+				setActor((AbstractActor<?>)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -355,8 +305,6 @@ public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implem
 				return expression != null;
 			case KlangPackage.VARIABLE_DECLARATION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case KlangPackage.VARIABLE_DECLARATION__VALUE:
-				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 			case KlangPackage.VARIABLE_DECLARATION__ACTOR:
 				return getActor() != null;
 		}
@@ -375,8 +323,6 @@ public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implem
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", value: ");
-		result.append(value);
 		result.append(')');
 		return result.toString();
 	}

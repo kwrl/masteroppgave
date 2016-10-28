@@ -2,7 +2,12 @@
  */
 package klang.impl;
 
+import java.util.Optional;
+import java.util.stream.Stream;
 import klang.*;
+import klang.entities.Entity;
+import klang.entities.SceneEntity;
+import klang.entities.SpriteEntity;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -56,14 +61,14 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 		switch (eClass.getClassifierID()) {
 			case KlangPackage.SCENE_ACTOR: return createSceneActor();
 			case KlangPackage.SPRITE_ACTOR: return createSpriteActor();
+			case KlangPackage.EVENT_HANDLER: return createEventHandler();
 			case KlangPackage.VARIABLE_DECLARATION: return createVariableDeclaration();
-			case KlangPackage.GAME_START: return createGameStart();
-			case KlangPackage.SPRITE_CLICKED: return createSpriteClicked();
-			case KlangPackage.KEY_PRESSED: return createKeyPressed();
-			case KlangPackage.COLLIDES_WITH: return createCollidesWith();
+			case KlangPackage.GAME_START_EVENT: return createGameStartEvent();
+			case KlangPackage.CLICK_EVENT: return createClickEvent();
+			case KlangPackage.KEY_PRESS_EVENT: return createKeyPressEvent();
+			case KlangPackage.COLLISION_EVENT: return createCollisionEvent();
 			case KlangPackage.PROGRAM: return createProgram();
-			case KlangPackage.TREE_TRAVERSAL: return createTreeTraversal();
-			case KlangPackage.MESSAGE_RECEIVED: return createMessageReceived();
+			case KlangPackage.MESSAGE_RECEIVED_EVENT: return createMessageReceivedEvent();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -79,6 +84,16 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 		switch (eDataType.getClassifierID()) {
 			case KlangPackage.KEYS:
 				return createKeysFromString(eDataType, initialValue);
+			case KlangPackage.ENTITY:
+				return createEntityFromString(eDataType, initialValue);
+			case KlangPackage.SPRITE_ENTITY:
+				return createSpriteEntityFromString(eDataType, initialValue);
+			case KlangPackage.SCENE_ENTITY:
+				return createSceneEntityFromString(eDataType, initialValue);
+			case KlangPackage.OPTIONAL:
+				return createOptionalFromString(eDataType, initialValue);
+			case KlangPackage.STREAM:
+				return createStreamFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -94,6 +109,16 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 		switch (eDataType.getClassifierID()) {
 			case KlangPackage.KEYS:
 				return convertKeysToString(eDataType, instanceValue);
+			case KlangPackage.ENTITY:
+				return convertEntityToString(eDataType, instanceValue);
+			case KlangPackage.SPRITE_ENTITY:
+				return convertSpriteEntityToString(eDataType, instanceValue);
+			case KlangPackage.SCENE_ENTITY:
+				return convertSceneEntityToString(eDataType, instanceValue);
+			case KlangPackage.OPTIONAL:
+				return convertOptionalToString(eDataType, instanceValue);
+			case KlangPackage.STREAM:
+				return convertStreamToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -124,6 +149,16 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EventHandler createEventHandler() {
+		EventHandlerImpl eventHandler = new EventHandlerImpl();
+		return eventHandler;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public VariableDeclaration createVariableDeclaration() {
 		VariableDeclarationImpl variableDeclaration = new VariableDeclarationImpl();
 		return variableDeclaration;
@@ -134,9 +169,9 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GameStart createGameStart() {
-		GameStartImpl gameStart = new GameStartImpl();
-		return gameStart;
+	public GameStartEvent createGameStartEvent() {
+		GameStartEventImpl gameStartEvent = new GameStartEventImpl();
+		return gameStartEvent;
 	}
 
 	/**
@@ -144,9 +179,9 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SpriteClicked createSpriteClicked() {
-		SpriteClickedImpl spriteClicked = new SpriteClickedImpl();
-		return spriteClicked;
+	public ClickEvent createClickEvent() {
+		ClickEventImpl clickEvent = new ClickEventImpl();
+		return clickEvent;
 	}
 
 	/**
@@ -154,9 +189,9 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public KeyPressed createKeyPressed() {
-		KeyPressedImpl keyPressed = new KeyPressedImpl();
-		return keyPressed;
+	public KeyPressEvent createKeyPressEvent() {
+		KeyPressEventImpl keyPressEvent = new KeyPressEventImpl();
+		return keyPressEvent;
 	}
 
 	/**
@@ -164,9 +199,9 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CollidesWith createCollidesWith() {
-		CollidesWithImpl collidesWith = new CollidesWithImpl();
-		return collidesWith;
+	public CollisionEvent createCollisionEvent() {
+		CollisionEventImpl collisionEvent = new CollisionEventImpl();
+		return collisionEvent;
 	}
 
 	/**
@@ -184,19 +219,9 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TreeTraversal createTreeTraversal() {
-		TreeTraversalImpl treeTraversal = new TreeTraversalImpl();
-		return treeTraversal;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MessageReceived createMessageReceived() {
-		MessageReceivedImpl messageReceived = new MessageReceivedImpl();
-		return messageReceived;
+	public MessageReceivedEvent createMessageReceivedEvent() {
+		MessageReceivedEventImpl messageReceivedEvent = new MessageReceivedEventImpl();
+		return messageReceivedEvent;
 	}
 
 	/**
@@ -217,6 +242,96 @@ public class KlangFactoryImpl extends EFactoryImpl implements KlangFactory {
 	 */
 	public String convertKeysToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Entity createEntityFromString(EDataType eDataType, String initialValue) {
+		return (Entity)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEntityToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SpriteEntity createSpriteEntityFromString(EDataType eDataType, String initialValue) {
+		return (SpriteEntity)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSpriteEntityToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SceneEntity createSceneEntityFromString(EDataType eDataType, String initialValue) {
+		return (SceneEntity)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSceneEntityToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Optional<?> createOptionalFromString(EDataType eDataType, String initialValue) {
+		return (Optional<?>)super.createFromString(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertOptionalToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Stream<?> createStreamFromString(EDataType eDataType, String initialValue) {
+		return (Stream<?>)super.createFromString(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertStreamToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(instanceValue);
 	}
 
 	/**

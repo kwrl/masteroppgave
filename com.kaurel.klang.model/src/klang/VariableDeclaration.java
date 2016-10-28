@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link klang.VariableDeclaration#getExpression <em>Expression</em>}</li>
  *   <li>{@link klang.VariableDeclaration#getName <em>Name</em>}</li>
- *   <li>{@link klang.VariableDeclaration#getValue <em>Value</em>}</li>
  *   <li>{@link klang.VariableDeclaration#getActor <em>Actor</em>}</li>
  * </ul>
  *
@@ -78,32 +77,6 @@ public interface VariableDeclaration extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Value</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see #setValue(Object)
-	 * @see klang.KlangPackage#getVariableDeclaration_Value()
-	 * @model transient="true"
-	 * @generated
-	 */
-	Object getValue();
-
-	/**
-	 * Sets the value of the '{@link klang.VariableDeclaration#getValue <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value</em>' attribute.
-	 * @see #getValue()
-	 * @generated
-	 */
-	void setValue(Object value);
-
-	/**
 	 * Returns the value of the '<em><b>Actor</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link klang.AbstractActor#getLocalVariables <em>Local Variables</em>}'.
 	 * <!-- begin-user-doc -->
@@ -119,7 +92,7 @@ public interface VariableDeclaration extends EObject {
 	 * @model opposite="localVariables" transient="false"
 	 * @generated
 	 */
-	AbstractActor getActor();
+	AbstractActor<?> getActor();
 
 	/**
 	 * Sets the value of the '{@link klang.VariableDeclaration#getActor <em>Actor</em>}' container reference.
@@ -129,6 +102,6 @@ public interface VariableDeclaration extends EObject {
 	 * @see #getActor()
 	 * @generated
 	 */
-	void setActor(AbstractActor value);
+	void setActor(AbstractActor<?> value);
 
 } // VariableDeclaration

@@ -7,11 +7,14 @@ import java.util.List;
 import java.util.Map;
 
 import com.kaurel.klang.runtime.KlangInterpreter;
-import com.kaurel.klang.runtime.events.MessageEvent;
+import com.kaurel.klang.runtime.datastore.DataStore;
 import com.kaurel.klang.runtime.threading.Scheduler.SchedulerPass;
 
 import klang.AbstractActor;
+import klang.KlangFactory;
+import klang.MessageReceivedEvent;
 import klang.util.OperatorUtil;
+import klang.util.TreeTraversal;
 import klangexpr.BinaryOperator;
 import klangexpr.BooleanLiteral;
 import klangexpr.DoubleLiteral;
@@ -34,31 +37,29 @@ import klangexpr.util.KlangexprSwitch;
 
 public class ProcessorImpl extends KlangexprSwitch<Object> implements Processor {
 	private KlangInterpreter interpreter;
-	private KlangThread thread;
 
 	public ProcessorImpl(KlangInterpreter interpreter) {
 		this.interpreter = interpreter;
 	}
 
 	@Override
-	public void initializeVariables(AbstractActor actor) {
+	public void initializeVariables(AbstractActor<?> actor) {
 		actor.getLocalVariables()
 				.stream()
-				.forEach(decl -> decl.setValue(evaluate(decl.getExpression())));
+				.forEach(decl -> getDatastore().setValue(decl, evaluate(decl.getExpression())));
 	}
 
 	@Override
-	public void initializeAllVariables(AbstractActor rootActor) {
-		rootActor.traverseBFS()
-				.stream()
+	public void initializeAllVariables(AbstractActor<?> rootActor) {
+		TreeTraversal.INSTANCE.BreadthFirst(rootActor)
 				.flatMap(a -> a.getLocalVariables().stream())
-				.forEach(decl -> decl.setValue(evaluate(decl.getExpression())));
+				.forEach(decl -> getDatastore().setValue(decl, evaluate(decl.getExpression())));
 	}
 
 	@Override
 	public void processSingleThread() {
 		if (!getSchedulerPass().isDone()) {
-			processThread(thread);
+			processThread(getThread());
 		}
 	}
 
@@ -75,18 +76,22 @@ public class ProcessorImpl extends KlangexprSwitch<Object> implements Processor 
 		Statement current;
 		Scheduler scheduler = interpreter.getScheduler();
 
-		setThread(thread);
-
 		while ((current = thread.poll()) != null) {
 			if (current instanceof Yield) {
 				scheduler.yieldCurrentThread();
-				break;
+				return;
 			}
 
 			if (current instanceof Sleep) {
-				long duration = (long) evaluate(((Sleep) current).getDuration()) * 1000;
+				Object durationObj = evaluate(((Sleep) current).getDuration());
+				long duration;
+				if(durationObj instanceof Double) {
+					duration = ((Double) durationObj).longValue()*1000;
+				} else {
+					duration = ((Integer) durationObj).longValue()*1000;
+				}
 				scheduler.sleepCurrentThread(duration);
-				break;
+				return;
 			}
 
 			doSwitch(current);
@@ -97,6 +102,7 @@ public class ProcessorImpl extends KlangexprSwitch<Object> implements Processor 
 
 	@Override
 	public Void caseWhileLoop(WhileLoop object) {
+		KlangThread thread = getThread();
 		if (evaluateBoolean(object.getPredicate())) {
 			thread.addFirst(object);
 			thread.addFirst(KlangexprFactory.eINSTANCE.createYield());
@@ -107,6 +113,7 @@ public class ProcessorImpl extends KlangexprSwitch<Object> implements Processor 
 
 	@Override
 	public Void caseForeverLoop(ForeverLoop object) {
+		KlangThread thread = getThread();
 		thread.addFirst(object);
 		thread.addFirst(KlangexprFactory.eINSTANCE.createYield());
 		thread.addAllFirst(object.getStatements());
@@ -116,25 +123,29 @@ public class ProcessorImpl extends KlangexprSwitch<Object> implements Processor 
 	@Override
 	public Void caseIf(If object) {
 		if (evaluateBoolean(object.getPredicate())) {
-			thread.addAllFirst(object.getIfBlock());
+			getThread().addAllFirst(object.getIfBlock());
 		} else {
-			thread.addAllFirst(object.getElseBlock());
+			getThread().addAllFirst(object.getElseBlock());
 		}
 		return null;
 	}
 
 	@Override
 	public Void caseVariableAssignment(VariableAssignment object) {
-		if (thread.getActor().isInScope(object.getVariableName())) {
-			thread.getActor().getVariableDeclaration(object.getVariableName())
-					.setValue(evaluate(object.getExpression()));
+		if (getActor().isInScope(object.getVariableName())) {
+			getDatastore().setValue(
+					getActor().getVariableDeclaration(object.getVariableName()),
+					evaluate(object.getExpression())
+			);
 		}
 		return null;
 	}
 
 	@Override
 	public Void caseSendMessage(SendMessage object) {
-		interpreter.onKlangEvent(new MessageEvent(object.getName()));
+		MessageReceivedEvent msg = KlangFactory.eINSTANCE.createMessageReceivedEvent();
+		msg.setName(object.getName());
+		interpreter.getEventRegistry().fireEvent(msg);
 		return null;
 	}
 
@@ -230,35 +241,25 @@ public class ProcessorImpl extends KlangexprSwitch<Object> implements Processor 
 	@Override
 	public Object caseVariableReference(VariableReference object) {
 		if (getActor().isInScope(object.getVariableName())) {
-			return getActor()
-					.getVariableDeclaration(object.getVariableName())
-					.getValue();
+			return getDatastore().getValue(getActor().getVariableDeclaration(object.getVariableName()));
 		}
 		return null;
-	}
-
-	private Integer evaluateInteger(Expression expression) {
-		return (Integer) evaluate(expression);
-	}
-
-	private Double evaluateDouble(Expression expression) {
-		return (Double) evaluate(expression);
 	}
 
 	private SchedulerPass getSchedulerPass() {
 		return interpreter.getScheduler().getCurrentPass();
 	}
-
-	private void setThread(KlangThread thread) {
-		this.thread = thread;
+	
+	private DataStore getDatastore() {
+		return interpreter.getDatastore();
 	}
-
-	private AbstractActor getActor() {
+	
+	private AbstractActor<?> getActor() {
 		return getThread().getActor();
 	}
 
 	private KlangThread getThread() {
-		return thread;
+		return getSchedulerPass().current();
 	}
 
 }

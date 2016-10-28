@@ -1,13 +1,5 @@
-scene Program
-
-sprite ball
-	var swapColors = true
-	
-	when game starts 
-		print("GAME STARTED")	
-		sendMessage("SOMEMESSAGE")
-	
-sprite paddle
-	when ["SOMEMESSAGE"] received
-		print("MOTTOK SOMEMESSAGE!")
-		sendMessage("SOMEMESSAGE")
+scene Pong 
+	when clicked 
+		while true
+			print(5.0)
+			print(mouseX())

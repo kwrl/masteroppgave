@@ -762,6 +762,52 @@ public class KlangexprItemProviderAdapterFactory extends KlangexprAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link klangexpr.LessThanOrEqual} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LessThanOrEqualItemProvider lessThanOrEqualItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link klangexpr.LessThanOrEqual}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLessThanOrEqualAdapter() {
+		if (lessThanOrEqualItemProvider == null) {
+			lessThanOrEqualItemProvider = new LessThanOrEqualItemProvider(this);
+		}
+
+		return lessThanOrEqualItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link klangexpr.GreaterThanOrEqual} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GreaterThanOrEqualItemProvider greaterThanOrEqualItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link klangexpr.GreaterThanOrEqual}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGreaterThanOrEqualAdapter() {
+		if (greaterThanOrEqualItemProvider == null) {
+			greaterThanOrEqualItemProvider = new GreaterThanOrEqualItemProvider(this);
+		}
+
+		return greaterThanOrEqualItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -890,6 +936,8 @@ public class KlangexprItemProviderAdapterFactory extends KlangexprAdapterFactory
 		if (statementItemProvider != null) statementItemProvider.dispose();
 		if (sleepItemProvider != null) sleepItemProvider.dispose();
 		if (sendMessageItemProvider != null) sendMessageItemProvider.dispose();
+		if (lessThanOrEqualItemProvider != null) lessThanOrEqualItemProvider.dispose();
+		if (greaterThanOrEqualItemProvider != null) greaterThanOrEqualItemProvider.dispose();
 	}
 
 }

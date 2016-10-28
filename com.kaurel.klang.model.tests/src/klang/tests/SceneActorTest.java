@@ -11,12 +11,6 @@ import klang.SceneActor;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Scene Actor</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following operations are tested:
- * <ul>
- *   <li>{@link klang.SceneActor#print(java.lang.String) <em>Print</em>}</li>
- * </ul>
- * </p>
  * @generated
  */
 public class SceneActorTest extends AbstractActorTest {
@@ -71,19 +65,6 @@ public class SceneActorTest extends AbstractActorTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
-	}
-
-	/**
-	 * Tests the '{@link klang.SceneActor#print(java.lang.String) <em>Print</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.SceneActor#print(java.lang.String)
-	 * @generated
-	 */
-	public void testPrint__String() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
 	}
 
 } //SceneActorTest

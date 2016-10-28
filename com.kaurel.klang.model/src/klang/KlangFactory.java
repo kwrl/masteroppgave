@@ -40,6 +40,15 @@ public interface KlangFactory extends EFactory {
 	SpriteActor createSpriteActor();
 
 	/**
+	 * Returns a new object of class '<em>Event Handler</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Event Handler</em>'.
+	 * @generated
+	 */
+	EventHandler createEventHandler();
+
+	/**
 	 * Returns a new object of class '<em>Variable Declaration</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -49,40 +58,40 @@ public interface KlangFactory extends EFactory {
 	VariableDeclaration createVariableDeclaration();
 
 	/**
-	 * Returns a new object of class '<em>Game Start</em>'.
+	 * Returns a new object of class '<em>Game Start Event</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Game Start</em>'.
+	 * @return a new object of class '<em>Game Start Event</em>'.
 	 * @generated
 	 */
-	GameStart createGameStart();
+	GameStartEvent createGameStartEvent();
 
 	/**
-	 * Returns a new object of class '<em>Sprite Clicked</em>'.
+	 * Returns a new object of class '<em>Click Event</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Sprite Clicked</em>'.
+	 * @return a new object of class '<em>Click Event</em>'.
 	 * @generated
 	 */
-	SpriteClicked createSpriteClicked();
+	ClickEvent createClickEvent();
 
 	/**
-	 * Returns a new object of class '<em>Key Pressed</em>'.
+	 * Returns a new object of class '<em>Key Press Event</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Key Pressed</em>'.
+	 * @return a new object of class '<em>Key Press Event</em>'.
 	 * @generated
 	 */
-	KeyPressed createKeyPressed();
+	KeyPressEvent createKeyPressEvent();
 
 	/**
-	 * Returns a new object of class '<em>Collides With</em>'.
+	 * Returns a new object of class '<em>Collision Event</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Collides With</em>'.
+	 * @return a new object of class '<em>Collision Event</em>'.
 	 * @generated
 	 */
-	CollidesWith createCollidesWith();
+	CollisionEvent createCollisionEvent();
 
 	/**
 	 * Returns a new object of class '<em>Program</em>'.
@@ -94,22 +103,13 @@ public interface KlangFactory extends EFactory {
 	Program createProgram();
 
 	/**
-	 * Returns a new object of class '<em>Tree Traversal</em>'.
+	 * Returns a new object of class '<em>Message Received Event</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Tree Traversal</em>'.
+	 * @return a new object of class '<em>Message Received Event</em>'.
 	 * @generated
 	 */
-	TreeTraversal createTreeTraversal();
-
-	/**
-	 * Returns a new object of class '<em>Message Received</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Message Received</em>'.
-	 * @generated
-	 */
-	MessageReceived createMessageReceived();
+	MessageReceivedEvent createMessageReceivedEvent();
 
 	/**
 	 * Returns the package supported by this factory.

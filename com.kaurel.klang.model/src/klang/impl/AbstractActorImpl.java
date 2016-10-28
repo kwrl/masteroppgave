@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import java.util.stream.Stream;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -21,6 +22,8 @@ import klang.AbstractActor;
 import klang.EventHandler;
 import klang.KlangPackage;
 import klang.VariableDeclaration;
+import klang.entities.Entity;
+import klang.util.TreeTraversal;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,11 +39,12 @@ import klang.VariableDeclaration;
  *   <li>{@link klang.impl.AbstractActorImpl#getName <em>Name</em>}</li>
  *   <li>{@link klang.impl.AbstractActorImpl#getSubject <em>Subject</em>}</li>
  *   <li>{@link klang.impl.AbstractActorImpl#getLocalVariables <em>Local Variables</em>}</li>
+ *   <li>{@link klang.impl.AbstractActorImpl#getSubjectType <em>Subject Type</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class AbstractActorImpl extends MinimalEObjectImpl.Container implements AbstractActor {
+public abstract class AbstractActorImpl<T extends Entity> extends MinimalEObjectImpl.Container implements AbstractActor<T> {
 	/**
 	 * The cached value of the '{@link #getEventHandlers() <em>Event Handlers</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -72,16 +76,6 @@ public abstract class AbstractActorImpl extends MinimalEObjectImpl.Container imp
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getSubject() <em>Subject</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSubject()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Object SUBJECT_EDEFAULT = null;
-
-	/**
 	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -89,7 +83,7 @@ public abstract class AbstractActorImpl extends MinimalEObjectImpl.Container imp
 	 * @generated
 	 * @ordered
 	 */
-	protected Object subject = SUBJECT_EDEFAULT;
+	protected T subject;
 
 	/**
 	 * The cached value of the '{@link #getLocalVariables() <em>Local Variables</em>}' containment reference list.
@@ -100,6 +94,16 @@ public abstract class AbstractActorImpl extends MinimalEObjectImpl.Container imp
 	 * @ordered
 	 */
 	protected EList<VariableDeclaration> localVariables;
+
+	/**
+	 * The cached value of the '{@link #getSubjectType() <em>Subject Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubjectType()
+	 * @generated
+	 * @ordered
+	 */
+	protected Class<T> subjectType;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -126,7 +130,7 @@ public abstract class AbstractActorImpl extends MinimalEObjectImpl.Container imp
 	 * @generated
 	 */
 	@Override 
-	public EList<AbstractActor> getChildren() {
+	public EList<AbstractActor<?>> getChildren() {
 		// TODO: implement this method to return the 'Children' reference list
 		// Ensure that you remove @generated or mark it @generated NOT
 		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
@@ -139,7 +143,7 @@ public abstract class AbstractActorImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractActor getParent() {
+	public AbstractActor<?> getParent() {
 		// TODO: implement this method to return the 'Parent' reference
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -183,7 +187,7 @@ public abstract class AbstractActorImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getSubject() {
+	public T getSubject() {
 		return subject;
 	}
 
@@ -192,8 +196,8 @@ public abstract class AbstractActorImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSubject(Object newSubject) {
-		Object oldSubject = subject;
+	public void setSubject(T newSubject) {
+		T oldSubject = subject;
 		subject = newSubject;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, KlangPackage.ABSTRACT_ACTOR__SUBJECT, oldSubject, subject));
@@ -209,6 +213,15 @@ public abstract class AbstractActorImpl extends MinimalEObjectImpl.Container imp
 			localVariables = new EObjectContainmentWithInverseEList<VariableDeclaration>(VariableDeclaration.class, this, KlangPackage.ABSTRACT_ACTOR__LOCAL_VARIABLES, KlangPackage.VARIABLE_DECLARATION__ACTOR);
 		}
 		return localVariables;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Class<T> getSubjectType() {
+		return subjectType;
 	}
 
 	/**
@@ -262,12 +275,12 @@ public abstract class AbstractActorImpl extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public Double random() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public Stream<VariableDeclaration> getVariableDeclarations(String variableName) {
+		return TreeTraversal.INSTANCE.PathToRoot(this)
+				.flatMap(a -> a.getLocalVariables().stream())
+				.filter(decl -> variableName.equals(decl.getName()));
 	}
 
 	/**
@@ -323,6 +336,8 @@ public abstract class AbstractActorImpl extends MinimalEObjectImpl.Container imp
 				return getSubject();
 			case KlangPackage.ABSTRACT_ACTOR__LOCAL_VARIABLES:
 				return getLocalVariables();
+			case KlangPackage.ABSTRACT_ACTOR__SUBJECT_TYPE:
+				return getSubjectType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -344,7 +359,7 @@ public abstract class AbstractActorImpl extends MinimalEObjectImpl.Container imp
 				setName((String)newValue);
 				return;
 			case KlangPackage.ABSTRACT_ACTOR__SUBJECT:
-				setSubject(newValue);
+				setSubject((T)newValue);
 				return;
 			case KlangPackage.ABSTRACT_ACTOR__LOCAL_VARIABLES:
 				getLocalVariables().clear();
@@ -369,7 +384,7 @@ public abstract class AbstractActorImpl extends MinimalEObjectImpl.Container imp
 				setName(NAME_EDEFAULT);
 				return;
 			case KlangPackage.ABSTRACT_ACTOR__SUBJECT:
-				setSubject(SUBJECT_EDEFAULT);
+				setSubject((T)null);
 				return;
 			case KlangPackage.ABSTRACT_ACTOR__LOCAL_VARIABLES:
 				getLocalVariables().clear();
@@ -395,9 +410,11 @@ public abstract class AbstractActorImpl extends MinimalEObjectImpl.Container imp
 			case KlangPackage.ABSTRACT_ACTOR__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case KlangPackage.ABSTRACT_ACTOR__SUBJECT:
-				return SUBJECT_EDEFAULT == null ? subject != null : !SUBJECT_EDEFAULT.equals(subject);
+				return subject != null;
 			case KlangPackage.ABSTRACT_ACTOR__LOCAL_VARIABLES:
 				return localVariables != null && !localVariables.isEmpty();
+			case KlangPackage.ABSTRACT_ACTOR__SUBJECT_TYPE:
+				return subjectType != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -418,8 +435,8 @@ public abstract class AbstractActorImpl extends MinimalEObjectImpl.Container imp
 				return isInLocalScope((String)arguments.get(0));
 			case KlangPackage.ABSTRACT_ACTOR___IS_IN_PARENT_SCOPE__STRING:
 				return isInParentScope((String)arguments.get(0));
-			case KlangPackage.ABSTRACT_ACTOR___RANDOM:
-				return random();
+			case KlangPackage.ABSTRACT_ACTOR___GET_VARIABLE_DECLARATIONS__STRING:
+				return getVariableDeclarations((String)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -438,6 +455,8 @@ public abstract class AbstractActorImpl extends MinimalEObjectImpl.Container imp
 		result.append(name);
 		result.append(", subject: ");
 		result.append(subject);
+		result.append(", subjectType: ");
+		result.append(subjectType);
 		result.append(')');
 		return result.toString();
 	}

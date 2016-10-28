@@ -92,6 +92,14 @@ public class OperatorImpl {
 	public static Integer DivideImpl(Integer left, Integer right) {
 		return left / right;
 	}
+	
+	public static Double DivideImpl(Integer left, Double right) {
+		return left / right;
+	}
+	
+	public static Double DivideImpl(Double left, Integer right) {
+		return left / right;
+	}
 
 	//Not
 	public static Boolean NotImpl(Boolean value) {
@@ -124,6 +132,20 @@ public class OperatorImpl {
 	public static Boolean LessThanImpl(Integer left, Double right) {
 		return left < right;
 	}
+	
+	//Less than or equal
+	public static Boolean LessThanOrEqualImpl(Integer left, Integer right) {
+		return left <= right;
+	}
+	public static Boolean LessThanOrEqualImpl(Double left, Double right) {
+		return left <= right;
+	}
+	public static Boolean LessThanOrEqualImpl(Integer left, Double right) {
+		return left <= right;
+	}
+	public static Boolean LessThanOrEqualImpl(Double left, Integer right) {
+		return left <= right;
+	}
 
 	//Greater than
 	public static Boolean GreaterThanImpl(Double left, Double right) {
@@ -140,6 +162,20 @@ public class OperatorImpl {
 	
 	public static Boolean GreaterThanImpl(Double left, Integer right) {
 		return left > right;
+	}
+	
+	//Greater than or equal
+	public static Boolean GreaterThanOrEqualImpl(Integer left, Integer right) {
+		return left >= right;
+	}
+	public static Boolean GreaterThanOrEqualImpl(Double left, Double right) {
+		return left >= right;
+	}
+	public static Boolean GreaterThanOrEqualImpl(Integer left, Double right) {
+		return left >= right;
+	}
+	public static Boolean GreaterThanOrEqualImpl(Double left, Integer right) {
+		return left >= right;
 	}
 	
 	//Equality

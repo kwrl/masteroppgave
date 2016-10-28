@@ -2,6 +2,8 @@
  */
 package klang;
 
+import java.util.stream.Stream;
+import klang.entities.Entity;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -17,13 +19,14 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link klang.AbstractActor#getName <em>Name</em>}</li>
  *   <li>{@link klang.AbstractActor#getSubject <em>Subject</em>}</li>
  *   <li>{@link klang.AbstractActor#getLocalVariables <em>Local Variables</em>}</li>
+ *   <li>{@link klang.AbstractActor#getSubjectType <em>Subject Type</em>}</li>
  * </ul>
  *
  * @see klang.KlangPackage#getAbstractActor()
- * @model abstract="true"
+ * @model abstract="true" TBounds="klang.Entity"
  * @generated
  */
-public interface AbstractActor extends TreeNode<AbstractActor> {
+public interface AbstractActor<T extends Entity> extends TreeNode<AbstractActor<?>> {
 	/**
 	 * Returns the value of the '<em><b>Event Handlers</b></em>' containment reference list.
 	 * The list contents are of type {@link klang.EventHandler}.
@@ -77,12 +80,12 @@ public interface AbstractActor extends TreeNode<AbstractActor> {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Subject</em>' attribute.
-	 * @see #setSubject(Object)
+	 * @see #setSubject(Entity)
 	 * @see klang.KlangPackage#getAbstractActor_Subject()
 	 * @model transient="true"
 	 * @generated
 	 */
-	Object getSubject();
+	T getSubject();
 
 	/**
 	 * Sets the value of the '{@link klang.AbstractActor#getSubject <em>Subject</em>}' attribute.
@@ -92,7 +95,7 @@ public interface AbstractActor extends TreeNode<AbstractActor> {
 	 * @see #getSubject()
 	 * @generated
 	 */
-	void setSubject(Object value);
+	void setSubject(T value);
 
 	/**
 	 * Returns the value of the '<em><b>Local Variables</b></em>' containment reference list.
@@ -111,6 +114,21 @@ public interface AbstractActor extends TreeNode<AbstractActor> {
 	 * @generated
 	 */
 	EList<VariableDeclaration> getLocalVariables();
+
+	/**
+	 * Returns the value of the '<em><b>Subject Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Subject Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Subject Type</em>' attribute.
+	 * @see klang.KlangPackage#getAbstractActor_SubjectType()
+	 * @model changeable="false" derived="true"
+	 * @generated
+	 */
+	Class<T> getSubjectType();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -147,9 +165,9 @@ public interface AbstractActor extends TreeNode<AbstractActor> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model dataType="klang.Stream<klang.VariableDeclaration>" variableNameRequired="true"
 	 * @generated
 	 */
-	Double random();
+	Stream<VariableDeclaration> getVariableDeclarations(String variableName);
 
 } // AbstractActor

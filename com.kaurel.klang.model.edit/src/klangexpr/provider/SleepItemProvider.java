@@ -240,6 +240,16 @@ public class SleepItemProvider extends StatementItemProvider {
 			(createChildParameter
 				(KlangexprPackage.Literals.SLEEP__DURATION,
 				 KlangexprFactory.eINSTANCE.createToInt()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangexprPackage.Literals.SLEEP__DURATION,
+				 KlangexprFactory.eINSTANCE.createLessThanOrEqual()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangexprPackage.Literals.SLEEP__DURATION,
+				 KlangexprFactory.eINSTANCE.createGreaterThanOrEqual()));
 	}
 
 }

@@ -18,10 +18,11 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link klang.EventHandler#getStatements <em>Statements</em>}</li>
  *   <li>{@link klang.EventHandler#getActor <em>Actor</em>}</li>
+ *   <li>{@link klang.EventHandler#getReferenceEvent <em>Reference Event</em>}</li>
  * </ul>
  *
  * @see klang.KlangPackage#getEventHandler()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface EventHandler extends EObject {
@@ -56,6 +57,32 @@ public interface EventHandler extends EObject {
 	 * @model opposite="eventHandlers" required="true" transient="false" changeable="false"
 	 * @generated
 	 */
-	AbstractActor getActor();
+	AbstractActor<?> getActor();
+
+	/**
+	 * Returns the value of the '<em><b>Reference Event</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Reference Event</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reference Event</em>' containment reference.
+	 * @see #setReferenceEvent(Event)
+	 * @see klang.KlangPackage#getEventHandler_ReferenceEvent()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Event getReferenceEvent();
+
+	/**
+	 * Sets the value of the '{@link klang.EventHandler#getReferenceEvent <em>Reference Event</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Reference Event</em>' containment reference.
+	 * @see #getReferenceEvent()
+	 * @generated
+	 */
+	void setReferenceEvent(Event value);
 
 } // EventHandler

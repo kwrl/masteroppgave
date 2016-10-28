@@ -247,6 +247,16 @@ public class BinaryOperatorItemProvider extends ExpressionItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(KlangexprPackage.Literals.BINARY_OPERATOR__LEFT,
+				 KlangexprFactory.eINSTANCE.createLessThanOrEqual()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangexprPackage.Literals.BINARY_OPERATOR__LEFT,
+				 KlangexprFactory.eINSTANCE.createGreaterThanOrEqual()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(KlangexprPackage.Literals.BINARY_OPERATOR__RIGHT,
 				 KlangexprFactory.eINSTANCE.createExpression()));
 
@@ -354,6 +364,16 @@ public class BinaryOperatorItemProvider extends ExpressionItemProvider {
 			(createChildParameter
 				(KlangexprPackage.Literals.BINARY_OPERATOR__RIGHT,
 				 KlangexprFactory.eINSTANCE.createToInt()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangexprPackage.Literals.BINARY_OPERATOR__RIGHT,
+				 KlangexprFactory.eINSTANCE.createLessThanOrEqual()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangexprPackage.Literals.BINARY_OPERATOR__RIGHT,
+				 KlangexprFactory.eINSTANCE.createGreaterThanOrEqual()));
 	}
 
 	/**

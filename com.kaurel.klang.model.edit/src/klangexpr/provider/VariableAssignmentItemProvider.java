@@ -272,6 +272,16 @@ public class VariableAssignmentItemProvider extends StatementItemProvider {
 			(createChildParameter
 				(KlangexprPackage.Literals.VARIABLE_ASSIGNMENT__EXPRESSION,
 				 KlangexprFactory.eINSTANCE.createToInt()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangexprPackage.Literals.VARIABLE_ASSIGNMENT__EXPRESSION,
+				 KlangexprFactory.eINSTANCE.createLessThanOrEqual()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KlangexprPackage.Literals.VARIABLE_ASSIGNMENT__EXPRESSION,
+				 KlangexprFactory.eINSTANCE.createGreaterThanOrEqual()));
 	}
 
 }

@@ -10,8 +10,8 @@ public interface Processor {
 	public void processSingleThread();
 
 	//Initialize actor's variables
-	public void initializeVariables(AbstractActor actor);
+	public void initializeVariables(AbstractActor<?> actor);
 	
 	//Initialize actor's and its childrens' variables
-	public void initializeAllVariables(AbstractActor rootActor);
+	public void initializeAllVariables(AbstractActor<?> rootActor);
 }

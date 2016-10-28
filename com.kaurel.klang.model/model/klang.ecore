@@ -9,54 +9,35 @@
     nsPrefix="klang">
   <eClassifiers
       xsi:type="ecore:EClass"
-      name="SceneActor"
-      eSuperTypes="#//AbstractActor">
-    <eOperations
-        name="print">
-      <eParameters
-          name="message"
-          lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eOperations>
+      name="SceneActor">
     <eStructuralFeatures
         xsi:type="ecore:EReference"
         name="program"
         eType="#//Program"
         eOpposite="#//Program/sceneActor"/>
+    <eGenericSuperTypes
+        eClassifier="#//AbstractActor">
+      <eTypeArguments
+          eClassifier="#//SceneEntity"/>
+    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"
-      name="SpriteActor"
-      eSuperTypes="#//AbstractActor">
-    <eOperations
-        name="print">
-      <eParameters
-          name="message"
-          lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eOperations>
-    <eOperations
-        name="setColor">
-      <eParameters
-          name="red"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
-      <eParameters
-          name="green"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
-      <eParameters
-          name="blue"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
-    </eOperations>
+      name="SpriteActor">
     <eStructuralFeatures
         xsi:type="ecore:EReference"
         name="program"
         eType="#//Program"
         eOpposite="#//Program/spriteActors"/>
+    <eGenericSuperTypes
+        eClassifier="#//AbstractActor">
+      <eTypeArguments
+          eClassifier="#//SpriteEntity"/>
+    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"
-      name="EventHandler"
-      abstract="true">
+      name="EventHandler">
     <eStructuralFeatures
         xsi:type="ecore:EReference"
         name="statements"
@@ -67,9 +48,18 @@
         xsi:type="ecore:EReference"
         name="actor"
         lowerBound="1"
-        eType="#//AbstractActor"
         changeable="false"
-        eOpposite="#//AbstractActor/eventHandlers"/>
+        eOpposite="#//AbstractActor/eventHandlers">
+      <eGenericType
+          eClassifier="#//AbstractActor">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+    <eStructuralFeatures
+        xsi:type="ecore:EReference"
+        name="referenceEvent"
+        eType="#//Event"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"
@@ -90,20 +80,24 @@
         name="name"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures
-        xsi:type="ecore:EAttribute"
-        name="value"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
-        transient="true"/>
-    <eStructuralFeatures
         xsi:type="ecore:EReference"
         name="actor"
-        eType="#//AbstractActor"
-        eOpposite="#//AbstractActor/localVariables"/>
+        eOpposite="#//AbstractActor/localVariables">
+      <eGenericType
+          eClassifier="#//AbstractActor">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"
       name="AbstractActor"
       abstract="true">
+    <eTypeParameters
+        name="T">
+      <eBounds
+          eClassifier="#//Entity"/>
+    </eTypeParameters>
     <eOperations
         name="isInScope"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -137,8 +131,17 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eOperations
-        name="random"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+        name="getVariableDeclarations">
+      <eGenericType
+          eClassifier="#//Stream">
+        <eTypeArguments
+            eClassifier="#//VariableDeclaration"/>
+      </eGenericType>
+      <eParameters
+          name="variableName"
+          lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
     <eStructuralFeatures
         xsi:type="ecore:EReference"
         name="eventHandlers"
@@ -153,8 +156,10 @@
     <eStructuralFeatures
         xsi:type="ecore:EAttribute"
         name="subject"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
-        transient="true"/>
+        transient="true">
+      <eGenericType
+          eTypeParameter="#//AbstractActor/T"/>
+    </eStructuralFeatures>
     <eStructuralFeatures
         xsi:type="ecore:EReference"
         name="localVariables"
@@ -162,24 +167,37 @@
         eType="#//VariableDeclaration"
         containment="true"
         eOpposite="#//VariableDeclaration/actor"/>
+    <eStructuralFeatures
+        xsi:type="ecore:EAttribute"
+        name="subjectType"
+        changeable="false"
+        derived="true">
+      <eGenericType
+          eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+        <eTypeArguments
+            eTypeParameter="#//AbstractActor/T"/>
+      </eGenericType>
+    </eStructuralFeatures>
     <eGenericSuperTypes
         eClassifier="#//TreeNode">
       <eTypeArguments
-          eClassifier="#//AbstractActor"/>
+          eClassifier="#//AbstractActor">
+        <eTypeArguments/>
+      </eTypeArguments>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"
-      name="GameStart"
-      eSuperTypes="#//EventHandler"/>
+      name="GameStartEvent"
+      eSuperTypes="#//GlobalEvent"/>
   <eClassifiers
       xsi:type="ecore:EClass"
-      name="SpriteClicked"
-      eSuperTypes="#//EventHandler"/>
+      name="ClickEvent"
+      eSuperTypes="#//ActorEvent"/>
   <eClassifiers
       xsi:type="ecore:EClass"
-      name="KeyPressed"
-      eSuperTypes="#//EventHandler">
+      name="KeyPressEvent"
+      eSuperTypes="#//GlobalEvent">
     <eStructuralFeatures
         xsi:type="ecore:EAttribute"
         name="key"
@@ -187,8 +205,8 @@
   </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"
-      name="CollidesWith"
-      eSuperTypes="#//EventHandler">
+      name="CollisionEvent"
+      eSuperTypes="#//ActorEvent">
     <eStructuralFeatures
         xsi:type="ecore:EReference"
         name="target"
@@ -247,48 +265,6 @@
       <eGenericType
           eTypeParameter="#//TreeNode/T"/>
     </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="TreeTraversal">
-    <eOperations
-        name="BreadthFirst"
-        upperBound="-1">
-      <eGenericType
-          eTypeParameter="#//TreeTraversal/BreadthFirst/T"/>
-      <eTypeParameters
-          name="T">
-        <eBounds
-            eClassifier="#//TreeNode">
-          <eTypeArguments
-              eTypeParameter="#//TreeTraversal/BreadthFirst/T"/>
-        </eBounds>
-      </eTypeParameters>
-      <eParameters
-          name="root">
-        <eGenericType
-            eTypeParameter="#//TreeTraversal/BreadthFirst/T"/>
-      </eParameters>
-    </eOperations>
-    <eOperations
-        name="DepthFirst"
-        upperBound="-1">
-      <eGenericType
-          eTypeParameter="#//TreeTraversal/DepthFirst/T"/>
-      <eTypeParameters
-          name="T">
-        <eBounds
-            eClassifier="#//TreeNode">
-          <eTypeArguments
-              eTypeParameter="#//TreeTraversal/DepthFirst/T"/>
-        </eBounds>
-      </eTypeParameters>
-      <eParameters
-          name="root">
-        <eGenericType
-            eTypeParameter="#//TreeTraversal/DepthFirst/T"/>
-      </eParameters>
-    </eOperations>
   </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EEnum"
@@ -391,11 +367,66 @@
   </eClassifiers>
   <eClassifiers
       xsi:type="ecore:EClass"
-      name="MessageReceived"
-      eSuperTypes="#//EventHandler">
+      name="MessageReceivedEvent"
+      eSuperTypes="#//GlobalEvent">
     <eStructuralFeatures
         xsi:type="ecore:EAttribute"
         name="name"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers
+      xsi:type="ecore:EClass"
+      name="Event"
+      abstract="true">
+    <eOperations
+        name="matchingEvent"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eTypeParameters
+          name="T">
+        <eBounds
+            eClassifier="#//Event"/>
+      </eTypeParameters>
+      <eParameters
+          name="other">
+        <eGenericType
+            eTypeParameter="#//Event/matchingEvent/T"/>
+      </eParameters>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers
+      xsi:type="ecore:EClass"
+      name="GlobalEvent"
+      abstract="true"
+      eSuperTypes="#//Event"/>
+  <eClassifiers
+      xsi:type="ecore:EClass"
+      name="ActorEvent"
+      abstract="true"
+      eSuperTypes="#//Event"/>
+  <eClassifiers
+      xsi:type="ecore:EDataType"
+      name="Entity"
+      instanceClassName="klang.entities.Entity"/>
+  <eClassifiers
+      xsi:type="ecore:EDataType"
+      name="SpriteEntity"
+      instanceClassName="klang.entities.SpriteEntity"/>
+  <eClassifiers
+      xsi:type="ecore:EDataType"
+      name="SceneEntity"
+      instanceClassName="klang.entities.SceneEntity"/>
+  <eClassifiers
+      xsi:type="ecore:EDataType"
+      name="Optional"
+      instanceClassName="java.util.Optional">
+    <eTypeParameters
+        name="T"/>
+  </eClassifiers>
+  <eClassifiers
+      xsi:type="ecore:EDataType"
+      name="Stream"
+      instanceClassName="java.util.stream.Stream">
+    <eTypeParameters
+        name="T"/>
   </eClassifiers>
 </ecore:EPackage>

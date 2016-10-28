@@ -292,6 +292,24 @@ public interface KlangexprFactory extends EFactory {
 	SendMessage createSendMessage();
 
 	/**
+	 * Returns a new object of class '<em>Less Than Or Equal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Less Than Or Equal</em>'.
+	 * @generated
+	 */
+	LessThanOrEqual createLessThanOrEqual();
+
+	/**
+	 * Returns a new object of class '<em>Greater Than Or Equal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Greater Than Or Equal</em>'.
+	 * @generated
+	 */
+	GreaterThanOrEqual createGreaterThanOrEqual();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

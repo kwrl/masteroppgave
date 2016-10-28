@@ -12,11 +12,13 @@ import klangexpr.Expression;
 import klangexpr.ForeverLoop;
 import klangexpr.FunctionCall;
 import klangexpr.GreaterThan;
+import klangexpr.GreaterThanOrEqual;
 import klangexpr.If;
 import klangexpr.IntegerLiteral;
 import klangexpr.KlangexprFactory;
 import klangexpr.KlangexprPackage;
 import klangexpr.LessThan;
+import klangexpr.LessThanOrEqual;
 import klangexpr.Minus;
 import klangexpr.Multiply;
 import klangexpr.Not;
@@ -269,6 +271,20 @@ public class KlangexprPackageImpl extends EPackageImpl implements KlangexprPacka
 	 * @generated
 	 */
 	private EClass sendMessageEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass lessThanOrEqualEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass greaterThanOrEqualEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -804,6 +820,24 @@ public class KlangexprPackageImpl extends EPackageImpl implements KlangexprPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getLessThanOrEqual() {
+		return lessThanOrEqualEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGreaterThanOrEqual() {
+		return greaterThanOrEqualEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public KlangexprFactory getKlangexprFactory() {
 		return (KlangexprFactory)getEFactoryInstance();
 	}
@@ -908,6 +942,10 @@ public class KlangexprPackageImpl extends EPackageImpl implements KlangexprPacka
 
 		sendMessageEClass = createEClass(SEND_MESSAGE);
 		createEAttribute(sendMessageEClass, SEND_MESSAGE__NAME);
+
+		lessThanOrEqualEClass = createEClass(LESS_THAN_OR_EQUAL);
+
+		greaterThanOrEqualEClass = createEClass(GREATER_THAN_OR_EQUAL);
 	}
 
 	/**
@@ -968,6 +1006,8 @@ public class KlangexprPackageImpl extends EPackageImpl implements KlangexprPacka
 		operatorEClass.getESuperTypes().add(this.getExpression());
 		sleepEClass.getESuperTypes().add(this.getStatement());
 		sendMessageEClass.getESuperTypes().add(this.getStatement());
+		lessThanOrEqualEClass.getESuperTypes().add(this.getBinaryOperator());
+		greaterThanOrEqualEClass.getESuperTypes().add(this.getBinaryOperator());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(whileLoopEClass, WhileLoop.class, "WhileLoop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1051,6 +1091,10 @@ public class KlangexprPackageImpl extends EPackageImpl implements KlangexprPacka
 
 		initEClass(sendMessageEClass, SendMessage.class, "SendMessage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSendMessage_Name(), ecorePackage.getEString(), "name", null, 0, 1, SendMessage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(lessThanOrEqualEClass, LessThanOrEqual.class, "LessThanOrEqual", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(greaterThanOrEqualEClass, GreaterThanOrEqual.class, "GreaterThanOrEqual", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

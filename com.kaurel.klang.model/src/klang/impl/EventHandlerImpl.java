@@ -4,15 +4,18 @@ package klang.impl;
 
 import java.util.Collection;
 import klang.AbstractActor;
+import klang.Event;
 import klang.EventHandler;
 import klang.KlangPackage;
 import klangexpr.Statement;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -28,11 +31,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link klang.impl.EventHandlerImpl#getStatements <em>Statements</em>}</li>
  *   <li>{@link klang.impl.EventHandlerImpl#getActor <em>Actor</em>}</li>
+ *   <li>{@link klang.impl.EventHandlerImpl#getReferenceEvent <em>Reference Event</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class EventHandlerImpl extends MinimalEObjectImpl.Container implements EventHandler {
+public class EventHandlerImpl extends MinimalEObjectImpl.Container implements EventHandler {
 	/**
 	 * The cached value of the '{@link #getStatements() <em>Statements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -42,6 +46,16 @@ public abstract class EventHandlerImpl extends MinimalEObjectImpl.Container impl
 	 * @ordered
 	 */
 	protected EList<Statement> statements;
+
+	/**
+	 * The cached value of the '{@link #getReferenceEvent() <em>Reference Event</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferenceEvent()
+	 * @generated
+	 * @ordered
+	 */
+	protected Event referenceEvent;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -79,9 +93,52 @@ public abstract class EventHandlerImpl extends MinimalEObjectImpl.Container impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractActor getActor() {
+	public AbstractActor<?> getActor() {
 		if (eContainerFeatureID() != KlangPackage.EVENT_HANDLER__ACTOR) return null;
-		return (AbstractActor)eInternalContainer();
+		return (AbstractActor<?>)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Event getReferenceEvent() {
+		return referenceEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetReferenceEvent(Event newReferenceEvent, NotificationChain msgs) {
+		Event oldReferenceEvent = referenceEvent;
+		referenceEvent = newReferenceEvent;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KlangPackage.EVENT_HANDLER__REFERENCE_EVENT, oldReferenceEvent, newReferenceEvent);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReferenceEvent(Event newReferenceEvent) {
+		if (newReferenceEvent != referenceEvent) {
+			NotificationChain msgs = null;
+			if (referenceEvent != null)
+				msgs = ((InternalEObject)referenceEvent).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KlangPackage.EVENT_HANDLER__REFERENCE_EVENT, null, msgs);
+			if (newReferenceEvent != null)
+				msgs = ((InternalEObject)newReferenceEvent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KlangPackage.EVENT_HANDLER__REFERENCE_EVENT, null, msgs);
+			msgs = basicSetReferenceEvent(newReferenceEvent, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, KlangPackage.EVENT_HANDLER__REFERENCE_EVENT, newReferenceEvent, newReferenceEvent));
 	}
 
 	/**
@@ -112,6 +169,8 @@ public abstract class EventHandlerImpl extends MinimalEObjectImpl.Container impl
 				return ((InternalEList<?>)getStatements()).basicRemove(otherEnd, msgs);
 			case KlangPackage.EVENT_HANDLER__ACTOR:
 				return eBasicSetContainer(null, KlangPackage.EVENT_HANDLER__ACTOR, msgs);
+			case KlangPackage.EVENT_HANDLER__REFERENCE_EVENT:
+				return basicSetReferenceEvent(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -142,6 +201,8 @@ public abstract class EventHandlerImpl extends MinimalEObjectImpl.Container impl
 				return getStatements();
 			case KlangPackage.EVENT_HANDLER__ACTOR:
 				return getActor();
+			case KlangPackage.EVENT_HANDLER__REFERENCE_EVENT:
+				return getReferenceEvent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -159,6 +220,9 @@ public abstract class EventHandlerImpl extends MinimalEObjectImpl.Container impl
 				getStatements().clear();
 				getStatements().addAll((Collection<? extends Statement>)newValue);
 				return;
+			case KlangPackage.EVENT_HANDLER__REFERENCE_EVENT:
+				setReferenceEvent((Event)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -173,6 +237,9 @@ public abstract class EventHandlerImpl extends MinimalEObjectImpl.Container impl
 		switch (featureID) {
 			case KlangPackage.EVENT_HANDLER__STATEMENTS:
 				getStatements().clear();
+				return;
+			case KlangPackage.EVENT_HANDLER__REFERENCE_EVENT:
+				setReferenceEvent((Event)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -190,6 +257,8 @@ public abstract class EventHandlerImpl extends MinimalEObjectImpl.Container impl
 				return statements != null && !statements.isEmpty();
 			case KlangPackage.EVENT_HANDLER__ACTOR:
 				return getActor() != null;
+			case KlangPackage.EVENT_HANDLER__REFERENCE_EVENT:
+				return referenceEvent != null;
 		}
 		return super.eIsSet(featureID);
 	}

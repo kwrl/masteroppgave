@@ -1305,6 +1305,99 @@ public interface KlangexprPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link klangexpr.impl.LessThanOrEqualImpl <em>Less Than Or Equal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klangexpr.impl.LessThanOrEqualImpl
+	 * @see klangexpr.impl.KlangexprPackageImpl#getLessThanOrEqual()
+	 * @generated
+	 */
+	int LESS_THAN_OR_EQUAL = 31;
+
+	/**
+	 * The feature id for the '<em><b>Left</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LESS_THAN_OR_EQUAL__LEFT = BINARY_OPERATOR__LEFT;
+
+	/**
+	 * The feature id for the '<em><b>Right</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LESS_THAN_OR_EQUAL__RIGHT = BINARY_OPERATOR__RIGHT;
+
+	/**
+	 * The number of structural features of the '<em>Less Than Or Equal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LESS_THAN_OR_EQUAL_FEATURE_COUNT = BINARY_OPERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Less Than Or Equal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LESS_THAN_OR_EQUAL_OPERATION_COUNT = BINARY_OPERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link klangexpr.impl.GreaterThanOrEqualImpl <em>Greater Than Or Equal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see klangexpr.impl.GreaterThanOrEqualImpl
+	 * @see klangexpr.impl.KlangexprPackageImpl#getGreaterThanOrEqual()
+	 * @generated
+	 */
+	int GREATER_THAN_OR_EQUAL = 32;
+
+	/**
+	 * The feature id for the '<em><b>Left</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GREATER_THAN_OR_EQUAL__LEFT = BINARY_OPERATOR__LEFT;
+
+	/**
+	 * The feature id for the '<em><b>Right</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GREATER_THAN_OR_EQUAL__RIGHT = BINARY_OPERATOR__RIGHT;
+
+	/**
+	 * The number of structural features of the '<em>Greater Than Or Equal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GREATER_THAN_OR_EQUAL_FEATURE_COUNT = BINARY_OPERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Greater Than Or Equal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GREATER_THAN_OR_EQUAL_OPERATION_COUNT = BINARY_OPERATOR_OPERATION_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link klangexpr.WhileLoop <em>While Loop</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1835,6 +1928,26 @@ public interface KlangexprPackage extends EPackage {
 	EAttribute getSendMessage_Name();
 
 	/**
+	 * Returns the meta object for class '{@link klangexpr.LessThanOrEqual <em>Less Than Or Equal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Less Than Or Equal</em>'.
+	 * @see klangexpr.LessThanOrEqual
+	 * @generated
+	 */
+	EClass getLessThanOrEqual();
+
+	/**
+	 * Returns the meta object for class '{@link klangexpr.GreaterThanOrEqual <em>Greater Than Or Equal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Greater Than Or Equal</em>'.
+	 * @see klangexpr.GreaterThanOrEqual
+	 * @generated
+	 */
+	EClass getGreaterThanOrEqual();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2326,6 +2439,26 @@ public interface KlangexprPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SEND_MESSAGE__NAME = eINSTANCE.getSendMessage_Name();
+
+		/**
+		 * The meta object literal for the '{@link klangexpr.impl.LessThanOrEqualImpl <em>Less Than Or Equal</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klangexpr.impl.LessThanOrEqualImpl
+		 * @see klangexpr.impl.KlangexprPackageImpl#getLessThanOrEqual()
+		 * @generated
+		 */
+		EClass LESS_THAN_OR_EQUAL = eINSTANCE.getLessThanOrEqual();
+
+		/**
+		 * The meta object literal for the '{@link klangexpr.impl.GreaterThanOrEqualImpl <em>Greater Than Or Equal</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see klangexpr.impl.GreaterThanOrEqualImpl
+		 * @see klangexpr.impl.KlangexprPackageImpl#getGreaterThanOrEqual()
+		 * @generated
+		 */
+		EClass GREATER_THAN_OR_EQUAL = eINSTANCE.getGreaterThanOrEqual();
 
 	}
 

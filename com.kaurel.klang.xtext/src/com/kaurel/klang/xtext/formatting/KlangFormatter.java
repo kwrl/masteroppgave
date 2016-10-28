@@ -3,8 +3,10 @@
  */
 package com.kaurel.klang.xtext.formatting;
 
+import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.formatting.impl.AbstractDeclarativeFormatter;
 import org.eclipse.xtext.formatting.impl.FormattingConfig;
+import org.eclipse.xtext.util.Pair;
 
 import com.kaurel.klang.xtext.services.KlangGrammarAccess;
 
@@ -24,9 +26,15 @@ public class KlangFormatter extends AbstractDeclarativeFormatter {
 	protected void configureFormatting(FormattingConfig c) {
 		KlangGrammarAccess f = (KlangGrammarAccess) getGrammarAccess();
 		c.setLinewrap().after(f.getVariableDeclarationRule());
-		c.setLinewrap().after(f.getVariableAssignmentRule());
-	
-		//Avoid breaking whitespace grammar
+		c.setLinewrap().after(f.getStatementRule());
+		c.setLinewrap().after(f.getFunctionCallRule());
+
+		for (Pair<Keyword, Keyword> p : f.findKeywordPairs("(", ")")) {
+			c.setNoSpace().around(p.getFirst());
+			c.setNoSpace().around(p.getSecond());
+		}
+
+		// Avoid breaking whitespace grammar
 		c.setLinewrap().after(f.getBEGINRule());
 		c.setIndentationIncrement().after(f.getBEGINRule());
 		c.setLinewrap().after(f.getENDRule());

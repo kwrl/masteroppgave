@@ -11,13 +11,6 @@ import klang.SpriteActor;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Sprite Actor</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following operations are tested:
- * <ul>
- *   <li>{@link klang.SpriteActor#print(java.lang.String) <em>Print</em>}</li>
- *   <li>{@link klang.SpriteActor#setColor(java.lang.Double, java.lang.Double, java.lang.Double) <em>Set Color</em>}</li>
- * </ul>
- * </p>
  * @generated
  */
 public class SpriteActorTest extends AbstractActorTest {
@@ -72,32 +65,6 @@ public class SpriteActorTest extends AbstractActorTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
-	}
-
-	/**
-	 * Tests the '{@link klang.SpriteActor#print(java.lang.String) <em>Print</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.SpriteActor#print(java.lang.String)
-	 * @generated
-	 */
-	public void testPrint__String() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link klang.SpriteActor#setColor(java.lang.Double, java.lang.Double, java.lang.Double) <em>Set Color</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see klang.SpriteActor#setColor(java.lang.Double, java.lang.Double, java.lang.Double)
-	 * @generated
-	 */
-	public void testSetColor__Double_Double_Double() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
 	}
 
 } //SpriteActorTest
