@@ -2,6 +2,8 @@ package klang.util;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 
 import klangexpr.Operator;
 
@@ -31,10 +33,20 @@ public class OperatorUtil {
 		return method.getReturnType();
 	}
 
+	private static Map<Integer, Method> methodCache = new HashMap<>();
 	//TODO: add caching, because premature optimization is the root of all fun
 	private static Method getMethod(Class<? extends Operator> operator, Class<?> ... operands) {
+		int hashCode = operator.hashCode();
+		for(Class<?> operand : operands) {
+			hashCode = hashCode * 37 + operand.hashCode();
+		}
+		if(methodCache.containsKey(hashCode)) {
+			return methodCache.get(hashCode);
+		}
 		try {
-			return implementationClass.getMethod(methodName(operator), operands);
+			Method method = implementationClass.getMethod(methodName(operator), operands);
+			methodCache.put(hashCode, method);
+			return method;
 		} catch (NoSuchMethodException | SecurityException e) {
 			e.printStackTrace();
 		}

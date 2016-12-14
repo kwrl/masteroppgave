@@ -8,8 +8,7 @@ Bundle-Activator: klang.presentation.KlangEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: klang.framework.presentation,
- klang.presentation,
+Export-Package: klang.presentation,
  klangexpr.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,

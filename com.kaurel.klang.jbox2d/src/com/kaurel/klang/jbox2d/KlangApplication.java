@@ -105,7 +105,6 @@ public class KlangApplication extends JBox2dApp implements KlangApp {
 		});
 
 		getNodeBodies()
-				.stream()
 				.filter(nb -> nodeBodyEntityMapping.containsKey(nb))
 				.forEach(nb -> nb.getNode().setOnMouseClicked(new EventHandler<MouseEvent>() {
 					@Override
@@ -169,7 +168,6 @@ public class KlangApplication extends JBox2dApp implements KlangApp {
 
 	private Optional<INodeBody<Node>> getNodeBody(String name) {
 		return getNodeBodies()
-				.stream()
 				.filter(nb -> nb != null && nb.getNode() != null && nb.getNode().getId() != null)
 				.filter(nb -> nb.getNode().getId().equals(name))
 				.findAny();

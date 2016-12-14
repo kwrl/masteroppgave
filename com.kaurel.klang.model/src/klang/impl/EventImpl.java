@@ -41,13 +41,9 @@ public abstract class EventImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public <T extends Event> boolean matchingEvent(T other) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+	public abstract <T extends Event> boolean matchingEvent(T other);
 
 	/**
 	 * <!-- begin-user-doc -->

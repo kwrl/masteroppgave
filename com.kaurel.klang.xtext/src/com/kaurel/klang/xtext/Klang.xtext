@@ -159,8 +159,6 @@ PrimaryExpression returns Expression:
 	'(' Expression ')' |
 	{Not} 'not' expression=PrimaryExpression |
 	{UnaryMinus} '-' expression=PrimaryExpression |
-	{ToDouble}  'double' '(' expression=PrimaryExpression ')' |
-	{ToInt} 'int' '(' expression=PrimaryExpression ')' |
 	FunctionCall |
 	AtomicExpression;
 

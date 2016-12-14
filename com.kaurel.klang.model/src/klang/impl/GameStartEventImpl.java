@@ -2,6 +2,7 @@
  */
 package klang.impl;
 
+import klang.Event;
 import klang.GameStartEvent;
 import klang.KlangPackage;
 
@@ -32,6 +33,14 @@ public class GameStartEventImpl extends GlobalEventImpl implements GameStartEven
 	@Override
 	protected EClass eStaticClass() {
 		return KlangPackage.Literals.GAME_START_EVENT;
+	}
+
+	@Override
+	public <T extends Event> boolean matchingEvent(T other) {
+		if(other instanceof GameStartEvent) {
+			return true;
+		}
+		return false;
 	}
 
 } //GameStartEventImpl

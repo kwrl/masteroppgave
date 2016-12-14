@@ -4,10 +4,11 @@ package klang.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
-
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Stream;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -232,19 +233,32 @@ public abstract class AbstractActorImpl<T extends Entity> extends MinimalEObject
 	public boolean isInScope(String variableName) {
 		return isInLocalScope(variableName) || isInParentScope(variableName);
 	}
+	
 
+	private Map<String, VariableDeclaration> variableCache = new HashMap<>();
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public VariableDeclaration getVariableDeclaration(String variableName) {
-		List<VariableDeclaration> variables = getLocalVariables().stream()
+		if(variableCache.containsKey(variableName)) {
+			return variableCache.get(variableName);
+		}
+		VariableDeclaration declaration = getVariableDeclarationInternal(variableName);
+		if(declaration!=null) {
+			variableCache.put(variableName, declaration);
+		}
+		return declaration;
+	}
+	
+	private VariableDeclaration getVariableDeclarationInternal(String variableName) {
+		Optional<VariableDeclaration> declaration = getLocalVariables().stream()
 				.filter(v -> v.getName().equals(variableName))
-				.collect(Collectors.toList());
-		
-		if(!variables.isEmpty()) {
-			return variables.get(0);
+				.findFirst();
+	
+		if(declaration.isPresent()) {
+			return declaration.get();
 		}
 
 		if(getParent()!=null) {
