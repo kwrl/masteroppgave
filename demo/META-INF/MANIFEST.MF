@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: demo
+Bundle-SymbolicName: demo
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: com.kaurel.klang.model;bundle-version="0.1.0",
+ com.kaurel.klang.runtime;bundle-version="1.0.0"
