@@ -1,0 +1,817 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:klang="platform:/plugin/com.kaurel.klang.model/model/klang.ecore" xmlns:klangexpr="platform:/plugin/com.kaurel.klang.model/model/klang-expr.ecore" xmlns:mapping="platform:/plugin/no.hal.emfblocks.editor/model/mapping.ecore" xmlns:palette="platform:/plugin/no.hal.emfblocks.editor/model/palette.ecore">
+  <mapping:MappingModel>
+    <objectMappingsByType key="klang.SceneActor">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xff8080ff">
+        <slotsByReference key="program">
+          <value horizontal="true"/>
+        </slotsByReference>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="klang.SpriteActor">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xff8e80ff">
+        <slotsByReference key="program">
+          <value horizontal="true"/>
+        </slotsByReference>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="klang.EventHandler">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xff9c80ff">
+        <slotsByReference key="statements">
+          <value/>
+        </slotsByReference>
+        <slotsByReference key="referenceEvent">
+          <value horizontal="true"/>
+        </slotsByReference>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="klang.VariableDeclaration">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xffaa80ff">
+        <formsByAttribute key="name">
+          <value/>
+        </formsByAttribute>
+        <slotsByReference key="expression">
+          <value horizontal="true"/>
+        </slotsByReference>
+        <slotsByReference key="actor">
+          <value horizontal="true"/>
+        </slotsByReference>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="klang.AbstractActor">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xffb880ff">
+        <formsByAttribute key="name">
+          <value/>
+        </formsByAttribute>
+        <formsByAttribute key="subject">
+          <value/>
+        </formsByAttribute>
+        <slotsByReference key="eventHandlers">
+          <value/>
+        </slotsByReference>
+        <slotsByReference key="localVariables">
+          <value/>
+        </slotsByReference>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="klang.GameStartEvent">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xffc680ff"/>
+    </objectMappingsByType>
+    <objectMappingsByType key="klang.ClickEvent">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xffd580ff"/>
+    </objectMappingsByType>
+    <objectMappingsByType key="klang.KeyPressEvent">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xffe380ff">
+        <formsByAttribute key="key">
+          <value/>
+        </formsByAttribute>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="klang.CollisionEvent">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xfff180ff">
+        <slotsByReference key="target">
+          <value horizontal="true"/>
+        </slotsByReference>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="klang.Program">
+      <value xsi:type="mapping:WorkAreaMapping" defaultColor="0xffffffff">
+        <containmentsByType key="klang.SceneActor">
+          <value containmentReference="sceneActor"/>
+        </containmentsByType>
+        <containmentsByType key="klang.SpriteActor">
+          <value containmentReference="spriteActors"/>
+        </containmentsByType>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="klang.TreeNode">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xf1ff80ff"/>
+    </objectMappingsByType>
+    <objectMappingsByType key="klang.MessageReceivedEvent">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xe3ff80ff">
+        <formsByAttribute key="name">
+          <value/>
+        </formsByAttribute>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="klang.Event">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xd5ff80ff"/>
+    </objectMappingsByType>
+    <objectMappingsByType key="klang.GlobalEvent">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xc6ff80ff"/>
+    </objectMappingsByType>
+    <objectMappingsByType key="klang.ActorEvent">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xb8ff80ff"/>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.WhileLoop">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0x80ffaaff">
+        <slotsByReference key="predicate">
+          <value horizontal="true"/>
+        </slotsByReference>
+        <slotsByReference key="statements">
+          <value/>
+        </slotsByReference>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.If">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0x80ffb8ff">
+        <slotsByReference key="predicate">
+          <value horizontal="true"/>
+        </slotsByReference>
+        <slotsByReference key="ifBlock">
+          <value/>
+        </slotsByReference>
+        <slotsByReference key="elseBlock">
+          <value/>
+        </slotsByReference>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.ForeverLoop">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0x80ffc6ff">
+        <slotsByReference key="statements">
+          <value/>
+        </slotsByReference>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.Yield">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0x80ffd5ff"/>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.VariableAssignment">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0x80ffe3ff">
+        <formsByAttribute key="variableName">
+          <value/>
+        </formsByAttribute>
+        <slotsByReference key="expression">
+          <value horizontal="true"/>
+        </slotsByReference>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.Expression">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0x80fff1ff"/>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.Or">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0x80ffffff"/>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.And">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0x80f1ffff"/>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.Plus">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0x80e3ffff"/>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.Minus">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0x80d4ffff"/>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.Multiply">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0x80c6ffff"/>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.Divide">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0x80b8ffff"/>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.LessThan">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0x80aaffff"/>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.Equal">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0x809cffff"/>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.GreaterThan">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0x808effff"/>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.Not">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0x8080ffff"/>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.BooleanLiteral">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0x8e80ffff">
+        <formsByAttribute key="value">
+          <value/>
+        </formsByAttribute>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.DoubleLiteral">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0x9c80ffff">
+        <formsByAttribute key="value">
+          <value/>
+        </formsByAttribute>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.StringLiteral">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xaa80ffff">
+        <formsByAttribute key="value">
+          <value/>
+        </formsByAttribute>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.VariableReference">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xb880ffff">
+        <formsByAttribute key="variableName">
+          <value/>
+        </formsByAttribute>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.UnaryOperator">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xc680ffff">
+        <slotsByReference key="expression">
+          <value/>
+        </slotsByReference>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.BinaryOperator">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xd580ffff">
+        <slotsByReference key="left">
+          <value/>
+        </slotsByReference>
+        <slotsByReference key="right">
+          <value/>
+        </slotsByReference>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.FunctionCall">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xe380ffff">
+        <formsByAttribute key="name">
+          <value/>
+        </formsByAttribute>
+        <slotsByReference key="parameters">
+          <value horizontal="true"/>
+        </slotsByReference>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.IntegerLiteral">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xf180ffff">
+        <formsByAttribute key="value">
+          <value/>
+        </formsByAttribute>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.UnaryMinus">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xff80ffff"/>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.ToDouble">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xff80f1ff"/>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.ToInt">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xff80e3ff"/>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.Operator">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xff80d4ff"/>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.Statement">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xff80c6ff"/>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.Sleep">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xff80b8ff">
+        <slotsByReference key="duration">
+          <value horizontal="true"/>
+        </slotsByReference>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.SendMessage">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xff80aaff">
+        <formsByAttribute key="name">
+          <value/>
+        </formsByAttribute>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.LessThanOrEqual">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xff809cff"/>
+    </objectMappingsByType>
+    <objectMappingsByType key="klangexpr.GreaterThanOrEqual">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xff808eff"/>
+    </objectMappingsByType>
+    <objectMappingsByType key="ecore.EAttribute">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xff8080ff">
+        <formsByAttribute key="iD">
+          <value/>
+        </formsByAttribute>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="ecore.EAnnotation">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xff8e80ff">
+        <formsByAttribute key="source">
+          <value/>
+        </formsByAttribute>
+        <slotsByReference key="details">
+          <value/>
+        </slotsByReference>
+        <slotsByReference key="eModelElement">
+          <value horizontal="true"/>
+        </slotsByReference>
+        <slotsByReference key="contents">
+          <value/>
+        </slotsByReference>
+        <slotsByReference key="references">
+          <value/>
+        </slotsByReference>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="ecore.EClass">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xff9c80ff">
+        <formsByAttribute key="abstract">
+          <value/>
+        </formsByAttribute>
+        <formsByAttribute key="interface">
+          <value/>
+        </formsByAttribute>
+        <slotsByReference key="eSuperTypes">
+          <value/>
+        </slotsByReference>
+        <slotsByReference key="eOperations">
+          <value/>
+        </slotsByReference>
+        <slotsByReference key="eStructuralFeatures">
+          <value/>
+        </slotsByReference>
+        <slotsByReference key="eGenericSuperTypes">
+          <value/>
+        </slotsByReference>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="ecore.EClassifier">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xffab80ff">
+        <formsByAttribute key="instanceClassName">
+          <value/>
+        </formsByAttribute>
+        <formsByAttribute key="instanceTypeName">
+          <value/>
+        </formsByAttribute>
+        <slotsByReference key="eTypeParameters">
+          <value/>
+        </slotsByReference>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="ecore.EDataType">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xffb980ff">
+        <formsByAttribute key="serializable">
+          <value/>
+        </formsByAttribute>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="ecore.EEnum">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xffc880ff">
+        <slotsByReference key="eLiterals">
+          <value/>
+        </slotsByReference>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="ecore.EEnumLiteral">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xffd680ff">
+        <formsByAttribute key="value">
+          <value/>
+        </formsByAttribute>
+        <formsByAttribute key="instance">
+          <value/>
+        </formsByAttribute>
+        <formsByAttribute key="literal">
+          <value/>
+        </formsByAttribute>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="ecore.EFactory">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xffe580ff">
+        <slotsByReference key="ePackage">
+          <value horizontal="true"/>
+        </slotsByReference>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="ecore.EModelElement">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xfff380ff">
+        <slotsByReference key="eAnnotations">
+          <value/>
+        </slotsByReference>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="ecore.ENamedElement">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xfdff80ff">
+        <formsByAttribute key="name">
+          <value/>
+        </formsByAttribute>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="ecore.EObject">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xeeff80ff"/>
+    </objectMappingsByType>
+    <objectMappingsByType key="ecore.EOperation">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xe0ff80ff">
+        <slotsByReference key="eTypeParameters">
+          <value/>
+        </slotsByReference>
+        <slotsByReference key="eParameters">
+          <value/>
+        </slotsByReference>
+        <slotsByReference key="eExceptions">
+          <value/>
+        </slotsByReference>
+        <slotsByReference key="eGenericExceptions">
+          <value/>
+        </slotsByReference>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="ecore.EPackage">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xd1ff80ff">
+        <formsByAttribute key="nsURI">
+          <value/>
+        </formsByAttribute>
+        <formsByAttribute key="nsPrefix">
+          <value/>
+        </formsByAttribute>
+        <slotsByReference key="eFactoryInstance">
+          <value horizontal="true"/>
+        </slotsByReference>
+        <slotsByReference key="eClassifiers">
+          <value/>
+        </slotsByReference>
+        <slotsByReference key="eSubpackages">
+          <value/>
+        </slotsByReference>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="ecore.EParameter">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xc3ff80ff"/>
+    </objectMappingsByType>
+    <objectMappingsByType key="ecore.EReference">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xb4ff80ff">
+        <formsByAttribute key="containment">
+          <value/>
+        </formsByAttribute>
+        <formsByAttribute key="resolveProxies">
+          <value/>
+        </formsByAttribute>
+        <slotsByReference key="eOpposite">
+          <value horizontal="true"/>
+        </slotsByReference>
+        <slotsByReference key="eKeys">
+          <value/>
+        </slotsByReference>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="ecore.EStructuralFeature">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0xa6ff80ff">
+        <formsByAttribute key="changeable">
+          <value/>
+        </formsByAttribute>
+        <formsByAttribute key="volatile">
+          <value/>
+        </formsByAttribute>
+        <formsByAttribute key="transient">
+          <value/>
+        </formsByAttribute>
+        <formsByAttribute key="defaultValueLiteral">
+          <value/>
+        </formsByAttribute>
+        <formsByAttribute key="unsettable">
+          <value/>
+        </formsByAttribute>
+        <formsByAttribute key="derived">
+          <value/>
+        </formsByAttribute>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="ecore.ETypedElement">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0x98ff80ff">
+        <formsByAttribute key="ordered">
+          <value/>
+        </formsByAttribute>
+        <formsByAttribute key="unique">
+          <value/>
+        </formsByAttribute>
+        <formsByAttribute key="lowerBound">
+          <value/>
+        </formsByAttribute>
+        <formsByAttribute key="upperBound">
+          <value/>
+        </formsByAttribute>
+        <slotsByReference key="eType">
+          <value horizontal="true"/>
+        </slotsByReference>
+        <slotsByReference key="eGenericType">
+          <value horizontal="true"/>
+        </slotsByReference>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="ecore.EStringToStringMapEntry">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0x89ff80ff">
+        <formsByAttribute key="key">
+          <value/>
+        </formsByAttribute>
+        <formsByAttribute key="value">
+          <value/>
+        </formsByAttribute>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="ecore.EGenericType">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0x80ff84ff">
+        <slotsByReference key="eUpperBound">
+          <value horizontal="true"/>
+        </slotsByReference>
+        <slotsByReference key="eTypeArguments">
+          <value/>
+        </slotsByReference>
+        <slotsByReference key="eLowerBound">
+          <value horizontal="true"/>
+        </slotsByReference>
+        <slotsByReference key="eTypeParameter">
+          <value horizontal="true"/>
+        </slotsByReference>
+        <slotsByReference key="eClassifier">
+          <value horizontal="true"/>
+        </slotsByReference>
+      </value>
+    </objectMappingsByType>
+    <objectMappingsByType key="ecore.ETypeParameter">
+      <value xsi:type="mapping:BlockMapping" defaultColor="0x80ff93ff">
+        <slotsByReference key="eBounds">
+          <value/>
+        </slotsByReference>
+      </value>
+    </objectMappingsByType>
+  </mapping:MappingModel>
+  <palette:Palette>
+    <tabs>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klang:SceneActor"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klang:SpriteActor"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klang:EventHandler"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klang:VariableDeclaration"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klang:GameStartEvent"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klang:ClickEvent"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klang:KeyPressEvent"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klang:CollisionEvent"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klang:Program"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klang:MessageReceivedEvent"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:WhileLoop"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:If"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:ForeverLoop"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:Yield"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:VariableAssignment"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:Expression"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:Or"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:And"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:Plus"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:Minus"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:Multiply"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:Divide"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:LessThan"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:Equal"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:GreaterThan"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:Not"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:BooleanLiteral"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:DoubleLiteral"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:StringLiteral"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:VariableReference"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:UnaryOperator"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:BinaryOperator"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:FunctionCall"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:IntegerLiteral"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:UnaryMinus"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:ToDouble"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:ToInt"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:Statement"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:Sleep"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:SendMessage"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:LessThanOrEqual"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemContainer">
+        <object xsi:type="klangexpr:GreaterThanOrEqual"/>
+      </contents>
+    </tabs>
+    <tabs name="Ecore Literals">
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EAnnotation"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EClassifier"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EDataType"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EEnum"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EEnumLiteral"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EFactory"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EModelElement"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EOperation"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EParameter"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EStructuralFeature"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//ETypedElement"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EStringToStringMapEntry"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EGenericType"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//ETypeParameter"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EByteObject"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EChar"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//ECharacterObject"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EEList"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EEnumerator"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EFeatureMap"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EFloatObject"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EJavaClass"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EResource"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EResourceSet"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//ETreeIterator"/>
+      </contents>
+      <contents xsi:type="palette:PaletteItemReference">
+        <object href="http://www.eclipse.org/emf/2002/Ecore#//EInvocationTargetException"/>
+      </contents>
+    </tabs>
+  </palette:Palette>
+</xmi:XMI>

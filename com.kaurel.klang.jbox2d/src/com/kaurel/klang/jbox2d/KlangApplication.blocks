@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ASCII"?>
+<layout:ResourceLayout xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:layout="platform:/plugin/no.hal.emfblocks.editor/model/layout.ecore">
+  <representationsByObject>
+    <key href="KlangApplication.klang#/"/>
+    <value xsi:type="layout:WorkAreaRepresentation">
+      <object href="KlangApplication.klang#/"/>
+    </value>
+  </representationsByObject>
+  <representationsByObject>
+    <key href="KlangApplication.klang#//@sceneActor"/>
+    <value xsi:type="layout:BlockRepresentation">
+      <object href="KlangApplication.klang#//@sceneActor"/>
+    </value>
+  </representationsByObject>
+  <representationsByObject>
+    <key href="KlangApplication.klang#//@sceneActor/@eventHandlers.0"/>
+    <value xsi:type="layout:BlockRepresentation">
+      <object href="KlangApplication.klang#//@sceneActor/@eventHandlers.0"/>
+    </value>
+  </representationsByObject>
+  <representationsByObject>
+    <key href="KlangApplication.klang#//@sceneActor/@eventHandlers.0/@statements.0"/>
+    <value xsi:type="layout:BlockRepresentation">
+      <object href="KlangApplication.klang#//@sceneActor/@eventHandlers.0/@statements.0"/>
+    </value>
+  </representationsByObject>
+  <representationsByObject>
+    <key href="KlangApplication.klang#//@sceneActor/@eventHandlers.0/@statements.0/@predicate"/>
+    <value xsi:type="layout:BlockRepresentation">
+      <object href="KlangApplication.klang#//@sceneActor/@eventHandlers.0/@statements.0/@predicate"/>
+    </value>
+  </representationsByObject>
+  <representationsByObject>
+    <key href="KlangApplication.klang#//@sceneActor/@eventHandlers.0/@statements.0/@statements.0"/>
+    <value xsi:type="layout:BlockRepresentation">
+      <object href="KlangApplication.klang#//@sceneActor/@eventHandlers.0/@statements.0/@statements.0"/>
+    </value>
+  </representationsByObject>
+  <representationsByObject>
+    <key href="KlangApplication.klang#//@sceneActor/@eventHandlers.0/@statements.0/@statements.0/@parameters.0"/>
+    <value xsi:type="layout:BlockRepresentation">
+      <object href="KlangApplication.klang#//@sceneActor/@eventHandlers.0/@statements.0/@statements.0/@parameters.0"/>
+    </value>
+  </representationsByObject>
+  <representationsByObject>
+    <key href="KlangApplication.klang#//@sceneActor/@eventHandlers.0/@statements.0/@statements.1"/>
+    <value xsi:type="layout:BlockRepresentation">
+      <object href="KlangApplication.klang#//@sceneActor/@eventHandlers.0/@statements.0/@statements.1"/>
+    </value>
+  </representationsByObject>
+  <representationsByObject>
+    <key href="KlangApplication.klang#//@sceneActor/@eventHandlers.0/@statements.0/@statements.1/@parameters.0"/>
+    <value xsi:type="layout:BlockRepresentation">
+      <object href="KlangApplication.klang#//@sceneActor/@eventHandlers.0/@statements.0/@statements.1/@parameters.0"/>
+    </value>
+  </representationsByObject>
+  <representationsByObject>
+    <key href="KlangApplication.klang#//@sceneActor/@eventHandlers.0/@referenceEvent"/>
+    <value xsi:type="layout:BlockRepresentation">
+      <object href="KlangApplication.klang#//@sceneActor/@eventHandlers.0/@referenceEvent"/>
+    </value>
+  </representationsByObject>
+  <mappingModel href="klang.blocksConfig#/0"/>
+  <palette href="klang.blocksConfig#/1"/>
+</layout:ResourceLayout>
